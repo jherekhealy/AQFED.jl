@@ -1,4 +1,5 @@
-const polya_factor = 2 / pi
+const polya_factor = 2/pi #polya is 2 / pi
+#const polya_factor = sqrt(pi/8) #this is aludaat, 
 
 
 function normalizePrice(isCall::Bool, price::T, f::T, strike::T, df::T) where {T}
@@ -190,13 +191,9 @@ function objectiveLog(x::T, ex::T, v::T, logc::T) where {T}
     norm = 1 / (2 * sqrt(ex)) * eh2t2
     cEstimate = norm * (Np - Nm)
     logcEstimate = log(cEstimate)
-    eht = exp(-h * t)
     twopi = 2 * T(pi)
-    vega = eh2t2 * eht / sqrt(twopi)    #normpdf(h + t)  #this is exp(-0.5* (h^2+t^2 +2*h*t)) = eh2t2*exp(-h*t)
-    logvega = (2 * eht * sqrt(ex / (twopi))) / (Np - Nm)
-    #cEstimateOverVega = (Np-Nm)/(2*eht*sqrt(ex/(twopi))) - c / vega
+    logvega = (2 /sqrt(twopi)) / (Np - Nm)  #u'/u
     volgaOverVega = (h + t) * (h - t) / v
-
     logvolgaOverVega = volgaOverVega - logvega
     return logcEstimate - logc, (logcEstimate - logc) / logvega, logvolgaOverVega
 end
@@ -284,11 +281,8 @@ function objectiveHouseholderLog(x::T, ex::T, v::T, logc::T) where {T}
     norm = 1 / (2 * sqrt(ex)) * eh2t2
     cEstimate = norm * (Np - Nm)
     logcEstimate = log(cEstimate)
-    eht = exp(-h * t)
     twopi = 2 * T(pi)
-    vega = eh2t2 * eht / sqrt(twopi)    #normpdf(h + t)  #this is exp(-0.5* (h^2+t^2 +2*h*t)) = eh2t2*exp(-h*t)
-    logvega = (2 * eht * sqrt(ex / (twopi))) / (Np - Nm)  #u'/u
-    #cEstimateOverVega = (Np-Nm)/(2*eht*sqrt(ex/(twopi))) - c / vega
+    logvega = (2 /sqrt(twopi)) / (Np - Nm)  #u'/u
     volgaOverVega = (h + t) * (h - t) / v
     logvolgaOverVega = volgaOverVega - logvega  #u'' u - u'2 /u^2
     h2mt2 = h2 - t2
