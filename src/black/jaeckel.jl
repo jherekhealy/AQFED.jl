@@ -1207,7 +1207,7 @@ function normalised_implied_volatility_from_a_transformed_rational_guess(beta::F
     return normalised_implied_volatility_from_a_transformed_rational_guess_with_limited_iterations(beta, x, q, 2)
 end
 
-function impliedVolatility(isCall::Bool,
+function impliedVolatilityJaeckel(isCall::Bool,
     optionPremiumOnAUnitNotional::Float64,
     forward::Float64,
     strike::Float64,

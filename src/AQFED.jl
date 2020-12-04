@@ -12,6 +12,9 @@ include("black/black.jl")
 include("black/jaeckel.jl")
 include("black/sr.jl")
 include("black/lisor.jl")
+
+const impliedVolatility = impliedVolatilitySRHouseholder
+export impliedVolatility
 end
 
 end

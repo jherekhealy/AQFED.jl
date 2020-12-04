@@ -19,7 +19,7 @@ import AQFED.Black
   for (j,vol) in enumerate(vols)
     price = Black.blackScholesFormula(isCall, strike, forward, vol*vol * tte, 1.0, 1.0)
     prices[j] = price
-    mvols[j]= Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+    mvols[j]= Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
     mprices[j] = Black.blackScholesFormula(isCall, strike, forward, mvols[j]^2 * tte, 1.0, 1.0)
     # println(mprice-price, " ",price)
   end
@@ -63,7 +63,7 @@ end
   for (j,strike) in enumerate(strikes)
     price = Black.blackScholesFormula(isCall, strike, forward, vol*vol * tte, 1.0, 1.0)
     prices[j] = price
-    mvols[j]= Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+    mvols[j]= Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
     mprices[j] = Black.blackScholesFormula(isCall, strike, forward, mvols[j]^2 * tte, 1.0, 1.0)
     # println(mprice-price, " ",price)
   end
@@ -107,7 +107,7 @@ end
   if !isCall
     intr = -intr
   end
-  ivj = Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+  ivj = Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
   e1 = Black.blackScholesFormula(isCall, strike, forward, ivj * ivj * tte, 1.0, 1.0) - price
   e2 = Black.blackScholesFormula(isCall, forward, strike, ivj * ivj * tte, 1.0, 1.0) - price + intr
   println("Jaeckel ", ivj, " ", e1, " ", e2)
@@ -155,7 +155,7 @@ end
   if !isCall
     intr = -intr
   end
-  ivj = Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+  ivj = Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
   e1 = Black.blackScholesFormula(isCall, strike, forward, ivj * ivj * tte, 1.0, 1.0) - price
   e2 = Black.blackScholesFormula(isCall, forward, strike, ivj * ivj * tte, 1.0, 1.0) - price + intr
   println(ivj, " ", e1, " ", e2)
@@ -204,7 +204,7 @@ end
   if !isCall
     intr = -intr
   end
-  ivj = Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+  ivj = Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
   e1 = Black.blackScholesFormula(isCall, strike, forward, ivj * ivj * tte, 1.0, 1.0) - price
   e2 = Black.blackScholesFormula(isCall, forward, strike, ivj * ivj * tte, 1.0, 1.0) - price + intr
   println(ivj, " ", e1, " ", e2)
@@ -253,7 +253,7 @@ end
   if !isCall
     intr = -intr
   end
-  ivj = Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+  ivj = Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
   e1 = Black.blackScholesFormula(isCall, strike, forward, ivj * ivj * tte, 1.0, 1.0) - price
   e2 = Black.blackScholesFormula(isCall, forward, strike, ivj * ivj * tte, 1.0, 1.0) - price + intr
   println(ivj, " ", e1, " ", e2)
@@ -265,7 +265,7 @@ end
   if !isCall
     intr = -intr
   end
-  ivj = Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+  ivj = Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
   e1 = Black.blackScholesFormula(isCall, strike, forward, ivj * ivj * tte, 1.0, 1.0) - price
   e2 = Black.blackScholesFormula(isCall, forward, strike, ivj * ivj * tte, 1.0, 1.0) - price + intr
   println(ivj, " ", e1, " ", e2)
@@ -341,7 +341,7 @@ function jaeckelIVAlan(strike, price)
   df = 1.0
   tte = 1.0
   isCall = true
-  ivj = Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
+  ivj = Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
   return ivj
 end
 function householderIVAlan(strike::T, price::T)::T where {T}

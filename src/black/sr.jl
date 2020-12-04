@@ -16,7 +16,7 @@ function normalizePrice(isCall::Bool, price::T, f::T, strike::T, df::T) where {T
     else
         if ex > 1
             # use c(-x0, v)
-            c = ex * c + 1 - ex # in out duality
+            c = (f * (c - 1) + strike) / strike # in out duality, c = ex*c + 1 - ex  //not as good numericall
             ex = 1 / ex
         end
     end
@@ -25,14 +25,13 @@ end
 
 function impliedVolatilitySRGuess(isCall::Bool, price::Real, f::Real, strike::Real, tte::Real, df::Real)::Real
     c,ex = normalizePrice(isCall, price, f, strike, df)
-    scaledVol = impliedVolatilitySRGuessUndiscountedCall(c, 1.0, 1.0 / ex)
+    scaledVol = impliedVolatilitySRGuessUndiscountedCall(c, ex, log(ex))
     return scaledVol / sqrt(tte)
 end
 
-function impliedVolatilitySRGuessUndiscountedCall(price::Real, f::Real, strike::Real)::Real
-    ey = f / strike
-    y = log(ey)
-    alpha = price / strike
+# f = 1.0, strike = 1/ex, ex=ey = 1.0/strike=f/strike, y = log(f/strike) = log(ey), alpha = price*ex
+function impliedVolatilitySRGuessUndiscountedCall(price::Real, ey::Real, y::Real)::Real
+    alpha = price *ey
     r = 2 * alpha - ey + 1
     em2piy = exp(-polya_factor * y)
     A = (ey * em2piy - 1.0 / (ey * em2piy))^2
@@ -67,7 +66,7 @@ function impliedVolatilitySRGuessUndiscountedCall(price::Real, f::Real, strike::
     gamma = -log(beta) / polya_factor
     if y >= 0
         Asqrty = 0.5 * (1 + sqrt(1 - em2piy * em2piy))
-        c0 = strike * (ey * Asqrty - 0.5)
+        c0 = (Asqrty - 0.5/ey)
         gmy = gamma - y
         if gmy < 0
             #machine epsilon issues
@@ -79,7 +78,7 @@ function impliedVolatilitySRGuessUndiscountedCall(price::Real, f::Real, strike::
         return (sqrt(gamma + y) + sqrt(gmy))
     end
     Asqrty = 0.5 * (1 - sqrt(1 - 1.0 / (em2piy * em2piy)))
-    c0 = strike * (ey / 2 - Asqrty)
+    c0 = (0.5 - Asqrty/ey)
     gpy = gamma + y
     if gpy < 0
         #machine epsilon issues
@@ -114,11 +113,8 @@ function impliedVolatilitySRHalley(
     if (c >= min(1, 1 / ex)) || (c <= 0)
         throw(DomainError(c, string("Price out of range, must be < ", min(1, 1 / ex), " and > 0")))
     end
-    guess = T(impliedVolatilitySRGuessUndiscountedCall(c, 1.0, 1.0 / ex))
     x = log(ex)
-    #objectiveN = v::Real -> objective(x,ex,v)
-    #value = findZeroHalley(objective, guess, qmath.Epsilon, 0, ftol, maxEval, 3 * maxEval + 1)
-    value = guess
+    guess = T(impliedVolatilitySRGuessUndiscountedCall(c, ex, x))
     b = guess
     xtolrel = 32 * eps(T) * max(1, guess)
     xtol = 0 * eps(T)
@@ -132,7 +128,6 @@ function impliedVolatilitySRHalley(
     else
         fb, fbOverfpb, fp2bOverfpb = objective(x, ex, b, c)
     end
-    # fb,fpb,fp2b = objective(x)
 
     if abs(fb) < ftol_
         return b / sqrt(tte)
@@ -142,7 +137,6 @@ function impliedVolatilitySRHalley(
         lf = fbOverfpb * fp2bOverfpb
         x1 = x0 + srSolve(solver, fb, fbOverfpb, lf)
         a = x0
-        # fb,fpb,fp2b = objective(x)
         if useLog
             fb, fbOverfpb, fp2bOverfpb = objectiveLog(x, ex, x1, c)
         else
@@ -152,13 +146,8 @@ function impliedVolatilitySRHalley(
         b = x1
         xtol_ = xtol + max(1, abs(b)) * xtolrel
 
-        if abs(b - a) <= xtol_
-            value = b
-            #println("iteration x ",iteration)
-            break
-        elseif abs(fb) < ftol_
-            value = b
-            #println("iteration f",iteration)
+        if abs(b - a) <= xtol_ || abs(fb) <= ftol_
+            #value = b
             break
         end
     end
@@ -245,16 +234,15 @@ function impliedVolatilitySRHouseholder(
     strike::T,
     tte::T,
     df::T,
-    ftolrel::T,
-    maxEval::Int,
+    ftolrel::T = 0,
+    maxEval::Int = 64,
 )::T where {T}
     c, ex = normalizePrice(isCall, price, f, strike, df)
     if c >= 1 / ex || c <= 0
         throw(DomainError(c, string("Price out of range, must be < ", 1 / ex, " and > 0")))
     end
-    guess = T(impliedVolatilitySRGuessUndiscountedCall(c, 1.0, 1.0 / ex))
     x = log(ex)
-    value = guess
+    guess = T(impliedVolatilitySRGuessUndiscountedCall(c, ex,x))
     b = guess
     xtolrel = 32 * eps(T)
     xtol = T(0)
@@ -276,13 +264,7 @@ function impliedVolatilitySRHouseholder(
         fb, fbOverfpb, fp2bOverfpb, fp3bOverfpb = objectiveHouseholderLog(x, ex, x1, logc)
         b = x1
         xtol_ = xtol + max(1, abs(b)) * xtolrel
-        if abs(b - a) <= xtol_
-            value = b
-            #println("iteration ",iteration)
-            break
-        elseif abs(fb) < ftol
-            value = b
-            #println("iteration ",iteration)
+        if abs(b - a) <= xtol_ || abs(fb) < ftol
             break
         end
     end

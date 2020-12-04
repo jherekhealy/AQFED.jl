@@ -34,34 +34,14 @@ function impliedVolatilityLiRationalGuess(
     timeToExpiry::Float64,
     df::Float64,
 )::Float64
-    c = price / forward / df
-    ex = forward / strike
-    x0 = log(ex)
-    x = x0
-    if !isCall
-        if x0 <= 0
-            c = c + 1 - 1.0 / ex # put call parity
-        else
-            #else duality + put call parity
-            c = ex * c
-            x = -x0
-            ex = 1.0 / ex
-        end
-    else
-        if x0 > 0
-            # use c(-x0, v)
-            c = (forward * (c - 1) + strike) / strike # in out duality  //		c = ex*c + 1 - ex  //not as good numericall
-            x = -x0
-            ex = 1.0 / ex
-        end
-    end
+    c, ex = normalizePrice(isCall,price,forward,strike,df)
     if c >= 1 / ex || c >= 1
         throw(DomainError(c, string("price higher than intrinsic value ", 1 / ex)))
     elseif c <= 0
         throw(DomainError(c, "price is negative"))
     end
-    sqrtte = sqrt(timeToExpiry)
-    return impliedVolatilitySqrtTimeRationalGuess(x, c) / sqrtte, nil
+    x = log(ex)
+    return impliedVolatilitySqrtTimeRationalGuess(x, c) / sqrt(timeToExpiry), nil
 end
 
 abstract type SORSolver end
@@ -80,44 +60,24 @@ function impliedVolatilityLiSOR(
     tolerance::T,
     maxIterations::Int,
     solver::SORSolver)::T where {T}
-    c = price / forward / df
-    ex = forward / strike
-    x0 = log(ex)
-    x = x0
-    if !isCall
-        if x0 <= 0
-            c = c + 1 - 1 / ex # put call parity
-        else
-            #else duality + put call parity
-            c = ex * c
-            x = -x0
-            ex = 1 / ex
-        end
-    else
-        if x0 > 0
-            # use c(-x0, v)
-            c = (forward * c - forward + strike) / strike #in out duality  //		c = ex*c + 1 - ex  //not as good numericall
-            x = -x0
-            ex = 1 / ex
-        end
-    end
+    c, ex = normalizePrice(isCall,price,forward,strike,df)
     if c > 1 / ex
         return 0
     end
-    sqrtte = sqrt(timeToExpiry)
+    x = log(ex)
     v0 = T(0)
     if impliedVolGuess == 0
         # if abs(x) < 3 && c > 0.0005 && c < 0.9995 #domain of validity of the rational approximation
         #     v0 = impliedVolatilitySqrtTimeRationalGuess(x, c)
         #     #        println("guess R ",v0," ",v0/sqrtte)
         # else
-            v0 = T(impliedVolatilitySRGuessUndiscountedCall(Float64(c), 1.0, Float64(1 / ex)))
+            v0 = T(impliedVolatilitySRGuessUndiscountedCall(Float64(c), Float64(ex), Float64(x)))
             #    println("guess SR ",v0," ",v0/sqrtte,x,c)
         # end
     else
-        v0 = impliedVolGuess * sqrtte
+        v0 = impliedVolGuess * sqrt(timeToExpiry)
     end
-    return computeLiSOR(c, x, ex, v0, sqrtte, tolerance, maxIterations, solver)
+    return computeLiSOR(c, x, ex, v0, sqrt(timeToExpiry), tolerance, maxIterations, solver)
 end
 
 
@@ -177,6 +137,7 @@ function computeLiSOR(
         Np = erfcx(-(h + t)/sqrt2)
         Nm = erfcx(-(h - t)/sqrt2)
         norm = exinvsqrt * exp(-(h^2 + t^2)/2)/2
+        # slower alternative:
         # Np = normcdf(h+t)
         # Nm = normcdf(h-t)/ex
         # norm = 1.0
