@@ -3,7 +3,7 @@ Julia package for the book "Applied Quantitative Finance for Equity Derivatives"
 
 ## Installation
 
-A simple way to get started is to clone the repository, start julia from the AQFED folder, and do
+A simple way to get started is to clone the repository, start julia from the AQFED folder, type `]` to enter the package environment and do
 ```julia
 (v1.5) pkg> activate .
 ```
