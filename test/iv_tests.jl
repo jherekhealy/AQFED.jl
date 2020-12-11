@@ -41,7 +41,7 @@ import AQFED.Black
 
   for (j,vol) in enumerate(vols)
     price = prices[j]
-    mvols[j] = Black.impliedVolatilitySRHouseholder(isCall, price, forward, strike, tte, 1.0, 0e-14, 64)
+    mvols[j] = Black.impliedVolatilitySRHalley(isCall, price, forward, strike, tte, 1.0, 0e-14, 64,Black.Householder())
     mprices[j] = Black.blackScholesFormula(isCall, strike, forward, mvols[j]^2 * tte, 1.0, 1.0)
     # mprice = Black.blackScholesFormula(isCall, strike, forward, mvols[j]^2 * tte, 1.0, 1.0)
     # println(mprice-price, " ",price)
@@ -87,7 +87,7 @@ end
 
   for (j,strike) in enumerate(strikes)
     price = prices[j]
-    mvols[j] = Black.impliedVolatilitySRHouseholder(isCall, price, forward, strike, tte, 1.0, 0e-14, 64)
+    mvols[j] = Black.impliedVolatilitySRHalley(isCall, price, forward, strike, tte, 1.0, 0e-14, 64,Black.Householder())
     mprices[j] = Black.blackScholesFormula(isCall, strike, forward, mvols[j]^2 * tte, 1.0, 1.0)
     # mprice = Black.blackScholesFormula(isCall, strike, forward, mvols[j]^2 * tte, 1.0, 1.0)
     # println(mprice-price, " ",price)
@@ -301,64 +301,4 @@ end
   @test isapprox(e1, 0, atol = 1e-12)
   @test isapprox(e2, 0, atol = 1e-12)
 
-end
-
-
-function alanPrice(strike::T, vol::T) where {T}
-  forward = T(100)
-  #strike = 150.0 * 2
-  #vol = 0.16 / 2
-  df = T(1)
-  tte = T(1)
-  isCall = true
-  return Black.blackScholesFormula(isCall, strike, forward, vol * vol * tte, T(1), df)
-end
-
-
-function liIVAlan(strike::T, price::T, solver::Black.SORSolver) where {T}
-  forward = T(100)
-  #strike = 150.0 * 2
-  df = T(1)
-  tte = T(1)
-  isCall = true
-  ivj = Black.impliedVolatilityLiSOR(isCall, price, forward, strike, tte, T(1), T(0), T(0), 64, solver)
-  return ivj
-end
-
-function logliIVAlan(strike::T, price::T, solver::Black.SORSolver) where {T}
-  forward = T(100)
-  #strike = 150.0 * 2
-  df = T(1)
-  tte = T(1)
-  isCall = true
-  ivj = Black.impliedVolatilityLiSOR(isCall, price, forward, strike, tte, T(1), T(0), T(0), 64, solver)
-  return ivj
-end
-
-function jaeckelIVAlan(strike, price)
-  forward = 100.0
-  #strike = 150.0 * 2
-  df = 1.0
-  tte = 1.0
-  isCall = true
-  ivj = Black.impliedVolatilityJaeckel(isCall, price, forward, strike, tte, 1.0)
-  return ivj
-end
-function householderIVAlan(strike::T, price::T)::T where {T}
-  forward = T(100)
-  #strike = 150.0 * 2
-  df = T(1)
-  tte = T(1)
-  isCall = true
-  ivj = Black.impliedVolatilitySRHouseholder(isCall, price, forward, strike, tte, T(1), T(0), 128)
-  return ivj
-end
-function halleyIVAlan(strike::T, price::T, solver::Black.SRSolver) where {T}
-  forward = T(100)
-  #strike = 150.0 * 2
-  df = T(1)
-  tte = T(1)
-  isCall = true
-  ivj = Black.impliedVolatilitySRHalley(isCall, price, forward, strike, tte, T(1), eps(T), 128, solver)
-  return ivj
 end
