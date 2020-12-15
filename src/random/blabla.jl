@@ -1,7 +1,11 @@
 import Random: rand, seed!
 import RandomNumbers: AbstractRNG
 
-#Original Blabla is 10 rounds, akin to Chacha 20 rounds. 4 may be enough for security.
+# Blabla Random Number Generator, based on BLAKE2b hash function.
+# Adapted from https://github.com/veorq/blabla/blob/master/BlaBla.swift by J.P Aumasson (2017)
+#
+# Original Blabla is 10 rounds, akin to Chacha 20 rounds. 4 may be enough for security, although 10 rounds is not much slower than 4.
+
 mutable struct Blabla{ROUND} <: AbstractRNG{UInt64}
     v::Vector{UInt64}
     x::Vector{UInt64}

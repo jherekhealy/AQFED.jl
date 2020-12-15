@@ -219,7 +219,5 @@ import AQFED.Random
               println()
           end
           @test isapprox(referenceNumbers[i], z; atol=1e-7)
-
-          #assertEquals("i="+i,referenceNumbers[i],z,1e-7);
       end
 end

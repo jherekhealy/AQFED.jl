@@ -1,6 +1,9 @@
 import Random: rand, seed!
 import RandomNumbers: AbstractRNG #could redefine if best abstract type AbstractRNG{T<:Number} <: Random.AbstractRNG end
 
+# This is a 64-bit version of the Mersenne-Twister Random Number Generator from
+# T. Nishimura, "Tables of 64-bit Mersenne Twisters" ACM Transactions on Modeling and Computer Simulation 10. (2000) 348--357.
+# this is the ID1 version, the same as the reference C code provided by T. Nishimura.
 
 const NN = 312
 const MM = 156
