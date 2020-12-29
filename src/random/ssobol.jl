@@ -1,5 +1,6 @@
 #import Random: rand!
-export ScrambledSobolSeq, next!
+export ScrambledSobolSeq, next!, scramble, skip, skipTo
+export Owen, FaureTezuka, OwenFaureTezuka, NoScrambling
 
 include("ssoboldata.jl") #loads `sobol_a` and `sobol_minit` from Joe & Kuo.
 include("ssobolrng.jl") #original RNG and RNG adapter for scrambling
@@ -30,8 +31,7 @@ unirand(s::Union{Owen,FaureTezuka,OwenFaureTezuka}) = unirand(s.rng)
 
 # N iis the dimension of sequence being generated, S is scrambling type
 mutable struct ScrambledSobolSeq{N,S} <: AbstractSobolSeq{N}
-    v::Array{UInt32,2} #array of size (sdim, 32)
-    #points::Array{UInt32,1}
+    v::Array{UInt32,2} #array of size (sdim, log2(n))
     x::Array{UInt32,1}
     shift::Array{UInt32,1}
     l::UInt32
@@ -43,13 +43,10 @@ ndims(s::AbstractSobolSeq{N}) where {N} = N::Int
 
 unirand(s::ScrambledSobolSeq) = unirand(s.scrambling)
 
-#@inline norm(s::ScrambledSobolSeq{N}) where {N} = 1 / 2^s.l #non scrambled norm
-@inline normalize(s::ScrambledSobolSeq{N,FaureTezuka}, x::UInt32) where {N} =
+@inline normalize(s::ScrambledSobolSeq{N,S}, x::UInt32) where {N, S <: Union{NoScrambling, FaureTezuka}} =
     ldexp(Float64(x), -s.l % Int32)
-@inline normalize(s::ScrambledSobolSeq{N,Owen}, x::UInt32) where {N} =
+@inline normalize(s::ScrambledSobolSeq{N,S}, x::UInt32) where {N, S <: Union{Owen,OwenFaureTezuka}} =
     ldexp(Float64(x), -s.scrambling.maxd % Int32)
-@inline normalize(s::ScrambledSobolSeq{N,NoScrambling}, x::UInt32) where {N} =
-    ldexp(Float64(x), -s.l % Int32)
 
 function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
     d = dimension
@@ -113,12 +110,32 @@ function scramble(s::ScrambledSobolSeq{D,NoScrambling}) where {D}
 end
 
 function scramble(s::ScrambledSobolSeq{D,Owen}) where {D}
-    maxd = s.scrambling.maxd
+    s.counter = 0
+    fill!(s.shift, 0)
+    scrambleOwen(s, s.scrambling.maxd)
+end
+
+function scramble(s::ScrambledSobolSeq{D,FaureTezuka}) where {D}
+    s.counter = 0
+    fill!(s.shift, 0)
+    # scrambledV = zeros(UInt32, (D, s.l))
+    # scrambledV .= v
+    scrambleTezuka(s, s.l)
+end
+
+function scramble(s::ScrambledSobolSeq{D,OwenFaureTezuka}) where {D}
+    s.counter = 0
+    fill!(s.shift, 0)
+    scrambleOwen(s, s.scrambling.maxd)
+    # scrambledV = zeros(UInt32, (D, s.l))
+    # scrambledV .= v
+    scrambleTezuka(s, s.scrambling.maxd)
+end
+
+function scrambleOwen(s::ScrambledSobolSeq{D}, maxd::Integer) where {D}
     if maxd < s.l
         throw(DomainError(string("maxd must be >= l where l = log2(n) = ", s.l)))
     end
-    s.counter = 0
-    fill!(s.shift, 0)
     scrambledV = zeros(UInt32, (D, s.l))
     #norm = 1/2^MAXD
     lsm = genscrml(s)
@@ -141,14 +158,9 @@ function scramble(s::ScrambledSobolSeq{D,Owen}) where {D}
     s.v .= scrambledV
     s.x .= s.shift
 end
-
-function scramble(s::ScrambledSobolSeq{D,FaureTezuka}) where {D}
-    s.counter = 0
-    fill!(s.shift, 0)
-    scrambledV = zeros(UInt32, (D, s.l))
+function scrambleTezuka(s::ScrambledSobolSeq{D}, maxx::Integer) where {D}
     ushift = Vector{UInt32}(undef, s.l)
-    usm = genscrmu(s,ushift)
-    maxx = s.l #maxd for OWEN_FT
+    usm = genscrmu(s, ushift)
     tv = zeros(UInt32, (s.l, maxx, D))
 
     for i = 1:D
@@ -156,7 +168,6 @@ function scramble(s::ScrambledSobolSeq{D,FaureTezuka}) where {D}
             p = maxx
             for k = 1:maxx
                 tv[j, p, i] = lbitbits(s.v[i, j], k - 1, 1)
-                #   tv[j,p,i] = lbitbits(scrambledV[i,j], k - 1, 1)
                 p -= 1
             end
         end
@@ -181,18 +192,16 @@ function scramble(s::ScrambledSobolSeq{D,FaureTezuka}) where {D}
                 end
                 l <<= 1
             end
-            scrambledV[i, pp] = temp2
+            s.v[i, pp] = temp2
             if (pp == 1)
                 s.shift[i] ⊻= temp4
-                #    shift[i] = temp4
             end
         end
     end
-    s.v .= scrambledV
     s.x .= s.shift
 end
 
-function genscrml(s::ScrambledSobolSeq{D,Owen}) where {D}
+function genscrml(s::ScrambledSobolSeq{D,S}) where {D, S <: Union{Owen,OwenFaureTezuka}}
     maxd = s.scrambling.maxd
     lsm = zeros(UInt32, (D, maxd))
     for p = 1:D
@@ -221,7 +230,7 @@ function genscrml(s::ScrambledSobolSeq{D,Owen}) where {D}
     return lsm
 end
 
-function genscrmu(s::ScrambledSobolSeq{D,FaureTezuka}, ushift::Vector{UInt32}) where {D}
+function genscrmu(s::ScrambledSobolSeq{D,S}, ushift::Vector{UInt32}) where {D, S <: Union{FaureTezuka,OwenFaureTezuka}}
     usm = zeros(UInt32, (s.l, s.l))
     for i = 1:s.l
         stemp = unirand(s)
@@ -251,6 +260,10 @@ end
 
 function next(s::ScrambledSobolSeq, ::Type{UInt32})
     d = ndims(s)
+    if s.counter == 0
+        s.counter += one(s.counter)
+        return s.x
+    end
     c = ffz(s.counter)
     c > s.l &&
         throw(DomainError(string("counter larger than sequence length: ", s.counter)))
@@ -268,28 +281,37 @@ end
 @inline function next!(s::ScrambledSobolSeq, points::AbstractVector{<:AbstractFloat})
     d = ndims(s)
     length(points) != d && throw(BoundsError())
-    c = ffz(s.counter)
-    c > s.l &&
-        throw(DomainError(string("counter larger than sequence length: ", s.counter)))
-
-    s.counter += one(s.counter)
-    sx = s.x
-    sv = s.v
-    @inbounds for j = 1:d
-        sx[j] ⊻= sv[j, c]
-        if sx[j] == 0
-            points[j] = normalize(s, one(UInt32)) / 2
-        else
+    if s.counter == 0
+        s.counter += one(s.counter)
+        sx = s.x
+        @inbounds for j = 1:d
             points[j] = normalize(s, sx[j])
+        end
+    else
+        c = ffz(s.counter)
+        c > s.l &&
+            throw(DomainError(string("counter larger than sequence length: ", s.counter)))
+
+        s.counter += one(s.counter)
+
+        sx = s.x
+        sv = s.v
+        @inbounds for j = 1:d
+            sx[j] ⊻= sv[j, c]
+            if sx[j] == 0
+                points[j] = normalize(s, one(UInt32)) / 2
+            else
+                points[j] = normalize(s, sx[j])
+            end
         end
     end
     return points
 end
 
 @inline function ffz(x::Integer)
-    if x == 0
-        return 1
-    end
+    # if x == 0 #not used as we check before if x is 0
+    #     return 1
+    # end
     return trailing_zeros(x) + 1
 end
 
@@ -299,12 +321,14 @@ function next!(s::ScrambledSobolSeq, dim::Int, points::AbstractVector{<:Abstract
     sx = s.x
     sv = s.v
     for i = 1:length(points)
-        c = ffz(s.counter)
-        s.counter += one(s.counter)
-        sx[j] ⊻= sv[j, c]
+        if s.counter != 0
+            c = ffz(s.counter)
+            sx[j] ⊻= sv[j, c]
+        end
         points[i] =
             (sx[j] == 0) ? normalize(s, s.scrambling, one(UInt32)) / 2 :
             normalize(s, s.scrambling, sx[j])
+        s.counter += one(s.counter)
     end
     return points
 end
@@ -361,5 +385,3 @@ end
     s.counter = n
     s
 end
-
-#TODO various scrambles

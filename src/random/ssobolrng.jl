@@ -1,5 +1,5 @@
 import RandomNumbers: AbstractRNG
-
+export ScramblingRngAdapter, OriginalScramblingRng
 abstract type ScramblingRng end
 
 #An adapter to use a standard 64-bit or 32-bit integer RNG for scrambling
