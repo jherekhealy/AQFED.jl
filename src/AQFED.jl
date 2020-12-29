@@ -28,6 +28,22 @@ include("random/well1024a.jl")
 include("random/mt64.jl")
 include("random/blabla.jl")
 include("random/philox.jl")
+include("random/chacha.jl")
+include("random/chacha_simd.jl")
+include("random/mrg63k3a.jl")
+include("random/ssobol.jl")
 end
 
+module TermStructure
+include("ts/heston.jl")
+include("ts/lv.jl")
+include("ts/surface.jl")
+end
+
+module MonteCarlo
+include("mc/payoffs.jl")
+include("mc/black.jl")
+include("mc/heston.jl")
+include("mc/lv.jl")
+end
 end

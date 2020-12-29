@@ -57,8 +57,8 @@ function seed!(r::Mixmax{N,SPECIALMUL,SPECIAL}, seed::UInt64) where {N,SPECIALMU
     r.sumtot = modMersenne(modMersenne(sumtot) + (ovflow << 3))
 end
 
-@inline rand(r::Mixmax, ::Type{Float64}) = Float64(rand(r, UInt64)) / M61
-
+#@inline rand(r::Mixmax, ::Type{Float64}) = Float64(rand(r, UInt64)) / M61
+@inline rand(r::Mixmax, ::Type{Float64}) = (Float64(rand(r, UInt64) >> 8) + 0.5) /  9007199254740992.0
 #actually 61 lowest bits
 @inline rand(r::Mixmax, ::Type{UInt64}) = mixmax_get(r)
 
@@ -150,10 +150,10 @@ end
 
 @inline function skip(gen::Mixmax{N,SPECIALMUL,SPECIAL}, s::UInt64) where {N,SPECIALMUL,SPECIAL}
     n = s + gen.counter - 2
-    k = trunc(UInt64, n / (N - 1))
+    k = n ÷ (N - 1)
     rk = n - k * (N - 1)
     nReal = k * N + rk + 1 #we skip one every 17.nReal is the effective n without skipping
-    nMat = trunc(UInt64, nReal / N)
+    nMat = nReal ÷ N
     #binary decomp of nMat
     _skipInternal(gen, nMat)
     gen.sumtot = 0

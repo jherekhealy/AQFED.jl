@@ -4,7 +4,7 @@ import RandomNumbers: AbstractRNG
 # Blabla Random Number Generator, based on BLAKE2b hash function.
 # Adapted from https://github.com/veorq/blabla/blob/master/BlaBla.swift by J.P Aumasson (2017)
 #
-# Original Blabla is 10 rounds, akin to Chacha 20 rounds. 4 may be enough for security, although 10 rounds is not much slower than 4.
+# Original Blabla is 10 rounds, akin to Chacha 20 rounds. BLAKE2b uses 12 rounds and is still secure with 6 rounds.
 
 mutable struct Blabla{ROUND} <: AbstractRNG{UInt64}
     v::Vector{UInt64}
@@ -12,9 +12,9 @@ mutable struct Blabla{ROUND} <: AbstractRNG{UInt64}
     subCounter::Int8
 end
 
-function Blabla4(
+function Blabla8(
     key::Vector{UInt64} = [0xB105F00DBAAAAAAD, 0xdeadbeefcafebabe, 0xFEE1DEADFEE1DEAD, 0xdeadbeefcafebabe])
-    Blabla(key, 1, 4)
+    Blabla(key, 1, 8)
 end
 
 function Blabla10(
@@ -68,18 +68,19 @@ end
     r.v[14] += 1
 end
 
-@inline ROTR64(word::UInt64, count::Int) = ((word >> count) ⊻ (word << (64 - count)))
+#@inline ROTR64(word::UInt64, count::Int) = bitrotate(word, -count)
+# ((word >> count) ⊻ (word << (64 - count)))
 
 @inline function G(v::Vector{UInt64}, a::Int, b::Int, c::Int, d::Int)
     @inbounds begin
     v[a] += v[b]
-    v[d] = ROTR64(v[d] ⊻ v[a], 32)
+    v[d] = bitrotate(v[d] ⊻ v[a], -32)
     v[c] += v[d]
-    v[b] = ROTR64(v[b] ⊻ v[c], 24)
+    v[b] = bitrotate(v[b] ⊻ v[c], -24)
     v[a] += v[b]
-    v[d] = ROTR64(v[d] ⊻ v[a], 16)
+    v[d] = bitrotate(v[d] ⊻ v[a], -16)
     v[c] += v[d]
-    v[b] = ROTR64(v[b] ⊻ v[c], 63)
+    v[b] = bitrotate(v[b] ⊻ v[c], -63)
 end
 end
 
@@ -99,3 +100,5 @@ end
     r.subCounter += 1
     value
 end
+
+#@inline rand(r::Blabla{R}, ::Type{Float64}) = (Float64(Random.rand(r, UInt64) >> 32 )+0.5) /4294967296.0
