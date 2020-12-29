@@ -1,6 +1,8 @@
 import AQFED
 using AQFED.Random
 
+#TODO test vectorized sobol
+
 @testset "ffz" begin
     n = AQFED.Random.ffz(1)
     println(n)

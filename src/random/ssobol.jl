@@ -69,13 +69,12 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
         l = min(l, 31)
     end
     #println("l=",l)
-    #points = Vector{Float64}(undef, d)
     x = Vector{UInt32}(undef, d)
     fill!(x, 0)
     counter = 0
     v = ones(UInt32, (d, l))
     for i = 1:l
-        v[1, i] = one(UInt32) << (l - i)
+        @inbounds v[1, i] = one(UInt32) << (l - i)
     end
     for j = 2:d
         a = sobol_a[j-1]
@@ -92,7 +91,7 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
                 v[j, i] = sobol_minit[i, j-1] << (l - i)
             end
             for i = s+1:l
-                v[j, i] = v[j, i-s] ⊻ (v[j, i-s] >> s)
+                @inbounds v[j, i] = v[j, i-s] ⊻ (v[j, i-s] >> s)
                 for k = 1:s-1 #or from 0?
                     @inbounds v[j, i] ⊻= (((a >> (s - 1 - k)) & one(UInt32)) * v[j, i-k])
                 end
@@ -262,7 +261,7 @@ end
     return (x & ~y) % UInt32
 end
 
-function next(s::ScrambledSobolSeq, ::Type{UInt32})
+@inline function next(s::ScrambledSobolSeq, ::Type{UInt32})
     d = ndims(s)
     if s.counter == 0
         s.counter += one(s.counter)
@@ -274,7 +273,7 @@ function next(s::ScrambledSobolSeq, ::Type{UInt32})
     s.counter += one(s.counter)
     sx = s.x
     sv = s.v
-    for j = 1:d
+    @inbounds for j = 1:d
         sx[j] ⊻= sv[j, c]
     end
 
@@ -282,41 +281,17 @@ function next(s::ScrambledSobolSeq, ::Type{UInt32})
 end
 
 #next vector at counter containing all dimensions
-@inline function next!(s::ScrambledSobolSeq, points::AbstractVector{<:AbstractFloat})
-    d = ndims(s)
-    length(points) != d && throw(BoundsError())
-    if s.counter == 0
-        s.counter += one(s.counter)
-        sx = s.x
-        @inbounds for j = 1:d
-            points[j] = normalize(s, sx[j])
-        end
-    else
-        c = ffz(s.counter)
-        c > s.l &&
-            throw(DomainError(string("counter larger than sequence length: ", s.counter)))
-
-        s.counter += one(s.counter)
-
-        sx = s.x
-        sv = s.v
-        @inbounds for j = 1:d
-            sx[j] ⊻= sv[j, c]
-            if sx[j] == 0
-                points[j] = normalize(s, one(UInt32)) / 2
-            else
-                points[j] = normalize(s, sx[j])
-            end
-        end
+@inline function next!(s::ScrambledSobolSeq, points::AbstractVector{<:AbstractFloat})    
+    next(s,UInt32)
+    sx = s.x
+    @inbounds for j = 1:ndims(s)
+        if sx[j] == 0 #may happen somewhere because of scrambling
+                    points[j] = normalize(s, one(UInt32)) / 2
+                else
+                    points[j] = normalize(s, sx[j])
+                end
     end
     return points
-end
-
-@inline function ffz(x::Integer)
-    # if x == 0 #not used as we check before if x is 0
-    #     return 1
-    # end
-    return trailing_zeros(x) + 1
 end
 
 #next vector for a given dimension (vertical) from counter to counter + length(points)
@@ -388,4 +363,11 @@ end
     end
     s.counter = n
     s
+end
+
+@inline function ffz(x::Integer)
+    # if x == 0 #not used as we check before if x is 0
+    #     return 1
+    # end
+    return trailing_zeros(x) + 1
 end
