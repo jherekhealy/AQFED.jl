@@ -189,7 +189,7 @@ end
     end
 end
 
-@testset "OwenFaureTezukaFirst" begin
+@testset "owenfauretezukafirst" begin
     nDim = 2
     rng = OriginalScramblingRng()
     points = zeros(nDim)

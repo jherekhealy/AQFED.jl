@@ -43,10 +43,14 @@ ndims(s::AbstractSobolSeq{N}) where {N} = N::Int
 
 unirand(s::ScrambledSobolSeq) = unirand(s.scrambling)
 
-@inline normalize(s::ScrambledSobolSeq{N,S}, x::UInt32) where {N, S <: Union{NoScrambling, FaureTezuka}} =
-    ldexp(Float64(x), -s.l % Int32)
-@inline normalize(s::ScrambledSobolSeq{N,S}, x::UInt32) where {N, S <: Union{Owen,OwenFaureTezuka}} =
-    ldexp(Float64(x), -s.scrambling.maxd % Int32)
+@inline normalize(
+    s::ScrambledSobolSeq{N,S},
+    x::UInt32,
+) where {N,S<:Union{NoScrambling,FaureTezuka}} = ldexp(Float64(x), -s.l % Int32)
+@inline normalize(
+    s::ScrambledSobolSeq{N,S},
+    x::UInt32,
+) where {N,S<:Union{Owen,OwenFaureTezuka}} = ldexp(Float64(x), -s.scrambling.maxd % Int32)
 
 function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
     d = dimension
@@ -118,8 +122,6 @@ end
 function scramble(s::ScrambledSobolSeq{D,FaureTezuka}) where {D}
     s.counter = 0
     fill!(s.shift, 0)
-    # scrambledV = zeros(UInt32, (D, s.l))
-    # scrambledV .= v
     scrambleTezuka(s, s.l)
 end
 
@@ -127,8 +129,6 @@ function scramble(s::ScrambledSobolSeq{D,OwenFaureTezuka}) where {D}
     s.counter = 0
     fill!(s.shift, 0)
     scrambleOwen(s, s.scrambling.maxd)
-    # scrambledV = zeros(UInt32, (D, s.l))
-    # scrambledV .= v
     scrambleTezuka(s, s.scrambling.maxd)
 end
 
@@ -139,13 +139,13 @@ function scrambleOwen(s::ScrambledSobolSeq{D}, maxd::Integer) where {D}
     scrambledV = zeros(UInt32, (D, s.l))
     #norm = 1/2^MAXD
     lsm = genscrml(s)
-    for i = 1:D
-        for j = 1:s.l
+    @inbounds for i = 1:D
+        @inbounds for j = 1:s.l
             l = 1
             temp2 = 0
-            for p = maxd:-1:1
+            @inbounds for p = maxd:-1:1
                 temp1 = 0
-                for k = 1:s.l
+                @inbounds for k = 1:s.l
                     temp1 += lbitbits(lsm[i, p], k - 1, 1) * lbitbits(s.v[i, j], k - 1, 1)
                 end
                 temp1 %= 2
@@ -158,27 +158,28 @@ function scrambleOwen(s::ScrambledSobolSeq{D}, maxd::Integer) where {D}
     s.v .= scrambledV
     s.x .= s.shift
 end
+
 function scrambleTezuka(s::ScrambledSobolSeq{D}, maxx::Integer) where {D}
     ushift = Vector{UInt32}(undef, s.l)
     usm = genscrmu(s, ushift)
     tv = zeros(UInt32, (s.l, maxx, D))
 
-    for i = 1:D
-        for j = 1:s.l
+    @inbounds for i = 1:D
+        @inbounds for j = 1:s.l
             p = maxx
-            for k = 1:maxx
+            @inbounds for k = 1:maxx
                 tv[j, p, i] = lbitbits(s.v[i, j], k - 1, 1)
                 p -= 1
             end
         end
-        for pp = 1:s.l
+        @inbounds for pp = 1:s.l
             temp2 = 0
             temp4 = 0
             l = 1
-            for j = maxx:-1:1
+            @inbounds for j = maxx:-1:1
                 temp1 = 0
                 temp3 = 0
-                for p = 1:s.l
+                @inbounds for p = 1:s.l
                     temp1 += tv[p, j, i] * usm[pp, p]
                     if (pp == 1)
                         temp3 += tv[p, j, i] * ushift[p]
@@ -201,19 +202,19 @@ function scrambleTezuka(s::ScrambledSobolSeq{D}, maxx::Integer) where {D}
     s.x .= s.shift
 end
 
-function genscrml(s::ScrambledSobolSeq{D,S}) where {D, S <: Union{Owen,OwenFaureTezuka}}
+function genscrml(s::ScrambledSobolSeq{D,S}) where {D,S<:Union{Owen,OwenFaureTezuka}}
     maxd = s.scrambling.maxd
     lsm = zeros(UInt32, (D, maxd))
-    for p = 1:D
+    @inbounds for p = 1:D
         s.shift[p] = 0
         l = 1
-        for i = maxd:-1:1
+        @inbounds for i = maxd:-1:1
             lsm[p, i] = 0
             stemp = unirand(s)
             s.shift[p] += stemp << (l - 1)
             l += 1
             ll = 1
-            for j = s.l:-1:1
+            @inbounds for j = s.l:-1:1
                 local temp
                 if (j == i)
                     temp = 1
@@ -230,12 +231,15 @@ function genscrml(s::ScrambledSobolSeq{D,S}) where {D, S <: Union{Owen,OwenFaure
     return lsm
 end
 
-function genscrmu(s::ScrambledSobolSeq{D,S}, ushift::Vector{UInt32}) where {D, S <: Union{FaureTezuka,OwenFaureTezuka}}
+function genscrmu(
+    s::ScrambledSobolSeq{D,S},
+    ushift::Vector{UInt32},
+) where {D,S<:Union{FaureTezuka,OwenFaureTezuka}}
     usm = zeros(UInt32, (s.l, s.l))
-    for i = 1:s.l
+    @inbounds for i = 1:s.l
         stemp = unirand(s)
         ushift[i] = stemp
-        for j = 1:s.l
+        @inbounds for j = 1:s.l
             local temp
             if (j == i)
                 temp = 1
