@@ -1,13 +1,10 @@
 #import Random: rand!
 export ScrambledSobolSeq, next!
 
-include("ssoboldata.jl") #loads `sobol_a` and `sobol_minit`
+include("ssoboldata.jl") #loads `sobol_a` and `sobol_minit` from Joe & Kuo.
+include("ssobolrng.jl") #original RNG and RNG adapter for scrambling
 
 abstract type AbstractSobolSeq{N} end
-
-
-abstract type ScramblingRng end
-
 
 abstract type Scrambling end
 
@@ -18,9 +15,11 @@ struct Owen <: Scrambling
     maxd::Int
     rng::ScramblingRng
 end
+
 struct FaureTezuka <: Scrambling
     rng::ScramblingRng
 end
+
 struct OwenFaureTezuka <: Scrambling
     maxd::Int
     rng::ScramblingRng
@@ -28,128 +27,6 @@ end
 
 unirand(s::Union{Owen,FaureTezuka,OwenFaureTezuka}) = unirand(s.rng)
 
-#An adapter to use a standard 64-bit or 32-bit integer RNG for scrambling
-mutable struct ScramblingRngAdapter{T} <: ScramblingRng
-    rng::AbstractRNG{T} #may be Chacha, Philox or Blabla. Not suited for MT/Well as individual bits distribution not as good
-    counter::UInt8
-    x::T
-    ScramblingRngAdapter(rng::AbstractRNG{T}) where {T} = new{T}(rng, UInt8(64), zero(T))
-end
-
-@inline function unirand(s::ScramblingRngAdapter{UInt64})
-    if s.counter >= 64
-        s.x = rand(s.rng, UInt64)
-        s.counter = 0
-    end
-    b = (s.x >> s.counter) & one(UInt64)
-    s.counter += 1
-    return b
-end
-
-@inline function unirand(s::ScramblingRngAdapter{UInt32})
-    if s.counter >= 32
-        s.x = rand(s.rng, UInt32)
-        s.counter = 0
-    end
-    b = (s.x >> s.counter) & one(UInt32)
-    s.counter += 1
-    return b
-end
-
-mutable struct OriginalScramblingRng <: ScramblingRng
-    seedi::Int32
-    seedj::Int32
-    seedcarry::Float64
-    seedseeds::Vector{Float64}
-end
-
-function OriginalScramblingRng()
-    seedi = 24
-    seedj = 10
-    seedcarry = 0
-    seedseeds = [
-        0.8804418,
-        0.2694365,
-        0.0367681,
-        0.4068699,
-        0.4554052,
-        0.2880635,
-        0.1463408,
-        0.2390333,
-        0.6407298,
-        0.1755283,
-        0.713294,
-        0.4913043,
-        0.2979918,
-        0.1396858,
-        0.3589528,
-        0.5254809,
-        0.9857749,
-        0.4612127,
-        0.2196441,
-        0.7848351,
-        0.40961,
-        0.9807353,
-        0.2689915,
-        0.5140357,
-    ]
-    rng = OriginalScramblingRng(seedi, seedj, seedcarry, seedseeds)
-    resetSeed(rng)
-end
-
-function seed(s::OriginalScramblingRng, seeds::Vector{Float64})
-    s.seedi = 24
-    s.seedj = 10
-    s.seedcarry = 0
-    s.seedseeds .= seeds
-    s
-end
-
-function resetSeed(rng::OriginalScramblingRng)
-    seeds = [
-        0.8804418,
-        0.2694365,
-        0.0367681,
-        0.4068699,
-        0.4554052,
-        0.2880635,
-        0.1463408,
-        0.2390333,
-        0.6407298,
-        0.1755283,
-        0.713294,
-        0.4913043,
-        0.2979918,
-        0.1396858,
-        0.3589528,
-        0.5254809,
-        0.9857749,
-        0.4612127,
-        0.2196441,
-        0.7848351,
-        0.40961,
-        0.9807353,
-        0.2689915,
-        0.5140357,
-    ]
-    seed(rng, seeds)
-end
-
-@inline unirand(s::OriginalScramblingRng) = trunc(UInt32, rand(s) * 1000.0) % 2
-
-@inline function rand(s::OriginalScramblingRng)
-    retVal = s.seedseeds[s.seedi] - s.seedseeds[s.seedj] - s.seedcarry
-    if retVal < 0
-        retVal += 1
-        s.seedcarry = 5.9604644775390625e-8 #1/2^24
-    else
-        s.seedcarry = 0
-    end
-    s.seedseeds[s.seedi] = retVal
-    s.seedi = 24 - (25 - s.seedi) % 24
-    s.seedj = 24 - (25 - s.seedj) % 24
-    return retVal
-end
 
 # N iis the dimension of sequence being generated, S is scrambling type
 mutable struct ScrambledSobolSeq{N,S} <: AbstractSobolSeq{N}
@@ -265,6 +142,56 @@ function scramble(s::ScrambledSobolSeq{D,Owen}) where {D}
     s.x .= s.shift
 end
 
+function scramble(s::ScrambledSobolSeq{D,FaureTezuka}) where {D}
+    s.counter = 0
+    fill!(s.shift, 0)
+    scrambledV = zeros(UInt32, (D, s.l))
+    ushift = Vector{UInt32}(undef, s.l)
+    usm = genscrmu(s,ushift)
+    maxx = s.l #maxd for OWEN_FT
+    tv = zeros(UInt32, (s.l, maxx, D))
+
+    for i = 1:D
+        for j = 1:s.l
+            p = maxx
+            for k = 1:maxx
+                tv[j, p, i] = lbitbits(s.v[i, j], k - 1, 1)
+                #   tv[j,p,i] = lbitbits(scrambledV[i,j], k - 1, 1)
+                p -= 1
+            end
+        end
+        for pp = 1:s.l
+            temp2 = 0
+            temp4 = 0
+            l = 1
+            for j = maxx:-1:1
+                temp1 = 0
+                temp3 = 0
+                for p = 1:s.l
+                    temp1 += tv[p, j, i] * usm[pp, p]
+                    if (pp == 1)
+                        temp3 += tv[p, j, i] * ushift[p]
+                    end
+                end
+                temp1 %= 2
+                temp2 += temp1 * l
+                if (pp == 1)
+                    temp3 %= 2
+                    temp4 += temp3 * l
+                end
+                l <<= 1
+            end
+            scrambledV[i, pp] = temp2
+            if (pp == 1)
+                s.shift[i] ⊻= temp4
+                #    shift[i] = temp4
+            end
+        end
+    end
+    s.v .= scrambledV
+    s.x .= s.shift
+end
+
 function genscrml(s::ScrambledSobolSeq{D,Owen}) where {D}
     maxd = s.scrambling.maxd
     lsm = zeros(UInt32, (D, maxd))
@@ -294,6 +221,26 @@ function genscrml(s::ScrambledSobolSeq{D,Owen}) where {D}
     return lsm
 end
 
+function genscrmu(s::ScrambledSobolSeq{D,FaureTezuka}, ushift::Vector{UInt32}) where {D}
+    usm = zeros(UInt32, (s.l, s.l))
+    for i = 1:s.l
+        stemp = unirand(s)
+        ushift[i] = stemp
+        for j = 1:s.l
+            local temp
+            if (j == i)
+                temp = 1
+            elseif (j > i)
+                temp = unirand(s)
+            else
+                temp = 0
+            end
+            usm[j, i] = temp
+        end
+    end
+    return usm
+end
+
 @inline function lbitbits(a::UInt32, b::Int, len::Int)
     x = UInt64(a)
     y = UInt64(0xffffffffffffffff) #-1
@@ -305,7 +252,8 @@ end
 function next(s::ScrambledSobolSeq, ::Type{UInt32})
     d = ndims(s)
     c = ffz(s.counter)
-    c > s.l && throw(DomainError(string("counter larger than sequence length: ",s.counter)))
+    c > s.l &&
+        throw(DomainError(string("counter larger than sequence length: ", s.counter)))
     s.counter += one(s.counter)
     sx = s.x
     sv = s.v
@@ -321,7 +269,8 @@ end
     d = ndims(s)
     length(points) != d && throw(BoundsError())
     c = ffz(s.counter)
-    c > s.l && throw(DomainError(string("counter larger than sequence length: ",s.counter)))
+    c > s.l &&
+        throw(DomainError(string("counter larger than sequence length: ", s.counter)))
 
     s.counter += one(s.counter)
     sx = s.x
@@ -341,7 +290,7 @@ end
     if x == 0
         return 1
     end
-    return trailing_zeros(x)+1
+    return trailing_zeros(x) + 1
 end
 
 #next vector for a given dimension (vertical) from counter to counter + length(points)
