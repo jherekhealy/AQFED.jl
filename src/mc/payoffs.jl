@@ -14,3 +14,7 @@ function evaluatePayoff(payoff::VanillaOption, x, df)
         return df * max(payoff.strike - x, 0)
     end
 end
+
+function specificTimes(payoff::VanillaOption)
+    return [payoff.maturity]
+end

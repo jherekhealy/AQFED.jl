@@ -1,7 +1,188 @@
 import AQFED
-using AQFED.Random
+using AQFED.Random, Statistics
+import AQFED.MonteCarlo: BrownianBridgeConstruction, transform!, transformByDim!
 
-#TODO test vectorized sobol
+
+
+function simulateGBM(rng::AbstractSeq, nSim, nSteps; withBB = false, size=ceil(Int, log2(nSteps))*4)
+    tte = 1.0
+    genTimes = collect(LinRange(0.0, tte, ceil(Int, nSteps * tte) + 1))
+    logpayoffValues = Vector{Float64}(undef, nSim)
+    logpayoffValues .= 0.0
+    t0 = genTimes[1]
+    local payoffValues
+    u = Vector{Float64}(undef, nSim)
+    z = u
+
+    cache =  AQFED.MonteCarlo.BBCache{Int, Vector{Float64}}(size) #Dict{Int, Vector{Float64}}()
+    local bb
+    if withBB
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+    end
+
+    @inbounds for j = 2:length(genTimes)
+        t1 = genTimes[j]
+        h = t1 - t0
+        dim = j - 1
+        if withBB
+            transformByDim!(bb, rng, 1, dim, z, cache)
+        else
+            skipTo(rng, dim, 1) #don't use first point for Sobol
+            nextn!(rng, dim, u)
+            @. z = u * sqrt(h)
+        end
+
+        @. logpayoffValues += -h / 2 + z
+        if (t1 == tte)
+            payoffValues = @. exp(logpayoffValues)
+            #payoffValues = @. max(payoffValues, 1/payoffValues)
+        end
+        t0 = t1
+    end
+    payoffMean = mean(payoffValues)
+    return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
+end
+
+function simulateGBMIter(rng::AbstractSeq, nSim, nSteps; withBB = false)
+    tte = 1.0
+    genTimes = collect(LinRange(0.0, tte, ceil(Int, nSteps * tte) + 1))
+    #println(length(genTimes) - 1)
+    payoffValues = Vector{Float64}(undef, nSim)
+    u = Vector{Float64}(undef, length(genTimes) - 1)
+    z = u
+    w = Vector{Float64}(undef, length(u))
+    sqrth = Vector{Float64}(undef, length(u))
+    @. sqrth = sqrt(genTimes[2:end] - genTimes[1:end-1])
+    local bb
+    if withBB
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+    end
+
+    #mean = 0.0
+    @inbounds for i = 1:nSim
+        nextn!(rng, z)
+        if withBB
+            transform!(bb, z, w)
+        else
+            @. w = z * sqrth
+        end
+        #println(u," ",z)
+        logpayoffValues = 0.0
+        t0 = genTimes[1]
+        @inbounds for j = 2:length(genTimes)
+            t1 = genTimes[j]
+            h = t1 - t0
+            logpayoffValues += -h / 2 + w[j-1]
+            t0 = t1
+        end
+        payoffValues[i] = exp(logpayoffValues)
+        #mean += payoffValue
+    end
+    #@. payoffValues = exp(payoffValues)
+    #payoffMean = mean/nSim
+    payoffMean = mean(payoffValues)
+    return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues)), 0
+end
+
+@testset "GBM" begin
+    n = 32 * 2 * 1024 - 1
+    nSteps = 1000
+    rng = ScrambledSobolSeq(nSteps, n, NoScrambling())
+    value, mcerr,mcerr2 = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr, " ",mcerr2)
+    @test isapprox(value, 0.968395, atol = 1e-6)
+
+    rng = ScrambledSobolSeq(nSteps, n, NoScrambling())
+    value, mcerr = simulateGBM(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr)
+    @test isapprox(value, 0.968395, atol = 1e-6)
+
+    rng = ScrambledSobolSeq(nSteps, n, NoScrambling())
+    value, mcerr,mcerr2 = simulateGBMIter(rng, n, nSteps, withBB = true)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr," ",mcerr2)
+    @test isapprox(0.999562, value, atol= 1e-6)
+
+    maxd = 30 #min(32,ceil(Int,log2(n)+10))
+    rng = ScrambledSobolSeq(nSteps, n, Owen(maxd, OriginalScramblingRng()))
+    value, mcerr,mcerr2 = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr," ",mcerr2)
+    #    @test isapprox(value, 1.000178, atol=1e-6)
+
+    rng = ScrambledSobolSeq(
+        nSteps,
+        n,
+        Owen(
+            maxd,
+            ScramblingRngAdapter(AQFED.Random.Blabla8(
+                [
+                    0xB105F00DBAAAAAAD,
+                    0xdeadbeefcafebabe,
+                    0xFEE1DEADFEE1DEAD,
+                    0xdeadbeefcafebabe,
+                ],
+                UInt64,
+            )),
+        ),
+    )
+    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr," ", mcerr2)
+    #    @test isapprox(value, 1.000178, atol=1e-6)
+    rng = ScrambledSobolSeq(nSteps, 1 << (maxd - 1), FaureTezuka(OriginalScramblingRng()))
+    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr," ", mcerr2)
+    #    @test isapprox(value, 1.000178, atol=1e-6)
+
+    rng = ScrambledSobolSeq(
+        nSteps,
+        1 << (maxd - 1),
+        FaureTezuka(ScramblingRngAdapter(AQFED.Random.Blabla8(
+            [
+                0xB105F00DBAAAAAAD,
+                0xdeadbeefcafebabe,
+                0xFEE1DEADFEE1DEAD,
+                0xdeadbeefcafebabe,
+            ],
+            UInt64,
+        ))),
+    )
+    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr," ", mcerr2)
+
+    rng = DigitalSobolSeq(
+        nSteps,
+        n,
+        AQFED.Random.Blabla8(
+            [
+                0xB105F00DBAAAAAAD,
+                0xdeadbeefcafebabe,
+                0xFEE1DEADFEE1DEAD,
+                0xdeadbeefcafebabe,
+            ],
+            UInt32,
+        ),
+    )
+    #AQFED.Random.Chacha8SIMD(UInt32))
+    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng), " ", value, " ", mcerr," ", mcerr2)
+
+    rng = ModuloSobolSeq(
+        nSteps,
+        n,
+        AQFED.Random.Blabla8(
+            [
+                0xB105F00DBAAAAAAD,
+                0xdeadbeefcafebabe,
+                0xFEE1DEADFEE1DEAD,
+                0xdeadbeefcafebabe,
+            ],
+            Float64,
+        ),
+    )
+    # AQFED.Random.Chacha8SIMD(Float64))
+    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng), " ", value, " ", mcerr," ", mcerr2)
+
+end
 
 @testset "ffz" begin
     n = AQFED.Random.ffz(1)
@@ -12,6 +193,7 @@ end
 @testset "joekuofirst" begin
     nDim = 3
     n = 10
+    #found via external Fortran implementation
     ref = [
         [0.0, 0.0, 0.0],
         [0.5, 0.5, 0.5],
@@ -36,9 +218,38 @@ end
     skipTo(sobol, 0)
     for i = 1:n
         next!(sobol, points)
-        println(points)
+        #println(points)
         for j = 1:nDim
             @test isapprox(ref[i][j], points[j], atol = 1e-15)
+        end
+    end
+end
+
+
+@testset "joekuofirstbydim" begin
+    nDim = 3
+    n = 10
+    #found via external Fortran implementation
+    ref = [
+        [0.0, 0.0, 0.0],
+        [0.5, 0.5, 0.5],
+        [0.75, 0.25, 0.25],
+        [0.25, 0.75, 0.75],
+        [0.375, 0.375, 0.625],
+        [0.875, 0.875, 0.125],
+        [0.625, 0.125, 0.875],
+        [0.125, 0.625, 0.375],
+        [0.1875, 0.3125, 0.9375],
+        [0.6875, 0.8125, 0.4375],
+    ]
+    sobol = ScrambledSobolSeq(nDim, n, NoScrambling())
+    points = zeros(n)
+    for j = 1:nDim
+        skipTo(sobol, j, 0)
+        next!(sobol, j, points)
+        #println(points)
+        for i = 1:n
+            @test isapprox(ref[i][j], points[i], atol = 1e-15)
         end
     end
 end
@@ -46,6 +257,7 @@ end
 @testset "owenfirst" begin
     nDim = 2
     n = 1 << 29
+    #found via external Fortran implementation
     ref = [
         [0.102750, 0.861468],
         [0.705979, 0.113136],
@@ -103,7 +315,7 @@ end
     points = zeros(nDim)
     for i = 1:length(ref)
         next!(sobol, points)
-        println(points)
+        #println(points)
         for j = 1:nDim
             @test isapprox(ref[i][j], points[j], atol = 1e-5)
         end
@@ -111,7 +323,7 @@ end
     skipTo(sobol, 0)
     for i = 1:length(ref)
         next!(sobol, points)
-        println(points)
+        #println(points)
         for j = 1:nDim
             @test isapprox(ref[i][j], points[j], atol = 1e-5)
         end
@@ -122,8 +334,38 @@ end
     nDim = 2
     rng = OriginalScramblingRng()
     points = zeros(nDim)
+    #found via external Fortran implementation
     eiRefs =
         [0.99712205451487534, 0.99931521505777710, 0.99886019692965533, 0.99998703162784253]
+    n = 1024 * 4 + 1
+    sobol = ScrambledSobolSeq(nDim, n, Owen(20, rng))
+    sum = 0.0
+    twoK = 512
+    indexTwoK = 1
+    for i = 1:n
+        f = 1.0
+        next!(sobol, points)
+        for j = 1:nDim
+            f = f * abs(4 * points[j] - 2)
+        end
+        if (i % twoK == 0)
+            println("i=", i)
+            println("ei=", (sum / i))
+            @test isapprox(eiRefs[indexTwoK], sum / i, atol = 1e-15)
+            indexTwoK += 1
+            twoK *= 2
+        end
+        sum += f
+    end
+end
+
+@testset "owenblabla" begin
+    nDim = 2
+    rng = ScramblingRngAdapter(AQFED.Random.Blabla8())
+    points = zeros(nDim)
+    #non reg values
+    eiRefs =
+        [0.9986280015086777, 0.9989421327867944, 0.9997705799667642, 0.9995579290533669]
     n = 1024 * 4 + 1
     sobol = ScrambledSobolSeq(nDim, n, Owen(20, rng))
     sum = 0.0
@@ -153,6 +395,7 @@ end
     points = zeros(nDim)
     n = 1024 * 4
     sobol = ScrambledSobolSeq(nDim, n, FaureTezuka(rng))
+    #found via external Fortran implementation
     firstNumbers = [
         [0.1610107421875, 0.0618896484375],
         [0.6610107421875, 0.5618896484375],
@@ -197,6 +440,7 @@ end
     points = zeros(nDim)
     n = 1 << 29
     sobol = ScrambledSobolSeq(nDim, n, OwenFaureTezuka(30, rng))
+    #found via external Fortran implementation
     ref = [
         [0.171337, 0.890245],
         [0.520179, 0.139048],

@@ -6,28 +6,32 @@ import RandomNumbers: AbstractRNG
 #
 # Original Blabla is 10 rounds, akin to Chacha 20 rounds. BLAKE2b uses 12 rounds and is still secure with 6 rounds.
 
-mutable struct Blabla{ROUND} <: AbstractRNG{UInt64}
+mutable struct Blabla{ROUND,T} <: AbstractRNG{T}
     v::Vector{UInt64}
     x::Vector{UInt64}
     subCounter::Int8
 end
 
 function Blabla8(
-    key::Vector{UInt64} = [0xB105F00DBAAAAAAD, 0xdeadbeefcafebabe, 0xFEE1DEADFEE1DEAD, 0xdeadbeefcafebabe])
-    Blabla(key, 1, 8)
+    key::Vector{UInt64} = [0xB105F00DBAAAAAAD, 0xdeadbeefcafebabe, 0xFEE1DEADFEE1DEAD, 0xdeadbeefcafebabe],
+    T = UInt64
+    )
+    Blabla(key, 1, 8, T)
 end
 
 function Blabla10(
-    key::Vector{UInt64} = [0xB105F00DBAAAAAAD, 0xdeadbeefcafebabe, 0xFEE1DEADFEE1DEAD, 0xdeadbeefcafebabe])
-    Blabla(key, 1, 10)
+    key::Vector{UInt64} = [0xB105F00DBAAAAAAD, 0xdeadbeefcafebabe, 0xFEE1DEADFEE1DEAD, 0xdeadbeefcafebabe],
+    T = UInt64)
+    Blabla(key, 1, 10, T)
 end
 
 function Blabla(
     key::Vector{UInt64} = [0xB105F00DBAAAAAAD, 0xdeadbeefcafebabe, 0xFEE1DEADFEE1DEAD, 0xdeadbeefcafebabe],
     skipLen = 0,
     ROUND::Integer = 10,
+    T = UInt64
 )
-    r = Blabla{ROUND}(Vector{UInt64}(undef, 16), Vector{UInt64}(undef, 16),Int8(1))
+    r = Blabla{ROUND, T}(Vector{UInt64}(undef, 16), Vector{UInt64}(undef, 16),Int8(1))
     v = r.v
     v[1] = 0x6170786593810fab
     v[2] = 0x3320646ec7398aee
@@ -84,14 +88,14 @@ end
 end
 end
 
-@inline function skip(r::Blabla{ROUND}, skipLength::UInt64) where {ROUND}
+@inline function skip(r::Blabla, skipLength::UInt64)
     actualSkip = (skipLength + r.subCounter-1) / 16
     this.v[14] += -1 + actualSkip
     raw(r)
     r.subCounter = (((r.subCounter + (skipLength)) % 16) +1) % Int8
 end
 
-@inline function rand(r::Blabla{R}, ::Type{UInt64}) where {R}
+@inline function rand(r::Blabla, ::Type{UInt64})
     if (r.subCounter == 17)
         r.subCounter = 1
         raw(r)
@@ -100,5 +104,7 @@ end
     r.subCounter += 1
     value
 end
+
+@inline rand(r::Blabla, ::Type{UInt32}) = (rand(r, UInt64) >> 32) % UInt32
 
 #@inline rand(r::Blabla{R}, ::Type{Float64}) = (Float64(Random.rand(r, UInt64) >> 32 )+0.5) /4294967296.0

@@ -1,20 +1,41 @@
 import AQFED.Math: norminv
 using Statistics
-import  AQFED.TermStructure: HestonModel
+import AQFED.TermStructure: HestonModel
+import AQFED.Random: next!, nextn!, skipTo
+
+function ndims(model::HestonModel, specificTimes::Vector{Float64}, timestepSize::Float64)
+    genTimes = pathgenTimes(model, specificTimes, timestepSize)
+    return (length(genTimes) - 1) * 2 #0.0 does not count
+end
 
 #DVSS2X discretization scheme for Heston
 function simulateDVSS2X(
     rng,
     model::HestonModel{T},
     payoff::VanillaOption,
+    start::Int,
     nSim::Int,
-    nSteps::Int,
+    timestepSize::Float64;
+    withBB = false,
+    cacheSize = 0,
 ) where {T}
-    tte = payoff.maturity
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
     df = exp(-model.r * tte)
-    genTimes = LinRange(0.0, tte, ceil(Int, nSteps * tte) + 1)
+    genTimes = pathgenTimes(model, specTimes, timestepSize)
     logpathValues = Vector{T}(undef, nSim)
+    local bb, cache
+    if withBB
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+        if cacheSize == 0
+            nSteps = length(genTimes)-1
+            cacheSize = ceil(Int, log2(nSteps)) * 4
+        end
+        cache = BBCache{Int,Vector{Float64}}(cacheSize)
+    end
+
     u1 = Vector{Float64}(undef, nSim)
+    xsi = u1
     u2 = Vector{Float64}(undef, nSim)
     v = Vector{T}(undef, nSim)
     t0 = genTimes[1]
@@ -22,17 +43,27 @@ function simulateDVSS2X(
     logpathValues .= lnspot
     v .= model.v0
     ρBar = sqrt(1 - model.ρ^2)
+    ndimsh = length(genTimes) - 1
     local payoffValues
-    for t1 in genTimes[2:end]
+    for (dim, t1) in enumerate(genTimes[2:end])
         h = t1 - t0
         ekdth = exp(-model.κ * h / 2)
         c0 = model.θ * h / 4
         c1 = (ekdth - 1) / (model.κ * 2)
         c2 = model.θ * (1 - ekdth)
-        rand!(rng, u1)
-        xsi = u1
-        @. xsi = norminv(u1)
-        rand!(rng, u2)
+        d = dim
+        if withBB
+            transformByDim!(bb, rng, start, d, xsi, cache)
+            xsi ./= sqrt(h)
+        else
+            skipTo(rng, d, start)
+            nextn!(rng, d, xsi)
+        end
+        skipTo(rng, d + ndimsh, start)
+        next!(rng, d + ndimsh, u2)
+        # rand!(rng, u1)
+        # @. xsi = norminv(u1)
+        # rand!(rng, u2)
         #xsi, u2 = norminv.( rand(rng, Float64, nSim) ), rand(rng, Float64, nSim)
         #xsi, u2 = randn(rng, Float64,nSim), rand(rng, Float64, nSim)
         vTmp = @. (v * ekdth + c2) / model.σ^2

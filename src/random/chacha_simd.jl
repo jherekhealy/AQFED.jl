@@ -5,13 +5,13 @@ import RandomNumbers: AbstractRNG
 # DOUBLEROUNDS=10 means Chacha20
 # Generates 64-bit random numbers
 
-mutable struct ChachaSIMD{DOUBLEROUNDS} <: AbstractRNG{UInt64}
+mutable struct ChachaSIMD{DOUBLEROUNDS,T} <: AbstractRNG{T}
     v::Vector{NTuple{4,UInt32}}
     x::Vector{NTuple{4,UInt32}}
     subCounter::Int8
 end
 
-function Chacha8SIMD()
+function Chacha8SIMD(T = UInt64) #::Union{Type{UInt32},Type{UInt64}
     ChachaSIMD(
         [
             0x243F6A88,
@@ -24,8 +24,11 @@ function Chacha8SIMD()
             0xEC4E6C89,
         ],
         UInt64(0),
-        4)
-    end
+        4,
+        T,
+    )
+end
+
 function ChachaSIMD(
     key::Vector{UInt32} = [
         0x243F6A88,
@@ -39,8 +42,9 @@ function ChachaSIMD(
     ],
     skipLen::UInt64 = UInt64(0),
     DOUBLEROUNDS::Integer = 10,
+    T = UInt64,
 )
-    r = ChachaSIMD{DOUBLEROUNDS}(
+    r = ChachaSIMD{DOUBLEROUNDS,T}(
         Vector{NTuple{4,UInt32}}(undef, 4),
         Vector{NTuple{4,UInt32}}(undef, 4),
         Int8(1),
@@ -116,7 +120,20 @@ end
     r.subCounter = (((r.subCounter + (skipLength)) % 8) + 1) % Int8
 end
 
-@inline @inbounds function rand(r::ChachaSIMD{R}, ::Type{UInt32}) where {R}
+@inline @inbounds function rand(r::ChachaSIMD{R,UInt32}, ::Type{UInt32}) where {R}
+    if (r.subCounter == 17)
+        r.subCounter = 1
+        raw(r)
+    end
+    xIndex = ((r.subCounter - 1) >> 2) + 1
+    tIndex = (r.subCounter - 1 - ((xIndex - 1) << 2)) + 1
+    xvalue = r.x[xIndex]
+    value = xvalue[tIndex]
+    r.subCounter += 1
+    value
+end
+
+@inline @inbounds function rand(r::ChachaSIMD{R,UInt64}, ::Type{UInt32}) where {R}
     if (r.subCounter == 17)
         r.subCounter = 1
         raw(r)

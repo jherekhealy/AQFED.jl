@@ -1,7 +1,15 @@
-import AQFED.Random
 import AQFED
+import AQFED.Random
+import AQFED.Random:
+    AbstractRNGSeq,
+    ZRNGSeq,
+    OriginalScramblingRng,
+    ScramblingRngAdapter,
+    ScrambledSobolSeq,
+    Owen
 import Random123
-import Random: MersenneTwister
+import RandomNumbers: AbstractRNG
+import Random: MersenneTwister, rand!
 using Statistics
 import AQFED.TermStructure:
     SVISection,
@@ -9,8 +17,22 @@ import AQFED.TermStructure:
     varianceByLogmoneyness,
     HestonModel,
     LocalVolatilityModel,
-    ConstantBlackModel
+    ConstantBlackModel,
+    TSBlackModel
 
+
+function estimateError(values::Vector{Float64}, k::Int, rng)
+    n = length(values)
+    mv = Vector{Float64}(undef, k)
+    #stderr =  stdm(values, meanv) / sqrt(length(values))
+    for i = 1:k
+        indices = (rand(rng, UInt32, 100) .% n) .+ 1
+        v = values[indices]
+        mv[i] = mean(v)
+    end
+    stderr = stdm(mv, mean(values)) / sqrt(length(values) / 100)
+    return stderr
+end
 function simulateGBMAnti(rng, nSim, nSteps)
     tte = 1.0
     genTimes = LinRange(0.0, tte, ceil(Int, nSteps * tte) + 1)
@@ -26,7 +48,7 @@ function simulateGBMAnti(rng, nSim, nSteps)
         @. logpayoffValues += -0.5 * h + z * sqrt(h)
         if (t1 == tte)
             payoffValues = @. exp(logpayoffValues)
-            payoffValues = @. max(payoffValues, 1/payoffValues)
+            payoffValues = @. max(payoffValues, 1 / payoffValues)
         end
         t0 = t1
     end
@@ -43,20 +65,25 @@ function simulateGBM(rng, nSim, nSteps)
     logpayoffValues .= 0.0
     t0 = genTimes[1]
     local payoffValues
-    for t1 in genTimes[2:end]
+    u = Vector{Float64}(undef, nSim)
+    @inbounds for j = 2:length(genTimes)
+        t1 = genTimes[j]
         h = t1 - t0
-        u = rand(rng, Float64, nSim)
+        dim = j - 1
+        rand!(rng, u)
         z = @. AQFED.Math.norminv(u)
-        @. logpayoffValues += - h / 2 + z * sqrt(h)
+        @. logpayoffValues += -h / 2 + z * sqrt(h)
         if (t1 == tte)
             payoffValues = @. exp(logpayoffValues)
-            payoffValues = @. max(payoffValues, 1/payoffValues)
+            payoffValues = @. max(payoffValues, 1 / payoffValues)
         end
         t0 = t1
     end
     payoffMean = mean(payoffValues)
     return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
 end
+
+
 
 @testset "Antithetic" begin
     nSteps = 10
@@ -100,13 +127,10 @@ end
         AQFED.Random.Blabla8(),
         Random123.Philox4x(UInt64, (20130129, 20100921), 10),
     ]
+    specTimes = AQFED.MonteCarlo.specificTimes(payoff)
+    nd = 1
     for rng in gens
-        time = @elapsed value = AQFED.MonteCarlo.simulate(
-            rng,
-            model,
-            payoff,
-            64 * 1024,
-        )
+        time = @elapsed value = AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 64 * 1024)
         println(typeof(rng), " ", value, " ", refValue, " ", value - refValue, " ", time)
         @test isapprox(refValue, value, atol = 1e-2)
     end
@@ -127,9 +151,11 @@ end
         AQFED.Random.Blabla8(),
         Random123.Philox4x(UInt64, (20130129, 20100921), 10),
     ]
+    specTimes = AQFED.MonteCarlo.specificTimes(payoff)
+    nd = AQFED.MonteCarlo.ndims(model, specTimes, 1.0/16)
     for rng in gens
         time = @elapsed value, serr =
-            AQFED.MonteCarlo.simulate(rng, model, payoff, 1024 * 64, 16)
+            AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 0, 1024 * 64, 1.0 / 16)
         println(
             typeof(rng),
             " ",
@@ -188,9 +214,11 @@ end
         AQFED.Random.Blabla8(),
         Random123.Philox4x(UInt64, (20130129, 20100921), 10),
     ]
+    specTimes = AQFED.MonteCarlo.specificTimes(payoff)
+    nd = AQFED.MonteCarlo.ndims(model, specTimes, 1.0/32)
     for rng in gens
         time = @elapsed value, serr =
-            AQFED.MonteCarlo.simulate(rng, model, payoff, 1024 * 64, 32)
+        AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng, nd), model, payoff, 0, 1024 * 64, 1.0 / 32)
         println(
             typeof(rng),
             " ",
@@ -220,10 +248,15 @@ end
         Random123.Philox4x(UInt64, (20130129, 20100921), 10),
     ]
     payoff = AQFED.MonteCarlo.VanillaOption(true, 100.0, 10.0)
-
+    timesteps = 8
+    specTimes = AQFED.MonteCarlo.specificTimes(payoff)
+    ndims = AQFED.MonteCarlo.ndims(hParams, specTimes, 1.0 / timesteps)
+    start = 0
+    n = 1024 * 64
     for rng in gens
+        seq = AbstractRNGSeq(rng, ndims)
         time = @elapsed value, stderror =
-            AQFED.MonteCarlo.simulateDVSS2X(rng, hParams, payoff, 1024 * 64, 8)
+            AQFED.MonteCarlo.simulateDVSS2X(seq, hParams, payoff, start, n, 1.0/timesteps)
         println(
             typeof(rng),
             " ",
@@ -239,9 +272,171 @@ end
         )
         @test isapprox(refValue, value, atol = 3 * stderror)
     end
+
+    seq =
+        ScrambledSobolSeq(ndims, n, Owen(30, ScramblingRngAdapter(AQFED.Random.Blabla8())))
+    time = @elapsed value, stderror = AQFED.MonteCarlo.simulateDVSS2X(
+        seq,
+        hParams,
+        payoff,
+        start,
+        n,
+        1.0/timesteps,
+        withBB = false,
+    )
+    println(
+        typeof(seq),
+        " ",
+        value,
+        " ",
+        refValue,
+        " ",
+        value - refValue,
+        " ",
+        stderror,
+        " ",
+        time,
+    )
+    @test isapprox(refValue, value, atol = 2 * stderror)
 end
 # for gen in gens
 #        global rng = gen
 #        b = @benchmark  value,stderror = AQFED.MonteCarlo.simulateHestonDVSS2X(rng, hParams, payoff,1024*64,8)
 #        println(typeof(rng)," ",b)
 #        end
+
+
+@testset "DAXSims" begin
+    spot = 100.0
+    hParams = HestonModel(0.04, 0.5, 0.04, -0.9, 1.0, 100.0, 0.0, 0.0)
+
+    sections = [
+        SVISection(0.030, 0.125, -1.0, 0.050, 0.074, 0.16, spot),
+        SVISection(0.032, 0.094, -1.0, 0.041, 0.093, 0.26, spot),
+        SVISection(0.028, 0.105, -1.0, 0.072, 0.096, 0.33, spot),
+        SVISection(0.026, 0.080, -1.0, 0.098, 0.127, 0.58, spot),
+        SVISection(0.026, 0.066, -1.0, 0.113, 0.153, 0.83, spot),
+        SVISection(0.031, 0.047, -1.0, 0.065, 0.171, 1.33, spot),
+        SVISection(0.037, 0.039, -1.0, 0.030, 0.152, 1.83, spot),
+        SVISection(0.036, 0.036, -1.0, 0.083, 0.200, 2.33, spot),
+        SVISection(0.038, 0.036, -1.0, 0.139, 0.170, 2.82, spot),
+        SVISection(0.034, 0.032, -1.0, 0.199, 0.246, 3.32, spot),
+        SVISection(0.044, 0.028, -1.0, 0.069, 0.188, 4.34, spot),
+    ]
+
+    surface = VarianceSurfaceBySection(
+        sections,
+        [0.16, 0.26, 0.33, 0.58, 0.83, 1.33, 1.83, 2.33, 2.82, 3.32, 4.34],
+    )
+    gens = [
+        AQFED.Random.MersenneTwister64(UInt64(20130129)),
+        AQFED.Random.Mixmax17(UInt64(20130129)),
+        AQFED.Random.Well1024a(UInt32(20130129)),
+        AQFED.Random.Chacha8SIMD(),
+        AQFED.Random.Blabla8(),
+        Random123.Philox4x(UInt64, (20130129, 20100921), 10),
+    ]
+
+    ttes = [0.16, 1.0, 4.34]
+    strikes = [80.0, 90.0, 100.0, 110.0, 120.0]
+
+    for rng in gens
+        time = @elapsed for tte in ttes
+            for strike in strikes
+                payoff = AQFED.MonteCarlo.VanillaOption(true, strike, tte)
+                refValue = AQFED.Black.blackScholesFormula(
+                    true,
+                    strike,
+                    100.0,
+                    tte * varianceByLogmoneyness(surface, 0.0, tte),
+                    1.0,
+                    1.0,
+                )
+
+                model = TSBlackModel(100.0, surface, 0.0, 0.0)
+                nd = AQFED.MonteCarlo.ndims(model, AQFED.MonteCarlo.specificTimes(payoff), 100.0)
+                value, serr = AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 0, 1024 * 64)
+                println(
+                    typeof(rng),
+                    " ",
+                    typeof(model),
+                    " ",
+                    value,
+                    " ",
+                    refValue,
+                    " ",
+                    value - refValue,
+                    " ",
+                    serr,
+                )
+            end
+        end
+        println("elapsed ", time)
+
+        time = @elapsed for tte in ttes
+            for strike in strikes
+                payoff = AQFED.MonteCarlo.VanillaOption(true, strike, tte)
+                refValue = AQFED.Black.blackScholesFormula(
+                    true,
+                    strike,
+                    100.0,
+                    tte * varianceByLogmoneyness(surface, log(strike/spot), tte),
+                    1.0,
+                    1.0,
+                )
+
+                model = LocalVolatilityModel(100.0, surface, 0.0, 0.0)
+                nd = AQFED.MonteCarlo.ndims(model, AQFED.MonteCarlo.specificTimes(payoff), 100.0)
+                    value, serr =
+                    AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 0, 1024 * 64, 0.16)
+                println(
+                    typeof(rng),
+                    " ",
+                    typeof(model),
+                    " ",
+                    value,
+                    " ",
+                    refValue,
+                    " ",
+                    value - refValue,
+                    " ",
+                    serr,
+                )
+            end
+        end
+        println("elapsed ", time)
+
+        time = @elapsed for tte in ttes
+            for strike in strikes
+                payoff = AQFED.MonteCarlo.VanillaOption(true, strike, tte)
+                refValue = AQFED.Black.blackScholesFormula(
+                    true,
+                    strike,
+                    100.0,
+                    tte * varianceByLogmoneyness(surface, log(strike/spot), tte),
+                    1.0,
+                    1.0,
+                )
+
+                nd = AQFED.MonteCarlo.ndims(hParams, AQFED.MonteCarlo.specificTimes(payoff), 100.0)
+                    value, serr =
+                    AQFED.MonteCarlo.simulateDVSS2X(AbstractRNGSeq(rng,nd), hParams, payoff, 0, 1024 * 64, 0.16)
+                println(
+                    typeof(rng),
+                    " ",
+                    typeof(model),
+                    " ",
+                    value,
+                    " ",
+                    refValue,
+                    " ",
+                    value - refValue,
+                    " ",
+                    serr,
+                )
+            end
+        end
+        println("elapsed ", time)
+    end
+    #        @test isapprox(refValue, value, atol = serr * 5)
+end

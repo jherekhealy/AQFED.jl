@@ -1,6 +1,7 @@
 import AQFED.Random
 import AQFED
 import Random123
+import Random: MersenneTwister
 
 function simulation(r, n)
     spot = 1.0
@@ -17,14 +18,24 @@ function simulation(r, n)
     return sum / n
 end
 
+function simsum(r, n)
+    u = Vector{Float64}(undef, n)
+    rand!(r, u)
+    return sum(u)
+end
+
 @testset "BlackSim" begin
     refValue = AQFED.Black.blackScholesFormula(true, 1.0, 1.0, 1.0, 1.0, 1.0)
     gens = [
+        MersenneTwister(20130129),
         AQFED.Random.MersenneTwister64(UInt64(20130129)),
+        AQFED.Random.Well1024a(UInt32(20130129)),
         AQFED.Random.Mixmax17(UInt64(20130129)),
         AQFED.Random.Mixmax240(UInt64(20130129)),
-        AQFED.Random.Well1024a(UInt32(20130129)),
+        AQFED.Random.MRG63k3a(),
         Random123.Philox4x(UInt64, (20130129, 20100921), 10),
+        AQFED.Random.Chacha8SIMD(),
+        AQFED.Random.Blabla8(),
     ]
     for gen in gens
         value = simulation(gen, 64 * 1024)

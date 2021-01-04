@@ -1,6 +1,6 @@
 import Random: rand, seed!
-
 import RandomNumbers: AbstractRNG
+export AbstractRNGSeq, ZRNGSeq, next!, nextn!, skipTo
 
 #@inline rand(r::Philox4x{UInt64,R}, ::Type{Float64}) where {R} = (Float64(Random.rand(r, UInt64)  >> 11 )+0.5) / 9007199254740992.0
 @inline rand(r::AbstractRNG{UInt64}, ::Type{Float64}) = (Float64(Random.rand(r, UInt64)  >> 11 )+0.5) / 0x1p53

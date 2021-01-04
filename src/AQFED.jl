@@ -32,6 +32,8 @@ include("random/chacha.jl")
 include("random/chacha_simd.jl")
 include("random/mrg63k3a.jl")
 include("random/ssobol.jl")
+include("random/dsobol.jl")
+include("random/rngseq.jl")
 end
 
 module TermStructure
@@ -41,6 +43,8 @@ include("ts/surface.jl")
 end
 
 module MonteCarlo
+include("mc/bb.jl")
+include("mc/bbvector.jl")
 include("mc/payoffs.jl")
 include("mc/black.jl")
 include("mc/heston.jl")

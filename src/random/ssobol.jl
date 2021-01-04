@@ -1,11 +1,13 @@
 #import Random: rand!
-export ScrambledSobolSeq, next!, scramble, skip, skipTo
+import AQFED.Math: norminv
+
+export AbstractSeq, ScrambledSobolSeq, next!, nextn!, scramble, skip, skipTo
 export Owen, FaureTezuka, OwenFaureTezuka, NoScrambling
 
 include("ssoboldata.jl") #loads `sobol_a` and `sobol_minit` from Joe & Kuo.
 include("ssobolrng.jl") #original RNG and RNG adapter for scrambling
 
-abstract type AbstractSobolSeq{N} end
+abstract type AbstractSeq{N} end
 
 abstract type Scrambling end
 
@@ -30,7 +32,7 @@ unirand(s::Union{Owen,FaureTezuka,OwenFaureTezuka}) = unirand(s.rng)
 
 
 # N iis the dimension of sequence being generated, S is scrambling type
-mutable struct ScrambledSobolSeq{N,S} <: AbstractSobolSeq{N}
+mutable struct ScrambledSobolSeq{N,S} <: AbstractSeq{N}
     v::Array{UInt32,2} #array of size (sdim, log2(n))
     x::Array{UInt32,1}
     shift::Array{UInt32,1}
@@ -39,7 +41,8 @@ mutable struct ScrambledSobolSeq{N,S} <: AbstractSobolSeq{N}
     scrambling::S
 end
 
-ndims(s::AbstractSobolSeq{N}) where {N} = N::Int
+
+ndims(s::AbstractSeq{N}) where {N} = N::Int
 
 unirand(s::ScrambledSobolSeq) = unirand(s.scrambling)
 
@@ -52,6 +55,21 @@ unirand(s::ScrambledSobolSeq) = unirand(s.scrambling)
     x::UInt32,
 ) where {N,S<:Union{Owen,OwenFaureTezuka}} = ldexp(Float64(x), -s.scrambling.maxd % Int32)
 
+#fl1 find last 1 index in value
+@inline function fl1(value::Int)
+	return 32 - leading_zeros(value % UInt32)
+end
+
+@inline function fl1Slow(n::Int)
+	l = 0
+	i = n
+	while (i != 0)
+		i >>= 1
+		l += 1
+	end
+	l = min(l, 31)
+end
+
 function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
     d = dimension
     (d < 0 || d > (length(sobol_a) + 1)) && error("invalid Sobol dimension")
@@ -60,13 +78,7 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
     #l=30
     l = 31
     if (n > 0)
-        l = 0
-        i = n
-        while (i != 0)
-            i >>= 1
-            l += 1
-        end
-        l = min(l, 31)
+    	l = fl1(n+1) #+1 as we skip the first point
     end
     #println("l=",l)
     x = Vector{UInt32}(undef, d)
@@ -79,7 +91,7 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
     for j = 2:d
         a = sobol_a[j-1]
         s = floor(Int, log2(a)) #degree of poly
-
+		a >>= 1
         #set initial values of m from table
         if l <= s
             for i = 1:l
@@ -93,7 +105,7 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
             for i = s+1:l
                 @inbounds v[j, i] = v[j, i-s] ⊻ (v[j, i-s] >> s)
                 for k = 1:s-1 #or from 0?
-                    @inbounds v[j, i] ⊻= (((a >> (s - 1 - k)) & one(UInt32)) * v[j, i-k])
+                    @inbounds v[j, i] ⊻= (((a >> (s - k - 1)) & one(UInt32)) * v[j, i-k])
                 end
             end
         end
@@ -280,33 +292,45 @@ end
     return s.x
 end
 
-#next vector at counter containing all dimensions
-@inline function next!(s::ScrambledSobolSeq, points::AbstractVector{<:AbstractFloat})    
-    next(s,UInt32)
+#next vector of uniform [0,1) numbers at counter containing all dimensions
+@inline function next!(s::ScrambledSobolSeq, points::AbstractVector{<:AbstractFloat})
+    next(s, UInt32)
     sx = s.x
     @inbounds for j = 1:ndims(s)
-        if sx[j] == 0 #may happen somewhere because of scrambling
-                    points[j] = normalize(s, one(UInt32)) / 2
-                else
-                    points[j] = normalize(s, sx[j])
-                end
+        # if sx[j] == 0 #may happen somewhere because of scrambling
+        #     points[j] = normalize(s, one(UInt32)) / 2
+        # else
+            points[j] = normalize(s, sx[j])
+        # end
     end
     return points
 end
 
+#next set of normal numbers
+@inline function nextn!(s::ScrambledSobolSeq, points::AbstractVector{<:AbstractFloat})
+	next!(s, points)
+	@. points = norminv(points)
+end
+
+#next set of normal numbers
+@inline function nextn!(s::ScrambledSobolSeq,  dim::Int, points::AbstractVector{<:AbstractFloat})
+	next!(s, dim, points)
+	@. points = norminv(points)
+end
+
 #next vector for a given dimension (vertical) from counter to counter + length(points)
-function next!(s::ScrambledSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
+@inline function next!(s::ScrambledSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
     j = dim
     sx = s.x
     sv = s.v
-    for i = 1:length(points)
+    @inbounds for i = 1:length(points)
         if s.counter != 0
             c = ffz(s.counter)
             sx[j] ⊻= sv[j, c]
         end
         points[i] =
-            (sx[j] == 0) ? normalize(s, s.scrambling, one(UInt32)) / 2 :
-            normalize(s, s.scrambling, sx[j])
+        #    (sx[j] == 0) ? normalize(s, one(UInt32)) / 2 :
+            normalize(s, sx[j])
         s.counter += one(s.counter)
     end
     return points
