@@ -1,4 +1,4 @@
-export norminvAS241
+export norminvAS241, norminvBSMS
 
 const SPLIT1 = 0.425
 const SPLIT2 = 5.0
@@ -76,7 +76,10 @@ function norminvAS241(p::Float64)::Float64
     if abs(q) <= SPLIT1
         r = CONST1 - q * q
         ppnd16 =
-            q * (((((((A7 * r + A6) * r + A5) * r + A4) * r + A3) * r + A2) * r + A1) * r + A0) /
+            q * (
+                ((((((A7 * r + A6) * r + A5) * r + A4) * r + A3) * r + A2) * r + A1) * r +
+                A0
+            ) /
             (((((((B7 * r + B6) * r + B5) * r + B4) * r + B3) * r + B2) * r + B1) * r + 1.0)
         return ppnd16
     else
@@ -101,14 +104,92 @@ function norminvAS241(p::Float64)::Float64
         if r <= SPLIT2
             r = r - CONST2
             ppnd16 =
-                (((((((C7 * r + C6) * r + C5) * r + C4) * r + C3) * r + C2) * r + C1) * r + C0) /
-                (((((((D7 * r + D6) * r + D5) * r + D4) * r + D3) * r + D2) * r + D1) * r + 1.0)
+                (
+                    ((((((C7 * r + C6) * r + C5) * r + C4) * r + C3) * r + C2) * r + C1) *
+                    r + C0
+                ) / (
+                    ((((((D7 * r + D6) * r + D5) * r + D4) * r + D3) * r + D2) * r + D1) *
+                    r + 1.0
+                )
         else
             r = r - SPLIT2
             ppnd16 =
-                (((((((E7 * r + E6) * r + E5) * r + E4) * r + E3) * r + E2) * r + E1) * r + E0) /
-                (((((((F7 * r + F6) * r + F5) * r + F4) * r + F3) * r + F2) * r + F1) * r + 1.0)
+                (
+                    ((((((E7 * r + E6) * r + E5) * r + E4) * r + E3) * r + E2) * r + E1) *
+                    r + E0
+                ) / (
+                    ((((((F7 * r + F6) * r + F5) * r + F4) * r + F3) * r + F2) * r + F1) *
+                    r + 1.0
+                )
         end
         return q < 0 ? -ppnd16 : ppnd16
     end
+end
+
+
+
+const BSMS_A0 = 2.5066282186077179315
+const BSMS_A1 = -18.700226003845536893
+const BSMS_A2 = 41.841057826285191701
+const BSMS_A3 = -25.965959614983341521
+
+const BSMS_B0 = -8.5075119518749713281
+const BSMS_B1 = 23.298480931332967694
+const BSMS_B2 = -21.419275595427556433
+const BSMS_B3 = 3.2269921657498348465
+
+
+const BSMS_C0 = 0.3374754822726147
+const BSMS_C1 = 0.9761690190917186
+const BSMS_C2 = 0.1607979714918209
+const BSMS_C3 = 0.0276438810333863
+const BSMS_C4 = 0.0038405729373609
+const BSMS_C5 = 0.0003951896511919
+const BSMS_C6 = 0.0000321767881768
+const BSMS_C7 = 0.0000002888167364
+const BSMS_C8 = 0.0000003960315187
+
+function norminvBSMS(x::Float64)::Float64
+    temp = x - 0.5
+    local result
+    if abs(temp) < 0.42
+        result = temp*temp
+        result =
+            temp * (((BSMS_A3 * result + BSMS_A2) * result + BSMS_A1) * result + BSMS_A0) /
+            (
+                (((BSMS_B3 * result + BSMS_B2) * result + BSMS_B1) * result + BSMS_B0) *
+                result + 1.0
+            )
+    else
+        if (x < 0.5)
+            result = x
+        else
+            result = 1.0 - x
+        end
+            result = log(-log(result))
+            result =
+                BSMS_C0 +
+                result * (
+                    BSMS_C1 +
+                    result * (
+                        BSMS_C2 +
+                        result * (
+                            BSMS_C3 +
+                            result * (
+                                BSMS_C4 +
+                                result * (
+                                    BSMS_C5 +
+                                    result *
+                                    (BSMS_C6 + result * (BSMS_C7 + result * BSMS_C8))
+                                )
+                            )
+                        )
+                    )
+                )
+        if (x < 0.5)
+            result = -result
+        end
+    end
+
+    return result
 end

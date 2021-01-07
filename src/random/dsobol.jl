@@ -1,6 +1,7 @@
 #load after ssobol.jl
 import RandomNumbers: AbstractRNG
 import Random: rand!
+import AQFED.Math: norminv
 export DigitalSobolSeq, ModuloSobolSeq
 
 mutable struct DigitalSobolSeq{N} <: AbstractSeq{N}
@@ -29,6 +30,17 @@ end
     return points
 end
 
+@inline function nextn!(s::DigitalSobolSeq, points::AbstractVector{<:AbstractFloat})
+    next!(s, points)
+    @. points = norminv(points)
+    points
+end
+
+@inline function nextn!(s::DigitalSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
+    next!(s, dim, points)
+    @. points = norminv(points)
+    points
+end
 #next vector for a given dimension (vertical) from counter to counter + length(points)
 @inline function next!(s::DigitalSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
     j = dim
@@ -39,7 +51,7 @@ end
             c = ffz(s.delegate.counter)
             sx[j] ⊻= sv[j, c]
         end
-        points[i] = normalize(s, sx[j] ⊻ s.upoint[j])
+        points[i] = normalize(s, (sx[j]<< (32-s.delegate.l)) ⊻ s.upoint[j])
         s.delegate.counter += one(s.delegate.counter)
     end
     return points

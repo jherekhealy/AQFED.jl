@@ -6,7 +6,8 @@ import AQFED.Random:
     OriginalScramblingRng,
     ScramblingRngAdapter,
     ScrambledSobolSeq,
-    Owen
+    Owen, FaureTezuka, NoScrambling
+
 import Random123
 import RandomNumbers: AbstractRNG
 import Random: MersenneTwister, rand!
@@ -91,10 +92,10 @@ end
         MersenneTwister(201300129),
         AQFED.Random.MersenneTwister64(UInt64(20130129)),
         AQFED.Random.Mixmax17(UInt64(20130129)),
-        AQFED.Random.Well1024a(UInt32(20130129)),
-        AQFED.Random.ChachaSIMD(),
-        AQFED.Random.Blabla(),
+#        AQFED.Random.Well1024a(UInt32(20130129)),
         Random123.Philox4x(UInt64, (20130129, 20100921), 10),
+        AQFED.Random.Chacha8SIMD(),
+        AQFED.Random.Blabla8(),
     ]
     for rng in gens
         value, mcerr = simulateGBMAnti(rng, 32 * 1024, nSteps)
@@ -104,10 +105,10 @@ end
         MersenneTwister(201300129),
         AQFED.Random.MersenneTwister64(UInt64(20130129)),
         AQFED.Random.Mixmax17(UInt64(20130129)),
-        AQFED.Random.Well1024a(UInt32(20130129)),
-        AQFED.Random.ChachaSIMD(),
-        AQFED.Random.Blabla(),
+#        AQFED.Random.Well1024a(UInt32(20130129)),
         Random123.Philox4x(UInt64, (20130129, 20100921), 10),
+        AQFED.Random.Chacha8SIMD(),
+        AQFED.Random.Blabla8(),
     ]
     for rng in gens
         value, mcerr = simulateGBM(rng, 32 * 2 * 1024, nSteps)
@@ -240,12 +241,13 @@ end
     hParams = HestonModel(0.04, 0.5, 0.04, -0.9, 1.0, 100.0, 0.0, 0.0)
     refValue = 13.08467
     gens = [
+    MersenneTwister(20130129),
         AQFED.Random.MersenneTwister64(UInt64(20130129)),
-        AQFED.Random.Mixmax17(UInt64(20130129)),
         AQFED.Random.Well1024a(UInt32(20130129)),
+        AQFED.Random.Mixmax17(UInt64(20130129)),
+        Random123.Philox4x(UInt64, (20130129, 20100921), 10),
         AQFED.Random.Chacha8SIMD(),
         AQFED.Random.Blabla8(),
-        Random123.Philox4x(UInt64, (20130129, 20100921), 10),
     ]
     payoff = AQFED.MonteCarlo.VanillaOption(true, 100.0, 10.0)
     timesteps = 8
@@ -273,6 +275,7 @@ end
         @test isapprox(refValue, value, atol = 3 * stderror)
     end
 
+
     seq =
         ScrambledSobolSeq(ndims, n, Owen(30, ScramblingRngAdapter(AQFED.Random.Blabla8())))
     time = @elapsed value, stderror = AQFED.MonteCarlo.simulateDVSS2X(
@@ -298,6 +301,79 @@ end
         time,
     )
     @test isapprox(refValue, value, atol = 2 * stderror)
+
+    payoff = AQFED.MonteCarlo.VanillaOption(true, 100.0, 1.0)
+    refValue = 4.4031768153784405
+    #for some reasons, FT scheme is really bad on this example => require 1000 steps for a good accuracy
+    timesteps = 1000
+    specTimes = AQFED.MonteCarlo.specificTimes(payoff)
+    ndims = AQFED.MonteCarlo.ndims(hParams, specTimes, 1.0 / timesteps)
+    seq = ScrambledSobolSeq(ndims, n, NoScrambling())
+    time = @elapsed value, stderror = AQFED.MonteCarlo.simulateFullTruncation(
+        seq,
+        hParams,
+        payoff,
+        1,
+        n,
+        1.0/timesteps,
+        withBB = false,
+    )
+    println(
+        typeof(seq),
+        " ",
+        value,
+        " ",
+        refValue,
+        " ",
+        value - refValue,
+        " ",
+        stderror,
+        " ",
+        time,
+    )
+    @test isapprox(refValue, value, atol = stderror)
+
+    seq =
+        ScrambledSobolSeq(ndims, n, NoScrambling())
+    time = @elapsed value, stderror = AQFED.MonteCarlo.simulateFullTruncation(
+        seq,
+        hParams,
+        payoff,
+        1,
+        n,
+        1.0/timesteps,
+        withBB = true,
+    )
+    println(
+        typeof(seq),
+        " ",
+        value,
+        " ",
+        refValue,
+        " ",
+        value - refValue,
+        " ",
+        stderror,
+        " ",
+        time,
+    )
+    @test isapprox(refValue, value, atol = stderror/10)
+
+    # ns = [1,2,4,8,16,32,64,128,256,512,1024]
+    # vArray = Vector{Float64}(undef, length(ns))
+    # for (i,n) in enumerate(ns)
+    #     seq = ScrambledSobolSeq(ndims, 1<<29, FaureTezukaScrambling(OriginalScramblingRng()))
+    #     value, stderror = AQFED.MonteCarlo.simulateDVSS2X(
+    #             seq,
+    #             hParams,
+    #             payoff,
+    #             1,
+    #             n*1024,
+    #             1.0/timesteps,
+    #             withBB = false,
+    #         )
+    #     vArray[i] = value
+    # end
 end
 # for gen in gens
 #        global rng = gen
@@ -305,6 +381,54 @@ end
 #        println(typeof(rng)," ",b)
 #        end
 
+using CharFuncPricing
+
+@testset "ZigHeston" begin
+    strike = 1.0
+τ = 1.0
+hParams = HestonParams(0.133, 0.35, 0.321, -0.63, 1.388)
+m=1024
+l=32
+pricer = makeCosCharFuncPricer(Complex, Float64, Float64(MathConstants.pi), hParams, τ, m, l)
+#priceEuropean(pricer, false, strike, spot, 1.0)
+n = 1024*64
+r = LinRange(0.95,1.05,21)
+v = Vector{Float64}(undef, length(r))
+for (i,spot) in enumerate(r)
+    model = HestonModel(hParams.v0, hParams.κ, hParams.θ, hParams.ρ, hParams.σ, spot, 0.0, 0.0)
+    payoff = AQFED.MonteCarlo.VanillaOption(true, strike,τ)
+    refValue = priceEuropean(pricer, true, strike, spot,τ)
+    timesteps = 100
+    specTimes = AQFED.MonteCarlo.specificTimes(payoff)
+    ndims = AQFED.MonteCarlo.ndims(model, specTimes, 1.0 / timesteps)
+    rng = AQFED.Random.Blabla8()
+    seq = AbstractRNGSeq(rng, ndims)
+# ScrambledSobolSeq(ndims, n, NoScrambling())
+    time = @elapsed value, stderror = AQFED.MonteCarlo.simulateFullTruncation(
+    seq,
+    model,
+    payoff,
+    0,
+    n,
+    1.0/timesteps,
+    withBB = false,
+)
+v[i] = value - refValue
+println(strike, " ",
+    typeof(rng),
+    " ",
+    value,
+    " ",
+    refValue,
+    " ",
+    value - refValue,
+    " ",
+    stderror,
+    " ",
+    time,
+)
+end
+end
 
 @testset "DAXSims" begin
     spot = 100.0
@@ -404,7 +528,7 @@ end
                 )
             end
         end
-        println("elapsed ", time)
+        println(typeof(rng)," elapsed ", time)
 
         time = @elapsed for tte in ttes
             for strike in strikes
@@ -424,7 +548,7 @@ end
                 println(
                     typeof(rng),
                     " ",
-                    typeof(model),
+                    typeof(hParams),
                     " ",
                     value,
                     " ",

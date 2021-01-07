@@ -1,6 +1,6 @@
 import Random: rand, seed!
 import RandomNumbers: AbstractRNG
-
+export Chacha8SIMD, ChachaSIMD
 # Chacha Random Number Generator with SIMD-128 in mind
 # DOUBLEROUNDS=10 means Chacha20
 # Generates 64-bit random numbers
@@ -146,7 +146,7 @@ end
     value
 end
 
-@inline @inbounds function rand(r::ChachaSIMD{R}, ::Type{UInt64}) where {R}
+@inline function rand(r::ChachaSIMD{R}, ::Type{UInt64}) where {R}
     if (r.subCounter == 17)
         r.subCounter = 1
         raw(r)
@@ -158,5 +158,21 @@ end
     r.subCounter += 2
     value
 end
-@inline rand(r::ChachaSIMD, ::Type{Float64}) =
-    (Float64(rand(r, UInt64) >> 11) + 0.5) / 9007199254740992.0
+
+@inline function rand(r::ChachaSIMD, ::Type{Float64})
+    if (r.subCounter == 17)
+        r.subCounter = 1
+        raw(r)
+    end
+    xIndex = ((r.subCounter - 1) >> 2) + 1
+    tIndex = (r.subCounter - 1 - ((xIndex - 1) << 2)) + 1
+    @inbounds xvalue = r.x[xIndex]
+    @inbounds value = (
+        xvalue[tIndex] / 0x1p32 +
+        (0.5 + 1.1102230246251565e-16) +
+        (xvalue[tIndex+1] & UInt32(0x000FFFFF)) / 0x1p52
+    )
+    r.subCounter += 2
+    value
+      # (Float64(rand(r, UInt64) >> 12) + 0.5) /  0x1p52
+end

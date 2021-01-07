@@ -28,15 +28,16 @@ function simulateDVSS2X(
     if withBB
         bb = BrownianBridgeConstruction(genTimes[2:end])
         if cacheSize == 0
-            nSteps = length(genTimes)-1
+            nSteps = length(genTimes) - 1
             cacheSize = ceil(Int, log2(nSteps)) * 4
         end
+        # cache = BBCache{Int,Array{Float64,2}}(cacheSize)
         cache = BBCache{Int,Vector{Float64}}(cacheSize)
     end
 
     u1 = Vector{Float64}(undef, nSim)
-    xsi = u1
     u2 = Vector{Float64}(undef, nSim)
+    xsi = u1
     v = Vector{T}(undef, nSim)
     t0 = genTimes[1]
     lnspot = log(model.spot)
@@ -51,21 +52,20 @@ function simulateDVSS2X(
         c0 = model.θ * h / 4
         c1 = (ekdth - 1) / (model.κ * 2)
         c2 = model.θ * (1 - ekdth)
-        d = dim
         if withBB
+            d = dim
             transformByDim!(bb, rng, start, d, xsi, cache)
-            xsi ./= sqrt(h)
+            skipTo(rng, d + ndimsh, start)
+            next!(rng, d + ndimsh, u2)
         else
+            d = 2*dim-1
             skipTo(rng, d, start)
             nextn!(rng, d, xsi)
+            xsi .*= sqrt(h)
+            skipTo(rng, d + 1, start)
+            next!(rng, d + 1, u2)
         end
-        skipTo(rng, d + ndimsh, start)
-        next!(rng, d + ndimsh, u2)
-        # rand!(rng, u1)
-        # @. xsi = norminv(u1)
-        # rand!(rng, u2)
-        #xsi, u2 = norminv.( rand(rng, Float64, nSim) ), rand(rng, Float64, nSim)
-        #xsi, u2 = randn(rng, Float64,nSim), rand(rng, Float64, nSim)
+
         vTmp = @. (v * ekdth + c2) / model.σ^2
         yr = map(
             (vTmp, u2) -> ifelse(
@@ -80,7 +80,7 @@ function simulateDVSS2X(
         @. xb =
             logpathValues - c0 +
             c1 * (v - model.θ) +
-            model.σ * (ρBar * xsi * sqrt((vTmp + yr) / 2 * h) + model.ρ * (yr - vTmp))
+            model.σ * (ρBar * xsi * sqrt((vTmp + yr) / 2) + model.ρ * (yr - vTmp))
         yr .= model.σ^2 * yr
         @. logpathValues = (model.r - model.q) * h + xb - c0 + c1 * (yr - model.θ)
         @. v = yr * ekdth + c2
@@ -131,4 +131,82 @@ end
     else
         return y0
     end
+end
+
+
+
+#Euler Full Truncation discretization scheme for Heston
+function simulateFullTruncation(
+    rng,
+    model::HestonModel{T},
+    payoff::VanillaOption,
+    start::Int,
+    nSim::Int,
+    timestepSize::Float64;
+    withBB = false,
+    cacheSize = 0,
+) where {T}
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
+    df = exp(-model.r * tte)
+    genTimes = pathgenTimes(model, specTimes, timestepSize)
+    logpathValues = Vector{T}(undef, nSim)
+    local bb, cache
+    if withBB
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+        if cacheSize == 0
+            nSteps = length(genTimes) - 1
+            cacheSize = ceil(Int, log2(nSteps)) * 4
+        end
+        cache = BBCache{Int,Array{Float64,2}}(cacheSize)
+        # cache = BBCache{Int,Vector{Float64}}(cacheSize)
+    end
+
+    u = Array{Float64}(undef, (nSim,2))
+    u1 = @view u[:,1]
+    u2 = @view u[:,2]
+    v = Vector{T}(undef, nSim)
+    sqrtmv = Vector{T}(undef, nSim)
+    t0 = genTimes[1]
+    lnspot = log(model.spot)
+    logpathValues .= lnspot
+    v .= model.v0
+    ρBar = sqrt(1 - model.ρ^2)
+    ndimsh = length(genTimes) - 1
+    local payoffValues
+    for (dim, t1) in enumerate(genTimes[2:end])
+        h = t1 - t0
+        sqrth = sqrt(h)
+        if withBB
+            transformByDim!(bb, rng, start, dim, u, cache)
+        else
+            d = 2 * dim - 1
+            skipTo(rng, d, start)
+            nextn!(rng, d, u1)
+            skipTo(rng, d + 1, start)
+            nextn!(rng, d + 1, u2)
+            #@inbounds @. u *= sqrth
+            u1 .*= sqrth
+            u2 .*= sqrth
+        end
+
+        @. sqrtmv = sqrt(max(v, 0))
+        @. logpathValues +=
+            (model.r - model.q - 0.5 * sqrtmv^2) * h + sqrtmv * (u1 * ρBar + u2 * model.ρ)
+        # for (i,p) in enumerate(logpathValues)
+        #     if isnan(p)
+        #         println(i," nan ",sqrtmv[i], " ",u1[i]," ", u2[i])
+        #     end
+        # end
+        @. v += model.κ * (model.θ - sqrtmv^2) * h + model.σ * sqrtmv * u2
+
+        if t1 == tte
+            pathValues = sqrtmv #reuse Var
+            @. pathValues = exp(logpathValues)
+            payoffValues = map(x -> evaluatePayoff(payoff, x, df), pathValues)
+        end
+        t0 = t1
+    end
+    payoffMean = mean(payoffValues)
+    return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
 end

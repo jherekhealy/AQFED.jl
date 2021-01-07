@@ -23,6 +23,7 @@ end
 
 __precompile__(true)
 module Random
+include("random/zignor.jl")
 include("random/mixmax.jl")
 include("random/well1024a.jl")
 include("random/mt64.jl")

@@ -125,23 +125,52 @@ function transform!(
 )
     size = length(bb.stdDev)
     # We use output to store the path...
-    out[size] = bb.stdDev[1] * in[1]
+    @inbounds out[size] = bb.stdDev[1] * in[1]
+    @inbounds for i = 2:size
+        j = bb.leftIndex[i]
+        k = bb.rightIndex[i]
+        l = bb.bridgeIndex[i]
+        if j != 1
+        @inbounds out[l] =
+                bb.leftWeight[i] * out[j-1] +
+                bb.rightWeight[i] * out[k] +
+                bb.stdDev[i] * in[i]
+        else
+            @inbounds out[l] = bb.rightWeight[i] * out[k] + bb.stdDev[i] * in[i]
+        end
+    end
+    # ...after which, we calculate the variations
+    @inbounds for i = size:-1:2
+        out[i] -= out[i-1]
+    end
+    return out
+end
+
+function transform!(
+    bb::BrownianBridgeConstruction,
+    in::Vector{Float64},  #of (d * ntimes). 1,...,d used for first time, d+1,...d+d for second time.
+    out::Array{Float64,2}, #size (d,ntimes) retrieve column(ti) = out[:,ti] (column major order)
+)
+    d = size(out, 1) #number of rows
+    size = length(bb.stdDev)
+    # We use output to store the path...
+    @. out[:,size] = bb.stdDev[1] * in[1:d]
     for i = 2:size
         j = bb.leftIndex[i]
         k = bb.rightIndex[i]
         l = bb.bridgeIndex[i]
         if j != 1
-            out[l] =
-                bb.leftWeight[i] * out[j-1] +
-                bb.rightWeight[i] * out[k] +
-                bb.stdDev[i] * in[i]
+            @. out[:,l] =
+                bb.leftWeight[i] * out[:,j-1] +
+                bb.rightWeight[i] * out[:,k] +
+                bb.stdDev[i] * in[(i-1)*d+1:i*d]
         else
-            out[l] = bb.rightWeight[i] * out[k] + bb.stdDev[i] * in[i]
+            @. out[:,l] = bb.rightWeight[i] * out[:,k] + bb.stdDev[i] * in[(i-1)*d+1:i*d]
         end
     end
     # ...after which, we calculate the variations
     for i = size:-1:2
-        out[i] -= out[i-1]
+        @. out[:,i] -= out[:,i-1]
     end
     return out
 end

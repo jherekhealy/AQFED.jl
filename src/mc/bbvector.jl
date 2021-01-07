@@ -20,7 +20,7 @@ mutable struct BBCache{K,V} <: AbstractDict{K,V}
     end
 end
 
-Base.haskey(cache::BBCache{K,V}, key::K) where {K,V} = haskey(cache.map,key)
+Base.haskey(cache::BBCache{K,V}, key::K) where {K,V} = haskey(cache.map, key)
 
 function Base.getindex(cache::BBCache{K,V}, key::K) where {K,V}
     entry = cache.map[key]
@@ -98,7 +98,8 @@ function Base.empty!(cache::BBCache)
     return cache
 end
 
-Base.show(io::IO, cache::BBCache{K, V}) where {K, V} = print(io, "BBCache{$K, $V}(; maxsize = $(cache.maxsize))")
+Base.show(io::IO, cache::BBCache{K,V}) where {K,V} =
+    print(io, "BBCache{$K, $V}(; maxsize = $(cache.maxsize))")
 
 #Vectorized BB algorithm as described in Jherek Healy "Applied Quantitative Finance for Equity Derivatives"
 function transformRecursive(
@@ -107,7 +108,7 @@ function transformRecursive(
     start::Int,
     length::Int,
     dimIndex::Int,
-    cache,
+    cache::AbstractDict,
 )
     ent = get(cache, dimIndex, nothing)
     if ent != nothing
@@ -154,8 +155,8 @@ function transformByDim!(
     qrng::AbstractSeq,
     start::Int,
     dimIndex::Int,
-    output::Vector{Float64},
-    cache,
+    output::AbstractVector{<:AbstractFloat},
+    cache::AbstractDict,
 )
     outputDim = transformRecursive(bb, qrng, start, length(output), dimIndex, cache)
     if dimIndex == 1
@@ -164,4 +165,80 @@ function transformByDim!(
     end
     outputm = transformRecursive(bb, qrng, start, length(output), dimIndex - 1, cache)
     @. output = outputDim - outputm
+end
+
+
+
+#Vectorized BB algorithm for a d-dimensional Brownian path.
+function transformByDim!(
+    bb::BrownianBridgeConstruction,
+    qrng::AbstractSeq,
+    start::Int,
+    dimIndex::Int,
+    output::Array{Float64,2}, #size (n,d) retrieve column(di) = out[:,di] (column major order)
+    cache::AbstractDict,
+)
+    outputDim = transformRecursive(bb, qrng, start, size(output), dimIndex, cache)
+    if dimIndex == 1
+        output .= outputDim
+        return
+    end
+    outputm = transformRecursive(bb, qrng, start, size(output), dimIndex - 1, cache)
+    @. output = outputDim - outputm
+end
+
+
+function transformRecursive(
+    bb::BrownianBridgeConstruction,
+    qrng::AbstractSeq,
+    start::Int,
+    osize::Tuple{Int,Int},
+    dimIndex::Int,
+    cache::AbstractDict,
+)
+    ent = get(cache, dimIndex, nothing)
+    if ent != nothing
+        return ent
+    end #else...
+    outputl = Array{Float64}(undef, osize)  #size (n,d) retrieve column(di) = out[:,di] (column major order)
+    d = osize[2]
+    #println(bb.stdDev, Base.length(bb.stdDev))
+    size = Base.length(bb.stdDev)
+    if dimIndex == size
+        @inbounds for di = 1:d
+            skipTo(qrng, di, start)
+            nextn!(qrng, di, @view outputl[:, di])
+        end
+        @. outputl *= bb.stdDev[1]
+        cache[dimIndex] = outputl
+    else
+        i = bb.pmap[dimIndex] #bijective
+        j = bb.leftIndex[i]
+        k = bb.rightIndex[i]
+        if j != 1
+            outputj = transformRecursive(bb, qrng, start, osize, j - 1, cache)
+            outputk = transformRecursive(bb, qrng, start, osize, k, cache)
+            @inbounds for di = 1:d
+                skipTo(qrng, d * (i - 1) + di, start) #i
+                nextn!(qrng, d * (i - 1) + di, @view outputl[:, di])
+            end
+            wl = bb.leftWeight[i]
+            wr = bb.rightWeight[i]
+            sd = bb.stdDev[i]
+            @. outputl = wl * outputj + wr * outputk + sd * outputl
+            cache[dimIndex] = outputl
+        else
+            outputk = transformRecursive(bb, qrng, start, osize, k, cache)
+            @inbounds for di = 1:d
+                skipTo(qrng, d * (i - 1) + di, start) #i
+                nextn!(qrng, d * (i - 1) + di, @view outputl[:, di])
+            end
+            wr = bb.rightWeight[i]
+            sd = bb.stdDev[i]
+            #println("sizes ",Base.size(outputl)," ",Base.size(outputk))
+            @. outputl = wr * outputk + sd * outputl
+            cache[dimIndex] = outputl
+        end
+    end
+    return outputl
 end

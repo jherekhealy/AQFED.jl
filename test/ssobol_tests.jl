@@ -81,7 +81,41 @@ function simulateGBMIter(rng::AbstractSeq, nSim, nSteps; withBB = false)
     #@. payoffValues = exp(payoffValues)
     #payoffMean = mean/nSim
     payoffMean = mean(payoffValues)
-    return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues)), 0
+    return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
+end
+
+@testset "GBM-Randomized" begin
+    n = 64 * 1024
+    ms = [8, 16, 32, 64]
+    nSteps = 1000
+    smax = 1
+    for m in ms
+        valArray = Vector{Float64}(undef, m)
+        rng =     AQFED.Random.Blabla8(
+                [
+                    0xB105F00DBAAAAAAD,
+                    0xdeadbeefcafebabe,
+                    0xFEE1DEADFEE1DEAD,
+                    0xdeadbeefcafebabe,
+                ],
+                UInt32,
+            )
+        #Chacha8SIMD(UInt32)
+        sArray = Vector{Float64}(undef, smax)
+    for s=1:smax
+            for i=1:m
+           #seq = DigitalSobolSeq(nSteps, trunc(Int,n/m), rng)
+            seq = ScrambledSobolSeq(nSteps, 1 << 29, Owen(30, ScramblingRngAdapter(rng)))
+            value, _ = simulateGBM(seq, trunc(Int, n/m), nSteps)
+            valArray[i] = value
+            end
+            vMean = mean(valArray)
+            vErr = stdm(valArray, vMean) / sqrt(length(valArray))
+            println(m, " ", vMean, " ",vErr)
+            sArray[s] = vErr
+        end
+    #println(m, " ", mean(sArray), " ", minimum(sArray)," ", median(sArray)," ",maximum(sArray))
+    end
 end
 
 @testset "GBM" begin

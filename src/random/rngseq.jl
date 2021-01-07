@@ -1,6 +1,10 @@
 import Random: rand, rand!, randn!, MersenneTwister
 import RandomNumbers: AbstractRNG
+import AQFED.Math: norminvAS241, norminvBSMS
+#import AQFED.Random: randz
+
 export AbstractRNGSeq, ZRNGSeq, next!, nextn!, skipTo
+
 
 mutable struct AbstractRNGSeq{T,N} <: AbstractSeq{N} #where {T <: AbstractRNG}
     rng::T
@@ -24,6 +28,7 @@ end
 @inline function nextn!(s::AbstractRNGSeq{T, N},  dim::Int, points::AbstractVector{<:AbstractFloat}) where {T,N}
     rand!(s.rng, points)
     @. points = norminv(points) #deterministic number of random numbers
+     # @. points = norminvBSMS(points)
     s.currentIndex += length(points)
 
 end
