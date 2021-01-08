@@ -283,12 +283,12 @@ end
     c > s.l &&
         throw(DomainError(string("counter larger than sequence length: ", s.counter)))
     s.counter += one(s.counter)
-    sx = s.x
+	#alternatively: @inbounds s.x .⊻= @view(s.v[:,c])
+	sx = s.x
     sv = s.v
     @inbounds for j = 1:d
         sx[j] ⊻= sv[j, c]
     end
-
     return s.x
 end
 

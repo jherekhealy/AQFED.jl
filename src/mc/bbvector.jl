@@ -101,7 +101,15 @@ end
 Base.show(io::IO, cache::BBCache{K,V}) where {K,V} =
     print(io, "BBCache{$K, $V}(; maxsize = $(cache.maxsize))")
 
-#Vectorized BB algorithm as described in Jherek Healy "Applied Quantitative Finance for Equity Derivatives"
+#===========================================================================
+ Vectorized Brownian Bridge algorithm
+
+ Copyright (C) 2017 Jherek Healy "Applied Quantitative Finance for Equity Derivatives"
+ All right reserved.
+
+ Permission to use, copy, modify, and distribute this software is freely
+ granted, provided that this notice is preserved.
+===========================================================================#
 function transformRecursive(
     bb::BrownianBridgeConstruction,
     qrng::AbstractSeq,
@@ -110,16 +118,16 @@ function transformRecursive(
     dimIndex::Int,
     cache::AbstractDict,
 )
+    #println("transformRecursive ",dimIndex)
     ent = get(cache, dimIndex, nothing)
     if ent != nothing
         return ent
     end #else...
     outputl = Vector{Float64}(undef, length)
-    #println(bb.stdDev, Base.length(bb.stdDev))
-    size = Base.length(bb.stdDev)
-    if dimIndex == size
+    if dimIndex == Base.length(bb.stdDev)
         skipTo(qrng, 1, start)
         nextn!(qrng, 1, outputl)
+        #println("transformRecursive dim=",dimIndex, "fetching sobol d=",1)
         @. outputl *= bb.stdDev[1]
         cache[dimIndex] = outputl
     else
@@ -131,6 +139,7 @@ function transformRecursive(
             outputk = transformRecursive(bb, qrng, start, length, k, cache)
             skipTo(qrng, i, start)
             nextn!(qrng, i, outputl)
+        #    println("transformRecursive dim=",dimIndex, " fetching sobol d=",i," and use points ",j," and ",k)
             wl = bb.leftWeight[i]
             wr = bb.rightWeight[i]
             sd = bb.stdDev[i]
@@ -140,6 +149,7 @@ function transformRecursive(
             outputk = transformRecursive(bb, qrng, start, length, k, cache)
             skipTo(qrng, i, start)
             nextn!(qrng, i, outputl)
+            # println("transformRecursive dim=",dimIndex, "fetching sobol d=",i," and use right point ",k)
             wr = bb.rightWeight[i]
             sd = bb.stdDev[i]
             @. outputl = wr * outputk + sd * outputl
@@ -202,9 +212,7 @@ function transformRecursive(
     end #else...
     outputl = Array{Float64}(undef, osize)  #size (n,d) retrieve column(di) = out[:,di] (column major order)
     d = osize[2]
-    #println(bb.stdDev, Base.length(bb.stdDev))
-    size = Base.length(bb.stdDev)
-    if dimIndex == size
+    if dimIndex == Base.length(bb.stdDev)
         @inbounds for di = 1:d
             skipTo(qrng, di, start)
             nextn!(qrng, di, @view outputl[:, di])

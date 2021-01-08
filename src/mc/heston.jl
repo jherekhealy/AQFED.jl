@@ -58,7 +58,7 @@ function simulateDVSS2X(
             skipTo(rng, d + ndimsh, start)
             next!(rng, d + ndimsh, u2)
         else
-            d = 2*dim-1
+            d = 2 * dim - 1
             skipTo(rng, d, start)
             nextn!(rng, d, xsi)
             xsi .*= sqrt(h)
@@ -162,9 +162,9 @@ function simulateFullTruncation(
         # cache = BBCache{Int,Vector{Float64}}(cacheSize)
     end
 
-    u = Array{Float64}(undef, (nSim,2))
-    u1 = @view u[:,1]
-    u2 = @view u[:,2]
+    u = Array{Float64}(undef, (nSim, 2))
+    u1 = @view u[:, 1]
+    u2 = @view u[:, 2]
     v = Vector{T}(undef, nSim)
     sqrtmv = Vector{T}(undef, nSim)
     t0 = genTimes[1]
@@ -209,4 +209,73 @@ function simulateFullTruncation(
     end
     payoffMean = mean(payoffValues)
     return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
+end
+
+
+function simulateFullTruncationIter(
+    rng,
+    model::HestonModel{T},
+    payoff::VanillaOption,
+    start::Int,
+    nSim::Int,
+    timestepSize::Float64;
+    withBB = false,
+) where {T}
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
+    df = exp(-model.r * tte)
+    genTimes = pathgenTimes(model, specTimes, timestepSize)
+    local bb
+    if withBB
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+    end
+    lnspot = log(model.spot)
+    ρBar = sqrt(1 - model.ρ^2)
+    z = Vector{Float64}(undef, (length(genTimes) - 1) * 2)
+    u = Array{Float64}(undef, (2, length(genTimes)-1))
+    skipTo(rng, start)
+    payoffMean = 0.0
+    for sim = 1:nSim
+        if withBB
+            nextn!(rng, z)
+            transform!(bb, z, u)
+        else
+            nextn!(rng, z)
+            t0 = genTimes[1]
+            @inbounds for i=1:length(genTimes)-1
+                dim = 2*i-1
+                t1 = genTimes[i+1]
+                u[1,i] = z[dim]*sqrt(t1 - t0)
+                u[2,i] = z[dim+1]*sqrt(t1 - t0)
+                t0 = t1
+            end
+        end
+        t0 = genTimes[1]
+        logpathValue = lnspot
+        v = model.v0
+        local payoffValue
+        @inbounds for i=1:length(genTimes)-1
+            t1 = genTimes[i+1]
+            dim = 2*i -1
+            u1 = u[1,i]
+            u2 = u[2,i]
+            h = t1 - t0
+            sqrth = sqrt(h)
+            sqrtmv = sqrt(max(v, 0))
+            logpathValue +=
+                (model.r - model.q - 0.5 * sqrtmv^2) * h +
+                sqrtmv * (u1 * ρBar + u2 * model.ρ)
+            v += model.κ * (model.θ - sqrtmv^2) * h + model.σ * sqrtmv * u2
+
+            if t1 == tte
+                pathValue = exp(logpathValue)
+                payoffValue = evaluatePayoff(payoff, pathValue, df)
+            end
+            t0 = t1
+        end
+
+        payoffMean += payoffValue
+    end
+    payoffMean /= nSim
+    return payoffMean, NaN
 end

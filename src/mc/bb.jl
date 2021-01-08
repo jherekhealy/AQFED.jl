@@ -31,6 +31,15 @@ This is a port of Quantlib code
  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  FOR A PARTICULAR PURPOSE.  See the license for more details.
 =#
+#===========================================================================
+ The following copyright notice applies to the original code,
+
+ Copyright (C) 2002 Peter Jäckel "Monte Carlo Methods in Finance".
+ All rights reserved.
+
+ Permission to use, copy, modify, and distribute this software is freely
+ granted, provided that this notice is preserved.
+ ===========================================================================#
 
 #t[1] is first non-zero time, implicitly assumes that first time = 0
 function BrownianBridgeConstruction(t::Vector{Float64})
@@ -42,7 +51,7 @@ function BrownianBridgeConstruction(t::Vector{Float64})
     end
 
     # map is used to indicate which points are already constructed.
-    # If map[i] is zero, path point i is yet unconstructed.
+    # If map[i] is one, path point i is yet unconstructed.
     # map[i]-1 is the index of the variate that constructs
     # the path point i.
     pmap = Vector{Int}(undef, size)
@@ -131,7 +140,7 @@ function transform!(
         k = bb.rightIndex[i]
         l = bb.bridgeIndex[i]
         if j != 1
-        @inbounds out[l] =
+            @inbounds out[l] =
                 bb.leftWeight[i] * out[j-1] +
                 bb.rightWeight[i] * out[k] +
                 bb.stdDev[i] * in[i]
@@ -152,25 +161,34 @@ function transform!(
     out::Array{Float64,2}, #size (d,ntimes) retrieve column(ti) = out[:,ti] (column major order)
 )
     d = size(out, 1) #number of rows
-    size = length(bb.stdDev)
+    bsize = length(bb.stdDev)
     # We use output to store the path...
-    @. out[:,size] = bb.stdDev[1] * in[1:d]
-    for i = 2:size
+    @inbounds for di = 1:d
+        out[di, bsize] = bb.stdDev[1] * in[di]
+    end
+    @inbounds for i = 2:bsize
         j = bb.leftIndex[i]
         k = bb.rightIndex[i]
         l = bb.bridgeIndex[i]
         if j != 1
-            @. out[:,l] =
-                bb.leftWeight[i] * out[:,j-1] +
-                bb.rightWeight[i] * out[:,k] +
-                bb.stdDev[i] * in[(i-1)*d+1:i*d]
+            for di = 1:d
+                out[di, l] =
+                    bb.leftWeight[i] * out[di, j-1] +
+                    bb.rightWeight[i] * out[di, k] +
+                    bb.stdDev[i] * in[(i-1)*d+di]
+            end
         else
-            @. out[:,l] = bb.rightWeight[i] * out[:,k] + bb.stdDev[i] * in[(i-1)*d+1:i*d]
+            for di = 1:d
+                out[di, l] =
+                    bb.rightWeight[i] * (out[di, k]) + bb.stdDev[i] * in[(i-1)*d+di]
+            end
         end
     end
     # ...after which, we calculate the variations
-    for i = size:-1:2
-        @. out[:,i] -= out[:,i-1]
+    @inbounds for i = bsize:-1:2
+        for di = 1:d
+            out[di, i] -= out[di, i-1]
+        end
     end
     return out
 end

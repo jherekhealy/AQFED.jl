@@ -381,7 +381,7 @@ end
 #        println(typeof(rng)," ",b)
 #        end
 
-using CharFuncPricing
+#using CharFuncPricing
 
 @testset "ZigHeston" begin
     strike = 1.0
@@ -392,17 +392,19 @@ l=32
 pricer = makeCosCharFuncPricer(Complex, Float64, Float64(MathConstants.pi), hParams, τ, m, l)
 #priceEuropean(pricer, false, strike, spot, 1.0)
 n = 1024*64
-r = LinRange(0.95,1.05,21)
-v = Vector{Float64}(undef, length(r))
+r = LinRange(0.95,1.05,11)
+ve = Vector{Float64}(undef, length(r))
+va = Vector{Float64}(undef, length(r))
 for (i,spot) in enumerate(r)
-    model = HestonModel(hParams.v0, hParams.κ, hParams.θ, hParams.ρ, hParams.σ, spot, 0.0, 0.0)
+#    model = HestonModel(hParams.v0, hParams.κ, hParams.θ, hParams.ρ, hParams.σ, spot, 0.0, 0.0)
+    model = HestonModel(0.133, 0.35, 0.321, -0.63, 1.388, spot, 0.0, 0.0)
     payoff = AQFED.MonteCarlo.VanillaOption(true, strike,τ)
-    refValue = priceEuropean(pricer, true, strike, spot,τ)
+    refValue = 0.0 #priceEuropean(pricer, true, strike, spot,τ)
     timesteps = 100
     specTimes = AQFED.MonteCarlo.specificTimes(payoff)
-    ndims = AQFED.MonteCarlo.ndims(model, specTimes, 1.0 / timesteps)
-    rng = AQFED.Random.Blabla8()
-    seq = AbstractRNGSeq(rng, ndims)
+    nd = AQFED.MonteCarlo.ndims(model, specTimes, 1.0 / timesteps)
+    rng = MersenneTwister(2020) #AQFED.Random.Blabla8()
+    seq = ZRNGSeq(rng, nd)
 # ScrambledSobolSeq(ndims, n, NoScrambling())
     time = @elapsed value, stderror = AQFED.MonteCarlo.simulateFullTruncation(
     seq,
@@ -411,10 +413,11 @@ for (i,spot) in enumerate(r)
     0,
     n,
     1.0/timesteps,
-    withBB = false,
+    withBB = false, cacheSize=1000
 )
-v[i] = value - refValue
-println(strike, " ",
+ve[i] = value - refValue
+va[i] = value
+println(spot, " ",
     typeof(rng),
     " ",
     value,
