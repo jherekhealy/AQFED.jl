@@ -1,8 +1,10 @@
 import AQFED.TermStructure: ConstantBlackModel
-import AQFED.Math: normcdf, normpdf
+import AQFED.Math: normcdfCody, normpdf
 import AQFED.Black: blackScholesFormula
 
 export AndersenLakeRepresentation, priceAmerican, americanBoundaryPutQDP
+
+@inline normcdf(z::Float64) =  normcdfCody(z) #Faster apparently
 
 struct AndersenLakeRepresentation
     model::ConstantBlackModel
@@ -28,10 +30,10 @@ function AndersenLakeRepresentation(
     nTS1::Int,
     nTS2::Int,
 )
-    avec = Vector{Float64}(undef, nC + 1)
-    qvec = Vector{Float64}(undef, nC + 1)
-    wvec = Vector{Float64}(undef, nTS1)
-    yvec = Vector{Float64}(undef, nTS1)
+    avec = zeros(nC + 1)
+    qvec = zeros(nC + 1)
+    wvec = zeros(nTS1)
+    yvec = zeros(nTS1)
     ndiv2 = trunc(Int, (nTS1 + 1) / 2)
     hn = tanhsinhStep(nTS1)
     hvec = hn .* (ndiv2-1:-1:1)
@@ -60,12 +62,11 @@ function AndersenLakeRepresentation(
         fprev = fi
         qvec[i] = (log(fi / capX))^2
     end
-    #println("qvec ", qvec)
-    tauVector = Vector{Float64}(undef, nTS1)
-    k1 = Vector{Float64}(undef, nTS1)
-    k2 = Vector{Float64}(undef, nTS1)
-    d1Vector = Vector{Float64}(undef, nTS1)
-    d2Vector = Vector{Float64}(undef, nTS1)
+    # tauVector = zeros(nTS1)
+    # k1 = zeros(nTS1)
+    # k2 = zeros(nTS1)
+    # d1Vector = zeros(nTS1)
+    # d2Vector = zeros(nTS1)
     for j = 1:nIter
         #println(j, "qvec", qvec, "avec", avec)
         for sk = 0:nC
@@ -83,33 +84,40 @@ function AndersenLakeRepresentation(
             lnBtaui = log(capX) - sqrt(qvec[i])
             sum1k = 0.0
             sum2k = 0.0
-            @. tauVector = taui / 4 * (1 + yvec)^2
+            # @. tauVector = taui / 4 * (1 + yvec)^2
             @inbounds for sk1 = 1:nTS1
                 wk = wvec[sk1]
                 yk = yvec[sk1]
-                tauk = tauVector[sk1] #taui / 4 * (1 + yk)^2
+                # tauk = tauVector[sk1]
+                tauk =taui / 4 * (1 + yk)^2
                 if yk != -1
                     zck = 2 * sqrt((taui - tauk) / tauMax) - 1
                     qck = chebQck(avec, zck)
                     lnBtauk = log(capX) - sqrt(qck)
                     sqrtv = sqrt(tauk) * vol
-                    d1Vector[sk1] =
-                        ((lnBtaui - lnBtauk) + (r - q) * tauk) / sqrtv + sqrtv / 2
-                    d2Vector[sk1] = d1Vector[sk1] - sqrtv
+                    # d1Vector[sk1] =
+                    #     ((lnBtaui - lnBtauk) + (r - q) * tauk) / sqrtv + sqrtv / 2
+                    # d2Vector[sk1] = d1Vector[sk1] - sqrtv
+                    d1k = ((lnBtaui - lnBtauk) + (r - q) * tauk) / sqrtv + sqrtv / 2
+                    d2k = d1k - sqrtv
+                    sum1k += wk * exp(-q * tauk) * (yk + 1) * normcdf(d1k)
+                    sum2k += wk * exp(-r * tauk) * (yk + 1) * normcdf(d2k)
                 end
             end
-            @. k1 = wvec * exp(-q * tauVector) * (yvec + 1) * normcdf(d1Vector)
-            @. k2 = wvec * exp(-r * tauVector) * (yvec + 1) * normcdf(d2Vector)
-            sum1k = exp(q * taui) / 2 * taui * sum(k1)
-            sum2k = exp(r * taui) / 2 * taui * sum(k2)
-            sqrtv = sqrt(taui) * vol
+            # @. k1 = wvec * exp(-q * tauVector) * (yvec + 1) * normcdf(d1Vector)
+            # @. k2 = wvec * exp(-r * tauVector) * (yvec + 1) * normcdf(d2Vector)
+            # sum1k = exp(q * taui) / 2 * taui * sum(k1)
+            # sum2k = exp(r * taui) / 2 * taui * sum(k2)
+            sum1k = exp(q * taui) / 2 * taui * sum1k
+           sum2k = exp(r * taui) / 2 * taui * sum2k
+           sqrtv = sqrt(taui) * vol
             d1i = ((lnBtaui - log(K)) + (r - q) * taui) / sqrtv + sqrtv / 2
             d2i = d1i - sqrtv
 
             Ni = normcdf(d2i) + r * sum2k
             Di = normcdf(d1i) + q * sum1k
             NiOverDi = Ni / Di
-            if Di == 0 && Ni == 0
+            if Di == 0.0 && Ni == 0.0
                 #use asymptotic expansion cdf = erfc(-x/sqrt2)/2 and erfc(x) = e^{-x^2}/(x*sqrtpi)*(1-1/(2*x^2))
                 NiOverDi = exp(-(d2i^2 - d1i^2) / 2) * (d1i / d2i)
             end
@@ -127,8 +135,8 @@ function AndersenLakeRepresentation(
         #println("new iteration", j, computeBoundaryFromQVec(qvec, capX))
     end
     if nTS2 != nTS1
-        wvec = Vector{Float64}(undef, nTS2)
-        yvec = Vector{Float64}(undef, nTS2)
+        wvec = zeros(nTS2)
+        yvec = zeros(nTS2)
         ndiv2 = trunc(Int, (nTS2 + 1) / 2)
         hn = tanhsinhStep(nTS2)
         hi = (ndiv2 - 1) * hn
@@ -140,12 +148,12 @@ function AndersenLakeRepresentation(
             wvec[i] = hn * p2c / (cp2s^2)
             hi = hi - hn
         end
+        yvec[ndiv2] = 0
+        wvec[ndiv2] = pi * hn / 2
         for i = 1:ndiv2-1
             yvec[nTS2+1-i] = -yvec[i]
             wvec[nTS2+1-i] = wvec[i]
         end
-        yvec[ndiv2] = 0
-        wvec[ndiv2] = pi * hn / 2
     end
     return AndersenLakeRepresentation(
         model,
@@ -214,7 +222,7 @@ end
     b2 = 0.0
     nC = length(avec)-1
     b1 = avec[nC+1] / 2
-    @inbounds @fastmath for sk22 = nC:-1:2
+     @inbounds @fastmath for sk22 = nC:-1:2
         bd = avec[sk22] - b2
         b2 = b1
         b1 = 2 * zck * b1 + bd
@@ -260,7 +268,7 @@ function americanBoundaryPutQDP(
     #println("Sstar init ",Sstar)
     fS = atol
     iter = 0
-    obj = function (Sstar::Float64)
+    obj = @inline function (Sstar::Float64)
         d1, d2 = vaGBMd1d2(Sstar, K, r, q, tauMax, vol)
         Nd1 = normcdf(-d1)
         d1dS = 1.0 / (Sstar * SqrV)
@@ -316,13 +324,13 @@ function americanBoundaryPutQDP(
         local Sstarn
         # switch solverType {
         # case Halley:
-        # 	Sstarn = Sstar + hn/(1-0.5*halleyTerm) //halley
+        	# Sstarn = Sstar + hn/(1-0.5*halleyTerm)
         # case InverseQuadratic:
-        Sstarn = Sstar + hn * (1 + 0.5 * halleyTerm)
+        # Sstarn = Sstar + hn * (1 + 0.5 * halleyTerm)
         # case CMethod:
-        # 	Sstarn = Sstar + hn*(1+0.5*halleyTerm+2*halleyTerm*halleyTerm)
+        	# Sstarn = Sstar + hn*(1+0.5*halleyTerm+0.5*halleyTerm^2)
         # case SuperHalley:
-        # 	Sstarn = Sstar + hn*(1+0.5*halleyTerm/(1-halleyTerm)) //super halley
+        	Sstarn = Sstar + hn*(1+0.5*halleyTerm/(1-halleyTerm))
         # }
         if Sstarn < 0
             Sstarn = -Sstarn

@@ -8,7 +8,7 @@ using SpecialFunctions
 const sqrt2 = sqrt(2)
 const OneOverSqrtTwo = 1 / sqrt(2)
 
-#normcdf(z::Real) =  normcdfCody(z) #
+# normcdf(z::Real) =  normcdfCody(z) #
 normcdf(z::Float64) = erfc(-z * OneOverSqrtTwo)/2
 norminv(z::Float64) = -sqrt2*erfcinv(2*z)
 

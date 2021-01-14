@@ -79,7 +79,7 @@ function batchAL(threshold, rInfq, isBatch, m, n, l, p)
 
 	end
 	prices =  zeros((length(rs),length(qs),length(ttes),length(sigmas),length(spots)))
-	elap = @elapsed begin for (ir, r) = enumerate(rs), (iq, q) = enumerate(qs)
+	elap = @elapsed for (ir, r) = enumerate(rs), (iq, q) = enumerate(qs)
 					if !skipRInfQ(rInfq, r, q)
 						for (it, tte) = enumerate(ttes), (iv, vol) = enumerate(sigmas)
 							    model = ConstantBlackModel(vol, r, q)
@@ -103,7 +103,6 @@ function batchAL(threshold, rInfq, isBatch, m, n, l, p)
 					end
 
 			end
-		end
 		return prices, refPrices, elap
 end
 @testset "ALPositiveSet" begin
