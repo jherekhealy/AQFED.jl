@@ -12,6 +12,7 @@ import AQFED.TermStructure:
 function simulate(
     rng,
     model::LocalVolatilityModel{S},
+    spot::Float64,
     payoff::VanillaOption,
     start::Int,
     nSim::Int,
@@ -31,7 +32,7 @@ function simulate(
     logpathValues = Vector{Float64}(undef, nSim)
     z = Vector{Float64}(undef, nSim)
     t0 = genTimes[1]
-    lnspot = log(model.spot)
+    lnspot = log(spot)
     lnforward = lnspot
     logpathValues .= lnspot
     local payoffValues

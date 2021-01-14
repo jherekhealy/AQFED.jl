@@ -3,14 +3,14 @@ using Statistics
 import AQFED.TermStructure: ConstantBlackModel, TSBlackModel, varianceByLogmoneyness
 
 
-function simulate(rng, model::ConstantBlackModel, payoff::VanillaOption, nSim::Int)
+function simulate(rng, model::ConstantBlackModel, spot::Float64, payoff::VanillaOption, nSim::Int)
     tte = payoff.maturity
     sqrtte = sqrt(tte)
     df = exp(-model.r * tte)
     z = Vector{Float64}(undef, nSim)
     nextn!(rng, z)
     pathValues =
-        @. exp(model.vol * z * sqrtte + (model.r - model.q - 0.5 * model.vol^2) * tte)
+        @. spot*exp(model.vol * z * sqrtte + (model.r - model.q - 0.5 * model.vol^2) * tte)
     mean(x -> evaluatePayoff(payoff, x, df), pathValues)
 end
 
@@ -44,6 +44,7 @@ end
 function simulate(
     rng,
     model::TSBlackModel{S},
+    spot::Float64,
     payoff::VanillaOption,
     start::Int,
     nSim::Int;
@@ -65,7 +66,7 @@ function simulate(
     local payoffValues
 
     t0 = genTimes[1]
-    lnspot = log(model.spot)
+    lnspot = log(spot)
     logpathValues .= lnspot
 
     for (dim, t1) in enumerate(genTimes[2:end])

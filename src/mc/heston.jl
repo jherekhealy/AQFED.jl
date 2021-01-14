@@ -12,6 +12,7 @@ end
 function simulateDVSS2X(
     rng,
     model::HestonModel{T},
+    spot::Float64,
     payoff::VanillaOption,
     start::Int,
     nSim::Int,
@@ -40,7 +41,7 @@ function simulateDVSS2X(
     xsi = u1
     v = Vector{T}(undef, nSim)
     t0 = genTimes[1]
-    lnspot = log(model.spot)
+    lnspot = log(spot)
     logpathValues .= lnspot
     v .= model.v0
     ρBar = sqrt(1 - model.ρ^2)
@@ -139,6 +140,7 @@ end
 function simulateFullTruncation(
     rng,
     model::HestonModel{T},
+    spot::Float64,
     payoff::VanillaOption,
     start::Int,
     nSim::Int,
@@ -168,7 +170,7 @@ function simulateFullTruncation(
     v = Vector{T}(undef, nSim)
     sqrtmv = Vector{T}(undef, nSim)
     t0 = genTimes[1]
-    lnspot = log(model.spot)
+    lnspot = log(spot)
     logpathValues .= lnspot
     v .= model.v0
     ρBar = sqrt(1 - model.ρ^2)
@@ -215,6 +217,7 @@ end
 function simulateFullTruncationIter(
     rng,
     model::HestonModel{T},
+    spot::Float64,
     payoff::VanillaOption,
     start::Int,
     nSim::Int,
@@ -229,7 +232,7 @@ function simulateFullTruncationIter(
     if withBB
         bb = BrownianBridgeConstruction(genTimes[2:end])
     end
-    lnspot = log(model.spot)
+    lnspot = log(spot)
     ρBar = sqrt(1 - model.ρ^2)
     z = Vector{Float64}(undef, (length(genTimes) - 1) * 2)
     u = Array{Float64}(undef, (2, length(genTimes)-1))

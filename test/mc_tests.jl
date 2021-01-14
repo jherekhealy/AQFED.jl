@@ -117,7 +117,7 @@ end
 end
 
 @testset "BlackSim" begin
-    model = ConstantBlackModel(1.0, 1.0, 0.0, 0.0)
+    model = ConstantBlackModel(1.0, 0.0, 0.0)
     payoff = AQFED.MonteCarlo.VanillaOption(true, 1.0, 1.0)
     refValue = AQFED.Black.blackScholesFormula(true, 1.0, 1.0, 1.0, 1.0, 1.0)
     gens = [
@@ -131,7 +131,7 @@ end
     specTimes = AQFED.MonteCarlo.specificTimes(payoff)
     nd = 1
     for rng in gens
-        time = @elapsed value = AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 64 * 1024)
+        time = @elapsed value = AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, spot, payoff, 64 * 1024)
         println(typeof(rng), " ", value, " ", refValue, " ", value - refValue, " ", time)
         @test isapprox(refValue, value, atol = 1e-2)
     end
@@ -141,7 +141,7 @@ end
     payoff = AQFED.MonteCarlo.VanillaOption(true, 100.0, 10.0)
     section = SVISection(0.01, 0.0, 0.0, 0.01, 0.0, 1.0, 100.0)
     surface = VarianceSurfaceBySection([section], [1.0])
-    model = LocalVolatilityModel(100.0, surface, 0.0, 0.0)
+    model = LocalVolatilityModel(surface, 0.0, 0.0)
 
     refValue = AQFED.Black.blackScholesFormula(true, 100.0, 100.0, 0.01 * 10.0, 1.0, 1.0)
     gens = [
@@ -156,7 +156,7 @@ end
     nd = AQFED.MonteCarlo.ndims(model, specTimes, 1.0/16)
     for rng in gens
         time = @elapsed value, serr =
-            AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 0, 1024 * 64, 1.0 / 16)
+            AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, spot, payoff, 0, 1024 * 64, 1.0 / 16)
         println(
             typeof(rng),
             " ",
@@ -197,7 +197,7 @@ end
         sections,
         [0.16, 0.26, 0.33, 0.58, 0.83, 1.33, 1.83, 2.33, 2.82, 3.32, 4.34],
     )
-    model = LocalVolatilityModel(100.0, surface, 0.0, 0.0)
+    model = LocalVolatilityModel(surface, 0.0, 0.0)
 
     refValue = AQFED.Black.blackScholesFormula(
         true,
@@ -219,7 +219,7 @@ end
     nd = AQFED.MonteCarlo.ndims(model, specTimes, 1.0/32)
     for rng in gens
         time = @elapsed value, serr =
-        AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng, nd), model, payoff, 0, 1024 * 64, 1.0 / 32)
+        AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng, nd), model, spot, payoff, 0, 1024 * 64, 1.0 / 32)
         println(
             typeof(rng),
             " ",
@@ -238,7 +238,7 @@ end
 end
 
 @testset "HestonSim" begin
-    hParams = HestonModel(0.04, 0.5, 0.04, -0.9, 1.0, 100.0, 0.0, 0.0)
+    hParams = HestonModel(0.04, 0.5, 0.04, -0.9, 1.0, 0.0, 0.0)
     refValue = 13.08467
     gens = [
     MersenneTwister(20130129),
@@ -397,7 +397,7 @@ ve = Vector{Float64}(undef, length(r))
 va = Vector{Float64}(undef, length(r))
 for (i,spot) in enumerate(r)
 #    model = HestonModel(hParams.v0, hParams.κ, hParams.θ, hParams.ρ, hParams.σ, spot, 0.0, 0.0)
-    model = HestonModel(0.133, 0.35, 0.321, -0.63, 1.388, spot, 0.0, 0.0)
+    model = HestonModel(0.133, 0.35, 0.321, -0.63, 1.388, 0.0, 0.0)
     payoff = AQFED.MonteCarlo.VanillaOption(true, strike,τ)
     refValue = 0.0 #priceEuropean(pricer, true, strike, spot,τ)
     timesteps = 100
@@ -409,6 +409,7 @@ for (i,spot) in enumerate(r)
     time = @elapsed value, stderror = AQFED.MonteCarlo.simulateFullTruncation(
     seq,
     model,
+    spot,
     payoff,
     0,
     n,
@@ -480,9 +481,9 @@ end
                     1.0,
                 )
 
-                model = TSBlackModel(100.0, surface, 0.0, 0.0)
+                model = TSBlackModel(surface, 0.0, 0.0)
                 nd = AQFED.MonteCarlo.ndims(model, AQFED.MonteCarlo.specificTimes(payoff), 100.0)
-                value, serr = AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 0, 1024 * 64)
+                value, serr = AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, spot, payoff, 0, 1024 * 64)
                 println(
                     typeof(rng),
                     " ",
@@ -512,10 +513,10 @@ end
                     1.0,
                 )
 
-                model = LocalVolatilityModel(100.0, surface, 0.0, 0.0)
+                model = LocalVolatilityModel(surface, 0.0, 0.0)
                 nd = AQFED.MonteCarlo.ndims(model, AQFED.MonteCarlo.specificTimes(payoff), 100.0)
                     value, serr =
-                    AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, payoff, 0, 1024 * 64, 0.16)
+                    AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, spot, payoff, 0, 1024 * 64, 0.16)
                 println(
                     typeof(rng),
                     " ",
