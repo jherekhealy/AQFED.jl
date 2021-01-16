@@ -44,6 +44,7 @@ end
 
 module American
 include("american/andersenlake.jl")
+include("american/andersenlaken.jl")
 end
 
 module MonteCarlo
