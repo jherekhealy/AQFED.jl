@@ -1,5 +1,5 @@
 import AQFED.TermStructure: ConstantBlackModel
-import AQFED.Math: normcdf, normpdf
+import AQFED.Math: normcdf, normpdf, lambertW
 import AQFED.Black: blackScholesFormula
 
 export AndersenLakeRepresentation, priceAmerican, americanBoundaryPutQDP
@@ -360,20 +360,7 @@ function tanhsinhStep(nTS2::Int)::Float64
     return lambertW(4 * a * n) / n
 end
 
-function lambertW(x::Float64)::Float64
-    a = log(x)
-    b = log(a)
-    A0x = a - b + b / a
-    A0x += b * (-2 + b) / (2 * a^2)
-    A0x += b * (6 - 9 * b + 2 * b^2) / (6 * a^3)
-    A0x += b * (-12 + 36 * b - 22 * b^2 + 3 * b^3) / (12 * a^4)
-    A0x += b * (60 - 300 * b + 350 * b^2 - 125 * b^3 + 12 * b^4) / (60 * a^5)
-    wn = A0x
-    zn = log(x / wn) - wn
-    qn = 2 * (1 + wn) * (1 + wn + 2 * zn / 3)
-    en = (zn / (1 + wn)) * ((qn - zn) / (qn - 2 * zn))
-    return wn * (1 + en)
-end
+
 
 @inline function vaGBMd1d2(Btaui::T, Btauk::T, r::T, q::T, tauk::T, vol::T) where {T}
     sqrtv = sqrt(tauk) * vol

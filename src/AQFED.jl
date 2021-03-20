@@ -5,6 +5,7 @@ module Math
 include("math/erfc.jl")
 include("math/normal.jl")
 include("math/as241.jl")
+include("math/lambertw.jl")
 include("math/delbourgo_gregory.jl")
 end
 

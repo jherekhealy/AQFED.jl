@@ -30,8 +30,7 @@ function impliedVolatilitySRGuess(isCall::Bool, price::Real, f::Real, strike::Re
 end
 
 # f = 1.0, strike = 1/ex, ex=ey = 1.0/strike=f/strike, y = log(f/strike) = log(ey), alpha = price*ex
-#polya is 2 / pi
-#const polya_factor = sqrt(pi/8) #this is aludaat,
+#polya is 2 / pi, polya_factor = sqrt(pi/8) is aludaat,
 function impliedVolatilitySRGuessUndiscountedCall(price::Real, ey::Real, y::Real, polya_factor::Real = 2/pi)::Real
     alpha = price *ey
     r = 2 * alpha - ey + 1
@@ -69,11 +68,7 @@ function impliedVolatilitySRGuessUndiscountedCall(price::Real, ey::Real, y::Real
     if y >= 0
         Asqrty = 0.5 * (1 + sqrt(1 - em2piy * em2piy))
         c0 = (Asqrty - 0.5/ey)
-        gmy = gamma - y
-        if gmy < 0
-            #machine epsilon issues
-            gmy = 0.0
-        end
+        gmy = max(gamma - y,0)      #machine epsilon issues
         if price <= c0
             return sqrt(gamma + y) - sqrt(gmy)
         end
