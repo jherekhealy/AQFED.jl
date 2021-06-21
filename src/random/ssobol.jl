@@ -75,12 +75,10 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
     (d < 0 || d > (length(sobol_a) + 1)) && error("invalid Sobol dimension")
     #special cases
     d == 0 && return (ScrambledSobolSeq{0})(v, UInt32[], UInt32[], zero(UInt32))
-    #l=30
     l = 31
     if (n > 0)
     	l = fl1(n+1) #+1 as we skip the first point
     end
-    #println("l=",l)
     x = Vector{UInt32}(undef, d)
     fill!(x, 0)
     counter = 0
@@ -104,7 +102,7 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
             end
             for i = s+1:l
                 @inbounds v[j, i] = v[j, i-s] ⊻ (v[j, i-s] >> s)
-                for k = 1:s-1 #or from 0?
+                for k = 1:s-1 
                     @inbounds v[j, i] ⊻= (((a >> (s - k - 1)) & one(UInt32)) * v[j, i-k])
                 end
             end

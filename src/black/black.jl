@@ -1,6 +1,7 @@
 using AQFED.Math
 const SqrtEpsilon = sqrt(eps())
-function blackScholesFormula(isCall::Bool, strike::T, spot::T, variance::T, driftDf::T, discountDf::T) where {T}
+# totalVariance is vol^2*τ
+function blackScholesFormula(isCall::Bool, strike::T, spot::T, totalVariance::T, driftDf::T, discountDf::T) where {T}
 
     sign = 1
     if !isCall

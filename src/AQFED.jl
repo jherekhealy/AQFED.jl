@@ -41,11 +41,16 @@ module TermStructure
 include("ts/heston.jl")
 include("ts/lv.jl")
 include("ts/surface.jl")
+include("ts/dividend.jl")
 end
 
 module American
 include("american/andersenlake.jl")
 include("american/andersenlaken.jl")
+end
+
+module PLN
+include("pln/etore_gobet.jl")
 end
 
 module MonteCarlo
