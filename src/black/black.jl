@@ -8,7 +8,7 @@ function blackScholesFormula(isCall::Bool, strike::T, spot::T, totalVariance::T,
         sign = -1
     end
     forward = spot / driftDf
-    if variance < eps()
+    if totalVariance < eps()
         price = discountDf * max(sign * (forward - strike), 0)
         return price
     elseif spot < eps()
@@ -24,7 +24,7 @@ function blackScholesFormula(isCall::Bool, strike::T, spot::T, totalVariance::T,
             return 0
         end
     else
-        sqrtVar = sqrt(variance)
+        sqrtVar = sqrt(totalVariance)
         d1 = log(forward / strike)/sqrtVar + sqrtVar/2
         d2 = d1 - sqrtVar
         nd1 = normcdf(sign * d1)
