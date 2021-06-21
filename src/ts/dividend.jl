@@ -1,4 +1,4 @@
-export futureValue
+export futureValue, Dividend, CapitalizedDividend
 
 struct Dividend{T}
     amount::T

@@ -22,6 +22,7 @@ import AQFED.TermStructure: CapitalizedDividend, Dividend
 
     ll2 = LeFlochLehmanPLNPricer(2)
     ll3 = LeFlochLehmanPLNPricer(3)
+    refHHL = [43.24845580, 9.07480013, 1.06252880, 0.10473887]
     refEg2 = [43.24846889, 9.07479039, 1.06253441, 0.10474035]
     refEg3 = [43.24845582, 9.07480026, 1.06252875, 0.10473885]
     for (i, strike) in enumerate(LinRange(50.0, 200.0, 4))
@@ -35,7 +36,7 @@ import AQFED.TermStructure: CapitalizedDividend, Dividend
             discountFactor,
             dividends,
         )
-        println(strike, " EG-2 ", price)
+        println(strike, " EG-2 ", price, " ", price-refHHL[i])
         @test isapprox(refEg2[i], price, atol = 1e-8)
         price = priceEuropean(
             eg3,
@@ -47,7 +48,7 @@ import AQFED.TermStructure: CapitalizedDividend, Dividend
             discountFactor,
             dividends,
         )
-        println(strike, " EG-3 ", price)
+        println(strike, " EG-3 ", price, " ", price-refHHL[i])
         @test isapprox(refEg3[i], price, atol = 1e-8)
         price = priceEuropean(
             ll2,
@@ -59,7 +60,7 @@ import AQFED.TermStructure: CapitalizedDividend, Dividend
             discountFactor,
             dividends,
         )
-        println(strike, " LL-2 ", price)
+        println(strike, " LL-2 ", price, " ", price-refHHL[i])
         price = priceEuropean(
             ll3,
             isCall,
@@ -70,7 +71,7 @@ import AQFED.TermStructure: CapitalizedDividend, Dividend
             discountFactor,
             dividends,
         )
-        println(strike, " LL-3 ", price)
+        println(strike, " LL-3 ", price, " ", price-refHHL[i])
     end
 
 end
