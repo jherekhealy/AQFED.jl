@@ -6,6 +6,7 @@ The following approximations of vanilla basket option prices under the Black-Sch
 
 Below is an example of a call option of strike 110 and maturity one year on a basket composed of 5 assets with weights [0.05, 0.15, 0.2, 0.25, 0.35].
 ```julia
+using AQFED; using AQFED.Basket
 weight = [0.05, 0.15, 0.2, 0.25, 0.35]
 spot = [100.0, 100.0, 100.0, 100.0, 100.0]
 r = 0.05; rho = 0.5; τ = 1.0

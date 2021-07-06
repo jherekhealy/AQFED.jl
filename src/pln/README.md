@@ -25,3 +25,7 @@ for (i, strike) in enumerate(LinRange(50.0, 200.0, 4))
           @printf "%4.1f  LL %.8f %.2e\n" strike priceLL (priceLL - refHHL[i])
 end
 ```
+
+## References
+Etore, P. and Gobet, E. (2012) [Stochastic expansion for the pricing of call options with discrete dividends](https://hal.archives-ouvertes.fr/hal-00507787/file/dividende_v_final.pdf),
+Le Floc'h, F. (2019) [More stochastic expansions for the pricing of vanilla options with cash dividends](https://arxiv.org/pdf/2106.12051).
