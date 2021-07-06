@@ -49,6 +49,10 @@ include("american/andersenlake.jl")
 include("american/andersenlaken.jl")
 end
 
+module Basket
+include("basket/deelstra.jl")
+end
+
 module PLN
 include("pln/etore_gobet.jl")
 end

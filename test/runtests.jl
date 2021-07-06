@@ -1,7 +1,8 @@
 using AQFED, Test
 import AQFED.Black
 
-include("pln_european_test.jl")
+include("basket_test.jl")
+#include("pln_european_test.jl")
 #include("american_test.jl")
 #include("iv_tests.jl")
 #include("random_tests.jl")
