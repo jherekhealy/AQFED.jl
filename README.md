@@ -13,3 +13,4 @@ Then ESC or CTRL+C to exit the pkg env.
 - [Implied Volatility Solver](https://github.com/jherekhealy/AQFED.jl/tree/master/src/black): fast and robust solvers to find the Black-Scholes implied volatility corresponding to a given option price.
 - [Piecewise Lognormal Model](https://github.com/jherekhealy/AQFED.jl/tree/master/src/pln) (also known as spot model) for cash dividends: fast and accurate approximations.
 - [American Option Pricing](https://github.com/jherekhealy/AQFED.jl/tree/master/src/american): Andersen-Lake technique.
+- [Random Number Generators](https://github.com/jherekhealy/AQFED.jl/tree/master/src/random): good pseudo and quasi random number generators.
