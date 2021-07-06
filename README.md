@@ -66,7 +66,7 @@ The Julia package provides two related approximations:
 As input, a vector of CapitalizedDividend objects is used. Each CapitalizedDividend contains the dividend details as well as the capitalization factor from dividend ex-date to option maturity date. Below is an example that displays the accuracy for a single cash dividend accross three strikes.
 The reference values have been obtained by nearly exact integration (Haug-Haug-Lewis formula).
 ```julia
-using AQFED; using AQFED.PLN, using AQFED.TermStructure; using Printf
+using AQFED; using AQFED.PLN; using AQFED.TermStructure; using Printf
 spot = 100.0; vol = 0.3; discountRate = 0.0; divAmount = 7.0; tte = 1.0; ttp = tte
 ttd = 0.9 * tte
 isCall = true
@@ -82,3 +82,17 @@ for (i, strike) in enumerate(LinRange(50.0, 200.0, 4))
           @printf "%4.1f  LL %.8f %.2e\n" strike priceLL (priceLL - refHHL[i])
 end
 ```
+
+## American Option Pricing
+An implementation of Andersen-Lake technique for the integral equation of a vanilla American option is available in the [American](https://github.com/jherekhealy/AQFED.jl/tree/master/src/american) Julia module.
+Example to price an American put option of maturity τ=0.75 year, and strike 100, on an asset of spot price 80, with volatility σ=30%, paying no dividend, and with interest rate r=4%. The settings nC=7 collocation points, nIter=8 iterations, nTS1=15 first quadrature points, nTS2=31 second quadrature points lead to very accurate prices and good performance in general.
+
+```
+using AQFED; using AQFED.American
+import AQFED.TermStructure: ConstantBlackModel
+strike = 100.0; spot = 80.0; σ = 0.3; τ = 0.75; q = 0.0; r = 0.04
+model = ConstantBlackModel(σ, r, q)
+pricer = AndersenLakeRepresentation(model, τ, 1e-8, 7, 8, 15, 31, isCall=false)
+price = priceAmerican(pricer, strike, spot)
+```
+The output is 21.086135735070997
