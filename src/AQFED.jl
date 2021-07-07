@@ -51,6 +51,7 @@ end
 
 module Basket
 include("basket/deelstra.jl")
+include("basket/asian.jl")
 end
 
 module PLN
