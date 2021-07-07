@@ -12,7 +12,7 @@ struct DeelstraBasketPricer{T}
 end
 
 function DeelstraBasketPricer(δIndex::Int, fIndex::Int)
-    xG, wG = gausslegendre(33)
+    xG, wG = gausslegendre(33*4)
     DeelstraBasketPricer{Float64}(δIndex, fIndex, xG, wG)
 end
 

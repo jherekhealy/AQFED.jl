@@ -34,21 +34,21 @@ using a volatility of 50% and an interest rate of 9% as in the example of Ju (20
 
 ```julia
 using AQFED; using AQFED.Basket; using Printf
-spot = 100.0; r = 0.09; q = 0.0; vol = 0.5
+spot = 100.0; r = 0.09; q = 0.0; σ = 0.5
 τ=3.0; strikes = [95.0, 100.0, 105.0]
 refPrices = [24.5526, 22.6115, 20.8241] #TS values
 
-n = Int(tte * 52)
+n = Int(τ * 52)
 weights = zeros(Float64, n + 1)
 tvar = zeros(Float64, n + 1)
 forward = zeros(Float64, n + 1)
 for i = 1:length(weights)
 	weights[i] = 1.0 / (n + 1)
-	ti = (i-1) / n * tte
-	tvar[i] = vol^2 * ti
+	ti = (i-1) / n * τ
+	tvar[i] = σ^2 * ti
 	forward[i] = spot * exp((r - q) * ti)
 end
-discountFactor = exp(-r * tte)
+discountFactor = exp(-r * τ)
 
 p = DeelstraBasketPricer(1, 3)
 for (refPrice,strike) in zip(refPrices,strikes)
@@ -62,4 +62,4 @@ The errors are much smaller than any approximation listed in the Ju (2002) paper
 ## References
 Deeltra, G. Diallo, I and Vanmaele, M (2010) [Moment matching approximation of Asian basket option prices](https://www.sciencedirect.com/science/article/pii/S0377042709002106)
 
-Ju,N. (2002) [Pricing Asian and basket options via Taylor expansion](https://www.academia.edu/download/4686930/jujcf02.pdf)
+Ju, N. (2002) [Pricing Asian and basket options via Taylor expansion](https://www.academia.edu/download/4686930/jujcf02.pdf)
