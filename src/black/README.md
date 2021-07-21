@@ -1,3 +1,25 @@
+## Black-Scholes Formula
+
+Julia allows to compute greeks via forward or reverse automatic differentiation.
+In order to do this, we create a vector with the variables towards which we want to obtain sensitivities.
+```julia
+import AQFED.Black
+using ForwardDiff
+strike = 100.0; spot = 100.0; tte = 1.0; vol=0.4; r=0.05
+x = [strike, spot, tte, vol, r, r]
+f = function(x::AbstractArray)  Black.blackScholesFormula(true,x[1],x[2],x[3]*x[4]^2,exp(-x[5]*x[3]),exp(-x[6]*x[3])) end
+ForwardDiff.gradient(f, x)
+
+using ReverseDiff
+ReverseDiff.gradient(f, x)
+```
+The reverse differentiation can be made faster by pre-compiling the tape as follows
+```julia
+f_tape = ReverseDiff.GradientTape(f,  rand(length(x))) #0 not ok
+compiled_f_tape = ReverseDiff.compile(f_tape)
+ReverseDiff.gradient!(y, compiled_f_tape, x)
+```
+
 ## Implied Volatility Solver
 ### Standard Example
 ```julia

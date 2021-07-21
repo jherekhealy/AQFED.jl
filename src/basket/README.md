@@ -59,6 +59,53 @@ end
 
 The errors are much smaller than any approximation listed in the Ju (2002) paper.
 
+## Automatic Differentiation
+
+The code supports Julia ForwardDiff. In particular, it has been modified as to handle the case where t=0, which may lead to divisions by 0 in the greeks calculations.
+
+Below is an example to obtain the delta and vega at each Asian observation date (314 sensitivities).
+```julia
+using ForwardDiff; using AQFED; using AQFED.Basket
+spot = 100.0; r = 0.09; q = 0.0; σ = 0.5
+τ=3.0; strike = 100.0
+n = Int(τ * 52)
+weights = fill(1.0/(n+1), n + 1)
+vols = fill(σ,n+1)
+obsTimes = collect(0:n) .* (τ/n)
+forward = spot .* exp.((r - q) .* obsTimes)
+discountFactor = exp(-r * τ)
+
+p = DeelstraBasketPricer(1, 3)
+x = vcat(forward, vols)
+f = function(x::AbstractArray)  
+	forward =  x[1:n+1]
+	vols = x[n+2:2*n+2]
+	tvar = vols.^2 .* obsTimes
+	priceAsianFixedStrike(p, true, strike, discountFactor, spot, forward, tvar, weights)
+end
+ForwardDiff.gradient(f, x)
+```
+29 ms for a single price, and 3s for all 314 sensitivities.
+BackwardDiff is also supported (not for the lower bound approximation), but the code is not optimized for it, and it is not faster as a consequence.
+
+## Discrete Cash Dividends via Baskets
+```julia
+using AQFED.TermStructure
+τd = 0.5; τ=7.0
+x = [strike, spot, τ, σ, r, τd]
+f = function(x)
+	τ=x[3]; r=x[5];τd=x[6]; Basket.priceEuropean(p, true, x[1], x[2]*exp(x[3]*x[5]),x[4]^2*x[3],x[3],exp(-x[3]*x[5]),[CapitalizedDividend(Dividend(6.0, τd, τd, false, false), exp((τ - τd) * r)),
+		CapitalizedDividend(Dividend(6.5, τd + 1, τd + 1, false, false), exp((τ - τd - 1) * r)),
+		CapitalizedDividend(Dividend(7.0, τd + 2, τd + 2, false, false), exp((τ - τd - 2) * r)),
+		CapitalizedDividend(Dividend(7.5, τd + 3, τd + 3, false, false), exp((τ - τd - 3) * r)),
+		CapitalizedDividend(Dividend(8.0, τd + 4, τd + 4, false, false), exp((τ - τd - 4) * r)),
+		CapitalizedDividend(Dividend(8.0, τd + 5, τd + 5, false, false), exp((τ - τd - 5) * r)),
+		CapitalizedDividend(Dividend(8.0, τd + 6, τd + 6, false, false), exp((τ - τd - 6) * r))])
+end
+ForwardDiff.gradient(f, x)
+```
+2.6 ms for a single price and  3.5 ms for all 6 sensitivities.
+
 ## References
 Deeltra, G. Diallo, I and Vanmaele, M (2010) [Moment matching approximation of Asian basket option prices](https://www.sciencedirect.com/science/article/pii/S0377042709002106)
 

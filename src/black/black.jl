@@ -1,8 +1,9 @@
 using AQFED.Math
 const SqrtEpsilon = sqrt(eps())
 # totalVariance is vol^2*τ
-function blackScholesFormula(isCall::Bool, strike::T, spot::T, totalVariance::T, driftDf::T, discountDf::T) where {T}
+export blackScholesFormula, blackScholesVega
 
+function blackScholesFormula(isCall::Bool, strike::Number, spot::Number, totalVariance::Number, driftDf::Number, discountDf::Number)
     sign = 1
     if !isCall
         sign = -1
@@ -32,4 +33,18 @@ function blackScholesFormula(isCall::Bool, strike::T, spot::T, totalVariance::T,
         price = sign * discountDf * (forward * nd1 - strike * nd2)
         return price
     end
+end
+
+function blackScholesVega(strike::Number,
+	spot::Number,
+	variance::Number,
+	driftDf::Number,
+	discountDf::Number,
+	tte::Number)::Number
+	forward = spot / driftDf
+	sqrtVar = sqrt(variance)
+	d1 = 1.0/sqrtVar*log(forward/strike) + 0.5*sqrtVar
+	nd1 = normpdf(d1)
+	vega = discountDf * forward * nd1 * sqrt(tte)
+	return vega
 end

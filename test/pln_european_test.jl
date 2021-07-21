@@ -13,10 +13,10 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer
     ttp = tte
     isCall = true
     discountFactor = exp(-discountRate * ttp)
-    dividends = Vector{CapitalizedDividend{Float64}}(undef, 1)
+    dividends = Vector{CapitalizedDividend}(undef, 1)
     #amount::T        exDate::Float64        payDate::Float64        isProportional::bool        isKnown::bool
     dividends[1] =
-        CapitalizedDividend(Dividend{Float64}(divAmount, ttd, ttd, false, false), exp((tte - ttd) * discountRate))
+        CapitalizedDividend(Dividend(divAmount, ttd, ttd, false, false), exp((tte - ttd) * discountRate))
     println("S Model Price Error")
     eg2 = EtoreGobetPLNPricer(2)
     eg3 = EtoreGobetPLNPricer(3)
@@ -111,20 +111,13 @@ end
     tte = 7.0
     isCall = true
     ttd = 0.9
-    dividends = Vector{CapitalizedDividend{Float64}}(undef, 7)
-    dividends[1] = CapitalizedDividend(Dividend{Float64}(6.0, ttd, ttd, false, false), exp((tte - ttd) * discountRate))
-    dividends[2] =
-        CapitalizedDividend(Dividend{Float64}(6.5, ttd + 1, ttd + 1, false, false), exp((tte - ttd - 1) * discountRate))
-    dividends[3] =
-        CapitalizedDividend(Dividend{Float64}(7.0, ttd + 2, ttd + 2, false, false), exp((tte - ttd - 2) * discountRate))
-    dividends[4] =
-        CapitalizedDividend(Dividend{Float64}(7.5, ttd + 3, ttd + 3, false, false), exp((tte - ttd - 3) * discountRate))
-    dividends[5] =
-        CapitalizedDividend(Dividend{Float64}(8.0, ttd + 4, ttd + 4, false, false), exp((tte - ttd - 4) * discountRate))
-    dividends[6] =
-        CapitalizedDividend(Dividend{Float64}(8.0, ttd + 5, ttd + 5, false, false), exp((tte - ttd - 5) * discountRate))
-    dividends[7] =
-        CapitalizedDividend(Dividend{Float64}(8.0, ttd + 6, ttd + 6, false, false), exp((tte - ttd - 6) * discountRate))
+    dividends = [CapitalizedDividend(Dividend(6.0, ttd, ttd, false, false), exp((tte - ttd) * discountRate)),
+    CapitalizedDividend(Dividend(6.5, ttd + 1, ttd + 1, false, false), exp((tte - ttd - 1) * discountRate)),
+    CapitalizedDividend(Dividend(7.0, ttd + 2, ttd + 2, false, false), exp((tte - ttd - 2) * discountRate)),
+    CapitalizedDividend(Dividend(7.5, ttd + 3, ttd + 3, false, false), exp((tte - ttd - 3) * discountRate)),
+    CapitalizedDividend(Dividend(8.0, ttd + 4, ttd + 4, false, false), exp((tte - ttd - 4) * discountRate)),
+    CapitalizedDividend(Dividend(8.0, ttd + 5, ttd + 5, false, false), exp((tte - ttd - 5) * discountRate)),
+    CapitalizedDividend(Dividend(8.0, ttd + 6, ttd + 6, false, false), exp((tte - ttd - 6) * discountRate))]
     rawForward = spot * exp(discountRate * tte)
     df = exp(-discountRate * tte)
     ll3 = LeFlochLehmanPLNPricer(3)
@@ -171,11 +164,11 @@ end
     tte = 10.0
     isCall = true
     ttd0 = 1.0 / 365
-    dividends = Vector{CapitalizedDividend{Float64}}(undef, 20)
+    dividends = Vector{CapitalizedDividend}(undef, 20)
     for i = 1:20
         ttd = ttd0 + (i - 1) / 2
         dividends[i] =
-            CapitalizedDividend(Dividend{Float64}(divAmount, ttd, ttd, false, false), exp((tte - ttd) * discountRate))
+            CapitalizedDividend(Dividend(divAmount, ttd, ttd, false, false), exp((tte - ttd) * discountRate))
     end
     rawForward = spot * exp(discountRate * tte)
     df = exp(-discountRate * tte)

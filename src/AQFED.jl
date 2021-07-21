@@ -22,6 +22,11 @@ impliedVolatility(isCall::Bool, price::T, f::T, strike::T, tte::T,  df::T)  wher
 export impliedVolatility
 end
 
+module Bachelier
+include("bachelier/bachelier.jl")
+include("bachelier/iv_solver_lfk.jl")
+end
+
 __precompile__(true)
 module Random
 include("random/mixmax.jl")
@@ -66,5 +71,9 @@ include("mc/payoffs.jl")
 include("mc/black.jl")
 include("mc/heston.jl")
 include("mc/lv.jl")
+end
+
+module Collocation
+include("collocation/poly.jl")
 end
 end

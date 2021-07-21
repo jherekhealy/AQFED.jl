@@ -11,21 +11,21 @@ end
 function priceEuropean(
     p::EtoreGobetPLNPricer,
     isCall::Bool,
-    strike::T,
-    rawForward::T, #The raw forward to τ (without cash dividends)
-    variance::T,
-    τ::T,
-    discountDf::T, #discount factor to payment date
-    dividends::Vector{CapitalizedDividend{T}},
-)::T where {T}
+    strike::Number,
+    rawForward::Number, #The raw forward to τ (without cash dividends)
+    variance::Number,
+    τ::Number,
+    discountDf::Number, #discount factor to payment date
+    dividends::Vector{CapitalizedDividend},
+)
     if length(dividends) == 0
-        return blackScholesFormula(isCall, strike, rawForward, variance, one(T), discountDf)
+        return blackScholesFormula(isCall, strike, rawForward, variance, one(Float64), discountDf)
     end
-    if length(dividends) == 1 && dividends[1].dividend.exDate < sqrt(eps(T))
+    if length(dividends) == 1 && dividends[1].dividend.exDate < sqrt(eps(Float64))
         forward = rawForward - futureValue(dividends[1])
-        return blackScholesFormula(isCall, strike, forward, variance, one(T), discountDf)
+        return blackScholesFormula(isCall, strike, forward, variance, one(Float64), discountDf)
     end
-    s = one(T)
+    s = one(Float64)
     if !isCall
         s = -s
     end
@@ -33,9 +33,9 @@ function priceEuropean(
     sumDiv = sum(futureValue(cd) for cd in dividends)
     kd = strike + sumDiv
     forward = rawForward
-    if forward - sumDiv <= zero(T)
+    if forward - sumDiv <= zero(Float64)
         if isCall
-            return zero(T)
+            return zero(Float64)
         else
             return discountDf * strike
         end
@@ -47,16 +47,16 @@ function priceEuropean(
     nd1 = normcdf(s * d1)
     nd2 = normcdf(s * d2)
     price = s * (forward * nd1 - kd * nd2)
-    sum1 = zero(T)
+    sum1 = zero(Float64)
     d1Call = -s * nd2
     for cd in dividends
-        frac = one(T) - cd.dividend.exDate / τ
+        frac = one(Float64) - cd.dividend.exDate / τ
         d2i = d2 + sqrtVar * frac
         d1Calli = -s * normcdf(s * d2i)
         sum1 += futureValue(cd) * (d1Calli - d1Call)
     end
-    sum2 = zero(T)
-    sum3 = zero(T)
+    sum2 = zero(Float64)
+    sum3 = zero(Float64)
 
     n = length(dividends)
     if p.order > 1
@@ -74,7 +74,7 @@ function priceEuropean(
                 if i != j
                     sum2 += a
                 end
-                d3Callij = d2Callij / kd * (d2ij / sqrtVar - one(T))
+                d3Callij = d2Callij / kd * (d2ij / sqrtVar - one(Float64))
                 b = -sumDiv * divPVi * divPVj * d3Callij * 3
                 sum3 += b
                 if i != j
@@ -94,19 +94,19 @@ function priceEuropean(
     if p.order > 2
         for i = 1:n
             divPVi = futureValue(dividends[i])
-            fraci = one(T) - dividends[i].dividend.exDate / τ
+            fraci = one(Float64) - dividends[i].dividend.exDate / τ
             for j = i:n
                 divPVj = futureValue(dividends[j])
-                fracj = one(T) - dividends[j].dividend.exDate / τ
+                fracj = one(Float64) - dividends[j].dividend.exDate / τ
 
                 for l = j:n
                     divPVl = futureValue(dividends[l])
-                    fracl = one(T) - dividends[l].dividend.exDate / τ
+                    fracl = one(Float64) - dividends[l].dividend.exDate / τ
                     fracijl = 3.0 - (dividends[j].dividend.exDate + 2 * dividends[l].dividend.exDate) / τ
                     d2ijl = d2 + sqrtVar * (fraci + fracj + fracl)
                     d3Callijl =
                         exp(-d2ijl^2 / 2 + fracijl * variance) * OneOverSqrt2Pi / (kd^2 * sqrtVar) *
-                        (d2ijl / sqrtVar - one(T))
+                        (d2ijl / sqrtVar - one(Float64))
                     a = divPVi * divPVj * divPVl * d3Callijl
                     sum3 += a
                     if i != j || j != l
@@ -143,7 +143,7 @@ function priceEuropean(
     variance::T,
     τ::T,
     discountDf::T, #discount factor to payment date
-    dividends::Vector{CapitalizedDividend{T}},
+    dividends::Vector{CapitalizedDividend},
 )::T where {T}
     if length(dividends) == 0
         return blackScholesFormula(isCall, strike, rawForward, variance, one(T), discountDf)
