@@ -89,10 +89,14 @@ ForwardDiff.gradient(f, x)
 BackwardDiff is also supported (not for the lower bound approximation), but the code is not optimized for it, and it is not faster as a consequence.
 
 ## Discrete Cash Dividends via Baskets
+The Basket approximation may be used to price European options under the [piecewise-lognormal model](https://github.com/jherekhealy/AQFED.jl/tree/master/src/pln) (also known as spot model) for a single underlying paying multiple dividends. Below is the example of Vellekoop and Nieuwenhuis (2006) with 7 dividends.
+
 ```julia
 using AQFED.TermStructure
+spot = 100.0; strike=70.0; r = 0.06; q = 0.0; σ = 0.25
 τd = 0.5; τ=7.0
 x = [strike, spot, τ, σ, r, τd]
+p = DeelstraBasketPricer(1, 3)
 f = function(x)
 	τ=x[3]; r=x[5];τd=x[6]; Basket.priceEuropean(p, true, x[1], x[2]*exp(x[3]*x[5]),x[4]^2*x[3],x[3],exp(-x[3]*x[5]),[CapitalizedDividend(Dividend(6.0, τd, τd, false, false), exp((τ - τd) * r)),
 		CapitalizedDividend(Dividend(6.5, τd + 1, τd + 1, false, false), exp((τ - τd - 1) * r)),
@@ -104,9 +108,13 @@ f = function(x)
 end
 ForwardDiff.gradient(f, x)
 ```
-2.6 ms for a single price and  3.5 ms for all 6 sensitivities.
+The output with `DeelstraBasketPricer` is 26.08099127059646  (the reference value is 26.08). It takes 2.6 ms for a single price and  3.5 ms for all 6 sensitivities.
+The output with `DeelstraLBBasketPricer` is 26.069554947778418, in 0.05 ms and it takes 0.06 ms to compute the 6 sensitivities.
+
 
 ## References
 Deeltra, G. Diallo, I and Vanmaele, M (2010) [Moment matching approximation of Asian basket option prices](https://www.sciencedirect.com/science/article/pii/S0377042709002106)
 
 Ju, N. (2002) [Pricing Asian and basket options via Taylor expansion](https://www.academia.edu/download/4686930/jujcf02.pdf)
+
+Vellekoop, M.H. and Nieuwenhuis, J.W. (2006) [Efficient Pricing of Derivatives on Assets with Discrete Dividends](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.486.9053&rep=rep1&type=pdf)

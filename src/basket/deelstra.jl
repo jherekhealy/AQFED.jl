@@ -11,8 +11,8 @@ struct DeelstraBasketPricer
     w::Vector{Float64} #quadrature weights
 end
 
-function DeelstraBasketPricer(δIndex::Int, fIndex::Int)
-    xG, wG = gausslegendre(33*4)
+function DeelstraBasketPricer(δIndex::Int, fIndex::Int; N=33*4)
+    xG, wG = gausslegendre(N)
     DeelstraBasketPricer(δIndex, fIndex, xG, wG)
 end
 

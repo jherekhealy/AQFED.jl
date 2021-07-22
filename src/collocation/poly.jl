@@ -1,24 +1,13 @@
 #Stochastic collocation towards a polynomial
 using Polynomials
 using Roots
-import AQFED.Math: normcdf, normpdf, norminv
+import AQFED.Math: normcdf, normpdf, norminv, InverseQuadraticMethod
 import AQFED.Black: blackScholesFormula, blackScholesVega
 using AQFED.Bachelier
-using MINPACK #slower
+#using MINPACK #slower
 using LeastSquaresOptim
-using Convex, SparseArrays, LinearAlgebra
-using ForwardDiff
-using COSMO
 #using SCS #slower
-export Polynomial,
-    IsotonicCollocation,
-    solveStrike,
-    priceEuropean,
-    density,
-    filterConvexPrices,
-    isArbitrageFree,
-    makeIsotonicCollocation,
-    weightedPrices
+export Polynomial, IsotonicCollocation, solveStrike, priceEuropean, density, makeIsotonicCollocation, weightedPrices
 
 struct IsotonicCollocation
     p1::AbstractPolynomial
@@ -26,26 +15,9 @@ struct IsotonicCollocation
     forward::Number
 end
 
-struct InverseQuadraticMethod <: Roots.AbstractHalleyLikeMethod
-end
 
-function Roots.update_state(method::InverseQuadraticMethod, fs, o::Roots.UnivariateZeroState{T,S}, options::Roots.UnivariateZeroOptions) where {T,S}
-    xn = o.xn1
-    fxn = o.fxn1
-    r1, r2 = o.m
-
-    xn1::T = xn - (1+ r1/(r2*2))*r1   #r1/r2 = L  1/(2- r1)*r1
-
-    tmp = Roots.fΔxΔΔx(fs, xn1)
-    fxn1::S, r1::T, r2::T = tmp[1], tmp[2], tmp[3]
-    Roots.incfn(o,3)
-
-    o.xn0, o.xn1 = xn, xn1
-    o.fxn0, o.fxn1 = fxn, fxn1
-    empty!(o.m); append!(o.m, (r1, r2))
-end
-function Polynomial(iso::IsotonicCollocation)
-    p = integrate(iso.p1^2 + iso.p2^2 + 1e-4 * iso.forward) #add a minimum slope such that density is not too spiky and collocation not too flat
+function Polynomial(iso::IsotonicCollocation; minSlope = 1e-4)
+    p = integrate(iso.p1^2 + iso.p2^2 + minSlope * iso.forward) #add a minimum slope such that density is not too spiky and collocation not too flat
     theoForward = hermiteIntegral(p)
     p[0] = iso.forward - theoForward
     #fixing the forward is important to avoid the case where C(K=0) < 0.
@@ -61,10 +33,11 @@ function solveStrike(p::AbstractPolynomial, strike::Number; useHalley = true)::N
             guess = (strike - p[0]) / p[1]
         end
         return find_zero(
-            x -> (p(x) - strike, (p(x) - strike) / pd(x), pd2(x) == 0 ? 0 : pd(x) / pd2(x)),
+            x -> (p(x) - strike, (p(x) - strike) / pd(x), pd2(x) == 0 ? Inf : pd(x) / pd2(x)),
             guess,
             InverseQuadraticMethod(),
-            atol = 100*eps(strike), maxevals=1024
+            atol = 100 * eps(strike),
+            maxevals = 1024,
         )
     else
         pk = p - strike
@@ -99,7 +72,7 @@ function density(p::AbstractPolynomial, strike::Number)::Number
     return normpdf(ck) / derivative(p)(ck)
 end
 
-function moment(p::AbstractPolynomial, moment::Int)::Number
+function rawMoment(p::AbstractPolynomial, moment::Int)::Number
     if moment == 0
         return 1.0
     end
@@ -110,18 +83,16 @@ function moment(p::AbstractPolynomial, moment::Int)::Number
     return hermiteIntegral(q)
 end
 
+#return mean, standard dev, skew, kurtosis of the collocation
 function stats(p::AbstractPolynomial)
-    msc1 = moment(p, 1)
-    msc2 = moment(p, 2)
-    msc3 = moment(p, 3)
-    msc4 = moment(p, 4)
-    mean = msc1
-    variance = sqrt(msc2 - msc1 * msc1)
-    skew = (msc3 - msc1 * msc1 * msc1 - 3 * msc1 * msc2 + 3 * msc1 * msc1 * msc1) / (msc2 - msc1 * msc1)^1.5
-    kurtosis =
-        (msc4 - 4 * msc1 * msc3 + 6 * msc2 * msc1 * msc1 - 4 * msc1 * msc1 * msc1 * msc1 + msc1 * msc1 * msc1 * msc1) /
-        (msc2 - msc1 * msc1)^2
-    return mean, variance, skew, kurtosis
+    μ = hermiteIntegral(p)
+    μ2 = hermiteIntegral((p - μ)^2)
+    μ3 = hermiteIntegral((p - μ)^3)
+    μ4 = hermiteIntegral((p - μ)^4)
+
+    skew = μ3 / μ2^1.5
+    kurtosis = μ4 / μ2^2
+    return μ, sqrt(μ2), skew, kurtosis
 end
 function hermiteIntegral(p::AbstractPolynomial)::Number
     m0 = 1.0
@@ -157,106 +128,6 @@ function hermiteIntegralBounded(p::AbstractPolynomial, ck::Number)::Number
     return sum
 end
 
-function makeXFromUndiscountedPrices(strikesf::Vector{T}, pricesf::Vector{T}) where {T}
-    n = length(strikesf)
-
-    pif = zeros(T, n)
-    xif = zeros(T, n)
-    for i = 2:n-1
-        dxi = strikesf[i+1] - strikesf[i]
-        dxim = strikesf[i] - strikesf[i-1]
-        dzi = (pricesf[i+1] - pricesf[i]) / dxi
-        dzim = (pricesf[i] - pricesf[i-1]) / dxim
-        s = (dxim * dzi + dxi * dzim) / (dxim + dxi)
-        pif[i] = -s
-        xif[i] = -norminv(-s)
-    end
-    dzi = (pricesf[n] - pricesf[n-1]) / (strikesf[n] - strikesf[n-1])
-    pif[n] = -dzi
-    xif[n] = -norminv(-dzi)
-    dzim = -pif[n-2]
-    slopeTolerance = 1e-8
-    if dzi * dzim < 0 || dzi < dzim || abs(dzi) < slopeTolerance
-        pif = pif[1:n-1]
-        xif = xif[1:n-1]
-        strikesf = strikesf[1:n-1]
-    end
-    dzim = (pricesf[2] - pricesf[1]) / (strikesf[2] - strikesf[1])
-    pif[1] = -dzim
-    xif[1] = -norminv(-dzim)
-    if dzim <= -1 + slopeTolerance
-        pif = pif[2:end]
-        xif = xif[2:end]
-        strikesf = strikesf[2:e, d]
-    end
-    return strikesf, pif, xif
-end
-
-
-function isArbitrageFree(strikes::Vector{T}, callPrices::Vector{T}, forward::T)::Tuple{Bool,Int} where {T}
-    for (xi, yi) in zip(strikes, callPrices)
-        if yi < max(forward - xi, 0)
-            return (false, i)
-        end
-    end
-
-    for i = 2:length(callPrices)-1
-        s0 = (callPrices[i] - callPrices[i-1]) / (strikes[i] - strikes[i-1])
-        s1 = (callPrices[i] - callPrices[i+1]) / (strikes[i] - strikes[i+1])
-        if s0 <= -1
-            return (false, i)
-        end
-        if s0 >= s1
-            return (false, i)
-        end
-        if s1 >= 0
-            return (false, i + 1)
-        end
-    end
-
-    return (true, -1)
-end
-
-function filterConvexPrices(
-    strikes::Vector{T},
-    callPrices::Vector{T}, #undiscounted!
-    weights::Vector{T},
-    forward::T;
-    tol = 1e-8,
-)::Tuple{Vector{T},Vector{T},Vector{T}} where {T}
-    if isArbitrageFree(strikes, callPrices, forward)[1]
-        return strikes, callPrices, weights
-    end
-    n = length(callPrices)
-    z = Variable(n)
-    G = spzeros(T, 2 * n, n)
-    h = zeros(T, 2 * n)
-    for i = 2:n-1
-        dym = (strikes[i] - strikes[i-1])
-        dy = (strikes[i+1] - strikes[i])
-        G[i, i-1] = -1 / dym
-        G[i, i] = 1 / dym + 1 / dy
-        G[i, i+1] = -1 / dy
-    end
-    G[1, 1] = 1 / (strikes[2] - strikes[1])
-    G[1, 2] = -G[1, 1]
-    G[n, n] = 1 / (strikes[n] - strikes[n-1])
-    G[n, n-1] = -G[n, n]
-    for i = 1:n
-        h[i] = -tol
-        G[n+i, i] = -1
-        h[n+i] = -max(forward - strikes[i], 0) - tol
-    end
-    h[1] = 1 - tol
-    W = spdiagm(weights)
-    problem = minimize(square(norm(W * (z - callPrices))), G * z <= h)
-    #solve!(problem, () -> SCS.Optimizer(verbose = 0))
-    Convex.solve!(problem, () -> COSMO.Optimizer(verbose = false, eps_rel = 1e-8, eps_abs = 1e-8))
-    println("problem status is ", problem.status, " optimal value is ", problem.optval)
-    strikesf = strikes
-    pricesf = evaluate(z)
-    return strikesf, pricesf, weights
-end
 
 function weightedPrices(
     isCall::Bool,
@@ -273,6 +144,32 @@ function weightedPrices(
     return prices, w
 end
 
+function makeIsotonicCollocationGuess(
+    strikes::Vector{T},
+    callPrices::Vector{T},
+    weights::Vector{T},
+    τ::T,
+    forward::T,
+    discountDf::T;
+    deg = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
+) where{T}
+    if deg >= 3
+        strikesf, pricesf, weightsf = filterConvexPrices(strikes, callPrices ./ discountDf, weights, forward)
+        strikesf, pif, xif = makeXFromUndiscountedPrices(strikesf, pricesf)
+        cubic = Polynomials.fit(xif, strikesf, 3; weights = weightsf)
+        if !isCubicMonotone(cubic)
+            cubic = LeastSquaresCubicMurrayForward(xif, strikesf, weightsf, forward)
+        end
+        if deg == 3
+            return IsotonicCollocation(cubic, forward)
+        else
+            return fitMonotonic(xif, strikesf, weightsf, forward, cubic, deg = deg)
+        end
+    else
+        return fitBachelier(strikes, callPrices, weights, τ, forward, discountDf)
+    end
+end
+
 function makeIsotonicCollocation(
     strikes::Vector{T},
     callPrices::Vector{T},
@@ -282,27 +179,11 @@ function makeIsotonicCollocation(
     discountDf::T;
     deg = 3, #degree of collocation. 5 is usually best from a stability perspective.
     degGuess = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
-) where {T}
-    local isoc::IsotonicCollocation
-    if degGuess >= 3
-        strikesf, pricesf, weightsf = filterConvexPrices(strikes, callPrices ./ discountDf, weights, forward)
-        strikesf, pif, xif = makeXFromUndiscountedPrices(strikesf, pricesf)
-        cubic = Polynomials.fit(xif, strikesf, 3; weights = weightsf)
-        if !isCubicMonotone(cubic)
-            cubic = LeastSquaresCubicMurrayForward(xif, strikesf, weightsf, forward)
-        end
-        if degGuess == 3
-            isoc = IsotonicCollocation(cubic, forward)
-        else
-            isoc = fitMonotonic(xif, strikesf, weightsf, forward, cubic, deg = degGuess)
-        end
-    else
-        isoc = fitBachelier(strikes, callPrices, weights, τ, forward, discountDf)
-    end
-    println("guess ", Polynomial(isoc))
+)::Tuple{IsotonicCollocation,Number} where {T} #return collocation and error measure
+    isoc = makeIsotonicCollocationGuess(strikes, callPrices, weights, τ, forward, discountDf, deg = degGuess)
     #optimize towards actual prices
-    isoc = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg)
-    return isoc
+    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg)
+    return isoc, m
 end
 
 function fitBachelier(strikes, prices, weights, τ, forward, discountDf)
@@ -345,15 +226,16 @@ function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, disco
             c0[i] = eps(forward)  #zero would break automatic differentiation
         end
     end
-    fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward, iterations=deg*300) #autodiff breaks without Halley. Would need custom
+    fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward, iterations = deg * 300) #autodiff breaks without Halley. Would need custom
     # function obj!(fvec, x)
     #     fvec[:] = obj(x)
     #     fvec
     # end
     # fit = fsolve(obj!, c0, length(strikes); show_trace=true, method=:lm, tol=1e-10) #fit.x
-    println(iter, " fit ", fit, obj(fit.minimizer))
+    #println(iter, " fit ", fit, obj(fit.minimizer))
     c0 = fit.minimizer
-    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q-1]), forward)
+    measure = fit.ssr
+    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q-1]), forward), measure
 end
 
 function IsotonicCollocation(cubic::AbstractPolynomial, forward::Number)
