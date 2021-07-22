@@ -117,4 +117,6 @@ Deeltra, G. Diallo, I and Vanmaele, M (2010) [Moment matching approximation of A
 
 Ju, N. (2002) [Pricing Asian and basket options via Taylor expansion](https://www.academia.edu/download/4686930/jujcf02.pdf)
 
+Healy, J. (2021) [The Pricing of Vanilla Options with Cash Dividends as a Classic Vanilla Basket Option Problem](https://arxiv.org/abs/2106.12971)
+
 Vellekoop, M.H. and Nieuwenhuis, J.W. (2006) [Efficient Pricing of Derivatives on Assets with Discrete Dividends](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.486.9053&rep=rep1&type=pdf)
