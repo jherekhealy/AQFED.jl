@@ -10,8 +10,10 @@ A simple way to get started is to clone the repository, start julia from the AQF
 Then ESC or CTRL+C to exit the pkg env.
 
 ## Available Modules
-- [Implied Volatility Solver](https://github.com/jherekhealy/AQFED.jl/tree/master/src/black): fast and robust solvers to find the Black-Scholes implied volatility corresponding to a given option price.
-- [Piecewise-Lognormal Model](https://github.com/jherekhealy/AQFED.jl/tree/master/src/pln) (also known as spot model) for cash dividends: fast and accurate approximations.
-- [American Option Pricing](https://github.com/jherekhealy/AQFED.jl/tree/master/src/american): Andersen-Lake technique.
-- [Basket Option Pricing](https://github.com/jherekhealy/AQFED.jl/tree/master/src/basket): Curran approximations, which may also be reused to price Asian options or vanilla options in the piecewise-lognormal model.
-- [Random Number Generators](https://github.com/jherekhealy/AQFED.jl/tree/master/src/random): good pseudo and quasi random number generators.
+- [Implied Volatility Solver](/src/black): fast and robust solvers to find the Black-Scholes implied volatility corresponding to a given option price.
+- [Piecewise-Lognormal Model](/src/pln) (also known as spot model) for cash dividends: fast and accurate approximations.
+- [American Option Pricing](/src/american): Andersen-Lake technique.
+- [Basket Option Pricing](/src/basket): Curran approximations, which may also be reused to price Asian options or vanilla options in the piecewise-lognormal model.
+- [Collocation](/src/collocation): fit market implied vols via stochastic collocation.
+- [Bachelier](/src/bachelier): Bachelier formula and corresponding implied vol "solver".
+- [Random Number Generators](/src/random): good pseudo and quasi random number generators.
