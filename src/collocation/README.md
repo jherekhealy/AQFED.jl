@@ -39,12 +39,16 @@ x = collect(-3.0:0.01:3.0);
 plot!(x, sol5.(x), label="degree-5")
 plot!(x, sol.(x), label="degree-11")
 ```
+![Implied volatilities](/resources/images/collocation_x_y.png)
+
 Plot of the density: a high degree has a tendency to create a spike. Prefer a degree <= 7.
 k = collect(10:1.0:2000);
 ```julia
 p2 = plot(k, Collocation.density.(sol,k), label="degree-11")
 plot!(k, Collocation.density.(sol5,k), label="degree-5")
 ```
+![Probability Density](/resources/images/collocation_density.png)
+
 Plot of the implied vols
 ```julia
 ivk = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, k,forward,1.0), forward, k, tte, 1.0);
