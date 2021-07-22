@@ -36,7 +36,8 @@ end
 ```
 The output is:
 
-|Strike:|:Method   | Price     :|  Error   :|
+|Strike|Method     | Price      |  Error    |
+|----:|:-----------|-----------:|----------:|
 | 50.0|LL          | 43.24845549|  -3.12e-07|
 | 50.0|Deelstra    | 43.24845582|   1.84e-08|
 | 50.0|Deelstra-LB | 43.24845099|  -4.81e-06|
