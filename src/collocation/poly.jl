@@ -179,10 +179,11 @@ function makeIsotonicCollocation(
     discountDf::T;
     deg = 3, #degree of collocation. 5 is usually best from a stability perspective.
     degGuess = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
+    minSlope = 1e-4
 )::Tuple{IsotonicCollocation,Number} where {T} #return collocation and error measure
     isoc = makeIsotonicCollocationGuess(strikes, callPrices, weights, τ, forward, discountDf, deg = degGuess)
     #optimize towards actual prices
-    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg)
+    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope=minSlope)
     return isoc, m
 end
 
@@ -201,14 +202,14 @@ function fitBachelier(strikes, prices, weights, τ, forward, discountDf)
     return isoc
 end
 
-function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, discountDf; deg = 3)
+function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, discountDf; deg = 3, minSlope = 1e-4)
     q = trunc(Int, (deg + 1) / 2)
     iter = 0
     function obj(c)
         p1 = Polynomials.Polynomial(c[1:q])
         p2 = Polynomials.Polynomial(c[q+1:2*q-1])
         isoc = IsotonicCollocation(p1, p2, forward)
-        p = Polynomial(isoc)
+        p = Polynomial(isoc, minSlope=minSlope)
         iter += 1
         return @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
     end

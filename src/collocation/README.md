@@ -25,8 +25,11 @@ strikesf, pif, xif = Collocation.makeXFromUndiscountedPrices(strikesf, pricesf)
 p1 = plot(xif, strikesf, seriestype= :scatter, label="reference")
 ```
 Plot the actual degree-5 and degree-11 collocations on top. The `degGuess` parameter allows to choose the kind of initial guess we want to use.
-`degGuess=1` corresponds to a Bachelier model initial guess and works well in general while being very simple. `degGuess=3` is for a cubic, which
-also works well, and is closer to the solution in general. Larger degrees use a tweak (an additional point at strike=0 and x=-3) to avoid the cases where the polynomial fits very well the X array, but is ill-suited to price as it crosses 0 too "early" on, at a too large strike; as such they are not recommended to use.
+
+- `degGuess=1` corresponds to a Bachelier model initial guess and works well in general while being very simple.
+- `degGuess=3` is for a cubic, which also works well, and is closer to the solution in general. Input prices are filtered for convexity.
+- Larger degrees use a tweak (an additional point at strike=0 and x=-3) to avoid the cases where the polynomial fits very well the X array, but is ill-suited to price as it crosses 0 too "early" on, at a too large strike; as such they are not recommended to use.
+
 High degree collocation also tends to require much more steps in the minimizer.
 ```julia
 isoc,m = Collocation.makeIsotonicCollocation(strikesf, pricesf, weights, tte, forward, 1.0,deg=5)
@@ -42,8 +45,14 @@ plot!(x, sol.(x), label="degree-11")
 ![Implied volatilities](/resources/images/collocation_x_y.png)
 
 Plot of the density: a high degree has a tendency to create a spike. Prefer a degree <= 7.
-k = collect(10:1.0:2000);
+This may be seen as a disadvantage: it looks awkward, since it is located in the extrapolation part. It is artificial since it is due to the interpolation part, but impact the extrapolation.
+It could also be interpreted more positively, as it allows to fit well implied volatilities with a steep curvature. In the latter case, the
+spike will be rightly located in the interpolation part.
+
+It is possible to mitigate the spike via an appropriate choice of the `minSlope` parameter (e.g. `minSlope=0.1` on this example).
+
 ```julia
+k = collect(10:1.0:2000);
 p2 = plot(k, Collocation.density.(sol,k), label="degree-11")
 plot!(k, Collocation.density.(sol5,k), label="degree-5")
 ```
@@ -58,6 +67,8 @@ plot!(k, ivk)
 plot!(k, ivk5)
   ```
 ![Implied volatilities](/resources/images/collocation_vols.png)
+
+We use by default the inverse quadratic method to find x for at a given strike. A flag may be used to rely on the Polynomials.roots function instead, which is more robust, but slower.
 
 ## References
 Le Floc'h, F. and Oosterlee, C. W. (2019) [Model-free stochastic collocation for an arbitrage-free implied volatility: Part I](https://link.springer.com/article/10.1007/s10203-019-00238-x)
