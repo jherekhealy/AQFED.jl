@@ -192,7 +192,7 @@ function bachelierImpliedVolatility(
             num / den
         else
             num =
-                dLFK4[0] +
+                dLFK4[1] +
                 u * (
                     dLFK4[2] +
                     u * (
