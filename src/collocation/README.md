@@ -6,7 +6,7 @@ The prices need not to be arbitrage free:
 - The function `filterConvexPrices` returns the closest set of arbitrage free prices.
 
 ## Example
-TSLA input
+# TSLA input
 ```julia
 using AQFED; using AQFED.Collocation
 #TSLA example
@@ -17,14 +17,18 @@ tte = 1.5917808219178082
 w1 = ones(length(strikes))
 prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte)
 ```
-Plot X coordinate vs. strikes (mostly useful to understand the technique, not to use the technique)
+# Plot X coordinate vs. strikes
+
+(mostly useful to understand the technique, not to use the technique)
 ```julia
 using Plots
 strikesf, pricesf = Collocation.filterConvexPrices(strikes, prices, weights, forward,tol=1e-6)
 strikesf, pif, xif = Collocation.makeXFromUndiscountedPrices(strikesf, pricesf)
 p1 = plot(xif, strikesf, seriestype= :scatter, label="reference")
 ```
-Plot the actual degree-5 and degree-11 collocations on top. The `degGuess` parameter allows to choose the kind of initial guess we want to use.
+# Plot the actual degree-5 and degree-11 collocations on top.
+
+The `degGuess` parameter allows to choose the kind of initial guess we want to use.
 
 - `degGuess=1` corresponds to a Bachelier model initial guess and works well in general while being very simple.
 - `degGuess=3` is for a cubic, which also works well, and is closer to the solution in general. Input prices are filtered for convexity.
@@ -44,12 +48,14 @@ plot!(x, sol.(x), label="degree-11")
 ```
 ![Implied volatilities](/resources/images/collocation_x_y.png)
 
-Plot of the density: a high degree has a tendency to create a spike. Prefer a degree <= 7.
+# Plot of the density
+A high degree has a tendency to create a spike. Prefer a degree <= 7.
+
 This may be seen as a disadvantage: it looks awkward, since it is located in the extrapolation part. It is artificial since it is due to the interpolation part, but impact the extrapolation.
 It could also be interpreted more positively, as it allows to fit well implied volatilities with a steep curvature. In the latter case, the
 spike will be rightly located in the interpolation part.
 
-It is possible to mitigate the spike via an appropriate choice of the `minSlope` parameter (e.g. `minSlope=0.1` on this example).
+It is possible to mitigate the spike via an appropriate choice of the `minSlope` parameter (e.g. `minSlope=0.1` on this example), at the cost of a worse fit.
 
 ```julia
 k = collect(10:1.0:2000);
@@ -58,7 +64,7 @@ plot!(k, Collocation.density.(sol5,k), label="degree-5")
 ```
 ![Probability Density](/resources/images/collocation_density.png)
 
-Plot of the implied vols
+# Plot of the implied vols
 ```julia
 ivk = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, k,forward,1.0), forward, k, tte, 1.0);
 ivk5 = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol5,true, k,forward,1.0), forward, k, tte, 1.0);
@@ -68,7 +74,23 @@ plot!(k, ivk5)
   ```
 ![Implied volatilities](/resources/images/collocation_vols.png)
 
-We use by default the inverse quadratic method to find x for at a given strike. A flag may be used to rely on the Polynomials.roots function instead, which is more robust, but slower.
+We use by default the inverse quadratic method to find x for at a given strike. The `useHalley=false` flag may be used to rely on the Polynomials.roots function instead, which is more robust, but slower.
 
+# Shorter maturity
+```julia
+strikes = Float64.([150, 155, 160, 165, 175, 180, 185, 190, 195, 200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300, 305, 310, 315, 320, 325, 330, 335, 340, 345, 350, 355, 360, 365, 370, 375, 380, 385, 390, 395, 400, 405, 410, 415, 420, 425, 430, 435, 440, 445, 450, 455, 460, 465, 470, 475, 480, 500, 520, 540, 560, 580])
+vols = [1.0354207293271083, 0.9594199540767598, 0.9691592997116513, 0.921628193615727, 0.922211330770905, 0.8847766875013793, 0.8783544778003536, 0.8513146324654995, 0.8827044619549536, 0.8306675656174141, 0.7908245509298024, 0.7558509594446964, 0.7597364594588467, 0.7403822080716124, 0.7298680110662008, 0.7091863887722245, 0.6818559320159979, 0.661436341750887, 0.6462309799739886, 0.629398669713696, 0.6145630586631312, 0.5938324665922039, 0.5805662721081856, 0.5694652563270426, 0.5536895819277889, 0.5422671292669782, 0.533888799038778, 0.5234154661207774, 0.5168510552270291, 0.5072806473672078, 0.4997973159961659, 0.4896563997378466, 0.48239758503680114, 0.47936812363581066, 0.48000589145706996, 0.47575254134423506, 0.47114784824672207, 0.46788352167691066, 0.4656217516966071, 0.462996525592066, 0.4593993028842441, 0.4585651056438656, 0.45790487479638, 0.4552139844132186, 0.45344730213977413, 0.45040138270126456, 0.44800472164335725, 0.44919955536439704, 0.44788407072486525, 0.4498560128677439, 0.45218341600249046, 0.44936231891738604, 0.44881496768582435, 0.4516047756853702, 0.45554688648955244, 0.4608658483565173, 0.4599545390661706, 0.4634099812656424, 0.4716998585738154, 0.4758803092917464, 0.48100099895733817, 0.48559069655772896, 0.49064468784617526, 0.49606127734737687, 0.5011170526132833, 0.5059204240563129, 0.5149247954706585, 0.5517620518081904, 0.5776531692627265, 0.5992609035805616, 0.6259792014943727]
+forward = 357.75592553175875
+tte = 0.0958904109589041
+w1 = ones(length(strikes))
+prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte)
+isoc,m = Collocation.makeIsotonicCollocation(strikes, prices, weights, tte, forward, 1.0,deg=7,degGuess=3)
+sol = Collocation.Polynomial(isoc)
+println("Solution ", sol, " ",coeffs(sol), " ",Collocation.stats(sol), " measure ",m)
+ivk = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, k,forward,1.0), forward, k, tte, 1.0);
+p3 = plot(strikes, vols, seriestype= :scatter)
+plot!(k, ivk)
+```
+![Implied volatilities for a short maturity](/resources/images/collocation_vols_short.png)
 ## References
 Le Floc'h, F. and Oosterlee, C. W. (2019) [Model-free stochastic collocation for an arbitrage-free implied volatility: Part I](https://link.springer.com/article/10.1007/s10203-019-00238-x)
