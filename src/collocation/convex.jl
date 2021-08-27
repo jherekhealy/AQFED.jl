@@ -71,6 +71,10 @@ end
 
 #transform to X coordinate for collocation
 function makeXFromUndiscountedPrices(strikesf::Vector{T}, pricesf::Vector{T}) where {T}
+    return makeXFromUndiscountedPrices(strikesf, pricesf, s -> -norminv(-s))
+end
+
+function makeXFromUndiscountedPrices(strikesf::Vector{T}, pricesf::Vector{T}, invphi) where {T}
     n = length(strikesf)
 
     pif = zeros(T, n)
@@ -82,11 +86,11 @@ function makeXFromUndiscountedPrices(strikesf::Vector{T}, pricesf::Vector{T}) wh
         dzim = (pricesf[i] - pricesf[i-1]) / dxim
         s = (dxim * dzi + dxi * dzim) / (dxim + dxi)
         pif[i] = -s
-        xif[i] = -norminv(-s)
+        xif[i] = invphi(s)
     end
     dzi = (pricesf[n] - pricesf[n-1]) / (strikesf[n] - strikesf[n-1])
     pif[n] = -dzi
-    xif[n] = -norminv(-dzi)
+    xif[n] = invphi(dzi)
     dzim = -pif[n-2]
     slopeTolerance = 1e-8
     if dzi * dzim < 0 || dzi < dzim || abs(dzi) < slopeTolerance
@@ -96,7 +100,7 @@ function makeXFromUndiscountedPrices(strikesf::Vector{T}, pricesf::Vector{T}) wh
     end
     dzim = (pricesf[2] - pricesf[1]) / (strikesf[2] - strikesf[1])
     pif[1] = -dzim
-    xif[1] = -norminv(-dzim)
+    xif[1] = invphi(dzim)
     if dzim <= -1 + slopeTolerance
         pif = pif[2:end]
         xif = xif[2:end]

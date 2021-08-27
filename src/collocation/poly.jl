@@ -1,6 +1,7 @@
 #Stochastic collocation towards a polynomial
 using Polynomials
 using Roots
+
 import AQFED.Math: normcdf, normpdf, norminv, InverseQuadraticMethod
 import AQFED.Black: blackScholesFormula, blackScholesVega
 using AQFED.Bachelier
@@ -49,8 +50,6 @@ function solveStrike(p::AbstractPolynomial, strike::Number; useHalley = true)::N
         end
         throw(DomainError(strike, "no real roots at the given strike"))
     end
-
-
 end
 
 function priceEuropean(p::AbstractPolynomial, isCall::Bool, strike::Number, forward::Number, discountDf::Number)::Number
@@ -207,13 +206,13 @@ function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, disco
     iter = 0
     function obj(c)
         p1 = Polynomials.Polynomial(c[1:q])
-        p2 = Polynomials.Polynomial(c[q+1:2*q-1])
+        p2 = Polynomials.Polynomial(c[q+1:2*q])
         isoc = IsotonicCollocation(p1, p2, forward)
         p = Polynomial(isoc, minSlope=minSlope)
         iter += 1
         return @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
     end
-    c0 = zeros(Float64, 2 * q - 1)
+    c0 = zeros(Float64, 2 * q)
     c1 = coeffs(isoc.p1)
     for i = 1:min(q, length(c1))
         c0[i] = c1[i]
@@ -236,7 +235,7 @@ function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, disco
     #println(iter, " fit ", fit, obj(fit.minimizer))
     c0 = fit.minimizer
     measure = fit.ssr
-    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q-1]), forward), measure
+    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward), measure
 end
 
 function IsotonicCollocation(cubic::AbstractPolynomial, forward::Number)
@@ -262,7 +261,7 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     iter = 0
     function obj(c)
         p1 = Polynomials.Polynomial(c[1:q])
-        p2 = Polynomials.Polynomial(c[q+1:2*q-1])
+        p2 = Polynomials.Polynomial(c[q+1:2*q])
         isoc = IsotonicCollocation(p1, p2, forward)
         p = Polynomial(isoc)
         iter += 1
@@ -272,9 +271,9 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     isocubic = IsotonicCollocation(cubic, forward)
     c1 = coeffs(isocubic.p1)
     c2 = coeffs(isocubic.p2)
-    c0 = zeros(Float64, 2 * q - 1)
+    c0 = zeros(Float64, 2 * q)
     c0[1:min(q, length(c1))] = c1
-    c0[q+1:min(2 * q - 1, q + length(c2))] = c2
+    c0[q+1:min(2 * q , q + length(c2))] = c2
     xamax = max(abs(xif[1]), abs(xif[end]))
     for i = 1:length(c0)
         if c0[i] == 0
@@ -283,7 +282,7 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     end
     fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward)
     c0 = fit.minimizer
-    isoc = IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q-1]), forward)
+    isoc = IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward)
     #println(iter, " fitMonotonic ", Polynomial(isoc), " ", fit)
     return isoc
 end
