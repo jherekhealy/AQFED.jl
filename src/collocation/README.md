@@ -5,6 +5,8 @@ The prices need not to be arbitrage free:
 - A utility function `isArbitrageFree` verifies if given undiscounted call option prices are arbitrage free.
 - The function `filterConvexPrices` returns the closest set of arbitrage free prices.
 
+There is a small error in the original paper and in the third edition of the book, the polynomials used in the sum of square may be of equal degree, while the paper specifies one of the polynomials with a lower degree.
+
 ## Example
 ### TSLA input
 ```julia
@@ -38,10 +40,10 @@ High degree collocation also tends to require much more steps in the minimizer.
 ```julia
 isoc,m = Collocation.makeIsotonicCollocation(strikesf, pricesf, weights, tte, forward, 1.0,deg=5)
 sol5 = Collocation.Polynomial(isoc)
-println("Solution ", sol5, " ",coeffs(sol), " ",Collocation.stats(sol5), " measure ",m)
+println("Solution ", sol5, " ",Collocation.stats(sol5), " measure ",m)
 isoc,m = Collocation.makeIsotonicCollocation(strikes, pricesf, weights, tte, forward, 1.0,deg=11,degGuess=1)
 sol = Collocation.Polynomial(isoc)
-println("Solution ", sol, " ",coeffs(sol), " ",Collocation.stats(sol), " measure ",m)
+println("Solution ", sol, " ",Collocation.stats(sol), " measure ",m)
 x = collect(-3.0:0.01:3.0);
 plot!(x, sol5.(x), label="degree-5")
 plot!(x, sol.(x), label="degree-11")
@@ -55,14 +57,21 @@ This may be seen as a disadvantage: it looks awkward, since it is located in the
 It could also be interpreted more positively, as it allows to fit well implied volatilities with a steep curvature. In the latter case, the
 spike will be rightly located in the interpolation part.
 
-It is possible to mitigate the spike via an appropriate choice of the `minSlope` parameter (e.g. `minSlope=0.1` on this example), at the cost of a worse fit.
-
 ```julia
 k = collect(10:1.0:2000);
 p2 = plot(k, Collocation.density.(sol,k), label="degree-11")
 plot!(k, Collocation.density.(sol5,k), label="degree-5")
 ```
+It is possible to mitigate the spike via an appropriate choice of the `minSlope` parameter (e.g. `minSlope=0.1` on this example), at the cost of a worse fit. A more appropriate solution is to rely on regularization (as in the B-spline collocation case), a term in `penalty*hermiteIntegral(derivative(p,2)^2)` seems appropriate on this example, with `penalty=1e-7`.
+
+```julia
+isoc,m = Collocation.makeIsotonicCollocation(strikes, pricesf, weights, tte, forward, 1.0,deg=11,degGuess=1,penalty=1e-7)
+p3 = plot(k, Collocation.density.(Collocation.Polynomial(isoc),k), label="degree-11-P")
+plot!(k, Collocation.density.(sol,k), label="degree-11")
+plot!(k, Collocation.density.(sol5,k), label="degree-5")
+```
 ![Probability Density](/resources/images/collocation_density.png)
+
 
 ### Plot of the implied vols
 ```julia
