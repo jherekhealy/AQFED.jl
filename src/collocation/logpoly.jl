@@ -8,32 +8,25 @@ using LeastSquaresOptim
 struct LogPolynomial
     p::AbstractPolynomial
     σ::Number
-    xRight::Number #start of right extrapolation
 end
 struct IsotonicLogCollocation
     p1::AbstractPolynomial
     p2::AbstractPolynomial
     σ::Number
-    xRight::Number
     forward::Number
 end
 
 
 function LogPolynomial(iso::IsotonicLogCollocation; minSlope = 0.0)
     q = degree(iso.p1) + degree(iso.p2)
-    local p::AbstractPolynomial
-    if isodd(q)
-        p = integrate(iso.p1^2 + Polynomials.Polynomial([0.0, 1.0])*Polynomials.Polynomial([iso.xRight, -1.0])*iso.p2^2 + minSlope * iso.forward)
-    else
-        p = integrate(Polynomials.Polynomial([0.0, 1.0])*iso.p1^2 + Polynomials.Polynomial([iso.xRight, -1.0])*iso.p2^2 + minSlope * iso.forward)
-    end
-    theoForward = hermiteIntegral(LogPolynomial(p,iso.σ,iso.xRight))
+    p = integrate(iso.p1^2 + Polynomials.Polynomial([0.0, 1.0])*iso.p2^2 + minSlope * iso.forward)
+    theoForward = hermiteIntegral(LogPolynomial(p,iso.σ))
     c =  iso.forward / theoForward
     p = p*c
-    return LogPolynomial(p,iso.σ,iso.xRight)
+    return LogPolynomial(p,iso.σ)
 end
 
-(p::LogPolynomial)(x::S) where {S} = (x <= p.xRight) ? p.p(x) : p.p(p.xRight) + derivative(p.p)(p.xRight)*(x-p.xRight)
+(p::LogPolynomial)(x::S) where {S} = p.p(x)
 
 function solvePositiveStrike(p::LogPolynomial, strike::Number; useNumerical=true)::Number
     if useNumerical
@@ -44,20 +37,12 @@ function solvePositiveStrike(p::LogPolynomial, strike::Number; useNumerical=true
             Bisection()
         )
     else
-        yRight = p(p.xRight)
-        if strike < yRight
-         pk = p.p - strike
         r = roots(pk)
         for ri in r
             if (abs(imag(ri)) < eps(strike)) && real(ri) >= 0
                 return real(ri)
             end
         end
-    else
-        slope = derivative(p.p)(p.xRight)
-        #strike = slope*(x-xRight) + yRight
-        return (strike-yRight)/slope + xRight
-    end
         throw(DomainError(strike, "no real roots at the given strike"))
     end
 end
@@ -88,9 +73,9 @@ function density(p::LogPolynomial, strike::Number)::Number
     end
     logck = log(ck)/p.σ
     #Phi(log(ck)/p.sigma) '
-    dp = (ck <= p.xRight) ? derivative(p.p)(ck) : derivative(p.p)(p.xRight)
+    dp = derivative(p.p)(ck)
     an = normpdf(logck) / ( dp * ck*p.σ )
-    # num = (-2*priceEuropean(p, true, strike, 0.0, 1.0) +priceEuropean(p, true, strike+1e-4, 0.0, 1.0) +priceEuropean(p, true, strike-1e-4, 0.0, 1.0) )/(1e-8)
+    #num = (-2*priceEuropean(p, true, strike, 0.0, 1.0) +priceEuropean(p, true, strike+1e-4, 0.0, 1.0) +priceEuropean(p, true, strike-1e-4, 0.0, 1.0) )/(1e-8)
     return an
 end
 
@@ -102,15 +87,15 @@ function rawMoment(p::LogPolynomial, moment::Int)::Number
     for i = 2:moment
         q *= p.p
     end
-    return hermiteIntegral(LogPolynomial(q,p.σ,p.xRight))
+    return hermiteIntegral(LogPolynomial(q,p.σ))
 end
 
 #return mean, standard dev, skew, kurtosis of the collocation
 function stats(p::LogPolynomial)
     μ = hermiteIntegral(p)
-    μ2 = hermiteIntegral(LogPolynomial((p.p - μ)^2,p.σ,p.xRight))
-    μ3 = hermiteIntegral(LogPolynomial((p.p - μ)^3,p.σ,p.xRight))
-    μ4 = hermiteIntegral(LogPolynomial((p.p - μ)^4,p.σ,p.xRight))
+    μ2 = hermiteIntegral(LogPolynomial((p.p - μ)^2,p.σ))
+    μ3 = hermiteIntegral(LogPolynomial((p.p - μ)^3,p.σ))
+    μ4 = hermiteIntegral(LogPolynomial((p.p - μ)^4,p.σ))
 
     skew = μ3 / μ2^1.5
     kurtosis = μ4 / μ2^2
@@ -119,27 +104,13 @@ end
 
 function hermiteIntegral(p::LogPolynomial)::Number
     c = coeffs(p.p)
-    logxRight = log(p.xRight)/p.σ
-    c1 = derivative(p.p)(p.xRight)
-    c0 = p.p(p.xRight) - c1*p.xRight
-    value = c0 * normcdf(-logxRight) + c1*exp(p.σ^2 / 2)*normcdf(-logxRight+p.σ)
-    value += sum(c[i]*exp(((i-1)*p.σ)^2 / 2)*(-normcdf(-logxRight+(i-1)*p.σ)+1) for i=1:length(c))
+    value = sum(c[i]*exp(((i-1)*p.σ)^2 / 2) for i=1:length(c))
     return value
 end
 
 function hermiteIntegralBounded(p::LogPolynomial, logck::Number)::Number
     c = coeffs(p.p)
-    logxRight = log(p.xRight)/p.σ
-    c1 = derivative(p.p)(p.xRight)
-    c0 = p.p(p.xRight) - c1*p.xRight
-    local ckToInf::Number
-    if logck < logxRight
-        ckToInf = c0 * normcdf(-logxRight) + c1*exp(p.σ^2 / 2)*normcdf(-logxRight+p.σ)
-        ckToInf += sum(c[i]*exp(((i-1)*p.σ)^2 / 2)*(-normcdf(-logxRight+(i-1)*p.σ)+normcdf(-logck+(i-1)*p.σ)) for i=1:length(c))
-    else
-        ckToInf = c0 * normcdf(-logck) + c1*exp(p.σ^2 / 2)*normcdf(-logck+p.σ)
-    end
-    return ckToInf
+    return sum(c[i]*exp(((i-1)*p.σ)^2 / 2)*normcdf(-logck+(i-1)*p.σ) for i=1:length(c))
 end
 
 
@@ -157,9 +128,9 @@ function makeIsotonicLogCollocationGuess(
     deg = 3, #1 = Black (trivial, smoother if least squares iterations small). otherwise 3 is good.
 ) where{T}
     b = fitLogBlack(strikes, callPrices, weights, τ, forward, discountDf)
-    strikesf, pricesf, weightsf = filterConvexPrices(strikes, callPrices ./ discountDf, weights, forward)
-    strikesf, pif, xif = makeLogXFromUndiscountedPrices(strikesf, pricesf, b.σ)
     if deg >= 3
+        strikesf, pricesf, weightsf = filterConvexPrices(strikes, callPrices ./ discountDf, weights, forward)
+        strikesf, pif, xif = makeLogXFromUndiscountedPrices(strikesf, pricesf, b.σ)
         # cubic = Polynomials.fit(xif, strikesf, 3; weights = weightsf) #FIXME origin must be = 0
         # if !isCubicMonotone(cubic)
         #     cubic = LeastSquaresCubicMurrayForward(xif, strikesf, weightsf, forward)
@@ -184,11 +155,11 @@ function makeIsotonicLogCollocation(
     discountDf::T;
     deg = 3, #degree of collocation. 5 is usually best from a stability perspective.
     degGuess = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
-    minSlope = 1e-4
+    minSlope = 1e-4, penalty=0.0
 )::Tuple{IsotonicLogCollocation,Number} where {T} #return collocation and error measure
     isoc = makeIsotonicLogCollocationGuess(strikes, callPrices, weights, τ, forward, discountDf, deg = degGuess)
     #optimize towards actual prices
-    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope=minSlope)
+    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope=minSlope,penalty=penalty)
     return isoc, m
 end
 
@@ -204,8 +175,7 @@ function fitLogBlack(strikes, prices, weights, τ, forward, discountDf)
     strike = forward
     vol = impliedVolatility(true, price, forward, strike, τ, discountDf)
     σ = vol*sqrt(τ)
-    xRight = strikes[end] / forward*exp(-σ^2 / 2)
-    isoc = IsotonicLogCollocation(Polynomials.Polynomial([sqrt(forward*exp(-σ^2 / 2))]), Polynomials.Polynomial([0.0]), σ, xRight,forward)
+    isoc = IsotonicLogCollocation(Polynomials.Polynomial([sqrt(forward*exp(-σ^2 / 2))]), Polynomials.Polynomial([0.0]), σ, forward)
     return isoc
 end
 
@@ -217,7 +187,7 @@ Polynomials.degree(p::LogPolynomial) = Polynomials.degree(p.p)
 
 isotonicDegree(deg::Int) = isodd(deg) ? trunc(Int, (deg-1)/2) : trunc(Int, deg / 2)
 
-function fit(isoc::IsotonicLogCollocation, strikes, prices, weights, forward, discountDf; deg = 3, minSlope = 1e-4)
+function fit(isoc::IsotonicLogCollocation, strikes, prices, weights, forward, discountDf; deg = 3, minSlope = 1e-6, penalty=0.0)
     q = isotonicDegree(deg)
     c0length = 2*q
     if isodd(deg)
@@ -229,10 +199,16 @@ function fit(isoc::IsotonicLogCollocation, strikes, prices, weights, forward, di
         c = ct
         p1 = Polynomials.Polynomial(c[1:q])
         p2 = Polynomials.Polynomial(c[q+1:c0length])
-        isoc = IsotonicLogCollocation(p1, p2, isoc.σ, isoc.xRight, forward)
+        isoc = IsotonicLogCollocation(p1, p2, isoc.σ, forward)
         p = LogPolynomial(isoc)
         iter += 1
-        return @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
+        if penalty > 0
+            ip = hermiteIntegral(LogPolynomial(derivative(p.p,2)^2,p.σ)) #does not seem appropriate here
+            pvalue = penalty * ip
+            return @. weights * sqrt((priceEuropean(p, true, strikes, forward, discountDf) - prices)^2 + pvalue^2)
+        else
+            return @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
+        end
     end
     c0 = zeros(Float64, c0length)
     c1 = coeffs(isoc.p1)
@@ -253,13 +229,13 @@ function fit(isoc::IsotonicLogCollocation, strikes, prices, weights, forward, di
     println(iter, " fit ", fit, obj(fit.minimizer))
     c0 = fit.minimizer
     measure = fit.ssr
-    return IsotonicLogCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:c0length]), isoc.σ, isoc.xRight, forward), measure
+    return IsotonicLogCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:c0length]), isoc.σ, forward), measure
 end
 
 function IsotonicLogCollocation(cguess::LogPolynomial, forward::Number)
     cubic = cguess.p
     if degree(cubic) == 1
-        return IsotonicLogCollocation(Polynomials.Polynomial([sqrt(cguess.p[1])]), Polynomials.Polynomial([0.0]), cguess.σ, cguess.xRight, forward)
+        return IsotonicLogCollocation(Polynomials.Polynomial([sqrt(cguess.p[1])]), Polynomials.Polynomial([0.0]), cguess.σ, forward)
     elseif degree(cubic) > 3
         throw(DomainError(degree(cubic), "expected a cubic"))
     end
@@ -267,14 +243,13 @@ function IsotonicLogCollocation(cguess::LogPolynomial, forward::Number)
     e = max(e, forward * 1e-6)
     p2 = Polynomials.Polynomial([sqrt(e)])
     p1 = Polynomials.Polynomial([cubic[2] / sqrt(3 * cubic[3]), sqrt(3 * cubic[3])])
-    return IsotonicLogCollocation(p1, p2, cguess.σ, cguess.xRight, forward)
+    return IsotonicLogCollocation(p1, p2, cguess.σ, forward)
 end
 
 
 
 
 function fitLogMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
-    xRight = maximum(xif)
     q = isotonicDegree(deg)
     c0length = 2*q
     if isodd(deg)
@@ -286,7 +261,7 @@ function fitLogMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
         #c = vcat(0.0, ct)
         p1 = Polynomials.Polynomial(c[1:q])
         p2 = Polynomials.Polynomial(c[q+1:c0length])
-        isoc = IsotonicLogCollocation(p1, p2, cubic.σ, xRight, forward)
+        isoc = IsotonicLogCollocation(p1, p2, cubic.σ, forward)
         p = LogPolynomial(isoc)
         iter += 1
         v = @. w1 * (p(xif) - strikesf)
@@ -309,7 +284,7 @@ function fitLogMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     end
     fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward)
     c0 = fit.minimizer
-    isoc = IsotonicLogCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:c0length]), cubic.σ, xRight, forward)
+    isoc = IsotonicLogCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:c0length]), cubic.σ, forward)
     println(iter, " fitMonotonic ", LogPolynomial(isoc), " ", fit)
     return isoc
 end

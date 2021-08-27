@@ -17,7 +17,7 @@ struct IsotonicCollocation
 end
 
 
-function Polynomial(iso::IsotonicCollocation; minSlope = 1e-4)
+function Polynomial(iso::IsotonicCollocation; minSlope = 1e-6)
     p = integrate(iso.p1^2 + iso.p2^2 + minSlope * iso.forward) #add a minimum slope such that density is not too spiky and collocation not too flat
     theoForward = hermiteIntegral(p)
     p[0] = iso.forward - theoForward
@@ -178,11 +178,12 @@ function makeIsotonicCollocation(
     discountDf::T;
     deg = 3, #degree of collocation. 5 is usually best from a stability perspective.
     degGuess = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
-    minSlope = 1e-4
+    minSlope = 1e-6,
+    penalty = 0.0
 )::Tuple{IsotonicCollocation,Number} where {T} #return collocation and error measure
     isoc = makeIsotonicCollocationGuess(strikes, callPrices, weights, τ, forward, discountDf, deg = degGuess)
     #optimize towards actual prices
-    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope=minSlope)
+    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope=minSlope, penalty=penalty)
     return isoc, m
 end
 
@@ -201,7 +202,7 @@ function fitBachelier(strikes, prices, weights, τ, forward, discountDf)
     return isoc
 end
 
-function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, discountDf; deg = 3, minSlope = 1e-4)
+function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, discountDf; deg = 3, minSlope = 1e-4, penalty=0.0)
     q = trunc(Int, (deg + 1) / 2)
     iter = 0
     function obj(c)
@@ -210,7 +211,14 @@ function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, disco
         isoc = IsotonicCollocation(p1, p2, forward)
         p = Polynomial(isoc, minSlope=minSlope)
         iter += 1
-        return @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
+        r = @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
+        if penalty > 0
+            ip = hermiteIntegral(derivative(p,2)^2)
+            pvalue = penalty * ip
+            return vcat(r,  pvalue)
+        else
+            return r
+        end
     end
     c0 = zeros(Float64, 2 * q)
     c1 = coeffs(isoc.p1)
