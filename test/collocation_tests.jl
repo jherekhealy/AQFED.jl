@@ -3,7 +3,7 @@ using StatsBase
 using AQFED.Black
 using AQFED.Collocation
 import Polynomials:coeffs
-using Plots
+#using Plots
 
 
 @testset "FilterConvex" begin

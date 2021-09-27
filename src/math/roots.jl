@@ -1,22 +1,31 @@
 #an extension to the Roots package
 using Roots
+using Setfield
 export InverseQuadraticMethod
 
 struct InverseQuadraticMethod <: Roots.AbstractHalleyLikeMethod
 end
 
-function Roots.update_state(method::InverseQuadraticMethod, fs, o::Roots.UnivariateZeroState{T,S}, options::Roots.UnivariateZeroOptions) where {T,S}
+function Roots.update_state(method::InverseQuadraticMethod, F, o::Roots.HalleyState{T,S}, options::Roots.UnivariateZeroOptions, l=Roots.NullTracks()) where {T,S}
     xn = o.xn1
     fxn = o.fxn1
-    r1, r2 = o.m
+    r1, r2 = o.Δ, o.ΔΔ
 
-    xn1::T = xn - (1+ r1/(r2*2))*r1   #r1/r2 = L  1/(2- r1)*r1
+    Δ =  (1+ r1/(r2*2))*r1   #r1/r2 = L  1/(2- r1)*r1
+    if Roots.isissue(Δ)
+        Roots.log_message(l, "Issue with computing `Δ`")
+        return (o, true)
+    end
 
-    tmp = Roots.fΔxΔΔx(fs, xn1)
-    fxn1::S, r1::T, r2::T = tmp[1], tmp[2], tmp[3]
-    Roots.incfn(o,3)
+    xn1::T = xn - Δ
+    fxn1::S, (r1::T, r2::T) = F(xn1)
+    Roots.incfn(l,3)
 
-    o.xn0, o.xn1 = xn, xn1
-    o.fxn0, o.fxn1 = fxn, fxn1
-    empty!(o.m); append!(o.m, (r1, r2))
+    @set! o.xn0 = xn
+    @set! o.xn1 = xn1
+    @set! o.fxn0 = fxn
+    @set! o.fxn1 = fxn1
+    @set! o.Δ = r1
+    @set! o.ΔΔ = r2
+    return o, false
 end

@@ -17,7 +17,7 @@ struct IsotonicCollocation
 end
 
 
-function Polynomial(iso::IsotonicCollocation; minSlope = 1e-6)
+function Polynomial(iso::IsotonicCollocation; minSlope = 1e-5)
     p = integrate(iso.p1^2 + iso.p2^2 + minSlope * iso.forward) #add a minimum slope such that density is not too spiky and collocation not too flat
     theoForward = hermiteIntegral(p)
     p[0] = iso.forward - theoForward
