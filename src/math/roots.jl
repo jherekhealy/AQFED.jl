@@ -1,17 +1,17 @@
 #an extension to the Roots package
 using Roots
 using Setfield
-export InverseQuadraticMethod
+export SuperHalley
 
-struct InverseQuadraticMethod <: Roots.AbstractHalleyLikeMethod
+struct SuperHalley <: Roots.AbstractHalleyLikeMethod
 end
 
-function Roots.update_state(method::InverseQuadraticMethod, F, o::Roots.HalleyState{T,S}, options::Roots.UnivariateZeroOptions, l=Roots.NullTracks()) where {T,S}
+function Roots.update_state(method::SuperHalley, F, o::Roots.HalleyState{T,S}, options::Roots.UnivariateZeroOptions, l=Roots.NullTracks()) where {T,S}
     xn = o.xn1
     fxn = o.fxn1
     r1, r2 = o.Δ, o.ΔΔ
 
-    Δ =  (1+ r1/(r2*2))*r1   #r1/r2 = L  1/(2- r1)*r1
+    Δ = (1 + r1/(2r2 - 2r1))*r1
     if Roots.isissue(Δ)
         Roots.log_message(l, "Issue with computing `Δ`")
         return (o, true)

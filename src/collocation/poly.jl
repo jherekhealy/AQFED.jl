@@ -2,7 +2,7 @@
 using Polynomials
 using Roots
 
-import AQFED.Math: normcdf, normpdf, norminv, InverseQuadraticMethod
+import AQFED.Math: normcdf, normpdf, norminv, SuperHalley
 import AQFED.Black: blackScholesFormula, blackScholesVega
 using AQFED.Bachelier
 #using MINPACK #slower
@@ -33,13 +33,23 @@ function solveStrike(p::AbstractPolynomial, strike::Number; useHalley = true)::N
         if abs(p[1]) > eps(strike)
             guess = (strike - p[0]) / p[1]
         end
-        return find_zero(
-            x -> (p(x) - strike, (p(x) - strike) / pd(x), pd2(x) == 0 ? Inf : pd(x) / pd2(x)),
-            guess,
-            InverseQuadraticMethod(),
-            atol = 100 * eps(strike),
-            maxevals = 1024,
-        )
+        try
+            return find_zero(
+                x -> (p(x) - strike, (p(x) - strike) / pd(x), pd2(x) == 0 ? Inf : pd(x) / pd2(x)),
+                guess,
+                SuperHalley(), #seems to be (much) more robust around the spike in the density.
+                atol = 100 * eps(strike),
+                maxevals = 16,
+                verbose = false,
+            )
+        catch err
+            return find_zero(
+                x -> p(x) - strike,
+                (guess-10,guess+10),
+                Bisection(),
+                atol = 100 * eps(strike)
+            )
+        end
     else
         pk = p - strike
         r = roots(pk)
@@ -151,7 +161,7 @@ function makeIsotonicCollocationGuess(
     forward::T,
     discountDf::T;
     deg = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
-) where{T}
+) where {T}
     if deg >= 3
         strikesf, pricesf, weightsf = filterConvexPrices(strikes, callPrices ./ discountDf, weights, forward)
         strikesf, pif, xif = makeXFromUndiscountedPrices(strikesf, pricesf)
@@ -179,11 +189,12 @@ function makeIsotonicCollocation(
     deg = 3, #degree of collocation. 5 is usually best from a stability perspective.
     degGuess = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
     minSlope = 1e-6,
-    penalty = 0.0
+    penalty = 0.0,
 )::Tuple{IsotonicCollocation,Number} where {T} #return collocation and error measure
     isoc = makeIsotonicCollocationGuess(strikes, callPrices, weights, τ, forward, discountDf, deg = degGuess)
     #optimize towards actual prices
-    isoc, m = fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope=minSlope, penalty=penalty)
+    isoc, m =
+        fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope = minSlope, penalty = penalty)
     return isoc, m
 end
 
@@ -202,20 +213,30 @@ function fitBachelier(strikes, prices, weights, τ, forward, discountDf)
     return isoc
 end
 
-function fit(isoc::IsotonicCollocation, strikes, prices, weights, forward, discountDf; deg = 3, minSlope = 1e-4, penalty=0.0)
+function fit(
+    isoc::IsotonicCollocation,
+    strikes,
+    prices,
+    weights,
+    forward,
+    discountDf;
+    deg = 3,
+    minSlope = 1e-4,
+    penalty = 0.0,
+)
     q = trunc(Int, (deg + 1) / 2)
     iter = 0
     function obj(c)
         p1 = Polynomials.Polynomial(c[1:q])
         p2 = Polynomials.Polynomial(c[q+1:2*q])
         isoc = IsotonicCollocation(p1, p2, forward)
-        p = Polynomial(isoc, minSlope=minSlope)
+        p = Polynomial(isoc, minSlope = minSlope)
         iter += 1
         r = @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
         if penalty > 0
-            ip = hermiteIntegral(derivative(p,2)^2)
+            ip = hermiteIntegral(derivative(p, 2)^2)
             pvalue = penalty * ip
-            return vcat(r,  pvalue)
+            return vcat(r, pvalue)
         else
             return r
         end
@@ -281,7 +302,7 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     c2 = coeffs(isocubic.p2)
     c0 = zeros(Float64, 2 * q)
     c0[1:min(q, length(c1))] = c1
-    c0[q+1:min(2 * q , q + length(c2))] = c2
+    c0[q+1:min(2 * q, q + length(c2))] = c2
     xamax = max(abs(xif[1]), abs(xif[end]))
     for i = 1:length(c0)
         if c0[i] == 0
