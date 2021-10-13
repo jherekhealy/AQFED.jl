@@ -1,7 +1,7 @@
 #Stochastic collocation towards a polynomial and the lognormal density
 using Polynomials
 using Roots
-import AQFED.Math: normcdf, normpdf, norminv, SuperHalley
+import AQFED.Math: normcdf, normpdf, norminv
 import AQFED.Black: blackScholesFormula, blackScholesVega, impliedVolatility
 using AQFED.Bachelier
 using LeastSquaresOptim

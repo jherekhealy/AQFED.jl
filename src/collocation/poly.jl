@@ -2,7 +2,7 @@
 using Polynomials
 using Roots
 
-import AQFED.Math: normcdf, normpdf, norminv, SuperHalley
+import AQFED.Math: normcdf, normpdf, norminv
 import AQFED.Black: blackScholesFormula, blackScholesVega
 using AQFED.Bachelier
 #using MINPACK #slower
@@ -37,7 +37,7 @@ function solveStrike(p::AbstractPolynomial, strike::Number; useHalley = true)::N
             return find_zero(
                 x -> (p(x) - strike, (p(x) - strike) / pd(x), pd2(x) == 0 ? Inf : pd(x) / pd2(x)),
                 guess,
-                SuperHalley(), #seems to be (much) more robust around the spike in the density.
+                Roots.SuperHalley(), #seems to be (much) more robust around the spike in the density.
                 atol = 100 * eps(strike),
                 maxevals = 16,
                 verbose = false,
@@ -242,11 +242,11 @@ function fit(
         end
     end
     c0 = zeros(Float64, 2 * q)
-    c1 = coeffs(isoc.p1)
+    c1 = Polynomials.coeffs(isoc.p1)
     for i = 1:min(q, length(c1))
         c0[i] = c1[i]
     end
-    c2 = coeffs(isoc.p2)
+    c2 = Polynomials.coeffs(isoc.p2)
     for i = 1:min(q - 1, length(c2))
         c0[q+i] = c2[i]
     end
@@ -298,8 +298,8 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     end
 
     isocubic = IsotonicCollocation(cubic, forward)
-    c1 = coeffs(isocubic.p1)
-    c2 = coeffs(isocubic.p2)
+    c1 = Polynomials.coeffs(isocubic.p1)
+    c2 = Polynomials.coeffs(isocubic.p2)
     c0 = zeros(Float64, 2 * q)
     c0[1:min(q, length(c1))] = c1
     c0[q+1:min(2 * q, q + length(c2))] = c2
@@ -317,7 +317,7 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
 end
 
 function isCubicMonotone(cubic::AbstractPolynomial)::Bool
-    c = coeffs(cubic)
+    c = Polynomials.coeffs(cubic)
     if c[4] == 0 && c[3] == 0
         return c[2] > 0
     else
