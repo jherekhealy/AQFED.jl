@@ -77,7 +77,7 @@ module Collocation
 include("collocation/convex.jl") #utilities to ensure convexity of prices, and build X for collocation
 include("collocation/poly.jl")
 include("collocation/logpoly.jl")
-include("collocation/logbspline.jl")
+include("collocation/quadratic_spline.jl")
 include("collocation/expbspline.jl")
 end
 end
