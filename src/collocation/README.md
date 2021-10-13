@@ -103,7 +103,7 @@ plot!(k, ivk, label="degree-7")
 ![Implied volatilities for a short maturity](/resources/images/collocation_vols_short.png)
 
 
-## Peter Jaeckel Wiggles
+## P. Jaeckel Wiggles
 The polynomial collocation is often good enough, but for some extreme data, a good fit may not be achievable in practice. Such an example is the market data from Peter Jaeckel. This data is not real market data, but generated from a prior model, and hence it is extreme/not necessarily realistic.
 
 The code below displays the fit of a septic polynomial and the exponential B-Spline of Le Floc'h.
@@ -157,7 +157,7 @@ strikes = [0.035123777453185,
 		forward = 1.0
 		tte = 5.07222222222222
 		w1 = ones(length(strikes));
-		prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte, vegaFloor = 1e-4)
+		prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte, vegaFloor = 1e-5)
 		isoc,m = Collocation.makeIsotonicCollocation(strikes, prices, weights, tte, forward, 1.0,deg=7,degGuess=1)
 		sol = Collocation.Polynomial(isoc)
 		println("Solution ", sol, " ",Collocation.coeffs(sol), " ",Collocation.stats(sol), " measure ",m)
@@ -165,17 +165,21 @@ strikes = [0.035123777453185,
 		StatsBase.rmsd(ivstrikes,vols)
 		k = collect(strikes[1]/1.2:0.01:strikes[end]*1.2)
 		ivk = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, k,forward,1.0), forward, k, tte, 1.0);		
-		p3 = plot(strikes, vols, seriestype= :scatter)
-		plot!(k, ivk, label="degree-7")
-		bspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=1e-2,size=0,minSlope=1e-40, rawFit = true)
-		bspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=0e-2,size=0,minSlope=1e-40, rawFit = true)
+		p3 = plot(log.(strikes), vols, seriestype= :scatter, label="Reference"); xlabel!("log(strike)"); ylabel!("volatility")
+		plot!(log.(k), ivk, label="degree-7 polynomial")
+		pspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=1e-2,size=0,minSlope=1e-8, rawFit = true)
+		ivstrikes = @. Black.impliedVolatility(true, Collocation.priceEuropean(pspl, true, strikes,forward,1.0), forward, strikes, tte, 1.0);	StatsBase.rmsd(ivstrikes,vols)
+		bspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=0e-2,size=0,minSlope=1e-8, rawFit = true)
+		ivstrikes = @. Black.impliedVolatility(true, Collocation.priceEuropean(bspl, true, strikes,forward,1.0), forward, strikes, tte, 1.0);	StatsBase.rmsd(ivstrikes,vols)
 		ivk = @. Black.impliedVolatility(true, Collocation.priceEuropean(bspl, true, k,forward,1.0), forward, k, tte, 1.0);		
-		plot!(k, ivk, label="Exp-BSpline")
-		ivstrikes = @. Black.impliedVolatility(true, Collocation.priceEuropean(bspl, true, strikes,forward,1.0), forward, strikes, tte, 1.0);		
-		StatsBase.rmsd(ivstrikes,vols)
-		p2 = plot(log.(k), (Collocation.density.(bspl,k)), label="bspl")
+		plot!(log.(k), ivk, label="exp. B-spline")
+		p2 = plot(log.(k), (Collocation.density.(bspl,k)), label="exp. B-spline")
 ```
-The polynomial does not allow to match the reference extreme implied vols. The exponential B-spline works well. Note that the exponentional B-spline implementation required a few specific tricks to work well:
+The polynomial does not allow to match the reference extreme implied vols. The exponential B-spline works well.
+
+![Implied volatilities on P. Jaeckel extreme market data](/resources/images/jaeckel_expbspline_vol.png)
+
+Note that the exponentional B-spline implementation required a few specific tricks to work well:
 
 * a different kind of regularization for real market data such the TSLA examples (use the difference in 1/g' instead of g'', as the probability density depends on 1/g').
 * a proper choice of the first coefficient, such that the theoretical forward does not explode. The first coefficient may be chosen arbitrarily as it is then adjusted to match the market forward price.
@@ -187,6 +191,8 @@ The polynomial does not allow to match the reference extreme implied vols. The e
 | Polynomial degree 7 | 5.099 |
 | Exponential B-spline lambda=0 | 0.022 |
 | Exponential B-spline lambda=1e-2 | 0.064 |
+
+The code is still fragile, more so than polynomial collocation, due to the third point above. But it is good enough to illustrate the technique.
 
 ## References
 Le Floc'h, F. and Oosterlee, C. W. (2019) [Model-free stochastic collocation for an arbitrage-free implied volatility: Part I](https://link.springer.com/article/10.1007/s10203-019-00238-x)

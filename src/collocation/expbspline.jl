@@ -36,12 +36,6 @@ function solvePositiveStrike(c::ExpBSplineCollocation, expStrike::Number)
     bb = b - 2 * x0 * c
     aa = c
     allck = quadRootsReal(aa, bb, cc)
-    # if abs(aa) < sqrt(eps(strike))
-    #     return -cc / bb, i
-    # else
-    #     local ck::Number
-    #     sqrtΔ = sqrt(max(bb^2 - 4 * aa * cc, zero(aa)))
-    # allck = ((-bb - sqrtΔ) / (2aa), (-bb + sqrtΔ) / (2aa))
     for cki in allck
         if cki > pp.x[i] - sqrt(eps(strike)) && cki <= pp.x[i+1] + sqrt(eps(strike))
             return cki, i
@@ -49,7 +43,6 @@ function solvePositiveStrike(c::ExpBSplineCollocation, expStrike::Number)
     end
     println(allck, " ", pp.x[i], " ", pp.x[i+1], " ", a, " ", b, " ", c, " strike ", strike)
     throw(DomainError(strike, "strike not found"))
-    # end
 end
 
 #QuadRootsReal returns the real roots of a*x^2+ b*x +c =0
@@ -59,7 +52,7 @@ function quadRootsReal(a::T, b::T, c::T)::AbstractArray{T} where {T}
         return [-b / (2a)]
     elseif d > zero(d)# two real roots
         d = b < zero(d) ? sqrt(d) - b : -sqrt(d) - b
-        return [d / (2 * a), (2 * c) / d]
+        return [d / (2a), (2c) / d]
     else # two complex roots
         return []
     end
@@ -110,15 +103,7 @@ end
 function density(c::ExpBSplineCollocation, strike::Number)::Number
     ck, ckIndex = solvePositiveStrike(c, strike)
     dp = evaluateDerivative(c.g, ck)
-
     an = normpdf(ck) / (dp * strike)
-    # num =
-    #     (
-    #         -2 * priceEuropean(c, true, strike, 0.0, 1.0) +
-    #         priceEuropean(c, true, strike + strike * 1e-3, 0.0, 1.0) +
-    #         priceEuropean(c, true, strike - strike * 1e-3, 0.0, 1.0)
-    #     ) / (strike * 1e-3)^2
-    # println(strike," ", ck, " ", dp, " ", an, " ",num)
     return an
 end
 
