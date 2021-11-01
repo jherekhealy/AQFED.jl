@@ -1,16 +1,19 @@
 #Stochastic collocation towards an exponential bspline and the normal density
 using Roots
-import AQFED.Math: normcdf, normpdf, norminv
+import AQFED.Math: normcdf, normpdf, norminv, inv, ClosedTransformation
 import AQFED.Black: blackScholesFormula, blackScholesVega, impliedVolatility
 using LeastSquaresOptim
 using BSplines
 using SpecialFunctions
-struct ExpBSplineCollocation
-    g::QuadraticPP #a bspline, can I express price directly in terms of bspline basis?
-    forward::Number
+
+
+struct ExpBSplineCollocation{T,U}
+    g::QuadraticPP{T,U} #a bspline, can I express price directly in terms of bspline basis?
+    forward::U
 end
 
-function solvePositiveStrike(c::ExpBSplineCollocation, expStrike::Number)
+function solvePositiveStrike(c::ExpBSplineCollocation{U,T}, expStrike::T)::Tuple{U,Int} where {U, T <: Number}
+    #Note: specifying types above makes a drastic difference in performance
     pp = c.g
     n = length(pp.x)
     strike = log(expStrike)
@@ -60,12 +63,12 @@ end
 
 
 function priceEuropean(
-    c::ExpBSplineCollocation,
+    c::ExpBSplineCollocation{T,U},
     isCall::Bool,
-    strike::Number,
-    forward::Number,
-    discountDf::Number,
-)::Number
+    strike::U,
+    forward::U,
+    discountDf::U,
+)::T where {T,U}
     ck, ckIndex = solvePositiveStrike(c, strike)
 
     useForward = true
@@ -100,7 +103,7 @@ function priceEuropean(
 end
 
 
-function density(c::ExpBSplineCollocation, strike::Number)::Number
+function density(c::ExpBSplineCollocation{T,U}, strike::U)::U where {T, U <: Number}
     ck, ckIndex = solvePositiveStrike(c, strike)
     dp = evaluateDerivative(c.g, ck)
     an = normpdf(ck) / (dp * strike)
@@ -120,12 +123,12 @@ function adjustForward(lsc::ExpBSplineCollocation)
     end
 end
 
-function hermiteIntegral(p::ExpBSplineCollocation)::Number
+function hermiteIntegral(p::ExpBSplineCollocation{T,U})::T where {T,U}
     return hermiteIntegralBounded(p, -300.0, 1)
 end
 
 
-function firstMomentExtrapolationBounded(p::ExpBSplineCollocation, i::Int, x0t::Number, x1t::Number)::Number
+function firstMomentExtrapolationBounded(p::ExpBSplineCollocation{T,U}, i::Int, x0t::Number, x1t::Number)::T where {T,U}
     pp = p.g
     # i = length(pp.x) or i = 1
     x0 = pp.x[i]
@@ -144,7 +147,7 @@ function firstMomentExtrapolationBounded(p::ExpBSplineCollocation, i::Int, x0t::
     end
 end
 
-function firstMomentBounded(p::ExpBSplineCollocation, i::Int, a::Number, b::Number)::Number
+function firstMomentBounded(p::ExpBSplineCollocation{T,U}, i::Int, a::Number, b::Number)::T where {T,U}
     pp = p.g
     x0 = pp.x[i]
     x1 = pp.x[i+1]
@@ -178,7 +181,7 @@ function firstMomentBounded(p::ExpBSplineCollocation, i::Int, a::Number, b::Numb
         fip = x1t * sqrtonec + a1 / sqrtonec
         fi = x0t * sqrtonec + a1 / sqrtonec
         s = (fi >= zero(fi)) ? one(x0) : -one(x0)
-        useDawson = false
+        useDawson = true
         if !useDawson
             ndiff = (erfi(-s * fi / sqrt(2)) - erfi(-s * fip / sqrt(2)))
             if ndiff == zero(ndiff) #necessary for ForwardDiff
@@ -187,7 +190,7 @@ function firstMomentBounded(p::ExpBSplineCollocation, i::Int, a::Number, b::Numb
                 value = s * e * ndiff / (2 * sqrtonec)
 
                 if isinf(value) || isnan(value)
-                    println(e, " ", fi, " ", fip, " ", sqrtonec)
+                    println("naninfo line190 ", e, " ", fi, " ", fip, " ", sqrtonec)
                     #return zero(x0t)
                 end
                 return value
@@ -198,26 +201,29 @@ function firstMomentBounded(p::ExpBSplineCollocation, i::Int, a::Number, b::Numb
                 return ea
             end
             ebma = exp(-(x1t^2 - x0t^2) * onec / 2 + a1 * (x1t - x0t))
-             if isinf(ea) || isinf(ebma) || isnan(ea) || isnan(ebma)
-                return zero(ea)
-            end
+            #  if isinf(ea) || isinf(ebma) || isnan(ea) || isnan(ebma)
+            #     return zero(ea)
+            # end
             erfb = dawson(-s * fip / sqrt(2)) * 2 / sqrt(pi)
             erfa = dawson(-s * fi / sqrt(2)) * 2 / sqrt(pi)
-            ndiff = iszero(ebma) ? erfa : (erfa - ebma * erfb)
-            if ndiff == zero(ndiff) #necessary for ForwardDiff
+            ndiff = iszero(erfb) ? erfa : (erfa - ebma * erfb) #issue if ebma large and erfb small, derivative will be 0.
+            if iszero(ndiff) #necessary for ForwardDiff
                 return ndiff
             end
             fdif = s * ea * ndiff
+            if iszero(fdif)
+                return fdif
+            end
             value = fdif / (2 * sqrtonec)
             if isnan(value) || isinf(value)
-                println(onec, " ", -x1t^2 * onec / 2 + a1 * x1t + a0, " ", ea, " ", ebma, " dawson ", erfa, " ", erfb)
+                println("naninf line213 ", onec, " ", -x1t^2 * onec / 2 + a1 * x1t + a0, " ", ea, " ", ebma, " dawson ", erfa, " ", erfb)
             end
             return value
         end
     end
 end
 
-function hermiteIntegralBounded(p::ExpBSplineCollocation, ck::Number, ckIndex::Int)::Number
+function hermiteIntegralBounded(p::ExpBSplineCollocation{T,U}, ck::Number, ckIndex::Int)::T where {T,U}
     pp = p.g
     n = length(pp.x)
     i = ckIndex
@@ -332,50 +338,6 @@ end
 Base.length(p::ExpBSplineCollocation) = Base.length(p.g.x)
 Base.broadcastable(p::ExpBSplineCollocation) = Ref(p)
 
-abstract type Bijection end
-struct IdentityTransformation{T} <: Bijection end
-(f::IdentityTransformation{T})(x::T) where {T} = x
-inv(f::IdentityTransformation{T}, x::T) where {T} = x
-
-struct ClosedTransformation{T} <: Bijection
-    minValue::T
-    maxValue::T
-end
-
-function (f::ClosedTransformation{T})(x) where {T}
-    return (f.minValue + f.maxValue) / 2 + (f.minValue - f.maxValue) / 2 * cos(x)
-end
-
-function inv(f::ClosedTransformation{T}, y) where {T}
-    x = (y - f.minValue + (f.minValue - f.maxValue) / 2) / (f.minValue - f.maxValue) * 2
-    return acos(x)
-end
-
-
-struct SquareMinTransformation{T} <: Bijection
-    minValue::T
-end
-
-function (f::SquareMinTransformation{T})(x) where {T}
-    return x^2 + f.minValue
-end
-
-function inv(f::SquareMinTransformation{T}, y) where {T}
-    return sqrt(y - f.minValue)
-end
-
-struct ExpMinTransformation{T} <: Bijection
-    minValue::T
-end
-
-function (f::ExpMinTransformation{T})(x) where {T}
-    return exp(x) + f.minValue
-end
-
-function inv(f::ExpMinTransformation{T}, y) where {T}
-    return log(y - f.minValue)
-end
-
 using ForwardDiff
 
 function fit(isoc::ExpBSplineCollocation, strikes, prices, weights, forward, discountDf; minSlope = 1e-6, penalty = 0.0)
@@ -393,7 +355,7 @@ function fit(isoc::ExpBSplineCollocation, strikes, prices, weights, forward, dis
         ct[i] = inv(transform, min(max(spl.coeffs[i+1] - spl.coeffs[i], minValue), maxValue))
         # println(i, " ", spl.coeffs[i+1] - spl.coeffs[i]," ct ",ct[i])
     end
-    function obj(ct0::AbstractArray{T}) where {T}
+    function obj!(fvec, ct0::AbstractArray{T}) where {T}
 
         ct = @. transform(ct0)
         α = zeros(T, length(basis)) # = length x + 1
@@ -410,19 +372,21 @@ function fit(isoc::ExpBSplineCollocation, strikes, prices, weights, forward, dis
         # println(verr)
         adjustForward(lsc)
         iter += 1
-        verr = @. weights * (priceEuropean(lsc, true, strikes, forward, discountDf) - prices)
+        n = length(strikes)
+        @. fvec[1:n] = weights * (priceEuropean(lsc, true, strikes, forward, discountDf) - prices)
         if penalty > 0
-            vpen = @. ((1 / lsc.g.b[2:end] - 1 / lsc.g.b[1:end-1]) * penalty) #more appropriate if transform is unbounded > 0
+            @. fvec[n+1:end] = ((1 / lsc.g.b[2:end] - 1 / lsc.g.b[1:end-1]) * penalty) #more appropriate if transform is unbounded > 0
             # vpen = @. (lsc.g.c[1:end] * penalty) #bounded transform?
-            return vcat(verr, vpen)
+            # return vcat(verr, vpen)
         else
-            return vcat(verr)
+            # return vcat(verr)
         end
-    end
-        function obj!(fvec, x)
-        fvec[:] = obj(x)
         fvec
     end
+    #     function obj!(fvec, x)
+    #     fvec[:] = obj(x)
+    #     fvec
+    # end
 #     cfg = ForwardDiff.JacobianConfig(obj, ct)
 # function jac!(fvec, x)
 #         fvec[:] = ForwardDiff.jacobian(obj, x, cfg)
@@ -450,8 +414,9 @@ function fit(isoc::ExpBSplineCollocation, strikes, prices, weights, forward, dis
         LevenbergMarquardt();
         iterations = 1024,
     )
+    fvec = zeros(Float64, outlen)
     # fit = fsolve(obj!, jac!, ct, outlen; show_trace=false, method=:lm, tol=1e-8) #fit.x
-    println(iter, " fit ", fit, obj(fit.minimizer)) #obj(fit.x))  #fit.f
+    println(iter, " fit ", fit, obj!(fvec,fit.minimizer)) #obj(fit.x))  #fit.f
     ct0 = fit.minimizer
 
 

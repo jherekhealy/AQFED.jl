@@ -110,8 +110,7 @@ The code below displays the fit of a septic polynomial and the exponential B-Spl
 ```julia
 using StatsBase
 using Plots
-using AQFED.Collocation
-using AQFED.Black
+using AQFED.Collocation, AQFED.Black, AQFED.Black
 strikes = [0.035123777453185,
 		0.049095433048156,
 		0.068624781300891,
@@ -167,6 +166,7 @@ strikes = [0.035123777453185,
 		ivk = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, k,forward,1.0), forward, k, tte, 1.0);		
 		p3 = plot(log.(strikes), vols, seriestype= :scatter, label="Reference"); xlabel!("log(strike)"); ylabel!("volatility")
 		plot!(log.(k), ivk, label="degree-7 polynomial")
+		#Exponential B-spline collocation
 		pspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=1e-2,size=0,minSlope=1e-8, rawFit = true)
 		ivstrikes = @. Black.impliedVolatility(true, Collocation.priceEuropean(pspl, true, strikes,forward,1.0), forward, strikes, tte, 1.0);	StatsBase.rmsd(ivstrikes,vols)
 		bspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=0e-2,size=0,minSlope=1e-8, rawFit = true)
@@ -174,8 +174,16 @@ strikes = [0.035123777453185,
 		ivk = @. Black.impliedVolatility(true, Collocation.priceEuropean(bspl, true, k,forward,1.0), forward, k, tte, 1.0);		
 		plot!(log.(k), ivk, label="exp. B-spline")
 		p2 = plot(log.(k), (Collocation.density.(bspl,k)), label="exp. B-spline")
+		#Shaback rational spline interpolation
+		allStrikes = vcat(0.0, strikes, 100.0); allPrices = vcat(forward ,prices, 0.0);
+		leftB = Math.FirstDerivativeBoundary(-1.0)
+		rightB = Math.FirstDerivativeBoundary(0.0)
+		cs = Math.makeConvexSchabackRationalSpline(allStrikes, allPrices, leftB, rightB, iterations=128)
+		ivstrikes = @. Black.impliedVolatility(true, cs(strikes), forward, strikes, tte, 1.0);	StatsBase.rmsd(ivstrikes,vols)
+		ivk = @. Black.impliedVolatility(true, cs(k), forward, k, tte, 1.0);
+		plot!(log.(k), Math.evaluateSecondDerivative.(cs,k), label="Schaback")
 ```
-The polynomial does not allow to match the reference extreme implied vols. The exponential B-spline works well.
+The polynomial does not allow to match the reference extreme implied vols. The exponential B-spline works well. The rational spline interpolation is exact but leads to small (minor?) wiggles in the right wing of the implied volatility plot.
 
 ![Implied volatilities on P. Jaeckel extreme market data](/resources/images/jaeckel_expbspline_vol.png)
 
@@ -189,11 +197,13 @@ Note that the exponentional B-spline implementation required a few specific tric
 | Method | RMSE in implied vol % |
 |:-------|--------------:|
 | Polynomial degree 7 | 5.099 |
-| Exponential B-spline lambda=0 | 0.022 |
-| Exponential B-spline lambda=1e-2 | 0.064 |
+| Exponential B-spline lambda=0 | 0.012 |
+| Exponential B-spline lambda=1e-2 | 0.050 |
+| Schaback rational spline | 5.0e-16 |
 
 The code is still fragile, more so than polynomial collocation, due to the third point above. But it is good enough to illustrate the technique.
 
 ## References
 Le Floc'h, F. and Oosterlee, C. W. (2019) [Model-free stochastic collocation for an arbitrage-free implied volatility: Part I](https://link.springer.com/article/10.1007/s10203-019-00238-x)
+
 Le Floc'h, F. and Oosterlee, C. W. (2019) [Model-Free stochastic collocation for an arbitrage-free implied volatility: Part II](https://www.mdpi.com/2227-9091/7/1/30)

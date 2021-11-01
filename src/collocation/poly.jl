@@ -10,12 +10,13 @@ using LeastSquaresOptim
 #using SCS #slower
 export Polynomial, IsotonicCollocation, solveStrike, priceEuropean, density, makeIsotonicCollocation, weightedPrices
 
-struct IsotonicCollocation
-    p1::AbstractPolynomial
-    p2::AbstractPolynomial
-    forward::Number
+struct IsotonicCollocation{T,U}
+    p1::AbstractPolynomial{T}
+    p2::AbstractPolynomial{T}
+    forward::U
 end
 
+Base.broadcastable(p::IsotonicCollocation) = Ref(p)
 
 function Polynomial(iso::IsotonicCollocation; minSlope = 1e-5)
     p = integrate(iso.p1^2 + iso.p2^2 + minSlope * iso.forward) #add a minimum slope such that density is not too spiky and collocation not too flat
@@ -25,7 +26,7 @@ function Polynomial(iso::IsotonicCollocation; minSlope = 1e-5)
     return p
 end
 
-function solveStrike(p::AbstractPolynomial, strike::Number; useHalley = true)::Number
+function solveStrike(p::AbstractPolynomial{T}, strike::U; useHalley = true)::T where {T,U}
     if useHalley
         pd = derivative(p)
         pd2 = derivative(p, 2)

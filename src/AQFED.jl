@@ -7,6 +7,8 @@ include("math/normal.jl")
 include("math/as241.jl")
 include("math/lambertw.jl")
 include("math/delbourgo_gregory.jl")
+include("math/transform.jl")
+include("math/schaback.jl")
 end
 
 __precompile__(true)
