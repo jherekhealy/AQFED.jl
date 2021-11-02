@@ -134,10 +134,10 @@ function fitConvexSchabackRationalSpline(
         if penalty > 0
             #Strain on M
             for j = 1:n-1
-                s2,s1,s0 = ml[j+2]^3 , ml[j+1]^3 ,  ml[j]^3
-                g2 = 2 * ((s2 - s1) / h[j+1] - (s1 - s0) / h[j]) / (h[j+1] + h[j])
-                g1 = (s1 - s0) / (h[j])
-                fvec[j+n-1] = g2 / (1 + g1^2)^(5 / 4) * sqrt(h[j]) * penalty
+                 s2,s1,s0 = ml[j+2]^3 , ml[j+1]^3 ,  ml[j]^3
+                 g2 = 2 * ((s2 - s1) / h[j+1] - (s1 - s0) / h[j]) / (h[j+1] + h[j])
+                 #g2 = (s2 - s1) /  h[j+1]
+                 fvec[j+n-1] = g2 * sqrt(h[j])  * penalty #strain is sometimes unstable, second derivative is better
             end
         end
         iter += 1

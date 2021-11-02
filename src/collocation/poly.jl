@@ -14,6 +14,12 @@ struct IsotonicCollocation{T,U}
     p1::AbstractPolynomial{T}
     p2::AbstractPolynomial{T}
     forward::U
+    # coeffs::AbstractArray{T} #Polynomials.Polynomial{T,:x}(Val(false), coeffs)
+    #  function IsotonicCollocation{T, U}(p1::AbstractPolynomial{T},
+    #      p2::AbstractPolynomial{T},
+    #      forward::U) where {T, U}
+    #      new{T,U}(p1, p2, forward, zeros(T,degree(p1)+degree(p2)+3))
+    #  end
 end
 
 Base.broadcastable(p::IsotonicCollocation) = Ref(p)
@@ -26,31 +32,43 @@ function Polynomial(iso::IsotonicCollocation; minSlope = 1e-5)
     return p
 end
 
+function solveStrike(p::AbstractPolynomial{T}, pd::AbstractPolynomial{T},pd2::AbstractPolynomial{T}, strike::U)::T where {T,U}
+    function objHalley(x::W)::Tuple{W,W,W} where {W}
+        u = p(x)-strike
+        du =  pd(x)
+        d2u = pd2(x)
+        return (u, u / du, d2u == 0 ? Inf : du / d2u)
+    end
+    guess = 0.0
+    if abs(p[1]) > eps(strike)
+        guess = (strike - p[0]) / p[1]
+    end
+    try
+        return find_zero(
+            objHalley,
+            guess,
+            Roots.SuperHalley(), #seems to be (much) more robust around the spike in the density.
+            atol = 100 * eps(strike),
+            maxevals = 16,
+            verbose = false,
+        )
+    catch err
+        function obj(x::W)::W where {W}
+            p(x) - strike
+        end
+        return find_zero(
+            obj,
+            (guess-10,guess+10),
+            Bisection(),
+            atol = 100 * eps(strike)
+        )
+    end
+end
 function solveStrike(p::AbstractPolynomial{T}, strike::U; useHalley = true)::T where {T,U}
     if useHalley
         pd = derivative(p)
         pd2 = derivative(p, 2)
-        guess = 0.0
-        if abs(p[1]) > eps(strike)
-            guess = (strike - p[0]) / p[1]
-        end
-        try
-            return find_zero(
-                x -> (p(x) - strike, (p(x) - strike) / pd(x), pd2(x) == 0 ? Inf : pd(x) / pd2(x)),
-                guess,
-                Roots.SuperHalley(), #seems to be (much) more robust around the spike in the density.
-                atol = 100 * eps(strike),
-                maxevals = 16,
-                verbose = false,
-            )
-        catch err
-            return find_zero(
-                x -> p(x) - strike,
-                (guess-10,guess+10),
-                Bisection(),
-                atol = 100 * eps(strike)
-            )
-        end
+        solveStrike(p, pd, pd2, strike)
     else
         pk = p - strike
         r = roots(pk)
@@ -63,7 +81,20 @@ function solveStrike(p::AbstractPolynomial{T}, strike::U; useHalley = true)::T w
     end
 end
 
-function priceEuropean(p::AbstractPolynomial, isCall::Bool, strike::Number, forward::Number, discountDf::Number)::Number
+function priceEuropean(p::AbstractPolynomial{T}, pd::AbstractPolynomial{T}, pd2::AbstractPolynomial{T}, isCall::Bool, strike::U, forward::U, discountDf::U)::T where {T,U}
+    ck = solveStrike(p, pd, pd2, strike)
+    valuef = hermiteIntegralBounded(p, ck)
+    valuek = normcdf(-ck)
+    callPrice = valuef - strike * valuek
+    putPrice = -(forward - strike) + callPrice
+    if isCall
+        return callPrice * discountDf
+    else
+        return putPrice * discountDf
+    end
+end
+
+function priceEuropean(p::AbstractPolynomial{T}, isCall::Bool, strike::U, forward::U, discountDf::U)::T where {T,U}
     ck = solveStrike(p, strike)
     valuef = hermiteIntegralBounded(p, ck)
     valuek = normcdf(-ck)
@@ -104,7 +135,7 @@ function stats(p::AbstractPolynomial)
     kurtosis = μ4 / μ2^2
     return μ, sqrt(μ2), skew, kurtosis
 end
-function hermiteIntegral(p::AbstractPolynomial)::Number
+function hermiteIntegral(p::AbstractPolynomial{T})::T where {T}
     m0 = 1.0
     nx0 = 0.0
     sum = 0.0
@@ -121,7 +152,7 @@ function hermiteIntegral(p::AbstractPolynomial)::Number
 end
 
 
-function hermiteIntegralBounded(p::AbstractPolynomial, ck::Number)::Number
+function hermiteIntegralBounded(p::AbstractPolynomial{T}, ck::U)::T where {T,U}
     x0 = ck
     m0 = normcdf(-x0)
     nx0 = normpdf(x0)
@@ -216,31 +247,33 @@ end
 
 function fit(
     isoc::IsotonicCollocation,
-    strikes,
-    prices,
-    weights,
-    forward,
-    discountDf;
+    strikes::AbstractArray{U},
+    prices::AbstractArray{U},
+    weights::AbstractArray{U},
+    forward::U,
+    discountDf::U;
     deg = 3,
     minSlope = 1e-4,
     penalty = 0.0,
-)
+) where {U}
     q = trunc(Int, (deg + 1) / 2)
     iter = 0
-    function obj(c)
+    function obj!(fvec::Z, c::AbstractArray{W})::Z where {Z,W}
         p1 = Polynomials.Polynomial(c[1:q])
         p2 = Polynomials.Polynomial(c[q+1:2*q])
         isoc = IsotonicCollocation(p1, p2, forward)
         p = Polynomial(isoc, minSlope = minSlope)
+        pd = derivative(p,1)
+        pd2 = derivative(p,2)
         iter += 1
-        r = @. weights * (priceEuropean(p, true, strikes, forward, discountDf) - prices)
+        n = length(strikes)
+        @. fvec[1:n] = weights * (priceEuropean(p, pd, pd2, true, strikes, forward, discountDf) - prices)
         if penalty > 0
             ip = hermiteIntegral(derivative(p, 2)^2)
             pvalue = penalty * ip
-            return vcat(r, pvalue)
-        else
-            return r
+            fvec[n+1] = pvalue
         end
+        fvec
     end
     c0 = zeros(Float64, 2 * q)
     c1 = Polynomials.coeffs(isoc.p1)
@@ -256,13 +289,25 @@ function fit(
             c0[i] = eps(forward)  #zero would break automatic differentiation
         end
     end
-    fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward, iterations = deg * 300) #autodiff breaks without Halley. Would need custom
+    outlen = length(strikes)
+    if penalty > 0
+        outlen += 1
+    end
+    #TODO optimize the number of allocations. This would mean to abandon Polynomials package and (re)use Vectors instead
+    fit = optimize!(
+        LeastSquaresProblem(x = c0, f! = obj!, autodiff = :forward,
+        # g! = jac!, #useful to debug issue with ForwardDiff NaNs
+        output_length = outlen),
+        LevenbergMarquardt();
+        iterations = deg*300,
+    )
+    #fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward, iterations = deg * 300) #autodiff breaks without Halley. Would need custom
     # function obj!(fvec, x)
     #     fvec[:] = obj(x)
     #     fvec
     # end
     # fit = fsolve(obj!, c0, length(strikes); show_trace=true, method=:lm, tol=1e-10) #fit.x
-    #println(iter, " fit ", fit, obj(fit.minimizer))
+    println(iter, " fit ", fit)
     c0 = fit.minimizer
     measure = fit.ssr
     return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward), measure

@@ -203,6 +203,58 @@ Note that the exponentional B-spline implementation required a few specific tric
 
 The code is still fragile, more so than polynomial collocation, due to the third point above. But it is good enough to illustrate the technique.
 
+![Zoom on the right wing of the implied volatilities of P. Jaeckel extreme market data](/resources/images/jaeckel_schaback_vol.png)
+
+## Exponential B-Spline Collocation vs. Schaback Rational Spline on TSLA
+The Schaback rational spline may also be applied to produce a smooth least-squares fit instead of an exact interpolation. Smoothness is introduced through a penalty in the minimization, in a similar fashion as for the exponential B-spline collocation.
+
+A key aspect for the rational spline is the choice of the right boundary, which must be far-away to avoid a spurious spike near the right boundary in the density, due to absorption at the boundary. A typical rule is to use K_max=forward*exp(8*σ*sqrt(τ)) where σ is the at-the-money implied Black volatility. Left extrapolation is given by V_call(K=0) = forward (although it may correspond to a somewhat arbitrary choice of shape). For the right boundary, we use V_call(K_max) = 0.
+Below is an example of the density with 3*maximum(strikes) vs. the 6 standard deviations rule on the TSLA quotes of the first section.
+
+![Rational spline boundary impact](/resources/images/schaback_tsla_density_boundary.png)
+
+How does the exponential B-spline collocation compare? On the TSLA example, the choice of a not too small minSlope parameter allows to produce a somewhat smoother implied density, because the location of the knots, fixed by the initial convex filtered prices, are then not too close. On the TSLA example, 1e-2 is a good trade-off between accuracy and smoothness. As a side-effect, it speeds up slightly the calibration (and this would also produce a smoother initial guess for the rational spline fit).
+
+It is possible to obtain a much smoother implied density, by placing the knots at the Gauss-Hermite locations, along with fixing the number of knots. In the Figure below we compare the exponential B-spline implied density using the "raw" knots (implied by the convex prices), and 50 Gauss-Hermite knots. The choice of Gauss-Hermite location is somewhat arbitrary, although in line with the original polynomial stochastic collocation paper of Grzelak. The knots are a bit closer where it matters more to represent the density accurately, and in this regard, this choice leads to a better representation than uniformly spaced knots.
+
+![Exponential B-spline collocation knots impact](/resources/images/expbspline_tsla_density_knots.png)
+
+On this example, the exponential B-spline collocation and the rational spline lead to a very similar implied density with our choices for the regularization parameter.
+
+| Method | RMSE | Time (ms) |
+|:-------|--------------:|----:|
+| Exponential B-spline collocation on raw knots λ=1e-2 | 0.00356  | 214 |
+| Exponential B-spline collocation on 50 Gauss-Hermite knots λ=1e-2 | 0.00365  | 135 |
+| Schaback rational spline λ=2e-4 | 0.00371  | 113 |
+
+Despite its relative complexity, the exponential B-spline collocation is of similar speed as the rational spline. In comparison, the time to filter out the quotes for convexity takes around 25-50 ms, which we included in our timings in the above table.
+
+Below is the code corresponding to the figures and table above.
+```julia
+prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte)
+strikesf, pricesf = Collocation.filterConvexPrices(strikes, prices, weights, forward,tol=1e-6)
+midIndex = trunc(Int,length(vols)/2); endStrike = forward*exp(4*vols[midIndex]*sqrt(tte))
+#normalize prices and strikes by forward
+allStrikes = vcat(0.0, strikesf, endStrike)./forward; allPrices = vcat(forward ,pricesf, 0.0)./forward; allWeights = vcat(1.0, weights .* forward, 1.0)
+leftB = Math.FirstDerivativeBoundary(-1.0)
+rightB = Math.FirstDerivativeBoundary(0.0)
+cs = Math.fitConvexSchabackRationalSpline(allStrikes, allPrices, allWeights,  leftB, rightB, penalty=2e-4,guessType=Math.Schaback{Float64}())
+ivstrikes = @. Black.impliedVolatility(true, cs(strikes/forward)*forward, forward, strikes, tte, 1.0);	StatsBase.rmsd(ivstrikes,vols)
+k = collect(strikes[1]/1.2:0.1:strikes[end]*1.2);
+p4 = plot(k, Math.evaluateSecondDerivative.(cs,k./forward)./forward, label="4 deviations", xlabel="Underlying price", ylabel="Implied probability density")
+endStrike = forward*exp(8*vols[midIndex]*sqrt(tte)); allStrikes = vcat(0.0, strikesf, endStrike)./forward;
+cs = Math.fitConvexSchabackRationalSpline(allStrikes, allPrices, allWeights,  leftB, rightB, penalty=2e-4,guessType=Math.Schaback{Float64}())
+ivstrikes = @. Black.impliedVolatility(true, cs(strikes/forward)*forward, forward, strikes, tte, 1.0);	StatsBase.rmsd(ivstrikes,vols)
+plot!(k, Math.evaluateSecondDerivative.(cs,k./forward)./forward, label="8 deviations")
+pspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=1.0e-2,size=0,minSlope=1e-2, rawFit = true)
+ivstrikes = @. Black.impliedVolatility(true, Collocation.priceEuropean(pspl, true, strikes,forward,1.0), forward, strikes, tte, 1.0);   StatsBase.rmsd(ivstrikes,vols)
+p2 = plot(k, (Collocation.density.(pspl,k)), label="Raw knots")
+pspl,m = Collocation.makeExpBSplineCollocation(strikes, prices, weights, tte, forward, 1.0,penalty=1.0e-2,size=50,minSlope=1e-6, rawFit = false)
+ivstrikes = @. Black.impliedVolatility(true, Collocation.priceEuropean(pspl, true, strikes,forward,1.0), forward, strikes, tte, 1.0);   StatsBase.rmsd(ivstrikes,vols)
+plot!(k, (Collocation.density.(pspl,k)), label="Gauss-Hermite knots")
+plot!(k, Math.evaluateSecondDerivative.(cs,k./forward)./forward, label="Schaback", xlabel="Underlying price", ylabel="Implied probability density")
+
+```
 ## References
 Le Floc'h, F. and Oosterlee, C. W. (2019) [Model-free stochastic collocation for an arbitrage-free implied volatility: Part I](https://link.springer.com/article/10.1007/s10203-019-00238-x)
 

@@ -33,9 +33,9 @@ function filterConvexPrices(
     callPrices::Vector{T}, #undiscounted!
     weights::Vector{T},
     forward::T;
-    tol = 1e-8,
+    tol = 1e-8, forceConvexity = false
 )::Tuple{Vector{T},Vector{T},Vector{T}} where {T}
-    if isArbitrageFree(strikes, callPrices, forward)[1]
+    if !forceConvexity && isArbitrageFree(strikes, callPrices, forward)[1]
         return strikes, callPrices, weights
     end
     n = length(callPrices)
@@ -98,7 +98,7 @@ function makeXFromUndiscountedPrices(strikesf::Vector{T}, pricesf::Vector{T}, in
     pif[1] = -dzim
     if dzim <= -1 + slopeTolerance
         pif = pif[2:end]
-        strikesf = strikesf[2:e, d]
+        strikesf = strikesf[2:end]
     end
     xif = invphi.(-pif)
     return strikesf, pif, xif

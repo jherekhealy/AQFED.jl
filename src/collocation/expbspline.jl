@@ -258,9 +258,8 @@ function makeExpBSplineCollocationGuess(
     forward::T,
     discountDf::T;
     size = 0,
-    minSlope = eps(Float64)
 ) where {T}
-    b = fitExpBSplineBachelier(strikes, callPrices, weights, τ, forward, discountDf, size = size, minSlope = minSlope)
+    b = fitExpBSplineBachelier(strikes, callPrices, weights, τ, forward, discountDf, size = size)
 end
 
 function makeExpBSplineCollocation(
@@ -274,15 +273,22 @@ function makeExpBSplineCollocation(
     penalty = 0.0,
     size = 0,
     rawFit = false,
+    minSlopeKnots = minSlope
 )::Tuple{ExpBSplineCollocation,Number} where {T} #return collocation and error measure
     strikesf, pricesf, weightsf = filterConvexPrices(
         strikes,
         callPrices ./ discountDf,
         weights,
         forward,
-        tol = minSlope + sqrt(eps(one(minSlope))),
-    )
-    isoc = makeExpBSplineCollocationGuess(strikesf, pricesf, weightsf, τ, forward, 1.0, size = size, minSlope = minSlope)
+        tol = minSlope + sqrt(eps(one(minSlope)))    )
+    (strikesk, pricesk, weightsk) = (minSlopeKnots == minSlope) ? (strikesf, pricesf, weightsf) : filterConvexPrices(
+        strikes,
+        callPrices ./ discountDf,
+        weights,
+        forward,
+        tol = minSlopeKnots + sqrt(eps(one(minSlopeKnots))))
+
+    isoc = makeExpBSplineCollocationGuess(strikesk, pricesk, weightsk, τ, forward, 1.0, size = size)
     isoc, m =
         rawFit ? fit(isoc, strikes, callPrices, weights, forward, discountDf, minSlope = minSlope, penalty = penalty) :
         fit(isoc, strikesf, pricesf, weightsf, forward, discountDf, minSlope = minSlope, penalty = penalty)
@@ -290,7 +296,7 @@ function makeExpBSplineCollocation(
 end
 
 using FastGaussQuadrature
-function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountDf; size::Int = 0, minSlope::Float64 = eps(Float64))
+function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountDf; size::Int = 0, slopeTolerance::Float64 = sqrt(eps(Float64)))
     m = length(strikes)
     i = findfirst(x -> x > forward, strikes)
     if i == nothing
@@ -305,7 +311,8 @@ function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountD
     vol = impliedVolatility(true, price, forward, strike, τ, discountDf)
     σ = vol * sqrt(τ)
     # need to use black because ys need to be > 0. xs < 0 ok.
-    strikesf, pif, xf = makeXFromUndiscountedPrices(strikes, prices, slopeTolerance = minSlope)
+    strikesf, pif, xf = makeXFromUndiscountedPrices(strikes, prices, slopeTolerance = slopeTolerance)
+    println("xf ",xf, strikesf)
     mindx = minimum(xf[2:end] - xf[1:end-1])
     if mindx < zero(xf[1])
         throw(DomainError(mindx, "dx negative, x is decreasing"))
@@ -347,7 +354,7 @@ function fit(isoc::ExpBSplineCollocation, strikes, prices, weights, forward, dis
     c = zeros(Float64, length(basis)) # = length x + 1
     spl = convert(BSplines.Spline, isoc.g)
     ct = zeros(Float64, length(spl.coeffs) - 1)
-    minValue = max(1e-8 * (spl.coeffs[end] - spl.coeffs[1]), minSlope)
+    minValue = max(1e-8 * (spl.coeffs[end] - spl.coeffs[1]), minSlope*0)
     maxValue = 4 * (spl.coeffs[end] - spl.coeffs[1])
     #transform = ExpMinTransformation(minValue)
     transform = ClosedTransformation(minValue, maxValue)
