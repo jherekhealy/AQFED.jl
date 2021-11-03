@@ -2,7 +2,7 @@
 using Polynomials
 using Roots
 
-import AQFED.Math: normcdf, normpdf, norminv
+import AQFED.Math: normcdf, normpdf, norminv, FitResult
 import AQFED.Black: blackScholesFormula, blackScholesVega
 using AQFED.Bachelier
 #using MINPACK #slower
@@ -222,7 +222,7 @@ function makeIsotonicCollocation(
     degGuess = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
     minSlope = 1e-6,
     penalty = 0.0,
-)::Tuple{IsotonicCollocation,Number} where {T} #return collocation and error measure
+)::Tuple{IsotonicCollocation,FitResult} where {T} #return collocation and error measure
     isoc = makeIsotonicCollocationGuess(strikes, callPrices, weights, τ, forward, discountDf, deg = degGuess)
     #optimize towards actual prices
     isoc, m =
@@ -301,16 +301,18 @@ function fit(
         LevenbergMarquardt();
         iterations = deg*300,
     )
+    fvec = zeros(Float64, outlen)
+    obj!(fvec,fit.minimizer)
     #fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward, iterations = deg * 300) #autodiff breaks without Halley. Would need custom
     # function obj!(fvec, x)
     #     fvec[:] = obj(x)
     #     fvec
     # end
     # fit = fsolve(obj!, c0, length(strikes); show_trace=true, method=:lm, tol=1e-10) #fit.x
-    println(iter, " fit ", fit)
+    #println(iter, " fit ", fit)
     c0 = fit.minimizer
     measure = fit.ssr
-    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward), measure
+    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward),  FitResult(fit.ssr, iter, fit.minimizer, fvec, fit)
 end
 
 function IsotonicCollocation(cubic::AbstractPolynomial, forward::Number)

@@ -1,6 +1,6 @@
 #Stochastic collocation towards an exponential bspline and the normal density
 using Roots
-import AQFED.Math: normcdf, normpdf, norminv, inv, ClosedTransformation
+import AQFED.Math: normcdf, normpdf, norminv, inv, ClosedTransformation, FitResult
 import AQFED.Black: blackScholesFormula, blackScholesVega, impliedVolatility
 using LeastSquaresOptim
 using BSplines
@@ -274,7 +274,7 @@ function makeExpBSplineCollocation(
     size = 0,
     rawFit = false,
     minSlopeKnots = minSlope
-)::Tuple{ExpBSplineCollocation,Number} where {T} #return collocation and error measure
+)::Tuple{ExpBSplineCollocation,FitResult} where {T} #return collocation and error measure
     strikesf, pricesf, weightsf = filterConvexPrices(
         strikes,
         callPrices ./ discountDf,
@@ -312,7 +312,7 @@ function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountD
     σ = vol * sqrt(τ)
     # need to use black because ys need to be > 0. xs < 0 ok.
     strikesf, pif, xf = makeXFromUndiscountedPrices(strikes, prices, slopeTolerance = slopeTolerance)
-    println("xf ",xf, strikesf)
+    #println("xf ",xf, strikesf)
     mindx = minimum(xf[2:end] - xf[1:end-1])
     if mindx < zero(xf[1])
         throw(DomainError(mindx, "dx negative, x is decreasing"))
@@ -422,8 +422,9 @@ function fit(isoc::ExpBSplineCollocation, strikes, prices, weights, forward, dis
         iterations = 1024,
     )
     fvec = zeros(Float64, outlen)
+    obj!(fvec,fit.minimizer)
     # fit = fsolve(obj!, jac!, ct, outlen; show_trace=false, method=:lm, tol=1e-8) #fit.x
-    println(iter, " fit ", fit, obj!(fvec,fit.minimizer)) #obj(fit.x))  #fit.f
+    #println(iter, " fit ", fit,  #obj(fit.x))  #fit.f
     ct0 = fit.minimizer
 
 
@@ -437,5 +438,5 @@ function fit(isoc::ExpBSplineCollocation, strikes, prices, weights, forward, dis
     measure = fit.ssr #sqrt(sum(x -> x^2, fit.f)/length(fit.f)) #fit.ssr
     lsc = ExpBSplineCollocation(pp, forward)
     adjustForward(lsc)
-    return lsc, measure
+    return lsc, FitResult(fit.ssr, iter, fit.minimizer, fvec, fit)
 end

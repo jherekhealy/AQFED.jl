@@ -3,7 +3,7 @@ using LinearAlgebra
 using LeastSquaresOptim
 import AQFED.Math: normpdf, inv, ClosedTransformation
 
-export SchabackRationalSpline, makeConvexSchabackRationalSpline, FirstDerivativeBoundary, SecondDerivativeBoundary
+export SchabackRationalSpline, makeConvexSchabackRationalSpline, FirstDerivativeBoundary, SecondDerivativeBoundary, FitResult,  fitConvexSchabackRationalSpline
 
 struct SchabackRationalSpline{U<:Number,T<:Real}
     x::Vector{U}
@@ -63,6 +63,13 @@ function initSecondDerivative(guessType::Normal, x, d, h, m)
     end
 end
 
+struct FitResult
+    measure
+    iterations
+    x
+    fx
+    details
+end
 #Newton optimization
 function fitConvexSchabackRationalSpline(
     x0::AbstractArray{U},
@@ -72,7 +79,7 @@ function fitConvexSchabackRationalSpline(
     rightBoundary::PPBoundary;
     penalty = 0.0,
     guessType::SecondDerivativeGuess = Schaback{Float64},
-) where {T,U}
+)::Tuple{SchabackRationalSpline{U,T}, FitResult} where {T,U}
     x = copy(x0)
     y = copy(y0)
     h = x[2:end] - x[1:end-1]
@@ -168,8 +175,8 @@ function fitConvexSchabackRationalSpline(
     obj!(fvec, c0)
     @. y[2:end-1] += fvec[1:n-1] / weights[2:end-1]
     @. m[2:end-1] = transform(c0)
-    println(iter, " Schaback fit ", fit, fvec) #obj(fit.x))  #fit.f
-    return SchabackRationalSpline(x, y, h, m)
+    #println(iter, " Schaback fit ", fit, fvec) #obj(fit.x))  #fit.f
+    return SchabackRationalSpline(x, y, h, m), FitResult(fit.ssr, iter, c0, fvec, fit)
 end
 
 #Fixed point iteration
