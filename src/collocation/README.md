@@ -223,13 +223,13 @@ On this example, the exponential B-spline collocation and the rational spline le
 
 | Method | RMSE | Time (ms) |
 |:-------|--------------:|----:|
-| Quintic Collocation | 1.416% | 3 |
+| Quintic Collocation | 1.416% | 23 |
 | Nonic Collocation λ=1e-7 | 1.071% | 465 |
 | Exponential B-spline collocation on raw knots λ=1e-2 | 0.356%  | 186 |
 | Exponential B-spline collocation on 50 Gauss-Hermite knots λ=1e-2 | 0.365%  | 128 |
 | Schaback rational spline λ=2e-4 | 0.371%  | 103 |
 
-Despite its relative complexity, the exponential B-spline collocation is of similar speed as the rational spline. In comparison, the time to filter out the quotes for convexity takes around 25-50 ms, which we included in our timings in the above table. The polynomial collocation is of course much faster for low degrees (up to 5), and then deteriorates significantly due to the number of iterations required to find the minimum as the problem becomes less well-posed with increasing polynomial degree. The RMSE is calculated with regards to the original market implied vols. The difference in RMSE may be more drastic against the convexity filtered vols.
+Despite its relative complexity, the exponential B-spline collocation is of similar speed as the rational spline. In comparison, the time to filter out the quotes for convexity takes around 25-50 ms, which we included in our timings in the above table. The polynomial collocation is of course much faster for low degrees (up to 5 - the quintic collocation itself takes 3ms, the remaining time is for convex filtering, which may be further optimized by the use of another algorithm), and then deteriorates significantly due to the number of iterations required to find the minimum as the problem becomes less well-posed with increasing polynomial degree. The RMSE is calculated with regards to the original market implied vols. The difference in RMSE may be more drastic against the convexity filtered vols.
 
 Below is the code corresponding to the figures and table above.
 ```julia
