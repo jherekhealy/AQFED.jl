@@ -209,7 +209,7 @@ The code is still fragile, more so than polynomial collocation, due to the third
 The Schaback rational spline may also be applied to produce a smooth least-squares fit instead of an exact interpolation. Smoothness is introduced through a penalty in the minimization, in a similar fashion as for the exponential B-spline collocation.
 
 A key aspect for the rational spline is the choice of the right boundary, which must be far-away to avoid a spurious spike near the right boundary in the density, due to absorption at the boundary. A typical rule is to use K<sub>max</sub>=forward e<sup>8σ &radic;τ</sup> where σ is the at-the-money implied Black volatility. Left extrapolation is given by V<sub>call</sub>(K=0) = forward (although it may correspond to a somewhat arbitrary choice of shape). For the right boundary, we use V<sub>call</sub>(K<sub>max</sub>) = 0.
-Below is an example of the density with `3*maximum(strikes)` vs. the 6 standard deviations rule on the TSLA quotes of the first section.
+Below is an example of the density with the right boundary set at 4 vs. 8 standard deviations  on the TSLA quotes of the first section.
 
 ![Rational spline boundary impact](/resources/images/schaback_tsla_density_boundary.png)
 
