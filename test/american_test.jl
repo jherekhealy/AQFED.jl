@@ -8,18 +8,22 @@ import AQFED.American:
 import AQFED.TermStructure: ConstantBlackModel
 
 @testset "ALNegative" begin
-    spot = 80.0
+    spots = [80.0,80.0,80.0,80.0, 10.0, 55.0, 75.0, 60.0]
     strike = 100.0
     r = -0.005
     q = -0.05
-    tte = 1.0
     vol = 0.2
-
+    ttes = [1.0, 1.0, 5.0, 5.0, 5.0, 5.0, 5.0, 1.0]
+    qs = [-0.05, -0.01,-0.01,-0.05,-0.05, -0.01,-0.007,-0.01]    
+    refPrices = [20.030946627004035, 21.00207402916405, 27.322355750776925, 21.89483671167564, 90.13887335153295, 46.34568414232824, 31.278917798325534,40.0]
+    for (spot,tte, q, refPrice) = zip(spots,ttes,qs,refPrices)
     model = ConstantBlackModel(vol, r, q)
     pricer = AndersenLakeNRepresentation(model, tte, 1e-8, 5, 16, 21, 201)
     price = priceAmerican(pricer, strike, spot)
-    println(price)
-    @test isapprox(20.030946627004035, price, atol = 1e-4)
+    println(spot, " ",tte," ",q," ",refPrice, " ",price, " ", price-refPrice)
+    
+    @test isapprox(refPrice, price, atol = 1e-4)
+    end
 end
 
 @testset "ALQ0" begin

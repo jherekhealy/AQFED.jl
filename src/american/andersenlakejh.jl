@@ -315,69 +315,6 @@ end
 
 
 
-function priceAmerican(p::AndersenLakeNRepresentation, K::Float64, S::Float64)::Float64
-    if isempty(p.qvecD)
-        return priceAmerican(AndersenLakeRepresentation(p.isCall, p.model,p.tauMax, p.tauMax, p.nC, p.nTS1, p.nTS2, p.capX, p.avec, p.qvec, p.wvec, p.yvec), K, S)
-    end
-    vol, r, q = p.model.vol, p.model.r, p.model.q
-    if p.isCall #use McDonald and Schroder symmetry
-        K, S = S, K
-        r, q = q, r
-    end
-    capX, capXD = p.capX * K, p.capXD * K
-    f0 = exp(-sqrt(p.qvec[1])) * capX
-    f0D = exp(sqrt(p.qvecD[1])) * capXD
-    if S <= f0 && S >= f0D && p.tauMax == p.tauMaxOrig
-        return max(K - S, 0.0)
-    end
-
-    tauMax, tauMaxOrig, tauHat, nTS2 = p.tauMax, p.tauMaxOrig, p.tauHat, p.nTS2
-    wvec, yvec, avec, avecD = p.wvec, p.yvec, p.avec, p.avecD
-    nC, rK, qS = p.nC, r * K, q * S
-
-    uMax = tauMax
-    uMin = 0.0
-    uScale = (uMax - uMin) / 2
-    uShift = (uMax + uMin) / 2
-    sum4k = 0.0
-    isCrossed = false
-    for sk2 = nTS2:-1:1
-        wk = wvec[sk2]
-        yk = yvec[sk2]
-        uk = uScale * yk + uShift
-        if abs(yk) != 1
-            zck = 2 * sqrt(uk / tauHat) - 1 #cheb from tauHat.
-            qck = chebQck(avec, zck)
-            qckD = chebQck(avecD, zck)
-            Bzk = capX * exp(-sqrt(qck))
-            BzkD = capXD * exp(sqrt(qckD))
-            if Bzk <= BzkD
-                isCrossed = true
-            end
-            if !isCrossed
-                tauk = uMax - uk + tauMaxOrig - tauMax
-                d1k, d2k = vaGBMd1d2(S, Bzk, r, q, tauk, vol)
-                sum4k += wk * rK * exp(-r * tauk) * normcdf(-d2k)
-                sum4k += -wk * qS * exp(-q * tauk) * normcdf(-d1k)
-                d1k, d2k = vaGBMd1d2(S, BzkD, r, q, tauk, vol)
-                sum4k -= wk * rK * exp(-r * tauk) * normcdf(-d2k)
-                sum4k += wk * qS * exp(-q * tauk) * normcdf(-d1k)
-            end
-        end
-    end
-
-    euro = blackScholesFormula(
-        false,
-        K,
-        S,
-        vol * vol * tauMaxOrig,
-        exp(-(r - q) * tauMaxOrig),
-        exp(-r * tauMaxOrig),
-    )
-    price = euro + uScale * sum4k
-    price = max(K - S, price)
-    return price
-end
 
 computeBoundaryFromQVec(sign::Int, qvec::Vector{Float64}, capX::Float64) =
     @. exp(sign * sqrt(qvec)) * capX

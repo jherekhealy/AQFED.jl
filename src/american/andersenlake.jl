@@ -1,8 +1,8 @@
 import AQFED.TermStructure: ConstantBlackModel
 import AQFED.Math: normcdf, normpdf, lambertW
 import AQFED.Black: blackScholesFormula
-import AQFED.Math:norminv
-import Roots:find_zero, Newton, A42
+import AQFED.Math: norminv
+import Roots: find_zero, Newton, A42
 using ForwardDiff
 
 export AndersenLakeRepresentation, priceAmerican, americanBoundaryPutQDP
@@ -34,7 +34,7 @@ function AndersenLakeRepresentation(
     nTS1::Int,
     nTS2::Int;
     isCall::Bool = false,
-    isLower::Bool = false,
+    isLower::Bool = false
 )
 
     if iseven(nTS1)
@@ -63,7 +63,7 @@ function AndersenLakeRepresentation(
     wvec[ndiv2] = pi * hn / 2
     r = model.r
     q = model.q
-    capX = isLower ? K * r/q : K
+    capX = isLower ? K * r / q : K
     modelB = model
     if isCall  #use McDonald and Schroder symmetry
         r, q = q, r
@@ -71,26 +71,26 @@ function AndersenLakeRepresentation(
     end
     vol = model.vol
     if q > r
-        capX =  K * r / q
+        capX = K * r / q
     end
     logCapX = log(capX)
     tauHat = tauMax
-    if r < 0 && q < r 
-        #double boundary
-        objHat = function(τ) 
+    if r < 0 && q < r && vol >= sqrt(-2*q)-sqrt(-2*r) 
+        #double boundary which intersect before infinite time
+        objHat = function (τ)
             t = τ
-            value = abs(norminv(-expm1(q*t)) - norminv(-expm1(r*t)))/sqrt(t) - vol
-           # println(τ, " v ", value)
+            value = abs(norminv(-expm1(q * t)) - norminv(-expm1(r * t))) / sqrt(t) - vol
+            # println(τ, " v ", value)
             return value
         end
-        if (objHat(tauMax) < 0) 
+        if objHat(tauMax) < 0 #
             # derHat =  x -> ForwardDiff.derivative(objHat,float(x))
             #  tauHat = (find_zero((objHat,derHat), sqrt(tauMax), Newton()))^2
-             tauHat = find_zero(objHat, (1e-7, tauMax), A42())
-              println("tauHat ", tauHat)
-             tauHat = min(tauHat, tauMax)
-         end
-            end
+            tauHat = find_zero(objHat, (1e-7, tauMax), A42())
+            #    println("tauHat ", tauHat)
+            tauHat = min(tauHat, tauMax)
+        end
+    end
     local fprev = capX
     qvec[nC+1] = 0
     for i = nC:-1:1
@@ -100,7 +100,7 @@ function AndersenLakeRepresentation(
         fprev = fi
         qvec[i] = max(qvec[i+1], (log(fi / capX))^2)
     end
-    println("init-qvec ",qvec)
+    # println("init-qvec ", qvec)
     d2Vector = zeros(nTS1)
     d1Vector = zeros(nTS1)
     k1 = zeros(nTS1)
@@ -140,24 +140,24 @@ function AndersenLakeRepresentation(
 
             Ni = r * sum2k
             Di = q * sum1k
-            if isLower 
-                 Ni = exp(r*taui)-1 - Ni
-                 Di = exp(q*taui)-1 - Di
-            else 
-                Ni += normcdf(d2i) 
-                Di += normcdf(d1i) 
+            if isLower
+                Ni = exp(r * taui) - 1 - Ni
+                Di = exp(q * taui) - 1 - Di
+            else
+                Ni += normcdf(d2i)
+                Di += normcdf(d1i)
             end
             NiOverDi = Ni / Di
             if Di == 0.0 && Ni == 0.0
                 #use asymptotic expansion cdf = erfc(-x/sqrt2)/2 and erfc(x) = e^{-x^2}/(x*sqrtpi)*(1-1/(2*x^2))
-                NiOverDi = exp(-(d2i^2 - d1i^2) / 2) * (d1i / d2i)               
+                NiOverDi = exp(-(d2i^2 - d1i^2) / 2) * (d1i / d2i)
             end
             fi = Kstari * NiOverDi
             if fi <= 0
                 # B = Kstar * N/D   to B = B + Kstar*N - B*D
                 #lnBtaui = isLower ? logCapX + sqrt(qvec[i]) : logCapX - sqrt(qvec[i])
-                Btaui = exp(lnBtaui) 
-                fi = Btaui + Kstari*Ni - Btaui*Di                               
+                Btaui = exp(lnBtaui)
+                fi = Btaui + Kstari * Ni - Btaui * Di
             end
             lfc = log(fi / capX)
             if isnan(lfc)
@@ -167,9 +167,9 @@ function AndersenLakeRepresentation(
                 ))
             end
             qvec[i] = lfc^2
-            qvec[i] = max(qvec[i+1],qvec[i])
+            qvec[i] = max(qvec[i+1], qvec[i])
             if !isLower && r < 0 && q < r
-                qvec[i] = min(qvec[i],(log(K*(r/q) / capX))^2 )
+                qvec[i] = min(qvec[i], (log(K * (r / q) / capX))^2)
             end
         end
     end
@@ -390,24 +390,21 @@ function americanBoundaryPutQDP(
     end
     #printf("%d %v %f %f %f\n", iter, solverType, Szero, Sstar, fS)
 
-    if r < 0 && q < r 
+    if r < 0 && q < r
         sigmaStar = sqrt(-2q) - sqrt(-2r)
         if vol < sigmaStar
-            mu = q - r - vol2/2
+            mu = q - r - vol2 / 2
             if isLower
-                lambda = (-mu+sqrt(mu^2+2*q*vol2))/vol2
-                Sstar = min(K * lambda/(lambda-1), Sstar)
+                lambda = (-mu + sqrt(mu^2 + 2 * q * vol2)) / vol2
+                Sstar = min(K / lambda * (lambda - 1), Sstar)
             else
-                lambda = (-mu-sqrt(mu^2+2*q*vol2))/vol2
-            #   Sstar = max( K * lambda/(lambda-1),Sstar)
+                lambda = (-mu - sqrt(mu^2 + 2 * q * vol2)) / vol2
+                Sstar = max( K / lambda*(lambda-1),Sstar)
             end
         else
-        if isLower
-            Sstar = min(K* sqrt(r / q), Sstar)
-        else
-          Sstar = max( K * sqrt(r / q),Sstar)
+            # Sstar = min(K,max(K * sqrt(r / q), Sstar))
+            Sstar = min(K,max(K * (r / q), Sstar))
         end
-    end
     end
     #println("Sstar", Sstar, iter)
     return Sstar
