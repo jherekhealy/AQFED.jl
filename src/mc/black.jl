@@ -1,16 +1,16 @@
 import AQFED.Math: norminv
 using Statistics
-import AQFED.TermStructure: ConstantBlackModel, TSBlackModel, varianceByLogmoneyness
+import AQFED.TermStructure: ConstantBlackModel, TSBlackModel, varianceByLogmoneyness, discountFactor, forward, logForward
 
 
 function simulate(rng, model::ConstantBlackModel, spot::Float64, payoff::VanillaOption, nSim::Int)
     tte = payoff.maturity
     sqrtte = sqrt(tte)
-    df = exp(-model.r * tte)
+    df = discountFactor(model, tte)
     z = Vector{Float64}(undef, nSim)
     nextn!(rng, z)
     pathValues =
-        @. spot*exp(model.vol * z * sqrtte + (model.r - model.q - 0.5 * model.vol^2) * tte)
+        @. forward(model, spot, tte)*exp(model.vol * z * sqrtte - 0.5 * model.vol^2 * tte)
     mean(x -> evaluatePayoff(payoff, x, df), pathValues)
 end
 
@@ -67,8 +67,8 @@ function simulate(
 
     t0 = genTimes[1]
     lnspot = log(spot)
-    logpathValues .= lnspot
-
+    lnf0 = logForward(model, lnspot, t0)
+    logpathValues .= lnf0
     for (dim, t1) in enumerate(genTimes[2:end])
         h = t1 - t0
         sqrth = sqrt(h)
@@ -80,14 +80,16 @@ function simulate(
             @. z *= sqrth
         end
         volSq = (varianceByLogmoneyness(model.surface, 0.0, t1)*t1 - varianceByLogmoneyness(model.surface, 0.0, t0)*t0)/h
-        vol = sqrt(volSq/h)
-        @. logpathValues += z * vol + (model.r - model.q - 0.5 * volSq) * h
+        vol = sqrt(volSq)
+        lnf1 = logForward(model, lnspot, t1)
+        @. logpathValues += z * vol - 0.5 * volSq * h + lnf1 - lnf0        
         if t1 == tte
-            df = exp(-model.r * t1)
+            df = discountFactor(model, t1)
             @. pathValues = exp(logpathValues)
             payoffValues = map(x -> evaluatePayoff(payoff, x, df), pathValues)
         end
         t0 = t1
+        lnf0 = lnf1
     end
     payoffMean = mean(payoffValues)
     return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))

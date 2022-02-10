@@ -1,6 +1,6 @@
 import AQFED.Math: norminv
 using Statistics
-import AQFED.TermStructure: HestonModel
+import AQFED.TermStructure: HestonModel, discountFactor, forward
 import AQFED.Random: next!, nextn!, skipTo
 
 function ndims(model::HestonModel, specificTimes::Vector{Float64}, timestepSize::Float64)
@@ -18,11 +18,11 @@ function simulateDVSS2X(
     nSim::Int,
     timestepSize::Float64;
     withBB = false,
-    cacheSize = 0,
+    cacheSize = 0
 ) where {T}
     specTimes = specificTimes(payoff)
     tte = specTimes[end]
-    df = exp(-model.r * tte)
+    df = discountFactor(model, tte)
     genTimes = pathgenTimes(model, specTimes, timestepSize)
     logpathValues = Vector{T}(undef, nSim)
     local bb, cache
@@ -42,7 +42,8 @@ function simulateDVSS2X(
     v = Vector{T}(undef, nSim)
     t0 = genTimes[1]
     lnspot = log(spot)
-    logpathValues .= lnspot
+    lnf0 = logForward(model, lnspot, t0)
+    logpathValues .= lnf0
     v .= model.v0
     ρBar = sqrt(1 - model.ρ^2)
     ndimsh = length(genTimes) - 1
@@ -83,7 +84,8 @@ function simulateDVSS2X(
             c1 * (v - model.θ) +
             model.σ * (ρBar * xsi * sqrt((vTmp + yr) / 2) + model.ρ * (yr - vTmp))
         yr .= model.σ^2 * yr
-        @. logpathValues = (model.r - model.q) * h + xb - c0 + c1 * (yr - model.θ)
+        lnf1 = logForward(model, lnspot, t1)
+        @. logpathValues = lnf1 - lnf0 + xb - c0 + c1 * (yr - model.θ)
         @. v = yr * ekdth + c2
         if t1 == tte
             pathValues = xb #reuse Var
@@ -91,6 +93,7 @@ function simulateDVSS2X(
             payoffValues = map(x -> evaluatePayoff(payoff, x, df), pathValues)
         end
         t0 = t1
+        lnf0 = lnf1
     end
     payoffMean = mean(payoffValues)
     return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
@@ -146,11 +149,11 @@ function simulateFullTruncation(
     nSim::Int,
     timestepSize::Float64;
     withBB = false,
-    cacheSize = 0,
+    cacheSize = 0
 ) where {T}
     specTimes = specificTimes(payoff)
     tte = specTimes[end]
-    df = exp(-model.r * tte)
+    df = discountFactor(model, tte)
     genTimes = pathgenTimes(model, specTimes, timestepSize)
     logpathValues = Vector{T}(undef, nSim)
     local bb, cache
@@ -171,7 +174,8 @@ function simulateFullTruncation(
     sqrtmv = Vector{T}(undef, nSim)
     t0 = genTimes[1]
     lnspot = log(spot)
-    logpathValues .= lnspot
+    lnf0 = logForward(model, lnspot, t0)
+    logpathValues .= lnf0
     v .= model.v0
     ρBar = sqrt(1 - model.ρ^2)
     ndimsh = length(genTimes) - 1
@@ -191,10 +195,10 @@ function simulateFullTruncation(
             u1 .*= sqrth
             u2 .*= sqrth
         end
-
+        lnf1 = logForward(model, lnspot, t1)
         @. sqrtmv = sqrt(max(v, 0))
         @. logpathValues +=
-            (model.r - model.q - 0.5 * sqrtmv^2) * h + sqrtmv * (u1 * ρBar + u2 * model.ρ)
+            lnf1 - lnf0 - (0.5 * sqrtmv^2) * h + sqrtmv * (u1 * ρBar + u2 * model.ρ)
         # for (i,p) in enumerate(logpathValues)
         #     if isnan(p)
         #         println(i," nan ",sqrtmv[i], " ",u1[i]," ", u2[i])
@@ -208,6 +212,7 @@ function simulateFullTruncation(
             payoffValues = map(x -> evaluatePayoff(payoff, x, df), pathValues)
         end
         t0 = t1
+        lnf0 = lnf1
     end
     payoffMean = mean(payoffValues)
     return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
@@ -222,7 +227,7 @@ function simulateFullTruncationIter(
     start::Int,
     nSim::Int,
     timestepSize::Float64;
-    withBB = false,
+    withBB = false
 ) where {T}
     specTimes = specificTimes(payoff)
     tte = specTimes[end]
@@ -233,9 +238,10 @@ function simulateFullTruncationIter(
         bb = BrownianBridgeConstruction(genTimes[2:end])
     end
     lnspot = log(spot)
+    lnf0 = logForward(model, lnspot, tte)
     ρBar = sqrt(1 - model.ρ^2)
     z = Vector{Float64}(undef, (length(genTimes) - 1) * 2)
-    u = Array{Float64}(undef, (2, length(genTimes)-1))
+    u = Array{Float64}(undef, (2, length(genTimes) - 1))
     skipTo(rng, start)
     payoffMean = 0.0
     for sim = 1:nSim
@@ -245,29 +251,27 @@ function simulateFullTruncationIter(
         else
             nextn!(rng, z)
             t0 = genTimes[1]
-            @inbounds for i=1:length(genTimes)-1
-                dim = 2*i-1
+            @inbounds for i = 1:length(genTimes)-1
+                dim = 2 * i - 1
                 t1 = genTimes[i+1]
-                u[1,i] = z[dim]*sqrt(t1 - t0)
-                u[2,i] = z[dim+1]*sqrt(t1 - t0)
+                u[1, i] = z[dim] * sqrt(t1 - t0)
+                u[2, i] = z[dim+1] * sqrt(t1 - t0)
                 t0 = t1
             end
         end
         t0 = genTimes[1]
-        logpathValue = lnspot
+        logpathValue = lnf0
         v = model.v0
         local payoffValue
-        @inbounds for i=1:length(genTimes)-1
+        @inbounds for i = 1:length(genTimes)-1
             t1 = genTimes[i+1]
-            dim = 2*i -1
-            u1 = u[1,i]
-            u2 = u[2,i]
+            # dim = 2 * i - 1
+            u1 = u[1, i]
+            u2 = u[2, i]
             h = t1 - t0
-            sqrth = sqrt(h)
             sqrtmv = sqrt(max(v, 0))
-            logpathValue +=
-                (model.r - model.q - 0.5 * sqrtmv^2) * h +
-                sqrtmv * (u1 * ρBar + u2 * model.ρ)
+            lnf1 = logForward(model, lnspot, t1)
+            logpathValue += lnf1 - lnf0 - 0.5 * sqrtmv^2 * h + sqrtmv * (u1 * ρBar + u2 * model.ρ)
             v += model.κ * (model.θ - sqrtmv^2) * h + model.σ * sqrtmv * u2
 
             if t1 == tte
@@ -275,6 +279,7 @@ function simulateFullTruncationIter(
                 payoffValue = evaluatePayoff(payoff, pathValue, df)
             end
             t0 = t1
+            lnf0 = lnf1
         end
 
         payoffMean += payoffValue

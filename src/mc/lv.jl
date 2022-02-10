@@ -2,7 +2,7 @@ import AQFED.Math: norminv
 import Random: rand!, randn!, rand, randn
 using Statistics
 import AQFED.TermStructure:
-    LocalVolatilityModel, VarianceSurfaceBySection, localVarianceByLogmoneyness
+    LocalVolatilityModel, VarianceSurfaceBySection, localVarianceByLogmoneyness, discountFactor, logForward
 
     function ndims(model::LocalVolatilityModel, specificTimes::Vector{Float64}, timestepSize::Float64)
         genTimes = pathgenTimes(model, specificTimes, timestepSize)
@@ -21,7 +21,7 @@ function simulate(
 ) where {S}
     specTimes = specificTimes(payoff)
     tte = specTimes[end]
-    df = exp(-model.r * tte)
+    df = discountFactor(model, tte)
     genTimes = pathgenTimes(model, specTimes, timestepSize) #LinRange(0.0, tte, ceil(Int, nSteps * tte) + 1)
     local bb, cache
     if withBB
@@ -32,9 +32,10 @@ function simulate(
     logpathValues = Vector{Float64}(undef, nSim)
     z = Vector{Float64}(undef, nSim)
     t0 = genTimes[1]
-    lnspot = log(spot)
-    lnforward = lnspot
-    logpathValues .= lnspot
+    lnspot =  log(spot)
+    lnf0 = logForward(model, lnspot, t0)
+    lnforward = lnf0
+    logpathValues .= lnf0
     local payoffValues
     #println("genTimes ",genTimes)
     for (dim,t1) in enumerate(genTimes[2:end])
@@ -48,7 +49,8 @@ function simulate(
             @. z *= sqrth
         end
         #z = randn(rng, Float64, nSim)
-        lnforward += (model.r - model.q) * h
+        lnf1 = logForward(model, lnspot, t1)
+        lnforward += lnf1 - lnf0
         # indexT0 = searchsortedlast(model.surface.expiries, t0)
         # indexT1 = searchsortedlast(model.surface.expiries, t1)
 
@@ -58,13 +60,14 @@ function simulate(
         # )
         logmoneyness = @. logpathValues - lnforward
         lv = localVarianceByLogmoneyness(model.surface, logmoneyness, t0, t1)
-        @. logpathValues += (model.r - model.q - lv / 2) * h  + sqrt(lv) * z
+        @. logpathValues += lnf1 - lnf0 - lv / 2 * h  + sqrt(lv) * z
         if t1 == tte
             pathValues = z #reuse Var
             @. pathValues = exp(logpathValues)
             payoffValues = map(x -> evaluatePayoff(payoff, x, df), pathValues)
         end
         t0 = t1
+        lnf0 = lnf1
     end
     payoffMean = mean(payoffValues)
     return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))

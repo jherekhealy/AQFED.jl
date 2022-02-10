@@ -55,6 +55,7 @@ module American
 include("american/andersenlake.jl")
 include("american/andersenlaken.jl")
 include("american/andersenlakejh.jl")
+include("american/rkl.jl")
 end
 
 module Basket
