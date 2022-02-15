@@ -98,7 +98,7 @@ function makeFDMPriceInterpolation(isCall, isEuropean, model, T, strike, N, M; m
     A1ij = zeros(M)
     A1iuj = zeros(M)
     if method == "RKL2"
-         makeSystem(model,A1ilj, A1ij, A1iuj, useExponentialFitting, upwindingThreshold, dt, S, J, Jm, hm, useDirichlet, M)
+        makeSystem(model, A1ilj, A1ij, A1iuj, useExponentialFitting, upwindingThreshold, dt, S, J, Jm, hm, useDirichlet, M)
         if useSqrt
             tih = ti + dt / 2
             @. A1ij *= 2tih
@@ -121,7 +121,7 @@ function makeFDMPriceInterpolation(isCall, isEuropean, model, T, strike, N, M; m
             end
 
             if n < N
-                makeSystem(model, A1ilj, A1ij, A1iuj,useExponentialFitting, upwindingThreshold, dt, S, J, Jm, hm, useDirichlet, M)
+                makeSystem(model, A1ilj, A1ij, A1iuj, useExponentialFitting, upwindingThreshold, dt, S, J, Jm, hm, useDirichlet, M)
                 if useSqrt
                     tih = ti + dt / 2
                     @. A1ij *= 2tih
@@ -132,7 +132,7 @@ function makeFDMPriceInterpolation(isCall, isEuropean, model, T, strike, N, M; m
             end
         end
     end
-    spl = makeCubicPP(S, F, PPInterpolation.SECOND_DERIVATIVE,  0.0, PPInterpolation.SECOND_DERIVATIVE, 0.0, PPInterpolation.VanLeer())
+    spl = makeCubicPP(S, F, PPInterpolation.SECOND_DERIVATIVE, 0.0, PPInterpolation.SECOND_DERIVATIVE, 0.0, PPInterpolation.VanLeer())
     return spl
 end
 
@@ -186,7 +186,7 @@ function initRKLCoeffs(dt, A1ij; epsilonRKL = 0.0, rklStages = 0)
     return s, a, b, w0, w1
 end
 
-function makeSystem(model, A1ilj::AbstractArray{T}, A1ij::AbstractArray{T}, A1iuj::AbstractArray{T}, useExponentialFitting::Bool, upwindingThreshold::Real, dt::Real, S::Vector{T}, J::Vector{T}, Jm::Vector{T}, hm::Real, useDirichlet::Bool, M::Int) where {T}  
+function makeSystem(model, A1ilj::AbstractArray{T}, A1ij::AbstractArray{T}, A1iuj::AbstractArray{T}, useExponentialFitting::Bool, upwindingThreshold::Real, dt::Real, S::Vector{T}, J::Vector{T}, Jm::Vector{T}, hm::Real, useDirichlet::Bool, M::Int) where {T}
     if useDirichlet
         A1ij[1] = 0
     else

@@ -295,7 +295,7 @@ end
     threshold = 1e-2
     rInfq = -1
     isBatch = true
-    prices, refPrices, elap = batchALN(threshold, rInfq, isBatch, 7, 8, 15, 201)
+    prices, refPrices, elap = batchALN(threshold, rInfq, isBatch, 7, 8, 15, 201);
     thrIndices = findall(z -> (z > threshold), refPrices);
     mae = maxad(prices[thrIndices], refPrices[thrIndices])
     mre = maxad(prices[thrIndices] ./ refPrices[thrIndices], ones(length(thrIndices)))
@@ -314,5 +314,27 @@ end
         " ",
         length(thrIndices) / elap,
     )
-
+    @test isapprox(0.000767, mae, atol = 1e-4)
+    @test isapprox(0.000214, mre, atol = 1e-4)
+    prices, refPrices, elap = batchALN(threshold, rInfq, isBatch, 5, 8, 15, 201, method="FDM");
+    thrIndices = findall(z -> (z > threshold), refPrices);
+    mae = maxad(prices[thrIndices], refPrices[thrIndices])
+    mre = maxad(prices[thrIndices] ./ refPrices[thrIndices], ones(length(thrIndices)))
+    rmse = rmsd(prices[thrIndices], refPrices[thrIndices])
+    println(
+        "AL ",
+        7,
+        " ",
+        rmse,
+        " ",
+        mae,
+        " ",
+        mre,
+        " ",
+        elap,
+        " ",
+        length(thrIndices) / elap,
+    )
+    @test isapprox(0.000335, mae, atol = 1e-4)
+    @test isapprox(0.000890, mre, atol = 1e-4)
 end

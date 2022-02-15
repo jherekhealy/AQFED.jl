@@ -11,3 +11,20 @@ pricer = AndersenLakeRepresentation(model, τ, 1e-8, 7, 8, 15, 31, isCall=false)
 price = priceAmerican(pricer, strike, spot)
 ```
 The output is 21.086135735070997
+
+# Negative Rates
+The implementation supports negative interest rates through the `AndersenLakeNRepresentation`, which may also be used for positive rates.
+
+```julia
+using AQFED; using AQFED.American
+import AQFED.TermStructure: ConstantBlackModel
+strike = 100.0; spot = 80.0; σ = 0.3; τ = 0.75; q = -0.01; r = -0.005
+model = ConstantBlackModel(σ, r, q)
+pricer = AndersenLakeNRepresentation(model, τ, 1e-8, 7, 8, 15, 201, isCall=false)
+price = priceAmerican(pricer, strike, spot)
+```
+The output is 22.372978113275483
+
+# Runge-Kutta-Legendre (RKL) finite difference scheme
+An example implementation of the RKL scheme for American options is available through `makeFDMPriceInterpolation`.
+It returns a piecewise polynomial based on the finite difference grid points, and may be evaluated at any point.
