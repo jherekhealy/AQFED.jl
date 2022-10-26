@@ -52,6 +52,7 @@ end
 
 
 
+
 mutable struct ZRNGSeq{T,N} <: AbstractSeq{N} #where {T <: AbstractRNG}
     rng::T
     startIndex::Int

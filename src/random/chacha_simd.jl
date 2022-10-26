@@ -102,10 +102,12 @@ end
     @inbounds @simd for i = 1:4
         x[i] = x[i] .+ r.v[i]
     end
-    @inbounds r.v[4] = (r.v[4][1] + 1, r.v[4][2], r.v[4][3], r.v[4][4])
-    @inbounds if (r.v[4][1] == 0)
-        r.v[4] = (r.v[4][1], r.v[4][2] + 1, r.v[4][3], r.v[4][4])
+    @inbounds if (r.v[4][1] == UInt32(4294967295))
+        r.v[4] = (0, r.v[4][2] + 1, r.v[4][3], r.v[4][4])
+    else
+      r.v[4] = (r.v[4][1] + 1, r.v[4][2], r.v[4][3], r.v[4][4])
     end
+   
 end
 
 @inline function skip(r::ChachaSIMD{DOUBLEROUNDS}, skipLength::UInt64) where {DOUBLEROUNDS}

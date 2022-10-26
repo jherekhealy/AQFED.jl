@@ -155,7 +155,26 @@ function transform!(
     return out
 end
 
+#return the dW_i
 function transform!(
+    bb::BrownianBridgeConstruction,
+    in::Vector{Float64},  #of (d * ntimes). 1,...,d used for first time, d+1,...d+d for second time.
+    out::Array{Float64,2}, #size (d,ntimes) retrieve column(ti) = out[:,ti] (column major order)
+)
+    transformToPath!(bb,in,out)
+    # ...after which, we calculate the variations
+    d = size(out, 1) #number of rows
+    bsize = length(bb.stdDev)
+    @inbounds for i = bsize:-1:2
+        for di = 1:d
+            out[di, i] -= out[di, i-1]
+        end
+    end
+    return out
+end
+
+
+function transformToPath!(
     bb::BrownianBridgeConstruction,
     in::Vector{Float64},  #of (d * ntimes). 1,...,d used for first time, d+1,...d+d for second time.
     out::Array{Float64,2}, #size (d,ntimes) retrieve column(ti) = out[:,ti] (column major order)
@@ -184,11 +203,6 @@ function transform!(
             end
         end
     end
-    # ...after which, we calculate the variations
-    @inbounds for i = bsize:-1:2
-        for di = 1:d
-            out[di, i] -= out[di, i-1]
-        end
-    end
+  
     return out
 end

@@ -38,6 +38,7 @@ include("random/blabla.jl")
 include("random/philox.jl")
 include("random/chacha.jl")
 include("random/chacha_simd.jl")
+include("random/mrg32k3a.jl")
 include("random/mrg63k3a.jl")
 include("random/ssobol.jl")
 include("random/dsobol.jl")
@@ -75,6 +76,7 @@ include("mc/payoffs.jl")
 include("mc/black.jl")
 include("mc/heston.jl")
 include("mc/lv.jl")
+include("mc/roughbergomi.jl")
 end
 
 module Collocation

@@ -13,7 +13,7 @@ function impliedVolatilitySRHalley(
 )::T where {T}
     c, ex = normalizePrice(isCall, price, f, strike, df)
     if c >= 1 / ex || c <= 0
-        throw(DomainError(c, string("Price out of range, must be < ", 1 / ex, " and > 0")))
+        throw(DomainError(c, string("Price out of range, must be < ", 1 / ex, " and > 0. denormalized price=",price)))
     end
     x = log(ex)
     guess = T(impliedVolatilitySRGuessUndiscountedCall(c, ex,x))

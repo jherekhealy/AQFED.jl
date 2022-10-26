@@ -1,8 +1,28 @@
 import AQFED.Math: norminv
-using Statistics
+
 import AQFED.TermStructure: HestonModel, discountFactor, forward
 import AQFED.Random: next!, nextn!, skipTo
 
+struct HestonPathGeneratorParameters{T}
+    model::HestonModel{T}
+    spot::T
+    timestepSize::Float64
+    withBB::Bool
+    cacheSize::Int
+end
+
+#mutable struct HestonPathGenerator{T}
+#    u1 = Vector{Float64}(undef, nSim)
+#    u2 = Vector{Float64}(undef, nSim)
+#    xsi = u1
+#    v = Vector{T}(undef, nSim)
+#    t0 = genTimes[1]
+#    lnspot = log(spot)
+#    lnf0 = logForward(model, lnspot, t0)
+#    logpathValues .= lnf0
+#    v .= model.v0
+#    ρBar = sqrt(1 - model.ρ^2)
+#end
 function ndims(model::HestonModel, specificTimes::Vector{Float64}, timestepSize::Float64)
     genTimes = pathgenTimes(model, specificTimes, timestepSize)
     return (length(genTimes) - 1) * 2 #0.0 does not count
