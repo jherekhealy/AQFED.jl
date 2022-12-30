@@ -27,6 +27,7 @@ end
 module Bachelier
 include("bachelier/bachelier.jl")
 include("bachelier/iv_solver_lfk.jl")
+include("bachelier/bachelier_fractal.jl")
 end
 
 __precompile__(true)
@@ -67,6 +68,7 @@ end
 
 module PLN
 include("pln/etore_gobet.jl")
+include("pln/trbdf2.jl")
 end
 
 module MonteCarlo

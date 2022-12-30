@@ -92,25 +92,41 @@ BackwardDiff is also supported (not for the lower bound approximation), but the 
 The Basket approximation may be used to price European options under the [piecewise-lognormal model](https://github.com/jherekhealy/AQFED.jl/tree/master/src/pln) (also known as spot model) for a single underlying paying multiple dividends. Below is the example of Vellekoop and Nieuwenhuis (2006) with 7 dividends.
 
 ```julia
-using AQFED.TermStructure
-spot = 100.0; strike=70.0; r = 0.06; q = 0.0; σ = 0.25
+using AQFED.TermStructure, AQFED.Basket
+spot = 100.0; strike=70.0; r = 0.06; q = 0.0; σ = 0.25; baseAmount=6.0;
 τd = 0.5; τ=7.0
-x = [strike, spot, τ, σ, r, τd]
+x = [strike, spot, τ, σ, r, τd, baseAmount]
 p = DeelstraBasketPricer(1, 3)
 f = function(x)
-	τ=x[3]; r=x[5];τd=x[6]; Basket.priceEuropean(p, true, x[1], x[2]*exp(x[3]*x[5]),x[4]^2*x[3],x[3],exp(-x[3]*x[5]),[CapitalizedDividend(Dividend(6.0, τd, τd, false, false), exp((τ - τd) * r)),
-		CapitalizedDividend(Dividend(6.5, τd + 1, τd + 1, false, false), exp((τ - τd - 1) * r)),
-		CapitalizedDividend(Dividend(7.0, τd + 2, τd + 2, false, false), exp((τ - τd - 2) * r)),
-		CapitalizedDividend(Dividend(7.5, τd + 3, τd + 3, false, false), exp((τ - τd - 3) * r)),
-		CapitalizedDividend(Dividend(8.0, τd + 4, τd + 4, false, false), exp((τ - τd - 4) * r)),
-		CapitalizedDividend(Dividend(8.0, τd + 5, τd + 5, false, false), exp((τ - τd - 5) * r)),
-		CapitalizedDividend(Dividend(8.0, τd + 6, τd + 6, false, false), exp((τ - τd - 6) * r))])
+	τ=x[3]; r=x[5];τd=x[6]; Basket.priceEuropean(p, true, x[1], x[2]*exp(x[3]*x[5]),x[4]^2*x[3],x[3],exp(-x[3]*x[5]),[CapitalizedDividend(Dividend(baseAmount, τd, τd, false, false), exp((τ - τd) * r)),
+		CapitalizedDividend(Dividend(baseAmount+0.5, τd + 1, τd + 1, false, false), exp((τ - τd - 1) * r)),
+		CapitalizedDividend(Dividend(baseAmount+1.0, τd + 2, τd + 2, false, false), exp((τ - τd - 2) * r)),
+		CapitalizedDividend(Dividend(baseAmount+1.5, τd + 3, τd + 3, false, false), exp((τ - τd - 3) * r)),
+		CapitalizedDividend(Dividend(baseAmount+2.0, τd + 4, τd + 4, false, false), exp((τ - τd - 4) * r)),
+		CapitalizedDividend(Dividend(baseAmount+2.0, τd + 5, τd + 5, false, false), exp((τ - τd - 5) * r)),
+		CapitalizedDividend(Dividend(baseAmount+2.0, τd + 6, τd + 6, false, false), exp((τ - τd - 6) * r))])
 end
 ForwardDiff.gradient(f, x)
 ```
-The output with `DeelstraBasketPricer` is 26.08099127059646  (the reference value is 26.08). It takes 2.6 ms for a single price and  3.5 ms for all 6 sensitivities.
-The output with `DeelstraLBBasketPricer` is 26.069554947778418, in 0.05 ms and it takes 0.06 ms to compute the 6 sensitivities.
+The output with `DeelstraBasketPricer` is 26.08099127059646  (the reference value is 26.08). It takes 50 μs for a single price and  92 μs for all 7 sensitivities.
+The output with `DeelstraLBBasketPricer` is 26.069554947778418, in 10 μs and it takes 14 μs to compute the 7 sensitivities.
 
+A comparison with the LL-3 approximation
+```julia
+using AQFED.PLN
+pll = LeFlochLehmanPLNPricer(3)
+fll =  function(x)
+    τ=x[3]; r=x[5];τd=x[6];divAmount=x[7]; AQFED.PLN.priceEuropean(pll,true,x[1], x[2]*exp(x[3]*x[5]),x[4]^2*x[3],x[3],exp(-x[3]*x[5]),[CapitalizedDividend(Dividend(divAmount, τd, τd, false, false), exp((τ - τd) * r)),
+        CapitalizedDividend(Dividend(divAmount+0.5, τd + 1, τd + 1, false, false), exp((τ - τd - 1) * r)),
+        CapitalizedDividend(Dividend(divAmount+1.0, τd + 2, τd + 2, false, false), exp((τ - τd - 2) * r)),
+        CapitalizedDividend(Dividend(divAmount+1.5, τd + 3, τd + 3, false, false), exp((τ - τd - 3) * r)),
+        CapitalizedDividend(Dividend(divAmount+2.0, τd + 4, τd + 4, false, false), exp((τ - τd - 4) * r)),
+        CapitalizedDividend(Dividend(divAmount+2.0, τd + 5, τd + 5, false, false), exp((τ - τd - 5) * r)),
+        CapitalizedDividend(Dividend(divAmount+2.0, τd + 6, τd + 6, false, false), exp((τ - τd - 6) * r))])
+end
+ForwardDiff.gradient(fll, x)
+```
+The output is 26.085921596965157 in 2 μs and 7.5 μs with the sensitivities.
 
 ## References
 Deeltra, G. Diallo, I and Vanmaele, M (2010) [Moment matching approximation of Asian basket option prices](https://www.sciencedirect.com/science/article/pii/S0377042709002106)

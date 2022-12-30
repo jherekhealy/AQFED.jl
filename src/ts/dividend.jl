@@ -1,19 +1,19 @@
 export futureValue, Dividend, CapitalizedDividend
 
-struct Dividend
-    amount::Number
-    exDate::Number
-    payDate::Number
+struct Dividend{T}
+    amount::T
+    exDate::T
+    payDate::T
     isProportional::Bool
     isKnown::Bool
 end
 
-struct CapitalizedDividend
-    dividend::Dividend
-    capitalizationFactor::Number #growth factor from the dividend ex date up to a maturity τ
+struct CapitalizedDividend{T}
+    dividend::Dividend{T}
+    capitalizationFactor::T #growth factor from the dividend ex date up to a maturity τ
 end
 
 
-function futureValue(cd::CapitalizedDividend)::Number
+function futureValue(cd::CapitalizedDividend{T})::T where {T}
     return cd.dividend.amount*cd.capitalizationFactor
 end

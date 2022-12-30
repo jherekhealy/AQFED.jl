@@ -1,4 +1,4 @@
-using AQFED, Test
+using AQFED, Test, ForwardDiff
 import AQFED.PLN: EtoreGobetPLNPricer, LeFlochLehmanPLNPricer, priceEuropean
 import AQFED.TermStructure: CapitalizedDividend, Dividend, futureValue
 import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer
@@ -13,7 +13,7 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer
     ttp = tte
     isCall = true
     discountFactor = exp(-discountRate * ttp)
-    dividends = Vector{CapitalizedDividend}(undef, 1)
+    dividends = Vector{CapitalizedDividend{Float64}}(undef, 1)
     #amount::T        exDate::Float64        payDate::Float64        isProportional::bool        isKnown::bool
     dividends[1] =
         CapitalizedDividend(Dividend(divAmount, ttd, ttd, false, false), exp((tte - ttd) * discountRate))
@@ -40,7 +40,7 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer
             dividends,
         )
         println(strike, " EG-2 ", price, " ", price - refHHL[i])
-        @test isapprox(refEg2[i], price, atol = 1e-8)
+        @test isapprox(refEg2[i], price, atol=1e-8)
         price = priceEuropean(
             eg3,
             isCall,
@@ -52,7 +52,7 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer
             dividends,
         )
         println(strike, " EG-3 ", price, " ", price - refHHL[i])
-        @test isapprox(refEg3[i], price, atol = 1e-8)
+        @test isapprox(refEg3[i], price, atol=1e-8)
         price = priceEuropean(
             ll2,
             isCall,
@@ -112,12 +112,12 @@ end
     isCall = true
     ttd = 0.9
     dividends = [CapitalizedDividend(Dividend(6.0, ttd, ttd, false, false), exp((tte - ttd) * discountRate)),
-    CapitalizedDividend(Dividend(6.5, ttd + 1, ttd + 1, false, false), exp((tte - ttd - 1) * discountRate)),
-    CapitalizedDividend(Dividend(7.0, ttd + 2, ttd + 2, false, false), exp((tte - ttd - 2) * discountRate)),
-    CapitalizedDividend(Dividend(7.5, ttd + 3, ttd + 3, false, false), exp((tte - ttd - 3) * discountRate)),
-    CapitalizedDividend(Dividend(8.0, ttd + 4, ttd + 4, false, false), exp((tte - ttd - 4) * discountRate)),
-    CapitalizedDividend(Dividend(8.0, ttd + 5, ttd + 5, false, false), exp((tte - ttd - 5) * discountRate)),
-    CapitalizedDividend(Dividend(8.0, ttd + 6, ttd + 6, false, false), exp((tte - ttd - 6) * discountRate))]
+        CapitalizedDividend(Dividend(6.5, ttd + 1, ttd + 1, false, false), exp((tte - ttd - 1) * discountRate)),
+        CapitalizedDividend(Dividend(7.0, ttd + 2, ttd + 2, false, false), exp((tte - ttd - 2) * discountRate)),
+        CapitalizedDividend(Dividend(7.5, ttd + 3, ttd + 3, false, false), exp((tte - ttd - 3) * discountRate)),
+        CapitalizedDividend(Dividend(8.0, ttd + 4, ttd + 4, false, false), exp((tte - ttd - 4) * discountRate)),
+        CapitalizedDividend(Dividend(8.0, ttd + 5, ttd + 5, false, false), exp((tte - ttd - 5) * discountRate)),
+        CapitalizedDividend(Dividend(8.0, ttd + 6, ttd + 6, false, false), exp((tte - ttd - 6) * discountRate))]
     rawForward = spot * exp(discountRate * tte)
     df = exp(-discountRate * tte)
     ll3 = LeFlochLehmanPLNPricer(3)
@@ -149,11 +149,52 @@ end
         price = AQFED.Basket.priceEuropean(dlb, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
         vol = Black.impliedVolatility(isCall, price, f, strike, tte, df)
         println(strike, " Deelstra-LB ", price, " ", price / refPrices[i] - 1, " ", vol - refVol)
-
     end
 end
 
 
+@testset "ForwardDiff" begin
+    spot = 100.0
+    strike = 70.0
+    r = 0.06
+    q = 0.0
+    σ = 0.25
+    τd = 0.5
+    τ = 7.0
+    x = [strike, spot, τ, σ, r, τd, 6.0]
+    p = DeelstraBasketPricer(1, 3)
+    f = function (x)
+        τ = x[3]
+        r = x[5]
+        τd = x[6]
+        baseAmount = x[7]
+        AQFED.Basket.priceEuropean(p, true, x[1], x[2] * exp(x[3] * x[5]), x[4]^2 * x[3], x[3], exp(-x[3] * x[5]), [CapitalizedDividend(Dividend(baseAmount, τd, τd, false, false), exp((τ - τd) * r)),
+            CapitalizedDividend(Dividend(baseAmount + 0.5, τd + 1, τd + 1, false, false), exp((τ - τd - 1) * r)),
+            CapitalizedDividend(Dividend(baseAmount + 1.0, τd + 2, τd + 2, false, false), exp((τ - τd - 2) * r)),
+            CapitalizedDividend(Dividend(baseAmount + 1.5, τd + 3, τd + 3, false, false), exp((τ - τd - 3) * r)),
+            CapitalizedDividend(Dividend(baseAmount + 2.0, τd + 4, τd + 4, false, false), exp((τ - τd - 4) * r)),
+            CapitalizedDividend(Dividend(baseAmount + 2.0, τd + 5, τd + 5, false, false), exp((τ - τd - 5) * r)),
+            CapitalizedDividend(Dividend(baseAmount + 2.0, τd + 6, τd + 6, false, false), exp((τ - τd - 6) * r))])
+    end
+    @test isapprox(26.08099127059646, f(x), atol=1e-5)
+    ForwardDiff.gradient(f, x)
+    pll = LeFlochLehmanPLNPricer(3)
+    fll = function (x)
+        τ = x[3]
+        r = x[5]
+        τd = x[6]
+        divAmount = x[7]
+        AQFED.PLN.priceEuropean(pll, true, x[1], x[2] * exp(x[3] * x[5]), x[4]^2 * x[3], x[3], exp(-x[3] * x[5]), [CapitalizedDividend(Dividend(divAmount, τd, τd, false, false), exp((τ - τd) * r)),
+            CapitalizedDividend(Dividend(divAmount + 0.5, τd + 1, τd + 1, false, false), exp((τ - τd - 1) * r)),
+            CapitalizedDividend(Dividend(divAmount + 1.0, τd + 2, τd + 2, false, false), exp((τ - τd - 2) * r)),
+            CapitalizedDividend(Dividend(divAmount + 1.5, τd + 3, τd + 3, false, false), exp((τ - τd - 3) * r)),
+            CapitalizedDividend(Dividend(divAmount + 2.0, τd + 4, τd + 4, false, false), exp((τ - τd - 4) * r)),
+            CapitalizedDividend(Dividend(divAmount + 2.0, τd + 5, τd + 5, false, false), exp((τ - τd - 5) * r)),
+            CapitalizedDividend(Dividend(divAmount + 2.0, τd + 6, τd + 6, false, false), exp((τ - τd - 6) * r))])
+    end
+    @test isapprox(26.085921596965157, fll(x), atol=1e-8)
+    ForwardDiff.gradient(fll, x)
+end
 
 
 @testset "MultipleGocsei" begin
@@ -164,7 +205,7 @@ end
     tte = 10.0
     isCall = true
     ttd0 = 1.0 / 365
-    dividends = Vector{CapitalizedDividend}(undef, 20)
+    dividends = Vector{CapitalizedDividend{Float64}}(undef, 20)
     for i = 1:20
         ttd = ttd0 + (i - 1) / 2
         dividends[i] =
@@ -192,3 +233,64 @@ end
 
     end
 end
+
+
+@testset "OneToHundred" begin
+    strike = 100.0
+    σ = 0.3
+    r = 0.06
+    q = 0.0
+    tte = 2.0
+    ttp = tte
+    isCall = true
+    nDividendList = [1, 10, 100]
+    spots = [50.0,100.0,150.0]
+    for spot in spots 
+    for nDividends in nDividendList
+        dividends = Array{CapitalizedDividend{Float64}}(undef, nDividends)
+        divAmount = 7.0 / length(dividends)
+         divTimes = sort(rand(AQFED.Random.MRG32k3a(),length(dividends)).*tte)
+        # divTimes =  0.01 .+ (tte - 0.02) .* (collect(1:length(dividends)) .- 1) ./ length(dividends) #not as interesting as single div not well positioned
+        for i = 1:length(dividends)            
+            t = divTimes[i]
+            dividends[i] = CapitalizedDividend{Float64}(Dividend{Float64}(divAmount, t, t, false, false), exp((tte - t) * r))
+        end
+        p = DeelstraBasketPricer(1, 3,N=32*4)
+        f = function (spot)
+            AQFED.Basket.priceEuropean(p, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        plb = DeelstraLBBasketPricer(1, 3)
+        flb = function (spot)
+            AQFED.Basket.priceEuropean(plb, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        pll = LeFlochLehmanPLNPricer(3)
+        fll = function (spot)
+            priceEuropean(pll, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        pll2 = LeFlochLehmanPLNPricer(2)
+        fll2 = function (spot)
+            priceEuropean(pll2, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        ptr = @time AQFED.PLN.priceEuropeanTRBDF2(true, strike, spot, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends,M=500,N=100)(spot)
+        ptref = @time AQFED.PLN.priceEuropeanTRBDF2(true, strike, spot, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends,M=40001,N=365*10+1,ndev=6)(spot)
+
+        price = @time f(spot)
+        priceLB = @time flb(spot)
+        priceLL = @time fll(spot)
+        priceLL2 = @time fll2(spot)
+        println(nDividends, " TRBDF2 ",ptref," ",0.0)
+        println(nDividends, " TRBDF2 ",ptr, " ",ptr-ptref)
+        println(nDividends, " BB ", price," ",price-ptref)
+        println(nDividends, " BB-LB ", priceLB," ",priceLB-ptref)
+        println(nDividends, " LL-3 ", priceLL," ",priceLL-ptref)
+        println(nDividends, " LL-2 ", priceLL2," ",priceLL2-ptref)
+        # @test isapprox(price, priceLL, atol=1e-4)
+        # @test isapprox(price, priceLB, atol=1e-2)
+        # @test isapprox(price, priceLL2, atol=1e-2)
+    end
+end
+#with 40K points very difficult to see limit of accuracy of BB/LL3 with 100 dividends. cODE NEARLY UNIFORM IN JULIA.
+# ppINTERPOLATION ALLOCATES MORE THAN DIERCKX AND IS 50% SLOWER ON 10k ARRAYS. eval is also very slow on 400 points, repeated, likely due to c[2,i]. Should we favor c[i,2] instead or rework internals?
+# quad interp seems more accurate in the middle (lower error in TRBDF2 with 400 points) - similar to cubic spline. C2 does not increase accuracy, but perhaps error profile is more uniform?
+end
+
