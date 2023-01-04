@@ -1,3 +1,5 @@
+export lambertW
+
 #Asymptotic series for the branch 0 of the Lambert W function from Darko Veberic "Having Fun with Lambert W ( x ) Function" (2009)
 function lambertWAsymptotic(x::Number)
     a = log(x)

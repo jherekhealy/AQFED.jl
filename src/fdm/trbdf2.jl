@@ -1,21 +1,30 @@
-export DividendPolicy, priceEuropeanTRBDF2
-
+export DividendPolicy, priceTRBDF2
+using AQFED.TermStructure
 using LinearAlgebra
-using Dierckx
 using PPInterpolation
 @enum DividendPolicy begin
     Liquidator
     Survivor
     Shift
 end
-function priceEuropeanTRBDF2(isCall::Bool,
-    strike::T,
+
+
+#TODO use term structure of rates and vols from a model.
+function priceTRBDF2(payoff::FDPayoff,
     spot::T,
     rawForward::T, #The raw forward to τ (without cash dividends)
     variance::T, #variance to maturity
-    τ::T,
     discountDf::T, #discount factor to payment date
-    dividends::AbstractArray{CapitalizedDividend{T}}; M=400, N=100, ndev=4, dividendPolicy::DividendPolicy=Liquidator, grid="", alpha=0.01,useSpline=true) where {T}
+    dividends::AbstractArray{CapitalizedDividend{T}}; M=400, N=100, ndev=4, dividendPolicy::DividendPolicy=Liquidator, grid="", alpha=0.01, useSpline=true) where {T}
+    obsTimes = observationTimes(payoff)
+    τ = last(obsTimes)
+    t = collect(range(τ, stop=zero(T), length=N))
+    dividends = filter(x -> x.dividend.exDate <= τ, dividends)
+    sort!(dividends, by=x -> x.dividend.exDate)
+    divDates = [x.dividend.exDate for x in dividends]
+    t = vcat(t, divDates, obsTimes)
+    sort!(t, order=Base.Order.Reverse)
+
     r = -log(discountDf) / τ
     q = r - log(rawForward / spot) / τ
     sigma = sqrt(variance / τ)
@@ -26,15 +35,12 @@ function priceEuropeanTRBDF2(isCall::Bool,
     if grid == "Cubic"
         Si = makeCubicGrid(xi, Li, Ui, [Li, strike, Ui], alpha, shift=0.5)
     end
-    t = collect(range(τ, stop=zero(T), length=N))
-    dividends = filter(x -> x.dividend.exDate <= τ, dividends)
-    sort!(dividends, by=x -> x.dividend.exDate)
-    divDates = [x.dividend.exDate for x in dividends]
-    t = vcat(t, divDates)
-    sort!(t, order=Base.Order.Reverse)
     #    println("S ",Si)
     tip = t[1]
-    v = @. max(Si - strike, zero(T))
+    initialize(payoff, Si)
+    advance(payoff, tip)
+    evaluate(payoff, Si)
+    vMatrix = currentValue(payoff)
     Jhi = @. (Si[2:end] - Si[1:end-1])
     rhsd = Array{T}(undef, length(Si))
     lhsd = ones(T, length(Si))
@@ -45,33 +51,26 @@ function priceEuropeanTRBDF2(isCall::Bool,
     lhs = Tridiagonal(lhsdl, lhsd, lhsdu)
     # lhsf = lu(lhs)
     rhs = Tridiagonal(rhsdl, rhsd, rhsdu)
-    v0 = Array{T}(undef, length(Si))
+    v0Matrix = similar(vMatrix)
     v1 = Array{T}(undef, length(Si))
-    pp = PPInterpolation.PP(3, T, T, length(Si))
+    #pp = PPInterpolation.PP(3, T, T, length(Si))
     currentDivIndex = length(dividends)
     if (currentDivIndex > 0 && tip == divDates[currentDivIndex])
         #jump and interpolate        
         # pp = Spline1D(Si,v)
-        PPInterpolation.computePP(pp, Si, v, PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), C2())
-       
+        for v in eachcol(vMatrix)
+            # PPInterpolation.computePP(pp, Si, v, PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), C2())       
+            pp = QuadraticLagrangePP(Si, copy(v))
 
-        if dividendPolicy == Shift
-            @. v = pp(Si - dividends[currentDivIndex].dividend.amount, zero(T))
-        elseif dividendPolicy == Survivor
-            @. v = pp(ifelse(Si - dividends[currentDivIndex].dividend.amount < zero(T), Si, Si - dividends[currentDivIndex].dividend.amount))
-        else #liquidator
-            ppIndex = 1
-            for j=1:length(v)
-                z = max(Si[j] - dividends[currentDivIndex].dividend.amount, zero(T))
-                while (ppIndex < length(Si) && pp.x[ppIndex]< z) #Si[ppIndex]<=z<Si[ppIndex+1]  
-                    ppIndex+=1
-                end
-                if (z != pp.x[ppIndex])
-                    ppIndex-=1
-                end
-                v[j]= PPInterpolation.evaluate(pp, ppIndex, z)
+            if dividendPolicy == Shift
+                @. v = pp(Si - dividends[currentDivIndex].dividend.amount)
+            elseif dividendPolicy == Survivor
+                @. v = pp(ifelse(Si - dividends[currentDivIndex].dividend.amount < zero(T), Si, Si - dividends[currentDivIndex].dividend.amount))
+            else #liquidator
+                @. v1 = max(Si - dividends[currentDivIndex].dividend.amount, zero(T))
+                evaluateSorted!(pp, v, v1)
+                # println("jumped ",currentDivIndex, " of ",dividends[currentDivIndex].dividend.amount," tip ",tip)
             end
-            # println("jumped ",currentDivIndex, " of ",dividends[currentDivIndex].dividend.amount," tip ",tip)
         end
         currentDivIndex -= 1
     end
@@ -82,7 +81,6 @@ function priceEuropeanTRBDF2(isCall::Bool,
         if dt < 1e-8
             continue
         end
-        v0[1:end] = v
         @inbounds for j = 2:M-1
             s2S = sigma^2 * Si[j]^2
             muS = (r - q) * Si[j]
@@ -90,65 +88,64 @@ function priceEuropeanTRBDF2(isCall::Bool,
             rhsdu[j] = dt * beta / 2 * (s2S + muS * Jhi[j-1]) / (Jhi[j] * (Jhi[j] + Jhi[j-1]))
             rhsdl[j-1] = dt * beta / 2 * (s2S - muS * Jhi[j]) / (Jhi[j-1] * (Jhi[j] + Jhi[j-1]))
         end
-        if false && isCall
-            v[1] = zero(T)
-            rhsd[1] = one(T)
-            rhsdu[1] = zero(T)
-        else
-            #linear or Ke-rt same thing
-            rhsd[1] = one(T) - dt * beta / 2 * (r + (r - q) * Si[1] / Jhi[1])
-            rhsdu[1] = dt * beta / 2 * (r - q) * Si[1] / Jhi[1]
-        end
+        #linear or Ke-rt same thing
+        rhsd[1] = one(T) - dt * beta / 2 * (r + (r - q) * Si[1] / Jhi[1])
+        rhsdu[1] = dt * beta / 2 * (r - q) * Si[1] / Jhi[1]
 
         rhsd[M] = one(T) - dt * beta / 2 * (r - (r - q) * Si[end] / Jhi[end])
         rhsdl[M-1] = -dt * beta / 2 * (r - q) * Si[end] / Jhi[end]
-        mul!(v1, rhs, v)
+
+        v0Matrix[1:end, 1:end] = vMatrix
+        advance(payoff, tip - dt * beta)
+        for (iv, v) in enumerate(eachcol(vMatrix))
+            mul!(v1, rhs, v)
+            evaluate(payoff, Si, iv)  #necessary to update knockin values from vanilla.
+        end
+
         @. lhsd = one(T) - (rhsd - one(T))
         @. lhsdu = -rhsdu
         @. lhsdl = -rhsdl
         # lhsf = lu!(lhs)
         # lhsf = factorize(lhs)
         # ldiv!(v, lhsf , v1)
-        TDMA!(v, lhsdl, lhsd, lhsdu, v1)
+        advance(payoff, tip - dt * beta)
+        for (iv, v) in enumerate(eachcol(vMatrix))
+            TDMA!(v, lhsdl, lhsd, lhsdu, v1)
+            evaluate(payoff, Si, iv)  #necessary to update knockin values from vanilla.
+        end
 
         #BDF2 step
-        @. v1 = (v - (1 - beta)^2 * v0) / (beta * (2 - beta))
-        # ldiv!(v , lhsf ,v1)
-        TDMA!(v, lhsdl, lhsd, lhsdu, v1)
+        advance(payoff, ti)
+        for (iv, v) in enumerate(eachcol(vMatrix))
+            @. v1 = (v - (1 - beta)^2 * @view v0Matrix[:, iv]) / (beta * (2 - beta))
+            # ldiv!(v , lhsf ,v1)
+            TDMA!(v, lhsdl, lhsd, lhsdu, v1)
+            evaluate(payoff, Si, iv)  #necessary to update knockin values from vanilla.
+        end
 
         tip = ti
         if (currentDivIndex > 0 && tip == divDates[currentDivIndex])
-            #jump and interpolate
-            # pp = Spline1D(Si,v)
-            PPInterpolation.computePP(pp, Si, v, PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), VanAlbada())
-            if dividendPolicy == Shift
-                @. v = pp(Si - dividends[currentDivIndex].dividend.amount, zero(T))
-            elseif dividendPolicy == Survivor
-                @. v = pp(ifelse(Si - dividends[currentDivIndex].dividend.amount < zero(T), Si, Si - dividends[currentDivIndex].dividend.amount))
-            else #liquidator
-                #    @. v = pp(max(Si - dividends[currentDivIndex].dividend.amount, zero(T)))
-                ppIndex = 1
-            for j=1:length(v)
-                z = max(Si[j] - dividends[currentDivIndex].dividend.amount, zero(T))
-                while (ppIndex < length(Si) && (Si[ppIndex] < z)) #Si[ppIndex]<=z<Si[ppIndex+1]  
-                    ppIndex+=1
+            #jump and interpolate        
+            for v in eachcol(vMatrix)
+                # PPInterpolation.computePP(pp, Si, v, PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), C2())       
+                pp = QuadraticLagrangePP(Si, copy(v))
+
+                if dividendPolicy == Shift
+                    @. v = pp(Si - dividends[currentDivIndex].dividend.amount)
+                elseif dividendPolicy == Survivor
+                    @. v = pp(ifelse(Si - dividends[currentDivIndex].dividend.amount < zero(T), Si, Si - dividends[currentDivIndex].dividend.amount))
+                else #liquidator
+                    @. v1 = max(Si - dividends[currentDivIndex].dividend.amount, zero(T))
+                    evaluateSorted!(pp, v, v1)
+                    # println("jumped ",currentDivIndex, " of ",dividends[currentDivIndex].dividend.amount," tip ",tip)
                 end
-                if (z != Si[ppIndex])
-                    ppIndex-=1
-                end
-                #  ppIndex = min(max(ppIndex,2),length(Si)-1)
-                #  v1[j] = v[ppIndex]*(Si[ppIndex-1]-z)*(Si[ppIndex+1]-z)/((Si[ppIndex-1]-Si[ppIndex])*(Si[ppIndex+1]-Si[ppIndex]))+v[ppIndex-1]*(Si[ppIndex]-z)*(Si[ppIndex+1]-z)/((Si[ppIndex]-Si[ppIndex-1])*(Si[ppIndex+1]-Si[ppIndex-1]))+v[ppIndex+1]*(Si[ppIndex-1]-z)*(Si[ppIndex]-z)/((Si[ppIndex-1]-Si[ppIndex+1])*(Si[ppIndex]-Si[ppIndex+1]))
-               v1[j]= PPInterpolation.evaluate(pp, ppIndex, z)
-            end # println("jumped ",currentDivIndex, " of ",dividends[currentDivIndex].dividend.amount," tip ",tip)
-            v[1:end]=v1
             end
             currentDivIndex -= 1
         end
     end
-    # spl = Spline1D(Si, v)
-    spl = makeCubicPP(Si, v, PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), C2())
-
-    return spl
+    #PPInterpolation.computePP(pp,Si, @view(vMatrix[:,end]), PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), C2())
+    #return pp
+    return QuadraticLagrangePP(Si, vMatrix[:, end])
 end
 
 using PolynomialRoots

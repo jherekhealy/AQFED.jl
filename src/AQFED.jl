@@ -66,10 +66,15 @@ include("basket/asian.jl")
 include("basket/pln.jl")
 end
 
+module FDM
+include("fdm/payoff.jl")
+include("fdm/trbdf2.jl")
+end
+
 module PLN
 include("pln/etore_gobet.jl")
-include("pln/trbdf2.jl")
 end
+
 
 module MonteCarlo
 include("mc/bb.jl")

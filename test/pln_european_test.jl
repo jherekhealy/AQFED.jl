@@ -1,7 +1,7 @@
 using AQFED, Test, ForwardDiff
 import AQFED.PLN: EtoreGobetPLNPricer, LeFlochLehmanPLNPricer, priceEuropean
 import AQFED.TermStructure: CapitalizedDividend, Dividend, futureValue
-import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer
+import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre, GaussKronrod, DoubleExponential, TanhSinh
 
 @testset "EtoreGobetSingle" begin
     spot = 100.0
@@ -233,31 +233,90 @@ end
 
     end
 end
-
-
 @testset "OneToHundred" begin
-    strike = 100.0
     σ = 0.3
-    r = 0.06
+    r = 0.05
     q = 0.0
     tte = 2.0
     ttp = tte
     isCall = true
-    nDividendList = [1, 10, 100]
-    spots = [50.0,100.0,150.0]
-    for spot in spots 
+    nDividends = 10
+    spot = 100.0
+    dividends = Array{CapitalizedDividend{Float64}}(undef, nDividends)
+    divAmount = 10.0 / length(dividends)
+     divTimes = sort(rand(AQFED.Random.MRG32k3a(),length(dividends)).*tte)
+    # divTimes =  0.01 .+ (tte - 0.02) .* (collect(1:length(dividends)) .- 1) ./ length(dividends) #not as interesting as single div not well positioned
+    for i = 1:length(dividends)            
+        t = divTimes[i]
+        dividends[i] = CapitalizedDividend{Float64}(Dividend{Float64}(divAmount, t, t, false, false), exp((tte - t) * r))
+    end
+    for strike=40.0:5:160.0
+    ptref =  AQFED.PLN.priceEuropeanTRBDF2(true, strike, spot, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends,M=40001,N=365*10+1,ndev=6)(spot)
+    
+    pgl33 = DeelstraBasketPricer(1, 3,GaussLegendre(33))
+    fgl33 = function (spot)
+        AQFED.Basket.priceEuropean(pgl33, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+    end
+    pts25 = DeelstraBasketPricer(1, 3,TanhSinh(16,1e-9))
+    fts25 = function (spot)
+        AQFED.Basket.priceEuropean(pts25, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+    end
+    pll = LeFlochLehmanPLNPricer(3)
+        fll = function (spot)
+            priceEuropean(pll, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        priceGL33 =  fgl33(spot)
+        priceTS25 =  fts25(spot)     
+        priceLL =  fll(spot)
+        println(nDividends, " ",strike," BB-L33 ", priceGL33," ",priceGL33-ptref)
+        println(nDividends, " ",strike," BB-TS33 ", priceTS25," ",priceTS25-ptref)
+        println(nDividends, " ",strike," LL-3 ", priceLL," ",priceLL-ptref)
+    end
+end
+
+@testset "OneToHundred" begin
+    σ = 0.3
+    r = 0.05
+    q = 0.0
+    tte = 2.0
+    ttp = tte
+    isCall = true
+    nDividendList = [1, 10, 100,1000]
+    strikes = [50.0,100.0,150.0]
+    spot = 100.0
+    for strike in strikes 
     for nDividends in nDividendList
         dividends = Array{CapitalizedDividend{Float64}}(undef, nDividends)
-        divAmount = 7.0 / length(dividends)
+        divAmount = 10.0 / length(dividends)
          divTimes = sort(rand(AQFED.Random.MRG32k3a(),length(dividends)).*tte)
         # divTimes =  0.01 .+ (tte - 0.02) .* (collect(1:length(dividends)) .- 1) ./ length(dividends) #not as interesting as single div not well positioned
         for i = 1:length(dividends)            
             t = divTimes[i]
             dividends[i] = CapitalizedDividend{Float64}(Dividend{Float64}(divAmount, t, t, false, false), exp((tte - t) * r))
         end
-        p = DeelstraBasketPricer(1, 3,N=32*4)
-        f = function (spot)
-            AQFED.Basket.priceEuropean(p, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        pgl128 = DeelstraBasketPricer(1, 3,GaussLegendre(32*4))
+        fgl128 = function (spot)
+            AQFED.Basket.priceEuropean(pgl128, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        pgl33 = DeelstraBasketPricer(1, 3,GaussLegendre(33))
+        fgl33 = function (spot)
+            AQFED.Basket.priceEuropean(pgl33, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        pgk = DeelstraBasketPricer(1, 3,GaussKronrod(1e-7))
+        fgk = function (spot)
+            AQFED.Basket.priceEuropean(pgk, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        pde = DeelstraBasketPricer(1, 3,DoubleExponential(1e-7))
+        fde = function (spot)
+            AQFED.Basket.priceEuropean(pde, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        pts25 = DeelstraBasketPricer(1, 3,TanhSinh(16,1e-9))
+        fts25 = function (spot)
+            AQFED.Basket.priceEuropean(pts25, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+        end
+        pts25p = DeelstraBasketPricer(1, 3,TanhSinh(16,1e-9,true))
+        fts25p = function (spot)
+            AQFED.Basket.priceEuropean(pts25p, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
         plb = DeelstraLBBasketPricer(1, 3)
         flb = function (spot)
@@ -271,16 +330,27 @@ end
         fll2 = function (spot)
             priceEuropean(pll2, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
-        ptr = @time AQFED.PLN.priceEuropeanTRBDF2(true, strike, spot, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends,M=500,N=100)(spot)
-        ptref = @time AQFED.PLN.priceEuropeanTRBDF2(true, strike, spot, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends,M=40001,N=365*10+1,ndev=6)(spot)
+        payoff = AQFED.FDM.VanillaEuropean(true,strike,tte)
+        ptr = @time AQFED.FDM.priceTRBDF2(payoff, spot, spot * exp(r * tte), σ^2 * tte, exp(-r * tte), dividends,M=500,N=100)(spot)
+        ptref = @time AQFED.FDM.priceTRBDF2(payoff, spot, spot * exp(r * tte), σ^2 * tte,  exp(-r * tte), dividends,M=40001,N=365*10+1,ndev=6)(spot)
 
-        price = @time f(spot)
+        priceGL33 = @time fgl33(spot)
+        priceGL128 = @time fgl128(spot)
+        priceGK = @time fgk(spot)
+        priceDE = @time fde(spot)
+        priceTS25 = @time fts25(spot)     
+        priceTS25p = @time fts25p(spot)     
         priceLB = @time flb(spot)
         priceLL = @time fll(spot)
         priceLL2 = @time fll2(spot)
         println(nDividends, " TRBDF2 ",ptref," ",0.0)
-        println(nDividends, " TRBDF2 ",ptr, " ",ptr-ptref)
-        println(nDividends, " BB ", price," ",price-ptref)
+        println(nDividends, " TRBDF2 ",ptr, " ",ptr - ptref)
+        println(nDividends, " BB-GL33 ", priceGL33," ",priceGL33 - ptref)
+        println(nDividends, " BB-GL128 ", priceGL128," ",priceGL128 - ptref)
+        println(nDividends, " BB-GK ", priceGK," ",priceGK - ptref)
+        println(nDividends, " BB-DE ", priceDE," ",priceDE-ptref)
+        println(nDividends, " BB-TS25 ", priceTS25," ",priceTS25 - ptref)
+        println(nDividends, " BB-TS25p ", priceTS25p," ",priceTS25p - ptref)
         println(nDividends, " BB-LB ", priceLB," ",priceLB-ptref)
         println(nDividends, " LL-3 ", priceLL," ",priceLL-ptref)
         println(nDividends, " LL-2 ", priceLL2," ",priceLL2-ptref)
