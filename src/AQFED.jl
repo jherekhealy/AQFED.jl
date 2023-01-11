@@ -50,6 +50,7 @@ module TermStructure
 include("ts/heston.jl")
 include("ts/lv.jl")
 include("ts/surface.jl")
+include("ts/curve.jl")
 include("ts/dividend.jl")
 end
 
@@ -68,7 +69,10 @@ end
 
 module FDM
 include("fdm/payoff.jl")
+include("fdm/solver.jl")
+include("fdm/peclet.jl")
 include("fdm/trbdf2.jl")
+include("fdm/log_trbdf2.jl")
 end
 
 module PLN

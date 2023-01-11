@@ -1,6 +1,17 @@
 #TermStructure volatility surface
-
+export VarianceSurface, FlatSurface, FlatSection, VarianceSurfaceBySection, SVISection
+export varianceByLogmoneyness, localVarianceByLogmoneyness
 abstract type VarianceSection end
+
+struct FlatSection <: VarianceSection 
+    σ::Float64
+    tte::Float64
+end
+
+function varianceByLogmoneyness(s::FlatSection, y::Float64)
+    return s.σ^2
+end
+
 struct SVISection <: VarianceSection
     a::Float64
     b::Float64
@@ -40,12 +51,29 @@ function varianceSlopeCurvature(s::SVISection, y::Array{Float64})
     curvature = @. s.b * (1 - ym^2 / sqrsy) / sqrtsy
     return variance, slope, curvature
 end
-struct VarianceSurfaceBySection{T}
+abstract type VarianceSurface end
+struct VarianceSurfaceBySection{T} <: VarianceSurface
     sections::Vector{T}
     expiries::Vector{Float64}
     #    indexMap::Any
 end
-
+struct FlatSurface <: VarianceSurface
+    σ::Float64
+end
+function varianceByLogmoneyness(
+    s::FlatSurface,
+    y::Float64,
+    t::Float64,
+    indexTime::Int = 0)::Float64
+    return s.σ^2
+end
+function localVarianceByLogmoneyness(
+    surface::FlatSurface, 
+    y::Array{Float64,1},
+    t0::Float64,
+    t1::Float64) 
+    return s.σ^2
+end
 
 #abstract type LocalVarianceSurface end
 

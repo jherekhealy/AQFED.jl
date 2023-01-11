@@ -233,7 +233,7 @@ end
 
     end
 end
-@testset "OneToHundred" begin
+@testset "StrikeError" begin
     σ = 0.3
     r = 0.05
     q = 0.0
@@ -284,6 +284,7 @@ end
     nDividendList = [1, 10, 100,1000]
     strikes = [50.0,100.0,150.0]
     spot = 100.0
+    strike=50.0; nDividends=100
     for strike in strikes 
     for nDividends in nDividendList
         dividends = Array{CapitalizedDividend{Float64}}(undef, nDividends)
