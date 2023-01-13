@@ -9,7 +9,7 @@ function priceLogTRBDF2(definition::StructureDefinition,
     varianceSurface::VarianceSurface, #variance to maturity
     discountCurve::Curve, #discount factor to payment date
     dividends::AbstractArray{CapitalizedDividend{T}};
-    solverName="TDMA", M=400, N=100, ndev=4, Smax=zero(T), Smin=zero(T), dividendPolicy::DividendPolicy=Liquidator, grid="", alpha=0.01, useSpline=true, varianceConditioner::PecletConditioner=NoConditioner(), calibration=NoCalibration()) where {T}
+    solverName="LUUL", M=400, N=100, ndev=4, Smax=zero(T), Smin=zero(T), dividendPolicy::DividendPolicy=Liquidator, grid::Grid=UniformGrid(false), alpha=0.01, useSpline=true, varianceConditioner::PecletConditioner=NoConditioner(), calibration=NoCalibration()) where {T}
     specialPoints = nonSmoothPoints(definition)
     obsTimes = observationTimes(definition)
     τ = last(obsTimes)
@@ -32,44 +32,12 @@ function priceLogTRBDF2(definition::StructureDefinition,
     else
         log(Smin)
     end
-    if grid == "Cubic"
-        lnSi = makeCubicGrid(xi, Li, Ui, log.(specialPoints), 0.5, shift=0.0)
-        if !isempty(specialPoints)
-            strikeIndex = searchsortedlast(lnSi, log(specialPoints[1])) #FIXME handle strikeIndex=end
-            diff = log(specialPoints[1])- (lnSi[strikeIndex]+lnSi[strikeIndex+1])/2
-            if diff^2 > eps(T)
-                @. lnSi += diff
-                if diff < 0
-                    append!(lnSi, Ui)
-                else
-                    prepend!(lnSi, Li)
-                end
-            end
-        end
-    elseif grid == "Shift" #Shift up, max is changed, not min.
-        lnSi = @. Li + xi * (Ui - Li)
-        if !isempty(specialPoints)
-            strikeIndex = searchsortedlast(lnSi, log(specialPoints[1])) #FIXME handle strikeIndex=end
-            diff = log(specialPoints[1])- (lnSi[strikeIndex]+lnSi[strikeIndex+1])/2
-            if diff^2 > eps(T)
-                @. lnSi += diff
-                if diff < 0
-                    append!(lnSi, Ui)
-                else
-                    prepend!(lnSi, Li)
-                end
-            end
-        end
-        if Smin < zero(T) || isnan(Smin)
-            prepend!(Si, zero(T))
-        end
-    else #Uniform
-        lnSi = @. Li + xi * (Ui - Li)
-   
-    end
+    #isMiddle = ones(Bool,length(specialPoints))
+    isMiddle = zeros(Bool,length(specialPoints))
+    lnSi = makeArray(grid, xi, Li, Ui, log.(specialPoints),isMiddle)    
+    Si = @. exp(lnSi)
     #    println("S ",Si)
     #    println("t ",t)
-    Si = @. exp(lnSi)
     tip = t[1]
     payoff = makeFDMStructure(definition, Si)
     advance(payoff, tip)
@@ -83,12 +51,12 @@ function priceLogTRBDF2(definition::StructureDefinition,
     end
     vMatrix = currentValue(payoff)
     Jhi = @. (lnSi[2:end] - lnSi[1:end-1])
-    rhsd = Array{T}(undef, length(Si))
+    rhsd = zeros(T, length(Si))
     lhsd = ones(T, length(Si))
-    rhsdl = Array{T}(undef, length(Si) - 1)
-    lhsdl = Array{T}(undef, length(Si) - 1)
-    rhsdu = Array{T}(undef, length(Si) - 1)
-    lhsdu = Array{T}(undef, length(Si) - 1)
+    rhsdl = zeros(T, length(Si) - 1)
+    lhsdl = zeros(T, length(Si) - 1)
+    rhsdu = zeros(T, length(Si) - 1)
+    lhsdu = zeros(T, length(Si) - 1)
     lhs = Tridiagonal(lhsdl, lhsd, lhsdu)
     solverLB = if solverName == "TDMA" || solverName == "Thomas"
         TDMAMax{T}()
@@ -106,9 +74,9 @@ function priceLogTRBDF2(definition::StructureDefinition,
     solver = LowerBoundSolver(solverLB, isLBActive, lhs, vLowerBound)
     rhs = Tridiagonal(rhsdl, rhsd, rhsdu)
     v0Matrix = similar(vMatrix)
-    v1 = Array{T}(undef, length(Si))
-    muS = Array{T}(undef, length(Si))
-    s2S = Array{T}(undef, length(Si))
+    v1 = zeros(T, length(Si))
+    muS = zeros(T, length(Si))
+    s2S =zeros(T, length(Si))
     #pp = PPInterpolation.PP(3, T, T, length(Si))
     currentDivIndex = length(dividends)
     if (currentDivIndex > 0 && tip == divDates[currentDivIndex])
@@ -227,8 +195,7 @@ end
 
 
 function adjustDriftAndVol!(calibration::ForwardCalibration, muS, s2S, μi, σi2, Jhi)
-    h = Jhi[1]
-    eh = exp(h)
+    h = Jhi[1]; eh = exp(h)
     muS[1] = μi * h / (eh - 1)
     for i = 2:length(Jhi)
         ehm = eh
@@ -239,7 +206,8 @@ function adjustDriftAndVol!(calibration::ForwardCalibration, muS, s2S, μi, σi2
         μid = μi * (hm * h * (hm + h)) / (hm^2 * eh - h^2 / ehm - (hm^2 - h^2))
         muS[i] = μid - σi2 / 2
     end
-    muS[end] = μi * h / (1 - 1 / eh)
+    # h = Jhi[end];eh = exp(h)
+    muS[end] = μi * h / (1 - 1/eh )
 end
 
 

@@ -71,6 +71,7 @@ module FDM
 include("fdm/payoff.jl")
 include("fdm/solver.jl")
 include("fdm/peclet.jl")
+include("fdm/grid.jl")
 include("fdm/trbdf2.jl")
 include("fdm/log_trbdf2.jl")
 end
