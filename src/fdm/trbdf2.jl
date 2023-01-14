@@ -66,10 +66,10 @@ function priceTRBDF2(definition::StructureDefinition,
     #    println("t ",t)
     tip = t[1]
     payoff = makeFDMStructure(definition, Si)
-    advance(payoff, tip)
-    evaluate(payoff, Si)
+    advance(definition, payoff, tip)
+    evaluate(definition, payoff, Si)
     vLowerBound = zeros(T, length(Si))
-    isLBActive = isLowerBoundActive(payoff)
+    isLBActive = isLowerBoundActive(definition, payoff)
     if isLBActive
         lowerBound!(payoff, vLowerBound)
     else
@@ -152,7 +152,7 @@ function priceTRBDF2(definition::StructureDefinition,
         rhsdl[M-1] = -dt * beta / 2 * μi * Si[end] / Jhi[end]
 
         v0Matrix[1:end, 1:end] = vMatrix
-        advance(payoff, tip - dt * beta)
+        advance(definition,payoff, tip - dt * beta)
         for (iv, v) in enumerate(eachcol(vMatrix))
             mul!(v, rhs, @view v0Matrix[:, iv])
             #  evaluate(payoff, Si, iv)  #necessary to update knockin values from vanilla.
@@ -166,9 +166,9 @@ function priceTRBDF2(definition::StructureDefinition,
         # lhsf = factorize(lhs)
         # ldiv!(v, lhsf , v1)
         decompose(solver, lhs)
-        advance(payoff, tip - dt * beta)
+        advance(definition, payoff, tip - dt * beta)
         for (iv, v) in enumerate(eachcol(vMatrix))
-            isLBActive = isLowerBoundActive(payoff)
+            isLBActive = isLowerBoundActive(definition, payoff)
             setLowerBoundActive(solver, isLBActive)
             solve!(solver, v1, v)
             v[1:end] = v1
@@ -179,14 +179,14 @@ function priceTRBDF2(definition::StructureDefinition,
         end
 
         #BDF2 step
-        advance(payoff, ti)
+        advance(definition, payoff, ti)
         for (iv, v) in enumerate(eachcol(vMatrix))
             @. v1 = (v - (1 - beta)^2 * @view v0Matrix[:, iv]) / (beta * (2 - beta))
             # ldiv!(v , lhsf ,v1)
-            isLBActive = isLowerBoundActive(payoff)
+            isLBActive = isLowerBoundActive(definition, payoff)
             setLowerBoundActive(solver, isLBActive)
             solve!(solver, v, v1)
-            evaluate(payoff, Si, iv)  #necessary to update knockin values from vanilla.
+            evaluate(definition, payoff, Si, iv)  #necessary to update knockin values from vanilla.
             if isLBActive
                 lowerBound!(payoff, vLowerBound)
             end

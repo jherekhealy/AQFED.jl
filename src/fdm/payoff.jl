@@ -2,40 +2,41 @@ export VanillaEuropean, VanillaAmerican, StructureDefinition, DiscreteKO, Butter
 
 abstract type StructureDefinition end
 
-mutable struct FDMStructure{T,TD<:StructureDefinition}
+abstract type FDMStructure end
+
+mutable struct DefaultFDMStructure{T}
     currentTime::T
     currentValue::Matrix{T}
     lowerBound::Vector{T}
-    definition::TD
 end
 
-function makeFDMStructure(p::TD, underlying::AbstractArray{T})::FDMStructure{T} where {T,TD<:StructureDefinition}
-    return FDMStructure(zero(T), zeros(T, length(underlying), 1), zeros(T, length(underlying)), p)
+function makeFDMStructure(p::TD, underlying::AbstractArray{T}) where {T,TD<:StructureDefinition}
+    DefaultFDMStructure(zero(T), zeros(T, length(underlying), 1), zeros(T, length(underlying)))
 end
 
 
 "advance payoff to given time. This is where one could update relevant indices/set current observation"
-function advance(p::FDMStructure, time)
-    p.currentTime = time
+function advance(p::TD, s::DefaultFDMStructure{T}, time::T) where {TD<:StructureDefinition,T}
+    s.currentTime = time
 end
 
-function currentValue(p::FDMStructure{T,TS})::Matrix{T} where {T,TS}
-    return p.currentValue
+function currentValue(s::DefaultFDMStructure{T})::Matrix{T} where {T}
+    return s.currentValue
 end
 
-function isLowerBoundActive(p::FDMStructure)::Bool
+function isLowerBoundActive(p::TD, s::DefaultFDMStructure{T})::Bool where {TD<:StructureDefinition,T}
     return false
 end
 
-function lowerBound!(p::FDMStructure{T,TD}, v::AbstractArray{T}) where {T,TD}
-    if !isempty(p.lowerBound)
-        v[1:end] = p.lowerBound
+function lowerBound!(s::DefaultFDMStructure{T}, v::AbstractArray{T}) where {T}
+    if !isempty(s.lowerBound)
+        v[1:end] = s.lowerBound
     end
 end
 
-function evaluate(p::FDMStructure{T,TD}, S::AbstractArray{T}) where {T,TD}
-    for i = 1:size(currentValue(p), 2)
-        evaluate(p, S, i)
+function evaluate(p::TD, s::DefaultFDMStructure{T}, S::AbstractArray{T}) where {T,TD<:StructureDefinition}
+    for i = 1:size(currentValue(s), 2)
+        evaluate(p, s, S, i)
     end
 end
 
@@ -44,21 +45,18 @@ struct DiscountBond{T} <: StructureDefinition
     timeToExpiry::T
 end
 
-function makeFDMStructure(p::DiscountBond{TS}, underlying::AbstractArray{T})::FDMStructure{T} where {T,TS}
-    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), zeros(T, length(underlying)), p)
-end
 
 "observation times sorted in ascending order"
 function observationTimes(p::DiscountBond{T})::AbstractArray{T} where {T}
     return [p.timeToExpiry]
 end
-function isLowerBoundActive(p::FDMStructure{T,DiscountBond{T}})::Bool where {T}
+function isLowerBoundActive(p::DiscountBond{T}, s::DefaultFDMStructure{T})::Bool where {T}
     return false
 end
 
-function evaluate(p::FDMStructure{T,DiscountBond{TS}}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
-    if p.currentTime == p.definition.timeToExpiry
-        @. p.currentValue[:, 1] = 1.0
+function evaluate(p::DiscountBond{TS}, s::DefaultFDMStructure{T}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    if s.currentTime == p.timeToExpiry
+        @. s.currentValue[:, 1] = 1.0
     end
 end
 
@@ -72,10 +70,6 @@ mutable struct VanillaEuropean{T} <: StructureDefinition
     timeToExpiry::T
     VanillaEuropean(isCall::Bool, strike::T, timeToExpiry::T) where {T} = new{T}(isCall, strike, timeToExpiry)
 end
-
-function makeFDMStructure(p::VanillaEuropean{TS}, underlying::AbstractArray{T})::FDMStructure{T} where {T,TS}
-    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), zeros(T, length(underlying)), p)
-end
 function nonSmoothPoints(p::VanillaEuropean{T})::AbstractArray{T} where {T}
     return [p.strike]
 end
@@ -84,7 +78,7 @@ end
 function observationTimes(p::VanillaEuropean{T})::AbstractArray{T} where {T}
     return [p.timeToExpiry]
 end
-function isLowerBoundActive(p::FDMStructure{T,VanillaEuropean{T}})::Bool where {T}
+function isLowerBoundActive(p::VanillaEuropean{T}, s::DefaultFDMStructure{T})::Bool where {T}
     return true
 end
 
@@ -95,12 +89,12 @@ function evaluate(p::VanillaEuropean{T}, S::T)::T where {T}
         return max(p.strike - S, zero(T))
     end
 end
-function evaluate(p::FDMStructure{T,VanillaEuropean{TS}}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
-    if p.currentTime == p.definition.timeToExpiry
-        if p.definition.isCall
-            @. p.currentValue[:, 1] = max(S - p.definition.strike, zero(T))
+function evaluate(p::VanillaEuropean{TS}, s::DefaultFDMStructure{T}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    if s.currentTime == p.timeToExpiry
+        if p.isCall
+            @. s.currentValue[:, 1] = max(S - p.strike, zero(T))
         else
-            @. p.currentValue[:, 1] = max(p.definition.strike - S, zero(T))
+            @. s.currentValue[:, 1] = max(p.strike - S, zero(T))
         end
     end
 end
@@ -123,24 +117,24 @@ function nonSmoothPoints(p::VanillaAmerican{T})::AbstractArray{T} where {T}
     return [p.strike]
 end
 
-function makeFDMStructure(p::VanillaAmerican{TS}, underlying::AbstractArray{T})::FDMStructure{T} where {T,TS}
+function makeFDMStructure(p::VanillaAmerican{TS}, underlying::AbstractArray{T}) where {T,TS}
     lowerBound = if p.isCall
         @. max(underlying - p.strike, zero(T))
     else
         @. max(p.strike - underlying, zero(T))
     end
-    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound, p)
+    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound)
 end
 
 
-function evaluate(p::FDMStructure{T,VanillaAmerican{TS}}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
-    if (p.currentTime >= p.definition.exerciseStartTime)
-        @. p.currentValue[:, 1] = max(p.currentValue[:, 1], p.lowerBound)
+function evaluate(p::VanillaAmerican{TS}, s::DefaultFDMStructure{T}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    if (s.currentTime >= p.exerciseStartTime)
+        @. s.currentValue[:, 1] = max(s.currentValue[:, 1], s.lowerBound)
     end
 end
 
-function isLowerBoundActive(p::FDMStructure{T,VanillaAmerican{T}})::Bool where {T}
-    return p.currentTime >= p.definition.exerciseStartTime
+function isLowerBoundActive(p::VanillaAmerican{T}, s::DefaultFDMStructure{T})::Bool where {T}
+    return s.currentTime >= p.exerciseStartTime
 end
 
 
@@ -162,79 +156,72 @@ function nonSmoothPoints(p::ButterflyAmerican{T})::AbstractArray{T} where {T}
     return [p.strike1, p.strike2]
 end
 
-function makeFDMStructure(p::ButterflyAmerican{TS}, underlying::AbstractArray{T})::FDMStructure{T} where {T,TS}
+function makeFDMStructure(p::ButterflyAmerican{TS}, underlying::AbstractArray{T}) where {T,TS}
     lowerBound = if p.isCall
         @. (max(underlying - p.strike1, zero(T)) + max(underlying - p.strike2, zero(T)) - 2 * max(underlying - (p.strike1 + p.strike2) / 2, zero(T)))
     else
         @. (max(p.strike1 - underlying, zero(T)) + max(p.strike2 - underlying, zero(T)) - 2 * max((p.strike1 + p.strike2) / 2 - underlying, zero(T)))
     end
-    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound, p)
+    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound)
 end
 
 
-function evaluate(p::FDMStructure{T,ButterflyAmerican{TS}}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
-    if (p.currentTime >= p.definition.exerciseStartTime)
-        @. p.currentValue[:, 1] = max(p.currentValue[:, 1], p.lowerBound)
+function evaluate(p::ButterflyAmerican{TS}, s::DefaultFDMStructure{T}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    if (s.currentTime >= p.exerciseStartTime)
+        @. s.currentValue[:, 1] = max(s.currentValue[:, 1], s.lowerBound)
     end
 end
 
-function isLowerBoundActive(p::FDMStructure{T,ButterflyAmerican{T}})::Bool where {T}
-    return p.currentTime >= p.definition.exerciseStartTime
+function isLowerBoundActive(p::ButterflyAmerican{T}, s::DefaultFDMStructure{T})::Bool where {T}
+    return s.currentTime >= p.exerciseStartTime
 end
 
 
 struct DiscreteKO{T} <: StructureDefinition
-    isCall::Bool
-    strike::T
+    vanilla::VanillaEuropean{T}
     level::T
     isDown::Bool
     rebate::T
-    timeToExpiry::T
     observationTimes::Vector{T} #TODO create mutable Schedule{T}, with currentIndex, isActive(time), advance(time),reset()
 end
 
 function observationTimes(p::DiscreteKO{T})::AbstractArray{T} where {T}
-    if (p.observationTimes[end] != p.timeToExpiry)
-        return append(p.observationTimes, p.timeToExpiry)
+    if (p.observationTimes[end] != p.vanilla.timeToExpiry)
+        return append(p.observationTimes, p.vanilla.timeToExpiry)
     else
         return p.observationTimes
     end
 end
 
 function nonSmoothPoints(p::DiscreteKO{T})::AbstractArray{T} where {T}
-    return [p.strike, p.level]
+    return [p.vanilla.strike, p.level]
 end
 
-function makeFDMStructure(p::DiscreteKO{TS}, underlying::AbstractArray{T})::FDMStructure{T} where {T,TS}
-    lowerBound = zeros(T, length(underlying))
-    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound, p)
-end
+# function makeFDMStructure(p::DiscreteKO{TS}, underlying::AbstractArray{T})::FDMStructure{T} where {T,TS}
+#     lowerBound = zeros(T, length(underlying))
+#     return FDMStructure(p.vanilla.timeToExpiry, zeros(T, length(underlying), 1), lowerBound, p)
+# end
 
 
-function evaluate(p::FDMStructure{T,DiscreteKO{TS}}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
-    if abs(p.currentTime - p.definition.timeToExpiry) < eps(T)
-        sign = one(T)
-        if !p.definition.isCall
-            sign = -one(T)
-        end
-        @. p.currentValue[:, 1] = max(sign * (S - p.definition.strike), zero(T))
-    end
+function evaluate(p::DiscreteKO{TS}, s::DefaultFDMStructure{T}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    evaluate(p.vanilla, s, S, columnIndex)
     isBarrierActive = false
-    for t in p.definition.observationTimes
-        if abs(p.currentTime - t) < eps(T)
+    for t in p.observationTimes
+        if abs(s.currentTime - t) < eps(T)
             isBarrierActive = true
+            break
         end
     end
     if isBarrierActive
         for i = eachindex(S)
-            if (p.definition.isDown && S[i] <= p.definition.level) || (!p.definition.isDown && S[i] >= p.definition.level)
-                p.currentValue[i, 1] = p.definition.rebate
+            if (p.isDown && S[i] <= p.level) || (!p.isDown && S[i] >= p.level)
+                s.currentValue[i, 1] = p.rebate
             end
         end
     end
 end
 
-function isLowerBoundActive(p::FDMStructure{T,DiscreteKO{T}})::Bool where {T}
+function isLowerBoundActive(p::DiscreteKO{T}, s::DefaultFDMStructure{T})::Bool where {T}
     return true
 end
 
@@ -247,70 +234,83 @@ observationTimes(p::KreissSmoothDefinition{TS}) where {TS} = observationTimes(p.
 
 nonSmoothPoints(p::KreissSmoothDefinition{TS}) where {TS} = nonSmoothPoints(p.delegate)
 
-#FIXME goes to p.delegate, never init with p. Does not work as expecteD.
-# maybe is embedding is not so great? similar issue for isLowerBOundActive.
-#makeFDMStructure(p::KreissSmoothDefinition{TS}, underlying::AbstractArray{T}) where {T,TS} = makeFDMStructure(p.delegate, underlying)
+function makeFDMStructure(p::KreissSmoothDefinition{TS}, underlying::AbstractArray{T}) where {T,TS}
+    return makeFDMStructure(p.delegate, underlying)
+end
 
-isLowerBoundActive(p::FDMStructure{T,KreissSmoothDefinition{VanillaEuropean{TS}}}) where {T,TS} = false
+function isLowerBoundActive(p::KreissSmoothDefinition{TS}, s::DefaultFDMStructure{T}) where {T,TS}
+    return isLowerBoundActive(p.delegate,s)
+end
 
-function evaluate(p::FDMStructure{T,KreissSmoothDefinition{VanillaEuropean{TS}}}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
-    payoff = p.definition.delegate
-    if abs(p.currentTime - payoff.timeToExpiry) < eps(T)
+function evaluate(p::KreissSmoothDefinition{VanillaEuropean{TS}}, s::DefaultFDMStructure{T}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    payoff = p.delegate
+    if abs(s.currentTime - payoff.timeToExpiry) < eps(T)
         strike = payoff.strike
         sign = one(T)
         if !payoff.isCall
             sign = -one(T)
         end
         for i = eachindex(x)
-            if (i < length(x) && x[i+1] < strike) || (i > 1 && x[i-1] > strike) || i == 1 || i == length(x)
-                p.currentValue[i, 1] = max(sign * (x[i] - strike), zero(T))
+            if !isIndexBetween(i, x, strike)
+                s.currentValue[i, 1] = max(sign * (x[i] - strike), zero(T))
             else
                 h = (x[i+1] - x[i-1]) / 2
                 obj = function (u::T)
-                    max(sign * (u - payoff.strike), 0)
+                    max(sign * (u - strike), 0)
                 end
-                objK = function (u::T)
-                    obj(u) * (1 - abs(u - x[i]) / h)
-                end
-                # println("modified index ",i, " ",x[i])
-                if x[i] < strike
-                    p.currentValue[i, 1] = (simpson(objK, x[i], strike - sqrt(eps(T))) + simpson(objK, strike + sqrt(eps(T)), x[i] + h) + simpson(objK, x[i] - h, x[i])) / h
-                else
-                    p.currentValue[i, 1] = (simpson(objK, x[i] - h, strike - sqrt(eps(T))) + simpson(objK, strike + sqrt(eps(T)), x[i]) + simpson(objK, x[i], x[i] + h)) / h
-                end
+                s.currentValue[i, 1] = applyKreissSmoothing(obj,strike,x[i],h)
             end
         end
     end
 end
 
-
-
-isLowerBoundActive(p::FDMStructure{T,KreissSmoothDefinition{DiscreteKO{TS}}}) where {T,TS} = false
-
-function evaluate(p::FDMStructure{T,KreissSmoothDefinition{DiscreteKO{TS}}}, S::AbstractArray{T}, columnIndex::Int) where {T,TS}
-    if abs(p.currentTime - p.definition.timeToExpiry) < eps(T)
-        sign = one(T)
-        if !p.definition.isCall
-            sign = -one(T)
-        end
-        @. p.currentValue[:, 1] = max(sign * (S - p.definition.strike), zero(T))
+function applyKreissSmoothing(obj, strike::T,xi::T,h::T) where {T}
+    objK = function (u::T)
+        obj(u) * (1 - abs(u - xi) / h)
     end
+    # println("modified index ",i, " ",x[i])
+    if xi < strike
+        return (simpson(objK, xi, strike - sqrt(eps(T))) + simpson(objK, strike + sqrt(eps(T)), xi + h) + simpson(objK, xi - h, xi)) / h
+    else
+        return (simpson(objK, xi - h, strike - sqrt(eps(T))) + simpson(objK, strike + sqrt(eps(T)), xi) + simpson(objK, xi, xi + h)) / h
+    end
+end
+
+isIndexBetween(i, x, strike) = (i < length(x) && x[i+1] >= strike) && (i > 1 && x[i-1] <= strike)
+
+function evaluate(p::KreissSmoothDefinition{DiscreteKO{TS}}, s::DefaultFDMStructure{T}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    payoff = p.delegate
+    evaluate(KreissSmoothDefinition(payoff.vanilla), s, x, columnIndex)
     isBarrierActive = false
-    for t in p.definition.observationTimes
-        if abs(p.currentTime - t) < eps(T)
+    for t in payoff.observationTimes
+        if abs(s.currentTime - t) < eps(T)
             isBarrierActive = true
+            break
         end
     end
     if isBarrierActive
-        for i = eachindex(S)
-            if (p.definition.isDown && S[i] <= p.definition.level) || (!p.definition.isDown && S[i] >= p.definition.level)
-                p.currentValue[i, 1] = p.definition.rebate
+        y = copy(s.currentValue[:,1])
+        for i = eachindex(x)
+            if !isIndexBetween(i, x, payoff.level)
+                if (payoff.isDown && x[i] <= payoff.level) || (!payoff.isDown && x[i] >= payoff.level)
+                    s.currentValue[i, 1] = payoff.rebate
+                end
+            else
+                obj = function (u::T)
+                    intrinsic = y[i] * (u - x[i-1]) * (u - x[i+1]) / ((x[i] - x[i-1]) * (x[i] - x[i+1])) + y[i-1] * (u - x[i]) * (u - x[i+1]) / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) + y[i+1] * (u - x[i-1]) * (u - x[i]) / ((x[i+1] - x[i]) * (x[i+1] - x[i-1])) #lagrange on x[i-1],x[i],x[i+1]
+                    if (payoff.isDown && u <= payoff.level) || (!payoff.isDown && u >= payoff.level)
+                        return payoff.rebate
+                    else
+                        return intrinsic
+                    end
+                end
+                s.currentValue[i, 1] = applyKreissSmoothing(obj,payoff.level,x[i],(x[i+1]-x[i-1])/2)
             end
         end
     end
 end
 
 
-function simpson(f, a::T, b::T)::T where {T} 
-     (b - a) / 6 * (f(a) + 4 * f((a + b) / 2) + f(b))
+function simpson(f, a::T, b::T)::T where {T}
+    (b - a) / 6 * (f(a) + 4 * f((a + b) / 2) + f(b))
 end

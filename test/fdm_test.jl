@@ -90,21 +90,24 @@ spot = 100.0
     dividends = Vector{CapitalizedDividend{Float64}}()
     payoffV = VanillaEuropean(true, strike, tte)
     payoffKV = KreissSmoothDefinition(payoffV)
-    payoff = AQFED.FDM.DiscreteKO(isCall,strike,level,isDown,0.0,tte,obsTimes)
-    refPriceV = AQFED.FDM.priceTRBDF2(payoffV, spot, driftCurve, varianceSurface, discountCurve, dividends, M=8001, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=SmoothlyDeformedGrid(UniformGrid(false)))(spot)
-    refPrice =  AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, dividends, M=8001, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=SmoothlyDeformedGrid(UniformGrid(false)))(spot)
+    payoff = AQFED.FDM.DiscreteKO(payoffV,level,isDown,0.0,obsTimes)
+    payoffK = KreissSmoothDefinition(payoff)
+    refPriceV = AQFED.FDM.priceTRBDF2(payoffV, spot, driftCurve, varianceSurface, discountCurve, dividends, M=16001, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=SmoothlyDeformedGrid(UniformGrid(false)))(spot)
+    refPrice =  AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, dividends, M=16001, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=SmoothlyDeformedGrid(UniformGrid(false)))(spot)
     println("reference KO ",refPrice, " vanilla ",refPriceV)
     Ms = [251,501,1001,2001]
-    grids = [UniformGrid(false),ShiftedGrid(UniformGrid(false)),SmoothlyDeformedGrid(UniformGrid(false)),CubicGrid(0.01),SmoothlyDeformedGrid(CubicGrid(0.01))]
+    grids = [UniformGrid(false),ShiftedGrid(UniformGrid(false)),SmoothlyDeformedGrid(UniformGrid(false)),CubicGrid(0.01),SmoothlyDeformedGrid(CubicGrid(0.01));SinhGrid(0.01),SmoothlyDeformedGrid(SinhGrid(0.01))]
     for M in Ms
         for grid in grids
         priceV = AQFED.FDM.priceTRBDF2(payoffV, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=grid)(spot)
         priceKV = AQFED.FDM.priceTRBDF2(payoffKV, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=grid)(spot)
       
         price =  AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=grid)(spot)
+        priceK =  AQFED.FDM.priceTRBDF2(payoffK, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N,Smin=min, Smax=max, calibration=ForwardCalibration(),grid=grid)(spot)
         println(M," ",grid," Vanilla ",priceV, " ",priceV-refPriceV)
         println(M," ",grid," Vanilla ",priceKV, " ",priceKV-refPriceV)
         println(M," ",grid," KO ",price, " ",price-refPrice)
+        println(M," ",grid," KO ",priceK, " ",priceK-refPrice)
     end
 end
 end
