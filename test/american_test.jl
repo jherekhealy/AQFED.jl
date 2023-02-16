@@ -208,13 +208,17 @@ end
 
 
 
-function batchALN(threshold, rInfq, isBatch, m, n, l, p; method = "AL")
+function batchALN(threshold, rInfq, isBatch, m, n, l, p; method = "AL",factor=10,smoothing="Averaging",lambdaS=0.25,isShort=true, useSqrt=true)
     rs = [-0.0009, -0.0049, -0.0099, -0.0199, -0.0499]
     qs = [-0.001, -0.005, -0.01, -0.02, -0.05]
     spots = [50.0, 85.0, 95.0, 100.0, 105.0, 115.0, 150.0, 200.0]
-    #ttes = [7.0 / 365, 30.0 / 365, 91.0 / 365, 182 ./ 365, 273 ./ 365, 1.0]
-    ttes = [2.0, 3.0, 5.0]
+    ttes = [7.0 / 365, 30.0 / 365, 91.0 / 365, 182 ./ 365, 273 ./ 365, 1.0]    
+    if !isShort
+         ttes = [2.0, 3.0, 5.0]
+    end
     sigmas = [0.05, 0.1, 0.2, 0.5]
+    # rs = [-0.005,-0.01,-0.02,-0.04]
+    # sigmas = [0.1,0.2,0.3,0.4,0.5,0.6]
     strike = 100.0
 
     refPrices = zeros((length(rs), length(qs), length(ttes), length(sigmas), length(spots)))
@@ -236,11 +240,58 @@ function batchALN(threshold, rInfq, isBatch, m, n, l, p; method = "AL")
         if !skipRInfQ(rInfq, r, q)
             for (it, tte) in enumerate(ttes), (iv, vol) in enumerate(sigmas)
                 model = ConstantBlackModel(vol, r, q)
-                if method == "FDM"
-                    pricer = AQFED.American.makeFDMPriceInterpolation(false, false, model, tte, strike, 80 * m, 200 * m + 1, useSqrt = true)
+                if method == "RKL"
+                    local pricer
+                    if isBatch
+                        pricer = AQFED.American.makeFDMPriceInterpolation(false, false, model, tte, strike,  m+1, factor * m + 1, useSqrt = useSqrt,smoothing=smoothing,lambdaS=lambdaS)
+                    end
                     for (is, spot) in enumerate(spots)
                         if refPrices[ir, iq, it, iv, is] > threshold
+                            if !isBatch
+                                pricer = AQFED.American.makeFDMPriceInterpolation(false, false, model, tte, strike,  m+1, factor * m + 1, useSqrt = useSqrt,smoothing=smoothing,lambdaS=lambdaS)
+                            end
                             prices[ir, iq, it, iv, is] = pricer(spot)
+                        end
+                    end
+                elseif method == "TR-BDF2" || method=="TRBDF2"
+                    payoff = VanillaAmerican(false, strike, tte)
+                    local pricer
+                    if isBatch
+                        pricer = AQFED.FDM.priceTRBDF2(payoff, strike, model, nodividends, M=(factor*m+1), N=(m+1), grid=SmoothlyDeformedGrid(CubicGrid(lambdaS)), solverName="LUUL",useSqrt=useSqrt,varianceConditioner=AQFED.FDM.OneSidedConditioner())                
+                    end
+                    for (is, spot) in enumerate(spots)
+                        if refPrices[ir, iq, it, iv, is] > threshold
+                            if !isBatch
+                                pricer = AQFED.FDM.priceTRBDF2(payoff, spot, model, nodividends, M=(factor*m+1), N=(m+1), grid=SmoothlyDeformedGrid(CubicGrid(lambdaS)), solverName="LUUL",useSqrt=useSqrt,varianceConditioner=AQFED.FDM.OneSidedConditioner())                
+                           end
+                            prices[ir, iq, it, iv, is] = pricer(spot)
+                            if abs(prices[ir, iq, it, iv, is] - refPrices[ir, iq, it, iv, is]) > 0.1
+                                println(
+                                    ir,
+                                    " ",
+                                    iq,
+                                    " ",
+                                    it,
+                                    " ",
+                                    iv,
+                                    " ",
+                                    is,
+                                    " ",
+                                    refPrices[ir, iq, it, iv, is],
+                                    " ",
+                                    prices[ir, iq, it, iv, is],
+                                    " ",
+                                    spot,
+                                    " ",
+                                    vol,
+                                    " ",
+                                    tte,
+                                    " ",
+                                    q,
+                                    " ",
+                                    r,
+                                )
+                    
                         end
                     end
                 else

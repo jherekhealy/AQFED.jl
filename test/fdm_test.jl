@@ -346,13 +346,14 @@ eurspreaddf = eurpp.(ti) + 0.01 .* ti
     driftCurve = AQFED.TermStructure.InterpolatedLogDiscountFactorCurve(eurspreadpp)
 m=9; σ=0.3; varianceSurface = FlatSurface(σ)
 model = AQFED.TermStructure.TSBlackModel(varianceSurface, discountCurve, driftCurve)
-refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, nodividends, M=16001, N=2001, grid=SmoothlyDeformedGrid(CubicGrid(0.2)), solverName="LUUL", ndev=4)(spot) 
-AQFED.FDM.priceTRBDF2(payoffB, spot, driftCurve, varianceSurface, discountCurve, nodividends, M=8001, N=4001, grid=SmoothlyDeformedGrid(CubicGrid(0.3)), solverName="LUUL")(spot)
+refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, model, nodividends, M=16001, N=2001, grid=SmoothlyDeformedGrid(CubicGrid(0.2)), solverName="LUUL", ndev=4)(spot) 
+AQFED.FDM.priceTRBDF2(payoffB, spot,model, nodividends, M=8001, N=4001, grid=SmoothlyDeformedGrid(CubicGrid(0.3)), solverName="LUUL")(spot)
 al = AQFED.American.AndersenLakeRepresentation(model, tte, 1e-8, m, 32, 61, 121, isCall=false)
 alPrice = AQFED.American.priceAmerican(al, strike, spot)
 alpp = AQFED.American.AndersenLakePPRepresentation(model, tte,false, atol=1e-8, nC=5, nIter=32, nTS1=21, nTS2=41,nPP=m)
 alppPrice = AQFED.American.priceAmerican(alpp, strike, spot)
-
+alg1 = AQFED.American.AndersenLakeGRepresentation(model, tte, false,nIter=32,collocation=AQFED.American.ChebyshevCollocation(9,tte),quadrature=AQFED.American.TanhSinhQuadrature(51))
+alg5 = AQFED.American.AndersenLakeGRepresentation(model, tte, false,nIter=32,collocation=AQFED.American.ChebyshevPPCollocation([0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,1.0],5,isDiscontinuous=false),quadrature=AQFED.American.TanhSinhPPQuadrature([0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,1.0],51))
 #=   
 using PlotThemes
 theme(:vibrant)
@@ -360,6 +361,11 @@ plot(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Tim
 plot!( t,AQFED.American.exerciseBoundary(al, spot, t), label="Andersen-Lake m=9 nₚₚ=1")
 plot!( t,AQFED.American.exerciseBoundary(alpp, spot, t), label="Andersen-Lake m=5 nₚₚ=9")
 plot!(size=(400,300))
+plot( t,AQFED.American.exerciseBoundary(alg1, spot, t), label="Andersen-Lake m=9 nₚₚ=1")
+plot!(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Time", ylab="Asset price", size=(450,300))
+plot!( t,AQFED.American.exerciseBoundary(alg5, spot, t), label="Andersen-Lake m=5 nₚₚ=9",linestyle=:dot)
+savefig("/home/fabien/mypapers/eqd_book/alpp_eur_spread.pdf")
+
 savefig("/home/fabien/mypapers/eqd_book/alpp_eur_spread.pdf")
 plot(t, -ForwardDiff.derivative.(eurpp,t) .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
 plot!(size=(400,200))
@@ -389,14 +395,15 @@ discountCurve = AQFED.TermStructure.InterpolatedLogDiscountFactorCurve(trypp)
 driftCurve = AQFED.TermStructure.InterpolatedLogDiscountFactorCurve(tryeurpp)
 m=7; σ=0.3; varianceSurface = FlatSurface(σ)
 model = AQFED.TermStructure.TSBlackModel(varianceSurface, discountCurve, driftCurve)
-refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, nodividends, M=16001, N=2001, grid=SmoothlyDeformedGrid(CubicGrid(0.2)), solverName="LUUL", ndev=4)(spot) 
-AQFED.FDM.priceTRBDF2(payoffB, spot, driftCurve, varianceSurface, discountCurve, nodividends, M=8001, N=4001, grid=SmoothlyDeformedGrid(CubicGrid(0.3)), solverName="LUUL")(spot)
+refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, model, nodividends, M=16001, N=2001, grid=SmoothlyDeformedGrid(CubicGrid(0.2)), solverName="LUUL", ndev=4)(spot) 
+AQFED.FDM.priceTRBDF2(payoffB, spot, model, nodividends, M=8001, N=4001, grid=SmoothlyDeformedGrid(CubicGrid(0.3)), solverName="LUUL")(spot)
 al = AQFED.American.AndersenLakeRepresentation(model, tte, 1e-8, m, 32, 61, 121, isCall=false)
 #al = AQFED.American.AndersenLakePPRepresentation(model, tte,false, atol=1e-8, nC=m, nIter=32, nTS1=21, nTS2=41,nPP=1)
 alPrice = AQFED.American.priceAmerican(al, strike, spot)
 alpp = AQFED.American.AndersenLakePPRepresentation(model, tte,false, atol=1e-8, nC=5, nIter=32, nTS1=21, nTS2=41,nPP=m)
 alppPrice = AQFED.American.priceAmerican(alpp, strike, spot)
-    
+alg5 = AQFED.American.AndersenLakeGRepresentation(model, tte, false,nIter=32,collocation=AQFED.American.ChebyshevPPCollocation(cutDates,5,isDiscontinuous=false),quadrature=AQFED.American.TanhSinhPPQuadrature(cutDates,51,isDiscontinuous=true))
+
 #=   
 using PlotThemes
 theme(:vibrant)
@@ -502,7 +509,7 @@ end
         Dividend(8.0/spot, ttd + 4, ttd + 4, true, false), 
         Dividend(8.0/spot, ttd + 5, ttd + 5, true, false), 
         Dividend(8.0/spot, ttd + 6, ttd + 6, true, false)]
-    dividends = [Dividend(8.0/spot, ttd+6, ttd+6, true, false)]
+    #dividends = [Dividend(8.0/spot, ttd+6, ttd+6, true, false)]
     divDates = [x.exDate for x in dividends]
     cutDates = vcat(0.0,divDates,tte)
         varianceSurface = FlatSurface(σ)
@@ -518,7 +525,10 @@ end
         for nC in [3,5,7,9,15,21,31]
         alpp = AQFED.American.AndersenLakePPRepresentation(modeln, tte,false, atol=1e-8, nC=nC, nIter=16, nTS1=101, nTS2=101,dividends=dividends)
         alppPrice = AQFED.American.priceAmerican(alpp, strike, spot)
-        println(nC, " ",alppPrice," ",alppPrice-refPrice)
+        alg = AQFED.American.AndersenLakeGRepresentation(modeln, tte, false,nIter=32,collocation=AQFED.American.ChebyshevPPCollocation(cutDates,nC),quadrature=AQFED.American.TanhSinhPPQuadrature(cutDates,101), dividends=dividends)
+        algPrice = AQFED.American.priceAmerican(alg, strike, spot)
+        println(nC," ",alppPrice," ",alppPrice-refPrice," ",algPrice," ",algPrice-refPrice)    
+    
     end
     end
     
@@ -718,4 +728,202 @@ end
         end
     end
 
+end
+
+function batchALRKL(threshold, rInfq, isBatch, m; smoothing="None",sDisc = "Sinh",useSqrt=false,factor=10,lambdaS=0.25)
+    rs = [0.02, 0.04, 0.06, 0.08, 0.10]
+    qs = [0.0, 0.04, 0.08, 0.12]
+    spots = [25.0, 50.0, 80.0, 90.0, 100.0, 110.0, 120.0, 150.0, 175.0, 200.0]
+    ttes = [1.0 / 12, 0.25, 0.5, 0.75, 1.0]
+    sigmas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+    strike = 100.0
+    nodividends = Vector{CapitalizedDividend{Float64}}()
+
+    refPrices = zeros((length(rs), length(qs), length(ttes), length(sigmas), length(spots)))
+    @elapsed for (ir, r) in enumerate(rs), (iq, q) in enumerate(qs)
+        if !skipRInfQ(rInfq, r, q)
+            for (it, tte) in enumerate(ttes), (iv, vol) in enumerate(sigmas)
+                model = ConstantBlackModel(vol, r, q)
+                pricer = AndersenLakeRepresentation(model, tte, 1e-8, 16, 16, 31, 63)
+                for (is, spot) in enumerate(spots)
+                    refPrices[ir, iq, it, iv, is] = priceAmerican(pricer, strike, spot)
+                end
+
+            end
+        end
+
+    end
+    prices = zeros(Float64,(length(rs), length(qs), length(ttes), length(sigmas), length(spots)))
+    elap = @elapsed for (ir, r) in enumerate(rs), (iq, q) in enumerate(qs)
+        if !skipRInfQ(rInfq, r, q)
+            for (it, tte) in enumerate(ttes), (iv, vol) in enumerate(sigmas)
+                model = ConstantBlackModel(vol, r, q)                
+                local pricer
+                if isBatch
+                    pricer = AQFED.American.makeFDMPriceInterpolation(false, false, model, tte,strike, m+1,(factor*m+1),smoothing=smoothing,useSqrt=useSqrt,lambdaS=lambdaS,Xdev=4,sDisc=sDisc)
+                end
+                for (is, spot) in enumerate(spots)
+                    if refPrices[ir, iq, it, iv, is] > threshold
+                        if !isBatch
+                            pricer = AQFED.American.makeFDMPriceInterpolation(false, false, model, tte,strike, m+1,(factor*m+1),smoothing=smoothing,useSqrt=useSqrt,lambdaS=lambdaS,Xdev=4,sDisc=sDisc)
+                        end
+                        prices[ir, iq, it, iv, is] = pricer(spot)
+                        if abs(prices[ir, iq, it, iv, is] - refPrices[ir, iq, it, iv, is]) > 0.1
+                            println(
+                                ir,
+                                " ",
+                                iq,
+                                " ",
+                                it,
+                                " ",
+                                iv,
+                                " ",
+                                is,
+                                " ",
+                                refPrices[ir, iq, it, iv, is],
+                                " ",
+                                prices[ir, iq, it, iv, is],
+                                " ",
+                                spot,
+                                " ",
+                                vol,
+                                " ",
+                                tte,
+                                " ",
+                                q,
+                                " ",
+                                r,
+                            )
+                        end
+                    end
+                end
+
+            end
+        end
+
+    end
+    return prices, refPrices, elap
+end
+
+function batchAL(threshold, rInfq, isBatch, m; grid=SmoothlyDeformedGrid(CubicGrid(0.1)),useSqrt=false,factor=10)
+    rs = [0.02, 0.04, 0.06, 0.08, 0.10]
+    qs = [0.0, 0.04, 0.08, 0.12]
+    spots = [25.0, 50.0, 80.0, 90.0, 100.0, 110.0, 120.0, 150.0, 175.0, 200.0]
+    ttes = [1.0 / 12, 0.25, 0.5, 0.75, 1.0]
+    sigmas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6]
+    strike = 100.0
+    nodividends = Vector{CapitalizedDividend{Float64}}()
+
+    refPrices = zeros((length(rs), length(qs), length(ttes), length(sigmas), length(spots)))
+    @elapsed for (ir, r) in enumerate(rs), (iq, q) in enumerate(qs)
+        if !skipRInfQ(rInfq, r, q)
+            for (it, tte) in enumerate(ttes), (iv, vol) in enumerate(sigmas)
+                model = ConstantBlackModel(vol, r, q)
+                pricer = AndersenLakeRepresentation(model, tte, 1e-8, 16, 16, 31, 63)
+                for (is, spot) in enumerate(spots)
+                    refPrices[ir, iq, it, iv, is] = priceAmerican(pricer, strike, spot)
+                end
+
+            end
+        end
+
+    end
+    prices = zeros(Float64,(length(rs), length(qs), length(ttes), length(sigmas), length(spots)))
+    elap = @elapsed for (ir, r) in enumerate(rs), (iq, q) in enumerate(qs)
+        if !skipRInfQ(rInfq, r, q)
+            for (it, tte) in enumerate(ttes), (iv, vol) in enumerate(sigmas)
+                model = ConstantBlackModel(vol, r, q)                
+                payoff = VanillaAmerican(false, strike, tte)
+                local pricer
+                if isBatch
+                    pricer = AQFED.FDM.priceTRBDF2(payoff, spot, model, nodividends, M=(factor*m+1), N=(m+1), grid=grid, solverName="BrennanSchwartz",useSqrt=useSqrt)                
+                end
+                for (is, spot) in enumerate(spots)
+                    if refPrices[ir, iq, it, iv, is] > threshold
+                        if !isBatch
+                            pricer =
+                            AQFED.FDM.priceTRBDF2(payoff, spot, model, nodividends, M=(factor*m+1), N=(m+1), grid=grid, solverName="BrennanSchwartz",useSqrt=useSqrt)                
+                        end
+                        prices[ir, iq, it, iv, is] = pricer(spot)
+                        if abs(prices[ir, iq, it, iv, is] - refPrices[ir, iq, it, iv, is]) > 0.1
+                            println(
+                                ir,
+                                " ",
+                                iq,
+                                " ",
+                                it,
+                                " ",
+                                iv,
+                                " ",
+                                is,
+                                " ",
+                                refPrices[ir, iq, it, iv, is],
+                                " ",
+                                prices[ir, iq, it, iv, is],
+                                " ",
+                                spot,
+                                " ",
+                                vol,
+                                " ",
+                                tte,
+                                " ",
+                                q,
+                                " ",
+                                r,
+                            )
+                        end
+                    end
+                end
+
+            end
+        end
+
+    end
+    return prices, refPrices, elap
+end
+
+@testset "AndersenLakeBenchmark" begin
+    threshold = 0.5
+    rInfq = 0 #1, -1 or 0
+    isBatch = true
+    prices, refPrices, elap = batchAL(threshold, rInfq, isBatch,20,useSqrt=true,grid=SmoothlyDeformedGrid(CubicGrid(0.035)));elap
+    # prices, refPrices, elap = batchAL(threshold, rInfq, isBatch,20,useSqrt=true,grid=SmoothlyDeformedGrid(SinhGrid(0.05)));elap
+    thrIndices = findall(z -> z > threshold, refPrices);
+    mae = maxad(prices[thrIndices], refPrices[thrIndices])
+    mre = maxad(prices[thrIndices] ./ refPrices[thrIndices], ones(length(thrIndices)))
+    rmse = rmsd(prices[thrIndices], refPrices[thrIndices])
+    println(
+        "AL ",
+        20,
+        " ",
+        rmse,
+        " ",
+        mae,
+        " ",
+        mre,
+        " ",
+        elap,
+        " ",
+        length(thrIndices) / elap,
+    )    
+    prices, refPrices, elap = batchAL(threshold, rInfq, isBatch,40,useSqrt=true,grid=SmoothlyDeformedGrid(CubicGrid(0.035)));elap
+    # prices, refPrices, elap = batchAL(threshold, rInfq, isBatch,20,useSqrt=true,grid=SmoothlyDeformedGrid(SinhGrid(0.05)));elap
+    thrIndices = findall(z -> z > threshold, refPrices);
+    mae = maxad(prices[thrIndices], refPrices[thrIndices])
+    mre = maxad(prices[thrIndices] ./ refPrices[thrIndices], ones(length(thrIndices)))
+    rmse = rmsd(prices[thrIndices], refPrices[thrIndices])
+    println(
+        "AL ",
+        40,
+        " ",
+        rmse,
+        " ",
+        mae,
+        " ",
+        mre,
+        " ",
+        elap,
+        " ",
+        length(thrIndices) / elap,
+    )    
 end

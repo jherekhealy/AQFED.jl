@@ -46,9 +46,9 @@ function AndersenLakeNRepresentation(
         if logBdown > logBup
             obj = function (τ)
                 z = 2 * sqrt((τ) / tauHat) - 1
-                qck = chebQck(aUp.avec, z)
+                qck = max(chebQck(aUp.avec, z),0.0)
                 lnBUp = logCapX - sqrt(qck)
-                qck = chebQck(aDown.avec, z)
+                qck = max(chebQck(aDown.avec, z),0.0)
                 lnBDown = logCapXD + sqrt(qck)
                 return lnBUp - lnBDown
             end
@@ -59,7 +59,7 @@ function AndersenLakeNRepresentation(
             aUp.capX, aDown.capX, aUp.avec, aDown.avec, aUp.qvec, aDown.qvec, aUp.wvec, aUp.yvec)
     else
         return AndersenLakeNRepresentation(isCall, model, tauMax, tauMax, tauMax, nC, nTS1, nTS2,
-            aUp.capX, Float64[], aUp.avec, Float64[], aUp.qvec, Float64[], aUp.wvec, aUp.yvec)
+            aUp.capX, NaN, aUp.avec, Float64[], aUp.qvec, Float64[], aUp.wvec, aUp.yvec)
     end
 end
 
@@ -69,7 +69,9 @@ function priceAmerican(p::AndersenLakeNRepresentation, K::Float64, S::Float64)::
     if isempty(p.qvecD)
         return priceAmerican(AndersenLakeRepresentation(p.isCall, p.model, p.tauMax, p.tauMax, p.nC, p.nTS1, p.nTS2, p.capX, p.avec, p.qvec, p.wvec, p.yvec), K, S)
     end
-    vol, r, q = p.model.vol, p.model.r, p.model.q
+    vol = p.model.vol
+    local r::Float64 = p.model.r
+    local q::Float64 = p.model.q
     if p.isCall #use McDonald and Schroder symmetry
         K, S = S, K
         r, q = q, r
@@ -114,7 +116,7 @@ function priceAmerican(p::AndersenLakeNRepresentation, K::Float64, S::Float64)::
             uk = uScale * yk + uShift
             if abs(yk) != 1
                 zck = 2 * sqrt(uk / tauHat) - 1 #cheb from tauHat.
-                qck = chebQck(avec, zck)
+                qck = max(chebQck(avec, zck),0.0)
                 Bzk = isLower ? capX * exp(sqrt(qck)) : capX * exp(-sqrt(qck))
                 tauk = uMax - uk
                 d1k, d2k = vaGBMd1d2(S, Bzk, r, q, tauk, vol)
@@ -134,8 +136,8 @@ function priceAmerican(p::AndersenLakeNRepresentation, K::Float64, S::Float64)::
             uk = uScale * yk + uShift
             if abs(yk) != 1
                 zck = 2 * sqrt(uk / tauHat) - 1 #cheb from tauHat.
-                qck = chebQck(avec, zck)
-                qckD = chebQck(avecD, zck)
+                qck = max(chebQck(avec, zck),0.0)
+                qckD = max(chebQck(avecD, zck),0.0)
                 Bzk = capX * exp(-sqrt(qck))
                 BzkD = capXD * exp(sqrt(qckD))
                 if Bzk <= BzkD

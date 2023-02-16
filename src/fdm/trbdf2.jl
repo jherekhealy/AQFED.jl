@@ -43,10 +43,18 @@ function priceTRBDF2(definition::StructureDefinition,
     spot::T,
     model,
     dividends::AbstractArray{CapitalizedDividend{T}};
-    solverName="LUUL", M=400, N=100, ndev=4, Smax=zero(T), Smin=zero(T), dividendPolicy::DividendPolicy=Liquidator, grid::Grid=UniformGrid(false), varianceConditioner::PecletConditioner=NoConditioner(), calibration=NoCalibration(), useCN=false) where {T}
+    solverName="LUUL", M=400, N=100, ndev=4, Smax=zero(T), Smin=zero(T), dividendPolicy::DividendPolicy=Liquidator, grid::Grid=UniformGrid(false), varianceConditioner::PecletConditioner=NoConditioner(), calibration=NoCalibration(), useCN=false,useSqrt=false) where {T}
     obsTimes = observationTimes(definition)
     τ = last(obsTimes)
     t = collect(range(τ, stop=zero(T), length=N))
+    if useSqrt
+    du = sqrt(τ) / (N-1)
+	for i = 1:N-1
+		ui = du * (i-1)
+		t[i] = τ - ui^2
+    end
+end
+
     dividends = filter(x -> x.dividend.exDate <= τ, dividends)
     sort!(dividends, by=x -> x.dividend.exDate)
     divDates = [x.dividend.exDate for x in dividends]
@@ -59,7 +67,8 @@ function priceTRBDF2(definition::StructureDefinition,
     xi = (range(zero(T), stop=one(T), length=M))
     rawForward = forward(model, spot, τ)
     Ui = if Smax == zero(T) || isnan(Smax)
-        rawForward * exp(ndev * sqrt(varianceByLogmoneyness(model, 0.0, τ)))
+        v0 = varianceByLogmoneyness(model, 0.0, τ)*τ
+        rawForward * exp(ndev * sqrt(v0)-0.5*v0)
     else
         Smax
     end
@@ -69,14 +78,14 @@ function priceTRBDF2(definition::StructureDefinition,
         Smin
     end
     if !isempty(specialPoints)
-        Ui = max(Ui, maximum(specialPoints))
-        Li = min(Li, minimum(specialPoints))
+        Ui = max(Ui, maximum(specialPoints)*1.01)
+        Li = min(Li, minimum(specialPoints)*0.99)
     end
     isMiddle = ones(Bool, length(specialPoints))
     # isMiddle = zeros(Bool,length(specialPoints))
     Si = makeArray(grid, xi, Li, Ui, specialPoints, isMiddle)
     #  println("S ",Si)   
-    #    println("t ",t)
+    #     println("t ",t)
     tip = t[1]
     payoff = makeFDMStructure(definition, Si)
     advance(definition, payoff, tip)
