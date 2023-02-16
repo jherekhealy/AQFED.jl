@@ -21,7 +21,7 @@ function priceLogTRBDF2(definition::StructureDefinition,
     sort!(t, order=Base.Order.Reverse)
 
     xi = (range(zero(T), stop=one(T), length=M))
-    rawForward = log(spot / df(driftCurve, τ))
+    rawForward = log(spot / discountFactor(driftCurve, τ))
     Ui = if Smax == zero(T) || isnan(Smax)
         rawForward + ndev * sqrt(varianceByLogmoneyness(varianceSurface, 0.0, τ))
     else
@@ -32,16 +32,16 @@ function priceLogTRBDF2(definition::StructureDefinition,
     else
         log(Smin)
     end
-    #isMiddle = ones(Bool,length(specialPoints))
-    isMiddle = zeros(Bool,length(specialPoints))
+    isMiddle = ones(Bool,length(specialPoints))
+    #isMiddle = zeros(Bool,length(specialPoints))
     lnSi = makeArray(grid, xi, Li, Ui, log.(specialPoints),isMiddle)    
     Si = @. exp(lnSi)
     #    println("S ",Si)
     #    println("t ",t)
     tip = t[1]
     payoff = makeFDMStructure(definition, Si)
-    advance(payoff, tip)
-    evaluate(payoff, Si)
+    advance(definition,payoff, tip)
+    evaluate(definition, payoff, Si)
     vLowerBound = zeros(T, length(Si))
     isLBActive = isLowerBoundActive(definition, payoff)
     if isLBActive
@@ -84,7 +84,9 @@ function priceLogTRBDF2(definition::StructureDefinition,
         for v in eachcol(vMatrix)
             # PPInterpolation.computePP(pp, Si, v, PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), C2())       
             pp = QuadraticLagrangePP(Si, copy(v))
-
+            if dividends[currentDivIndex].dividend.isProportional
+                @. v = pp(Si * (1 - dividends[currentDivIndex].dividend.amount))
+            else
             if dividendPolicy == Shift
                 @. v = pp(Si - dividends[currentDivIndex].dividend.amount)
             elseif dividendPolicy == Survivor
@@ -95,6 +97,7 @@ function priceLogTRBDF2(definition::StructureDefinition,
                 # println("jumped ",currentDivIndex, " of ",dividends[currentDivIndex].dividend.amount," tip ",tip)
             end
         end
+        end
         currentDivIndex -= 1
     end
     beta = 2 * one(T) - sqrt(2 * one(T))
@@ -104,11 +107,11 @@ function priceLogTRBDF2(definition::StructureDefinition,
         if dt < 1e-8
             continue
         end
-        dfi = df(discountCurve, ti)
-        dfip = df(discountCurve, tip)
+        dfi = discountFactor(discountCurve, ti)
+        dfip = discountFactor(discountCurve, tip)
         ri = calibrateRate(calibration, beta, dt, dfi, dfip)
-        driftDfi = df(driftCurve, ti)
-        driftDfip = df(driftCurve, tip)
+        driftDfi = discountFactor(driftCurve, ti)
+        driftDfip = discountFactor(driftCurve, tip)
         μi = calibrateDrift(calibration, beta, dt, dfi, dfip, driftDfi, driftDfip, ri)
         σi2 = (varianceByLogmoneyness(varianceSurface, 0.0, tip) * tip - varianceByLogmoneyness(varianceSurface, 0.0, ti) * ti) / (tip - ti)
         adjustDriftAndVol!(calibration, muS, s2S, μi, σi2, Jhi)
@@ -174,7 +177,9 @@ function priceLogTRBDF2(definition::StructureDefinition,
             for v in eachcol(vMatrix)
                 # PPInterpolation.computePP(pp, Si, v, PPInterpolation.SECOND_DERIVATIVE, zero(T), PPInterpolation.SECOND_DERIVATIVE, zero(T), C2())       
                 pp = QuadraticLagrangePP(Si, copy(v))
-
+                if dividends[currentDivIndex].dividend.isProportional
+                    @. v = pp(Si * (1 - dividends[currentDivIndex].dividend.amount))
+                else
                 if dividendPolicy == Shift
                     @. v = pp(Si - dividends[currentDivIndex].dividend.amount)
                 elseif dividendPolicy == Survivor
@@ -184,6 +189,7 @@ function priceLogTRBDF2(definition::StructureDefinition,
                     evaluateSorted!(pp, v, v1)
                     # println("jumped ",currentDivIndex, " of ",dividends[currentDivIndex].dividend.amount," tip ",tip)
                 end
+            end
             end
             currentDivIndex -= 1
         end

@@ -48,16 +48,19 @@ end
 
 module TermStructure
 include("ts/heston.jl")
-include("ts/lv.jl")
 include("ts/surface.jl")
 include("ts/curve.jl")
+include("ts/lv.jl")
 include("ts/dividend.jl")
 end
 
 module American
 include("american/andersenlake.jl")
+include("american/andersenlakepp.jl")
 include("american/andersenlaken.jl")
 include("american/andersenlakejh.jl")
+include("american/andersenlakeg.jl")
+include("american/ju98.jl")
 include("american/rkl.jl")
 end
 

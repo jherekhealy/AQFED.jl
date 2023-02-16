@@ -102,20 +102,20 @@ function batchAL(threshold, rInfq, isBatch, m, n, l, p)
         end
 
     end
-    prices = zeros((length(rs), length(qs), length(ttes), length(sigmas), length(spots)))
+    prices = zeros(Float64,(length(rs), length(qs), length(ttes), length(sigmas), length(spots)))
     elap = @elapsed for (ir, r) in enumerate(rs), (iq, q) in enumerate(qs)
         if !skipRInfQ(rInfq, r, q)
             for (it, tte) in enumerate(ttes), (iv, vol) in enumerate(sigmas)
                 model = ConstantBlackModel(vol, r, q)
                 local pricer
                 if isBatch
-                    pricer = AndersenLakeRepresentation(model, tte, 1e-8, m, n, l, p)
+                    pricer = AndersenLakeRepresentation(model, tte, 1e-4, m, n, l, p)
                 end
                 for (is, spot) in enumerate(spots)
                     if refPrices[ir, iq, it, iv, is] > threshold
                         if !isBatch
                             pricer =
-                                AndersenLakeRepresentation(model, tte, 1e-8, m, n, l, p)
+                                AndersenLakeRepresentation(model, tte, 1e-4, m, n, l, p)
                         end
                         prices[ir, iq, it, iv, is] = priceAmerican(pricer, strike, spot)
                         if abs(prices[ir, iq, it, iv, is] - refPrices[ir, iq, it, iv, is]) > 0.1
@@ -158,8 +158,8 @@ end
     threshold = 0.5
     rInfq = 0 #1, -1 or 0
     isBatch = false
-    prices, refPrices, elap = batchAL(threshold, rInfq, isBatch, 7, 8, 15, 31)
-    thrIndices = findall(z -> z > threshold, refPrices)
+    prices, refPrices, elap = batchAL(threshold, rInfq, isBatch, 7, 8, 15, 31);elap
+    thrIndices = findall(z -> z > threshold, refPrices);
     mae = maxad(prices[thrIndices], refPrices[thrIndices])
     mre = maxad(prices[thrIndices] ./ refPrices[thrIndices], ones(length(thrIndices)))
     rmse = rmsd(prices[thrIndices], refPrices[thrIndices])

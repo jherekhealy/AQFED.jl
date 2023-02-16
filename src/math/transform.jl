@@ -1,12 +1,24 @@
 export Bijection, IdentityTransformation, ClosedTransformation, SquareMinTransformation, ExpMinTransformation, inv
-
+export LogTransformation
 abstract type Bijection end
 
 Base.broadcastable(p::Bijection) = Ref(p)
 
-struct IdentityTransformation{T} <: Bijection end
-(f::IdentityTransformation{T})(x::T) where {T} = x
-inv(f::IdentityTransformation{T}, x::T) where {T} = x
+struct IdentityTransformation{T} <: Bijection
+end
+
+(f::IdentityTransformation{T})(x) where {T} = x
+function inv(f::IdentityTransformation{T}, y) where {T} 
+    return y
+end
+
+struct LogTransformation <: Bijection
+end
+
+(f::LogTransformation)(x) = log(x)
+function inv(f::LogTransformation, y) 
+    return exp(y)
+end
 
 struct ClosedTransformation{T} <: Bijection
     minValue::T

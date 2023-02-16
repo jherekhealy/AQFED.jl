@@ -1,4 +1,4 @@
-import AQFED.TermStructure: ConstantBlackModel
+using AQFED.TermStructure
 import AQFED.Black: blackScholesFormula
 import Roots: find_zero, A42
 export AndersenLakeNRepresentation, priceAmerican

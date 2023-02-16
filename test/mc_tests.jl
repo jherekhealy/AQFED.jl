@@ -481,7 +481,7 @@ end
                     1.0,
                 )
 
-                model = TSBlackModel(surface, 0.0, 0.0)
+                model = TSBlackModel(surface, ConstantRateCurve(0.0), ConstantRateCurve(0.0))
                 nd = AQFED.MonteCarlo.ndims(model, AQFED.MonteCarlo.specificTimes(payoff), 100.0)
                 value, serr = AQFED.MonteCarlo.simulate(AbstractRNGSeq(rng,nd), model, spot, payoff, 0, 1024 * 64)
                 println(

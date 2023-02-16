@@ -123,7 +123,7 @@ function makeFDMStructure(p::VanillaAmerican{TS}, underlying::AbstractArray{T}) 
     else
         @. max(p.strike - underlying, zero(T))
     end
-    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound)
+    return DefaultFDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound)
 end
 
 
@@ -135,6 +135,69 @@ end
 
 function isLowerBoundActive(p::VanillaAmerican{T}, s::DefaultFDMStructure{T})::Bool where {T}
     return s.currentTime >= p.exerciseStartTime
+end
+
+mutable struct VanillaAmericanWithExerciseBoundary{T} <: StructureDefinition
+    delegate::VanillaAmerican{T}
+    exerciseBoundary::Array{T}
+    exerciseTimes::Array{T}
+    VanillaAmericanWithExerciseBoundary(delegate::VanillaAmerican{T}) where {T} = new{T}(delegate, Vector{T}(), Vector{T}())
+end
+
+
+function observationTimes(p::VanillaAmericanWithExerciseBoundary{T})::AbstractArray{T} where {T}
+    return observationTimes(p.delegate)
+end
+
+function nonSmoothPoints(p::VanillaAmericanWithExerciseBoundary{T})::AbstractArray{T} where {T}
+    return nonSmoothPoints(p.delegate)
+end
+
+function makeFDMStructure(p::VanillaAmericanWithExerciseBoundary{TS}, underlying::AbstractArray{T}) where {T,TS}
+    empty!(p.exerciseBoundary)
+    empty!(p.exerciseTimes)
+    return makeFDMStructure(p.delegate, underlying)
+end
+
+
+function evaluate(p::VanillaAmericanWithExerciseBoundary{TS}, s::DefaultFDMStructure{T}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    evaluate(p.delegate, s, x, columnIndex)
+    y = copy(s.currentValue[:, 1])
+    payoff = p.delegate
+    for i = 3:length(x)-1
+        if (s.currentValue[i-2, 1] <= s.lowerBound[i-2] + sqrt(eps(T)) && s.currentValue[i-1, 1] > s.lowerBound[i-1] + sqrt(eps(T))) || (s.currentValue[i-1, 1] <= s.lowerBound[i-1] + sqrt(eps(T)) && s.currentValue[i-2, 1] > s.lowerBound[i-2] + sqrt(eps(T)))
+            sign = one(T)
+            if !payoff.isCall
+                sign = -one(T)
+            end
+
+            p2 = y[i] / ((x[i] - x[i-1]) * (x[i] - x[i+1])) + y[i-1] / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) + y[i+1] / ((x[i+1] - x[i]) * (x[i+1] - x[i-1]))
+            p1 = -sign - y[i] * (x[i+1] + x[i-1]) / ((x[i] - x[i-1]) * (x[i] - x[i+1])) - y[i-1] * (x[i] + x[i+1]) / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) - y[i+1] * (x[i-1] + x[i]) / ((x[i+1] - x[i]) * (x[i+1] - x[i-1]))
+            p0 = sign * payoff.strike + y[i] * x[i+1] * x[i-1] / ((x[i] - x[i-1]) * (x[i] - x[i+1])) + y[i-1] * x[i] * x[i+1] / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) + y[i+1] * x[i-1] * x[i] / ((x[i+1] - x[i]) * (x[i+1] - x[i-1]))
+            delta = p1^2 - 4p2 * p0 + eps(T)
+            level = x[i-2]
+            if delta >= 0.0
+                level1 = (-p1 - sqrt(delta)) / (2p2)
+                level2 = (-p1 + sqrt(delta)) / (2p2)
+                level = if (level1 < x[i+1] && x[i-2] <= level1)
+                    level1
+                else
+                    level2
+                end
+            end
+            if (level < x[i+1] && x[i-2] <= level)
+                # println("level ",level," xim2 ",x[i-2]," xim ",x[i-1]," yim2 ",y[i-2]-s.lowerBound[i-2]," yim ",y[i-1]-s.lowerBound[i-1])
+                append!(p.exerciseBoundary, level)
+                append!(p.exerciseTimes, s.currentTime)
+                break
+            end
+        end
+    end
+
+end
+
+function isLowerBoundActive(p::VanillaAmericanWithExerciseBoundary{T}, s::DefaultFDMStructure{T})::Bool where {T}
+    return isLowerBoundActive(p.delegate, s)
 end
 
 
@@ -239,7 +302,7 @@ function makeFDMStructure(p::KreissSmoothDefinition{TS}, underlying::AbstractArr
 end
 
 function isLowerBoundActive(p::KreissSmoothDefinition{TS}, s::DefaultFDMStructure{T}) where {T,TS}
-    return isLowerBoundActive(p.delegate,s)
+    return isLowerBoundActive(p.delegate, s)
 end
 
 function evaluate(p::KreissSmoothDefinition{VanillaEuropean{TS}}, s::DefaultFDMStructure{T}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
@@ -258,13 +321,72 @@ function evaluate(p::KreissSmoothDefinition{VanillaEuropean{TS}}, s::DefaultFDMS
                 obj = function (u::T)
                     max(sign * (u - strike), 0)
                 end
-                s.currentValue[i, 1] = applyKreissSmoothing(obj,strike,x[i],h)
+                s.currentValue[i, 1] = applyKreissSmoothing(obj, strike, x[i], h)
             end
         end
     end
 end
 
-function applyKreissSmoothing(obj, strike::T,xi::T,h::T) where {T}
+
+function evaluate(p::KreissSmoothDefinition{VanillaAmerican{TS}}, s::DefaultFDMStructure{T}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
+    payoff = p.delegate
+    strike = payoff.strike
+    if abs(s.currentTime - payoff.timeToExpiry) < eps(T)
+        sign = one(T)
+        if !payoff.isCall
+            sign = -one(T)
+        end
+        for i = eachindex(x)
+            if !isIndexBetween(i, x, strike)
+                s.currentValue[i, 1] = max(sign * (x[i] - strike), zero(T))
+            else
+                h = (x[i+1] - x[i-1]) / 2
+                obj = function (u::T)
+                    max(sign * (u - strike), 0)
+                end
+                s.currentValue[i, 1] = applyKreissSmoothing(obj, strike, x[i], h)
+            end
+        end
+    else
+        evaluate(payoff, s, x, columnIndex)
+        # y = copy(s.currentValue[:,1])
+        # #ideally we would search for location such that value = LB. and apply smoothing there.
+        # for i = 2:length(x)-1
+        #     #one direction (put?)
+        #     if (s.currentValue[i-1, 1] <= s.lowerBound[i-1] + sqrt(eps(T)) && s.currentValue[i+1, 1] > s.lowerBound[i+1]) || (s.currentValue[i+1, 1] <= s.lowerBound[i+1] + sqrt(eps(T)) && s.currentValue[i-1, 1] > s.lowerBound[i-1])
+        #         sign = one(T)
+        #         if !payoff.isCall
+        #             sign = -one(T)
+        #         end
+        #         #apply smoothing
+
+        #         p2 = y[i] / ((x[i] - x[i-1]) * (x[i] - x[i+1])) + y[i-1] / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) + y[i+1] / ((x[i+1] - x[i]) * (x[i+1] - x[i-1]))
+        #         p1 = -sign - y[i] * (x[i+1] + x[i-1]) / ((x[i] - x[i-1]) * (x[i] - x[i+1])) - y[i-1] * (x[i] + x[i+1]) / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) - y[i+1] * (x[i-1] + x[i]) / ((x[i+1] - x[i]) * (x[i+1] - x[i-1]))
+        #         p0 = sign * strike + y[i] * x[i+1] * x[i-1] / ((x[i] - x[i-1]) * (x[i] - x[i+1])) + y[i-1] * x[i] * x[i+1] / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) + y[i+1] * x[i-1] * x[i] / ((x[i+1] - x[i]) * (x[i+1] - x[i-1]))
+        #         delta = p1^2 - 4p2 * p0 + eps(T)
+        #         level1 = (-p1 - sqrt(delta)) / (2p2)
+        #         level2 = (-p1 + sqrt(delta)) / (2p2)
+        #         level = if (level1 < x[i+1] && x[i-1] <= level1)
+        #             level1
+        #         else
+        #             level2
+        #         end
+        #         if (level < x[i+1] && x[i-1] <= level)
+        #             #println("applying smoothing at t ", s.currentTime)
+        #             obj = function (u::T)
+        #                 value = y[i] * (u - x[i-1]) * (u - x[i+1]) / ((x[i] - x[i-1]) * (x[i] - x[i+1])) + y[i-1] * (u - x[i]) * (u - x[i+1]) / ((x[i-1] - x[i]) * (x[i-1] - x[i+1])) + y[i+1] * (u - x[i-1]) * (u - x[i]) / ((x[i+1] - x[i]) * (x[i+1] - x[i-1])) #lagrange on x[i-1],x[i],x[i+1]
+        #                 intrinsic = max(sign * (u - strike), 0)
+        #                 return max(value, intrinsic)
+        #             end
+        #             s.currentValue[i, 1] = applyKreissSmoothing(obj, level, x[i], (x[i+1] - x[i-1]) / 2)
+        #         end
+        #     end
+        # end
+    end
+end
+
+
+function applyKreissSmoothing(obj, strike::T, xi::T, h::T) where {T}
     objK = function (u::T)
         obj(u) * (1 - abs(u - xi) / h)
     end
@@ -289,7 +411,7 @@ function evaluate(p::KreissSmoothDefinition{DiscreteKO{TS}}, s::DefaultFDMStruct
         end
     end
     if isBarrierActive
-        y = copy(s.currentValue[:,1])
+        y = copy(s.currentValue[:, 1])
         for i = eachindex(x)
             if !isIndexBetween(i, x, payoff.level)
                 if (payoff.isDown && x[i] <= payoff.level) || (!payoff.isDown && x[i] >= payoff.level)
@@ -304,7 +426,7 @@ function evaluate(p::KreissSmoothDefinition{DiscreteKO{TS}}, s::DefaultFDMStruct
                         return intrinsic
                     end
                 end
-                s.currentValue[i, 1] = applyKreissSmoothing(obj,payoff.level,x[i],(x[i+1]-x[i-1])/2)
+                s.currentValue[i, 1] = applyKreissSmoothing(obj, payoff.level, x[i], (x[i+1] - x[i-1]) / 2)
             end
         end
     end

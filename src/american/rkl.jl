@@ -98,7 +98,7 @@ function makeFDMPriceInterpolation(isCall, isEuropean, model, T, strike, N, M; m
     A1ij = zeros(M)
     A1iuj = zeros(M)
     if method == "RKL2"
-        makeSystem(model, A1ilj, A1ij, A1iuj, useExponentialFitting, upwindingThreshold, dt, S, J, Jm, hm, useDirichlet, M)
+        makeSystem(model, A1ilj, A1ij, A1iuj, useExponentialFitting, upwindingThreshold, useSqrt ? T -(ti)^2 : ti, dt, S, J, Jm, hm, useDirichlet, M)
         if useSqrt
             tih = ti + dt / 2
             @. A1ij *= 2tih
@@ -121,7 +121,7 @@ function makeFDMPriceInterpolation(isCall, isEuropean, model, T, strike, N, M; m
             end
 
             if n < N
-                makeSystem(model, A1ilj, A1ij, A1iuj, useExponentialFitting, upwindingThreshold, dt, S, J, Jm, hm, useDirichlet, M)
+                makeSystem(model, A1ilj, A1ij, A1iuj, useExponentialFitting, upwindingThreshold, useSqrt ? T - ti^2 : ti, dt, S, J, Jm, hm, useDirichlet, M)
                 if useSqrt
                     tih = ti + dt / 2
                     @. A1ij *= 2tih
@@ -186,21 +186,23 @@ function initRKLCoeffs(dt, A1ij; epsilonRKL = 0.0, rklStages = 0)
     return s, a, b, w0, w1
 end
 
-function makeSystem(model, A1ilj::AbstractArray{T}, A1ij::AbstractArray{T}, A1iuj::AbstractArray{T}, useExponentialFitting::Bool, upwindingThreshold::Real, dt::Real, S::Vector{T}, J::Vector{T}, Jm::Vector{T}, hm::Real, useDirichlet::Bool, M::Int) where {T}
+function makeSystem(model, A1ilj::AbstractArray{T}, A1ij::AbstractArray{T}, A1iuj::AbstractArray{T}, useExponentialFitting::Bool, upwindingThreshold::Real, ti::Real, dt::Real, S::Vector{T}, J::Vector{T}, Jm::Vector{T}, hm::Real, useDirichlet::Bool, M::Int) where {T}
+    drift_ti = logForward(model, 0.0, ti) - logForward(model, 0.0, ti-dt)
+    r_ti = -logDiscountFactor(model, ti) + logDiscountFactor(model, ti-dt)
     if useDirichlet
         A1ij[1] = 0
     else
-        drifti = (model.r - model.q) * S[1]
-        A1iuj[1] = -dt * drifti / (Jm[2] * hm)
-        A1ij[1] = -dt * (-model.r * 0.5) - A1iuj[1]
+        drifti = drift_ti * S[1]
+        A1iuj[1] = - drifti / (Jm[2] * hm)
+        A1ij[1] = r_ti / 2 - A1iuj[1]
     end
-    drifti = (model.r - model.q) * S[M]
-    A1ilj[M] = dt * drifti / (Jm[M] * hm)
-    A1ij[M] = -dt * (-model.r * 0.5) - A1ilj[M]
+    drifti = drift_ti* S[M]
+    A1ilj[M] = drifti / (Jm[M] * hm)
+    A1ij[M] = r_ti / 2 - A1ilj[M]
 
     @inbounds @simd for i = 2:M-1
-        svi = S[i]^2 * model.vol^2 / J[i]
-        drifti = (model.r - model.q) * S[i]
+        svi = S[i]^2 * varianceByLogmoneyness(model,0.0,ti) / J[i] * dt
+        drifti = drift_ti * S[i]
         if useExponentialFitting
             if abs(drifti * hm / svi) > upwindingThreshold
                 svi = drifti * hm / tanh(drifti * hm / svi)
@@ -208,9 +210,9 @@ function makeSystem(model, A1ilj::AbstractArray{T}, A1ij::AbstractArray{T}, A1iu
         end
         svi /= hm^2
         drifti /= (2 * J[i] * hm)
-        A1iuj[i] = -dt * (svi / (2Jm[i+1]) + drifti)
-        A1ij[i] = -dt * (-svi / 2 * (1 / Jm[i+1] + 1 / Jm[i]) - model.r)
-        A1ilj[i] = -dt * (svi / (2Jm[i]) - drifti)
+        A1iuj[i] = - (svi / (2Jm[i+1]) + drifti)
+        A1ij[i] = - (-svi / 2 * (1 / Jm[i+1] + 1 / Jm[i]) - r_ti)
+        A1ilj[i] = - (svi / (2Jm[i]) - drifti)
     end
 end
 

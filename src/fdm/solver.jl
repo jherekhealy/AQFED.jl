@@ -236,7 +236,7 @@ function solve!(ssolver::LowerBoundSolver{T}, solver::LUUL{T}, x::AbstractArray{
     d = solver.l
     l = solver.ll
     u = solver.uu
-    y[1] = r[1] / l[1]
+    y[1] = r[1] / d[1]
     @inbounds for i = 2:n
         y[i] = (r[i] - l[i-1] * y[i-1]) / d[i]
     end

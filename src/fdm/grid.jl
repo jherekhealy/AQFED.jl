@@ -11,7 +11,7 @@ end
 
 # xi must have points in [0,1], typically uniform.
 function makeArray(grid::CubicGrid, xi::AbstractArray{T}, Smin::T, Smax::T, starPoints::AbstractArray{T}, isMiddle::AbstractArray{Bool}) where {T}
-    αScaled = grid.α * (Smax - Smin)
+    α = grid.α * (Smax - Smin)
     coeff = one(T) / 6
     starMid = zeros(T, length(starPoints) + 1)
     starMid[1] = Smin
@@ -20,16 +20,16 @@ function makeArray(grid::CubicGrid, xi::AbstractArray{T}, Smin::T, Smax::T, star
     c1 = zeros(T, length(starPoints))
     c2 = zeros(T, length(starPoints))
     for i = 1:length(starPoints)
-        local r = filter(isreal, PolynomialRoots.roots([(starPoints[i] - starMid[i]) / αScaled, one(T), zero(T), coeff]))
+        local r = filter(isreal, PolynomialRoots.roots([(starPoints[i] - starMid[i]) / α, one(T), zero(T), coeff]))
         c1[i] = real(sort(r)[1])
-        local r = filter(isreal, PolynomialRoots.roots([(starPoints[i] - starMid[i+1]) / αScaled, one(T), zero(T), coeff]))
+        local r = filter(isreal, PolynomialRoots.roots([(starPoints[i] - starMid[i+1]) / α, one(T), zero(T), coeff]))
         c2[i] = real(sort(r)[1])
     end
     dd = zeros(T, length(starPoints) + 1)
     dl = zeros(T, length(starPoints))
     dr = zeros(T, length(starPoints))
-    @. dl[1:end-1] = -αScaled * (3 * coeff * (c2[2:end] - c1[2:end]) * c1[2:end]^2 + c2[2:end] - c1[2:end])
-    @. dr[2:end] = -αScaled * (3 * coeff * (c2[1:end-1] - c1[1:end-1]) * c2[1:end-1]^2 + c2[1:end-1] - c1[1:end-1])
+    @. dl[1:end-1] = -α * (3 * coeff * (c2[2:end] - c1[2:end]) * c1[2:end]^2 + c2[2:end] - c1[2:end])
+    @. dr[2:end] = -α * (3 * coeff * (c2[1:end-1] - c1[1:end-1]) * c2[1:end-1]^2 + c2[1:end-1] - c1[1:end-1])
     dd[2:end-1] = -dl[1:end-1] - dr[2:end]
     dd[1] = one(T)
     dd[end] = one(T)
@@ -50,7 +50,7 @@ function makeArray(grid::CubicGrid, xi::AbstractArray{T}, Smin::T, Smax::T, star
         end
         dIndex = min(dIndex, length(d))
         t = c2[dIndex-1] * (ui - d[dIndex-1]) + c1[dIndex-1] * (d[dIndex] - ui)
-        Sip[i] = starPoints[dIndex-1] + αScaled * t * (coeff * t^2 + 1)
+        Sip[i] = starPoints[dIndex-1] + α * t * (coeff * t^2 + 1)
     end    
     pinGrid(Sip,Smin,Smax)
 Sip
@@ -65,7 +65,10 @@ function makeArray(grid::SinhGrid, x::AbstractArray{T}, min::T, max::T, starPoin
     α =   grid.α * (max - min)  
     c1 = asinh((min - specialPoint) / α)
 	c2 = asinh((max - specialPoint) / α)
-    return @. specialPoint + + α*sinh(c2*x+c1*(1-x))
+    S = @. specialPoint + α*sinh(c2*x+c1*(1-x))
+    S[1] = min #strange issues if min is almost zero but not quite
+    S[end] = max
+    S
  end
 
  # to place boundaries exactly on grid
