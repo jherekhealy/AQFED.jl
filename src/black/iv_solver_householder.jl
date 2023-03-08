@@ -2,7 +2,7 @@ struct Householder <: SRSolver end
 
 function impliedVolatilitySRHalley(
     isCall::Bool,
-    price::T,
+    price::TP,
     f::T,
     strike::T,
     tte::T,
@@ -10,13 +10,13 @@ function impliedVolatilitySRHalley(
     ftolrel::T,
     maxEval::Int,
     solver::Householder,
-)::T where {T}
+)::TP where {T,TP}
     c, ex = normalizePrice(isCall, price, f, strike, df)
     if c >= 1 / ex || c <= 0
         throw(DomainError(c, string("Price out of range, must be < ", 1 / ex, " and > 0. denormalized price=",price)))
     end
     x = log(ex)
-    guess = T(impliedVolatilitySRGuessUndiscountedCall(c, ex,x))
+    guess = TP(impliedVolatilitySRGuessUndiscountedCall(c, ex,x))
     b = guess
     xtolrel = 32 * eps(T)
     xtol = T(0)
@@ -45,7 +45,7 @@ function impliedVolatilitySRHalley(
     return b / sqrt(tte)
 end
 
-function objectiveHouseholderLog(x::T, ex::T, v::T, logc::T) where {T}
+function objectiveHouseholderLog(x::T, ex::T, v::TP, logc::TP) where {T,TP}
     v = abs(v)
     h = x / v
     t = v / 2

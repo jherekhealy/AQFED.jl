@@ -49,9 +49,11 @@ end
 module TermStructure
 include("ts/heston.jl")
 include("ts/surface.jl")
+include("ts/svi.jl")
 include("ts/curve.jl")
 include("ts/lv.jl")
 include("ts/dividend.jl")
+include("ts/fukasawa_interp.jl")
 end
 
 module American
@@ -101,4 +103,14 @@ include("collocation/logpoly.jl")
 include("collocation/quadratic_spline.jl")
 include("collocation/expbspline.jl")
 end
+
+
+module SSVI
+include("ssvi/ssvi_calibration.jl")
+end
+
+module PDDE
+include("pdde/lvg.jl")
+end
+
 end

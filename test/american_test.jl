@@ -291,7 +291,7 @@ function batchALN(threshold, rInfq, isBatch, m, n, l, p; method = "AL",factor=10
                                     " ",
                                     r,
                                 )
-                    
+                            end
                         end
                     end
                 else

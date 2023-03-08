@@ -1,5 +1,5 @@
 #TermStructure volatility surface
-export VarianceSurface, FlatSurface, FlatSection, VarianceSurfaceBySection, SVISection
+export VarianceSurface, FlatSurface, FlatSection, VarianceSurfaceBySection
 export varianceByLogmoneyness, localVarianceByLogmoneyness
 abstract type VarianceSection end
 
@@ -12,45 +12,6 @@ function varianceByLogmoneyness(s::FlatSection, y::Float64)
     return s.σ^2
 end
 
-struct SVISection <: VarianceSection
-    a::Float64
-    b::Float64
-    rho::Float64
-    s::Float64
-    m::Float64
-    tte::Float64
-    f::Float64
-end
-Base.broadcastable(p::SVISection) = Ref(p)
-function varianceByLogmoneyness(s::SVISection, y)
-    sqrsy = s.s^2 + (y - s.m)^2
-    return s.a + s.b * (s.rho * (y - s.m) + sqrt(sqrsy))
-end
-
-function varianceSlopeCurvature(s::SVISection, y::Float64)
-    ym = (y - s.m)
-    sqrsy = s.s * s.s + ym * ym
-    sqrtsy = sqrt(sqrsy)
-    variance = s.a + s.b * (s.rho * ym + sqrtsy)
-    slope = s.b * (ym / sqrtsy + s.rho)
-    curvature = s.b * (1 - ym^2 / sqrsy) / sqrtsy
-    return variance, slope, curvature
-end
-
-function varianceByLogmoneyness(s::SVISection, y::Array{Float64})
-    sqrsy = @. s.s^2 + (y - s.m)^2
-    return @. s.a + s.b * (s.rho * (y - s.m) + sqrt(sqrsy))
-end
-
-function varianceSlopeCurvature(s::SVISection, y::Array{Float64})
-    ym = @. (y - s.m)
-    sqrsy = @. (s.s^2 + ym^2)
-    sqrtsy = sqrt.(sqrsy)
-    variance = @. s.a + s.b * (s.rho * ym + sqrtsy)
-    slope = @. s.b * (ym / sqrtsy + s.rho)
-    curvature = @. s.b * (1 - ym^2 / sqrsy) / sqrtsy
-    return variance, slope, curvature
-end
 abstract type VarianceSurface end
 struct VarianceSurfaceBySection{T} <: VarianceSurface
     sections::Vector{T}

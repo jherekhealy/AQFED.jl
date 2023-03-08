@@ -1,7 +1,7 @@
 #common, except for Jaeckel
 abstract type SRSolver end
 
-function normalizePrice(isCall::Bool, price::T, f::T, strike::T, df::T) where {T}
+function normalizePrice(isCall::Bool, price::TP, f::T, strike::T, df::T) where {T,TP}
     c = price / f / df
     ex = f / strike
 

@@ -195,7 +195,11 @@ end
     end
     #Error as a function of spot - nothing to see, similar conclusions as single spot.
     M = 251
-    #M=1001; N=101; σ=0.1;r=0.01;q=0.0;tte=0.5; strike=110.0;max = exp((r-q)*tte+3*σ*sqrt(tte))*spot # => FIXME!!!! Bug in LUUL vs policy iteration !!!
+    M=1001; N=101; σ=0.1;r=0.01;q=0.0;tte=0.5; strike=110.0;max = exp((r-q)*tte+3*σ*sqrt(tte))*spot;payoffVA = VanillaAmerican(false, strike, tte)
+    varianceSurface = FlatSurface(σ)
+    discountCurve = ConstantRateCurve(r)
+    driftCurve = ConstantRateCurve(r - q)
+    
     data = DataFrame(S=Float64[], grid=String[], price=Float64[], error=Float64[], delta=Float64[], deltaError=Float64[], gamma=Float64[], gammaError=Float64[])
     #Error as a function of m 
     for grid in grids

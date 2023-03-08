@@ -468,3 +468,12 @@ end
     rmse = StatsBase.rmsd(ivstrikes, vols)
     println("scha ", rmse)
 end
+
+
+function gatheralDenomFinite(w, y)
+    dwdy = FiniteDifferences.central_fdm(3,1)(w, y)
+    d2wdy2 = FiniteDifferences.central_fdm(3,2)(w, y)
+    return 1-y/w(y)*dwdy+(dwdy)^2 * (-1/4 - 1/w(y) + y^2/w(y)^2) / 4 + d2wdy2 / 2
+end
+#plot(y,@.(gatheralDenomFinite(x->AQFED.TermStructure.varianceByLogmoneyness(slice,x)*tte,y)))
+#plot(y,@.(gatheralDenomFinite(x->AQFED.TermStructure.varianceByLogmoneyness(slice,x)*tte,y)/sqrt(2*π*AQFED.TermStructure.varianceByLogmoneyness(slice,y)*tte)*exp(-0.5*(y/sqrt(AQFED.TermStructure.varianceByLogmoneyness(slice,y)*tte)+sqrt(AQFED.TermStructure.varianceByLogmoneyness(slice,y)*tte)/2)^2)  )  )
