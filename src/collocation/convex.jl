@@ -61,18 +61,17 @@ function filterConvexPrices(
     end
     h[1] = 1 - tol
     W = spdiagm(weights)
-    strikesf = strikes
-    problem = minimize(square(norm(W * (z - callPrices))), G * z <= h)
-    #solve!(problem, () -> SCS.Optimizer(verbose = 0))
-    Convex.solve!(problem, () -> COSMO.Optimizer(verbose = false, eps_rel = 1e-8, eps_abs = 1e-8))
-    #println("problem status is ", problem.status, " optimal value is ", problem.optval)
-    pricesf = Convex.evaluate(z)
-    # aind, amat = convertSparse(-G)
-    # factorized = true
-    # dmat = diagm(1.0 ./ weights)
-    # dvec = @. callPrices * weights^2
-    # nEqualities = (strikes[1] == 0) ? 1 : 0
-    # pricesf, lagr, crval, iact, nact, iter = solveQPcompact(dmat, dvec, amat, aind, -h, nEqualities, factorized)		
+     strikesf = strikes
+    # problem = minimize(square(norm(W * (z - callPrices))), G * z <= h)
+    # #solve!(problem, () -> SCS.Optimizer(verbose = 0))
+    # Convex.solve!(problem, () -> COSMO.Optimizer(verbose = false, eps_rel = 1e-8, eps_abs = 1e-8))
+    # #println("problem status is ", problem.status, " optimal value is ", problem.optval)
+    # pricesf = Convex.evaluate(z)
+    amat, aind = convertSparse(copy(-G'))
+     dmat = diagm(1.0 ./ weights)
+     dvec = @. callPrices * weights^2
+     nEqualities = (strikes[1] == 0) ? 1 : 0
+     pricesf, lagr, crval, iact, nact, iter = solveQPcompact(dmat, dvec, amat,aind, -h,meq= nEqualities, factorized=true)		
     return strikesf, pricesf, weights
 end
 

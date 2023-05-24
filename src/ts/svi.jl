@@ -29,6 +29,7 @@ struct SVISection <: VarianceSection
     f::Float64
 end
 Base.broadcastable(p::SVISection) = Ref(p)
+Base.length(p::SVISection) = 1
 function varianceByLogmoneyness(s::SVISection, y)
     sqrsy = s.s^2 + (y - s.m)^2
     return s.a + s.b * (s.rho * (y - s.m) + sqrt(sqrsy))

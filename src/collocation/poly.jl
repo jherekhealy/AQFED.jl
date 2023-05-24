@@ -7,6 +7,7 @@ import AQFED.Black: blackScholesFormula, blackScholesVega
 using AQFED.Bachelier
 #using MINPACK #slower
 using LeastSquaresOptim
+using GaussNewton
 #using SCS #slower
 export Polynomial, IsotonicCollocation, solveStrike, priceEuropean, density, makeIsotonicCollocation, weightedPrices
 
@@ -14,6 +15,7 @@ struct IsotonicCollocation{T,U}
     p1::AbstractPolynomial{T}
     p2::AbstractPolynomial{T}
     forward::U
+    minSlope::U
     # coeffs::AbstractArray{T} #Polynomials.Polynomial{T,:x}(Val(false), coeffs)
     #  function IsotonicCollocation{T, U}(p1::AbstractPolynomial{T},
     #      p2::AbstractPolynomial{T},
@@ -24,8 +26,8 @@ end
 
 Base.broadcastable(p::IsotonicCollocation) = Ref(p)
 
-function Polynomial(iso::IsotonicCollocation; minSlope = 1e-5)
-    p = integrate(iso.p1^2 + iso.p2^2 + minSlope * iso.forward) #add a minimum slope such that density is not too spiky and collocation not too flat
+function Polynomial(iso::IsotonicCollocation)
+    p = integrate(iso.p1^2 + iso.p2^2 + iso.minSlope * iso.forward) #add a minimum slope such that density is not too spiky and collocation not too flat
     theoForward = hermiteIntegral(p)
     p[0] = iso.forward - theoForward
     #fixing the forward is important to avoid the case where C(K=0) < 0.
@@ -49,7 +51,7 @@ function solveStrike(p::AbstractPolynomial{T}, pd::AbstractPolynomial{T},pd2::Ab
             guess,
             Roots.SuperHalley(), #seems to be (much) more robust around the spike in the density.
             atol = 100 * eps(strike),
-            maxevals = 16,
+            maxevals = 32,
             verbose = false,
         )
     catch err
@@ -178,7 +180,7 @@ function weightedPrices(
     forward::T,
     discountDf::T,
     tte::T;
-    vegaFloor = T(1e-3), #vega floored at 1e-3*forward
+    vegaFloor = T(1e-5), #vega floored at 1e-3*forward
 )::Tuple{Vector{T},Vector{T}} where {T}
     prices = @. blackScholesFormula(isCall, strikes, forward, vols^2 * tte, 1.0, discountDf)
     w = @. weights / max(vegaFloor * forward, blackScholesVega(strikes, forward, vols^2 * tte, 1.0, discountDf, tte))
@@ -202,7 +204,7 @@ function makeIsotonicCollocationGuess(
             cubic = LeastSquaresCubicMurrayForward(xif, strikesf, weightsf, forward)
         end
         if deg == 3
-            return IsotonicCollocation(cubic, forward)
+            return IsotonicCollocation(cubic, forward, 0.0)
         else
             return fitMonotonic(xif, strikesf, weightsf, forward, cubic, deg = deg)
         end
@@ -222,11 +224,12 @@ function makeIsotonicCollocation(
     degGuess = 3, #1 = Bachelier (trivial, smoother if least squares iterations small). otherwise 3 is good.
     minSlope = 1e-6,
     penalty = 0.0,
+    optimizerName = "LevenbergMarquardt"
 )::Tuple{IsotonicCollocation,FitResult} where {T} #return collocation and error measure
     isoc = makeIsotonicCollocationGuess(strikes, callPrices, weights, τ, forward, discountDf, deg = degGuess)
     #optimize towards actual prices
     isoc, m =
-        fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope = minSlope, penalty = penalty)
+        fit(isoc, strikes, callPrices, weights, forward, discountDf, deg = deg, minSlope = minSlope, penalty = penalty,optimizerName = optimizerName)
     return isoc, m
 end
 
@@ -241,7 +244,7 @@ function fitBachelier(strikes, prices, weights, τ, forward, discountDf)
     price = (prices[i] * (forward - strikes[i-1]) + prices[i-1] * (strikes[i] - forward)) / (strikes[i] - strikes[i-1])
     strike = forward
     bvol = Bachelier.bachelierImpliedVolatility(price, true, strike, τ, forward, discountDf)
-    isoc = IsotonicCollocation(Polynomials.Polynomial([sqrt(bvol * sqrt(τ))]), Polynomials.Polynomial([0.0]), forward)
+    isoc = IsotonicCollocation(Polynomials.Polynomial([sqrt(bvol * sqrt(τ))]), Polynomials.Polynomial([0.0]), forward, 0.0)
     return isoc
 end
 
@@ -255,14 +258,15 @@ function fit(
     deg = 3,
     minSlope = 1e-4,
     penalty = 0.0,
+    optimizerName = "LevenbergMarquardt"
 ) where {U}
     q = trunc(Int, (deg + 1) / 2)
     iter = 0
     function obj!(fvec::Z, c::AbstractArray{W})::Z where {Z,W}
-        p1 = Polynomials.Polynomial(c[1:q])
-        p2 = Polynomials.Polynomial(c[q+1:2*q])
-        isoc = IsotonicCollocation(p1, p2, forward)
-        p = Polynomial(isoc, minSlope = minSlope)
+        p1 = Polynomials.Polynomial(@view(c[1:q]))
+        p2 = Polynomials.Polynomial(@view(c[q+1:2*q]))
+        isoc = IsotonicCollocation(p1, p2, forward, minSlope)
+        p = Polynomial(isoc)
         pd = derivative(p,1)
         pd2 = derivative(p,2)
         iter += 1
@@ -293,8 +297,13 @@ function fit(
     if penalty > 0
         outlen += 1
     end
+    fr = if optimizerName == "GaussNewton"
+        fvec = zeros(Float64, outlen)
+        measure = GaussNewton.optimize!(obj!,c0,fvec)
+        FitResult(measure, iter, c0, fvec, measure)
+    else
     #TODO optimize the number of allocations. This would mean to abandon Polynomials package and (re)use Vectors instead
-    fit = optimize!(
+    fit = LeastSquaresOptim.optimize!(
         LeastSquaresProblem(x = c0, f! = obj!, autodiff = :forward,
         # g! = jac!, #useful to debug issue with ForwardDiff NaNs
         output_length = outlen),
@@ -303,6 +312,10 @@ function fit(
     )
     fvec = zeros(Float64, outlen)
     obj!(fvec,fit.minimizer)
+    c0 = fit.minimizer
+    measure = fit.ssr
+    FitResult(fit.ssr, iter, fit.minimizer, fvec, fit)
+    end
     #fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward, iterations = deg * 300) #autodiff breaks without Halley. Would need custom
     # function obj!(fvec, x)
     #     fvec[:] = obj(x)
@@ -310,20 +323,18 @@ function fit(
     # end
     # fit = fsolve(obj!, c0, length(strikes); show_trace=true, method=:lm, tol=1e-10) #fit.x
     #println(iter, " fit ", fit)
-    c0 = fit.minimizer
-    measure = fit.ssr
-    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward),  FitResult(fit.ssr, iter, fit.minimizer, fvec, fit)
+    return IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward, minSlope),  fr
 end
 
-function IsotonicCollocation(cubic::AbstractPolynomial, forward::Number)
+function IsotonicCollocation(cubic::AbstractPolynomial, forward::T,minSlope::T) where{T}
     if degree(cubic) > 3
         throw(DomainError(degree(cubic), "expected a cubic"))
     end
     e = (cubic[1] - cubic[2]^2 / (3 * cubic[3]))
-    e = max(e, forward * 1e-6)
+    e = max(e, forward *minSlope)
     p2 = Polynomials.Polynomial([sqrt(e)])
     p1 = Polynomials.Polynomial([cubic[2] / sqrt(3 * cubic[3]), sqrt(3 * cubic[3])])
-    return IsotonicCollocation(p1, p2, forward)
+    return IsotonicCollocation(p1, p2, forward,zero(T))
 end
 
 function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
@@ -339,13 +350,13 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     function obj(c)
         p1 = Polynomials.Polynomial(c[1:q])
         p2 = Polynomials.Polynomial(c[q+1:2*q])
-        isoc = IsotonicCollocation(p1, p2, forward)
+        isoc = IsotonicCollocation(p1, p2, forward,0.0)
         p = Polynomial(isoc)
         iter += 1
         return @. w1 * (p(xif) - strikesf)
     end
 
-    isocubic = IsotonicCollocation(cubic, forward)
+    isocubic = IsotonicCollocation(cubic, forward,0.0)
     c1 = Polynomials.coeffs(isocubic.p1)
     c2 = Polynomials.coeffs(isocubic.p2)
     c0 = zeros(Float64, 2 * q)
@@ -359,7 +370,7 @@ function fitMonotonic(xif, strikesf, w1, forward, cubic; deg = 3)
     end
     fit = optimize(obj, c0, LevenbergMarquardt(); show_trace = false, autodiff = :forward)
     c0 = fit.minimizer
-    isoc = IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward)
+    isoc = IsotonicCollocation(Polynomials.Polynomial(c0[1:q]), Polynomials.Polynomial(c0[q+1:2*q]), forward,0.0)
     #println(iter, " fitMonotonic ", Polynomial(isoc), " ", fit)
     return isoc
 end

@@ -4,6 +4,7 @@ using AQFED.Black
 using AQFED.Collocation
 import Polynomials: coeffs
 using AQFED.Math
+using AQFED.PDDE
 #using Plots
 
 
@@ -367,7 +368,130 @@ end
     end
 end
 
-@testset "jaeckel" begin
+@testset "deltavol" begin    
+    #AUDNZD 2014/07/02
+    #exp 20140709
+    tte = 7.0/365
+    spot = 1.0784
+    forward = 1.07845
+    df = 0.999712587139
+    rr10 = 0.35/100
+    rr25 = 0.4/100
+    volAtm = 5.14/100
+    bf25=0.25/100
+    bf10=1.175/100
+    vol10Call = volAtm + bf10 + rr10/2
+    vol10Put = volAtm + bf10 -rr10/2
+    vol25Call = volAtm + bf25 + rr25/2
+    vol25Put = volAtm + bf25 -rr25/2
+    
+    deltas = [0.1,0.25,0.5,0.75,0.9]
+    vols = [vol10Call, vol25Call, volAtm, vol25Put, vol10Put]
+    
+
+    # deltas = [0.05,0.25,0.5,0.75,0.95]    
+    #  vols = [3.715,2.765,2.83,3.34,4.38]./100
+    #vols = [4.0,3.03,3.06,3.65,4.790]./100
+    # deltas = [0.1,0.25,0.5,0.75,0.9]
+    # vols = [8.510, 8.210,8.257,8.835,9.589]./100
+#     0.09935431799838582, 9.589285714285715
+# 0.25044390637610986, 8.835714285714285
+# 0.5003228410008074, 8.257142857142856
+# 0.7495560936238905, 8.210714285714285
+# 0.9000000000000004, 8.510714285714286
+
+    # forward = 1.0
+    # tte = 31.0/365
+    ppDelta = PPInterpolation.CubicSplineNatural(deltas, vols)
+
+    #convert fwd deltas to moneyness
+    k = zeros(Float64,length(deltas))
+    for (i,delta) in enumerate(deltas)
+        k[i] = forward*exp(-vols[i]*sqrt(tte)*norminv(delta)+vols[i]^2*tte/2)
+    end
+    reverse!(k)
+    reverse!(vols)
+    w1 = ones(length(k))
+    prices, weights = Collocation.weightedPrices(true, k, vols, w1, forward, 1.0, tte)
+    isoc, m = Collocation.makeIsotonicCollocation(k, prices, weights, tte, forward, 1.0, deg = 3, degGuess = 1)
+    sol = Collocation.Polynomial(isoc)
+    dev = exp(3*vols[3]*sqrt(tte))
+    ivk3 = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, k, forward, 1.0), forward, k, tte, 1.0)
+    kFine = collect(range(k[1]/dev,stop=k[end]*dev,length=201))
+    ivkFine3 = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, kFine, forward, 1.0), forward, kFine, tte, 1.0)
+    rmse3 = StatsBase.rmsd(vols, ivk3)
+#    isoc, m = Collocation.makeIsotonicCollocation(k, prices, weights, tte, forward, 1.0, deg = 5, degGuess = 1) #strangely minSlope has big influence
+    isoc, m = Collocation.makeIsotonicCollocation(k, prices, weights, tte, forward, 1.0, deg = 5, degGuess = 3,minSlope=1e-5)
+    sol = Collocation.Polynomial(isoc)
+    ivk5 = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, k, forward, 1.0), forward, k, tte, 1.0)
+    rmse5 = StatsBase.rmsd(vols, ivk5)
+    ivkFine5 = @. Black.impliedVolatility(true, Collocation.priceEuropean(sol, true, kFine, forward, 1.0), forward, kFine, tte, 1.0)
+    bspl, m = Collocation.makeExpBSplineCollocation(
+        k,
+        prices,
+        weights,
+        tte,
+        forward,
+        1.0,
+        penalty = 0e-2,
+        size = 0,
+        minSlope = 1e-8,
+        rawFit = true,
+    )
+    ivkexp = @. Black.impliedVolatility(
+        true,
+        Collocation.priceEuropean(bspl, true, k, forward, 1.0),
+        forward,
+        k,
+        tte,
+        1.0,
+    )
+    rmseexp = StatsBase.rmsd(ivkexp, vols)
+   
+    pp = PPInterpolation.CubicSplineNatural(log.(k./forward), vols.^2)
+    pp = PPInterpolation.CubicSplineNatural(k, vols)
+    deltaFine = reverse(range(0.001,stop=0.999,length=1001))
+    kDeltaFine = @. forward*exp(-ppDelta(deltaFine)*sqrt(tte)*norminv(deltaFine)+ppDelta(deltaFine)^2*tte/2)
+    ppDeltaStrike = PPInterpolation.CubicSplineNatural(kDeltaFine, ppDelta.(deltaFine) )
+    lvg = PDDE.calibrateLinearBlackLVG(tte,forward,k,prices,weights,useVol=false,L=k[1]/2,U=k[end]*2)
+    ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvg, true, k),  forward,     k,   tte,       1.0)
+    rmseLVG = StatsBase.rmsd(vols, ivkLVG)
+    ivkFineLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvg, true, kFine), forward, kFine, tte, 1.0)
+    fengler = AQFED.VolatilityModels.calibrateFenglerSlice(tte, forward, k, prices, weights,λ=1e-10,solver="GI")
+    ivkFengler = @. Black.impliedVolatility(true, max.(fengler.(k),1e-16), forward, k, tte, 1.0)
+    rmseFengler = StatsBase.rmsd(vols, ivkFengler) 
+    ivkFineFengler = @. Black.impliedVolatility(true, max.(fengler.(kFine),1e-16), forward, kFine, tte, 1.0)
+    svi, rmsesvi = AQFED.VolatilityModels.calibrateSVISection(tte, forward, log.(k ./ forward), vols, ones(length(vols)),aMin=-2*maximum(vols)^2)
+    ivkSVI = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi,log.(k./forward)))
+    rmseSVI = StatsBase.rmsd(vols, ivkSVI) 
+    ivkFineSVI = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi,log.(kFine./forward)))
+    svi0, rmsesvi = AQFED.VolatilityModels.calibrateSVISection(tte, forward, log.(k ./ forward), vols, ones(length(vols)),aMin=0.0)
+    ivkSVI0 = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi0,log.(k./forward)))
+    rmseSVI0 = StatsBase.rmsd(vols, ivkSVI°) 
+    ivkFineSVI0 = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi0,log.(kFine./forward)))
+#TODO cubic spline in delta? meaning we first sample and then compute eqv k,
+#=    plot(k, vols.*100, seriestype= :scatter, label="Reference"); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+plot!(kFine, ivkFine3 .*100 ,label="Cubic collocation")
+plot!(kFine, ivkFine5 .*100 ,label="Quintic collocation")
+plot!(kFine, ivkFineexp.*100,label="Exp. B-spline collocation")
+plot!(kFine, ivkFineLVG .*100 ,label="LVG")
+plot!(kFine, ivkFineSVI .* 100, label="SVI")
+=#
+
+#pdf(z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(log(y/forward))*tte,1.0,1.0),x),z)
+pdf(pp,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(y)^2*tte,1.0,1.0),x),z)
+pdfsvi(svi,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, AQFED.TermStructure.varianceByLogmoneyness(svi,log(y/forward))*tte,1.0,1.0),x),z)
+#=
+plot(log.(kFine./forward), pdf.(ppDeltaStrike,kFine),label="Cubic spline on Δ")
+plot!(log.(kFine./forward),Collocation.density.(sol,kFine),label="Quintic collocation")
+plot!(log.(kFine./forward),(AQFED.PDDE.derivativePrice.(lvg,true,kFine.+0.0001) .- AQFED.PDDE.derivativePrice.(lvg,true,kFine)).*10000, label="LVG")
+plot!(log.(kFine./forward),(AQFED.PDDE.derivativePrice.(lvg,true,kFine.+0.0001) .- AQFED.PDDE.derivativePrice.(lvg,true,kFine)).*10000, label="LVG")
+plot!(log.(kFine./forward),AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,kFine),label="Fengler")
+
+=#
+
+end
+@testset "jaeckel1" begin
     strikes = [
         0.035123777453185,
         0.049095433048156,
@@ -469,7 +593,118 @@ end
     println("scha ", rmse)
 end
 
+@testset "jaeckel2" begin
+    strikes = [
+        0.035123777453185,
+        0.049095433048156,
+        0.068624781300891,
+        0.095922580089594,
+        0.134078990076508,
+        0.18741338653678,
+        0.261963320525776,
+        0.366167980681693,
+        0.511823524787378,
+        0.715418426368358,
+        1.0,
+        1.39778339939642,
+        1.95379843162821,
+        2.73098701349666,
+        3.81732831143284,
+        5.33579814376678,
+        7.45829006788743,
+        10.4250740447762,
+        14.5719954372667,
+        20.3684933182917,
+        28.4707418310251,
+    ]
+     vols = [0.649712512502887,
+	 	0.629372247414191,
+	 	0.598339248024188,
+	 	0.560748840467284,
+	 	0.518685454812697,
+	 	0.473512707134552,
+	 	0.426434688827871,
+	 	0.378806875802102,
+	 	0.332366264644264,
+	 	0.289407658380454,
+	 	0.253751752243855,
+	 	0.235378088110653,
+	 	0.235343538571543,
+	 	0.260395028879884,
+	 	0.31735041252779,
+	 	0.368205175099723,
+	 	0.417582432865276,
+	 	0.46323707706565,
+	 	0.504386489988866,
+	 	0.539752566560924,
+	 	0.566370957381163]
 
+    forward = 1.0
+    tte = 5.07222222222222
+    w1 = ones(length(strikes))
+    prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte, vegaFloor = 1e-5)
+    isoc, m = Collocation.makeIsotonicCollocation(strikes, prices, weights, tte, forward, 1.0, deg = 7, degGuess = 1)
+    sol = Collocation.Polynomial(isoc)
+    ivstrikes = @. Black.impliedVolatility(
+        true,
+        Collocation.priceEuropean(sol, true, strikes, forward, 1.0),
+        forward,
+        strikes,
+        tte,
+        1.0,
+    )
+    rmse = StatsBase.rmsd(ivstrikes, vols)
+    println("poly ", rmse)
+    bspl, m = Collocation.makeExpBSplineCollocation(
+        strikes,
+        prices,
+        weights,
+        tte,
+        forward,
+        1.0,
+        penalty = 0e-2,
+        size = 0,
+        minSlope = 1e-8,
+        rawFit = true,
+    )
+    ivstrikes = @. Black.impliedVolatility(
+        true,
+        Collocation.priceEuropean(bspl, true, strikes, forward, 1.0),
+        forward,
+        strikes,
+        tte,
+        1.0,
+    )
+    rmse = StatsBase.rmsd(ivstrikes, vols)
+    println("bspl ", rmse)
+    allStrikes = vcat(0.0, strikes, 50.0)
+    allPrices = vcat(forward ,prices, 0.0)
+    leftB = Math.FirstDerivativeBoundary(-1.0)
+    rightB = Math.FirstDerivativeBoundary(0.0)
+    cs = Math.makeConvexSchabackRationalSpline(allStrikes, allPrices, leftB, rightB, iterations=128)
+    ivstrikes = @. Black.impliedVolatility(
+        true,
+        cs(strikes),
+        forward,
+        strikes,
+        tte,
+        1.0,
+    )
+    rmse = StatsBase.rmsd(ivstrikes, vols)
+    println("scha ", rmse)
+    lvg = PDDE.calibrateLinearBlackLVG(tte,forward,strikes,prices,weights,useVol=true,L=strikes[1]/2,U=strikes[end]*2)
+    ivstrikes = @. Black.impliedVolatility(
+        true,
+        PDDE.priceEuropean(lvg, true, strikes),
+        forward,
+        strikes,
+        tte,
+        1.0,
+    )
+    rmse = StatsBase.rmsd(ivstrikes, vols)
+    println("LVG-Black ", rmse)
+   
+end
 function gatheralDenomFinite(w, y)
     dwdy = FiniteDifferences.central_fdm(3,1)(w, y)
     d2wdy2 = FiniteDifferences.central_fdm(3,2)(w, y)

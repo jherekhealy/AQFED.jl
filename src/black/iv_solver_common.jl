@@ -64,6 +64,9 @@ function impliedVolatilitySRGuessUndiscountedCall(price::Real, ey::Real, y::Real
         beta = 2 * C / (B + sqrt(B * B + 4 * A * C))
         # println("beta ",beta, " ",C, " ",B, " ",A)
     end
+    if beta < 0
+        beta = SqrtEpsilon
+    end
     gamma = -log(beta) / polya_factor
     if y >= 0
         Asqrty = 0.5 * (1 + sqrt(1 - em2piy * em2piy))

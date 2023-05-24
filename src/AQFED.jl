@@ -9,6 +9,8 @@ include("math/lambertw.jl")
 include("math/delbourgo_gregory.jl")
 include("math/transform.jl")
 include("math/schaback.jl")
+include("math/hypersphere.jl")
+include("math/polyroots.jl")
 end
 
 __precompile__(true)
@@ -100,17 +102,25 @@ module Collocation
 include("collocation/convex.jl") #utilities to ensure convexity of prices, and build X for collocation
 include("collocation/poly.jl")
 include("collocation/logpoly.jl")
-include("collocation/quadratic_spline.jl")
+include("collocation/pp_fast.jl")
+include("collocation/bspline.jl")
 include("collocation/expbspline.jl")
 end
 
 
-module SSVI
-include("ssvi/ssvi_calibration.jl")
+module VolatilityModels
+include("vol/ssvi_calibration.jl")
+include("vol/svi_calibration.jl")
+include("vol/fengler.jl")
+include("vol/rbf.jl")
+include("vol/lnmixture.jl")
 end
 
 module PDDE
 include("pdde/lvg.jl")
+include("pdde/lvg_black.jl")
+include("pdde/lvg_quadratic.jl")
+include("pdde/lvg_quadratic_cmplx.jl")
 end
 
 end

@@ -117,7 +117,7 @@ end
 function calibrateConstantLVG(tte::T, forward::T, strikes::AbstractVector{T}, callPrices::AbstractVector{T}, weights::AbstractVector{T};U::T=6*forward, L::T=zero(forward),useVol=false ) where {T}
 
     #if the forward is not part of the strikes, add the forward and interpolate prices with quadratic. Eventually set corresponding weight to 0
-    if U < strikes[end]
+    if U <= strikes[end]
         U = 2*strikes[end] - strikes[end-1]
         #U = strikes[end]*1.1
     end

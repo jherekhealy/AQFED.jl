@@ -43,7 +43,7 @@ function blackScholesVega(strike::Number,
 	tte::Number)::Number
 	forward = spot / driftDf
 	sqrtVar = sqrt(variance)
-	d1 = 1.0/sqrtVar*log(forward/strike) + 0.5*sqrtVar
+	d1 = log(forward/strike)/sqrtVar + sqrtVar/2
 	nd1 = normpdf(d1)
 	vega = discountDf * forward * nd1 * sqrt(tte)
 	return vega

@@ -233,9 +233,8 @@ function makeExpBSplineCollocationGuess(
     forward::T,
     discountDf::T;
     size = 0,
-    extrapolationFactor = 1.25
 ) where {T}
-    b = fitExpBSplineBachelier(strikes, callPrices, weights, τ, forward, discountDf, size = size,extrapolationFactor=extrapolationFactor)
+    b = fitExpBSplineBachelier(strikes, callPrices, weights, τ, forward, discountDf, size = size)
 end
 
 function makeExpBSplineCollocation(
@@ -249,7 +248,6 @@ function makeExpBSplineCollocation(
     penalty = 0.0,
     size = 0,
     rawFit = false,
-    extrapolationFactor = 1.25,
     minSlopeKnots = minSlope
 )::Tuple{ExpBSplineCollocation,FitResult} where {T} #return collocation and error measure
     strikesf, pricesf, weightsf = filterConvexPrices(
@@ -265,7 +263,7 @@ function makeExpBSplineCollocation(
         forward,
         tol = minSlopeKnots + sqrt(eps(one(minSlopeKnots))))
 
-    isoc = makeExpBSplineCollocationGuess(strikesk, pricesk, weightsk, τ, forward, 1.0, size = size,extrapolationFactor=extrapolationFactor)
+    isoc = makeExpBSplineCollocationGuess(strikesk, pricesk, weightsk, τ, forward, 1.0, size = size)
     isoc, m =
         rawFit ? fit(isoc, strikes, callPrices, weights, forward, discountDf, minSlope = minSlope, penalty = penalty) :
         fit(isoc, strikesf, pricesf, weightsf, forward, discountDf, minSlope = minSlope, penalty = penalty)
@@ -273,7 +271,7 @@ function makeExpBSplineCollocation(
 end
 
 using FastGaussQuadrature
-function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountDf; size::Int = 0, extrapolationFactor=1.25,slopeTolerance::Float64 = sqrt(eps(Float64)))
+function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountDf; size::Int = 0, slopeTolerance::Float64 = sqrt(eps(Float64)))
     m = length(strikes)
     i = findfirst(x -> x > forward, strikes)
     if i === nothing
@@ -302,21 +300,18 @@ function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountD
         x = copy(xf)
         #@. x[1:n-1] = xf[1:n-1]+xf[2:n])/2
         # x[1:n-1] = xf[1:n-1]
-        x[n] = max(xf[end] * extrapolationFactor, 2.0)
-        x[1] = min(xf[1]*extrapolationFactor,2.0)
+        x[n] = max(xf[end] * 1.2, 2.0)
         #x[1] = xf[2] - (xf[2] - xf[1]) / 2
     else
         n = max(size, 3) + 1
         #x = collect(range(min(xf[1], -3.0), stop = max(xf[end] * 1.0, 3.0), length = n))
-        x = collect(range(min(xf[1]*extrapolationFactor, -2.0), stop = max(xf[end]*extrapolationFactor, 2.0), length = n))
-    
-        # for m=n:n*10
-        #     xg = gausshermite(m)[1]
-        #     x = filter(x -> x >= xf[1]*1.25 && x <= xf[end]*1.25, xg)
-        #     if length(x) >= n
-        #         break
-        #     end
-        # end
+        for m=n:n*10
+            xg = gausshermite(m)[1]
+            x = filter(x -> x >= xf[1]*1.25 && x <= xf[end]*1.25, xg)
+            if length(x) >= n
+                break
+            end
+        end
         n = length(x)
         # x = x .* (max(-xf[1] * 1.2, xf[end] * 1.2, 1.5) / x[end])
         # x = @. (xf[end]-xf[1])*1.1 / (x[end]-x[1]) * (x-x[1]) + xf[1]*1.1
@@ -326,8 +321,7 @@ function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountD
     a = @. (-σ^2 / 2 + log(forward) + σ * x)
     b = @. (σ * ones(Float64, n))
     c = zeros(Float64, (n,1))
-    # pp = FastPP(2,a, b, c, x)
-    pp = QuadraticPP{Float64,Float64}(a, b, c, x)
+    pp = QuadraticPP(a, b, c, x)
     isoc = ExpBSplineCollocation(pp, forward)
     # adjustForward(isoc)
     return isoc

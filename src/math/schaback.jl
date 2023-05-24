@@ -78,7 +78,7 @@ function fitConvexSchabackRationalSpline(
     leftBoundary::PPBoundary,
     rightBoundary::PPBoundary;
     penalty = 0.0,
-    guessType::SecondDerivativeGuess = Schaback{Float64},
+    guessType::SecondDerivativeGuess = Schaback{Float64}(),
 )::Tuple{SchabackRationalSpline{U,T}, FitResult} where {T,U}
     x = copy(x0)
     y = copy(y0)
@@ -137,20 +137,20 @@ function fitConvexSchabackRationalSpline(
             b[j] = h[j]*(h[j-1] * ml[j-1] + h[j] * ml[j+1] ) * ml[j]^2  / 2
         end
         yHat = tri \ b
-        @. fvec[1:n-1] = weights[2:end-1] * (yHat[2:end-1] - y[2:end-1]) #end points are exact
+        @. fvec[1:n-1] = @view(weights[2:end-1]) * (@view(yHat[2:end-1]) - @view(y[2:end-1])) #end points are exact
         if penalty > 0
             #Strain on M
             for j = 1:n-1
-                 s2,s1,s0 = ml[j+2]^3 , ml[j+1]^3 ,  ml[j]^3
-                 g2 = 2 * ((s2 - s1) / h[j+1] - (s1 - s0) / h[j]) / (h[j+1] + h[j])
-                 #g2 = (s2 - s1) /  h[j+1]
-                 fvec[j+n-1] = g2 * sqrt(h[j])  * penalty #strain is sometimes unstable, second derivative is better
+                  s2,s1,s0 = ml[j+2]^3 , ml[j+1]^3 ,  ml[j]^3
+                #  g2 = 2 * ((s2 - s1) / h[j+1] - (s1 - s0) / h[j]) / (h[j+1] + h[j])
+                g2 = ((log(s2) - log(s1)) / h[j+1] - (log(s1) - log(s0)) / h[j]) / (h[j+1] + h[j])
+                fvec[j+n-1] = g2 * sqrt(h[j])  * penalty #strain is sometimes unstable, second derivative is better
             end
         end
         iter += 1
         fvec
     end
-    c0 = @. inv(transform, m[2:end-1])
+    c0 = @. inv(transform, @view(m[2:end-1]))
     outlen = n - 1
     if penalty > 0
         outlen += n - 1
@@ -173,7 +173,7 @@ function fitConvexSchabackRationalSpline(
     c0 = fit.minimizer
     fvec = zeros(T, outlen)
     obj!(fvec, c0)
-    @. y[2:end-1] += fvec[1:n-1] / weights[2:end-1]
+    @. y[2:end-1] += @view(fvec[1:n-1]) / @view(weights[2:end-1])
     @. m[2:end-1] = transform(c0)
     #println(iter, " Schaback fit ", fit, fvec) #obj(fit.x))  #fit.f
     return SchabackRationalSpline(x, y, h, m), FitResult(fit.ssr, iter, c0, fvec, fit)
