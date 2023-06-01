@@ -6,7 +6,7 @@ struct CMethod <: SRSolver end
 # 1 SuperHalley = 2 InverseQuadratic = 3 CMethod = 4
 function impliedVolatilitySRHalley(
     isCall::Bool,
-    price::T,
+    price::TP,
     f::T,
     strike::T,
     tte::T,
@@ -14,7 +14,7 @@ function impliedVolatilitySRHalley(
     ftolrel::T,
     maxEval::Int,
     solver::SRSolver,
-)::T where {T}
+)::TP where {T,TP}
     c, ex = normalizePrice(isCall, price, f, strike, df)
         #println(" c ",c, " 1/ex ",1/ex)
     if (c >= min(1, 1 / ex)) || (c <= 0)

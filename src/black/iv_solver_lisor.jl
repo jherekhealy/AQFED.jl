@@ -19,7 +19,7 @@ const n21 = -0.04763802358853
 const m30 = -0.21619763215668
 const n30 = -0.03326944290044
 
-function impliedVolatilitySqrtTimeRationalGuess(x::Float64, c::Float64)::Float64
+function impliedVolatilitySqrtTimeRationalGuess(x, c)
     num = m00 + x * (m10 + x * (m20 + x * m30)) + c * (m01 + m11 * x + m21 * x^2) + c^2 * (m02 + m12 * x) + c^3 * m03
     den = n00 + x * (n10 + x * (n20 + x * n30)) + c * (n01 + n11 * x + n21 * x^2) + c^2 * (n02 + n12 * x) + c^3 * n03
     return num / den
@@ -51,7 +51,7 @@ struct SORDR <: SORSolver end
 
 function impliedVolatilityLiSOR(
     isCall::Bool,
-    price::T,
+    price::TP,
     forward::T,
     strike::T,
     timeToExpiry::T,
@@ -59,19 +59,20 @@ function impliedVolatilityLiSOR(
     impliedVolGuess::T,
     tolerance::T,
     maxIterations::Int,
-    solver::SORSolver)::T where {T}
+    solver::SORSolver)::TP where {T,TP}
     c, ex = normalizePrice(isCall,price,forward,strike,df)
-    if c > 1 / ex
-        return 0
+    if c > one(T) / ex
+        return zero(TP)
     end
     x = log(ex)
-    v0 = T(0)
-    if impliedVolGuess == 0
+    v0 = zero(TP)
+    if impliedVolGuess == zero(T)
+        v0 = impliedVolatilitySqrtTimeRationalGuess(x, c)
         # if abs(x) < 3 && c > 0.0005 && c < 0.9995 #domain of validity of the rational approximation
         #     v0 = impliedVolatilitySqrtTimeRationalGuess(x, c)
         #     #        println("guess R ",v0," ",v0/sqrtte)
         # else
-            v0 = T(impliedVolatilitySRGuessUndiscountedCall(Float64(c), Float64(ex), Float64(x)))
+            # v0 = TP(impliedVolatilitySRGuessUndiscountedCall(c, ex, x))
             #    println("guess SR ",v0," ",v0/sqrtte,x,c)
         # end
     else
@@ -82,15 +83,15 @@ end
 
 
 function computeLiSOR(
-    c::T,
+    c::TP,
     x::T,
     ex::T,
-    v0::T,
+    v0::TP,
     sqrttte::T,
     tolerance::T,
     maxIterations::Int,
     solver::SORSolver,
-)::T where {T}
+)::TP where {T,TP}
     v = v0
     if maxIterations <= 0
         return v
@@ -103,14 +104,14 @@ function computeLiSOR(
     Nm = erfcx(-(h - t)/sqrt2)
     norm = exinvsqrt /2 * exp(-(h^2 + t^2)/2)
     cEstimate = norm * (Np - Nm)
-    if cEstimate < 0
-        cEstimate = T(0)
+    if cEstimate < zero(TP)
+        cEstimate = zero(TP)
     end
 
     phi = (v^2 + 2 * x) / (v^2 - 2 * x)
     omega = omegaSOR(solver, phi)
     iterations = 0
-    vOld = T(0)
+    vOld = zero(TP)
     vTolerance = 64 * eps(T) * sqrttte #accuracy of inversion is limited, do not loop forever
     while abs(v - vOld) > vTolerance && abs(c - cEstimate) > tolerance && iterations < maxIterations
         vOld = v
@@ -121,7 +122,7 @@ function computeLiSOR(
         if Fom >= 1
             Fom = F / 2
         end
-        Nm1 = T(0)
+        Nm1 = zero(T)
         #try
             Nm1 = norminv(Fom)
         #catch y
@@ -141,10 +142,7 @@ function computeLiSOR(
         # Np = normcdf(h+t)
         # Nm = normcdf(h-t)/ex
         # norm = 1.0
-        cEstimate = norm * (Np - Nm)
-        if cEstimate < 0
-            cEstimate = 0
-        end
+        cEstimate = max(zero(TP),norm * (Np - Nm))
         iterations += 1
         #    println("SORTS ",iterations, " ",abs(v-vOld)," ",abs(c-cEstimate))
     end
@@ -152,17 +150,17 @@ function computeLiSOR(
     return sigma
 end
 
-function iterateSOR(solver::SORTS, v::T, G::T, alpha::T)::T where {T}
+function iterateSOR(solver::SORTS, v, G, alpha)
     return alpha * G + (1 - alpha) * v
 end
-function iterateSOR(solver::SORDR, v::T, G::T, alpha::T)::T where {T}
+function iterateSOR(solver::SORDR, v, G, alpha) 
     return G
 end
 
-function omegaSOR(solver::SORTS, phi::T)::T where {T}
+function omegaSOR(solver::SORTS, phi)
     return 1
 end
 
-function omegaSOR(solver::SORDR, phi::T)::T where {T}
+function omegaSOR(solver::SORDR, phi)
     return phi
 end

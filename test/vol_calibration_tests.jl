@@ -68,8 +68,22 @@ using AQFED.PDDE
         )
         ivkb3 = @. Black.impliedVolatility(true, Collocation.priceEuropean(bspl3, true, strikeA, forward, 1.0), forward, strikeA, tte, 1.0);
         rmseb3 = StatsBase.L2dist(w .* volA, w .* ivkb3)
-   
-   #=  
+        lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Equidistributed",size=10,L=strikes[1],U=strikes[end])
+        ivkq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikeA), forward, strikeA, tte, 1.0);        rmseq = StatsBase.L2dist(w .* volA, w .* ivkq)
+        lvgqe = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=strikes[1],U=strikes[end])
+        ivkq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgqe, true, strikeA), forward, strikeA, tte, 1.0);
+        rmseq = StatsBase.L2dist(w .* volA, w .* ivkq)
+        solvers=["LM","LM-Curve","GN-LOG","GN-ALG","GN-MQ","LM-LOG","LM-ALG","LM-MQ"]
+        for guess = ["Constant","Spline"]
+        for solverName = solvers
+            lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Equidistributed",size=10,L=strikes[1],U=strikes[end],optimizer=solverName,guess=guess)
+            ivkq = Black.impliedVolatility.(forward.<strikes, abs.(PDDE.priceEuropean.(lvgq, forward.<strikes, strikeA)), forward, strikeA, tte, 1.0);        rmseq = StatsBase.L2dist(w .* volA, w .* ivkq)
+            elapsed = @belapsed PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Equidistributed",size=10,L=strikes[1],U=strikes[end],optimizer=$solverName, guess=$guess)
+            println(guess, " ",solverName, " ",rmseq," ",elapsed)
+        end
+    end
+            #=   
+
      kFine = forward.*exp.(range(logmoneynessA[1],stop=logmoneynessA[end], length=1001));
   p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exp B-Spline")
@@ -94,6 +108,15 @@ savefig("/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_bspl.pdf")
 plot!(size=(480,380))
     savefig("/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_schaback.pdf")
 
+      p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+ plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
+plot!(p3, size=(480,380))
+savefig(p3,"/home/fabien/mypapers/eqd_book/spxw170324_170316_vol_lvgq.pdf")
+p2 = plot(kFine,(PDDE.derivativePrice.(lvgqe,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqe,true,kFine)).*10000, label="Mid-XX n=147",yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
+plot!(p2,kFine,(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="Equidistributed n=10",yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
+plot!(p2,legend=:topleft)
+plot!(p2, size=(480,380))
+    savefig(p2,"/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_lvgq.pdf")
    =#
    
     allStrikes = vcat(0.0, strikesf, forward*exp(logmoneynessA[end]*3))
@@ -435,6 +458,20 @@ plot!(p4,log.(kFine), Collocation.density.(bspl2,kFine),label="Quadratic B-splin
  plot!(p4, size=(480,320))
 savefig("/home/fabien/mypapers/eqd_book/audnzd_bspl_dens.pdf")
 ==#
+lvgq = PDDE.calibrateQuadraticLVG(tte, forward, k, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=k[1],U=k[end])
+ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, k), forward, k, tte, 1.0)
+rmseLVG = StatsBase.rmsd(vols, ivkLVG)
+
+    #=
+
+p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
+plot!(p3, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/audnzd_lvgq_vol.pdf")
+p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
+ plot!(p2, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/audnzd_lvgq_dens.pdf")
+=#
 
     pp = PPInterpolation.CubicSplineNatural(log.(k ./ forward), vols .^ 2)
     pp = PPInterpolation.CubicSplineNatural(k, vols)
@@ -607,7 +644,7 @@ end
     forward = 1.0
     tte = 5.07222222222222
     w1 = ones(length(strikes))
-    prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte, vegaFloor=1e-7)
+    prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte, vegaFloor=1e-8)
     fengler = AQFED.VolatilityModels.calibrateFenglerSlice(tte, forward, strikes, prices, (weights), λ=60, eps=1e-13, solver="GI")
     ivstrikesFengler = @. Black.impliedVolatility(
         true,
@@ -650,6 +687,23 @@ end
     )
     rmse = StatsBase.rmsd(ivstrikes, vols)
     println("LVG-Black ", rmse)
+
+lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=k[1],U=k[end])
+ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
+rmseLVG = StatsBase.rmsd(vols, ivkLVG)
+
+    #=
+
+p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
+plot!(p3, ylim=(21,25),xlim=(-0.1,3.6), size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_lvgq_vol.pdf")
+p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
+ plot!(p2, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_lvgq_dens.pdf")
+=#
+
+
     #= 
     pdf(pp,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(log(y/forward))*tte,1.0,1.0),x),z)
 
@@ -760,6 +814,7 @@ plot!(p4, size=(400,200))
 savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_bspl_dens.pdf")
 ==#
   
+
     allStrikes = vcat(0.0, strikes, 50.0)
     allPrices = vcat(forward, prices, 0.0)
     leftB = Math.FirstDerivativeBoundary(-1.0)
@@ -1011,6 +1066,21 @@ savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_bspl_dens.pdf")
     )
     rmse = StatsBase.rmsd(ivstrikes, vols)
     println("LVG-Black ", rmse)
+
+lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=k[1],U=k[end])
+ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0);rmseLVG = StatsBase.rmsd(vols, ivkLVG)
+
+    #=
+
+p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
+plot!(p3, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_lvgq_vol.pdf")
+p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvg,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvg,true,kFine)).*10000, label="Linear-Black", xlab="Forward log-moneyness",ylab="Probability density")
+plot!(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="Quadratic", xlab="Forward log-moneyness",ylab="Probability density")
+ plot!(p2, size=(480,320),scale=:log10)
+ savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_lvgq_dens_log.pdf")
+=#
     prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte, vegaFloor=1e-7)
     sumw2 = sum(w1 .^ 2);w = w1 ./ sqrt(sumw2);
 kernel2 = AQFED.VolatilityModels.calibrateLognormalMixture(tte, forward, strikes, prices, weights, useVol=false,size=2)
@@ -1369,8 +1439,29 @@ plot!(legend=:bottom)
     )
     rmse = StatsBase.L2dist(w .* ivstrikes, w .* vols)
     println("LVG-Black ", rmse)
+    lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Equidistributed",size=10,L=strikes[1],U=strikes[end])
+    ivstrikes = @. Black.impliedVolatility(
+        true,
+        PDDE.priceEuropean(lvgq, true, strikes),
+        forward,
+        strikes,
+        tte,
+        1.0,
+    )
+    rmse = StatsBase.L2dist(w .* ivstrikes, w .* vols)
+
     #plot(kFine,(AQFED.PDDE.derivativePrice.(lvg,true,kFine.+0.0001) .- AQFED.PDDE.derivativePrice.(lvg,true,kFine)).*10000, label="LVG")
 
+    #=
+
+p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
+plot!(p3, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_lvgq_vol.pdf")
+p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
+ plot!(p2, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_lvgq_dens.pdf")
+=#
    kernel2 = AQFED.VolatilityModels.calibrateLognormalMixture(tte, forward, strikes, prices, weights, useVol=false,size=2)
     ivkMLN2= @. AQFED.Black.impliedVolatility(
         strikes >= forward,
@@ -1479,7 +1570,9 @@ end
  )
  ivkb3 = @. Black.impliedVolatility(true, Collocation.priceEuropean(bspl3, true, strikes, forward, 1.0), forward, strikes, tte, 1.0);
  rmseb3 = StatsBase.L2dist(w .* vols, w .* ivkb3)
-
+ lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Equidistributed",size=10, L=strikes[1], U=strikes[end])
+ ivkq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0);
+ rmseq = StatsBase.L2dist(w .* vols, w .* ivkq)
 #== 
 kFine = forward.*exp.(range(logmoneynessA[1],stop=logmoneynessA[end], length=1001));
 p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
@@ -1496,6 +1589,12 @@ savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_dens_bspl.pdf")
     #=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference",markersize=3,markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, Collocation.priceEuropean.(sol5,true,kFine), forward, kFine, tte, 1.0)*100),label="Collocation")
     
+p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
+savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218_lvgq.pdf")
+p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
+ plot!(p2, size=(480,380))
+ savefig("/home/fabien/mypapers/eqd_book/density_spw_1m_050218_lvgq.pdf")
    =#
     
     λs = [1.6e4, 3.2e4, 6.4e4]
@@ -1816,6 +1915,11 @@ end
     )
     rmse = StatsBase.L2dist(w .* ivstrikes, w .* vols)
     println("LVG-Black ", rmse)
+    lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Equidistributed",size=10,L=strikes[1],U=strikes[end])
+    ivkq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0);
+    rmseq = StatsBase.L2dist(w .* vols, w .* ivkq)
+
+
     bspl, m = Collocation.makeExpBSplineCollocation(
         strikes,
         prices,
@@ -1878,6 +1982,16 @@ end
  #plot!(p4,yscale=:log10)
  plot!(p4, size=(480,320),legend=:topleft)
  savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_dens_bspl.pdf")
+
+   
+p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
+plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
+plot!(p3, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_vol_lvgq.pdf")
+p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
+ plot!(p2, size=(480,320))
+ savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_dens_lvgq.pdf")
+
  ==#   
  
 

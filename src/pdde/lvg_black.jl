@@ -2,7 +2,7 @@ using LinearAlgebra
 using LeastSquaresOptim
 using GaussNewton
 import AQFED.Black: impliedVolatilitySRHalley, Householder
-import AQFED.Math: ClosedTransformation, inv
+import AQFED.Math: ClosedTransformation, inv, IdentityTransformation
 export ConstantBlackLVG, LinearBlackLVG, priceEuropeanCall
 struct ConstantBlackLVG{TV,T}
     x::Vector{T}
@@ -23,7 +23,7 @@ end
 Base.broadcastable(p::LinearBlackLVG) = Ref(p)
 
 
-function priceEuropean(model::LinearBlackLVG{TV,T}, isCall::Bool, strike::T) where {TV,T}
+function priceEuropean(model::LinearBlackLVG{TV,T}, isCall::Bool, strike) where {TV,T}
     x = model.x
     if strike <= x[1] || strike >= x[end]
         return isCall ? max(model.forward - strike, 0.0) : max(strike - model.forward, 0.0)
@@ -147,11 +147,10 @@ function computeCoeffsLinearBlack(s::Int, tte::T, strikes::AbstractVector{T}, α
     bi = (αmp - αm) / (strikes[m+1] - strikes[m])
     ai = -strikes[m] * bi + αm
     ωm = sqrt(4 / ai^2 + 1) / 2
-    coshm = cosh(ωm * (zip - zi))
-    sinhm = sinh(ωm * (zip - zi))
+    tanhm = tanh(ωm * (zip - zi))
     # u1=thetaOs, u2=theta0c, u3=theta1s, u4=theta1c    ...
-    lhsd[2m] = coshm
-    lhsdl[2m-1] = sinhm
+    lhsd[2m] = one(T)
+    lhsdl[2m-1] = tanhm
     rhs[2m] = zero(T)
 
     #    println("solving with a=",a," lhsdl=",lhsdl," lhsd=",lhsd," lhsdu",lhsdu)
@@ -195,9 +194,10 @@ function calibrateLinearBlackLVG(tte::T, forward::T, strikes::AbstractVector{T},
     end
     minValue = sqrt(2 / tte) / 2000
     maxValue = 1.0 / (4minValue)
-    #println("forward found ", strikes[s], " min ", minValue, " max ", maxValue, " a0 ",a0," ",s)
+  # println("forward found ", strikes[s], " min ", minValue, " max ", maxValue, " a0 ",a0," ",s)
 
     transform = ClosedTransformation(minValue, maxValue)
+    # transform = IdentityTransformation{T}()
     iter = 0
     function fillAWithParams!(a,θ::AbstractArray{W}, c) where {W}
         if isForwardOnGrid
@@ -272,9 +272,9 @@ function calibrateLinearBlackLVG(tte::T, forward::T, strikes::AbstractVector{T},
             for i = 3:length(x)-2
                 if θ[2i-2] != zero(W) && θ[2i] != zero(W) && θ[2i+2] != zero(W)
 
-                vim = log(θ[2i-2] / ((a[i-1]*x[i-1])^2 * tte))
-                vi = log(θ[2i] / ((a[i]*x[i])^2 * tte))
-                vip = log(θ[2i+2] / ((a[i+1]*x[i+1])^2 * tte))
+                vim = log(abs(θ[2i-2]) / ((a[i-1]*x[i-1])^2 * tte))
+                vi = log(abs(θ[2i]) / ((a[i]*x[i])^2 * tte))
+                vip = log(abs(θ[2i+2]) / ((a[i+1]*x[i+1])^2 * tte))
           
                 fvec[i+n-2] = sumw * penalty * ((vip-vi)/(x[i+1]-x[i]) - (vi-vim)/(x[i]-x[i-1]))
                 else
@@ -300,16 +300,18 @@ function calibrateLinearBlackLVG(tte::T, forward::T, strikes::AbstractVector{T},
     end
     fit = LeastSquaresOptim.optimize!(
         LeastSquaresProblem(x=x0, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
-            output_length=outlen),
-        LevenbergMarquardt();
+            output_length=outlen), 
+        LevenbergMarquardt();    
+        #   lower=fill(minValue,length(x0)),upper=fill(maxValue,length(x0))  ,
         iterations=1000
     )
+    x0 = fit.minimizer
     fvec = zeros(Float64, outlen)
     # fit = GaussNewton.optimize!(obj!,x0,fvec,autodiff=:forward)
-    obj!(fvec, fit.minimizer)
-    #println(iter, " fit ", fit)
+    obj!(fvec, x0)
+    # println(iter, " fit ", fit)
     θ = zeros(T, 2m)
-    fillAWithParams!(a,θ, fit.minimizer)
+    fillAWithParams!(a,θ, x0)
     return LinearBlackLVG(x, a, θ, tte, forward)
 end
 

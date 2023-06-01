@@ -28,7 +28,7 @@ ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgqnotc3, true, s
 rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
 @test isapprox(0.0,rmseLVGq,atol=1e-8)
 #=
-kFine = range(0.8,stop=strikes[end],length=501)
+kFine = range(0.8,stop=strikes[end],length=401)
 plot(kFine, @.(AQFED.Math.normpdf((log(forward/kFine)-0.5*vols[1]^2*tte)/(vols[1]*sqrt(tte)) )/(kFine*vols[1]*sqrt(tte)) ),xlab="Strike",ylab="Probabiliy density",label="Lognormal",xticks=(vcat(kFine[1]:0.1:kFine[end], forward),vcat(string.(kFine[1]:0.1:kFine[end]),"F")),linestyle=:dot)
  plot!(kFine,(PDDE.derivativePrice.(lvgqnotc3,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqnotc3,true,kFine)).*10000, label="C1 quadratic B-spline")
   plot!(kFine,(PDDE.derivativePrice.(lvgqc3,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqc3,true,kFine)).*10000, label="Quadratic B-Spline with C3 condition")
@@ -54,14 +54,14 @@ strikes=round.([95.25466637597646,
  #weights = ones(length(vols))
  prices, weights = Collocation.weightedPrices(true, strikes, vols, ones(length(vols)), forward, 1.0, tte, vegaFloor=1e-7)
  locations = ["Strikes","Mid-X","Mid-XX","Mid-Strikes","Uniform"]
- lvgq = PDDE.calibrateEQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, L=forward/3, U=forward*3,model="Quadratic",location="Strikes")
+ lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, L=forward/3, U=forward*3,model=PDDE.Quadratic(),location="Strikes")
  ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
  rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
  @test isapprox(0.0,rmseLVGq,atol=1e-8)
 #= kFine = range(strikes[1]/1.25,stop=strikes[end]*1.25,length=401)
  p1=plot(kFine, @.(AQFED.Math.normpdf((log(forward/kFine)-0.5*vols[1]^2*tte)/(vols[1]*sqrt(tte)) )/(kFine*vols[1]*sqrt(tte)) ),xlab="Strike",ylab="Probabiliy density",label="Lognormal",linestyle=:dot)
 for location in locations
- lvgq = PDDE.calibrateEQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, L=forward/3, U=forward*3,model="Quadratic",location=location)
+ lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=true, L=forward/3, U=forward*3,model=PDDE.Quadratic(),location=location)
  ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
  rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
  println(location," ",rmseLVGq)
@@ -100,21 +100,18 @@ strikes = sort(vcat(forward,strikes[1:end-1]))
 strikesD = [0.85, 0.90, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4].*100
 strikesD = sort(vcat(forward,strikesD[1:end-1]))
 
-strikesD = [0.85, 0.90, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4].*100
-strikesD = sort(vcat(forward,strikesD[1:end-1]))
-
-for (name,strikes) in zip(["A","B,","C","D"],[strikesA,strikesB,strikesC,strikesD])
+for (name,strikes) in zip(["A","B","C","D"],[strikesA,strikesB,strikesC,strikesD])
     prices, weights = Collocation.weightedPrices(true, strikes, vols, ones(length(vols)), forward, 1.0, tte, vegaFloor=1e-7)
     p1=plot(kFine, @.(AQFED.Math.normpdf((log(forward/kFine)-0.5*vols[1]^2*tte)/(vols[1]*sqrt(tte)) )/(kFine*vols[1]*sqrt(tte)) ),xlab="Strike",ylab="Probabiliy density",label="Lognormal",linestyle=:dot)
     for location in locations
-     lvgq = PDDE.calibrateEQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, L=forward/3, U=forward*3,model="Quadratic",location=location)
+     lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, L=forward/3, U=forward*3,model=PDDE.Quadratic(),location=location)
      ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
      rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
      println(name," ",location," ",rmseLVGq)
       plot!(p1, kFine,(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=location)
     end
-     plot!(p1,xlims=(80,140))
+     plot!(p1,xlims=(80,140),ylims=(0.0,0.06))
       plot!(p1,size=(480,320))
-      savefig(p1,string("/home/fabien/mypapers/eqd_book/lvgq_lognormal_density_set_",name,".pdf"))
+      # savefig(p1,string("/home/fabien/mypapers/eqd_book/lvgq_lognormal_density_set_",name,".pdf"))
  #best fit is MidXX
 end

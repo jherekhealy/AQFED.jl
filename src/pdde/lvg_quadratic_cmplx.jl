@@ -3,7 +3,7 @@ using LeastSquaresOptim
 using GaussNewton
 import AQFED.Black: blackScholesFormula, impliedVolatilitySRHalley, Householder
 import AQFED.Math: ClosedTransformation, inv
-import PPInterpolation: PP, evaluatePiece, evaluateDerivativePiece, evaluateSecondDerivativePiece
+import PPInterpolation: PP, evaluatePiece, evaluateDerivativePiece, evaluateSecondDerivativePiece, LEFT_KNOT, QuadraticLagrangePP
 
 struct EQuadraticLVG{TV,T,TC}
     x::Vector{T}
@@ -128,7 +128,8 @@ function derivativePrice(model::EQuadraticLVG{TV,T,TC}, isCall::Bool, strike::T)
         #κ = (b / (a+b*strike) + c / (1+c*strike)) / (2 * dz)
         κ = (one(T) / (strike - x1) + one(T) / (strike - x2)) / (2dz)
         sh, ch = sinh(u), cosh(u)
-        # println(ω ," zzi",zzi," u ",u, " ",ch," ",sh)
+        #  println(ω ," zzi",zzi," u ",u, " ",ch," ",sh," ",κ*dz," ",dz)
+        #  println(dz * ((κ * (model.θ[2i-1]) + ω * (model.θ[2i])) * sh))
         real(χ * dz * ((κ * (model.θ[2i-1]) + ω * (model.θ[2i])) * sh + (κ * (model.θ[2i]) + ω * (model.θ[2i-1])) * ch))
     end
     if isCall && strike < model.forward
@@ -283,44 +284,57 @@ function makeKnots(tte::T, forward::T, strikes::AbstractVector{T}, size::Int; L=
             uStrikes = range(strikes[1], stop=strikes[end], length=length(strikes) + 1)
             us = searchsortedfirst(uStrikes, forward)
             vcat(L, uStrikes .+ (forward - uStrikes[us]), U)
+        elseif location == "Log-Uniform"
+            uStrikes = exp.(range(log(strikes[1]), stop=log(strikes[end]), length=length(strikes) + 1))
+            us = searchsortedfirst(uStrikes, forward)
+            vcat(L, uStrikes .+ (forward - uStrikes[us]), U)
+        
         end
     else
 
         uStrikes = if location == "Uniform"
             range(start=strikes[1], stop=strikes[end], length=size)
+        elseif location == "Log-Uniform"
+            exp.(range(log(strikes[1]), stop=log(strikes[end]), length=size))
+            #TODO uniform centered on forward,  or max.
+        elseif location == "Log-Uniform-C"
+            span = max(strikes[end]/forward,forward/strikes[1])
+            exp.(range(log(forward/span), stop=log(forward*span), length=size))    
         elseif location == "Equidistributed"
             indices = round.(Int, range(1, stop=length(strikes), length=size))
             strikes[indices]
         end
-        origStrikes = if size >= 0 && size != length(strikes)
-            #if bucket is empty remove 
-            count = 1
-            newStrikes = [uStrikes[1]]
-            index = 2
-            for strike = strikes
-                if strike < uStrikes[index]
-                    count += 1
-                else
-                    if count >= minCount
-                        push!(newStrikes, uStrikes[index])
-                        count = 0
-                    else
-                        if index == length(uStrikes)
-                            newStrikes[end] = uStrikes[index]
-                        end
-                    end
-                    if index == length(uStrikes)
-                        break
-                    end
-                    index += 1
-                end
-            end
-            newStrikes
-        else
-            uStrikes
-        end
+        # origStrikes = if size >= 0 && size != length(strikes)
+        #     #if bucket is empty remove 
+        #     count = 1
+        #     newStrikes = [uStrikes[1]]
+        #     index = 2
+        #     for strike = strikes
+        #         if strike < uStrikes[index]
+        #             count += 1
+        #         else
+        #             if count >= minCount
+        #                 push!(newStrikes, uStrikes[index])
+        #                 count = 0
+        #             else
+        #                 if index == length(uStrikes)
+        #                     newStrikes[end] = uStrikes[index]
+        #                 end
+        #             end
+        #             if index == length(uStrikes)
+        #                 break
+        #             end
+        #             index += 1
+        #         end
+        #     end
+        #     newStrikes
+        # else
+        #     uStrikes
+        # end
+        # println(uStrikes)
+        origStrikes = uStrikes
         s = searchsortedfirst(origStrikes, forward) #index of forward
-        x = vcat(L, (origStrikes[1] * 3 - origStrikes[2]) / 2, (origStrikes[1:s-2] + origStrikes[2:s-1]) / 2, (origStrikes[s:end-1] + origStrikes[s+1:end]) / 2, (-origStrikes[end-1] + 3 * origStrikes[end]) / 2, U) #good dens worse fit 
+        x = sort(vcat(L, (origStrikes[1] * 3 - origStrikes[2]) / 2, (origStrikes[1:s-2] + origStrikes[2:s-1]) / 2, (origStrikes[s:end-1] + origStrikes[s+1:end]) / 2, (-origStrikes[end-1] + 3 * origStrikes[end]) / 2, U)) #good dens worse fit 
         return x
     end
 
@@ -345,7 +359,7 @@ function calibrateEQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, 
         qStrikes = strikes[s-1:s+1]
         qPrices = callPrices[s-1:s+1]
         qvols = @. impliedVolatilitySRHalley(true, qPrices, forward, qStrikes, tte, 1.0, 0e-14, 64, Householder())
-        lagrange = QuadraticLagrangePP(qStrikes, qvols, knotStyle=PPInterpolation.LEFT_KNOT)
+        lagrange = QuadraticLagrangePP(qStrikes, qvols, knotStyle=LEFT_KNOT)
         fVol = lagrange(forward)
         fPrice = blackScholesFormula(true, forward, forward, fVol^2 * tte, 1.0, 1.0)
         priceAtm = fPrice
@@ -397,7 +411,7 @@ function calibrateEQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, 
     #     # minValue*=10
     #     maxValue*=forward
     # end
-    println(s, " forward found ", strikes[s], " min ", minValue, " max ", maxValue, " a0 ", a0)
+    println(s, " forward found ", strikes[s], " min ", minValue, " max ", maxValue, " a0 ", a0," atm ",priceAtm)
 
     transform = ClosedTransformation(minValue, maxValue)
     iter = 0
@@ -558,8 +572,11 @@ function calibrateEQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, 
         fvec
     end
     σ = zeros(T, l)
+    Random.seed!(1)
+    epsvec = rand(T,l)*sqrt(eps(T))
+ 
     for i = eachindex(σ)
-        σ[i] = inv(transform, a0)
+        σ[i] = inv(transform, a0*(1+epsvec[i]))
     end
     x0 = σ[1:l]
     outlen = length(callPrices)
@@ -567,16 +584,17 @@ function calibrateEQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, 
         outlen += m - 1
     end
     fit = LeastSquaresOptim.optimize!(
-        LeastSquaresProblem(x=x0, (f!)=obj!, autodiff=:central, #:forward is 4x faster than :central
+        LeastSquaresProblem(x=x0, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
             output_length=outlen),
         LevenbergMarquardt();
         iterations=1000
     )
+    x0 = fit.minimizer
     fvec = zeros(Float64, outlen)
     # fit = GaussNewton.optimize!(obj!,x0,fvec,autodiff=:forward)
-    obj!(fvec, fit.minimizer)
-    #println(iter, " fit ", fit)
-    @. σ[1:l] = transform(fit.minimizer)
+    obj!(fvec, x0)
+    println(iter, " fit ", fit)
+    @. σ[1:l] = transform(x0)
     println("σ=", σ)
     γ = zeros(T, m)
     β = zeros(T, m)

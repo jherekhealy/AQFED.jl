@@ -73,3 +73,63 @@ end
 function inv(f::MQMinTransformation{T}, y) where {T}
     return sqrt((y + 1 - f.minValue)^2 - 1)/f.r
 end
+
+struct LogisticTransformation{T} <: Bijection
+    minValue::T
+    maxValue::T
+end
+
+function (f::LogisticTransformation{T})(x) where {T}
+    return f.minValue + (f.maxValue-f.minValue)/(one(T)+exp(-x))
+end
+
+function inv(f::LogisticTransformation{T}, y) where {T}
+    # y = 1/1+emx == 1/y = 1 + emx == -x = log(1/y-y/y)  x = log(y/(1-y))
+    y0 = (y - f.minValue)/(f.maxValue-f.minValue)
+    return log(y0/(one(T)-y0))
+end
+
+
+struct TanhTransformation{T} <: Bijection
+    minValue::T
+    maxValue::T
+end
+
+function (f::TanhTransformation{T})(x) where {T}
+    return (f.minValue + f.maxValue) / 2 + (f.maxValue-f.minValue)/2*tanh(x)
+end
+
+function inv(f::TanhTransformation{T}, y) where {T}
+    y0 = 2(y - (f.minValue + f.maxValue) / 2)/(f.maxValue-f.minValue)
+    return atanh(y0)
+end
+
+struct AtanTransformation{T} <: Bijection
+    minValue::T
+    maxValue::T
+end
+
+function (f::AtanTransformation{T})(x) where {T}
+    return (f.minValue + f.maxValue) / 2 + (f.maxValue-f.minValue)/pi*atan(x*pi/2)
+end
+
+function inv(f::AtanTransformation{T}, y) where {T}
+    y0 = (y - (f.minValue + f.maxValue) / 2)/(f.maxValue-f.minValue)*pi
+    return tan(y0)*2/pi
+end
+
+
+struct AlgebraicTransformation{T} <: Bijection
+    minValue::T
+    maxValue::T
+end
+
+function (f::AlgebraicTransformation{T})(x) where {T}
+    return  (f.minValue + f.maxValue) / 2 + (f.maxValue-f.minValue)/2*x/sqrt(one(T)+x^2)
+end
+
+function inv(f::AlgebraicTransformation{T}, y) where {T}
+    y0 = 2(y - (f.minValue + f.maxValue) / 2)/(f.maxValue-f.minValue)
+    # y = x / sqrt(1+X^2) === y^2 (1+x^2)= x^2 === x^2 (1-y^2)= y^2
+    return y0/sqrt(one(T)-y0^2)
+end
