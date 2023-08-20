@@ -52,7 +52,7 @@ Black.impliedVolatility(true, price, f, strike, T, dfPayment)
 and the output is: 0.009999999999999999999999999999999999999999999999999999999999999999999999999787059, for a price of 3.005699303008737538090695390409788090781673843536520016899477489819371529654813e-361
 
 ### Benchmarking
-# Single iv lookup
+#### Single iv lookup
 ```julia
 import AQFED.Black
 using BenchmarkTools
@@ -67,7 +67,7 @@ price = Black.blackScholesFormula(true, strike, f, vol * vol * T, 1.0, dfPayment
 @benchmark Black.impliedVolatilityJaeckel(true, price, f, strike, T, dfPayment)
 ```
 
-# Test from Zhenyu Cui,Yanchu Liu and Yuhang Yao 
+#### Test from Zhenyu Cui,Yanchu Liu and Yuhang Yao 
 Reproduction of  the Table 2 from "Tighter bounds for implied volatility based on the Dirac delta family method"
 
 ```julia
