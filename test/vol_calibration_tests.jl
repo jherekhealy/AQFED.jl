@@ -297,6 +297,42 @@ plot(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel2,kFine),label=
 plot!(size=(800,320),margin=3Plots.mm)
     savefig("/home/fabien/mypapers/eqd_book/density_spw_1m_050218_mln6.pdf")
 =  =#
+
+##LVG vs AH
+w1 = ones(length(prices));
+ah = PDDE.calibrateDiscreteLogLVG(tte, forward, strikes, prices, w1, useVol=true, model=PDDE.Quadratic(),location="Equidistributed",optimizer="GN-MQ",L=strikes[1]/2,U=strikes[end]*2,isC3=true,size=10,discreteSize=1000)
+lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, w1, useVol=true, model=PDDE.Quadratic(),location="Equidistributed",optimizer="LM-ALG",L=strikes[1]/2,U=strikes[end]*2,isC3=true,size=10)
+ah100 = PDDE.calibrateDiscreteLogLVG(tte, forward, strikes, prices, w1, useVol=true, model=PDDE.Quadratic(),location="Equidistributed",optimizer="GN-MQ",L=strikes[1]/2,U=strikes[end]*2,isC3=true,size=10,discreteSize=101)
+ah1000 = PDDE.calibrateDiscreteLogLVG(tte, forward, strikes, prices, w1, useVol=true, model=PDDE.Quadratic(),location="Equidistributed",optimizer="GN-MQ",L=strikes[1]/2,U=strikes[end]*2,isC3=true,size=10,discreteSize=1000)
+
+#=
+d2price(strike) = ForwardDiff.derivative(y -> ForwardDiff.derivative(x -> PDDE.priceEuropean(ah,true,x),y),strike)
+
+plot(log.(kFine./forward),d2price.(kFine), label="AH-1000 LinearBlack", xlab="Forward log-moneyness",ylab="Probability density",ylims=(1e-10,2e-2),yscale=:log10)
+plot!(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="LVG LinearBlack", xlab="Forward log-moneyness",ylab="Probability density",yscale=:log10,z_order=:back)
+
+ah = ah100
+plot(log.(kFine./forward),d2price.(kFine), label="Andreasen-Huge l=101", xlab="Forward log-moneyness",ylab="Probability density",ylims=(1e-10,1.0),yscale=:log10,z_order=:back)
+plot!(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="LVG", xlab="Forward log-moneyness",ylab="Probability density",yscale=:log10,z_order=:back)
+ah = ah1000
+plot!(log.(kFine./forward),d2price.(kFine), label="Andreasen-Huge l=1000", xlab="Forward log-moneyness",ylab="Probability density",ylims=(1e-10,2e-2),yscale=:log10)
+plot!(legend=:topleft)
+ plot!(size=(480,380))
+ savefig("/home/fabien/mypapers/eqd_book/density_spw_1m_050218ahspl_d.pdf")
+ p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5)
+plot!(p3,log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(lvgq,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="LVG")
+ plot!(p3,log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(ah100,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Andreasen-Huge l=101")
+plot!(p3,log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(ah1000,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Andreasen-Huge l=1000")
+ plot!(p3,size=(480,380))
+ savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218ahspl.pdf")
+
+ plot(log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(ah100,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Andreasen-Huge l=101")
+ plot!(log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(lvgq,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="LVG",xlab="Forward log-moneyness", ylab="Implied volatility in %",z_order=:back,linestyle=:dot)
+ plot!(ylims=(5,50),xlim=(-0.3,0.12))
+plot!(size=(480,380))
+savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218ahspl_d100.pdf")
+
+=#
 end
 
 @testset "deltavol" begin
@@ -458,7 +494,7 @@ plot!(p4,log.(kFine), Collocation.density.(bspl2,kFine),label="Quadratic B-splin
  plot!(p4, size=(480,320))
 savefig("/home/fabien/mypapers/eqd_book/audnzd_bspl_dens.pdf")
 ==#
-lvgq = PDDE.calibrateQuadraticLVG(tte, forward, k, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=k[1],U=k[end])
+lvgq = PDDE.calibrateQuadraticLVG(tte, forward, k, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=k[1]/2,U=k[end]*2)
 ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, k), forward, k, tte, 1.0)
 rmseLVG = StatsBase.rmsd(vols, ivkLVG)
 
@@ -592,7 +628,20 @@ plot(log.(k./forward), vols.*100, seriestype= :scatter, label="Reference"); xlab
     plot!(log.(kFine./forward),AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,kFine),label="Fengler")
 
     =#
-
+    allStrikes = vcat(0.0, k, k[end]*2)
+    allPrices = vcat(forward, prices, 0.0)
+    leftB = Math.FirstDerivativeBoundary(-1.0)
+    rightB = Math.FirstDerivativeBoundary(0.0)
+    cs = Math.makeConvexSchabackRationalSpline(allStrikes, allPrices, leftB, rightB, iterations=128)
+    ivstrikes = @. Black.impliedVolatility(
+        true,
+        cs(k),
+        forward,
+        k,
+        tte,
+        1.0,
+    )
+    rmse = StatsBase.rmsd(ivstrikes, vols)
 end
 @testset "jaeckel1" begin
     strikes = [
@@ -688,7 +737,8 @@ end
     rmse = StatsBase.rmsd(ivstrikes, vols)
     println("LVG-Black ", rmse)
 
-lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=k[1],U=k[end])
+#for linear, use isC3=false as forward is part of the strikes and there is no extra param.
+lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=strikes[1]/2,U=strikes[end]*2)
 ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
 rmseLVG = StatsBase.rmsd(vols, ivkLVG)
 
@@ -2161,4 +2211,59 @@ savefig("/home/fabien/mypapers/eqd_book/kahale_fengler_dens.pdf")
 
 #Prior RBF?
 =#
+
+### LVG
+# forward*(1-strike/forward)
+surfaceLVG = PDDE.calibrateLVGSurface(expiries,forwards,strikesM,prices,weightsM)
+for (i,expiry) in enumerate(expiries)
+    for (j,strike) in enumerate(strikes)
+        y = log(strike/forwards[i])
+        volij = sqrt(PDDE.varianceByLogmoneyness(surfaceLVG, y, expiry))
+        println(expiry," ",strike," ",volij, " ",vols[i,j]," ",volij-vols[i,j])
+    end    
 end
+#=
+using Plots
+gr()
+k = range(strikes[1],stop=strikes[end],length=101)
+p = plot(xlab="Forward Log-moneyness", ylab="Total variance")
+ for (i,tte) in enumerate(expiries)
+                plot!(p, log.(strikes./forwards[i]), vols[i,:].^2 .*tte, seriestype=:scatter,  markersize=3, markerstrokewidth=-1,label="",color=1)
+                plot!(p, log.(k./forwards[i]), @.((PDDE.varianceByLogmoneyness(surfaceLVG, log(k/forwards[i]),tte))*tte), label=string(tte))
+                end
+plot(p,legendtitle="T")
+savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_totalvar.pdf")
+p2 = plot(xlab="Forward log-moneyness",ylab="Probability density")
+ for (i,tte) in enumerate(expiries)
+    lvgq = surfaceLVG.sections[i]
+                        plot!(p2, log.(k./forwards[i]), (PDDE.derivativePrice.(lvgq,true,k./forwards[i].+0.0001) .- PDDE.derivativePrice.(lvgq,true,k./forwards[i])).*10000, label=string(tte))
+                end
+plot(p2,legendtitle="T")
+
+
+
+pyplot()
+t = range(expiries[1]/2,stop=expiries[end],length=25)
+ivMatrix = zeros(length(t),length(k))
+for (i,tte)= enumerate(t)
+    fi = spot*exp((r-q)*tte)
+    ivMatrix[i,:] = @. sqrt(PDDE.varianceByLogmoneyness(surfaceLVG, log(k/fi),tte))
+end
+plot(t, k, ivMatrix'.*100,st=:surface,camera=(-45,30),ylab="Strike",xlab="Expiry",zlab="Implied volatility in %", legend=:none, zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
+savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_iv3d.pdf")
+plot(t, k, ivMatrix'.*100,st=:surface,camera=(45,30),ylab="Strike",xlab="Expiry",zlab="Implied volatility in %", legend=:none,  zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
+savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_iv3db.pdf")
+
+lvMatrix = zeros(length(t),length(k))
+eps=1e-4
+for (i,tte)= enumerate(t)
+    fi = spot*exp((r-q)*tte)
+    w(y) = PDDE.varianceByLogmoneyness(surfaceLVG, y,tte)*tte
+    lvMatrix[i,:] = @. sqrt((PDDE.varianceByLogmoneyness(surfaceLVG, log(k/fi),tte+eps)*(tte+eps)-PDDE.varianceByLogmoneyness(surfaceLVG, log(k/fi),tte)*tte)/(eps*gatheralDenomFinite(w, log(k/fi))))
+end
+plot(t, k, lvMatrix'.*100,st=:surface,camera=(-45,30),ylab="Strike",xlab="Expiry",zlab="Local volatility in %", legend=:none, zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
+savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_lv3d.pdf")
+plot(t, k, lvMatrix'.*100,st=:surface,camera=(45,30),ylab="Strike",xlab="Expiry",zlab="Local volatility in %", legend=:none,  zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
+savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_lv3db.pdf")
+
+=#

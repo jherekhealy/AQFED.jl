@@ -278,7 +278,12 @@ function makeKnots(tte::T, forward::T, strikes::AbstractVector{T}, size::Int; L=
         elseif location == "Mid-Strikes"
             vcat(L, (strikes[1:end-1] + strikes[2:end]) / 2, U)
         elseif location == "Mid-XX"
-            vcat(L, (strikes[1] * 3 - strikes[2]) / 2, (strikes[1:s-2] + strikes[2:s-1]) / 2, (strikes[s:end-1] + strikes[s+1:end]) / 2, (-strikes[end-1] + 3 * strikes[end]) / 2, U) #good dens worse fit 
+            # x = if strikes[s] == forward
+            #     vcat(L, (strikes[1] * 3 - strikes[2]) / 2, (strikes[1:s-2] + strikes[2:s-1]) / 2, (strikes[s+1:end-1] + strikes[s+2:end]) / 2, (-strikes[end-1] + 3 * strikes[end]) / 2, U) #good dens worse fit 
+            # else
+                vcat(L, (strikes[1] * 3 - strikes[2]) / 2, (strikes[1:s-2] + strikes[2:s-1]) / 2, (strikes[s:end-1] + strikes[s+1:end]) / 2, (-strikes[end-1] + 3 * strikes[end]) / 2, U) #good dens worse fit 
+            # end            
+            # x
         #        strikesWithMidF = sort(vcat(L,strikes,U, (forward+strikes[s-1])/2,(forward+strikes[s])/2))
         elseif location == "Uniform"
             uStrikes = range(strikes[1], stop=strikes[end], length=length(strikes) + 1)
@@ -288,7 +293,11 @@ function makeKnots(tte::T, forward::T, strikes::AbstractVector{T}, size::Int; L=
             uStrikes = exp.(range(log(strikes[1]), stop=log(strikes[end]), length=length(strikes) + 1))
             us = searchsortedfirst(uStrikes, forward)
             vcat(L, uStrikes .+ (forward - uStrikes[us]), U)
-        
+        elseif location == "Log-Uniform-C"
+            span = max(strikes[end]/forward,forward/strikes[1])
+            uStrikes = exp.(range(log(forward/span), stop=log(forward*span), length=size))    
+            us = searchsortedfirst(uStrikes, forward)
+            vcat(L, uStrikes .+ (forward - uStrikes[us]), U) 
         end
     else
 

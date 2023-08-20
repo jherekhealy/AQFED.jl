@@ -33,7 +33,7 @@ struct GaussLegendre <: DeelstraBasketQuadrature
     end
 end
 
-function integrate(q::GaussLegendre, integrand, a::Float64, b::Float64)::Float64
+function integrate(q::GaussLegendre, integrand, a::T, b::T)::T where {T}
     bma2 = (b - a) / 2
     bpa2 = (b + a) / 2
     i2 = bma2 * dot(q.w, integrand.(bma2 .* q.x .+ bpa2))
@@ -68,7 +68,7 @@ struct GaussKronrod <: DeelstraBasketQuadrature
     GaussKronrod(rtol::Float64=1e-8) = new(rtol)
 end
 
-function integrate(q::GaussKronrod, integrand, a::Float64, b::Float64)::Float64 
+function integrate(q::GaussKronrod, integrand, a::T, b::T)::T where {T} 
     i2,err = quadgk(integrand,a,b,rtol=q.rtol)
     return i2
 end
@@ -77,7 +77,7 @@ struct DoubleExponential <: DeelstraBasketQuadrature
     DoubleExponential(rtol::Float64=1e-8) = new(rtol)
 end
 
-function integrate(q::DoubleExponential, integrand, a::Float64, b::Float64)::Float64 
+function integrate(q::DoubleExponential, integrand, a::T, b::T)::T where {T} 
     i2,err = quadde(integrand,a,b,rtol=q.rtol)
     return i2
 end

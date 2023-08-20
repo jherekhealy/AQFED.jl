@@ -1,6 +1,6 @@
 using AQFED, Test, ForwardDiff
 import AQFED.PLN: EtoreGobetPLNPricer, LeFlochLehmanPLNPricer, priceEuropean
-import AQFED.TermStructure: CapitalizedDividend, Dividend, futureValue
+import AQFED.TermStructure: CapitalizedDividend, Dividend, futureValue, TSBlackModel, FlatSurface, ConstantRateCurve
 import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre, GaussKronrod, DoubleExponential, TanhSinh
 
 @testset "EtoreGobetSingle" begin
@@ -250,9 +250,16 @@ end
         t = divTimes[i]
         dividends[i] = CapitalizedDividend{Float64}(Dividend{Float64}(divAmount, t, t, false, false), exp((tte - t) * r))
     end
-    for strike=40.0:5:160.0
-    ptref =  AQFED.PLN.priceEuropeanTRBDF2(true, strike, spot, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends,M=40001,N=365*10+1,ndev=6)(spot)
+    varianceSurface = FlatSurface(σ)
+    discountCurve = ConstantRateCurve(r)
+    driftCurve = ConstantRateCurve(r - q)
+    modeln = TSBlackModel(varianceSurface, discountCurve, driftCurve)
     
+    for strike=40.0:5:160.0
+        payoffV = AQFED.FDM.VanillaEuropean(true, strike, tte)
+        payoffKV = AQFED.FDM.KreissSmoothDefinition(payoffV)
+        ptref = AQFED.FDM.priceTRBDF2(payoffKV, spot,modeln, dividends, M=40001, N=365*10+1, grid=AQFED.FDM.UniformGrid(false), solverName="TDMA", ndev=6)(spot)     
+        # ptref = AQFED.FDM.priceRKG2(payoffKV, spot,modeln, dividends, M=20001, N=365*10+1, grid=AQFED.FDM.UniformGrid(false), ndev=6)(spot)     
     pgl33 = DeelstraBasketPricer(1, 3,GaussLegendre(33))
     fgl33 = function (spot)
         AQFED.Basket.priceEuropean(pgl33, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
@@ -332,9 +339,15 @@ end
             priceEuropean(pll2, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
         payoff = AQFED.FDM.VanillaEuropean(true,strike,tte)
-        ptr = @time AQFED.FDM.priceTRBDF2(payoff, spot, spot * exp(r * tte), σ^2 * tte, exp(-r * tte), dividends,M=500,N=100)(spot)
-        ptref = @time AQFED.FDM.priceTRBDF2(payoff, spot, spot * exp(r * tte), σ^2 * tte,  exp(-r * tte), dividends,M=40001,N=365*10+1,ndev=6)(spot)
-
+        varianceSurface = FlatSurface(σ)
+        discountCurve = ConstantRateCurve(r)
+        driftCurve = ConstantRateCurve(r - q)
+        modeln = TSBlackModel(varianceSurface, discountCurve, driftCurve)
+        payoffV = AQFED.FDM.VanillaEuropean(true, strike, tte)
+        payoffKV = AQFED.FDM.KreissSmoothDefinition(payoffV)
+        ptr = @time AQFED.FDM.priceTRBDF2(payoffKV, spot,modeln, dividends, M=501, N=101, grid=AQFED.FDM.UniformGrid(false), solverName="TDMA")(spot)     
+        ptref = @time AQFED.FDM.priceTRBDF2(payoffKV, spot,modeln, dividends, M=40001, N=365*10+1, grid=AQFED.FDM.UniformGrid(false), solverName="TDMA",ndev=6)(spot)     
+    
         priceGL33 = @time fgl33(spot)
         priceGL128 = @time fgl128(spot)
         priceGK = @time fgk(spot)

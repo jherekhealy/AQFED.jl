@@ -1,6 +1,28 @@
 using AQFED, Test, StatsBase
 using AQFED.PDDE, AQFED.Black, AQFED.Collocation
 
+@testset "ah-flatblack-c3" begin
+  strikes = [0.85, 0.90, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4]
+  vols = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+  sigmas = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+  l = 0.25
+  u = 4.0
+  tte = 0.25
+  forward = 1.025
+  #weights = ones(length(vols))
+  prices, weights = Collocation.weightedPrices(true, strikes, vols, ones(length(vols)), forward, 1.0, tte, vegaFloor=1e-7)
+  #use linear interp (uncomment line)
+  lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, ones(length(prices)), useVol=true, model=PDDE.LinearBlack(),location="Strikes",size=0,L=l,U=u,optimizer="LM-ALG",isC3=false,nRefine=0)
+  ah1 = PDDE.DiscreteLVG(lvgq,101)
+  ah4 = PDDE.DiscreteLVG(lvgq,401)
+  #=
+  kFine = exp.(range(log(strikes[1]), stop=log(strikes[end]), length=301))
+  plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="LVG LinearBlack", xlab="Forward log-moneyness",ylab="Probability density",linestyle=:dot)
+  plot!(log.(kFine./forward),PPInterpolation.evaluateSecondDerivative.(ah1.pp,kFine),label="AH l=101")
+  plot!(log.(kFine./forward),PPInterpolation.evaluateSecondDerivative.(ah4.pp,kFine),label="AH l=401")
+  =#
+end
+
 @testset "lvg-flatblack-c3" begin
 strikes = [0.85, 0.90, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4]
 vols = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]

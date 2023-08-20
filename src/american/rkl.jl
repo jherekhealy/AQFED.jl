@@ -152,7 +152,7 @@ function initRKLCoeffs(dt, A1ij; epsilonRKL = 0.0, rklStages = 0)
     if rklStages > 0
         s = rklStages
     end
-    # println("s=",s)
+    println("s=",s, " dt=",dt)
     a = zeros(s)
     b = zeros(s)
     w0 = 1.0

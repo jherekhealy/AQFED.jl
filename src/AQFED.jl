@@ -21,9 +21,10 @@ include("black/iv_solver_halley.jl")
 include("black/iv_solver_householder.jl")
 include("black/iv_solver_lisor.jl")
 include("black/iv_solver_jaeckel.jl")
-
 impliedVolatility(isCall::Bool, price::T, f::T, strike::T, tte::T,  df::T)  where {T} =  impliedVolatilitySRHalley(isCall, price,f,strike,tte, df, T(0.0), 64, Householder())
 export impliedVolatility
+
+include("black/barrier.jl")
 end
 
 module Bachelier
@@ -81,6 +82,7 @@ include("fdm/peclet.jl")
 include("fdm/grid.jl")
 include("fdm/trbdf2.jl")
 include("fdm/log_trbdf2.jl")
+include("fdm/rkl.jl")
 end
 
 module PLN
@@ -121,6 +123,7 @@ include("pdde/lvg.jl")
 include("pdde/lvg_black.jl")
 include("pdde/lvg_quadratic.jl")
 include("pdde/lvg_quadratic_cmplx.jl")
+include("pdde/ah.jl")
 end
 
 end
