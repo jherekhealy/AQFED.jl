@@ -18,8 +18,8 @@ function impliedVolatilityFractal(w::Int, h::Int, xMin, xMax, yMin, yMax; maxIte
     xy = zeros(Float64, w, h)
     maxIdx = 1.0
     minIdx = 0.0
-    @sync @inbounds for i = 1:length(x)
-        Threads.@spawn @inbounds for j = 1:length(y)
+    @sync @inbounds for i = eachindex(x)
+        Threads.@spawn @inbounds for j = eachindex(y)
             valueij,idx = householderIterationSize(f, complex(x[i] , y[j]), n=maxIter, r=accuracy)
             maxIdx = max(idx, maxIdx)
             minIdx = min(idx, minIdx)
@@ -27,8 +27,8 @@ function impliedVolatilityFractal(w::Int, h::Int, xMin, xMax, yMin, yMax; maxIte
         end
     end
     img = zeros(RGB, h, w)
-    @inbounds for i = 1:length(x)
-        @inbounds @simd for j = 1:length(y)
+    @inbounds for i = eachindex(x)
+        @inbounds @simd for j = eachindex(y)
             idx = xy[i, j]
             rgb = complexHeatMap(idx, minIdx, maxIdx, palette)
             img[j, i] = rgb
@@ -102,7 +102,7 @@ function complexHeatMap(value, min, max, palette)
     #t = (1 - cos(frac * π)) / 2
     t = frac
     tp = floor(t * pmax)
-    t = t * float64(pmax) - tp
+    t = t * pmax - tp
     pIndex = Int(tp) + 1
     pmax +=1
     if pIndex == pmax
@@ -113,6 +113,6 @@ function complexHeatMap(value, min, max, palette)
 end
 #usage:
 # factor = 2.5; w = 1024; h = 1024;
-# img,idx = Bachelier.impliedVolatilityFractal(w,h,-factor,factor,-factor,factor);
+# img = AQFED.Bachelier.impliedVolatilityFractal(w,h,-factor,factor,-factor,factor);
 #using FileIO
 # save(File{format"PNG"}("test.png"),img)

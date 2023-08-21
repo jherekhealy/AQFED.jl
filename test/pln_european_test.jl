@@ -373,7 +373,6 @@ end
         # @test isapprox(price, priceLL2, atol=1e-2)
     end
 end
-#with 40K points very difficult to see limit of accuracy of BB/LL3 with 100 dividends. cODE NEARLY UNIFORM IN JULIA.
 # ppINTERPOLATION ALLOCATES MORE THAN DIERCKX AND IS 50% SLOWER ON 10k ARRAYS. eval is also very slow on 400 points, repeated, likely due to c[2,i]. Should we favor c[i,2] instead or rework internals?
 # quad interp seems more accurate in the middle (lower error in TRBDF2 with 400 points) - similar to cubic spline. C2 does not increase accuracy, but perhaps error profile is more uniform?
 end

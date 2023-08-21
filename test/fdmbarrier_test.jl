@@ -79,8 +79,8 @@ end
 tte = 1.0
     σ = 0.2
     isCall = true
-	xSteps = 401
-	tSteps = 1001
+	xSteps = 101
+	tSteps = 401
     varianceSurface = FlatSurface(σ)
     discountCurve = ConstantRateCurve(r)
     driftCurve = ConstantRateCurve(r - q)
@@ -111,6 +111,7 @@ tte = 1.0
     
     dtThreshold = 4*dS^2/(σ^2*refPrice.x[ium]^2*(3+(refPrice.x[iu]-barrierLevel)/(barrierLevel-refPrice.x[ium])))
     n = ceil(Int,tte/dtThreshold)
+    refPriceRBad = AQFED.FDM.priceExplicitEuler(payoff, spot, model, dividends, M=101, N=401, Smin=Smin, Smax=Smax, grid=UniformGrid(false))
     refPriceR = AQFED.FDM.priceExplicitEuler(payoff, spot, model, dividends, M=101, N=401, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(UniformGrid(false)))
 #worse for Smax=13784.105478964535, dtThreashold seems to be *2 of what it should be.
 refPriceR = AQFED.FDM.priceRKG2(payoff, spot, model, dividends, M=101, N=101, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(UniformGrid(false)))
@@ -123,7 +124,44 @@ refPriceR = AQFED.FDM.priceRKG2(payoff, spot, model, dividends, M=101, N=101, Sm
    end
     plot(is,abs.(prices.-anPrice),yscale=:log10,xlab="Number of time-steps",ylab="Absolute error in price",legend=:none)
     #plot(is[50:end],abs.(prices[50:end].-anPrice),yscale=:log10,xlab="Number of time-steps",ylab="Absolute error in price",legend=:none)
-
+Srange = 13590.0:1.0:13990.0
+nA = zeros(length(Srange));
+neffA = zeros(length(Srange));
+nETruncA = zeros(length(Srange));
+    for (i,Smax)=enumerate(Srange)
+    refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=(UniformGrid(false)))
+      dS = refPrice.x[2]-refPrice.x[1]
+    ius = searchsorted(refPrice.x,barrierLevel)
+    ium = ius.stop; iu=ius.start
+   
+     dtThresholdETrunc = dS^2/(σ^2*barrierLevel^2)
+    nETrunc = ceil(Int,tte/dtThresholdETrunc)
+ dtThresholdEFull = dS^2/(σ^2*refPrice.x[end]^2)
+    nEFull = ceil(Int,tte/dtThresholdE)
+    nETruncA[i] = nETrunc
+    dtThreshold = 4*dS^2/(σ^2*refPrice.x[ium]^2*(3+(refPrice.x[iu]-barrierLevel)/(barrierLevel-refPrice.x[ium])))
+    n = ceil(Int,tte/dtThreshold)
+    errorR = 1.0
+    ni = n
+    while errorR > 1e-3 && ni < 30000
+        ni+=1
+        refPriceRBad = AQFED.FDM.priceExplicitEuler(payoff, spot, model, dividends, M=101, N=ni, Smin=Smin, Smax=Smax, grid=UniformGrid(false))
+        errorR = abs(refPriceRBad(spot)-anPrice)
+    end
+  while errorR < 1e-3 && ni > 1
+        refPriceRBad = AQFED.FDM.priceExplicitEuler(payoff, spot, model, dividends, M=101, N=ni, Smin=Smin, Smax=Smax, grid=UniformGrid(false))
+        errorR = abs(refPriceRBad(spot)-anPrice)
+        ni-=1
+    end
+    nA[i] = n
+    neffA[i] = ni
+    println(Smax," ",barrierLevel-refPrice.x[ium], " ",(barrierLevel-refPrice.x[ium])/dS," ",n, " ",ni," ",errorR)
+end
+nA2 = max.(nA, nETruncA)
+plot(Srange, nA2, label="Theoretical",xlab="Grid upper boundary Sₘₐₓ",ylab="Number of time-steps for stability")
+plot!(Srange,neffA,label="Actual",legendtitle="Threshold")
+plot!(yscale=:log10)
+plot!(size)
    =#
 end
 

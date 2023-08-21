@@ -1116,7 +1116,7 @@ function priceExplicitEuler(definition::StructureDefinition,
     end
     isMiddle = zeros(Bool, length(specialPoints))
     Si = makeArray(grid, xi, Li, Ui, specialPoints, isMiddle)
-    println("S ", Si)
+    # println("S ", Si)
     #     println("t ",t)
     tip = t[1]
     payoff = makeFDMStructure(definition, Si)
@@ -1195,7 +1195,7 @@ function priceExplicitEuler(definition::StructureDefinition,
             # maxnorm =  61865/2
             dtexplicit = 1.0 / maxnorm
             if dtexplicit < dt 
-            print(ti, " ", dtexplicit, " ")
+            # print(ti, " ", dtexplicit, " ")
             end
             advance(definition, payoff, tip - dt)
             #for each stage, iterate of payoff variables.
@@ -1206,12 +1206,12 @@ function priceExplicitEuler(definition::StructureDefinition,
                 rhsi = I - dt * rhs
                 applyBoundaryCondition(Down(), iv, bcDown, Si, vMatrix, rhsi, dt, advectionCoeffDown, sinkCoeffDown) #if Dirichlet on grid, just do it, otherwise use Ghost point. rhs vs lhs?
                 applyBoundaryCondition(Up(), iv, bcUp, Si, vMatrix, rhsi, dt, advectionCoeffUp, sinkCoeffUp)
-                if ti >= τ - 2dt
-                    println(iv, "rhsdl",rhsi.dl)
-                    println(iv, "rhsd",rhsi.d)
-                    println(iv, "rhsdu",rhsi.du)
-                    println(iv, " EIGENV ", (eigen(-I + rhsi).values), " ", maximum(eigen(-I + rhsi).values))
-                end
+                # if ti >= τ - 2dt
+                #     println(iv, "rhsdl",rhsi.dl)
+                #     println(iv, "rhsd",rhsi.d)
+                #     println(iv, "rhsdu",rhsi.du)
+                #     println(iv, " EIGENV ", (eigen(-I + rhsi).values), " ", maximum(eigen(-I + rhsi).values))
+                # end
                 Y1 = @view v1Matrix[:, iv]
                 mul!(Y1, rhsi, v)
                 v[1:end] = Y1

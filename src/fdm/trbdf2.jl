@@ -321,7 +321,7 @@ end
 
 function advance(timeStepping::Rannacher, definition, payoff, tip, dt, tIndex, Si::AbstractArray{T}, rhs, vMatrix, advectionCoeffDown, sinkCoeffDown, advectionCoeffUp, sinkCoeffUp) where {T}
     if tIndex <= timeStepping.bdf1Steps
-        println("bdf1 ran ",tIndex)
+        # println("bdf1 ran ",tIndex)
         advance(timeStepping.bdf1,definition, payoff, tip, dt/2, tIndex, Si, rhs, vMatrix, advectionCoeffDown, sinkCoeffDown, advectionCoeffUp, sinkCoeffUp)
         advance(timeStepping.bdf1,definition, payoff, tip, dt/2, tIndex, Si, rhs, vMatrix, advectionCoeffDown, sinkCoeffDown, advectionCoeffUp, sinkCoeffUp)
     else
