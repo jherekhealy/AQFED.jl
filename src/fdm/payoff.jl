@@ -451,7 +451,7 @@ struct DiscreteKO{TV,T} <: StructureDefinition
 end
 
 function observationTimes(p::DiscreteKO{TV,T})::AbstractArray{T} where {TV,T}
-    if (p.observationTimes[end] != p.vanilla.timeToExpiry)
+    if (p.observationTimes[end] != observationTimes(p.vanilla)[end])
         return append(p.observationTimes, p.vanilla.timeToExpiry)
     else
         return p.observationTimes
@@ -459,7 +459,7 @@ function observationTimes(p::DiscreteKO{TV,T})::AbstractArray{T} where {TV,T}
 end
 
 function nonSmoothPoints(p::DiscreteKO{TV,T})::AbstractArray{T} where {TV,T}
-    return [p.vanilla.strike, p.level]
+    return vcat(nonSmoothPoints(p.vanilla), p.level)
 end
 
 # function makeFDMStructure(p::DiscreteKO{TS}, underlying::AbstractArray{T})::FDMStructure{T} where {T,TS}
@@ -605,7 +605,7 @@ end
 
 isIndexBetween(i, x, strike) = (i < length(x) && x[i+1] >= strike) && (i > 1 && x[i-1] < strike)
 
-function evaluate(p::KreissSmoothDefinition{DiscreteKO{TS}}, s::DefaultFDMStructure{T}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
+function evaluate(p::KreissSmoothDefinition{DiscreteKO{TS, T}}, s::DefaultFDMStructure{T}, x::AbstractArray{T}, columnIndex::Int) where {T,TS}
     payoff = p.delegate
     evaluate(KreissSmoothDefinition(payoff.vanilla), s, x, columnIndex)
     isBarrierActive = false

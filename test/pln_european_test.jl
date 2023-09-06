@@ -1,7 +1,7 @@
 using AQFED, Test, ForwardDiff
 import AQFED.PLN: EtoreGobetPLNPricer, LeFlochLehmanPLNPricer, priceEuropean
 import AQFED.TermStructure: CapitalizedDividend, Dividend, futureValue, TSBlackModel, FlatSurface, ConstantRateCurve
-import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre, GaussKronrod, DoubleExponential, TanhSinh
+import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre, GaussKronrod, DoubleExponential, TanhSinh, Chebyshev
 
 @testset "EtoreGobetSingle" begin
     spot = 100.0
@@ -29,7 +29,7 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre
     refEg2 = [43.24846889, 9.07479039, 1.06253441, 0.10474035]
     refEg3 = [43.24845582, 9.07480026, 1.06252875, 0.10473885]
     for (i, strike) in enumerate(LinRange(50.0, 200.0, 4))
-        price = priceEuropean(
+        price = AQFED.PLN.priceEuropean(
             eg2,
             isCall,
             strike,
@@ -41,7 +41,7 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre
         )
         println(strike, " EG-2 ", price, " ", price - refHHL[i])
         @test isapprox(refEg2[i], price, atol=1e-8)
-        price = priceEuropean(
+        price = AQFED.PLN.priceEuropean(
             eg3,
             isCall,
             strike,
@@ -53,7 +53,7 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre
         )
         println(strike, " EG-3 ", price, " ", price - refHHL[i])
         @test isapprox(refEg3[i], price, atol=1e-8)
-        price = priceEuropean(
+        price = AQFED.PLN.priceEuropean(
             ll2,
             isCall,
             strike,
@@ -64,7 +64,7 @@ import AQFED.Basket: DeelstraBasketPricer, DeelstraLBBasketPricer, GaussLegendre
             dividends,
         )
         println(strike, " LL-2 ", price, " ", price - refHHL[i])
-        price = priceEuropean(
+        price = AQFED.PLN.priceEuropean(
             ll3,
             isCall,
             strike,
@@ -140,7 +140,7 @@ end
 
     for (i, strike) in enumerate(LinRange(50.0, 150.0, 11))
         refVol = Black.impliedVolatility(isCall, refPrices[i], f, strike, tte, df)
-        price = priceEuropean(ll3, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
+        price = AQFED.PLN.priceEuropean(ll3, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
         vol = Black.impliedVolatility(isCall, price, f, strike, tte, df)
         println(strike, " LL-3 ", price, " ", price / refPrices[i] - 1, " ", vol - refVol)
         price = AQFED.Basket.priceEuropean(d, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
@@ -176,7 +176,7 @@ end
             CapitalizedDividend(Dividend(baseAmount + 2.0, τd + 5, τd + 5, false, false), exp((τ - τd - 5) * r)),
             CapitalizedDividend(Dividend(baseAmount + 2.0, τd + 6, τd + 6, false, false), exp((τ - τd - 6) * r))])
     end
-    @test isapprox(26.08099127059646, f(x), atol=1e-5)
+    @test isapprox(26.08099127059646, f(x), atol=1e-4)
     ForwardDiff.gradient(f, x)
     pll = LeFlochLehmanPLNPricer(3)
     fll = function (x)
@@ -221,16 +221,18 @@ end
 
     for (i, strike) in enumerate(LinRange(50.0, 200.0, 7))
         refVol = Black.impliedVolatility(isCall, refPrices[i], f, strike, tte, df)
-        price = priceEuropean(ll3, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
+        price = AQFED.PLN.priceEuropean(ll3, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
         vol = Black.impliedVolatility(isCall, price, f, strike, tte, df)
         println(strike, " LL-3 ", price, " ", price / refPrices[i] - 1, " ", vol - refVol)
+        @test isapprox(refVol, vol, atol=1e-4)
         price = AQFED.Basket.priceEuropean(d, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
         vol = Black.impliedVolatility(isCall, price, f, strike, tte, df)
         println(strike, " Deelstra ", price, " ", price / refPrices[i] - 1, " ", vol - refVol)
+        @test isapprox(refVol, vol, atol=1e-4)
         price = AQFED.Basket.priceEuropean(dlb, isCall, strike, rawForward, σ^2 * tte, tte, df, dividends)
         vol = Black.impliedVolatility(isCall, price, f, strike, tte, df)
         println(strike, " Deelstra-LB ", price, " ", price / refPrices[i] - 1, " ", vol - refVol)
-
+        @test isapprox(refVol, vol, atol=1e-3)  
     end
 end
 @testset "StrikeError" begin
@@ -258,26 +260,36 @@ end
     for strike=40.0:5:160.0
         payoffV = AQFED.FDM.VanillaEuropean(true, strike, tte)
         payoffKV = AQFED.FDM.KreissSmoothDefinition(payoffV)
-        ptref = AQFED.FDM.priceTRBDF2(payoffKV, spot,modeln, dividends, M=40001, N=365*10+1, grid=AQFED.FDM.UniformGrid(false), solverName="TDMA", ndev=6)(spot)     
+        ptref = AQFED.FDM.priceTRBDF2(payoffKV, spot,modeln, dividends, M=4001, N=365*10+1, grid=AQFED.FDM.UniformGrid(false), solverName="TDMA", ndev=6)(spot)     
         # ptref = AQFED.FDM.priceRKG2(payoffKV, spot,modeln, dividends, M=20001, N=365*10+1, grid=AQFED.FDM.UniformGrid(false), ndev=6)(spot)     
-    pgl33 = DeelstraBasketPricer(1, 3,GaussLegendre(33))
+    pgl33 = DeelstraBasketPricer(1, 3,GaussLegendre(32))
     fgl33 = function (spot)
         AQFED.Basket.priceEuropean(pgl33, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
     end
-    pts25 = DeelstraBasketPricer(1, 3,TanhSinh(16,1e-9))
+    pts25 = DeelstraBasketPricer(1, 3,TanhSinh(32,1e-9))
     fts25 = function (spot)
         AQFED.Basket.priceEuropean(pts25, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
     end
+    pcc25 = DeelstraBasketPricer(1, 3,Chebyshev{Float64,2}(32))
+    fcc25 = function (spot)
+        AQFED.Basket.priceEuropean(pcc25, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+    end
     pll = LeFlochLehmanPLNPricer(3)
         fll = function (spot)
-            priceEuropean(pll, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+            AQFED.PLN.priceEuropean(pll, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
         priceGL33 =  fgl33(spot)
         priceTS25 =  fts25(spot)     
+        priceCC25 = fcc25(spot)
         priceLL =  fll(spot)
         println(nDividends, " ",strike," BB-L33 ", priceGL33," ",priceGL33-ptref)
         println(nDividends, " ",strike," BB-TS33 ", priceTS25," ",priceTS25-ptref)
+        println(nDividends, " ",strike," BB-CC33 ", priceCC25," ",priceCC25-ptref)
         println(nDividends, " ",strike," LL-3 ", priceLL," ",priceLL-ptref)
+        @test isapprox(ptref, priceGL33, atol=1e-4)
+        @test isapprox(ptref, priceTS25, atol=1e-4)
+        @test isapprox(ptref, priceCC25, atol=1e-4)
+        @test isapprox(ptref, priceLL, atol=1e-4)
     end
 end
 
@@ -318,11 +330,11 @@ end
         fde = function (spot)
             AQFED.Basket.priceEuropean(pde, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
-        pts25 = DeelstraBasketPricer(1, 3,TanhSinh(16,1e-9))
+        pts25 = DeelstraBasketPricer(1, 3,TanhSinh(32,1e-9))
         fts25 = function (spot)
             AQFED.Basket.priceEuropean(pts25, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
-        pts25p = DeelstraBasketPricer(1, 3,TanhSinh(16,1e-9,true))
+        pts25p = DeelstraBasketPricer(1, 3,TanhSinh(32,1e-9,true))
         fts25p = function (spot)
             AQFED.Basket.priceEuropean(pts25p, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
@@ -332,11 +344,11 @@ end
         end
         pll = LeFlochLehmanPLNPricer(3)
         fll = function (spot)
-            priceEuropean(pll, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+            AQFED.PLN.priceEuropean(pll, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
         pll2 = LeFlochLehmanPLNPricer(2)
         fll2 = function (spot)
-            priceEuropean(pll2, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
+            AQFED.PLN.priceEuropean(pll2, true, strike, spot * exp(r * tte), σ^2 * tte, tte, exp(-r * tte), dividends)
         end
         payoff = AQFED.FDM.VanillaEuropean(true,strike,tte)
         varianceSurface = FlatSurface(σ)

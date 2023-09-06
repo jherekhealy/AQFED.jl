@@ -37,9 +37,68 @@ using Printf
         @printf("%.2f Deelstra %.4f %.2e\n", rho, price, price - refPrices[i])
         @test isapprox(refPrices[i], price, atol = 1e-1)
     end
+
+    for (i, rho) in enumerate(rhos)
+        correlation = [
+            1.0 rho rho rho
+            rho 1.0 rho rho
+            rho rho 1.0 rho
+            rho rho rho 1.0
+        ]
+        tvar = [sigma, sigma, sigma, sigma] .^ 2 .* tte
+        q = 0.0
+        forward = spot .* exp((r - q) * tte)
+        discountFactor = exp(-r * tte)
+        p = DeelstraBasketPricer(3, 3,AQFED.Basket.Simpson(4096))
+        asympPrice =  priceEuropean(p, true, strike, discountFactor, spot, forward, tvar, weight, correlation,isLognormal=1)
+         for n=16:16 #4:1:64  
+           p = DeelstraBasketPricer(3, 3,AQFED.Basket.Chebyshev{Float64,2}(n,false))
+        #    p = DeelstraBasketPricer(3, 3,AQFED.Basket.FourierBoyd(n,1.0))
+           
+            price = priceEuropean(p, true, strike, discountFactor, spot, forward, tvar, weight, correlation,isLognormal=1)
+        @printf("%d %.2f Deelstra %.4f %.2e\n", n, rho, price, price - asympPrice)
+        @test isapprox(asympPrice, price, atol=1e-4)
+         end
+    end
 end
 
+@testset "KornTable2" begin
+    spot = 80.0
+    strike = 100.0
+    r = -0.005
+    q = -0.05
+    tte = 1.0
+    vol = 0.2
 
+    refPrices = [54.3098,47.4807,41.5221,36.3514,31.8764,28.0070,24.6601,21.7622,19.2489,17.0651,15.1636]
+    weight = [0.25, 0.25, 0.25, 0.25]
+    spot = [100.0, 100.0, 100.0, 100.0]
+    strikes = collect(50.0:10.0:150.0)
+    r = 0.0
+    sigma = 0.4
+    rho = 0.5
+    tte = 5.0
+    p = DeelstraBasketPricer(3, 3)
+    p = DeelstraBasketPricer(1, 3,q=GaussKronrod())
+    pl = DeelstraLBBasketPricer(3, 3)
+    for (i, strike) in enumerate(strikes)
+        correlation = [
+            1.0 rho rho rho
+            rho 1.0 rho rho
+            rho rho 1.0 rho
+            rho rho rho 1.0
+        ]
+        tvar = [sigma, sigma, sigma, sigma] .^ 2 .* tte
+        q = 0.0
+        forward = spot .* exp((r - q) * tte)
+        discountFactor = exp(-r * tte)
+        price = priceEuropean(pl, true, strike, discountFactor, spot, forward, tvar, weight, correlation)
+        @printf("%.2f DeelstraLB %.4f %.2e\n", strike, price, price - refPrices[i])
+        price = priceEuropean(p, true, strike, discountFactor, spot, forward, tvar, weight, correlation)
+        @printf("%.2f Deelstra %.4f %.2e\n", strike, price, price - refPrices[i])
+        @test isapprox(refPrices[i], price, atol = 2e-2)
+    end
+end
 @testset "KornTable5" begin
     spot = 80.0
     strike = 100.0
@@ -69,7 +128,7 @@ end
         forward = spot .* exp((r - q) * tte)
         discountFactor = exp(-r * tte)
         price = priceEuropean(p, true, strike, discountFactor, spot, forward, tvar, weight, correlation)
-        @printf("%.2f Deelstra %.4f %.2e\n", rho, price, price - refPrices[i])
+        @printf("%.2f Deelstra %.4f %.2e\n", sigma, price, price - refPrices[i])
         @test isapprox(refPrices[i], price, atol = 1e-1)
     end
 end

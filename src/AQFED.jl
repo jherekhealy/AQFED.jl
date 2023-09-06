@@ -11,6 +11,7 @@ include("math/transform.jl")
 include("math/schaback.jl")
 include("math/hypersphere.jl")
 include("math/polyroots.jl")
+include("math/cheb.jl")
 end
 
 __precompile__(true)

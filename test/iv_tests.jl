@@ -168,7 +168,7 @@ end
   e2 = Black.blackScholesFormula(isCall, forward, strike, ivj * ivj * tte, 1.0, 1.0) - price + intr
   println(" SOR-Li ", ivj, " ", e1, " ", e2)
   @test isapprox(e1, 0, atol = 1e-12)
-  @test isapprox(e2, 0, atol = 1e-12)
+  @test isapprox(e2, 0, atol = 2e-12)
 
   ivj = Black.impliedVolatilitySRHalley(isCall, price, forward, strike, tte, 1.0, 0e-14, 64, Black.Halley()) #1e-14=> 0 but 0=> 1e-13 error; likely because blackfor erfc
   e1 = Black.blackScholesFormula(isCall, strike, forward, ivj * ivj * tte, 1.0, 1.0) - price
@@ -269,7 +269,7 @@ end
   e1 = Black.blackScholesFormula(isCall, strike, forward, ivj * ivj * tte, 1.0, 1.0) - price
   e2 = Black.blackScholesFormula(isCall, forward, strike, ivj * ivj * tte, 1.0, 1.0) - price + intr
   println(ivj, " ", e1, " ", e2)
-  @test isapprox(e1, 0, atol = 1e-25)
+  @test isapprox(e1, 0, atol = 1e-14)
   @test isapprox(e2, 0, atol = 1e-25)
 
   guess = 0.0

@@ -67,6 +67,42 @@ using DataFrames
  savefig("/home/fabien/mypapers/eqd_book/barrier_ko_steps_100.pdf")  
  =#
 end
+@testset "Peclet" begin
+    spot = 100.0
+    r = 0.1
+    q = 0.0
+    σ = 0.02
+    tte = 1.0
+    strike = spot
+    isCall = false
+    varianceSurface = FlatSurface(σ)
+    discountCurve = ConstantRateCurve(r)
+    driftCurve = ConstantRateCurve(r - q)
+    dividends = Vector{CapitalizedDividend{Float64}}()
+    model = AQFED.TermStructure.TSBlackModel(varianceSurface, discountCurve, driftCurve)
+    payoffV = Binary(isCall, strike, tte)
+    #payoffKV = KreissSmoothDefinition(payoffV)
+    payoffKO = AQFED.FDM.DiscreteKO(payoffV, spot*0.1, true, 0.0,[tte])
+    payoffK = KreissSmoothDefinition(payoffKO)
+    payoff = AQFED.FDM.DiscreteKO(payoffV, spot*0.1, true, 0.0,[tte])
+    refPrice = AQFED.FDM.priceRKL2(payoffK, spot, model, dividends, M=401, N=101, Smin=0.0, Smax=150.0, grid=(CubicGrid(1)),varianceConditioner=PartialExponentialFittingConditioner())
+#oscillations in RKL scheme, even with exponential fitting or two points upwinding. no oscillations in RKG/TRBDF2
+# eigsvals with imag eigenvalues even with exp fitting (removes some but not all)
+    refPrice = AQFED.FDM.priceRKL2(payoffK, spot, model, dividends, M=401, N=21, Smin=0.0, Smax=150.0, grid=CubicGrid(0.01),varianceConditioner=AQFED.FDM.PartialExponentialFittingConditioner())
+
+    refPrice = AQFED.FDM.priceRKL2(payoffK, spot, model, dividends, M=101, N=101, Smin=0.0, Smax=150.0, grid=UniformGrid(false))
+    #=
+    etraceE = AQFED.FDM.ExtendedTrace()
+    etrace = AQFED.FDM.ExtendedTrace()
+    refPrice = AQFED.FDM.priceRKG2(payoffK, spot, model, dividends, M=101, N=101, Smin=0.0, Smax=150.0, grid=UniformGrid(false),eTrace=etraceE,varianceConditioner=PartialExponentialFittingConditioner())
+    refPrice = AQFED.FDM.priceRKG2(payoffK, spot, model, dividends, M=101, N=101, Smin=0.0, Smax=150.0, grid=UniformGrid(false),eTrace=etrace)
+    plot(refPrice.x,PPInterpolation.evaluateDerivative.(refPrice,refPrice.x),xlab="Underlying spot price", ylab="Option Δ",label="RKL",size=(400,300))
+     plot(etrace.eigenvalues, seriestype=:scatter,label="Partial Exponential Fitting",size=(400,300),ms=3,markerstrokewidth=0,markeralpha=0.5)
+plot(refPrice.x[2:end-1],etrace.peclets[2:end-1],xlab="Underlying asset price", ylab="Peclet ratio",yscale=:log10,ylims=(0.5,250),yticks=([1,10,100],[1,10,100]),label="No upwinding")
+ plot!(refPrice.x[2:end-1],etraceE.peclets[2:end-1],label="Partial exponential fitting")
+
+     =#
+end
 
 @testset "BlackOneTouch" begin
     spot = 6317.80

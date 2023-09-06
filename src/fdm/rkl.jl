@@ -3,7 +3,13 @@ using AQFED.TermStructure
 using AQFED.Math
 using LinearAlgebra
 using PPInterpolation
+using Plots
 
+mutable struct ExtendedTrace
+    eigenvalues
+    peclets
+    ExtendedTrace() = new(nothing,nothing)
+end
 function priceRKG2B(definition::StructureDefinition,
     spot::T,
     model,
@@ -475,9 +481,9 @@ end
 
 
 function initRKLCoeffs(dt, A1ij; epsilonRKL=0.0, rklStages=0)
-    dtexplicit = 1.0 / max(maximum(A1ij))
-    dtexplicit = 2.442287776486202e-5 
-    dtexplicit /= 1.1 #lambdaS        
+    dtexplicit = 1.0 / max(maximum(abs.(A1ij)))
+    # dtexplicit = 2.442287776486202e-5 
+    # dtexplicit /= 1.1 #lambdaS        
     s = 0.0
     delta = 1 + 4 * (2 + 4 * dt / dtexplicit)
     s = ceil(Int, (-1 + sqrt(delta)) / 2)
@@ -563,7 +569,7 @@ function initRKGCoeffs(dt, rhs; stages=0)
     b = zeros(s + 1)
     w0 = 1.0
     w1 = (3 + 2α) / ((s + 2α + 1) * (s - 1))
-    # println("s=", s, " dtexplicit=", dtexplicit, " w1 ", 1 / w1, " ", dt / dtexplicit)
+     println("s=", s, " dtexplicit=", dtexplicit, " w1 ", 1 / w1, " ", dt / dtexplicit)
     b[1] = 1.0
     b[2] = 1.0 / 3
     a[1] = 1.0 - b[1]
@@ -582,6 +588,7 @@ function priceRKG2(definition::StructureDefinition,
     model,
     dividends::AbstractArray{CapitalizedDividend{T}};
     M=400, N=100, ndev=4, Smax=zero(T), Smin=zero(T), dividendPolicy::DividendPolicy=Liquidator, grid::Grid=UniformGrid(false), varianceConditioner::PecletConditioner=NoConditioner(), calibration=NoCalibration(), useSqrt=false,
+    eTrace=nothing,
     useTrace=false,trace=Trace(Vector{T}(),Vector{Vector{T}}())) where {T}
     obsTimes = observationTimes(definition)
     τ = last(obsTimes)
@@ -643,6 +650,9 @@ function priceRKG2(definition::StructureDefinition,
     rhsdu = zeros(T, length(Si) - 1)
     rhs = Tridiagonal(rhsdl, rhsd, rhsdu)
     tri = Tridiagonal(zeros(T, length(rhsdl)), zeros(T, length(rhsd)), zeros(length(rhsdu)))
+    if !isnothing(eTrace)
+        eTrace.peclets = zeros(M)
+    end
    
     v0Matrix = similar(vMatrix)
     v1Matrix = similar(vMatrix)
@@ -686,11 +696,14 @@ function priceRKG2(definition::StructureDefinition,
             driftDfip = 1 / forward(model, 1.0, tip)
             μi = calibrateDrift(calibration, 1.0, dt, dfi, dfip, driftDfi, driftDfip, ri)
             σi2 = (varianceByLogmoneyness(model, 0.0, tip) * tip - varianceByLogmoneyness(model, 0.0, ti) * ti) / (tip - ti)
-
             @inbounds for j = 2:M-1
                 s2S = σi2 * Si[j]^2
                 muS = μi * Si[j]
                 s2S = conditionedVariance(varianceConditioner, s2S, muS, Si[j], Jhi[j-1], Jhi[j])
+                if ti >= τ - dt && !isnothing(eTrace)
+                    println("peclet ",muS*Jhi[j-1], " ",s2S)
+                        eTrace.peclets[j] = muS*Jhi[j-1]/s2S
+                end
                 rhsd[j] = ((muS * (Jhi[j-1] - Jhi[j]) + s2S) / (Jhi[j] * Jhi[j-1]) + ri)
                 rhsdu[j] = -(s2S + muS * Jhi[j-1]) / (Jhi[j] * (Jhi[j] + Jhi[j-1]))
                 rhsdl[j-1] = -(s2S - muS * Jhi[j]) / (Jhi[j-1] * (Jhi[j] + Jhi[j-1]))
@@ -719,6 +732,9 @@ function priceRKG2(definition::StructureDefinition,
                 applyBoundaryCondition(Down(), iv, bcDown, Si, vMatrix, tri, mu1b, advectionCoeffDown, sinkCoeffDown) #if Dirichlet on grid, just do it, otherwise use Ghost point. rhs vs lhs?
                 applyBoundaryCondition(Up(), iv, bcUp, Si, vMatrix, tri, mu1b, advectionCoeffUp, sinkCoeffUp)
                  if ti >= τ - dt
+                    if !isnothing(eTrace)
+                        eTrace.eigenvalues = eigvals(rhs)
+                    end
                 # println("eig=",eigen(rhs).values)
                                     # println(iv, " ", mu1b, " EIGENV ", (eigen(-I + rhsi).values), " ", maximum(eigen(-I + rhsi).values))
                 end

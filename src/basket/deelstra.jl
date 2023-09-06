@@ -3,9 +3,9 @@ export DeelstraBasketPricer, DeelstraLBBasketPricer, priceEuropean
 using LinearAlgebra
 using Roots
 using Polynomials
+using FFTW #only for fft cehbyshev
 
-abstract type DeelstraBasketQuadrature
-end
+abstract type DeelstraBasketQuadrature end
 struct DeelstraBasketPricer
     δIndex::Int
     fIndex::Int
@@ -18,18 +18,115 @@ import DoubleExponentialFormulas: quadde, quaddeo
 export LowerBound, GaussLegendre, DoubleExponential, TanhSinh, GaussKronrod
 struct LowerBound <: DeelstraBasketQuadrature
 end
+isSplit(q::T) where {T<:DeelstraBasketQuadrature} = false
+
+struct FourierBoyd{T} <: DeelstraBasketQuadrature
+    x::Vector{T}
+    w::Vector{T}
+end
+function FourierBoyd(n::Int, l::T) where {T}
+    t = pi * (1:n) / (n + 1)
+    x = @. l * cot(t / 2)^2
+    w = zeros(T, n)
+    for (i, ti) = enumerate(t)
+        sumi = zero(T)
+        for j = 1:n
+            sumi += sin(j * ti) * (1 - cos(j * pi)) / j
+        end
+        w[i] = 2l * sin(ti) / (1 - cos(ti))^2 * sumi * 2 / (n + 1)
+    end
+    return FourierBoyd(x, w)
+end
+
+function integrate(q::FourierBoyd{T}, f, a::T, b::T)::T where {T}
+    # println("a=",a)
+    #integrate from -infty to b. a is ignored.    
+    #first map to 0 infty : z = -x +b or x = -z+b
+    l = -2a / cot(pi / 8)^2
+    # println("L=",l)
+    i2 = dot(q.w, f.((b .- l .* q.x))) * l
+    return i2
+end
+
+struct Chebyshev{T,kind} <: DeelstraBasketQuadrature
+    x::Vector{T}
+    w::Vector{T}
+    isSplit::Bool
+end
+function Chebyshev{T,1}(N::Int, isSplit=false) where {T}
+    x = chebnodes(T, N)
+    return Chebyshev{T,1}(x, [sqrt(1 - xi^2) * pi / N for xi = x], isSplit)
+end
+function Chebyshev{T,2}(N::Int, isSplit=false) where {T}
+    x = cheb2nodes(T, N)
+    return Chebyshev{T,2}(x, zeros(T, N), isSplit)
+    # x =  cheb2nodes(T, N+2)
+    # return Chebyshev{T,2}([T(pi) / (N + 1) * sin(i / (N + 1) * T(pi))^2 / sqrt(1-x[i+1]^2) for i = 1:N],x[2:end-1], isSplit)
+end
+isSplit(q::Chebyshev{T,K}) where {T,K} = q.isSplit
+kind(::Chebyshev{T,K}) where {T,K} = K
+
+
+function integrate(q::Chebyshev{T,1}, f, a::T, b::T)::T where {T}
+    bma2 = (b - a) / 2
+    bpa2 = (b + a) / 2
+    #i2 = bma2 * dot(q.w, f.(bma2 .* q.x .+ bpa2))
+    # p = ChebyshevPoly{T}(length(q.x),1)
+    # makeInterpolation(p, z -> f(bma2*z+bpa2))
+    # i2 = integrate(GaussKronrod(1e-15), z -> p((z - bpa2) / bma2),a,b)
+    n = length(q.x) - 1
+    m = vcat(sqrt(2), 0.0, [(1 + (-1)^k) / (1 - k^2) for k = 2:n])
+    ws = sqrt(2 / (n + 1)) * idct(m)
+    i2 = bma2 * dot(ws, f.(bma2 .* q.x .+ bpa2))
+    return i2
+end
+
+
+function integrate(q::Chebyshev{T,2}, f, a::T, b::T)::T where {T}
+    bma2 = (b - a) / 2
+    bpa2 = (b + a) / 2
+    # p = ChebyshevPoly{T}(length(q.x),2)
+    # makeInterpolation(p, z -> f(bma2*z+bpa2))
+    # i2 = integrate(GaussKronrod(1e-15), z -> p((z - bpa2) / bma2),a,b)
+    n = length(q.x)
+    c = vcat(2, [2 / (1 - i^2) for i = 2:2:(n-1)])          # Standard Chebyshev moments
+    c = vcat(c, c[Int(floor(n / 2)):-1:2])           #Mirror for DCT via FFT 
+    ws = real(ifft(c))                          # Interior weightt
+    ws[1] /= 2
+    ws = vcat(ws, ws[1]) # Boundary weights
+    i2 = bma2 * dot(ws, f.(bma2 .* q.x .+ bpa2))
+    return i2
+end
+
+struct Simpson <: DeelstraBasketQuadrature
+    N::Int
+end
+
+function integrate(q::Simpson, f, a::T, b::T)::T where {T}
+    n = if q.N % 2 == 0
+        q.N
+    else
+        q.N + 1
+    end
+    h = (b - a) / n
+    s = f(a) + f(b)
+    s += 4sum(f.(a .+ collect(1:2:n) * h))
+    s += 2sum(f.(a .+ collect(2:2:n-1) * h))
+    return h / 3 * s
+end
+
 struct GaussLegendre <: DeelstraBasketQuadrature
     N::Int
     x::Vector{Float64} #quadrature abscissae in -1, 1
     w::Vector{Float64} #quadrature weights
-    function GaussLegendre(N::Int=33) 
-        if N==33
-            xG=[0.9974246942464552, 0.9864557262306425, 0.9668229096899927, 0.9386943726111684, 0.9023167677434336, 0.8580096526765041, 0.8061623562741665, 0.7472304964495622, 0.6817319599697428, 0.610242345836379, 0.5333899047863476, 0.4518500172724507, 0.36633925774807335, 0.27760909715249704, 0.18643929882799157, 0.0936310658547334, 0, -0.0936310658547334, -0.18643929882799157, -0.27760909715249704, -0.36633925774807335, -0.4518500172724507, -0.5333899047863476, -0.610242345836379, -0.6817319599697428, -0.7472304964495622, -0.8061623562741665, -0.8580096526765041, -0.9023167677434336, -0.9386943726111684, -0.9668229096899927, -0.9864557262306425, -0.9974246942464552]
+    function GaussLegendre(N::Int=33)
+        if N == 33
+            xG = [0.9974246942464552, 0.9864557262306425, 0.9668229096899927, 0.9386943726111684, 0.9023167677434336, 0.8580096526765041, 0.8061623562741665, 0.7472304964495622, 0.6817319599697428, 0.610242345836379, 0.5333899047863476, 0.4518500172724507, 0.36633925774807335, 0.27760909715249704, 0.18643929882799157, 0.0936310658547334, 0, -0.0936310658547334, -0.18643929882799157, -0.27760909715249704, -0.36633925774807335, -0.4518500172724507, -0.5333899047863476, -0.610242345836379, -0.6817319599697428, -0.7472304964495622, -0.8061623562741665, -0.8580096526765041, -0.9023167677434336, -0.9386943726111684, -0.9668229096899927, -0.9864557262306425, -0.9974246942464552]
             wG = [0.0066062278475874535, 0.015321701512934681, 0.023915548101749465, 0.03230035863232906, 0.04040154133166957, 0.04814774281871171, 0.05547084663166358, 0.0623064825303174, 0.06859457281865682, 0.07427985484395423, 0.07931236479488682, 0.08364787606703872, 0.08724828761884422, 0.09008195866063856, 0.09212398664331695, 0.09335642606559616, 0.09376844616020999, 0.09335642606559616, 0.09212398664331695, 0.09008195866063856, 0.08724828761884422, 0.08364787606703872, 0.07931236479488682, 0.07427985484395423, 0.06859457281865682, 0.0623064825303174, 0.05547084663166358, 0.04814774281871171, 0.04040154133166957, 0.03230035863232906, 0.023915548101749465, 0.015321701512934681, 0.0066062278475874535]
         else
             xG, wG = gausslegendre(N)
         end
-        new(N,xG,wG) 
+        new(N, xG, wG)
     end
 end
 
@@ -43,33 +140,36 @@ function integrate(q::GaussLegendre, integrand, a::T, b::T)::T where {T}
     # end
     # i2*=bma2
     return i2
-    end
+end
 
-    struct GaussLegendreParallel <: DeelstraBasketQuadrature
-        N::Int
-        x::Vector{Float64} #quadrature abscissae in -1, 1
-        w::Vector{Float64} #quadrature weights
-        function GaussLegendreParallel(N::Int=33) xG, wG = gausslegendre(N); new(N,xG,wG) end
+struct GaussLegendreParallel <: DeelstraBasketQuadrature
+    N::Int
+    x::Vector{Float64} #quadrature abscissae in -1, 1
+    w::Vector{Float64} #quadrature weights
+    function GaussLegendreParallel(N::Int=33)
+        xG, wG = gausslegendre(N)
+        new(N, xG, wG)
     end
-    
-    function integrate(q::GaussLegendreParallel, integrand, a::Float64, b::Float64)::Float64
-        bma2 = (b - a) / 2
-        bpa2 = (b + a) / 2
-        i2 = zero(T)
-         @sync Threads.@threads for i=1:length(p.w)
-             i2 += p.w[i] * integrand(bma2 * p.x[i] + bpa2)
-        end
-        i2*=bma2
-        return i2
-        end
-    
+end
+
+function integrate(q::GaussLegendreParallel, integrand, a::Float64, b::Float64)::Float64
+    bma2 = (b - a) / 2
+    bpa2 = (b + a) / 2
+    i2 = zero(T)
+    @sync Threads.@threads for i = 1:length(p.w)
+        i2 += p.w[i] * integrand(bma2 * p.x[i] + bpa2)
+    end
+    i2 *= bma2
+    return i2
+end
+
 struct GaussKronrod <: DeelstraBasketQuadrature
     rtol::Float64
     GaussKronrod(rtol::Float64=1e-8) = new(rtol)
 end
 
-function integrate(q::GaussKronrod, integrand, a::T, b::T)::T where {T} 
-    i2,err = quadgk(integrand,a,b,rtol=q.rtol)
+function integrate(q::GaussKronrod, integrand, a::T, b::T)::T where {T}
+    i2, err = quadgk(integrand, a, b, rtol=q.rtol)
     return i2
 end
 struct DoubleExponential <: DeelstraBasketQuadrature
@@ -77,8 +177,8 @@ struct DoubleExponential <: DeelstraBasketQuadrature
     DoubleExponential(rtol::Float64=1e-8) = new(rtol)
 end
 
-function integrate(q::DoubleExponential, integrand, a::T, b::T)::T where {T} 
-    i2,err = quadde(integrand,a,b,rtol=q.rtol)
+function integrate(q::DoubleExponential, integrand, a::T, b::T)::T where {T}
+    i2, err = quadde(integrand, a, b, rtol=q.rtol)
     return i2
 end
 
@@ -88,68 +188,50 @@ struct TanhSinh{T} <: DeelstraBasketQuadrature
     w::Array{T,1}
     tol::T
     isParallel::Bool
-    function TanhSinh(n::Int, tol::T,isParallel::Bool=false) where {T}
-        y = Vector{T}(undef, 2 * n + 1)
-        w = Vector{T}(undef, 2 * n + 1)
+    function TanhSinh(n::Int, tol::T, isParallel::Bool=false) where {T}
+        y = Vector{T}(undef, n)
+        w = Vector{T}(undef, n)
         if n <= 0
             throw(DomainError(n, "the number of points must be > 0"))
         end
-        h = convert(T, lambertW(Float64(2 * pi * n)) / n)
-        for i = -n:n
-            q = exp(-sinh(i * h)*pi)
-            yi = 2 * q / (1 + q)
-            y[n+i+1] = yi
-            w[n+i+1] = yi * h * pi * cosh(i * h) / (1 + q)
-            if isnan(w[n+i+1]) || w[n+i+1] < tol
-                # overflow is expected to happen for large n
-                # the correct way to address it is to set the weights to zero (ignore the points)
-                w[n+i+1] = Base.zero(T)
-                y[n+i+1] = one(T)
-            end
+        h = convert(T, lambertW(Float64(pi * n)) * 2 / (n+2))
+        for i = 1:n
+            t = (2i - n - 1) * h / 2
+            ct = cosh(t)
+            st = sinh(t)
+            ct2 = cosh(0.5 * pi * st)
+            y[i] = tanh(0.5 * pi * st)
+            w[i] = pi * h * ct / (2 * ct2^2)
         end
+        w_sum = sum(w)
+        @. w = 2 * w / w_sum
+        # println("w=",w)
         return new{T}(h, y, w, tol, isParallel)
     end
 end
 
-function integrate(q::TanhSinh{T}, integrand,a::T,b::T)::T where {T}
-    if b <= a 
-		return zero(T)
-	end
-    n = trunc(Int, (length(q.w) - 1) / 2)
+function integrate(q::TanhSinh{T}, integrand, a::T, b::T)::T where {T}
+    if b <= a
+        return zero(T)
+    end
+    bma2 = (b - a) / 2
+    bpa2 = (b + a) / 2
     I = Base.zero(T)
     if q.isParallel
-        @sync Threads.@threads    for i = 1:2*n+1
-            yi = q.y[i]-one(T)
-            zi = (a+b)/2 + (b-a)/2*yi
-            if q.w[i] != 0
-                fyi = integrand(zi)
-                if fyi == 0 || isnan(fyi)
-                    break
-                else
-                    I += q.w[i] * fyi
-                end
-            end
+        @sync Threads.@threads for (wi, yi) = collect(zip(q.w, q.y))
+            zi = bpa2 + bma2 * yi
+            fyi = integrand(zi)
+            I += wi * fyi
         end
     else
-    for i = 1:2*n+1
-        yi = q.y[i]-one(T)
-        zi = (a+b)/2 + (b-a)/2*yi
-        if q.w[i] != 0
-            fyi = integrand(zi)
-            if fyi == 0 || isnan(fyi)
-                break
-            else
-                I += q.w[i] * fyi
-            end
-        end
+        I = dot(q.w, integrand.(bma2 .* q.y .+ bpa2))
     end
+    return I * bma2
 end
-    return I*(b - a) / 2
-end
 
 
 
-function DeelstraBasketPricer(δIndex::Int, fIndex::Int; q::DeelstraBasketQuadrature=GaussLegendre(33))
+function DeelstraBasketPricer(δIndex::Int, fIndex::Int; q::DeelstraBasketQuadrature=GaussLegendre(21))
     DeelstraBasketPricer(δIndex, fIndex, q)
 end
 
@@ -158,8 +240,8 @@ function DeelstraLBBasketPricer(δIndex::Int, fIndex::Int)
     DeelstraBasketPricer(δIndex, fIndex, LowerBound())
 end
 
-DeelstraBasketPricer() = DeelstraBasketPricer(3,3)
-DeelstraLBBasketPricer() = DeelstraLBBasketPricer(3,3)
+DeelstraBasketPricer() = DeelstraBasketPricer(3, 3)
+DeelstraLBBasketPricer() = DeelstraLBBasketPricer(3, 3)
 
 
 function priceEuropean(
@@ -171,8 +253,9 @@ function priceEuropean(
     forward::AbstractArray{TV}, #forward to option maturity
     totalVariance::AbstractArray{<:T}, #vol^2 * τ
     weight::AbstractArray{<:T},
-    correlation::Matrix{TV}; useM3 = false
-)::T where {T, TV}
+    correlation::Matrix{TV};
+    ndev=3.0, isLognormal=1, useM3=false
+)::T where {T,TV}
     n = length(spot)
     δ = zeros(TV, n) #we store δ * S here.
     f = zero(T)
@@ -214,7 +297,7 @@ function priceEuropean(
     volGamma = sqrt(varGamma)
     r ./= volGamma
     priceCall = zero(Float64)
-    if typeof(p.q)  == LowerBound
+    if typeof(p.q) == LowerBound
         function objective(λ::T)::Tuple{<:T,<:T,<:T}
             #fΔxΔΔx
             eS = zero(typeof(λ))
@@ -225,14 +308,14 @@ function priceEuropean(
                 eSi = weight[i] * fi
                 if viT > 0
                     sqrti = sqrt(viT)
-                    eSi *= exp(-r[i]^2 * viT / 2 + r[i] * sqrti  * (λ) / (volGamma))
-                    DeS += eSi * (r[i] * sqrti)/volGamma
-                    D2eS += eSi * ((r[i] * sqrti)/volGamma)^2
+                    eSi *= exp(-r[i]^2 * viT / 2 + r[i] * sqrti * (λ) / (volGamma))
+                    DeS += eSi * (r[i] * sqrti) / volGamma
+                    D2eS += eSi * ((r[i] * sqrti) / volGamma)^2
                 end
                 eS += eSi
             end
             # println(λ," ", eS-strike," ", DeS, " ",D2eS)
-            return (eS - strike, (eS-strike)/DeS, DeS/D2eS)
+            return (eS - strike, (eS - strike) / DeS, DeS / D2eS)
         end
         lambdaMax = dGamma * 2
         if lambdaMax < zero(T)
@@ -247,13 +330,17 @@ function priceEuropean(
             if totalVariance[i] > 0
                 i1 += weight[i] * fi * normcdf(r[i] * sqrt(totalVariance[i]) - dGammaStar)
             else
-                i1 += weight[i] * fi * normcdf(- dGammaStar)
+                i1 += weight[i] * fi * normcdf(-dGammaStar)
             end
         end
         i1 -= strike * normcdf(-dGammaStar)
         priceCall = i1
-    else        
-        function integrand(λ::T) where {T}
+    else
+        function density(λ::T) where {T}
+            varLambda = varGamma
+            return exp(-λ^2 / (2 * varLambda)) / sqrt(T(pi) * 2 * varLambda)
+        end
+        function expectationValue(λ::T) where {T}
             #depends on forward, weight, tvar, r, volGamma,correl, f, sumwbd, strike
             eS = zero(T)
             eS2 = zero(T)
@@ -310,18 +397,24 @@ function priceEuropean(
             if sigmaS2 < eps(T)
                 sigmaS2 = eps(T)
             end
-            varLambda = varGamma
-            pdf = exp(-λ^2 / (2 * varLambda)) / sqrt(T(pi) * 2 * varLambda)
-
             if strike <= fS
-                return euphs2 * pdf
+                return euphs2
             end
             d1 = (ups2 - log(strike - fS)) / sqrt(sigmaS2)
             d2 = d1 - sqrt(sigmaS2)
-            return (euphs2 * normcdf(d1) - (strike - fS) * normcdf(d2)) * pdf
+            return euphs2 * normcdf(d1) - (strike - fS) * normcdf(d2)
         end
-      
-      
+
+        function integrand(λ::T) where {T}
+            return expectationValue(λ) * density(λ)
+        end
+
+        function lognormalIntegrand(z::T) where {T}
+            λ = f * (log(z / f) - sumwbd)
+            return integrand(λ) * f / z
+        end
+
+
         # function integrandM3(λ)
         #     #depends on forward, weight, tvar, r, volGamma,correl, f, sumwbd, strike
         #     eS = zero(Float64)
@@ -355,7 +448,7 @@ function priceEuropean(
         #                 end
         #                 sigmaijk= sqrt(viT + vjT + vkT + 2 * sqrti * sqrtj * correlation[i, j]+ 2 * sqrti * sqrtk * correlation[i, k]+ 2 * sqrtk * sqrtj * correlation[j, k])
         #                 rijk = (r[i] * sqrti + r[j] * sqrtj + r[k]*sqrtk) / sigmaijk
-                            
+
         #                 eFactork =  -viT / 2 - vjT / 2 - vkT / 2 + (1 - rijk^2) / 2 * sigmaijk^2 + rijk * sigmaijk * (λ) / (volGamma)
         #                 eS3 += 6 * weight[k] * forward[k] * exp(eFactork)
         #             end
@@ -444,14 +537,81 @@ function priceEuropean(
         #     m3 = 2*m1 + ck^2 * m1
         #     return (b0*m0+ b1*m1+b2*m2+b3*m3 - m0*(strike-fS)) * pdf
         # end
-      
-      
-        λMin = -3 * sqrt(varGamma)
+
+        λMin = -ndev * sqrt(varGamma)
         i2 = zero(T)
         if dGamma > λMin
             a = λMin
             b = dGamma
-            i2 = integrate(p.q,integrand,a,b)
+            if isLognormal == 1
+                #we have dGamma = f * (log(strike / f) - sumwbd), thus
+                za = f * exp(a / f + sumwbd)
+                zb = f * exp(b / f + sumwbd)
+                if isSplit(p.q)
+                    i2 = zero(T)
+                    nk = 1
+                    for k = 1:nk
+                        zak = za + (zb - za) * (k - 1) / nk
+                        zbk = zak + (zb - za) / nk
+                        expectationValue1 = function (y)
+                            z = (zbk - zak) / 2 * y + (zbk + zak) / 2
+                            λ = f * (log(z / f) - sumwbd)
+                            expectationValue(λ)
+                        end
+                        if typeof(p.q) == Chebyshev{Float64,1}
+                            n = Int(round(p.q.N / nk))
+                            fValues = zeros(T, n)
+                            chebnodevalues!(fValues, expectationValue1)
+                            coeffs = zeros(T, n)
+                            chebcoeff!(coeffs, fValues)
+                            #TODO implement closed form forumula 
+                            i2 += integrate(GaussKronrod(1e-15), z -> chebinterp(coeffs, (2z - (zbk + zak)) / (zbk - zak)) * density(f * (log(z / f) - sumwbd)) * f / z, zak, zbk)
+                        elseif typeof(p.q) == Chebyshev{Float64,2}
+                            n = Int(round(p.q.N / nk))
+                            fValues = zeros(T, n)
+                            cheb2values!(fValues, expectationValue1)
+                            coeffs = zeros(T, n)
+                            cheb2coeff!(coeffs, fValues)
+                            ## ta = collect(range(-1.0, stop=1.0, length=129))
+                            ## println("ta=", ta)
+                            ## println("fa=", [expectationValue1(z) for z in ta])
+                            ## println("ga=", [chebinterp(coeffs, z) for z in ta])
+                            i2 += integrate(GaussKronrod(1e-15), z -> cheb2interp(coeffs, (2z - (zbk + zak)) / (zbk - zak)) * density(f * (log(z / f) - sumwbd)) * f / z, zak, zbk)
+                        end
+                    end
+                else
+                    i2 = integrate(p.q, lognormalIntegrand, za, zb)
+                end
+            else
+                if isSplit(p.q)
+                    expectationValue1 = function (y)
+                        λ = (b - a) / 2 * y + (b + a) / 2
+                        expectationValue(λ)
+                    end
+                    if kind(p.q) == 1
+                        n = p.q.N
+                        fValues = zeros(T, n)
+                        chebnodevalues!(fValues, expectationValue1)
+                        coeffs = zeros(T, n)
+                        chebcoeff!(coeffs, fValues)
+                        #TODO implement closed form forumula 
+                        i2 = integrate(GaussKronrod(1e-15), z -> chebinterp(coeffs, (2z - (b + a)) / (b - a)) * density(z), a, b)
+                    elseif kind(p.q) == 2
+                        n = p.q.N
+                        fValues = zeros(T, n)
+                        cheb2values!(fValues, expectationValue1)
+                        coeffs = zeros(T, n)
+                        cheb2coeff!(coeffs, fValues)
+                        ## ta = collect(range(-1.0, stop=1.0, length=129))
+                        ## println("ta=", ta)
+                        ## println("fa=", [expectationValue1(z) for z in ta])
+                        ## println("ga=", [chebinterp(coeffs, z) for z in ta])
+                        i2 = integrate(GaussKronrod(1e-15), z -> cheb2interp(coeffs, (2z - (b + a)) / (b - a)) * density(z), a, b)
+                    end
+                else
+                    i2 = integrate(p.q, integrand, a, b)
+                end
+            end
         end
         dGammaStar = (dGamma) / sqrt(varGamma)
 
@@ -460,7 +620,7 @@ function priceEuropean(
             if totalVariance[i] > 0
                 i1 += weight[i] * fi * normcdf(r[i] * sqrt(totalVariance[i]) - dGammaStar)
             else
-                i1 += weight[i] * fi * normcdf(- dGammaStar)
+                i1 += weight[i] * fi * normcdf(-dGammaStar)
             end
         end
         i1 -= strike * normcdf(-dGammaStar)
