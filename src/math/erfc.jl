@@ -75,6 +75,8 @@ end
 function normpdf(x::Float64)::Float64
     return exp(-x^2 / 2) * OneOverSqrt2Pi
 end
+normpdf(z, μ, σ) = normpdf((z-μ)/σ)/σ
+
 function normcdfCody1990(z::Float64)::Float64
     if z <= norm_cdf_asymptotic_expansion_first_threshold
         # Asymptotic expansion for very negative z following (26.2.12) on page 408

@@ -8,6 +8,62 @@ using AQFED.PDDE
 #using Plots
 
 
+@testset "svi-bad" begin
+    tte=1.0
+    forward=1.0
+    strikes = [0.5,0.6,    0.7,    0.8,
+    0.85,
+    0.9,
+    0.925,
+    0.95,
+    0.975,
+    1.0,
+    1.025,
+    1.05,
+    1.075,
+    1.1,
+    1.15,
+    1.2,
+    1.3,
+    1.4,
+    1.5]
+    
+    volatility=[	 39.8,
+    34.9,
+    30.8,
+    27.4,
+    25.9,
+    24.5,
+    23.8,
+    23.1,
+    22.3,
+    21.5,
+     20.7,
+    19.8,
+    19.0,
+    18.2,
+    16.6,
+    15.4,
+    14.3,
+    14.7,
+    15.6]
+    logmoneynessA = log.(strikes./forward)
+    weightsA = ones(length(strikes))
+    volA = volatility ./ 100
+    svi0, rmsesvi = AQFED.VolatilityModels.calibrateSVISection(tte, forward, logmoneynessA, volA, weightsA, aMin=0.0)
+    ivkSVI0 = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi0, logmoneynessA))
+    rmseSVI0 = StatsBase.rmsd(volA, ivkSVI0)
+    svi, rmsesvi = AQFED.VolatilityModels.calibrateSVISection(tte, forward, logmoneynessA, volA, weightsA, aMin=-0.2)
+    ivkSVI = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi, logmoneynessA))
+    rmseSVI = StatsBase.rmsd(volA, ivkSVI)
+    prices, weights = Collocation.weightedPrices(true, strikes, volA, weightsA, forward, 1.0, tte,vegaFloor=1e-8)
+    lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Equidistributed",size=10,L=strikes[1],U=strikes[end])
+    ivkq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0);        rmseq = StatsBase.L2dist(weights .* volA, weights .* ivkq)
+    lvgqe = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=strikes[1],U=strikes[end])
+    ivkq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgqe, true, strikes), forward, strikes, tte, 1.0);
+    rmseq = StatsBase.L2dist(weights .* volA, weights .* ivkq)
+
+end
 @testset "spxw170324_170316" begin
     tte = 8 / 365
     forward = 2385.099980
@@ -1859,10 +1915,10 @@ end
     rmseSVI0 = StatsBase.L2dist(w .* vols, w .* ivkSVI0)
     xssvi = AQFED.VolatilityModels.calibrateXSSVISection(tte, forward, logmoneynessA, vols, w)
     ivkXSSVI = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(xssvi, logmoneynessA))
-    rmseXSSVI = StatsBase.L2dist(w .* vols, w .* ivkSVI0)
+    rmseXSSVI = StatsBase.L2dist(w .* vols, w .* ivkXSSVI)
 
     prices, weights = Collocation.weightedPrices(true, strikes, vols, w, forward, 1.0, tte, vegaFloor=1e-5)
-    λs = [50.0, 400.0, 1600.0]
+    λs = [50.0, 200.0, 400.0, 1600.0]
     for λ in λs
         fengler = AQFED.VolatilityModels.calibrateFenglerSlice(tte, forward, strikes, prices, (weights), λ=λ, eps=1e-13, solver="GI")
         ivstrikesFengler = @. Black.impliedVolatility(
@@ -1876,7 +1932,7 @@ end
         rmseFengler = StatsBase.L2dist(w .* ivstrikesFengler, w .* vols)
         println(λ, " Fengler ", rmseFengler)
     end
-    kFine = exp.(range(log(strikes[1]), stop=log(strikes[end]), length=501))
+    kFine = exp.(range(log(strikes[1]), stop=log(strikes[end]), length=501));
 
     #=p3 = plot(xlabel="Forward log-moneyness", ylabel="Probability density")
     for λ in λs
@@ -2016,7 +2072,7 @@ end
      penalty=0e-2,
      size=10,
      minSlope=1e-8,
-     rawFit=false,N=3
+     rawFit=false,N=3,extrapolationFactor=1.1, optimizerName="LeastSquaresOptim"
  )
  
  ivkb3 = @. Black.impliedVolatility(true, Collocation.priceEuropean(bspl3, true, strikes, forward, 1.0), forward, strikes, tte, 1.0);
@@ -2267,3 +2323,4 @@ plot(t, k, lvMatrix'.*100,st=:surface,camera=(45,30),ylab="Strike",xlab="Expiry"
 savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_lv3db.pdf")
 
 =#
+

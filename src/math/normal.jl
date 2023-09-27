@@ -15,6 +15,8 @@ norminv(z::Float64) = -sqrt2*erfcinv(2*z)
 normcdf(z::T) where {T} = erfc(-z/sqrt(T(2)))/2
 norminv(z::T) where {T} = -sqrt(T(2))*erfcinv(2*z)
 
+normcdf(z,μ,σ) = normcdf((z-μ)/σ)
+
 #const 1.0 = 1.0
 #const 0.5 = 0.5
 #const 0 = 0.0

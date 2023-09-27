@@ -1,6 +1,42 @@
 using AQFED, Test, AQFED.FDM, AQFED.TermStructure
 using DataFrames
 
+@testset "AmericanPutGamma" begin
+    strike = 110.0
+	spot = 100.0
+	r = 0.01
+	q = 0.0
+	vol = 0.1
+	tte = 0.5
+	xSteps = 1000 
+	tSteps = 100  
+    min = 80.890436
+	max = 123.593012
+    varianceSurface = FlatSurface(vol)
+    discountCurve = ConstantRateCurve(r)
+    driftCurve = ConstantRateCurve(r - q)
+    spot = 100.0
+    dividends = Vector{CapitalizedDividend{Float64}}()
+    payoffV = VanillaAmerican(false, strike, tte)
+    payoffKV = KreissSmoothDefinition(payoffV)
+    grid = UniformGrid(false)
+    model = AQFED.TermStructure.TSBlackModel(varianceSurface, discountCurve, driftCurve)
+    priceTRBDF2 = AQFED.FDM.priceTRBDF2(payoffKV, spot,model, dividends, M=xSteps, N=tSteps, Smin=min, Smax=max, grid=grid,varianceConditioner=PartialExponentialFittingConditioner())
+    priceCN = AQFED.FDM.priceTRBDF2(payoffKV, spot,model, dividends, M=xSteps, N=tSteps, Smin=min, Smax=max, grid=grid,timeSteppingName="CN",varianceConditioner=PartialExponentialFittingConditioner())
+    priceRAN = AQFED.FDM.priceTRBDF2(payoffKV, spot,model, dividends, M=xSteps, N=tSteps, Smin=min, Smax=max, grid=grid,timeSteppingName="Rannacher4",varianceConditioner=PartialExponentialFittingConditioner())
+    priceRKL = AQFED.FDM.priceRKL2(payoffKV, spot,model, dividends, M=xSteps, N=tSteps, Smin=min, Smax=max, grid=grid,varianceConditioner=PartialExponentialFittingConditioner())
+    priceRKG = AQFED.FDM.priceRKG2(payoffKV, spot,model, dividends, M=xSteps, N=tSteps, Smin=min, Smax=max, grid=grid,varianceConditioner=PartialExponentialFittingConditioner())
+    #=
+    p1 = plot(priceCN.x,PPInterpolation.evaluateSecondDerivative.(priceCN,priceCN.x),ylims=(-0.005,0.075),yticks=[0,0.025,0.05,0.075],label="Crank-Nicolson")
+    p2 = plot(priceRAN.x,PPInterpolation.evaluateSecondDerivative.(priceRAN,priceRAN.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="Rannacher")
+    p3 = plot(priceTRBDF2.x,PPInterpolation.evaluateSecondDerivative.(priceTRBDF2,priceTRBDF2.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="TR-BDF2")
+    p4 = plot(priceRKL.x,PPInterpolation.evaluateSecondDerivative.(priceRKL,priceRKL.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="RKL")
+    p5 = plot(priceRKL.x,PPInterpolation.evaluateSecondDerivative.(priceRKG,priceRKG.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="RKG")
+     plot(p1,p2,p3,p4,p5,layout=(1,5),size=(1024,200),margins=1Plots.mm)
+
+    =#
+
+end
 @testset "SmallGridSolvers" begin
     r = 0.1
     σ = 0.2

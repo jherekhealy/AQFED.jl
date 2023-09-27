@@ -77,6 +77,6 @@ function priceAsianFloatingStrike(
 
     priceFixed =
         strikePercent *
-        priceEuropean(p, !isCall, spot / strikePercent, dfAsset, spots, forwardAsset, tvarAsset, weight, correlation)
+        priceEuropean(p, !isCall, 1.0 / strikePercent, dfAsset, spots, forwardAsset, tvarAsset, weight, correlation)
     return priceFixed
 end

@@ -374,14 +374,14 @@ function fitBSplineBachelier(strikes, prices, weights, τ, forward, discountDf; 
         #      x[1] =  xf[1] - (xf[2] - xf[1])/2
     else
         n = max(size, 3) + 1
-          x = collect(range(min(xf[1]*extrapolationFactor, -3.0), stop = max(xf[end]*1.25, 3.0), length = n))
-        #  for m=n:n*10
-        #     xg = gausshermite(m)[1]
-        #     x = filter(x -> x >= xf[1]*1.25 && x <= xf[end]*1.25, xg)
-        #     if length(x) >= n
-        #         break
-        #     end
-        # end
+        #   x = collect(range(min(xf[1]*extrapolationFactor, -3.0), stop = max(xf[end]*extrapolationFactor, 3.0), length = n))
+         for m=n:n*10
+            xg = gausshermite(m)[1]
+            x = filter(x -> x >= xf[1]*extrapolationFactor && x <= xf[end]*extrapolationFactor, xg)
+            if length(x) >= n
+                break
+            end
+        end
         n = length(x)
         # x = xf[round.(Int,range(1,stop=length(xf),length=n))] #if many obs two points close by may create artif non smooth dens?
      end

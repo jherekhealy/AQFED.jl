@@ -12,6 +12,7 @@ include("math/schaback.jl")
 include("math/hypersphere.jl")
 include("math/polyroots.jl")
 include("math/cheb.jl")
+include("math/quad.jl")
 end
 
 __precompile__(true)
@@ -74,6 +75,8 @@ module Basket
 include("basket/deelstra.jl")
 include("basket/asian.jl")
 include("basket/pln.jl")
+include("basket/quad.jl")
+include("basket/ju.jl")
 end
 
 module FDM
@@ -117,6 +120,7 @@ include("vol/svi_calibration.jl")
 include("vol/fengler.jl")
 include("vol/rbf.jl")
 include("vol/lnmixture.jl")
+include("vol/varswap.jl")
 end
 
 module PDDE
