@@ -2,7 +2,6 @@ using AQFED.Math
 export DeelstraBasketPricer, DeelstraLBBasketPricer, priceEuropean
 using LinearAlgebra
 using Roots
-using Polynomials
 
 struct DeelstraBasketPricer
     δIndex::Int

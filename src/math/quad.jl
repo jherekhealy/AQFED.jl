@@ -167,13 +167,15 @@ struct TanhSinh{T} <: Quadrature
     w::Array{T,1}
     tol::T
     isParallel::Bool
-    function TanhSinh(n::Int, tol::T, isParallel::Bool=false) where {T}
+    function TanhSinh(n::Int, tol::T, h::T=zero(T), isParallel::Bool=false) where {T}
         y = Vector{T}(undef, n)
         w = Vector{T}(undef, n)
         if n <= 0
             throw(DomainError(n, "the number of points must be > 0"))
         end
-        h = convert(T, lambertW(Float64(pi * n)) * 2 / (n+2))
+        if is_zero(h)
+            h = convert(T, lambertW(Float64(pi * n)) * 2 / (n+2))
+        end
         for i = 1:n
             t = (2i - n - 1) * h / 2
             ct = cosh(t)
