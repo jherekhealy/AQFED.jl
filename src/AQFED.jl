@@ -59,6 +59,7 @@ include("ts/curve.jl")
 include("ts/lv.jl")
 include("ts/dividend.jl")
 include("ts/fukasawa_interp.jl")
+include("ts/sabr.jl")
 end
 
 module American
@@ -77,6 +78,7 @@ include("basket/asian.jl")
 include("basket/pln.jl")
 include("basket/quad.jl")
 include("basket/ju.jl")
+include("basket/sabr.jl")
 end
 
 module FDM
@@ -121,6 +123,7 @@ include("vol/fengler.jl")
 include("vol/rbf.jl")
 include("vol/lnmixture.jl")
 include("vol/varswap.jl")
+include("vol/sabr_calibration.jl")
 end
 
 module PDDE
