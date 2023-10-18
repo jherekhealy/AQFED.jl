@@ -145,34 +145,34 @@ end
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exp B-Spline")
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bspl3,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Cubic B-spline")
 plot!(p3, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/spxw170324_170316_vol_bspl.pdf")
+savefig("~//mypapers/eqd_book/spxw170324_170316_vol_bspl.pdf")
 p4=plot(log.(kFine./forward), Collocation.density.(bsple,kFine),label="Exp B-spline",xlab="Log-moneyness",ylab="Probability density",color=2)
 plot!(p4,log.(kFine./forward), Collocation.density.(bspl3,kFine),label="Cubic B-spline",color=3)
 plot!(p4,yscale=:log10, legend=:topleft)
 plot!(p4, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_bspl.pdf")
+savefig("~//mypapers/eqd_book/spxw170324_170316_dens_bspl.pdf")
    
      p3=plot(logmoneynessA, volA.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, Collocation.priceEuropean.(sol3,true,kFine,forward,1.0), forward, (kFine), tte, 1.0) .* 100, label="Cubic collocation")
     plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, Collocation.priceEuropean.(sol5,true,kFine,forward,1.0), forward, kFine, tte, 1.0) .* 100, label="Quintic collocation")
     plot!(p3,size=(480,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/spxw170324_170316_vol_schaback.pdf")
+    savefig(p3,"~//mypapers/eqd_book/spxw170324_170316_vol_schaback.pdf")
     
     plot(log.(kFine./forward), Collocation.density.(sol3,kFine),label="Cubic collocation", yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
     plot!(log.(kFine./forward), Collocation.density.(sol5,kFine),label="Quintic collocation")
     plot!(ylim=(1e-16,0.0),legend=:topleft)
 plot!(size=(480,380))
-    savefig("/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_schaback.pdf")
+    savefig("~//mypapers/eqd_book/spxw170324_170316_dens_schaback.pdf")
 
       p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
 plot!(p3, size=(480,380))
-savefig(p3,"/home/fabien/mypapers/eqd_book/spxw170324_170316_vol_lvgq.pdf")
+savefig(p3,"~//mypapers/eqd_book/spxw170324_170316_vol_lvgq.pdf")
 p2 = plot(kFine,(PDDE.derivativePrice.(lvgqe,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqe,true,kFine)).*10000, label="Mid-XX n=147",yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
 plot!(p2,kFine,(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="Equidistributed n=10",yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
 plot!(p2,legend=:topleft)
 plot!(p2, size=(480,380))
-    savefig(p2,"/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_lvgq.pdf")
+    savefig(p2,"~//mypapers/eqd_book/spxw170324_170316_dens_lvgq.pdf")
    =#
    
     allStrikes = vcat(0.0, strikesf, forward*exp(logmoneynessA[end]*3))
@@ -224,7 +224,7 @@ plot!(p2, size=(480,380))
     plot!(p3, kFine,sqrt.(rbf.(kFine)) .* 100, label="RBF")
     plot!(p3, kFine, Black.impliedVolatility.(true, max.(fengler.(forward.*exp.(kFine)),1e-16), forward, forward.*exp.(kFine), tte, 1.0) .* 100, label=string("Fengler λ=",200))
     plot!(p3,size=(480,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/spxw170324_170316_vol_fengler_rbf.pdf")
+    savefig(p3,"~//mypapers/eqd_book/spxw170324_170316_vol_fengler_rbf.pdf")
     p3 = plot(kFine, AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,forward.*exp.(kFine)),label="string("Fengler λ=",200))
 
     pdf(pp,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(log(y/forward))*tte,1.0,1.0),x),z)
@@ -233,7 +233,7 @@ plot!(p2, size=(480,380))
      plot!(kFine, AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,forward.*exp.(kFine)),label=string("Fengler λ=",200),xlab="Forward log-moneyness",ylab="Probability density")
     plot!(ylim=(1e-8,0.02),yscale=:log10)
     plot!(p3,size=(480,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_fengler_rbf.pdf")
+    savefig(p3,"~//mypapers/eqd_book/spxw170324_170316_dens_fengler_rbf.pdf")
 ##Schaback
    dev = 1.0
     kFine = range(logmoneynessA[1]*dev,stop=logmoneynessA[end]*dev, length=1001);
@@ -242,13 +242,13 @@ plot!(p2, size=(480,380))
     plot!(p3, kFine, Black.impliedVolatility.(true, max.(cs.(forward.*exp.(kFine)),1e-16), forward, forward.*exp.(kFine), tte, 1.0) .* 100, label=string("Schaback λ=",0))
     plot!(p3, kFine, Black.impliedVolatility.(true, max.(csf.(forward.*exp.(kFine)),1e-16), forward, forward.*exp.(kFine), tte, 1.0) .* 100, label=string("Schaback λ=",1))
     plot!(p3,size=(480,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/spxw170324_170316_vol_schaback.pdf")
+    savefig(p3,"~//mypapers/eqd_book/spxw170324_170316_vol_schaback.pdf")
     
     plot(logmoneynessA, AQFED.Math.evaluateSecondDerivative.(cs,strikeA),label="Schaback λ=0", yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
     plot!(logmoneynessA, AQFED.Math.evaluateSecondDerivative.(csf,strikeA),label="Schaback λ=1", yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
     plot!(ylim=(1e-16,0.0),legend=:topleft)
 plot!(size=(480,380))
-    savefig("/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_schaback.pdf")
+    savefig("~//mypapers/eqd_book/spxw170324_170316_dens_schaback.pdf")
 
     =#
     λs = [1e-10, 100.0, 1000.0, 10000.0]
@@ -277,7 +277,7 @@ plot!(size=(480,380))
         plot!(p3, kFine, Black.impliedVolatility.(true, max.(fengler.(forward.*exp.(kFine)),1e-16), forward, forward.*exp.(kFine), tte, 1.0) .* 100, label=string("Fengler λ=",λ))
     end
     plot(p3,margin=3Plots.mm,size=(800,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/spxw170324_170316_vol_fengler.pdf")
+    savefig(p3,"~//mypapers/eqd_book/spxw170324_170316_vol_fengler.pdf")
 
     ###density
     p3 = plot(kFine, AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,forward.*exp.(kFine)),label="Fengler")
@@ -291,10 +291,10 @@ plot!(size=(480,380))
     end
     plot!(p3, ylim=(1e-8,0.02),yscale=:continuous,legend=:topleft)
     plot!(p3,size=(480,380))
-    savefig(p3, "/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_fengler.pdf")
+    savefig(p3, "~//mypapers/eqd_book/spxw170324_170316_dens_fengler.pdf")
     plot!(p3, ylim=(1e-8,0.02),yscale=:log10,legend=:topleft)
     plot!(p3,size=(480,380))
-    savefig(p3, "/home/fabien/mypapers/eqd_book/spxw170324_170316_dens_fengler_log.pdf")
+    savefig(p3, "~//mypapers/eqd_book/spxw170324_170316_dens_fengler_log.pdf")
 
     =#
 kernel2 = AQFED.VolatilityModels.calibrateLognormalMixture(tte, forward, strikes, prices, weights, useVol=false,size=2)
@@ -345,13 +345,13 @@ ivkMLN6= @. AQFED.Black.impliedVolatility(
     plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(kFine .>= forward, AQFED.VolatilityModels.priceEuropean.(kernel4,kFine .>= forward,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 4")
     plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(kFine .>= forward, AQFED.VolatilityModels.priceEuropean.(kernel6,kFine .>= forward,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 6")
  plot!(size=(800,320),margin=3Plots.mm)
-  savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218_mln6.pdf")
+  savefig("~//mypapers/eqd_book/vol_spw_1m_050218_mln6.pdf")
 
 plot(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel2,kFine),label="Mixture of 2", color=2,xlab="Forward log-moneyness",ylab="Probability density")
  plot!(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel4,kFine),label="Mixture of 4",color=3)
  plot!(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel6,kFine),label="Mixture of 6",color=4)
 plot!(size=(800,320),margin=3Plots.mm)
-    savefig("/home/fabien/mypapers/eqd_book/density_spw_1m_050218_mln6.pdf")
+    savefig("~//mypapers/eqd_book/density_spw_1m_050218_mln6.pdf")
 =  =#
 
 ##LVG vs AH
@@ -374,19 +374,19 @@ ah = ah1000
 plot!(log.(kFine./forward),d2price.(kFine), label="Andreasen-Huge l=1000", xlab="Forward log-moneyness",ylab="Probability density",ylims=(1e-10,2e-2),yscale=:log10)
 plot!(legend=:topleft)
  plot!(size=(480,380))
- savefig("/home/fabien/mypapers/eqd_book/density_spw_1m_050218ahspl_d.pdf")
+ savefig("~//mypapers/eqd_book/density_spw_1m_050218ahspl_d.pdf")
  p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5)
 plot!(p3,log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(lvgq,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="LVG")
  plot!(p3,log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(ah100,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Andreasen-Huge l=101")
 plot!(p3,log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(ah1000,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Andreasen-Huge l=1000")
  plot!(p3,size=(480,380))
- savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218ahspl.pdf")
+ savefig("~//mypapers/eqd_book/vol_spw_1m_050218ahspl.pdf")
 
  plot(log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(ah100,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Andreasen-Huge l=101")
  plot!(log.(kFine./forward), Black.impliedVolatility.(forward.<kFine, max.(1e-32,PDDE.priceEuropean.(lvgq,forward.<kFine,kFine)), forward, (kFine), tte, 1.0) .* 100, label="LVG",xlab="Forward log-moneyness", ylab="Implied volatility in %",z_order=:back,linestyle=:dot)
  plot!(ylims=(5,50),xlim=(-0.3,0.12))
 plot!(size=(480,380))
-savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218ahspl_d100.pdf")
+savefig("~//mypapers/eqd_book/vol_spw_1m_050218ahspl_d100.pdf")
 
 =#
 end
@@ -542,13 +542,13 @@ end
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exp B-spline")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bspl3,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Cubic B-spline")
 plot!(p3, legend=:top,size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/audnzd_bspl_vol.pdf")
+savefig("~//mypapers/eqd_book/audnzd_bspl_vol.pdf")
  p4=plot(log.(kFine), Collocation.density.(bsplee,kFine),label="Exp B-spline equidistant",xlab="Log-moneyness",ylab="Probability density")
  plot!(p4,log.(kFine), Collocation.density.(bsple,kFine),label="Exp B-spline")
  plot!(p4,log.(kFine), Collocation.density.(bspl3,kFine),label="Cubic B-spline")
 plot!(p4,log.(kFine), Collocation.density.(bspl2,kFine),label="Quadratic B-spline")
  plot!(p4, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/audnzd_bspl_dens.pdf")
+savefig("~//mypapers/eqd_book/audnzd_bspl_dens.pdf")
 ==#
 lvgq = PDDE.calibrateQuadraticLVG(tte, forward, k, prices, weights, useVol=false, model=PDDE.Quadratic(),location="Mid-XX",size=0,L=k[1]/2,U=k[end]*2)
 ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, k), forward, k, tte, 1.0)
@@ -559,10 +559,10 @@ rmseLVG = StatsBase.rmsd(vols, ivkLVG)
 p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
 plot!(p3, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/audnzd_lvgq_vol.pdf")
+ savefig("~//mypapers/eqd_book/audnzd_lvgq_vol.pdf")
 p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
  plot!(p2, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/audnzd_lvgq_dens.pdf")
+ savefig("~//mypapers/eqd_book/audnzd_lvgq_dens.pdf")
 =#
 
     pp = PPInterpolation.CubicSplineNatural(log.(k ./ forward), vols .^ 2)
@@ -629,11 +629,11 @@ kernel2 = AQFED.VolatilityModels.calibrateLognormalMixture(tte, forward, strikes
 plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(kFine .>= forward, AQFED.VolatilityModels.priceEuropean.(kernel2,kFine .>= forward,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 2")
 plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(kFine .>= forward, AQFED.VolatilityModels.priceEuropean.(kernel3f,kFine .>= forward,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 3 with equal α")
 plot!(size=(480,380),legend=:top)
-    savefig("/home/fabien/mypapers/eqd_book/audnzd_mixture_vols.pdf")
+    savefig("~//mypapers/eqd_book/audnzd_mixture_vols.pdf")
  plot(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel2,kFine),label="Mixture of 2",color=2,xlabel="Forward log-moneyness",ylabel="Probability density")
  plot!(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel3,kFine),label="Mixture of 3 with equal α",color=3,xlabel="Forward log-moneyness",ylabel="Probability density")
  plot!(size=(480,380))
-savefig("/home/fabien/mypapers/eqd_book/audnzd_mixture_dens.pdf")
+savefig("~//mypapers/eqd_book/audnzd_mixture_dens.pdf")
  
 
            =#
@@ -660,7 +660,7 @@ plot!(p2,ylims=(5,8))
 plot!(p3, xlab="Forward log-moneyness", ylab="Probability density")
 l=@layout [a b ; c]
 plot(p1,p2,p3,layout=l,size=(800,600))
-savefig("/home/fabien/mypapers/eqd_book/audnzd_delta_spline_dens.pdf")
+savefig("~//mypapers/eqd_book/audnzd_delta_spline_dens.pdf")
 
 plot(log.(k./forward), vols.*100, seriestype= :scatter, label="Reference"); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     plot!(kFine, ivkFine3 .*100 ,label="Cubic collocation")
@@ -803,10 +803,10 @@ rmseLVG = StatsBase.rmsd(vols, ivkLVG)
 p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
 plot!(p3, ylim=(21,25),xlim=(-0.1,3.6), size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_lvgq_vol.pdf")
+ savefig("~//mypapers/eqd_book/jaeckel_case_i_lvgq_vol.pdf")
 p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
  plot!(p2, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_lvgq_dens.pdf")
+ savefig("~//mypapers/eqd_book/jaeckel_case_i_lvgq_dens.pdf")
 =#
 
 
@@ -818,7 +818,7 @@ p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .
     p3 = plot(log.(kFine./forward),pdf.(pp,kFine),label="Cubic spline on implied variances",color=1,ylim=(-0.05,1.0))
     p4 = plot(log.(kFine./forward),pdf.(rbf,kFine),label="RBF",color=4,ylim=(-0.05,1.0))
     plot(p3,p4,p1,p2, layout=(1,4),legend=false,titles=["Cubic spline" "RBF" "Fengler" "Schaback"],size=(800,250))
-    savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_fengler_rbf_dens.pdf")
+    savefig("~//mypapers/eqd_book/jaeckel_case_i_fengler_rbf_dens.pdf")
 
     plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference",markersize=3,markerstrokewidth=-1); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, max.(fengler.(kFine),1e-16), forward, kFine, tte, 1.0)*100),label="Fengler λ=1e-13")
@@ -826,7 +826,7 @@ p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .
     plot!(log.(kFine./forward), sqrt.(rbf.(log.(kFine./forward))).*100,label="RBF")
     #plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, PDDE.priceEuropean.(lvg,true,kFine), forward, kFine, tte, 1.0)*100),label="LVG Linear Black")
     plot!(ylim=(21,25),xlim=(-0.1,3.1),size=(640,320),margin=2Plots.mm)
-    savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_fengler_rbf.pdf")
+    savefig("~//mypapers/eqd_book/jaeckel_case_i_fengler_rbf.pdf")
 
     =#
 
@@ -913,11 +913,11 @@ p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exponential B-spline")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bspl3,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Cubic B-spline")
 plot!(p3, legend=:top,size=(400,200))
-savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_bspl_vol.pdf")
+savefig("~//mypapers/eqd_book/jaeckel_case_ii_bspl_vol.pdf")
  p4=plot(log.(kFine), Collocation.density.(bsple,kFine),label="Exponential B-spline",xlab="Log-moneyness",ylab="Probability density",color=2)
  plot!(p4,log.(kFine), Collocation.density.(bspl3,kFine),label="Cubic B-spline",color=3)
 plot!(p4, size=(400,200))
-savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_bspl_dens.pdf")
+savefig("~//mypapers/eqd_book/jaeckel_case_ii_bspl_dens.pdf")
 ==#
   
 
@@ -1001,7 +1001,7 @@ plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(kFine .>= forward, AQF
 
     #plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, PDDE.priceEuropean.(lvg,true,kFine), forward, kFine, tte, 1.0)*100),label="LVG Linear Black")
     plot!(ylim=(21,25),xlim=(-0.1,3.1),size=(640,320),margin=2Plots.mm)
-    savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_fengler_rbf.pdf")
+    savefig("~//mypapers/eqd_book/jaeckel_case_i_fengler_rbf.pdf")
 
            =#
 end
@@ -1140,11 +1140,11 @@ end
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exp B-spline")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bspl3,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Cubic B-spline")
 plot!(p3, legend=:top,size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_bspl_vol.pdf")
+savefig("~//mypapers/eqd_book/jaeckel_case_ii_bspl_vol.pdf")
  p4=plot(log.(kFine), Collocation.density.(bsple,kFine),label="Exp B-spline",xlab="Log-moneyness",ylab="Probability density",color=2)
  plot!(p4,log.(kFine), Collocation.density.(bspl3,kFine),label="Cubic B-spline",color=3)
 plot!(p4, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_bspl_dens.pdf")
+savefig("~//mypapers/eqd_book/jaeckel_case_ii_bspl_dens.pdf")
 ==#
     allStrikes = vcat(0.0, strikes, 50.0)
     allPrices = vcat(forward, prices, 0.0)
@@ -1181,11 +1181,11 @@ ivkLVG = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes
 p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
 plot!(p3, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_lvgq_vol.pdf")
+ savefig("~//mypapers/eqd_book/jaeckel_case_ii_lvgq_vol.pdf")
 p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvg,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvg,true,kFine)).*10000, label="Linear-Black", xlab="Forward log-moneyness",ylab="Probability density")
 plot!(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="Quadratic", xlab="Forward log-moneyness",ylab="Probability density")
  plot!(p2, size=(480,320),scale=:log10)
- savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_lvgq_dens_log.pdf")
+ savefig("~//mypapers/eqd_book/jaeckel_case_ii_lvgq_dens_log.pdf")
 =#
     prices, weights = Collocation.weightedPrices(true, strikes, vols, w1, forward, 1.0, tte, vegaFloor=1e-7)
     sumw2 = sum(w1 .^ 2);w = w1 ./ sqrt(sumw2);
@@ -1246,7 +1246,7 @@ ivkMLN6= @. AQFED.Black.impliedVolatility(
 plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(kFine .>= forward, AQFED.VolatilityModels.priceEuropean.(kernel4,kFine .>= forward,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 4")
 plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(kFine .>= forward, AQFED.VolatilityModels.priceEuropean.(kernel6,kFine .>= forward,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 6")
 plot!(size=(480,380))
-    savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_mixture_vol.pdf")
+    savefig("~//mypapers/eqd_book/jaeckel_case_ii_mixture_vol.pdf")
 
 
     #plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, PDDE.priceEuropean.(lvg,true,kFine), forward, kFine, tte, 1.0)*100),label="LVG Linear Black")
@@ -1255,7 +1255,7 @@ plot!(size=(480,380))
  plot!(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel6,kFine),label="Mixture of 6",color=3,xlabel="Forward log-moneyness",ylabel="Probability density")
  plot!(ylims=(0.0,2.0))
 plot!(size=(480,380))
-    savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_ii_mixture_dens.pdf")
+    savefig("~//mypapers/eqd_book/jaeckel_case_ii_mixture_dens.pdf")
 
            =#
         
@@ -1354,12 +1354,12 @@ p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Referenc
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exp B-Spline")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bspl3,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Cubic B-spline")
 plot!(p3, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_vol_bspl.pdf")
+savefig("~//mypapers/eqd_book/aapl_20131028_vol_bspl.pdf")
 p4=plot(log.(kFine./forward), Collocation.density.(bsple,kFine),label="Exp B-spline",xlab="Log-moneyness",ylab="Probability density",color=2)
 plot!(p4,log.(kFine./forward), Collocation.density.(bspl3,kFine),label="Cubic B-spline",color=3)
 #plot!(p4,yscale=:log10)
 plot!(p4, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_dens_bspl.pdf")
+savefig("~//mypapers/eqd_book/aapl_20131028_dens_bspl.pdf")
 ==#
     strikesf, pricesf = AQFED.Collocation.filterConvexPrices(strikes, prices, weights, forward,tol=1e-6)
     allStrikes = vcat(0.0, strikesf, forward*exp(logmoneynessA[end]*3))
@@ -1420,13 +1420,13 @@ savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_dens_bspl.pdf")
     plot!(log.(kFine./forward),Black.impliedVolatility.(true, max.(csf.(kFine),1e-16), forward, kFine, tte, 1.0) .* 100, label=string("Schaback λ=",1e-5))
     plot!(log.(kFine./forward),Black.impliedVolatility.(true, max.(cs8.(kFine),1e-16), forward, kFine, tte, 1.0) .* 100, label=string("Schaback on 8 knots"))
   plot!(size=(480,380))
- savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_schaback.pdf")
+ savefig("~//mypapers/eqd_book/aapl_20131028_schaback.pdf")
 
 plot(log.(kFine./forward), AQFED.Math.evaluateSecondDerivative.(cs8,kFine),label="Schaback on 8 knots", xlab="Forward log-moneyness",ylab="Probability density")
  plot!(log.(kFine./forward), AQFED.Math.evaluateSecondDerivative.(csf,kFine),label=string("Schaback λ=",1e-5))
 plot!(legend=:bottom)
   plot!(size=(480,380))
-    savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_schaback_dens.pdf")
+    savefig("~//mypapers/eqd_book/aapl_20131028_schaback_dens.pdf")
 =#
    
     λs = [1e-8, 1e-6, 1e-5]
@@ -1451,14 +1451,14 @@ plot!(legend=:bottom)
     plot!(p3,log.(kFine./forward), AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,kFine),label=string("Fengler λ=",λ))
     end
     plot(p3,margin=3Plots.mm,size=(480,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/aapl_20131028_fengler_dens.pdf")
+    savefig(p3,"~//mypapers/eqd_book/aapl_20131028_fengler_dens.pdf")
     p4 = plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference",markersize=3,markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     for λ in λs
     fengler = AQFED.VolatilityModels.calibrateFenglerSlice(tte, forward, strikes, prices, (weights),λ=λ,eps=1e-13,solver="GI")
     plot!(p4,log.(kFine./forward), @.(Black.impliedVolatility(true, max.(fengler.(kFine),1e-16), forward, kFine, tte, 1.0)*100),label=string("Fengler λ=",λ))
     end
     plot(p4,margin=3Plots.mm,size=(480,380))
-    savefig(p4,"/home/fabien/mypapers/eqd_book/aapl_20131028_fengler.pdf")
+    savefig(p4,"~//mypapers/eqd_book/aapl_20131028_fengler.pdf")
 
     =#
     rbf = AQFED.VolatilityModels.calibrateMultiquadric(tte, forward, log.(strikes), vols, weightsV, knots=range(log(strikes[1]), stop=log(strikes[end]), length=8))
@@ -1511,7 +1511,7 @@ plot!(legend=:bottom)
         plot!(p3,log.(kFine./forward), AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,kFine),label=string("Fengler λ=",λ))
      end
     plot(p3,margin=2Plots.mm,size=(480,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/aapl_20131028_fengler_rbf_dens.pdf")
+    savefig(p3,"~//mypapers/eqd_book/aapl_20131028_fengler_rbf_dens.pdf")
      p4 = plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference",markersize=3,markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
      for λ in λs
         fengler = AQFED.VolatilityModels.calibrateFenglerSlice(tte, forward, strikes, pricesRBF, (weights),λ=λ,eps=1e-13,solver="GI")
@@ -1519,7 +1519,7 @@ plot!(legend=:bottom)
      end
     plot!(p4,log.(kFine./forward),sqrt.(rbf.(log.(kFine)./forward)) .*100 ,label="RBF")
     plot(p4,margin=2Plots.mm,size=(480,380))
-    savefig(p4,"/home/fabien/mypapers/eqd_book/aapl_20131028_rbf_fengler.pdf")
+    savefig(p4,"~//mypapers/eqd_book/aapl_20131028_rbf_fengler.pdf")
 
      =#
 
@@ -1563,10 +1563,10 @@ plot!(legend=:bottom)
 p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
 plot!(p3, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_lvgq_vol.pdf")
+ savefig("~//mypapers/eqd_book/aapl_20131028_lvgq_vol.pdf")
 p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
  plot!(p2, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_lvgq_dens.pdf")
+ savefig("~//mypapers/eqd_book/aapl_20131028_lvgq_dens.pdf")
 =#
    kernel2 = AQFED.VolatilityModels.calibrateLognormalMixture(tte, forward, strikes, prices, weights, useVol=false,size=2)
     ivkMLN2= @. AQFED.Black.impliedVolatility(
@@ -1685,22 +1685,22 @@ p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Referenc
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exp B-Spline")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bspl3,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Cubic B-spline")
 plot!(p3, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_vol_bspl.pdf")
+savefig("~//mypapers/eqd_book/aapl_20131028_vol_bspl.pdf")
 p4=plot(log.(kFine./forward), Collocation.density.(bsple,kFine),label="Exp B-spline",xlab="Log-moneyness",ylab="Probability density",color=2)
 plot!(p4,log.(kFine./forward), Collocation.density.(bspl3,kFine),label="Cubic B-spline",color=3)
 #plot!(p4,yscale=:log10)
 plot!(p4, size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_dens_bspl.pdf")
+savefig("~//mypapers/eqd_book/aapl_20131028_dens_bspl.pdf")
 ==#   
     #=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference",markersize=3,markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, Collocation.priceEuropean.(sol5,true,kFine), forward, kFine, tte, 1.0)*100),label="Collocation")
     
 p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
-savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218_lvgq.pdf")
+savefig("~//mypapers/eqd_book/vol_spw_1m_050218_lvgq.pdf")
 p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
  plot!(p2, size=(480,380))
- savefig("/home/fabien/mypapers/eqd_book/density_spw_1m_050218_lvgq.pdf")
+ savefig("~//mypapers/eqd_book/density_spw_1m_050218_lvgq.pdf")
    =#
     
     λs = [1.6e4, 3.2e4, 6.4e4]
@@ -1833,13 +1833,13 @@ p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .
     plot!(log.(kFine./forward),Black.impliedVolatility.(true, max.(csf.(kFine),1e-16), forward, kFine, tte, 1.0) .* 100, label=string("Schaback λ=",1e-5))
     plot!(log.(kFine./forward),Black.impliedVolatility.(true, max.(cs8.(kFine),1e-16), forward, kFine, tte, 1.0) .* 100, label=string("Schaback on 8 knots"))
   plot!(size=(480,380))
- savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_schaback.pdf")
+ savefig("~//mypapers/eqd_book/aapl_20131028_schaback.pdf")
 
 plot(log.(kFine./forward), AQFED.Math.evaluateSecondDerivative.(cs8,kFine),label="Schaback on 8 knots", xlab="Forward log-moneyness",ylab="Probability density")
  plot!(log.(kFine./forward), AQFED.Math.evaluateSecondDerivative.(csf,kFine),label=string("Schaback λ=",1e-5))
 plot!(legend=:bottom)
   plot!(size=(480,380))
-    savefig("/home/fabien/mypapers/eqd_book/aapl_20131028_schaback_dens.pdf")
+    savefig("~//mypapers/eqd_book/aapl_20131028_schaback_dens.pdf")
 =#
 kernel2 = AQFED.VolatilityModels.calibrateLognormalMixture(tte, forward, strikes, prices, weights, useVol=false,size=2)
 ivkMLN2= @. AQFED.Black.impliedVolatility(
@@ -1889,13 +1889,13 @@ ivkMLN6= @. AQFED.Black.impliedVolatility(
     plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(true, AQFED.VolatilityModels.priceEuropean.(kernel4,true,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 4")
     plot!(log.(kFine./forward),AQFED.Black.impliedVolatility.(true, AQFED.VolatilityModels.priceEuropean.(kernel6,true,kFine), forward, kFine, tte, 1.0) .* 100, label="Mixture of 6")
  plot!(size=(800,320),margin=3Plots.mm)
-  savefig("/home/fabien/mypapers/eqd_book/vol_spw_1m_050218_mln6.pdf")
+  savefig("~//mypapers/eqd_book/vol_spw_1m_050218_mln6.pdf")
 
 plot(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel2,kFine),label="Mixture of 2", color=2,xlab="Forward log-moneyness",ylab="Probability density")
  plot!(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel4,kFine),label="Mixture of 4",color=3)
  plot!(log.(kFine./forward), AQFED.VolatilityModels.density.(kernel6,kFine),label="Mixture of 6",color=4)
 plot!(size=(800,320),margin=3Plots.mm)
-    savefig("/home/fabien/mypapers/eqd_book/density_spw_1m_050218_mln6.pdf")
+    savefig("~//mypapers/eqd_book/density_spw_1m_050218_mln6.pdf")
 =  =#
 end
 
@@ -1940,14 +1940,14 @@ end
     plot!(p3,log.(kFine./forward), AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,kFine),label=string("Fengler λ=",λ))
     end
     plot(p3,margin=3Plots.mm,size=(480,380))
-    savefig(p3,"/home/fabien/mypapers/eqd_book/tsla_180615_180720_fengler_dens.pdf")
+    savefig(p3,"~//mypapers/eqd_book/tsla_180615_180720_fengler_dens.pdf")
     p4 = plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference",markersize=3,markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     for λ in λs
     fengler = AQFED.VolatilityModels.calibrateFenglerSlice(tte, forward, strikes, prices, (weights),λ=λ,eps=1e-13,solver="GI")
     plot!(p4,log.(kFine./forward), @.(Black.impliedVolatility(true, max.(fengler.(kFine),1e-16), forward, kFine, tte, 1.0)*100),label=string("Fengler λ=",λ))
     end
     plot(p4,margin=3Plots.mm,size=(480,380))
-    savefig(p4,"/home/fabien/mypapers/eqd_book/tsla_180615_180720_fengler.pdf")
+    savefig(p4,"~//mypapers/eqd_book/tsla_180615_180720_fengler.pdf")
 
     =#
 
@@ -2082,21 +2082,21 @@ end
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bsple,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Exp B-Spline")
  plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,Collocation.priceEuropean.(bspl3,true,kFine,forward,1.0)), forward, (kFine), tte, 1.0) .* 100, label="Cubic B-spline")
  plot!(p3, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_vol_bspl.pdf")
+ savefig("~//mypapers/eqd_book/tsla_180615_180720_vol_bspl.pdf")
  p4=plot(log.(kFine./forward), Collocation.density.(bsple,kFine),label="Exp B-spline",xlab="Log-moneyness",ylab="Probability density",color=2)
  plot!(p4,log.(kFine./forward), Collocation.density.(bspl3,kFine),label="Cubic B-spline",color=3)
  #plot!(p4,yscale=:log10)
  plot!(p4, size=(480,320),legend=:topleft)
- savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_dens_bspl.pdf")
+ savefig("~//mypapers/eqd_book/tsla_180615_180720_dens_bspl.pdf")
 
    
 p3=plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference", markersize=3, markerstrokewidth=-1,markeralpha=0.5); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
 plot!(p3, log.(kFine./forward), Black.impliedVolatility.(true, max.(1e-32,PDDE.priceEuropean.(lvgq,true,kFine)), forward, (kFine), tte, 1.0) .* 100, label="Quadratic LVG")
 plot!(p3, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_vol_lvgq.pdf")
+ savefig("~//mypapers/eqd_book/tsla_180615_180720_vol_lvgq.pdf")
 p2 = plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=:none, xlab="Forward log-moneyness",ylab="Probability density")
  plot!(p2, size=(480,320))
- savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_dens_lvgq.pdf")
+ savefig("~//mypapers/eqd_book/tsla_180615_180720_dens_lvgq.pdf")
 
  ==#   
  
@@ -2142,23 +2142,23 @@ ivkMLN4= @. AQFED.Black.impliedVolatility(
     plot!(log.(kFine./forward),Black.impliedVolatility.(true, max.(csf.(kFine),1e-16), forward, kFine, tte, 1.0) .* 100, label=string("Schaback λ=",1))
     plot!(log.(kFine./forward),Black.impliedVolatility.(true, max.(cs8.(kFine),1e-16), forward, kFine, tte, 1.0) .* 100, label=string("Schaback on 8 knots"))
   plot!(size=(480,380))
- savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_schaback.pdf")
+ savefig("~//mypapers/eqd_book/tsla_180615_180720_schaback.pdf")
 
 plot(log.(kFine./forward), AQFED.Math.evaluateSecondDerivative.(cs8,kFine),label="Schaback on 8 knots ", yscale=:log10, xlab="Forward log-moneyness",ylab="Probability density")
  plot!(log.(kFine./forward), AQFED.Math.evaluateSecondDerivative.(csf,kFine),label="Schaback λ=1")
 plot!(legend=:topleft)
   plot!(size=(480,380))
-    savefig("/home/fabien/mypapers/eqd_book/tsla_180615_180720_schaback_dens.pdf")
+    savefig("~//mypapers/eqd_book/tsla_180615_180720_schaback_dens.pdf")
    
     plot(log.(strikes./forward), vols.*100, seriestype= :scatter, label="Reference",markersize=3,markerstrokewidth=-1); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
     plot!(log.(strikes./forward),ivkSVI0.*100,label="SVI")
     plot!(log.(strikes./forward),ivkXSSVI.*100,label="XSSVI")
     plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, max.(fengler.(kFine),1e-16), forward, kFine, tte, 1.0)*100),label="Fengler λ=1e-13")
 
-    #savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_fengler_rbf_dens.pdf")
+    #savefig("~//mypapers/eqd_book/jaeckel_case_i_fengler_rbf_dens.pdf")
 
     plot!(log.(kFine./forward), @.(Black.impliedVolatility(true, PDDE.priceEuropean.(lvg,true,kFine), forward, kFine, tte, 1.0)*100),label="LVG Linear Black")
-    #savefig("/home/fabien/mypapers/eqd_book/jaeckel_case_i_fengler_rbf.pdf")
+    #savefig("~//mypapers/eqd_book/jaeckel_case_i_fengler_rbf.pdf")
 
     pdf(pp,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(log(y/forward))*tte,1.0,1.0),x),z)
 
@@ -2250,7 +2250,7 @@ p = plot(xlab="Forward Log-moneyness", ylab="Total variance")
                 end
 plot(p,legendtitle="T")
 plot!(p,size=(480,340))
-savefig("/home/fabien/mypapers/eqd_book/kahale_fengler_totalvar.pdf")
+savefig("~//mypapers/eqd_book/kahale_fengler_totalvar.pdf")
 
 pdfsurfacep(svi,z,forward,tte) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.VolatilityModels.price(svi,log(y/forward),tte),x),z)
 
@@ -2260,7 +2260,7 @@ for (i,tte) in enumerate(expiries)
       end
 plot(expiries, k, pdfvalues',st=:surface,camera=(80,30),ylab="Strike",xlab="Expiry",zlab="Probability Density",colorbar=false)
 plot!(size=(480,340))
-savefig("/home/fabien/mypapers/eqd_book/kahale_fengler_dens.pdf")
+savefig("~//mypapers/eqd_book/kahale_fengler_dens.pdf")
 
 #PDF bof
 #LV 3D?
@@ -2288,7 +2288,7 @@ p = plot(xlab="Forward Log-moneyness", ylab="Total variance")
                 plot!(p, log.(k./forwards[i]), @.((PDDE.varianceByLogmoneyness(surfaceLVG, log(k/forwards[i]),tte))*tte), label=string(tte))
                 end
 plot(p,legendtitle="T")
-savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_totalvar.pdf")
+savefig("~//mypapers/eqd_book/kahale_lvg_totalvar.pdf")
 p2 = plot(xlab="Forward log-moneyness",ylab="Probability density")
  for (i,tte) in enumerate(expiries)
     lvgq = surfaceLVG.sections[i]
@@ -2306,9 +2306,9 @@ for (i,tte)= enumerate(t)
     ivMatrix[i,:] = @. sqrt(PDDE.varianceByLogmoneyness(surfaceLVG, log(k/fi),tte))
 end
 plot(t, k, ivMatrix'.*100,st=:surface,camera=(-45,30),ylab="Strike",xlab="Expiry",zlab="Implied volatility in %", legend=:none, zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
-savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_iv3d.pdf")
+savefig("~//mypapers/eqd_book/kahale_lvg_iv3d.pdf")
 plot(t, k, ivMatrix'.*100,st=:surface,camera=(45,30),ylab="Strike",xlab="Expiry",zlab="Implied volatility in %", legend=:none,  zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
-savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_iv3db.pdf")
+savefig("~//mypapers/eqd_book/kahale_lvg_iv3db.pdf")
 
 lvMatrix = zeros(length(t),length(k))
 eps=1e-4
@@ -2318,9 +2318,9 @@ for (i,tte)= enumerate(t)
     lvMatrix[i,:] = @. sqrt((PDDE.varianceByLogmoneyness(surfaceLVG, log(k/fi),tte+eps)*(tte+eps)-PDDE.varianceByLogmoneyness(surfaceLVG, log(k/fi),tte)*tte)/(eps*gatheralDenomFinite(w, log(k/fi))))
 end
 plot(t, k, lvMatrix'.*100,st=:surface,camera=(-45,30),ylab="Strike",xlab="Expiry",zlab="Local volatility in %", legend=:none, zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
-savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_lv3d.pdf")
+savefig("~//mypapers/eqd_book/kahale_lvg_lv3d.pdf")
 plot(t, k, lvMatrix'.*100,st=:surface,camera=(45,30),ylab="Strike",xlab="Expiry",zlab="Local volatility in %", legend=:none,  zguidefontrotation=90,margin=0Plots.mm,size=(600,600))
-savefig("/home/fabien/mypapers/eqd_book/kahale_lvg_lv3db.pdf")
+savefig("~//mypapers/eqd_book/kahale_lvg_lv3db.pdf")
 
 =#
 

@@ -41,7 +41,7 @@ using DataFrames
     #=
     plot(spots./strike, abs.(refPrice.(spots) .- anPriceA), xlab="Spot/Strike", ylab="Absolute error in price", label="Ghost");    plot!(spots./strike, abs.(refPriceK.(spots) .- anPriceA), label="Ghost Kreiss");    plot!(spots./strike, abs.(refPriceS.(spots) .- anPriceA), label="Deformed")
     plot!(size=(400,300),margins=1Plots.mm)
-    savefig("/home/fabien/mypapers/eqd_book/barrier_ko_spot_401.pdf")
+    savefig("~//mypapers/eqd_book/barrier_ko_spot_401.pdf")
     =#
     spot= strike
     barrierEngine = AQFED.Black.AnalyticBarrierEngine(spot, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte))
@@ -64,7 +64,7 @@ using DataFrames
 	#=
     plot(xStepsA,abs.(err),label="Ghost");plot!(xStepsA, abs.(errK),xlab="Number of space steps", ylab="Absolute error in price",label="Ghost Kreiss");plot!(xStepsA,abs.(errS),label="Deformed")
   plot!(size=(400,300),margins=1Plots.mm)
- savefig("/home/fabien/mypapers/eqd_book/barrier_ko_steps_100.pdf")  
+ savefig("~//mypapers/eqd_book/barrier_ko_steps_100.pdf")  
  =#
 end
 @testset "Peclet" begin
@@ -242,7 +242,7 @@ end
     #=
     plot(spots./strike, abs.(refPrice.(spots) .- anPriceA), xlab="Spot/Strike", ylab="Absolute error in price", label="Ghost");    plot!(spots./strike, abs.(refPriceK.(spots) .- anPriceA), label="Ghost Kreiss");    plot!(spots./strike, abs.(refPriceS.(spots) .- anPriceA), label="Deformed")
     plot!(size=(400,300),margins=1Plots.mm)
-    savefig("/home/fabien/mypapers/eqd_book/barrier_ki_spot_401.pdf")
+    savefig("~//mypapers/eqd_book/barrier_ki_spot_401.pdf")
     =#
     spot= strike
     barrierEngine = AQFED.Black.AnalyticBarrierEngine(spot, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte))
@@ -265,7 +265,7 @@ end
 	#=
     plot(xStepsA,abs.(err),label="Ghost");plot!(xStepsA, abs.(errK),xlab="Number of space steps", ylab="Absolute error in price",label="Ghost Kreiss");plot!(xStepsA,abs.(errS),label="Deformed")
   plot!(size=(400,300),margins=1Plots.mm)
- savefig("/home/fabien/mypapers/eqd_book/barrier_ko_steps_100.pdf")  
+ savefig("~//mypapers/eqd_book/barrier_ko_steps_100.pdf")  
  =#
 end
 
@@ -315,7 +315,7 @@ end
     #=
     plot(spots./strike, abs.(refPrice.(spots) .- anPriceA), xlab="Spot/Strike", ylab="Absolute error in price", label="Ghost");    plot!(spots./strike, abs.(refPriceK.(spots) .- anPriceA), label="Ghost Kreiss");    plot!(spots./strike, abs.(refPriceS.(spots) .- anPriceA), label="Deformed")
     plot!(size=(400,300),margins=1Plots.mm)
-    savefig("/home/fabien/mypapers/eqd_book/barrier_kiko_spot_401_cubic01.pdf")
+    savefig("~//mypapers/eqd_book/barrier_kiko_spot_401_cubic01.pdf")
     =#
     spot= strike
     barrierEngine = AQFED.Black.AnalyticBarrierEngine(spot, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte))
@@ -338,7 +338,7 @@ end
 	#=
     plot(xStepsA,abs.(err),label="Ghost");plot!(xStepsA, abs.(errK),xlab="Number of space steps", ylab="Absolute error in price",label="Ghost Kreiss");plot!(xStepsA,abs.(errS),label="Deformed")
   plot!(size=(400,300),margins=1Plots.mm)
- savefig("/home/fabien/mypapers/eqd_book/barrier_ko_steps_100.pdf")  
+ savefig("~//mypapers/eqd_book/barrier_ko_steps_100.pdf")  
  =#
 end
 
@@ -382,16 +382,16 @@ end
    plot(refPriceS.x,PPInterpolation.evaluateDerivative.(refPriceS,refPriceS.x),xlab="Underlying spot price", ylab="Option Δ",label="TR-BDF2")
    plot!(priceRKG.x,PPInterpolation.evaluateDerivative.(priceRKG,priceRKG.x),xlab="Underlying spot price", ylab="Option Δ",label="RKG")
    plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("/home/fabien/mypapers/eqd_book/doubleonetouch_delta_trbdf2.pdf")
+ savefig("~//mypapers/eqd_book/doubleonetouch_delta_trbdf2.pdf")
   plot(priceCN.x,PPInterpolation.evaluateDerivative.(priceCN,priceCN.x),xlab="Underlying spot price", ylab="Option Δ",label="")
    plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("/home/fabien/mypapers/eqd_book/doubleonetouch_delta_cn.pdf")
+ savefig("~//mypapers/eqd_book/doubleonetouch_delta_cn.pdf")
   plot(priceRAN.x,PPInterpolation.evaluateDerivative.(priceRAN,priceRAN.x),xlab="Underlying spot price", ylab="Option Δ",label="")
    plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("/home/fabien/mypapers/eqd_book/doubleonetouch_delta_ran.pdf")
+ savefig("~//mypapers/eqd_book/doubleonetouch_delta_ran.pdf")
 plot(priceRAN4.x,PPInterpolation.evaluateDerivative.(priceRAN4,priceRAN4.x),xlab="Underlying spot price", ylab="Option Δ",label="")
    plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("/home/fabien/mypapers/eqd_book/doubleonetouch_delta_ran4.pdf")
+ savefig("~//mypapers/eqd_book/doubleonetouch_delta_ran4.pdf")
 
    =#
 end
@@ -479,9 +479,9 @@ end
     end
     # udata = data[startswith.(data.grid,"Uniform"),:]
     # plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-    # savefig("/home/fabien/mypapers/eqd_book/uniform_kreiss_time_vanilla.pdf")
+    # savefig("~//mypapers/eqd_book/uniform_kreiss_time_vanilla.pdf")
     # udata = data[startswith.(data.grid,"Cubic"),:]
     # plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-    # savefig("/home/fabien/mypapers/eqd_book/cubic_kreiss_time_vanilla.pdf")
+    # savefig("~//mypapers/eqd_book/cubic_kreiss_time_vanilla.pdf")
     #plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:ln,yticks=([0.0001,0.0002,0.0004],[0.0001,0.0002,0.0004]),ylabel="Absolute error in price", xlabel="number of time-steps",mode="markers")
 end

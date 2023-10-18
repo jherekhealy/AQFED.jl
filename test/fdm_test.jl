@@ -185,10 +185,10 @@ end
     end
     # udata = data[startswith.(data.grid,"Uniform"),:]
     # plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-    # savefig("/home/fabien/mypapers/eqd_book/uniform_kreiss_time_vanilla.pdf")
+    # savefig("~//mypapers/eqd_book/uniform_kreiss_time_vanilla.pdf")
     # udata = data[startswith.(data.grid,"Cubic"),:]
     # plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-    # savefig("/home/fabien/mypapers/eqd_book/cubic_kreiss_time_vanilla.pdf")
+    # savefig("~//mypapers/eqd_book/cubic_kreiss_time_vanilla.pdf")
     #plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:ln,yticks=([0.0001,0.0002,0.0004],[0.0001,0.0002,0.0004]),ylabel="Absolute error in price", xlabel="number of time-steps",mode="markers")
 
 
@@ -361,8 +361,8 @@ end
      plot!(ms,abs.(alppPrices .- refPrice), label="Andersen-Lake nₚₚ=m", xlabel="m", ylabel="Absolute error in price", yscale= :log10)
 plot!(size=(300,200))
 
-     savefig("/home/fabien/mypapers/eqd_book/alpp_eur_error.pdf")
-     savefig("/home/fabien/mypapers/eqd_book/alpp_try_error_vol20.pdf")
+     savefig("~//mypapers/eqd_book/alpp_eur_error.pdf")
+     savefig("~//mypapers/eqd_book/alpp_try_error_vol20.pdf")
 
      =#
 
@@ -404,21 +404,21 @@ plot!(size=(400,300))
 plot( t,AQFED.American.exerciseBoundary(alg1, spot, t), label="Andersen-Lake m=9 nₚₚ=1")
 plot!(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Time", ylab="Asset price", size=(450,300))
 plot!( t,AQFED.American.exerciseBoundary(alg5, spot, t), label="Andersen-Lake m=5 nₚₚ=9",linestyle=:dot)
-savefig("/home/fabien/mypapers/eqd_book/alpp_eur_spread.pdf")
+savefig("~//mypapers/eqd_book/alpp_eur_spread.pdf")
 
-savefig("/home/fabien/mypapers/eqd_book/alpp_eur_spread.pdf")
+savefig("~//mypapers/eqd_book/alpp_eur_spread.pdf")
 plot(t, -ForwardDiff.derivative.(eurpp,t) .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
 plot!(size=(400,200))
-savefig("/home/fabien/mypapers/eqd_book/eur_forward_rate.pdf")
+savefig("~//mypapers/eqd_book/eur_forward_rate.pdf")
 plot(t, -eurpp.(t) ./t .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
 plot!(size=(400,200))
-savefig("/home/fabien/mypapers/eqd_book/eur_rate.pdf")
+savefig("~//mypapers/eqd_book/eur_rate.pdf")
 plot(t, -ForwardDiff.derivative.(trypp,t) .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
 plot!(size=(400,200))
-savefig("/home/fabien/mypapers/eqd_book/try_forward_rate.pdf")
+savefig("~//mypapers/eqd_book/try_forward_rate.pdf")
 plot(t, -trypp.(t) ./t .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
 plot!(size=(400,200))
-savefig("/home/fabien/mypapers/eqd_book/try_rate.pdf")
+savefig("~//mypapers/eqd_book/try_rate.pdf")
 
 =#   
 
@@ -451,7 +451,7 @@ plot(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Tim
 plot!( t,AQFED.American.exerciseBoundary(al, spot, t), label="Andersen-Lake m=7 nₚₚ=1")
 plot!( t,AQFED.American.exerciseBoundary(alpp, spot, t), label="Andersen-Lake m=5 nₚₚ=7")
 plot!(size=(400,300))
-savefig("/home/fabien/mypapers/eqd_book/alpp_try_eur.pdf")
+savefig("~//mypapers/eqd_book/alpp_try_eur.pdf")
 =#   
 
 #Fourth test - discount=EUR, drift=EUR-TRY #no issue
@@ -489,7 +489,7 @@ for m in ms
 end
 # plot( t,AQFED.American.exerciseBoundary(alg, spot, t), label="Andersen-Lake m=15")
 # plot!(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Time", ylab="Asset price", size=(450,300))
-# savefig("/home/fabien/mypapers/eqd_book/al_prop_nolog.pdf")
+# savefig("~//mypapers/eqd_book/al_prop_nolog.pdf")
 
 
 # test put call symmetry with dividends

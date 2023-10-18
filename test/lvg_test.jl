@@ -91,7 +91,7 @@ for location in locations
 end
 plot(p1)
  plot!(p1,size=(480,320))
-savefig("/home/fabien/mypapers/eqd_book/lvgq_lognormal_density_set_D.pdf")
+savefig("~//mypapers/eqd_book/lvgq_lognormal_density_set_D.pdf")
 
 
  =#  
@@ -134,6 +134,6 @@ for (name,strikes) in zip(["A","B","C","D"],[strikesA,strikesB,strikesC,strikesD
     end
      plot!(p1,xlims=(80,140),ylims=(0.0,0.06))
       plot!(p1,size=(480,320))
-      # savefig(p1,string("/home/fabien/mypapers/eqd_book/lvgq_lognormal_density_set_",name,".pdf"))
+      # savefig(p1,string("~//mypapers/eqd_book/lvgq_lognormal_density_set_",name,".pdf"))
  #best fit is MidXX
 end

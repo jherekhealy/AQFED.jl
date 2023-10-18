@@ -29,6 +29,14 @@ using GaussNewton, AQFED.Math
     #adaptive threshold does not work, similarly too hgih N in cos breaks down with Adams method unless N is pushed very high.
     #truncation needs to be set as per ElEuch paper.
     #pricer = CharFuncPricing.AdaptiveFilonCharFuncPricer(cfa,τ,qTol=1e-8,myTrans=CharFuncPricing.IdentityTransformation(0.0,150.0))
+#=
+plot(kk, (pricesb1k-prices1k), label="", xlab="Log-moneyness") #, ylab="Error in OTM option prices" )
+plot!(size=(400,200))
+savefig("~/mypapers/eqd_book/rheston_chebyshev_adams1k_price.pdf")
+plot(kk, (volsb1k-vols1k).*100, label="", xlab="Log-moneyness") #, ylab="Error in implied volatility %" )
+plot!(size=(400,200))
+savefig("~/mypapers/eqd_book/rheston_chebyshev_adams1k_vol.pdf")
+=#
 
     data = DataFrame(T=Float64[], H=Float64[], Logmoneyness=Float64[], Method=String[], Price=Float64[],Vol=Float64[])
 
@@ -81,8 +89,8 @@ using GaussNewton, AQFED.Math
 plot([plot(gdata.Logmoneyness, gdata.Vol .* 100, group=gdata.Method, xlab="Log-moneyness", ylab=if gdata.H[1]==0.01 "Implied volatility in %" else "" end, legend = gdata.H[1]==0.45, title=string("H=",gdata.H[1]), ylim=(7.5,35.0),xlim=(-0.75,0.75)) for gdata in groupby(data1,:H)]..., layout=(1,4))
  plot!(size=(1024,256))
 
-julia> savefig("/home/fabien/mypapers/eqd_book/rheston_h_pade.pdf")
-"/home/fabien/mypapers/eqd_book/rheston_h_pade.pdf"
+julia> savefig("~//mypapers/eqd_book/rheston_h_pade.pdf")
+"~//mypapers/eqd_book/rheston_h_pade.pdf"
 
 
     plot()

@@ -110,6 +110,6 @@ end
  plot!(k,@.(sqrt(AQFED.TermStructure.varianceByLogmoneyness(svi,log(k/forward)))*100),label="SVI",linestyle=:auto)
  plot!(k,@.(sqrt(AQFED.TermStructure.varianceByLogmoneyness(svi0,log(k/forward)))*100),label="SVI a=0",linestyle=:auto)
  plot!(size=(800,400),margins=3Plots.mm)
-savefig("/home/fabien/mypapers/eqd_book/varswap_bad_vol.pdf")
+savefig("~//mypapers/eqd_book/varswap_bad_vol.pdf")
  =#
 end
