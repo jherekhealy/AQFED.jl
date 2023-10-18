@@ -4,7 +4,7 @@ using FFTW #only for fft cehbyshev
 using FastGaussQuadrature
 using QuadGK
 import DoubleExponentialFormulas: quadde, quaddeo
-export Quadrature, integrate, GaussLegendre, DoubleExponential, TanhSinh, GaussKronrod, Chebyshev
+export Quadrature, integrate, GaussLegendre, DoubleExponential, TanhSinh, GaussKronrod, Chebyshev, Simpson
 
 struct FourierBoyd{T} <: Quadrature
     x::Vector{T}
@@ -24,7 +24,7 @@ function FourierBoyd(n::Int, l::T) where {T}
     return FourierBoyd(x, w)
 end
 
-function integrate(q::FourierBoyd{T}, f, a::T, b::T)::T where {T}
+function integrate(q::FourierBoyd{T}, f, a::T, b::T) where {T}
     # println("a=",a)
     #integrate from -infty to b. a is ignored.    
     #first map to 0 infty : z = -x +b or x = -z+b
@@ -62,7 +62,7 @@ isSplit(q::Chebyshev{T,K}) where {T,K} = q.isSplit
 kind(::Chebyshev{T,K}) where {T,K} = K
 
 
-function integrate(q::Chebyshev{T,1}, f, a::T, b::T)::T where {T}
+function integrate(q::Chebyshev{T,1}, f, a::T, b::T) where {T}
     bma2 = (b - a) / 2
     bpa2 = (b + a) / 2
     i2 = bma2 * dot(q.w, f.(bma2 .* q.x .+ bpa2))
@@ -70,7 +70,7 @@ function integrate(q::Chebyshev{T,1}, f, a::T, b::T)::T where {T}
 end
 
 
-function integrate(q::Chebyshev{T,2}, f, a::T, b::T)::T where {T}
+function integrate(q::Chebyshev{T,2}, f, a::T, b::T) where {T}
     bma2 = (b - a) / 2
     bpa2 = (b + a) / 2
     i2 = bma2 * dot(q.w, f.(bma2 .* q.x .+ bpa2))
@@ -81,7 +81,8 @@ struct Simpson <: Quadrature
     N::Int
 end
 
-function integrate(q::Simpson, f, a::T, b::T)::T where {T}
+Base.broadcastable(p::Quadrature) = Ref(p)
+function integrate(q::Simpson, f, a::T, b::T) where {T}
     n = if q.N % 2 == 0
         q.N
     else
@@ -109,7 +110,7 @@ struct GaussLegendre <: Quadrature
     end
 end
 
-function integrate(q::GaussLegendre, integrand, a::T, b::T)::T where {T}
+function integrate(q::GaussLegendre, integrand, a::T, b::T) where {T}
     bma2 = (b - a) / 2
     bpa2 = (b + a) / 2
     i2 = bma2 * dot(q.w, integrand.(bma2 .* q.x .+ bpa2))

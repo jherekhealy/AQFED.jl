@@ -69,11 +69,11 @@ function priceEuropean(
         end   
         if abs(zd0-zd1) > sqrt(eps(T))
          zds =    sort([-ndev*sig0,zd0,zd1,ndev*sig0])
-         sum = Math.integrate(p.q, integrand0, zds[1], zds[2]) + integrate(p.q, integrand0, zds[2], zds[3])
+         sum = Math.integrate(p.q, integrand0, zds[1], zds[2]) + Math.integrate(p.q, integrand0, zds[2], zds[3])
          sum + Math.integrate(p.q, integrand0, zds[3], zds[4])
         else 
            zds =  [-ndev*sig0,zd0,ndev*sig0]
-           Math.integrate(p.q, integrand0, zds[1], zds[2]) + integrate(p.q, integrand0, zds[2], zds[3])
+           Math.integrate(p.q, integrand0, zds[1], zds[2]) + Math.integrate(p.q, integrand0, zds[2], zds[3])
         end
         # sum + integrate(p.q, integrand1, -ndev * sig0,ndev*sig0)
     else

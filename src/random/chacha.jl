@@ -1,6 +1,6 @@
 import Random: rand, seed!
 import RandomNumbers: AbstractRNG
-
+export Chacha, Chacha8
 # Chacha Random Number Generator
 # DOUBLEROUNDS=10 means Chacha20
 # Generates 32-bit random numbers

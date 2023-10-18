@@ -1,6 +1,6 @@
 import Random: rand, seed!
 import RandomNumbers: AbstractRNG
-
+export Blabla8, Blabla, Blabla10
 # Blabla Random Number Generator, based on BLAKE2b hash function.
 # Adapted from https://github.com/veorq/blabla/blob/master/BlaBla.swift by J.P Aumasson (2017)
 #

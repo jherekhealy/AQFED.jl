@@ -76,7 +76,7 @@ function evaluatePayoffOnPath(payoff::VanillaOption, x, df)
 end
 
 function specificTimes(payoff::VanillaOption)
-    return [payoff.maturity]
+    return [payoff.schedule.observationTime]
 end
 
 

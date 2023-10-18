@@ -83,7 +83,7 @@ const dLFK4 = [
 ]
 
 const betaStart4 = -log(alpha4)
-const betaEnd = -log(eps(0.0))
+const betaEnd = 708.3964185322641
 
 
 @inline function eta(u::AbstractFloat)::AbstractFloat
@@ -137,6 +137,7 @@ function bachelierImpliedVolatility(
     end
 
     if z < alpha4 #highly OTM options up to 1e-100
+        
         u = zofy(z, betaStart4, betaEnd)
         hz = if u < 0.0091
             num =
@@ -163,7 +164,9 @@ function bachelierImpliedVolatility(
                         u * (bLFK4[13] + u * (bLFK4[14] + u * (bLFK4[15] + u * (bLFK4[16] + u * (bLFK4[17])))))
                     )
                 )
-            num / den
+                # println("bachelier iv solver, putprice, ",strike, " ",u, " ",num," ",den)
+    
+                num / den
         elseif u < 0.088
             num =
                 cLFK4[1] +
@@ -220,9 +223,9 @@ function bachelierImpliedVolatility(
         return abs(x) / sqrt(hz * tte)
     else
         putPrice = if x <= 0
-            price - x
+            price/discountDf - x
         else
-            price
+            price/discountDf
         end
         z = abs(x) / putPrice
         u = eta(z)

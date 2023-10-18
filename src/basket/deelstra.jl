@@ -101,7 +101,10 @@ function priceEuropean(
                 eS += eSi
             end
             #  println(λ," ", eS-strike," ", DeS, " ",D2eS)
-            return (eS - strike, (eS - strike) / DeS, DeS / D2eS)
+            value = log(eS)-log(strike)
+            Dvalue = DeS/eS
+            D2value = D2eS/es - (DeS/eS)^2
+            return (value, value / Dvalue, Dvalue / D2value)
         end
         lambdaMax = dGamma * 2
         if lambdaMax < zero(T)

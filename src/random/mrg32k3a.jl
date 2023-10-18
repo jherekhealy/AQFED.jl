@@ -1,6 +1,6 @@
 import Random: rand, seed!
 import RandomNumbers: AbstractRNG
-
+export MRG32k3a
 
 const mrg32m1 = 4294967087
 const mrg32m2 = 4294944443

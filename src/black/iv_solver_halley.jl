@@ -2,7 +2,7 @@ struct Halley <: SRSolver end
 struct SuperHalley <: SRSolver end
 struct InverseQuadratic <: SRSolver end
 struct CMethod <: SRSolver end
-
+export Halley,SuperHalley,InverseQuadratic,CMethod
 # 1 SuperHalley = 2 InverseQuadratic = 3 CMethod = 4
 function impliedVolatilitySRHalley(
     isCall::Bool,

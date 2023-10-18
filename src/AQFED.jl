@@ -32,7 +32,7 @@ end
 module Bachelier
 include("bachelier/bachelier.jl")
 include("bachelier/iv_solver_lfk.jl")
-include("bachelier/bachelier_fractal.jl")
+include("bachelier/iv_solver_chebyshev.jl")
 end
 
 __precompile__(true)
@@ -132,6 +132,15 @@ include("pdde/lvg_black.jl")
 include("pdde/lvg_quadratic.jl")
 include("pdde/lvg_quadratic_cmplx.jl")
 include("pdde/ah.jl")
+end
+
+module Rough
+include("rough/rheston_pade.jl")
+end
+
+module Fractal 
+include("fractal/bachelier_fractal.jl")
+include("fractal/curran_fractal.jl")
 end
 
 end

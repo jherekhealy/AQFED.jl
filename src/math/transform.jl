@@ -1,4 +1,5 @@
 export Bijection, IdentityTransformation, ClosedTransformation, SquareMinTransformation, ExpMinTransformation, inv
+export AlgebraicTransformation,MQMinTransformation
 export LogTransformation
 abstract type Bijection end
 

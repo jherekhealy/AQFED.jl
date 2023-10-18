@@ -1,4 +1,5 @@
 #common, except for Jaeckel
+export SRSolver
 abstract type SRSolver end
 
 function normalizePrice(isCall::Bool, price::TP, f::T, strike::T, df::T) where {T,TP}

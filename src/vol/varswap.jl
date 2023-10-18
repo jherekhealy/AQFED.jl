@@ -70,7 +70,7 @@ function priceVarianceSwap(self::FukasawaVarianceSwapReplication,
     zs = [d2(y,v * tte) for (y, v) in zip(logmoneyness, variance)]
     zs, vs = filterNonDecreasingData(zs,variance,fIndex)
     reverse!(zs)
-    vs = reverse(variance)
+    reverse!(vs)
     spline = makeCubicPP(zs, vs, PPInterpolation.SECOND_DERIVATIVE,0.0, PPInterpolation.SECOND_DERIVATIVE,0.0, C2Hyman89())
     left = if self.isLinear
         PPInterpolation.LinearAutoExtrapolation()

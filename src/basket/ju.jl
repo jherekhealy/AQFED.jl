@@ -1,3 +1,4 @@
+export JuBasketPricer
 struct JuBasketPricer
 end
 function priceEuropean(

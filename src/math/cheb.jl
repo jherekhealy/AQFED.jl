@@ -88,7 +88,10 @@ function cheb2coeff!(coeff::AbstractArray{T}, fValues::AbstractArray{TV}) where 
     end
 end
 
-
+@inline function cheb2interp(coeff::AbstractArray{T}, x::TZ,a::TZ,b::TZ) where {T,TZ}
+ y = (2x - a - b)/(b-a)
+    return cheb2interp(coeff,y)
+end
 @inline function cheb2interp(coeff::AbstractArray{T}, zck::TZ) where {T,TZ}
     b2 = 0.0
     nC = Base.length(coeff) - 1

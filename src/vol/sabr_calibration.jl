@@ -1,4 +1,4 @@
-import AQFED.Math: inv as invTransform, ClosedTransformation
+import AQFED.Math: inv as invTransform, TanhTransformation
 import AQFED.TermStructure: SABRParams, SABRSection, Hagan2020,normalVarianceByMoneyness
 #using Bachelier
 using LeastSquaresOptim
@@ -25,10 +25,14 @@ function initialGuessBlackATM(f::Float64, term::Float64, β::Float64, vol::Float
         rho = temp / nu
     end
     p0 = oneBeta^2 * term / (24 * fonebeta^2)
-    p1 = rho * beta * nu * term / (4 * fonebeta)
+    p1 = rho * β * nu * term / (4 * fonebeta)
     p2 = 1 + (2 - 3 * rho^2) / 24 * nu^2 * term
     p3 = -vol * fonebeta
-    r = cubicRootsReal(p1/ p0, p2 / p0, p3 / p0)
+    r = if p0 != 0
+        cubicRootsReal(p1/ p0, p2 / p0, p3 / p0)
+     else
+       quadRootsReal(p1,p2,p3)
+      end
     smallestRealRoot = typemax(Float64)
     for ri = r
         if ri > 0 && ri < smallestRealRoot
@@ -78,24 +82,29 @@ end
 function calibrateSABRSectionFromGuess(tte::T, forward::T, ys::AbstractArray{T}, blackVols::AbstractArray{T}, weights::AbstractArray{T}, guess::SABRParams) where {T}
     w = sqrt.(weights)
     w = w ./ sum(w)
-    function obj!(fvec::Z, c::AbstractArray{W})::Z where {Z,W}
-        p = SABRParams(c[1], guess.β, c[2], c[3])
-        s = SABRSection(Hagan2020(), p, tte, forward, 0.0)
+    ρTrans = TanhTransformation(-1.0,1.0) 
+    νTrans = MQMinTransformation(0.0,1.0)
+    function obj!(fvec::Z, c::AbstractArray{W}) where {Z,W}
+        p = SABRParams(c[1], guess.β, ρTrans(c[2]), νTrans(c[3]))
+       s = SABRSection(Hagan2020(), p, tte, forward, 0.0)
         for (i, yi) = enumerate(ys)
             vol = sqrt(varianceByLogmoneyness(s, yi))
             fvec[i] = w[i] * (vol - blackVols[i])
         end
     end
+    ρinv = inv(ρTrans, guess.ρ)
+    νinv = inv(νTrans, guess.ν)
     fit = LeastSquaresOptim.optimize!(
-        LeastSquaresProblem(x=xv, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
-            output_length=length(callPrices)),
+        LeastSquaresProblem(x=[guess.α,ρinv,νinv], (f!)=obj!, autodiff=:central, #:forward is 4x faster than :central
+            output_length=length(blackVols)),
         LevenbergMarquardt();
         iterations=1000
     )
+    #println("sabr fit ",fit)
     # fvec = zeros(Float64, length(callPrices))
     # obj!(fvec, fit.minimizer)
     c = fit.minimizer
-    p = SABRParams(c[1], guess.β, c[2], c[3])
+    p = SABRParams(c[1], guess.β, ρTrans(c[2]), νTrans(c[3]))
     s = SABRSection(Hagan2020(), p, tte, forward, 0.0)
     return s
 end
@@ -103,22 +112,24 @@ end
 function calibrateNormalSABRSectionFromGuess(tte::T, forward::T, strikes::AbstractArray{T}, normalVols::AbstractArray{T}, weights::AbstractArray{T}, guess::SABRParams) where {T}
     w = sqrt.(weights)
     w = w ./ sum(w)
+	ρTrans = TanhTransformation(-1.0,1.0) 
     function obj!(fvec::Z, c::AbstractArray{W}) where {Z,W}
-        p = SABRParams(c[1], guess.β, c[2], c[3])
+        p = SABRParams(c[1], guess.β, ρTrans(c[2]), c[3])
         s = SABRSection(Hagan2020(), p, tte, forward, 0.0)
         for (i, strikei) = enumerate(strikes)
             vol = sqrt(normalVarianceByMoneyness(s, strikei-forward))
             fvec[i] = w[i] * (vol - normalVols[i])
         end
     end
+	ρinv = inv(ρTrans, guess.ρ)
     fit = LeastSquaresOptim.optimize!(
-        LeastSquaresProblem(x=[guess.α,guess.ρ,guess.ν], (f!)=obj!, autodiff=:central, #:forward is 4x faster than :central
+        LeastSquaresProblem(x=[guess.α,ρinv,guess.ν], (f!)=obj!, autodiff=:central, #:forward is 4x faster than :central
             output_length=length(normalVols)),
         LevenbergMarquardt();
         iterations=1000
     )
     c = fit.minimizer
-    p = SABRParams(c[1], guess.β, c[2], c[3])
+    p = SABRParams(c[1], guess.β, ρTrans(c[2]), c[3])
     s = SABRSection(Hagan2020(), p, tte, forward, 0.0)
     return s
 end
