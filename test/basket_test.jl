@@ -381,7 +381,7 @@ end
     #vary strike, correlation -0.9 -0.5 0 0.5 0.9.
     nAsset = 2
     σs = [0.1, 0.9]
-    ws = [0.5, 0.5]
+    ws = [0.9, 0.1]
     tte = 1.0
     tvar = σs .^ 2 .* tte
     r = 0.0
@@ -392,9 +392,9 @@ end
     rhoMin = -0.99
     rhoMax = 0.99
     rhoSteps = 101
-    pSimp = AQFED.Basket.QuadBasketPricer(AQFED.Basket.GaussLegendre(64))
-    data = DataFrame(Rho=Float64[], Strike=Float64[], Delta1=Float64[], Delta2=Float64[], ScaledDelta1=Float64[],ScaledDelta2=Float64[])
-
+    pSimp = AQFED.Basket.QuadBasketPricer(AQFED.Basket.GaussLegendre(128))
+    data = DataFrame(Rho=Float64[], Strike=Float64[], Delta1=Float64[], Delta2=Float64[], ScaledDelta1=Float64[],ScaledDelta2=Float64[],DeltaCashError=Float64[])
+    shiftSize = 1e-4
     for rho = range(rhoMin, stop=rhoMax, length=rhoSteps)
         correlation = [
             1.0 rho
@@ -402,20 +402,23 @@ end
         ]
         strike = 1.0
             price = AQFED.Basket.priceEuropean(pSimp, true, strike, discountFactor, spot, spot .* exp((r - q) * tte), tvar, ws, correlation, isSplit=true)
-            spotUp1 = spot .* [1.0001, 1.0]
+            spotUp1 = spot .* [1.0+shiftSize, 1.0]
             priceUp1 = AQFED.Basket.priceEuropean(pSimp, true, strike, discountFactor, spotUp1, spotUp1 .* exp((r - q) * tte), tvar, ws, correlation, isSplit=true)
-            spotUp2 = spot .* [1.0, 1.0001]
+            spotUp2 = spot .* [1.0, 1.0+shiftSize]
             priceUp2 = AQFED.Basket.priceEuropean(pSimp, true, strike, discountFactor, spotUp2, spotUp2 .* exp((r - q) * tte), tvar, ws, correlation, isSplit=true)
-            delta1 = (priceUp1 - price) / (spot[1] * 1e-4)
-            delta2 = (priceUp2 - price) / (spot[2] * 1e-4)
-            spotUp1 = spot .* [1.0001, 1.0001]
+            delta1 = (priceUp1 - price) / (spot[1] * shiftSize)
+            delta2 = (priceUp2 - price) / (spot[2] * shiftSize)
+            spotUp1 = spot .* [1.0+shiftSize, 1.0+shiftSize]
             priceUp1 = AQFED.Basket.priceEuropean(pSimp, true, strike, discountFactor, spotUp1, spotUp1 .* exp((r - q) * tte), tvar, ws, correlation, isSplit=true)
-            delta = (priceUp1 - price) / (basketSpot * 1e-4)
-            push!(data,[rho, strike, delta1, delta2, delta*ws[1],delta*ws[2]])
+            delta = (priceUp1 - price) / (basketSpot * shiftSize)
+            deltaCashBasket = delta*basketSpot
+            deltaCashBasketI = delta1*spot[1] + delta2*spot[2]
+            push!(data,[rho, strike, delta1, delta2, delta*ws[1],delta*ws[2], deltaCashBasket/deltaCashBasketI-1])
         end
     
-    data = DataFrame(Rho=Float64[], Strike=Float64[], Delta1=Float64[], Delta2=Float64[], ScaledDelta1=Float64[],ScaledDelta2=Float64[])
-   rho = 0.0
+    data = DataFrame(Rho=Float64[], Strike=Float64[], Delta1=Float64[], Delta2=Float64[], ScaledDelta1=Float64[],ScaledDelta2=Float64[],DeltaCashError=Float64[])
+
+   rho = -0.9
     correlation = [
         1.0 rho
         rho 1.0
@@ -431,7 +434,9 @@ end
         spotUp1 = spot .* [1.0001, 1.0001]
         priceUp1 = AQFED.Basket.priceEuropean(pSimp, true, strike, discountFactor, spotUp1, spotUp1 .* exp((r - q) * tte), tvar, ws, correlation, isSplit=true)
         delta = (priceUp1 - price) / (basketSpot * 1e-4)
-        push!(data,[rho, strike, delta1, delta2, delta*ws[1],delta*ws[2]])
+        deltaCashBasket = delta*basketSpot
+        deltaCashBasketI = delta1*spot[1] + delta2*spot[2]       
+        push!(data,[rho, strike, delta1, delta2, delta*ws[1],delta*ws[2], deltaCashBasket/deltaCashBasketI-1])
     end
     #Delta
     #= plot(data.Rho, data.Delta1, label="Δ1",xlab="Correlation",ylab="Δ value",legend=:outerright)
@@ -449,5 +454,9 @@ plot!(size=(800,300),margins=4Plots.mm)
     #Vega
 
     #basket "vol"? best way to to imply vol using BS based on price and basket forward. Show that it is far off the simple wieghted sum. is it Gentle approx?
+#the basket delta cash = single shift delta cash. If 1 moves up and 2 moves down, single shift hedging will work, but not basket hedging.
+#move1=0.02;move2=-0.02;  plot(data.Rho, data.Delta1*move1 + data.Delta2*move2,xlab="Correlation",ylab="Δ hedge value",label="")
+#, label="Independent hedge")  # while basket hedge===0
+#basket hedge ok if correlation = 1, meaning move1 = move2.
 
 end

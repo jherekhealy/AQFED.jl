@@ -194,9 +194,9 @@ function adams(p::AdamsCharFunc{RoughHestonParams{T},CR}, a, bigT) where {T,CR}
 
     for k = 1:(n-1)
         f[k+1] = obj(a, hA[k+1])
-        hP = sum(f[1:k+1] .* bj[(k+1):-1:1])
+        hP = sum(f[1:k+1] .* bj[(k+1):-1:1]) 
         aA = vcat(a0[k], aj[k:-1:1])
-        hA[k+2] = sum(f[1:k+1] .* aA) + akp1 * obj(a, hP)
+        hA[k+2] = sum(f[1:k+1] .* aA) + akp1 * obj(a, hP) 
         dhA[k+2] = obj(a, hA[k+2])
     end
     #println(length(dhA), dhA)

@@ -8,6 +8,7 @@ using SpecialFunctions
 using LinearAlgebra
 import AQFED.Random: next!, nextn!, skipTo
 using AQFED.Random
+using AQFED.MonteCarlo
 import DSP: conv
 
 struct FlatRoughExp
@@ -238,7 +239,7 @@ function simulate(
     rng,
     model::FlatRoughBergomi,
     spot::Float64,
-    payoff::VanillaOption,
+    payoff::MonteCarlo.VanillaOption,
     start::Int,
     nSim::Int,
     timestepSize::Float64
@@ -246,7 +247,7 @@ function simulate(
     specTimes = specificTimes(payoff)
     tte = specTimes[end]
     df = 1.0
-    genTimes = pathgenTimes(model, specTimes, timestepSize)
+    genTimes = MonteCarlo.pathgenTimes(model, specTimes, timestepSize)
 
     lnspot = log(spot)
     lnf0 = logForward(model, lnspot, tte)
@@ -365,7 +366,7 @@ function simulateHybrid(
     rng,
     model::FlatRoughBergomi,
     spot::Float64,
-    payoff::VanillaOption,
+    payoff::MonteCarlo.VanillaOption,
     start::Int,
     nSim::Int,
     n::Int #steps per year
@@ -467,4 +468,4 @@ end
 model = AQFED.MonteCarlo.FlatRoughBergomi(0.025,0.05,0.4,-0.65)
 payoff = AQFED.MonteCarlo.VanillaOption(true,1.0,AQFED.MonteCarlo.BulletCashFlow(1.0,1.0,false,0.0),0.0)
 AQFED.MonteCarlo.simulateHybrid(AQFED.Random.ZRNGSeq(AQFED.Random.MRG32k3a(),1), model, 1.0, payoff, 1, 1024*64, 365)
-#
+=#

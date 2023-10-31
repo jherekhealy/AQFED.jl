@@ -29,8 +29,8 @@ end
     r = rng.s[3]  - rng.s[6]
     r -= mrg32m1 * ((r - 1) >> 63)
 
-    # Component 1
-    p1 = (mrg32a12 * rng.s[2] - mrg32a13 * rng.s[1] + mrg32corr1) % mrg32m1
+    # Component 1 - modulo op may be slow in julia?
+    p1 = (mrg32a12 * rng.s[2] - mrg32a13 * rng.s[1] + mrg32corr1) % mrg32m1 
 
     # Component 2
     p2 = (mrg32a21 * rng.s[6] - mrg32a23 * rng.s[4] + mrg32corr2) % mrg32m2

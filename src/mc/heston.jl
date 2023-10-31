@@ -107,10 +107,11 @@ function simulateDVSS2X(
         lnf1 = logForward(model, lnspot, t1)
         @. logpathValues = lnf1 - lnf0 + xb - c0 + c1 * (yr - model.θ)
         @. v = yr * ekdth + c2
+        # advancePayoff(payoff, t1, )
         if t1 == tte
             pathValues = xb #reuse Var
             @. pathValues = exp(logpathValues)
-            payoffValues = map(x -> evaluatePayoff(payoff, x, df), pathValues)
+            payoffValues = map(x -> evaluatePayoffOnPath(payoff, x, df), pathValues)
         end
         t0 = t1
         lnf0 = lnf1

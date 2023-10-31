@@ -103,7 +103,6 @@ include("mc/payoffs.jl")
 include("mc/black.jl")
 include("mc/heston.jl")
 include("mc/lv.jl")
-include("mc/roughbergomi.jl")
 end
 
 module Collocation
@@ -136,10 +135,14 @@ end
 
 module Rough
 include("rough/rheston_pade.jl")
+include("rough/rheston_mc.jl")
+include("rough/roughbergomi.jl")
 end
 
 module Fractal 
+include("fractal/common.jl")
 include("fractal/bachelier_fractal.jl")
+include("fractal/black_fractal.jl")
 include("fractal/curran_fractal.jl")
 end
 

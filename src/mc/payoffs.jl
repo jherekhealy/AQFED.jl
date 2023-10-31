@@ -1,6 +1,7 @@
 abstract type MCPayoff end
 abstract type MCPayoffSchedule end
 
+export specificTimes,evaluatePayoffOnPath,evaluatePayoff
 
 #payment schedule ? Bullet(maturity, payment, isOnGrid)  Periodic(Vector{Bullet})
 mutable struct BulletCashFlow <: MCPayoffSchedule
@@ -60,7 +61,7 @@ function advancePayoff(payoff::VanillaOption, time, x)
 end
 #should we pass in currentpv usch that we do pv += df*... or have is isPayment up 1 level?
 function evaluatePayoff(payoff::VanillaOption, x, df)
-    if payoff.schedule.isCashflowReady
+    if payoff.schedule.isOn
         return df * payoff.schedule.value
     else
         return zero(x)
