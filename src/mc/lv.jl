@@ -64,7 +64,7 @@ function simulate(
         if t1 == tte
             pathValues = z #reuse Var
             @. pathValues = exp(logpathValues)
-            payoffValues = map(x -> evaluatePayoff(payoff, x, df), pathValues)
+            payoffValues = map(x -> evaluatePayoffOnPath(payoff, x, df), pathValues)
         end
         t0 = t1
         lnf0 = lnf1

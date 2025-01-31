@@ -46,7 +46,7 @@ end
 function simulateGBMIter(rng::AbstractSeq, nSim, nSteps; withBB = false)
     tte = 1.0
     genTimes = collect(LinRange(0.0, tte, ceil(Int, nSteps * tte) + 1))
-    #println(length(genTimes) - 1)
+    #println("genTimes length=",length(genTimes) - 1)
     payoffValues = Vector{Float64}(undef, nSim)
     u = Vector{Float64}(undef, length(genTimes) - 1)
     z = u
@@ -119,11 +119,11 @@ end
 end
 
 @testset "GBM" begin
-    n = 32 * 2 * 1024 - 1
+    n = 1024*32 * 2  - 1
     nSteps = 1000
     rng = ScrambledSobolSeq(nSteps, n, NoScrambling())
-    value, mcerr,mcerr2 = simulateGBMIter(rng, n, nSteps)
-    println(typeof(rng.scrambling), " ", value, " ", mcerr, " ",mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr)
     @test isapprox(value, 0.968395, atol = 1e-6)
 
     rng = ScrambledSobolSeq(nSteps, n, NoScrambling())
@@ -132,14 +132,14 @@ end
     @test isapprox(value, 0.968395, atol = 1e-6)
 
     rng = ScrambledSobolSeq(nSteps, n, NoScrambling())
-    value, mcerr,mcerr2 = simulateGBMIter(rng, n, nSteps, withBB = true)
-    println(typeof(rng.scrambling), " ", value, " ", mcerr," ",mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps, withBB = true)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr)
     @test isapprox(0.999562, value, atol= 1e-6)
 
     maxd = 30 #min(32,ceil(Int,log2(n)+10))
     rng = ScrambledSobolSeq(nSteps, n, Owen(maxd, OriginalScramblingRng()))
-    value, mcerr,mcerr2 = simulateGBMIter(rng, n, nSteps)
-    println(typeof(rng.scrambling), " ", value, " ", mcerr," ",mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr)
     #    @test isapprox(value, 1.000178, atol=1e-6)
 
     rng = ScrambledSobolSeq(
@@ -158,12 +158,12 @@ end
             )),
         ),
     )
-    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
-    println(typeof(rng.scrambling), " ", value, " ", mcerr," ", mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr)
     #    @test isapprox(value, 1.000178, atol=1e-6)
     rng = ScrambledSobolSeq(nSteps, 1 << (maxd - 1), FaureTezuka(OriginalScramblingRng()))
-    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
-    println(typeof(rng.scrambling), " ", value, " ", mcerr," ", mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr)
     #    @test isapprox(value, 1.000178, atol=1e-6)
 
     rng = ScrambledSobolSeq(
@@ -179,8 +179,8 @@ end
             UInt64,
         ))),
     )
-    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
-    println(typeof(rng.scrambling), " ", value, " ", mcerr," ", mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng.scrambling), " ", value, " ", mcerr)
 
     rng = DigitalSobolSeq(
         nSteps,
@@ -196,8 +196,8 @@ end
         ),
     )
     #AQFED.Random.Chacha8SIMD(UInt32))
-    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
-    println(typeof(rng), " ", value, " ", mcerr," ", mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng), " ", value, " ", mcerr)
 
     rng = ModuloSobolSeq(
         nSteps,
@@ -213,8 +213,8 @@ end
         ),
     )
     # AQFED.Random.Chacha8SIMD(Float64))
-    value, mcerr, mcerr2 = simulateGBMIter(rng, n, nSteps)
-    println(typeof(rng), " ", value, " ", mcerr," ", mcerr2)
+    value, mcerr = simulateGBMIter(rng, n, nSteps)
+    println(typeof(rng), " ", value, " ", mcerr)
 
 end
 

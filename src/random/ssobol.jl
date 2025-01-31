@@ -338,12 +338,10 @@ end
     m = n + s.counter
     g = m ⊻ (m >> 1)
     d = ndims(s)
-    sx = s.x
-    sv = s.v
     @inbounds for j = 1:d
         @inbounds for index = 1:s.l
             if ((g >> index) & one(UInt32)) != 0
-                sx[j] ⊻= sv[j, index]
+                s.x[j] ⊻= s.v[j, index]
             end
         end
     end
@@ -353,15 +351,14 @@ end
 
 @inline function skipTo(s::ScrambledSobolSeq, n::Int)
     # Convert to Gray code
+    #n = n1 << 1
     g = n ⊻ (n >> 1)
     d = ndims(s)
-    sx = s.x
-    sv = s.v
     @inbounds for j = 1:d
         s.x[j] = s.shift[j]
         @inbounds for index = 1:s.l
             if ((g >> index) & one(UInt32)) != 0
-                sx[j] ⊻= sv[j, index]
+                s.x[j] ⊻= s.v[j, index]
             end
         end
     end
@@ -372,15 +369,14 @@ end
 #skip to position n for a given dimension dim
 @inline function skipTo(s::ScrambledSobolSeq, dim::Int, n::Int)
     # Convert to Gray code
+    #n = n1 << 1
     g = n ⊻ (n >> 1)
     j = dim
-    sx = s.x
-    sv = s.v
     s.x[j] = s.shift[j]
 
     @inbounds for index = 1:s.l
         if ((g >> index) & one(UInt32)) != 0
-            sx[j] ⊻= sv[j, index]
+            s.x[j] ⊻= s.v[j, index]
         end
     end
     s.counter = n

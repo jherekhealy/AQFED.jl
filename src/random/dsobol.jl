@@ -30,17 +30,6 @@ end
     return points
 end
 
-@inline function nextn!(s::DigitalSobolSeq, points::AbstractVector{<:AbstractFloat})
-    next!(s, points)
-    @. points = norminv(points)
-    points
-end
-
-@inline function nextn!(s::DigitalSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
-    next!(s, dim, points)
-    @. points = norminv(points)
-    points
-end
 #next vector for a given dimension (vertical) from counter to counter + length(points)
 @inline function next!(s::DigitalSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
     j = dim
@@ -94,3 +83,15 @@ end
 
 @inline skipTo(s::ModuloSobolSeq, n::Int) = skipTo(s.delegate, n)
 @inline skipTo(s::ModuloSobolSeq, dim::Int, n::Int) = skipTo(s.delegate, dim, n)
+
+@inline function nextn!(s::Union{DigitalSobolSeq,ModuloSobolSeq}, points::AbstractVector{<:AbstractFloat})
+    next!(s, points)
+    @. points = norminv(points)
+    points
+end
+
+@inline function nextn!(s::Union{DigitalSobolSeq,ModuloSobolSeq}, dim::Int, points::AbstractVector{<:AbstractFloat})
+    next!(s, dim, points)
+    @. points = norminv(points)
+    points
+end

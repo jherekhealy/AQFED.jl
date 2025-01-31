@@ -3,7 +3,21 @@ import AQFED.TermStructure:SVISection, varianceByLogmoneyness
 using Optim
 import StatsBase:rmsd
 
-function calibrateSVISection(tte::T, forward::T, ys::AbstractArray{T}, vols::AbstractArray{T}, weights::AbstractArray{T}; aMin=zero(T), sMin=one(T)/10000, noarbFactor = 2*one(T),nGuess=10) where {T}
+function calibrateSVISectionDirect(tte::T, forward::T, ys::AbstractArray{T}, vols::AbstractArray{T}, weights::AbstractArray{T}; aMin=zero(T), sMin=one(T)/10000, noarbFactor = 2*one(T)) where {T} 	
+    sList = rand(nGuess).+sMin
+    mList = rand(nGuess).*(ys[end]-ys[1]) .+ ys[1]
+    paramList = SVISection[]
+    rmseList= T[]
+    for (s,m) = zip(sList,mList)
+        (param, rmse) = calibrateSVISectionFromGuess(tte,forward,ys, vols, weights, s=s,m=m,aMin=aMin,sMin=sMin,noarbFactor=noarbFactor)
+        push!(rmseList,rmse)
+        push!(paramList , param)
+    end
+    rmse, index = findmin(rmseList)
+    return paramList[index],rmse
+end
+
+function calibrateSVISection(tte::T, forward::T, ys::AbstractArray{T}, vols::AbstractArray{T}, weights::AbstractArray{T}; aMin=zero(T), sMin=one(T)/10000, noarbFactor = 2*one(T),nGuess=10) where {T} 	
     sList = rand(nGuess).+sMin
     mList = rand(nGuess).*(ys[end]-ys[1]) .+ ys[1]
     paramList = SVISection[]
@@ -31,7 +45,7 @@ function calibrateSVISectionFromGuess(tte::T, forward::T, ys::AbstractArray{T}, 
     end
 	sTrans = invTransform(transformation,max(s,sMinEffective))
 	start = [sTrans, m]
-	res = optimize(obj, start, NelderMead())
+	res = Optim.optimize(obj, start, Optim.NelderMead())
     #println(res)
     x = Optim.minimizer(res)
 	newS = transformation(x[1])

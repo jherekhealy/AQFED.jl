@@ -288,7 +288,7 @@ function makeFDMStructure(p::ButterflyAmerican{TS}, underlying::AbstractArray{T}
     else
         @. (max(p.strike1 - underlying, zero(T)) + max(p.strike2 - underlying, zero(T)) - 2 * max((p.strike1 + p.strike2) / 2 - underlying, zero(T)))
     end
-    return FDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound)
+    return DefaultFDMStructure(p.timeToExpiry, zeros(T, length(underlying), 1), lowerBound)
 end
 
 

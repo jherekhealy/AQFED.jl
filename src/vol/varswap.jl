@@ -7,7 +7,7 @@ struct ContinuousVarianceSwapReplication
     q::Quadrature
 end
 #Continuous replication
-function PriceVarianceSwap(self::ContinuousVarianceSwapReplication, spot::Number, tte::Number, varianceSection::VarianceSection, driftDf::Number, discountDf::Number; ndev=6, u=100)
+function priceVarianceSwap(self::ContinuousVarianceSwapReplication, spot::Number, tte::Number, varianceSection::VarianceSection, driftDf::Number, discountDf::Number; ndev=6, u=100/sqrt(tte))
     integrand1 = function (k)
         vk = varianceByLogmoneyness(varianceSection, k) * tte
         sqrtvk = sqrt(vk)

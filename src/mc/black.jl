@@ -1,17 +1,40 @@
 import AQFED.Math: norminv
 using Statistics
 import AQFED.TermStructure: ConstantBlackModel, TSBlackModel, varianceByLogmoneyness, discountFactor, forward, logForward
-
+using LinearAlgebra
 
 function simulate(rng, model::ConstantBlackModel, spot::Float64, payoff::VanillaOption, nSim::Int)
-    tte = payoff.maturity
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
     sqrtte = sqrt(tte)
     df = discountFactor(model, tte)
     z = Vector{Float64}(undef, nSim)
     nextn!(rng, z)
-    pathValues =
-        @. forward(model, spot, tte)*exp(model.vol * z * sqrtte - 0.5 * model.vol^2 * tte)
-    mean(x -> evaluatePayoff(payoff, x, df), pathValues)
+    pathValues = map(z -> forward(model, spot, tte)*exp(model.vol * z * sqrtte - 0.5 * model.vol^2 * tte),z)        
+    mean(x -> evaluatePayoffOnPath(payoff, x, df), pathValues)
+end
+
+
+function simulate(rng, model::AbstractArray{ConstantBlackModel}, spot::AbstractArray{T}, correlation::AbstractMatrix{T}, payoff::VanillaBasketOption, nSim::Int) where {T}
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
+    df = discountFactor(model[1], tte)
+    nd = length(spot)
+    varianceSqrtV = [sqrt(m.vol^2 * tte) for m = model]
+    varianceSqrtM = diagm(varianceSqrtV)    
+    covar = Symmetric(varianceSqrtM * correlation * varianceSqrtM)
+    covarSqrt = sqrt(covar)
+    f = [forward(m, s, tte) for (m,s) = zip(model,spot)]
+    z = zeros(nSim,nd)
+    varianceMM =  ones(nSim,nd) * diagm(varianceSqrtV.^2)
+    logfMM =  ones(nSim,nd) * diagm(log.(f))
+    sqrtdt = sqrt(tte)
+    for i = 1:size(z,1)
+        nextn!(rng, @view(z[i,:]))
+    end
+    pathValues = exp.(logfMM + z*covarSqrt  - 0.5 * varianceMM)
+    payoffValue = mapslices(x -> evaluatePayoffOnPath(payoff, x, df), pathValues,dims=2)
+    mean(payoffValue)
 end
 
 function ndims(model::TSBlackModel, specificTimes::Vector{Float64}, timestepSize::Float64)

@@ -89,10 +89,17 @@ end
 end
 
 @inline function skip(r::Blabla, skipLength::UInt64)
-    actualSkip = (skipLength + r.subCounter-1) / 16
-    this.v[14] += -1 + actualSkip
+    actualSkip = (skipLength + r.subCounter-1) ÷ 16
+    r.v[14] += -1 + actualSkip
     raw(r)
     r.subCounter = (((r.subCounter + (skipLength)) % 16) +1) % Int8
+end
+
+@inline function skipTo(r::Blabla, skip::Int)
+    actualSkip = (UInt64(skip) + r.subCounter-1) ÷ 16
+    r.v[14] = -1 + actualSkip
+    raw(r)
+    r.subCounter = (((r.subCounter + UInt64(skip)) % 16) +1) % Int8
 end
 
 @inline function rand(r::Blabla, ::Type{UInt64})

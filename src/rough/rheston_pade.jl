@@ -102,15 +102,6 @@ RoughHestonCVCharFunc(delegate::Union{AdamsCharFunc{RoughHestonParams{T},CR},Pad
       CharFuncPricing.model(cf).varianceCurve(zero(T))
 end
 
-function CharFuncPricing.evaluateCharFunc(
-    p::CharFuncPricing.CVCharFunc{MAINT,CONTROLT,CR},
-    z::CT,
-    τ::T)::CR where {T,CR,CT,MAINT,CONTROLT}
-    phi = CharFuncPricing.evaluateCharFunc(p.main, z, τ)
-    phiB = CharFuncPricing.evaluateCharFunc(p.control, z, τ)
-    return phi - phiB
-end
-
 struct ChebyshevCharFunc{CF,MT,CR} <:    CharFuncPricing.CharFunc{MT,CR} 
     delegate::CF      
     upperBound::Float64

@@ -6,7 +6,7 @@ export calibrateXSSVISection
 
 function calibrateXSSVISection(tte, forward, ys, vols, weights; samplingLength=11, nLevel=6)
     kstarbracket = searchsorted(ys, 0.0)
-    kstarIndex = if abs(kstarbracket.start) < abs(kstarbracket.stop)
+    kstarIndex = if abs(ys[kstarbracket.start]) < abs(ys[kstarbracket.stop])
         kstarbracket.start
     else
         kstarbracket.stop
@@ -33,7 +33,7 @@ function calibrateXSSVISection(tte, forward, ys, vols, weights; samplingLength=1
                 section = XSSVISection(kstar, θstar, rho, ψ, tte, forward)
                 sum(w * (sqrt(varianceByLogmoneyness(section, k)) - vol)^2 for (k, vol, w) in zip(ys, vols, weights))
             end
-            res = optimize(obj, 1e-7, upper - 1e-7)
+            res = Optim.optimize(obj, 1e-7, upper - 1e-7)
             if res.minimum < currentObj
                 currentObj = res.minimum
                 ψ = res.minimizer

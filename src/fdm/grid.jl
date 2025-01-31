@@ -199,7 +199,7 @@ end
 
 function makeArray(grid::SmoothlyDeformedGrid{UniformGrid}, x::AbstractArray{T}, min::T, max::T, starPoints::AbstractArray{T}, isMiddle::AbstractArray{Bool}) where {T}
     starPoints,isMiddle = filterStarPoints(starPoints,isMiddle)
-     println("star",starPoints,isMiddle)
+    #println("star",starPoints,isMiddle)
     n = length(x) - 1
     u = zeros(T, length(starPoints) + 2)
     v = zeros(T, length(starPoints) + 2)
@@ -248,7 +248,7 @@ function makeArray(grid::ShiftedGrid{LogGrid}, x::AbstractArray{T}, min::T, max:
     Si = @. exp(log(min) + x * (log(max) - log(min)))
     if !isempty(starPoints)
         strikeIndex = searchsortedlast(Si, starPoints[end]) #FIXME handle strikeIndex=end
-        println("strikkeKIndex ", strikeIndex, " in ", Si)
+        #println("strikkeKIndex ", strikeIndex, " in ", Si)
         diff = exp(log(starPoints[end]) - log((Si[strikeIndex] + Si[strikeIndex+1]) / 2))
         if diff^2 > eps(T)
             @. Si *= diff

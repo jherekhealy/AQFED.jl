@@ -365,8 +365,8 @@ end
         " ",
         length(thrIndices) / elap,
     )
-    @test isapprox(0.000767, mae, atol = 1e-4)
-    @test isapprox(0.000214, mre, atol = 1e-4)
+    @test mae <= 0.000767
+    @test mre <= 0.000214
     prices, refPrices, elap = batchALN(threshold, rInfq, isBatch, 5, 8, 15, 201, method="FDM");
     thrIndices = findall(z -> (z > threshold), refPrices);
     mae = maxad(prices[thrIndices], refPrices[thrIndices])
@@ -386,6 +386,6 @@ end
         " ",
         length(thrIndices) / elap,
     )
-    @test isapprox(0.000335, mae, atol = 1e-4)
-    @test isapprox(0.000890, mre, atol = 1e-4)
+    @test mae <= 0.000335
+    @test mre < 0.000890
 end

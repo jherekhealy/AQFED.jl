@@ -1,4 +1,4 @@
-
+using AQFED.Basket #: BasketPricer, priceEuropean
 import AQFED.Black: blackScholesFormula
 import AQFED.TermStructure: CapitalizedDividend, futureValue
 export priceEuropean
@@ -64,7 +64,7 @@ export priceEuropean
 
 
 function priceEuropean(
-    p::DeelstraBasketPricer,
+    p::BasketPricer,
     isCall::Bool,
     strike::T,
     rawForward::T, #The raw forward to τ (without cash dividends)
@@ -113,7 +113,7 @@ function priceEuropean(
             correlation[i, j] = correlation[j, i]
         end
     end
-    priceFixed = priceEuropean(p, !isCall, rawForward, dfAsset, spots, forwards, tvar, weight, correlation)
+    priceFixed = Basket.priceEuropean(p, !isCall, rawForward, dfAsset, spots, forwards, tvar, weight, correlation)
 
     if isCall
         return priceFixed

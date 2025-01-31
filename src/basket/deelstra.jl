@@ -1,9 +1,11 @@
 using AQFED.Math
-export DeelstraBasketPricer, DeelstraLBBasketPricer, priceEuropean
+export BasketPricer, DeelstraBasketPricer, DeelstraLBBasketPricer, priceEuropean
 using LinearAlgebra
 using Roots
 
-struct DeelstraBasketPricer
+abstract type BasketPricer end
+
+struct DeelstraBasketPricer <: BasketPricer
     δIndex::Int
     fIndex::Int
     q::Quadrature
@@ -38,7 +40,7 @@ function priceEuropean(
     totalVariance::AbstractArray{<:T}, #vol^2 * τ
     weight::AbstractArray{<:T},
     correlation::Matrix{TV};
-    ndev=3.0, isLognormal=1, useM3=false
+    ndev=4.0, isLognormal=1, useM3=false
 )::T where {T,TV}
     n = length(spot)
     δ = zeros(TV, n) #we store δ * S here.
@@ -86,9 +88,9 @@ function priceEuropean(
     if typeof(p.q) == LowerBound
         function objective(λ::T)::Tuple{<:T,<:T,<:T}
             #fΔxΔΔx
-            eS = zero(typeof(λ))
-            DeS = zero(typeof(λ))
-            D2eS = zero(typeof(λ))
+            local eS = zero(typeof(λ))
+            local DeS = zero(typeof(λ))
+            local D2eS = zero(typeof(λ))
             for (i, fi) in enumerate(forward)
                 viT = totalVariance[i]
                 eSi = weight[i] * fi
@@ -100,10 +102,10 @@ function priceEuropean(
                 end
                 eS += eSi
             end
-            #  println(λ," ", eS-strike," ", DeS, " ",D2eS)
             value = log(eS)-log(strike)
             Dvalue = DeS/eS
-            D2value = D2eS/es - (DeS/eS)^2
+            D2value = D2eS/eS - (DeS/eS)^2
+            #println(λ," lambda ", eS-strike," ", DeS, " ",D2eS, " ",Dvalue, " ",D2value)
             return (value, value / Dvalue, Dvalue / D2value)
         end
         lambdaMax = dGamma * 2
@@ -112,9 +114,9 @@ function priceEuropean(
         end
         #init guess dGamma
         lambdaOpt = try 
-            find_zero(objective, dGamma, Roots.Halley(), atol=1e-8)
+            find_zero(objective, dGamma, Roots.QuadraticInverse(), atol=1e-8)
         catch e
-            println("Error while finding lower bound: ",e)
+            println("Error while finding lower bound starting with ",dGamma,": ",e)
             dGamma            
         end
         dGammaStar = (lambdaOpt) / volGamma
@@ -359,7 +361,7 @@ function priceEuropean(
                             coeffs = zeros(T, n)
                             chebcoeff!(coeffs, fValues)
                             #TODO implement closed form forumula 
-                            i2 += integrate(GaussKronrod(1e-15), z -> chebinterp(coeffs, (2z - (zbk + zak)) / (zbk - zak)) * density(f * (log(z / f) - sumwbd)) * f / z, zak, zbk)
+                            i2 += Math.integrate(GaussKronrod(1e-15), z -> chebinterp(coeffs, (2z - (zbk + zak)) / (zbk - zak)) * density(f * (log(z / f) - sumwbd)) * f / z, zak, zbk)
                         elseif typeof(p.q) == Chebyshev{Float64,2}
                             n = Int(round(p.q.N / nk))
                             fValues = zeros(T, n)
@@ -370,11 +372,11 @@ function priceEuropean(
                             ## println("ta=", ta)
                             ## println("fa=", [expectationValue1(z) for z in ta])
                             ## println("ga=", [chebinterp(coeffs, z) for z in ta])
-                            i2 += integrate(GaussKronrod(1e-15), z -> cheb2interp(coeffs, (2z - (zbk + zak)) / (zbk - zak)) * density(f * (log(z / f) - sumwbd)) * f / z, zak, zbk)
+                            i2 += Math.integrate(GaussKronrod(1e-15), z -> cheb2interp(coeffs, (2z - (zbk + zak)) / (zbk - zak)) * density(f * (log(z / f) - sumwbd)) * f / z, zak, zbk)
                         end
                     end
                 else
-                    i2 = integrate(p.q, lognormalIntegrand, za, zb)
+                    i2 = Math.integrate(p.q, lognormalIntegrand, za, zb)
                 end
             else
                 if isSplit(p.q)
@@ -389,7 +391,7 @@ function priceEuropean(
                         coeffs = zeros(T, n)
                         chebcoeff!(coeffs, fValues)
                         #TODO implement closed form forumula 
-                        i2 = integrate(GaussKronrod(1e-15), z -> chebinterp(coeffs, (2z - (b + a)) / (b - a)) * density(z), a, b)
+                        i2 = Math.integrate(GaussKronrod(1e-15), z -> chebinterp(coeffs, (2z - (b + a)) / (b - a)) * density(z), a, b)
                     elseif kind(p.q) == 2
                         n = p.q.N
                         fValues = zeros(T, n)
@@ -400,10 +402,10 @@ function priceEuropean(
                         ## println("ta=", ta)
                         ## println("fa=", [expectationValue1(z) for z in ta])
                         ## println("ga=", [chebinterp(coeffs, z) for z in ta])
-                        i2 = integrate(GaussKronrod(1e-15), z -> cheb2interp(coeffs, (2z - (b + a)) / (b - a)) * density(z), a, b)
+                        i2 = Math.integrate(GaussKronrod(1e-15), z -> cheb2interp(coeffs, (2z - (b + a)) / (b - a)) * density(z), a, b)
                     end
                 else
-                    i2 = integrate(p.q, integrand, a, b)
+                    i2 = Math.integrate(p.q, integrand, a, b)
                 end
             end
         end

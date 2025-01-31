@@ -86,3 +86,11 @@ function skipTo(s::ZRNGSeq, dim::Int, startIndex::Int)
         s.startIndex = startIndex
     end
 end
+
+function skipTo(s::ZRNGSeq, startIndex::Int)
+    n = ndims(s)
+    if s.startIndex != startIndex
+        skipTo(s.rng, startIndex*n)
+        s.startIndex = startIndex
+    end
+end

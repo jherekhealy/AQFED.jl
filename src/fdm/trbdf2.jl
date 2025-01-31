@@ -432,7 +432,6 @@ function priceTRBDF2(definition::StructureDefinition,
     specialPoints = sort(nonSmoothPoints(definition))
     if isempty(specialPoints)
         append!(specialPoints, spot)
-        append!(isMiddle, false)
     end
     xi = (range(zero(T), stop=one(T), length=M))
     rawForward = forward(model, spot, τ)

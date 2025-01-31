@@ -15,9 +15,9 @@ using Printf
     driftDf = 1.0
     spot=100.0
     repl = AQFED.VolatilityModels.ContinuousVarianceSwapReplication(GaussLegendre(16))
-    priceLeg =AQFED.VolatilityModels. PriceVarianceSwap(repl,spot, tte, section, driftDf, df,ndev=6)
+    priceLeg =AQFED.VolatilityModels.priceVarianceSwap(repl,spot, tte, section, driftDf, df,ndev=6)
     repl = AQFED.VolatilityModels.ContinuousVarianceSwapReplication(Chebyshev{Float64,2}(16))
-    priceCheb =AQFED.VolatilityModels. PriceVarianceSwap(repl,spot, tte, section, driftDf, df,ndev=6)
+    priceCheb =AQFED.VolatilityModels.priceVarianceSwap(repl,spot, tte, section, driftDf, df,ndev=6)
     println(priceLeg, " ", sqrt(priceLeg))
   println(priceCheb, " ", sqrt(priceCheb))
   @test isapprox(20.0,sqrt(priceLeg),atol=1e-6)
@@ -84,8 +84,8 @@ end
     ivkq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgqe, true, strikes), forward, strikes, tte, 1.0);
     rmseq = StatsBase.L2dist(weightsA .* volA, weightsA .* ivkq)
     repl = AQFED.VolatilityModels.ContinuousVarianceSwapReplication(GaussLegendre(64))
-    priceSVI0 =AQFED.VolatilityModels. PriceVarianceSwap(repl,spot, tte, svi0, driftDf, df,ndev=6)
-    priceSVI =AQFED.VolatilityModels. PriceVarianceSwap(repl,spot, tte, svi, driftDf, df,ndev=6)
+    priceSVI0 =AQFED.VolatilityModels.priceVarianceSwap(repl,spot, tte, svi0, driftDf, df,ndev=6)
+    priceSVI =AQFED.VolatilityModels.priceVarianceSwap(repl,spot, tte, svi, driftDf, df,ndev=6)
     println(priceSVI, " SVI ", sqrt(priceSVI))
   println(priceSVI0, " SVI0 ", sqrt(priceSVI0))
   struct LVGVarianceSection <: AQFED.TermStructure.VarianceSection
@@ -100,8 +100,8 @@ end
     vol = Black.impliedVolatility(isCall, price, forward, strike, tte, 1.0)
     vol^2
   end
-  priceLVG10 =AQFED.VolatilityModels. PriceVarianceSwap(repl,spot, tte, LVGVarianceSection(lvgq,forward,tte), driftDf, df,ndev=6)
-  priceLVG =AQFED.VolatilityModels. PriceVarianceSwap(repl,spot, tte, LVGVarianceSection(lvgqe,forward,tte), driftDf, df,ndev=6)
+  priceLVG10 =AQFED.VolatilityModels.priceVarianceSwap(repl,spot, tte, LVGVarianceSection(lvgq,forward,tte), driftDf, df,ndev=6)
+  priceLVG =AQFED.VolatilityModels.priceVarianceSwap(repl,spot, tte, LVGVarianceSection(lvgqe,forward,tte), driftDf, df,ndev=6)
   priceFuka = AQFED.VolatilityModels.priceVarianceSwap(AQFED.VolatilityModels.FukasawaVarianceSwapReplication(false),tte, logmoneynessA, volA.^2, df)
   priceFukaL = AQFED.VolatilityModels.priceVarianceSwap(AQFED.VolatilityModels.FukasawaVarianceSwapReplication(true),tte, logmoneynessA, volA.^2, df)
 

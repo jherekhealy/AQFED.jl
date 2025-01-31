@@ -159,7 +159,7 @@ function priceEuropean(
     sqrtVar = sqrt(variance)
     xNear = sum(futureValue(cd) * (τ - cd.dividend.exDate) / τ for cd in dividends)
     xFar = sum(futureValue(cd) * cd.dividend.exDate / τ for cd in dividends)
-   
+
     kd = strike + xFar
     forward = rawForward - xNear
     if forward - xFar <= zero(T)
@@ -181,94 +181,94 @@ function priceEuropean(
     nd2 = normcdf(s * d2)
     price = s * (forward * nd1 - kd * nd2)
     sum1 = zero(T)
-    d1CallS = s * nd1
-    d1CallK = -s * nd2
-    sum1 += xNear * d1CallS - xFar * d1CallK
-
-    for cd in dividends
-        frac = cd.dividend.exDate / τ
-        d2i = d1 - sqrtVar * frac
-        d1CalliK = -s * normcdf(s * d2i)
-        sum1 += futureValue(cd) * d1CalliK
-    end
     sum2 = zero(T)
     sum3 = zero(T)
-
-    n = length(dividends)
-    if p.order > 1
-        for i = 1:n
-            divPVi = futureValue(dividends[i])
-            fraci = dividends[i].dividend.exDate / τ
-            for j = i:n
-                divPVj = futureValue(dividends[j])
-                fracj = dividends[j].dividend.exDate / τ
-                fracij = fracj
-                d2ij = d2 + sqrtVar * (2 * one(T) - fraci - fracj)
-                d2CallijK = exp(-d2ij^2 / 2 + (one(T) - fracij) * variance) * OneOverSqrt2Pi / (kd * sqrtVar)
-                a = divPVi * divPVj * d2CallijK
-                sum2 += a
-                c = xFar * divPVi * divPVj * d2CallijK / kd * (d2ij / sqrtVar - one(T)) * 3
-                c += xNear * divPVi * divPVj * d2CallijK / forward * (d2ij / sqrtVar) * 3
-                sum3 -= c
-                if i != j
-                    sum2 += a
-                    sum3 -= c
-                end
-            end
-            d2iK = d1 - sqrtVar * fraci
-            nd2iK = normpdf(d2iK)
-            d2CalliS = nd2iK / (forward * sqrtVar)
-            d2CalliK = nd2iK / (kd * sqrtVar)
-            sum2 -= 2 * xNear * divPVi * d2CalliS + 2 * xFar * divPVi * d2CalliK
-            sum3 += 3 * xFar^2 * divPVi * d2CalliK / kd * (d2iK / sqrtVar - one(T))
-
-            d3Calli = nd2iK / (forward^2 * sqrtVar) * (d2iK / sqrtVar + one(T))
-            sum3 += 3 * xNear^2 * divPVi * d3Calli
-            d3Calli = nd2iK / (kd * forward * sqrtVar) * (d2iK / sqrtVar)
-            sum3 += 6 * xNear * xFar * divPVi * d3Calli
+    if p.order > 0
+        d1CallS = s * nd1
+        d1CallK = -s * nd2
+        sum1 += xNear * d1CallS - xFar * d1CallK
+        for cd in dividends
+            frac = cd.dividend.exDate / τ
+            d2i = d1 - sqrtVar * frac
+            d1CalliK = -s * normcdf(s * d2i)
+            sum1 += futureValue(cd) * d1CalliK
         end
-        ndd2 = normpdf(d2)
-        d2i2K = d2 + sqrtVar * 2
-        sum2 += xNear^2 * exp(-d2i2K^2 / 2 + variance) * OneOverSqrt2Pi / (kd * sqrtVar)
-        sum2 += xFar^2 * ndd2 / (kd * sqrtVar)
-        sum2 += 2 * xNear * xFar * ndd2 / (forward * sqrtVar)
-        sum3 -= xFar^3 * ndd2 / (kd * kd * sqrtVar) * (d2 / sqrtVar - one(T))
-        sum3 -= xNear^3 * ndd2 * kd / (forward^3 * sqrtVar) * (d2 / sqrtVar + 2)
-        sum3 -= 3 * xNear * xFar^2 * ndd2 / (forward * kd * sqrtVar) * d2 / sqrtVar
-        sum3 -= 3 * xNear^2 * xFar * ndd2 / (forward^2 * sqrtVar) * (d2 / sqrtVar + 1)
-    end
-    if p.order > 2
-        for i = 1:n
-            divPVi = futureValue(dividends[i])
-            fraci = one(T) - dividends[i].dividend.exDate / τ
-            for j = i:n
-                divPVj = futureValue(dividends[j])
-                fracj = one(T) - dividends[j].dividend.exDate / τ
+   
+        n = length(dividends)
+        if p.order > 1
+            for i = 1:n
+                divPVi = futureValue(dividends[i])
+                fraci = dividends[i].dividend.exDate / τ
+                for j = i:n
+                    divPVj = futureValue(dividends[j])
+                    fracj = dividends[j].dividend.exDate / τ
+                    fracij = fracj
+                    d2ij = d2 + sqrtVar * (2 * one(T) - fraci - fracj)
+                    d2CallijK = exp(-d2ij^2 / 2 + (one(T) - fracij) * variance) * OneOverSqrt2Pi / (kd * sqrtVar)
+                    a = divPVi * divPVj * d2CallijK
+                    sum2 += a
+                    c = xFar * divPVi * divPVj * d2CallijK / kd * (d2ij / sqrtVar - one(T)) * 3
+                    c += xNear * divPVi * divPVj * d2CallijK / forward * (d2ij / sqrtVar) * 3
+                    sum3 -= c
+                    if i != j
+                        sum2 += a
+                        sum3 -= c
+                    end
+                end
+                d2iK = d1 - sqrtVar * fraci
+                nd2iK = normpdf(d2iK)
+                d2CalliS = nd2iK / (forward * sqrtVar)
+                d2CalliK = nd2iK / (kd * sqrtVar)
+                sum2 -= 2 * xNear * divPVi * d2CalliS + 2 * xFar * divPVi * d2CalliK
+                sum3 += 3 * xFar^2 * divPVi * d2CalliK / kd * (d2iK / sqrtVar - one(T))
 
-                for l = j:n
-                    divPVl = futureValue(dividends[l])
-                    fracl = one(T) - dividends[l].dividend.exDate / τ
-                    fracijl = 3.0 - (dividends[j].dividend.exDate + 2 * dividends[l].dividend.exDate) / τ
-                    d2ijl = d2 + sqrtVar * (fraci + fracj + fracl)
-                    d3Callijl =
-                        exp(-d2ijl^2 / 2 + fracijl * variance) * OneOverSqrt2Pi / (kd^2 * sqrtVar) *
-                        (d2ijl / sqrtVar - one(T))
-                    a = divPVi * divPVj * divPVl * d3Callijl
-                    sum3 += a
-                    if i != j || j != l
-                        if i != j && j != l
-                            sum3 += 5 * a
-                        else
-                            sum3 += 2 * a
+                d3Calli = nd2iK / (forward^2 * sqrtVar) * (d2iK / sqrtVar + one(T))
+                sum3 += 3 * xNear^2 * divPVi * d3Calli
+                d3Calli = nd2iK / (kd * forward * sqrtVar) * (d2iK / sqrtVar)
+                sum3 += 6 * xNear * xFar * divPVi * d3Calli
+            end
+            ndd2 = normpdf(d2)
+            d2i2K = d2 + sqrtVar * 2
+            sum2 += xNear^2 * exp(-d2i2K^2 / 2 + variance) * OneOverSqrt2Pi / (kd * sqrtVar)
+            sum2 += xFar^2 * ndd2 / (kd * sqrtVar)
+            sum2 += 2 * xNear * xFar * ndd2 / (forward * sqrtVar)
+            sum3 -= xFar^3 * ndd2 / (kd * kd * sqrtVar) * (d2 / sqrtVar - one(T))
+            sum3 -= xNear^3 * ndd2 * kd / (forward^3 * sqrtVar) * (d2 / sqrtVar + 2)
+            sum3 -= 3 * xNear * xFar^2 * ndd2 / (forward * kd * sqrtVar) * d2 / sqrtVar
+            sum3 -= 3 * xNear^2 * xFar * ndd2 / (forward^2 * sqrtVar) * (d2 / sqrtVar + 1)
+        end
+        if p.order > 2
+            for i = 1:n
+                divPVi = futureValue(dividends[i])
+                fraci = one(T) - dividends[i].dividend.exDate / τ
+                for j = i:n
+                    divPVj = futureValue(dividends[j])
+                    fracj = one(T) - dividends[j].dividend.exDate / τ
+
+                    for l = j:n
+                        divPVl = futureValue(dividends[l])
+                        fracl = one(T) - dividends[l].dividend.exDate / τ
+                        fracijl = 3.0 - (dividends[j].dividend.exDate + 2 * dividends[l].dividend.exDate) / τ
+                        d2ijl = d2 + sqrtVar * (fraci + fracj + fracl)
+                        d3Callijl =
+                            exp(-d2ijl^2 / 2 + fracijl * variance) * OneOverSqrt2Pi / (kd^2 * sqrtVar) *
+                            (d2ijl / sqrtVar - one(T))
+                        a = divPVi * divPVj * divPVl * d3Callijl
+                        sum3 += a
+                        if i != j || j != l
+                            if i != j && j != l
+                                sum3 += 5 * a
+                            else
+                                sum3 += 2 * a
+                            end
                         end
                     end
                 end
             end
+        else
+            sum3 = 0.0
         end
-    else
-        sum3 = 0.0
     end
-
 
     price = discountDf * (price + sum1 + sum2 / 2 + sum3 / 6)
     return price

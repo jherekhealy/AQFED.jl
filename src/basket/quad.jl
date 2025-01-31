@@ -1,7 +1,7 @@
 using AQFED.Math
 import Roots: find_zero, Newton, A42
 
-struct QuadBasketPricer
+struct QuadBasketPricer <: BasketPricer
     q::Quadrature
 end
 

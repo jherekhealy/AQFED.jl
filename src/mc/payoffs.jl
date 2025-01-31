@@ -40,6 +40,27 @@ function advance(schedule::BulletCashFlow, time)
     end
 end
 
+struct VanillaBasketOption <: MCPayoff
+    isCall::Bool    
+    strike::Float64
+    weights::Vector{Float64}
+    schedule::BulletCashFlow
+    currentValue
+end
+
+function evaluatePayoffOnPath(payoff::VanillaBasketOption, x, df)
+        if payoff.isCall
+            return df * max(sum(payoff.weights .* x) - payoff.strike, 0)
+        else
+            return df * max(payoff.strike - sum(payoff.weights .* x), 0)
+        end
+    end
+    function specificTimes(payoff::VanillaBasketOption)
+        return [payoff.schedule.observationTime]
+    end
+    
+
+
 #payoff has list of schedules, may be pure obs or payment.
 struct VanillaOption <: MCPayoff
     isCall::Bool
@@ -79,6 +100,19 @@ end
 function specificTimes(payoff::VanillaOption)
     return [payoff.schedule.observationTime]
 end
+
+# mutable struct RealizedVariancePayoff <: MCPayoff
+#     stopTimes::Vector{Float64}
+# end
+
+# function evaluatePayoffOnPath(payoff::RealizedVariancePayoff, x, df)
+
+# end
+
+# function specificTimes(payoff::RealizedVariancePayoff)
+#     return payoff.stopTimes
+# end
+
 
 
 # change of frequency measure

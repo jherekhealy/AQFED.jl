@@ -465,10 +465,10 @@ function makeLambda(model::Quadratic,σ, m, l, s, forward; isC3=true)
         λ = vcat(λ, λ[end])
     end
     if length(λ) < λl
-        λ = vcat(λ[1], λ)
+        λ = vcat(λ[1], λ) # could be 2lambda[1]-lambda[2] or weighted by the x
     end
     if length(λ) < λl
-        λ = vcat(λ, λ[end])
+        λ = vcat(λ, λ[end]) #could be 2lambda[end]-lambda[end-1] or weighted by the x
     end
     return λ
 end

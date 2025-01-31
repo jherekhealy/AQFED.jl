@@ -5,30 +5,34 @@ import AQFED.Math: normcdf, normpdf, norminv
 import AQFED.Black: blackScholesFormula, blackScholesVega, impliedVolatility
 using AQFED.Bachelier
 using LeastSquaresOptim
-struct LogPolynomial
-    p::AbstractPolynomial
-    σ::Number
+#phi((x-f)/sig) / sig*(1-Phi(-f/sig))
+struct PositivePolynomial{T,U}
+    p::AbstractPolynomial{T}
+    σ::U
+    μ::U
+    z::U
 end
-struct IsotonicLogCollocation
-    p1::AbstractPolynomial
-    p2::AbstractPolynomial
-    σ::Number
-    forward::Number
+struct IsotonicPositiveCollocation{T,U}
+    p1::AbstractPolynomial{T}
+    p2::AbstractPolynomial{T}
+    σ::U
+    forward::u
 end
 
 
-function LogPolynomial(iso::IsotonicLogCollocation; minSlope = 0.0)
+function PositivePolynomial(iso::IsotonicPositiveCollocation; minSlope = 0.0)
     q = degree(iso.p1) + degree(iso.p2)
     p = integrate(iso.p1^2 + Polynomials.Polynomial([0.0, 1.0])*iso.p2^2 + minSlope * iso.forward)
-    theoForward = hermiteIntegral(LogPolynomial(p,iso.σ))
+    z = 1-normcdf(-iso.forward/iso.σ)
+    theoForward = hermiteIntegral(PositivePolynomial(p,iso.σ,iso.forward,z))
     c =  iso.forward / theoForward
     p = p*c
-    return LogPolynomial(p,iso.σ)
+    return PositivePolynomial(p,iso.σ,iso.forward,z)
 end
 
-(p::LogPolynomial)(x::S) where {S} = p.p(x)
+(p::PositivePolynomial)(x) = p.p(x)
 
-function solvePositiveStrike(p::LogPolynomial, strike::Number; useNumerical=true)::Number
+function solveStrike(p::PositivePolynomial, strike::T; useNumerical=true)::T where {T}
     if useNumerical
 
         return find_zero(
@@ -37,9 +41,9 @@ function solvePositiveStrike(p::LogPolynomial, strike::Number; useNumerical=true
             Bisection()
         )
     else
-        r = roots(pk)
+        r = roots(p.p)
         for ri in r
-            if (abs(imag(ri)) < eps(strike)) && real(ri) >= 0
+            if (abs(imag(ri)) < eps(strike)) && real(ri) > 0
                 return real(ri)
             end
         end
@@ -47,14 +51,21 @@ function solvePositiveStrike(p::LogPolynomial, strike::Number; useNumerical=true
     end
 end
 
-function priceEuropean(p::LogPolynomial, isCall::Bool, strike::Number, forward::Number, discountDf::Number)::Number
-    ck = solvePositiveStrike(p, strike)
+function cdf(p::PositivePolynomial,x) 
+    #z = 1-normcdf(-p.f/p.σ)
+    (normcdf((x-p.μ)/p.σ)-(1-p.z))/p.z
+end
+function pdf(p::PositivePolynomial,x) 
+    normpdf((x-p.μ)/p.σ)/(p.σ*p.z)
+end
+
+function priceEuropean(p::PositivePolynomial, isCall::Bool, strike, forward, discountDf)
+    ck = solveStrike(p, strike)
     if ck < 0
         throw(DomainError(ck, "expected a positive value corresponding to strike"))
     end
-    logck = log(ck)/p.σ
-    valuef = hermiteIntegralBounded(p, logck)
-    valuek = normcdf(-logck)
+    valuef = hermiteIntegralBounded(p, ck)
+    valuek = cdf(p,-ck)
     callPrice = valuef - strike * valuek
     putPrice = -(forward - strike) + callPrice
     if isCall
@@ -65,55 +76,54 @@ function priceEuropean(p::LogPolynomial, isCall::Bool, strike::Number, forward::
 end
 
 
-function density(p::LogPolynomial, strike::Number)::Number
+function density(p::PositivePolynomial, strike)
 
-    ck = solvePositiveStrike(p, strike)
+    ck = solveStrike(p, strike)
     if ck < 0
         throw(DomainError(ck, "expected a positive value corresponding to strike"))
     end
-    logck = log(ck)/p.σ
-    #Phi(log(ck)/p.sigma) '
-    dp = derivative(p.p)(ck)
-    an = normpdf(logck) / ( dp * ck*p.σ )
+     dp = derivative(p.p)(ck)
+    an = pdf(p,ck) *  dp
     #num = (-2*priceEuropean(p, true, strike, 0.0, 1.0) +priceEuropean(p, true, strike+1e-4, 0.0, 1.0) +priceEuropean(p, true, strike-1e-4, 0.0, 1.0) )/(1e-8)
     return an
 end
 
-function rawMoment(p::LogPolynomial, moment::Int)::Number
-    if moment == 0
-        return 1.0
-    end
-    q = p.p
-    for i = 2:moment
-        q *= p.p
-    end
-    return hermiteIntegral(LogPolynomial(q,p.σ))
-end
 
 #return mean, standard dev, skew, kurtosis of the collocation
-function stats(p::LogPolynomial)
-    μ = hermiteIntegral(p)
-    μ2 = hermiteIntegral(LogPolynomial((p.p - μ)^2,p.σ))
-    μ3 = hermiteIntegral(LogPolynomial((p.p - μ)^3,p.σ))
-    μ4 = hermiteIntegral(LogPolynomial((p.p - μ)^4,p.σ))
+# function stats(p::LogPolynomial)
+#     μ = hermiteIntegral(p)
+#     μ2 = hermiteIntegral(LogPolynomial((p.p - μ)^2,p.σ))
+#     μ3 = hermiteIntegral(LogPolynomial((p.p - μ)^3,p.σ))
+#     μ4 = hermiteIntegral(LogPolynomial((p.p - μ)^4,p.σ))
 
-    skew = μ3 / μ2^1.5
-    kurtosis = μ4 / μ2^2
-    return μ, sqrt(μ2), skew, kurtosis
+#     skew = μ3 / μ2^1.5
+#     kurtosis = μ4 / μ2^2
+#     return μ, sqrt(μ2), skew, kurtosis
+# end
+
+function hermiteIntegralBounded(p::PositivePolynomial{T}, ck::U)::T where {T,U}
+    x0 = ck
+    m0 = cdf(p,-x0)
+    nx0 = pdf(p,x0)
+    sum = 0.0
+    sum += p[0] * m0
+    m1 = p.σ^2 * nx0 + p.μ * m0
+    sum += p[1] * m1
+    for i = 2:degree(p)
+        m2 =  p.σ^2 *  (m0 * (i - 1) - nx0 * x0^(i - 1)) + p.μ * m1
+        sum += p[i] * m2
+        m0 = m1
+        m1 = m2
+    end
+    return sum
 end
 
-function hermiteIntegral(p::LogPolynomial)::Number
-    c = Polynomials.coeffs(p.p)
-    value = sum(c[i]*exp(((i-1)*p.σ)^2 / 2) for i=1:length(c))
-    return value
+
+function hermiteIntegral(p::PositivePolynomial{T}) where {T} 
+return hermiteIntegralBounded(p,zero(T))
 end
 
-function hermiteIntegralBounded(p::LogPolynomial, logck::Number)::Number
-    c = Polynomials.coeffs(p.p)
-    return sum(c[i]*exp(((i-1)*p.σ)^2 / 2)*normcdf(-logck+(i-1)*p.σ) for i=1:length(c))
-end
-
-
+##### TODO complete below
 function makeLogXFromUndiscountedPrices(strikesf::Vector{T}, pricesf::Vector{T}, σ::T) where {T}
     return makeXFromUndiscountedPrices(strikesf, pricesf, s -> exp(σ*norminv(1+s)))
 end

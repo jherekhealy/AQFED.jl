@@ -1,5 +1,5 @@
 export JuBasketPricer
-struct JuBasketPricer
+struct JuBasketPricer <: BasketPricer
 end
 function priceEuropean(
     p::JuBasketPricer,
@@ -51,7 +51,7 @@ function priceEuropean(
             upp2 += temp
             temp *= rhobar[i,j]
             uppp2 += temp
-            eap2app2 += abar[i]^2 * si * sj * rhobar[i, j]
+            eap2app2 += abar[i]*abar[j] * si * sj * rhobar[i, j]
             eapappappp += 6 * si * sj * rhobar[i, j]^2 * abar[j]
             for (k, sk) = enumerate(sbar)
                 s3 = si * sj * sk

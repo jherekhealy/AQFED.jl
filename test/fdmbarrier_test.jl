@@ -422,19 +422,21 @@ end
     payoffKV = KreissSmoothDefinition(payoffV)
     payoff = AQFED.FDM.DiscreteKO(payoffV, level, isDown, 0.0, obsTimes)
     payoffK = KreissSmoothDefinition(payoff)
-    refPriceV = AQFED.FDM.priceTRBDF2(payoffV, spot, driftCurve, varianceSurface, discountCurve, dividends, M=16001, N=N, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(UniformGrid(false)))
-    refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, dividends, M=16001, N=N, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(UniformGrid(false)))
+    model = AQFED.TermStructure.TSBlackModel(varianceSurface, discountCurve, driftCurve)
+	
+    refPriceV = AQFED.FDM.priceTRBDF2(payoffV, spot, model, dividends, M=16001, N=N, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(UniformGrid(false)))
+    refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=16001, N=N, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(UniformGrid(false)))
     println("reference KO ", refPrice(spot), " vanilla ", refPriceV(spot))
-    α = 2.0 / (max -Smin)
+    α = 2.0 / (Smax -Smin)
     Ms = [251, 501, 1001, 2001]
     grids = [UniformGrid(false), ShiftedGrid(UniformGrid(false)), SmoothlyDeformedGrid(UniformGrid(false)), CubicGrid(α), SmoothlyDeformedGrid(CubicGrid(α)), SinhGrid(α), SmoothlyDeformedGrid(SinhGrid(α))]
     for M in Ms
         for grid in grids
-            priceV = AQFED.FDM.priceTRBDF2(payoffV, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
-            priceKV = AQFED.FDM.priceTRBDF2(payoffKV, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
+            priceV = AQFED.FDM.priceTRBDF2(payoffV, spot, model, dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
+            priceKV = AQFED.FDM.priceTRBDF2(payoffKV, spot, model, dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
 
-            price = AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
-            priceK = AQFED.FDM.priceTRBDF2(payoffK, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
+            price = AQFED.FDM.priceTRBDF2(payoff, spot, model,dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
+            priceK = AQFED.FDM.priceTRBDF2(payoffK, spot, model, dividends, M=M, N=N, Smin=Smin, Smax=Smax, grid=grid)(spot)
             println(M, " ", grid, " Vanilla ", priceV, " ", priceV - refPriceV(spot))
             println(M, " ", grid, " Vanilla ", priceKV, " ", priceKV - refPriceV(spot))
             println(M, " ", grid, " KO ", price, " ", price - refPrice(spot))
@@ -452,7 +454,7 @@ end
                 localMin = 50.0
                 #localMax = 180.0
             end
-            priceV = AQFED.FDM.priceTRBDF2(payoff, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N, Smin=localMin, Smax=Smax, grid=grid)(spot)
+            priceV = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=M, N=N, Smin=localMin, Smax=Smax, grid=grid)(spot)
             keyname = if typeof(grid) <: UniformGrid
                 "Uniform"
             elseif typeof(grid) <: SmoothlyDeformedGrid{UniformGrid}
@@ -472,7 +474,7 @@ end
             end
             push!(data, [M, keyname, priceV, priceV - refPrice(spot)])
             if !(typeof(grid) <: SmoothlyDeformedGrid)
-                priceKV = AQFED.FDM.priceTRBDF2(payoffK, spot, driftCurve, varianceSurface, discountCurve, dividends, M=M, N=N, Smin=localMin, Smax=Smax, grid=grid)(spot)
+                priceKV = AQFED.FDM.priceTRBDF2(payoffK, spot, model, dividends, M=M, N=N, Smin=localMin, Smax=Smax, grid=grid)(spot)
                 push!(data, [M, string(keyname, "-", "Kreiss"), priceKV, priceKV - refPrice(spot)])
             end
         end

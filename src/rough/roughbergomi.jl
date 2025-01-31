@@ -456,6 +456,154 @@ function simulateHybrid(
 end
 
 
+function simulateHybridPath(
+    rng,
+    model::FlatRoughBergomi,
+    spot::Float64,
+    tte::Float64,
+    n::Int #steps per year
+)
+    dt = 1.0 / n
+
+    lnspot = log(spot)
+    lnf0 = logForward(model, lnspot, tte)
+    dimt = Int(floor(n * tte))
+    genTimes = collect(range(0.0, stop=tte, length=(1 + dimt)))
+
+    dimz = dimt * 2
+    z = Vector{Float64}(undef, dimz)
+    γ = 0.5 - model.H
+    a = -γ #n = dimt
+
+    Y1 = zeros(dimt + 1)
+    Y = zeros(dimt + 1)
+
+    G = zeros(dimt + 1)
+    V = zeros(dimt + 1)
+    g = function (x, a)
+        return x^a
+    end
+    b = function (k, a)
+        return ((k^(a + 1) - (k - 1)^(a + 1)) / (a + 1))^(1 / a)
+    end
+    c = [1.0/n 1.0/((a+1)*n^(a+1)); 0.0 1.0/((2a+1)*n^(2a+1))]
+    c[2, 1] = c[1, 2]
+    dW = zeros((dimt,2))
+    dW2 = zeros(dimt)
+    dB = zeros(dimt)
+    sqrtc = cholesky(c).L
+    for k = 2:dimt
+        G[k+1] = g(b(k, a) / n, a)
+    end
+    ta = @. (model.η^2 * genTimes^(2a + 1)) / 2
+
+    logpathValues = zeros(dimt+1)
+    specIndex = 1
+        t0 = genTimes[1]
+        nextn!(rng, z)
+        nextn!(rng, dW2)
+        @inbounds for i = 1:dimt
+            dW[i, 1] = sqrtc[1,1] * z[2i-1] + sqrtc[1,2]*z[2i]
+            dW[i,2] = sqrtc[2,1] * z[2i-1] + sqrtc[2,2]*z[2i]
+        end
+        Y1[2:dimt+1] .= dW[:,2]
+        X = dW[:,1]
+        Y2 = sebconv(G, X)[1:1+dimt]
+        @. Y = sqrt(2a + 1) * (Y1 + Y2)
+        @. V = model.σ^2 * exp(model.η * Y - ta)
+        dW2 .*= sqrt(dt)
+        @. dB = model.ρ * dW[:,1] + sqrt(1 - model.ρ^2) * dW2
+
+        logpathValues[1] = lnf0
+
+        for i = 1:dimt
+            t1 = genTimes[i+1]
+            h = t1 - t0
+            lnf1 = logForward(model, lnspot, t1)
+
+            logpathValues[i+1] = logpathValues[i]+ lnf1 - lnf0 - V[i] * h / 2+  sqrt(V[i]) * dB[i]
+            t0 = t1
+            lnf0 = lnf1
+        end
+
+    return genTimes, logpathValues,V
+
+end
+
+
+struct FractionalBrownian
+    H::Float64
+  end
+
+function simulateHybridPath(
+    rng,
+    model::FractionalBrownian,
+    spot::Float64,
+    tte::Float64,
+    n::Int #steps per year
+)
+    dt = 1.0 / n
+
+    lnspot = log(spot)
+    dimt = Int(floor(n * tte))
+    genTimes = collect(range(0.0, stop=tte, length=(1 + dimt)))
+
+    dimz = dimt * 2
+    z = Vector{Float64}(undef, dimz)
+    γ = 0.5 - model.H
+    a = -γ #n = dimt
+
+    Y1 = zeros(dimt + 1)
+    Y = zeros(dimt + 1)
+
+    G = zeros(dimt + 1)
+    V = zeros(dimt + 1)
+    g = function (x, a)
+        return x^a
+    end
+    b = function (k, a)
+        return ((k^(a + 1) - (k - 1)^(a + 1)) / (a + 1))^(1 / a)
+    end
+    c = [1.0/n 1.0/((a+1)*n^(a+1)); 0.0 1.0/((2a+1)*n^(2a+1))]
+    c[2, 1] = c[1, 2]
+    dW = zeros((dimt,2))
+    dW2 = zeros(dimt)
+    dB = zeros(dimt)
+    sqrtc = cholesky(c).L
+    for k = 2:dimt
+        G[k+1] = g(b(k, a) / n, a)
+    end
+    ta = @. (genTimes^(2a + 1)) / 2
+
+    logpathValues = zeros(dimt+1)
+    specIndex = 1
+        t0 = genTimes[1]
+        nextn!(rng, z)
+        nextn!(rng, dW2)
+        @inbounds for i = 1:dimt
+            dW[i, 1] = sqrtc[1,1] * z[2i-1] + sqrtc[1,2]*z[2i]
+            dW[i,2] = sqrtc[2,1] * z[2i-1] + sqrtc[2,2]*z[2i]
+        end
+        Y1[2:dimt+1] .= dW[:,2]
+        X = dW[:,1]
+        Y2 = sebconv(G, X)[1:1+dimt]
+        @. Y = sqrt(2a + 1) * (Y1 + Y2)
+        @. V =  Y 
+        dW2 .*= sqrt(dt)
+        @. dB = dW[:,1]
+
+       
+        for i = 1:dimt
+            t1 = genTimes[i+1]
+            h = t1 - t0
+     
+            logpathValues[i+1] = logpathValues[i] +dB[i]
+            t0 = t1
+        end
+
+    return genTimes, logpathValues,V
+
+end
 
 function atmSkew(model::FlatRoughBergomi, T::Float64)
     γ = 0.5 - model.H

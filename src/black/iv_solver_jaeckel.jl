@@ -1,5 +1,5 @@
 using AQFED.Math
-
+export impliedVolatilityJaeckel
 const TwoPiOverSqrtTwentSeven = 1.209199576156145233729385505094770488189377498728
 const PiOverSix = 0.523598775598298873077107230546583814032861566563
 const FourthRootEpsilon = sqrt(SqrtEpsilon)

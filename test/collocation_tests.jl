@@ -5,6 +5,7 @@ using AQFED.Collocation
 import Polynomials: coeffs
 using AQFED.Math
 using AQFED.PDDE
+using PPInterpolation
 #using Plots
 
 
@@ -460,14 +461,14 @@ end
     fengler = AQFED.VolatilityModels.calibrateFenglerSlice(tte, forward, k, prices, weights,λ=1e-10,solver="GI")
     ivkFengler = @. Black.impliedVolatility(true, max.(fengler.(k),1e-16), forward, k, tte, 1.0)
     rmseFengler = StatsBase.rmsd(vols, ivkFengler) 
-    ivkFineFengler = @. Black.impliedVolatility(true, max.(fengler.(kFine),1e-16), forward, kFine, tte, 1.0)
+    # ivkFineFengler = @. Black.impliedVolatility(true, max.(fengler.(kFine),1e-16), forward, kFine, tte, 1.0)
     svi, rmsesvi = AQFED.VolatilityModels.calibrateSVISection(tte, forward, log.(k ./ forward), vols, ones(length(vols)),aMin=-2*maximum(vols)^2)
     ivkSVI = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi,log.(k./forward)))
     rmseSVI = StatsBase.rmsd(vols, ivkSVI) 
     ivkFineSVI = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi,log.(kFine./forward)))
     svi0, rmsesvi = AQFED.VolatilityModels.calibrateSVISection(tte, forward, log.(k ./ forward), vols, ones(length(vols)),aMin=0.0)
     ivkSVI0 = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi0,log.(k./forward)))
-    rmseSVI0 = StatsBase.rmsd(vols, ivkSVI°) 
+    rmseSVI0 = StatsBase.rmsd(vols, ivkSVI) 
     ivkFineSVI0 = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi0,log.(kFine./forward)))
 #TODO cubic spline in delta? meaning we first sample and then compute eqv k,
 #=    plot(k, vols.*100, seriestype= :scatter, label="Reference"); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
@@ -479,8 +480,8 @@ plot!(kFine, ivkFineSVI .* 100, label="SVI")
 =#
 
 #pdf(z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(log(y/forward))*tte,1.0,1.0),x),z)
-pdf(pp,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(y)^2*tte,1.0,1.0),x),z)
-pdfsvi(svi,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, AQFED.TermStructure.varianceByLogmoneyness(svi,log(y/forward))*tte,1.0,1.0),x),z)
+# pdf(pp,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(y)^2*tte,1.0,1.0),x),z)
+# pdfsvi(svi,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, AQFED.TermStructure.varianceByLogmoneyness(svi,log(y/forward))*tte,1.0,1.0),x),z)
 #=
 plot(log.(kFine./forward), pdf.(ppDeltaStrike,kFine),label="Cubic spline on Δ")
 plot!(log.(kFine./forward),Collocation.density.(sol,kFine),label="Quintic collocation")

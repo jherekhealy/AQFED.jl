@@ -51,16 +51,24 @@ function solveStrike(p::AbstractPolynomial{T}, pd::AbstractPolynomial{T},pd2::Ab
             guess,
             Roots.SuperHalley(), #seems to be (much) more robust around the spike in the density.
             atol = 100 * eps(strike),
-            maxevals = 32,
+            maxevals = 48,
             verbose = false,
         )
     catch err
+        # r = Polynomials.roots(p - strike)
+        # for ri = r
+        #     if imag(ri) < 16eps(strike) 
+        #         return real(ri)
+        #     end
+        # end
+        # println("Error no real roots ",r," ", p-strike)
+        # return real(r[1])
         function obj(x::W)::W where {W}
             p(x) - strike
         end
         return find_zero(
             obj,
-            (guess-10,guess+10),
+            (guess-16,guess+16),
             Bisection(),
             atol = 100 * eps(strike)
         )
@@ -96,7 +104,7 @@ function priceEuropean(p::AbstractPolynomial{T}, pd::AbstractPolynomial{T}, pd2:
     end
 end
 
-function priceEuropean(p::AbstractPolynomial{T}, isCall::Bool, strike::U, forward::U, discountDf::U)::T where {T,U}
+function priceEuropean(p::AbstractPolynomial{T}, isCall::Bool, strike::S, forward::U, discountDf::U)::T where {T,S,U}
     ck = solveStrike(p, strike)
     valuef = hermiteIntegralBounded(p, ck)
     valuek = normcdf(-ck)

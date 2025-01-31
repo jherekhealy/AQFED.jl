@@ -241,6 +241,111 @@ function calibrateLognormalMixture(tte::T, forward::T, strikes::AbstractVector{T
     return LognormalKernel(x, σ, α)
 end
 
+
+function calibrateLognormalMixtureFX(tte::T, forward::T, strikes::AbstractVector{T}, vols::AbstractVector{T};useVol=true,transformName="mq") where {T}
+    size=3
+    x = zeros(T, size)
+    width = (strikes[end] - strikes[1]) / (forward * 2size)
+    for i = 1:size-1
+        x[i] = forward * exp((i - (size ) / 2) * width)
+    end
+    x[end]=strikes[3]
+    #initial guess
+    σ = zeros(T, size)
+    atmVol = vols[3]
+    sumkx = zero(T)
+    kx = zeros(T, size)
+    α = ones(T,size)/size
+    for i = eachindex(σ)
+        σ[i] = atmVol * sqrt(tte)
+        kx[i] = α[i] * x[i]
+        sumkx += kx[i]
+    end
+
+    kx[1] += forward - sumkx 
+    if kx[1] < zero(T)
+        kx[1] = sqrt(eps(T))
+    end
+
+    xv = zeros(T, size * 3 - 2) #guess of minim
+    fromPositiveHypersphere!(@view(xv[1:size-1]), one(T), α)
+    fromPositiveHypersphere!(@view(xv[size:2size-2]), sqrt(forward), kx[1:end])
+    transform = if transformName == "abs"
+        IdentityTransformation{T}()
+    elseif transformName == "exp"
+        ExpMinTransformation(σ[1]/10)
+    elseif transformName == "mq"
+        MQMinTransformation(σ[1]/10,one(T))
+    else
+        ClosedTransformation(σ[1]/10, σ[1]*10)
+    end
+    @.  xv[2*size-1:size*3-2] = inv(transform,σ)
+    fixedSigmaTrans = xv[end]
+    fixedKx = xv[2*size-2]
+    # println("xv ",xv," ",α, " ",kx)
+    function obj!(fvec::Z, c::AbstractArray{W})::Z where {Z,W}
+        xv = vcat(c[1:size-1],c[size:2size-3],fixedKx,c[2*size-2:size*3-4],fixedSigmaTrans)
+        αg = zeros(W, size)
+        toPositiveHypersphere!(αg, one(T), @view(xv[1:size-1]))
+        kxg = zeros(W, size)
+        toPositiveHypersphere!(@view(kxg[1:end]), sqrt(forward), @view(xv[size:2size-2]))
+        #kxg[end] = αg[end]*x[end]
+        xg = @. (ifelse(αg == zero(W), kxg/1e-8,kxg / αg))
+        #  σg = (@view(c[2size-1:end]) ).^ 2 .+ σmin
+        σg = @. abs(transform(@view(xv[2size-1:end]) ))
+        # println("LognormalKernel ",xg," ",αg," ",σg)
+        if useVol
+            # println( θ)
+            for (i, strike) = enumerate(strikes)
+                mPrice = priceEuropean(LognormalKernel(xg, σg, αg), strike >= forward, strike)
+                fvec[i] = impliedVolatilitySRHalley(strike >= forward, mPrice, forward, strike, tte, 1.0, 0e-14, 64, Householder()) - vols[i]
+            end
+        else
+            for (i, strike) = enumerate(strikes)
+                mPrice = priceEuropean(LognormalKernel(xg, σg, αg), strike >= forward, strike)
+                # println(strike, " ",mPrice)
+                otmPrice = callPrices[i]
+                if strike < forward 
+                    otmPrice -= forward-strike
+                end
+                fvec[i] = weights[i] * (mPrice - otmPrice) #FIXME what if forward not on list?
+            end
+        end
+        fvec
+    end
+    c=vcat(xv[1:size-1],xv[size+1:2size-2],xv[2size-2:3size-4])
+    fit = LeastSquaresOptim.optimize!(
+        LeastSquaresProblem(x=c, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
+            output_length=length(strikes)),
+        LevenbergMarquardt();
+        iterations=1000
+    )
+    # fvec = zeros(Float64, length(callPrices))
+    # obj!(fvec, fit.minimizer)
+    c = fit.minimizer
+    xv = vcat(c[1:size-1],c[size:2size-3],fixedKx,c[2*size-2:size*3-4],fixedSigmaTrans)
+    toPositiveHypersphere!(α, one(T), @view(xv[1:size-1]))
+    toPositiveHypersphere!(@view(kx[1:end]), sqrt(forward), @view(xv[size:2size-2]))
+  #  kx[end] = α[end]*x[end]
+  for i = eachindex(x)
+        if α[i] != zero(T)
+            x[i] = kx[i] / α[i]
+        else
+            x[i] = sqrt(eps(T))
+        end
+    end
+    for i = eachindex(σ)
+        # σ[i] = (xv[i+2size-2] )^2 + σmin
+        σ[i] = abs(transform(xv[i+2size-2] ))
+    end
+    sumw = zero(T)
+    for i = eachindex(α)
+        sumw += α[i]
+    end
+    # println("sumw ",sumw," fit ",fit)
+    return LognormalKernel(x, σ, α)
+end
+
 function calibrateLognormalMixtureFixedWeights(tte::T, forward::T, strikes::AbstractVector{T}, callPrices::AbstractVector{T}, weights::AbstractVector{T};  α = [0.05,0.45,0.45,0.05], useVol=false) where {T}
     size = length(α )
     x = zeros(T, size)
