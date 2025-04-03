@@ -241,6 +241,122 @@ function calibrateLognormalMixture(tte::T, forward::T, strikes::AbstractVector{T
     return LognormalKernel(x, σ, α)
 end
 
+function calibrateLognormalMixture(tte::T, forward::T, axisTransforms::Vector{U}, xs::AbstractVector{T}, vols::AbstractVector{T}, weights::AbstractVector{T}; size::Int=4, useVol=true,transformName="abs") where {T, U <: AxisTransformation}
+    strikes = map((trans, x,vol) -> forward*exp(convertToLogmoneyness(trans, x, vol)), axisTransforms, xs, vols)
+    
+    x = zeros(T, size)
+    width = (strikes[end] - strikes[1]) / (forward * 2size)
+    for i = 1:size
+        x[i] = forward * exp((i - (size + 1) / 2) * width)
+    end
+    s = searchsortedfirst(strikes, forward) #index of forward
+    #initial guess
+    
+    atmVol = vols[s]
+    σ = zeros(T, size)
+   
+    sumkx = zero(T)
+    kx = zeros(T, size)
+    # if size == 4
+    #     α = [0.175, 0.325, 0.325, 0.175]
+    # elseif size==6
+    #     α = [0.085, 0.18, 0.235, 0.235, 0.18, 0.085]
+    # else
+    #     α = ones(T,size)/size
+    # end    
+    α = ones(T,size)/size
+    for i = eachindex(σ)
+        σ[i] = atmVol * sqrt(tte)
+        kx[i] = α[i] * x[i]
+        sumkx += kx[i]
+    end
+    kx[1] += forward - sumkx
+    if kx[1] < zero(T)
+        kx[1] = sqrt(eps(T))
+    end
+
+    xv = zeros(T, size * 3 - 2) #guess of minim
+    fromPositiveHypersphere!(@view(xv[1:size-1]), one(T), α)
+    fromPositiveHypersphere!(@view(xv[size:2size-2]), sqrt(forward), kx)
+    transform = if transformName == "abs"
+        IdentityTransformation{T}()
+    elseif transformName == "exp"
+        ExpMinTransformation(σ[1]/10)
+    elseif transformName == "mq"
+        MQMinTransformation(σ[1]/10,one(T))
+    else
+        ClosedTransformation(σ[1]/10, σ[1]*10)
+    end
+      @.  xv[2*size-1:size*3-2] = inv(transform,σ)
+    
+   # println("xv ",xv," ",α, " ",kx)
+    function obj!(fvec::Z, c::AbstractArray{W})::Z where {Z,W}
+        αg = zeros(W, size)
+        toPositiveHypersphere!(αg, one(T), @view(c[1:size-1]))
+        kxg = zeros(W, size)
+        toPositiveHypersphere!(kxg, sqrt(forward), @view(c[size:2size-2]))
+        xg = @. (ifelse(αg == zero(W), kxg/1e-8,kxg / αg))
+        #  σg = (@view(c[2size-1:end]) ).^ 2 .+ σmin
+        σg = @. abs(transform(@view(c[2size-1:end]) ))
+        # println("LognormalKernel ",xg," ",αg," ",σg)
+        varianceByLogmoneynessFunction = function(y)
+            strike = exp(y)*forward
+            mPrice = priceEuropean(LognormalKernel(xg, σg, αg), y >= 0, strike)
+            return impliedVolatility(y >= 0, mPrice, forward, strike, tte, 1.0)^2
+        end
+        if useVol
+            # println( θ)
+            for (i, xi) = enumerate(xs)
+                strike = forward*exp(solveLogmoneyness(axisTransforms[i], xi, varianceByLogmoneynessFunction))
+                mPrice = priceEuropean(LognormalKernel(xg, σg, αg), strike >= forward, strike)
+                fvec[i] = impliedVolatility(strike >= forward, mPrice, forward, strike, tte, 1.0) - vols[i]
+            end
+        else
+            for (i, xi) = enumerate(xs)
+                strike = forward*exp(solveLogmoneyness(axisTransforms[i], xi, varianceByLogmoneynessFunction))
+                mPrice = priceEuropean(LognormalKernel(xg, σg, αg), strike >= forward, strike)
+                # println(strike, " ",mPrice)
+                otmPrice = callPrices[i]
+                if strike < forward 
+                    otmPrice -= forward-strike
+                end
+                fvec[i] = weights[i] * (mPrice - otmPrice) #FIXME what if forward not on list?
+            end
+        end
+        fvec
+    end
+    fvec = zeros(Float64, length(vols))
+    rmse, fit = GaussNewton.optimize!(obj!, xv, fvec)
+    # fit = LeastSquaresOptim.optimize!(
+    #     LeastSquaresProblem(x=xv, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
+    #         output_length=length(vols)),
+    #     LevenbergMarquardt();
+    #     iterations=1000
+    # )
+    # fvec = zeros(Float64, length(callPrices))
+    # obj!(fvec, fit.minimizer)
+    xv = fit.minimizer
+    toPositiveHypersphere!(α, one(T), @view(xv[1:size-1]))
+    toPositiveHypersphere!(kx, sqrt(forward), @view(xv[size:2size-2]))
+    for i = eachindex(x)
+        if α[i] != zero(T)
+            x[i] = kx[i] / α[i]
+        else
+            x[i] = sqrt(eps(T))
+        end
+    end
+    for i = eachindex(σ)
+        # σ[i] = (xv[i+2size-2] )^2 + σmin
+        σ[i] = abs(transform(xv[i+2size-2] ))
+    end
+    sumw = zero(T)
+    for i = eachindex(α)
+        sumw += α[i]
+    end
+    # println("sumw ",sumw," fit ",fit)
+    return LognormalKernel(x, σ, α)
+end
+
 
 function calibrateLognormalMixtureFX(tte::T, forward::T, strikes::AbstractVector{T}, vols::AbstractVector{T};useVol=true,transformName="mq") where {T}
     size=3

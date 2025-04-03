@@ -413,14 +413,17 @@ end
 	strikes = [58.2370, 116.4741, 174.7111] ./ 100
 	nWeights = Int(tte)
 	weights = zeros(Float64, nWeights)
-	tvar = zeros(Float64, nWeights)
-	forward = zeros(Float64, nWeights)
+	tvar = zeros(Float64, nWeights+1)
+	forward = zeros(Float64, nWeights+1)
 	for i ∈ eachindex(weights)
 		weights[i] = 1.0 / (nWeights)
 		ti = (i) / (nWeights) * tte
 		tvar[i] = vol^2 * ti
 		forward[i] = spot * exp((r - q) * ti)
 	end
+	tvar[end] = tvar[end-1]
+	forward[end] = forward[end-1]
+	tvar[end-1] = tvar[end]-1e-8
 	discountFactor = exp(-r * tte)
 	refPrices = [49.9222, 18.0721, 4.8351] # from a PDE accurate to 2e-4.
 	pricers = Dict(
@@ -464,6 +467,10 @@ end
 		tvar[i] = vol^2 * ti
 		forward[i] = spot * exp((r - q) * ti)
 	end
+	tvar[end] = tvar[end-1]
+	forward[end] = forward[end-1]
+	tvar[end-1] = tvar[end]-1e-8
+
 	discountFactor = exp(-r * tte)
 	p = DeelstraBasketPricer(1, 3)
 	pl = DeelstraLBBasketPricer(1, 3)
@@ -491,6 +498,9 @@ end
 		tvar[i] = vol^2 * ti
 		forward[i] = spot * exp((r - q) * ti)
 	end
+	tvar[end] = tvar[end-1]
+	forward[end] = forward[end-1]
+	tvar[end-1] = tvar[end]-1e-8
 	discountFactor = exp(-r * tte)
 	p = DeelstraBasketPricer(1, 3)  #3,3 is worse  1,3 is best
 	pl = DeelstraLBBasketPricer(1, 3)
@@ -508,3 +518,51 @@ end
 	end
 end
 
+using Dates
+@testset "japan" begin
+	#=
+	  startDate = Date(2019,06,14)
+	expiryDate = Date(2019,09,16)
+settleDate = Date(2019,12,18)
+using BusinessDays
+ dates = zeros(Date, 65)
+ dates[1]=startDate
+ for i=2:65
+       dates[i]=advancebdays(:USSettlement,startDate,i-1)
+       end
+t = Dates.value.(dates .- startDate) ./ 365
+
+#otherwise
+startDate=Date(2023,3,1)
+expiryDate=Date(2023,3,31)
+settleDate=Date(2023,11,17)
+	=#
+	daysToExpiry = 94
+	tte = daysToExpiry/365
+	ttp = 187/365
+	t = [0.0, 0.00821917808219178, 0.010958904109589041, 0.0136986301369863, 0.01643835616438356, 0.019178082191780823, 0.0273972602739726, 0.030136986301369864, 0.03287671232876712, 0.03561643835616438, 0.038356164383561646, 0.04657534246575343, 0.049315068493150684, 0.052054794520547946, 0.057534246575342465, 0.06575342465753424, 0.0684931506849315, 0.07123287671232877, 0.07397260273972603, 0.07671232876712329, 0.08493150684931507, 0.08767123287671233, 0.09041095890410959, 0.09315068493150686, 0.0958904109589041, 0.10410958904109589, 0.10684931506849316, 0.1095890410958904, 0.11232876712328767, 0.11506849315068493, 0.1232876712328767, 0.12602739726027398, 0.12876712328767123, 0.13150684931506848, 0.13424657534246576, 0.14246575342465753, 0.14520547945205478, 0.14794520547945206, 0.1506849315068493, 0.15342465753424658, 0.16164383561643836, 0.1643835616438356, 0.16712328767123288, 0.16986301369863013, 0.1726027397260274, 0.18082191780821918, 0.18356164383561643, 0.1863013698630137, 0.18904109589041096, 0.1917808219178082, 0.2, 0.20273972602739726, 0.2054794520547945, 0.20821917808219179, 0.21095890410958903, 0.2219178082191781, 0.22465753424657534, 0.2273972602739726, 0.23013698630136986, 0.23835616438356164, 0.2410958904109589, 0.24383561643835616, 0.2465753424657534, 0.2493150684931507, 0.25753424657534246]
+	spot=108.56
+	K=-68.0/100
+#vols 1M, 2M, 3M = 21.5, 20.5, 19.85.  Other values= 11.7, 11.9, 12.3 
+vol = 0.2
+rJPY = -0.08/100
+rUSD = 2.32/100
+nWeights = length(t)
+	weights = zeros(Float64, nWeights)
+	tvar = zeros(Float64, nWeights+1)
+	forward = zeros(Float64, nWeights+1)
+	for (i,ti) ∈ enumerate(t)
+		weights[i] = 1.0 / (nWeights)
+		ti = (i) / (nWeights) * tte
+		tvar[i] = vol^2 * ti
+		forward[i] = spot * exp((rJPY - rUSD) * ti)
+	end
+	tvar[end] = tvar[end-1]
+	forward[end] = forward[end-1]
+	tvar[end-1] = tvar[end]-1e-8
+	discountFactor = exp(-rJPY * ttp)
+	Ks = range(-spot*2/100, 0.0,length=21)
+	refPrices = AQFED.Asian.priceAsianSpread(AQFED.Basket.MonteCarloEngine(true,1024*1024), false, Ks, discountFactor, spot, forward, tvar, vcat(weights,1),  nWeights)
+	basketPricer = AQFED.Basket.VorstGeometricExpansion(3)
+	prices = map(K -> AQFED.Asian.priceAsianFloatingStrike(basketPricer, false, 1.0, discountFactor, spot,  vcat(1.0,forward), vcat(0,tvar), vcat(K,weights)),Ks)
+end

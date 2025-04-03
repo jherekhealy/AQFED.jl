@@ -134,6 +134,7 @@ include("asian/basketbridge.jl")
 include("asian/gentleexpansion.jl")
 include("asian/floatingstrike.jl")
 include("asian/mc.jl")
+include("asian/strikespread.jl")
 end
 module PDDE
 include("pdde/lvg.jl")
@@ -144,6 +145,8 @@ include("pdde/ah.jl")
 end
 
 module VolatilityModels
+include("vol/fx_deltajaeckel.jl")
+include("vol/fx_convention.jl")
 include("vol/ssvi_calibration.jl")
 include("vol/svi_calibration.jl")
 include("vol/fengler.jl")
@@ -152,7 +155,7 @@ include("vol/lnmixture.jl")
 include("vol/varswap.jl")
 include("vol/sabr_calibration.jl")
 include("vol/heston_calibration.jl")
-include("vol/fx.jl")
+include("vol/fx_calibration.jl")
 end
 
 

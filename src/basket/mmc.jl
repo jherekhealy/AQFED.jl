@@ -2,6 +2,7 @@
 using Polynomials
 using GaussNewton
 using AQFED.Collocation
+import AQFED.Black:blackScholesFormula
 
 struct Collocation4MMBasketPricer
 end

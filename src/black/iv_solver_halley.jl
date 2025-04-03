@@ -17,6 +17,9 @@ function impliedVolatilitySRHalley(
 )::TP where {T,TP}
     c, ex = normalizePrice(isCall, price, f, strike, df)
         #println(" c ",c, " 1/ex ",1/ex)
+    if (c == 0) 
+        return eps(TP)
+    end
     if (c >= min(1, 1 / ex)) || (c <= 0)
         throw(DomainError(c, string("Price out of range, must be < ", min(1, 1 / ex), " and > 0")))
     end

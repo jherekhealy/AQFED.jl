@@ -590,6 +590,7 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
         end
     end
     s = searchsortedfirst(strikes, forward) #index of forward
+    s = max(1, min(length(strikes),s))
     origStrikes = strikes
     useForwardInStrikes = false
     local priceAtm

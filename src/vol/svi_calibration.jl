@@ -34,22 +34,24 @@ function calibrateSVISectionFromGuess(tte::T, forward::T, ys::AbstractArray{T}, 
     variances = vols.^2
 	# 1/sqrteps > y-m / s > sqrt(eps) == y-m *sqrteps <s < (y-m)/sqrteps
 	sMinEffective = max(sMin,16*(ys[end]-ys[1])*sMin)
-    transformation = ClosedTransformation(sMinEffective, 100.0)
+    sTransformation = ClosedTransformation(sMinEffective, 100.0)
+	maxy = maximum(abs.(ys))
+	mTransformation = ClosedTransformation(-maxy,maxy)
 	# println("transformation ",transformation)
 	obj = function(x::AbstractArray{TX}) where {TX}
 		sTrans = x[1]
-		s = transformation(sTrans)
-		m = x[2]
+		s = sTransformation(sTrans)
+		m = mTransformation(x[2])
 		(param, rmse) = solveSVISectionQuasiExplicit(s, m, aMin, noarbFactor, ys, variances, weights, tte, forward)
 		return rmse
     end
-	sTrans = invTransform(transformation,max(s,sMinEffective))
-	start = [sTrans, m]
+	sTrans = invTransform(sTransformation,max(s,sMinEffective))
+	start = [sTrans, invTransform(mTransformation,min(maxy,max(-maxy,m)))]
 	res = Optim.optimize(obj, start, Optim.NelderMead())
     #println(res)
     x = Optim.minimizer(res)
-	newS = transformation(x[1])
-	newM = x[2]    
+	newS = sTransformation(x[1])
+	newM = mTransformation(x[2])
 	return solveSVISectionQuasiExplicit(newS, newM, aMin, noarbFactor, ys, variances, weights, tte, forward)
 end
 

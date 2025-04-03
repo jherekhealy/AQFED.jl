@@ -51,7 +51,7 @@ function priceAsianBasketFixedStrike(
     t::AbstractVector{TV}
 )::Number where {TV<:Number}
 
-    nAsset = size(totalVariance,1)
+    nAsset = size(totalVariance, 1)
     n = size(totalVariance, 1) * size(totalVariance, 2)
     spotA = zeros(TV, n)
     forwardA = zeros(TV, n)
@@ -60,8 +60,8 @@ function priceAsianBasketFixedStrike(
     correlationA = zeros(TV, (n, n))
     for is = eachindex(spot)
         for j = 1:size(totalVariance, 2)
-            spotA[(is-1)*nAsset + j] = spot[is]
-            forwardA[(is-1)*nAsset + j]= forward[is, j]
+            spotA[(is-1)*nAsset+j] = spot[is]
+            forwardA[(is-1)*nAsset+j] = forward[is, j]
             weightA[(is-1)*nAsset+j] = weight[is, j]
             totalVarianceA[(is-1)*nAsset+j] = totalVariance[is, j]
         end
@@ -69,15 +69,15 @@ function priceAsianBasketFixedStrike(
         for i = 1:size(totalVariance, 2)
             vi = totalVariance[is, i]
             for js = eachindex(spot)
-                for j = 1:size(totalVariance,2)
+                for j = 1:size(totalVariance, 2)
                     vj = totalVariance[js, j]
-                 #   if vi != 0 && vj != 0
-                        correlationA[(is-1)*nAsset+i, (js-1)*nAsset+j] =  correlation[is, js] * min(t[i], t[j]) / sqrt(t[i] * t[j])                    
-                        # else is zero
-                  #  end
+                    #   if vi != 0 && vj != 0
+                    correlationA[(is-1)*nAsset+i, (js-1)*nAsset+j] = correlation[is, js] * min(t[i], t[j]) / sqrt(t[i] * t[j])
+                    # else is zero
+                    #  end
                 end
             end
-          #  correlationA[(is-1)*nAsset+i, (is-1)*nAsset+i] = one(Float64)
+            #  correlationA[(is-1)*nAsset+i, (is-1)*nAsset+i] = one(Float64)
         end
     end
     # println(correlationA)
@@ -100,6 +100,12 @@ function priceAsianFloatingStrike(
     totalVariance::Vector{TV}, #vol^2 * t_i
     weight::Vector{TV},
 )::Number where {TV<:Number}
+    if length(weight) == length(totalVariance) - 1
+        weight = vcat(weight, zero(TV))
+    else
+        weight[end] = zero(TV)
+    end
+
     #change of numeraire leads to equivalence with fixed strike put
     #floating S,k ,r,mu = k* fixed S/k,S,mu,r
     nAsset = length(totalVariance)

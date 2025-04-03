@@ -12,6 +12,9 @@ function impliedVolatilitySRHalley(
     solver::Householder,
 )::TP where {T,TP}
     c, ex = normalizePrice(isCall, price, f, strike, df)
+    if (c == 0) 
+        return eps(TP)
+    end
     if c >= 1 / ex || c <= 0
         throw(DomainError(c, string("Price out of range, must be < ", 1 / ex, " and > 0. denormalized price=",price)))
     end

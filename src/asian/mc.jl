@@ -241,3 +241,72 @@ function priceAsianFixedStrike(
     # chunk_means = fetch.(tasks)
     # return sum(chunk_means)/nSim
 end
+
+
+function priceAsianSpread(
+    p::MonteCarloEngine,
+    isCall::Bool,
+    strikeShifts::AbstractArray{TV},
+    discountFactor::AbstractFloat,
+    spot::AbstractFloat,
+    forward::AbstractArray{TV}, #forward to each Asian observation t_i
+    totalVariance::AbstractArray{TV}, #vol^2 * t_i
+    weight::AbstractArray{TV},
+    indexEndAverage::Int; start=1,
+) where {TV<:Number} 
+    nSim = p.nSim
+    #rng = ScrambledSobolSeq(length(totalVariance), 1024 * 1024 * 64, Owen(30,ScramblingRngAdapter( Chacha8SIMD(UInt32))))
+    if totalVariance[end] < totalVariance[1]
+        totalVariance = reverse(totalVariance)
+        weight = reverse(weight)
+        forward = reverse(forward)
+    end
+    rng = DigitalSobolSeq(length(totalVariance), nSim, Chacha8SIMD(UInt32))
+    local bb, cache
+    genTimes = vcat(0.0, totalVariance)
+    sign = if isCall
+        1
+    else
+        -1
+    end
+    if p.withBB
+        cacheSize = ceil(Int, log2(length(genTimes))) * 4
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+        cache = BBCache{Int,Vector{Float64}}(cacheSize)
+    end
+    logpathValues = Vector{Float64}(undef, nSim)
+    z = zeros(Float64, nSim)
+    #pathValues = zeros(Float64, nSim)
+    spotAverage = zeros(Float64, nSim)
+    strikeAverage = zeros(Float64, nSim)
+    local payoffValues
+
+    t0 = genTimes[1]
+    lnf0 = log(spot)
+    logpathValues .= lnf0
+
+    for (dim, t1) in enumerate(genTimes[2:end])
+        h = t1 - t0
+        lnf1 = log(forward[dim])
+        sqrth = sqrt(h)
+        if p.withBB
+            transformByDim!(bb, rng, start, dim, z, cache)
+        else
+            skipTo(rng, dim, start)
+            nextn!(rng, dim, z)
+            @. z *= sqrth
+        end
+        @. logpathValues += z - 0.5 * h + lnf1 - lnf0
+        #@. pathValues = exp(logpathValues)
+        if dim <= indexEndAverage
+            @. strikeAverage += exp(logpathValues) * weight[dim]
+        else
+            @. spotAverage += exp(logpathValues) * weight[dim]
+        end
+        t0 = t1
+        lnf0 = lnf1
+    end
+    payoffMeans = map(strikeShift ->  mean(@.(max(sign * (spotAverage -strikeShift - strikeAverage), 0) * discountFactor)),strikeShifts)
+    return payoffMeans #, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
+
+end

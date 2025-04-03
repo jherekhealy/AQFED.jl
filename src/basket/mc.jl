@@ -20,7 +20,7 @@ function priceEuropean(
     correlation::Matrix{TV}
 )::T where {T,TV}
     #rng = ScrambledSobolSeq(length(spot), p.nSim*2, FaureTezuka(ScramblingRngAdapter(Chacha8SIMD(UInt32))))
-    rng = DigitalSobolSeq(length(spot), p.nSim*2,Chacha8SIMD(UInt32))
+    rng = DigitalSobolSeq(length(spot), p.nSim,Chacha8SIMD(UInt32))
     models = Vector{ConstantBlackModel}(undef,length(spot))
     tte = 1.0 #total variance is the important bit
     for (i, tvar) = enumerate(totalVariance)

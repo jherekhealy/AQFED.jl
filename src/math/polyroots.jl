@@ -2,7 +2,7 @@
 export quadRootsReal,cubicRootsReal
 
 #roots of ax^2 +bx +c
-function quadRootsReal(a::T, b::T, c::T)::AbstractArray{T} where {T}
+function quadRootsReal(a::T, b, c)::AbstractArray{T} where {T}
     d = b^2 - 4a * c
     if iszero(d)# single root
         return [-b / (2a)]
