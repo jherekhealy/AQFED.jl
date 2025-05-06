@@ -19,7 +19,7 @@ end
 
 
 function priceAsianBasketFixedStrike(
-    p::Basket.MonteCarloEngine,
+    p::Union{Basket.MonteCarloEngine,Basket.MonteCarloRngEngine},
     isCall::Bool,
     strikes::AbstractVector{TV},
     discountFactor::AbstractFloat,
@@ -28,12 +28,12 @@ function priceAsianBasketFixedStrike(
     totalVariance::AbstractMatrix{TV}, #vol^2 * t_i
     weight::AbstractMatrix{TV},
     correlation::AbstractMatrix{TV}, #S_k S_j
-    obsTimes::AbstractVector{TV}
+    obsTimes::AbstractVector{TV};start=1
 ) where {TV<:Number}
-nSim = p.nSim
+nSim = Basket.numberOfSimulations(p)
 nAsset = length(spot)
 nDim = nAsset*length(obsTimes)
-rng = DigitalSobolSeq(nDim, nSim, Chacha8SIMD(UInt32))
+rng = Basket.makeRng(p,nDim)
 local bb, cache
 genTimes = vcat(0.0, obsTimes)
 sign = if isCall
@@ -43,7 +43,7 @@ else
 end
 logpathValues = Array{Float64}(undef, (nSim,nAsset))
 u = Array{Float64}(undef, (nSim,nAsset))
-if p.withBB
+if Basket.isBrownianBridge(p)
     cacheSize = ceil(Int, log2(length(genTimes))) * 4
     bb = BrownianBridgeConstruction(genTimes[2:end])
     cache = BBCache{Int,typeof(u)}(cacheSize)
@@ -75,14 +75,14 @@ for (dim, t1) in enumerate(genTimes[2:end])
     A = sqrt(C)
     @. lnf1 = log(forward[:,dim])
     sqrth = sqrt(h)
-    if p.withBB
-        transformByDim!(bb, rng, 1, dim, u, cache)
+    if Basket.isBrownianBridge(p)
+        transformByDim!(bb, rng, start, dim, u, cache)
     else
         for iAsset = 1:nAsset
             d = nAsset*(dim-1) + iAsset
         # skipTo(rng, d+i-1, start)
         nextn!(rng, d, @view(u[:,iAsset]))
-        @view(u[:,i]) .*= sqrth
+        @view(u[:,iAsset]) .*= sqrth
         end
     end
     for iAsset = 1:nAsset
@@ -307,6 +307,94 @@ function priceAsianSpread(
         lnf0 = lnf1
     end
     payoffMeans = map(strikeShift ->  mean(@.(max(sign * (spotAverage -strikeShift - strikeAverage), 0) * discountFactor)),strikeShifts)
+    return payoffMeans #, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
+
+end
+
+
+
+function priceAsianSpread(
+    p::Union{MonteCarloEngine,Basket.MonteCarloRngEngine},
+    isCall::Bool,
+    strikePct::AbstractArray{TV},
+    discountFactor::AbstractFloat,
+    spot::AbstractFloat,
+    forward::AbstractArray{TV}, #forward to each Asian observation t_i
+    totalVariance::AbstractArray{TV}, #vol^2 * t_i
+    weight::AbstractArray{TV}#for now assume first weights are < 0 and laast wieghts are > 0 for a spread. This is call like spread.
+    ; start=1
+) where {TV<:Number} 
+    nSim = Basket.numberOfSimulations(p)
+    #rng = ScrambledSobolSeq(length(totalVariance), 1024 * 1024 * 64, Owen(30,ScramblingRngAdapter( Chacha8SIMD(UInt32))))
+    if totalVariance[end] < totalVariance[1]
+        totalVariance = reverse(totalVariance)
+        weight = reverse(weight)
+        forward = reverse(forward)
+    end
+    #reduce obs at start to 1
+    indexPositive = findfirst(x -> x > 0, weight)
+    lastZeroVarianceIndex = findlast(v -> v < 1e-8, totalVariance)
+    knownPartNegative = zero(TV)
+    knownPartPositive = zero(TV)
+     if lastZeroVarianceIndex != Nothing 
+       if lastZeroVarianceIndex < indexPositive
+            knownPartNegative = forward[1:lastZeroVarianceIndex]' * weight[1:lastZeroVarianceIndex]
+        else 
+            knownPartNegative =forward[1:indexPositive-1]' * weight[1:indexPositive-1]
+            knownPartPositive = forward[indexPositive:lastZeroVarianceIndex]' * weight[indexPositive:lastZeroVarianceIndex]
+        end
+        weight = weight[lastZeroVarianceIndex+1:end]
+        forward = forward[lastZeroVarianceIndex+1:end]
+        totalVariance = totalVariance[lastZeroVarianceIndex+1:end]
+        indexPositive = indexPositive - lastZeroVarianceIndex
+    end  
+
+    rng = Basket.makeRng(p, length(totalVariance))
+    local bb, cache
+    genTimes = vcat(0.0, totalVariance)
+    sign = if isCall
+        1
+    else
+        -1
+    end
+    if Basket.isBrownianBridge(p)
+        cacheSize = ceil(Int, log2(length(genTimes))) * 4
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+        cache = BBCache{Int,Vector{Float64}}(cacheSize)
+    end
+    logpathValues = Vector{Float64}(undef, nSim)
+    z = zeros(Float64, nSim)
+    #pathValues = zeros(Float64, nSim)
+    spotAverage = zeros(Float64, nSim)
+    strikeAverage = zeros(Float64, nSim)
+    local payoffValues
+
+    t0 = genTimes[1]
+    lnf0 = log(spot)
+    logpathValues .= lnf0
+
+    for (dim, t1) in enumerate(genTimes[2:end])
+        h = t1 - t0
+        lnf1 = log(forward[dim])
+        sqrth = sqrt(h)
+        if Basket.isBrownianBridge(p)
+                        transformByDim!(bb, rng, start, dim, z, cache)
+        else
+            skipTo(rng, dim, start)
+            nextn!(rng, dim, z)
+            @. z *= sqrth
+        end
+        @. logpathValues += z - 0.5 * h + lnf1 - lnf0
+        #@. pathValues = exp(logpathValues)
+        if dim < indexPositive
+            @. strikeAverage += exp(logpathValues) * weight[dim]
+        else
+            @. spotAverage += exp(logpathValues) * weight[dim]
+        end
+        t0 = t1
+        lnf0 = lnf1
+    end
+    payoffMeans = map(alpha ->  mean(@.(max(sign * (spotAverage + knownPartPositive + (strikeAverage+knownPartNegative)*alpha), 0) * discountFactor)),strikePct)
     return payoffMeans #, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
 
 end

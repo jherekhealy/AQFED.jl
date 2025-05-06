@@ -4527,6 +4527,12 @@ using PPInterpolation
     params, rmse = AQFED.VolatilityModels.calibrateHestonFromPrices(ts, uForwards, strikes, uPrices, isCall, uWeights)
     params, rmse = AQFED.VolatilityModels.calibrateHestonFromPrices(ts, uForwards, strikes, uPrices, isCall, uWeights, reduction=AQFED.VolatilityModels.SigmaKappaReduction(0.0, 0.75))
 
+    #fit on 25D ATM only.
+
+    #remove to short maturities.
+    uPrices, isCall, uWeights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikes, vols, vegaFloor=1e-2,truncationDev=0.5)
+
+    params, rmse = AQFED.VolatilityModels.calibrateHestonTSFromPrices(ts[4:end], uForwards[4:end], strikes, uPrices[4:end,:], isCall[4:end,:], uWeights[4:end,:], method="Cos",lower=[1e-4,-0.99,0.05],upper=[1.0,0.5,0.6])
 
 end
 @testset "Heston08October2024" begin

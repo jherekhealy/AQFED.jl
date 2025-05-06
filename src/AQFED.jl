@@ -118,6 +118,7 @@ include("basket/ju.jl")
 include("basket/sabr.jl")
 include("basket/mmc.jl")
 include("basket/vorstexpansion.jl")
+include("basket/spreadexpansion.jl")
 include("basket/mc.jl")
 end
 
@@ -128,13 +129,15 @@ include("pln/gs.jl")
 include("pln/basket_bridge.jl")
 include("pln/hhl.jl")
 end
-
 module Asian
 include("asian/basketbridge.jl")
 include("asian/gentleexpansion.jl")
 include("asian/floatingstrike.jl")
 include("asian/mc.jl")
 include("asian/strikespread.jl")
+end
+module Spread
+include("spread/black_integral.jl")
 end
 module PDDE
 include("pdde/lvg.jl")
@@ -154,7 +157,9 @@ include("vol/rbf.jl")
 include("vol/lnmixture.jl")
 include("vol/varswap.jl")
 include("vol/sabr_calibration.jl")
+include("vol/heston_bgm.jl")
 include("vol/heston_calibration.jl")
+include("vol/hestonts_calibration.jl")
 include("vol/fx_calibration.jl")
 end
 

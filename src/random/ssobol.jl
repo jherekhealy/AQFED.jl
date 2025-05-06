@@ -349,9 +349,10 @@ end
     s
 end
 
-@inline function skipTo(s::ScrambledSobolSeq, n::Int)
+
+@inline function skipTo(s::ScrambledSobolSeq, n1::Int)
     # Convert to Gray code
-    #n = n1 << 1
+    n = (n1-1) << 1 #first point with index n1=1
     g = n ⊻ (n >> 1)
     d = ndims(s)
     @inbounds for j = 1:d
@@ -362,14 +363,14 @@ end
             end
         end
     end
-    s.counter = n
+    s.counter = n1
     s
 end
 
 #skip to position n for a given dimension dim
-@inline function skipTo(s::ScrambledSobolSeq, dim::Int, n::Int)
+@inline function skipTo(s::ScrambledSobolSeq, dim::Int, n1::Int)
     # Convert to Gray code
-    #n = n1 << 1
+    n = (n1-1) << 1 #first point with index n1=1
     g = n ⊻ (n >> 1)
     j = dim
     s.x[j] = s.shift[j]
@@ -379,7 +380,7 @@ end
             s.x[j] ⊻= s.v[j, index]
         end
     end
-    s.counter = n
+    s.counter = n1
     s
 end
 

@@ -207,19 +207,14 @@ end
 
 struct Levy2MMBasketPricer <: BasketPricer
 end
-function priceEuropean(
-    p::Levy2MMBasketPricer,
-    isCall::Bool,
+function forwardAndVariance(p::Levy2MMBasketPricer,
     strike::T,
-    discountFactor::T, #discount factor to payment
-    spot::AbstractArray{<:T},
     forward::AbstractArray{TV}, #forward to option maturity
     totalVariance::AbstractArray{<:T}, #vol^2 * τ
     weight::AbstractArray{<:T},
-    correlation::Matrix{TV}
-)::T where {T,TV}
+    correlation::Matrix{TV}) where {T,TV}
+
     n = length(forward)
-    y = log(strike)
     sbar = @. forward * weight
     abar = zeros(T, n)
     rhobar = zeros(T, (n, n))
@@ -248,8 +243,24 @@ function priceEuropean(
     #now estimate monotonic cubic with same moments.
     m = 2 * log(u1) - log(u2) / 2
     v2 = log(u2) - 2 * log(u1)
+    forward = exp(m + 0.5 * v2)
+    return (forward, v2, zero(T))
+end
+
+function priceEuropean(
+    p::Levy2MMBasketPricer,
+    isCall::Bool,
+    strike::T,
+    discountFactor::T, #discount factor to payment
+    spot::AbstractArray{<:T},
+    forward::AbstractArray{TV}, #forward to option maturity
+    totalVariance::AbstractArray{<:T}, #vol^2 * τ
+    weight::AbstractArray{<:T},
+    correlation::Matrix{TV}
+)::T where {T,TV}
+    forward, v2 = forwardAndVariance(p, strike, forward, totalVariance, weight, correlation)
     # println(m," ",v2)
-    return blackScholesFormula(isCall, strike, exp(m + 0.5 * v2), v2, one(T), discountFactor)
+    return blackScholesFormula(isCall, strike, forward, v2, one(T), discountFactor)
 end
 
 
@@ -310,9 +321,10 @@ function priceEuropean(
     a = b / 2 * log((w) * (w - 1) / ς^2)
     d = sign(η)
     c = d * u1 - exp((1 / (2b) - a) / b)
+    println("u1=",u1,"; u2=",u2,"; u3=",u3,"; ς=", ς ,"; η=",η,"; c=",c)
     if (strike <= c)
         return discountFactor * max(signc * (u1 - strike), 0.0)
-    end
+    end    
     Q = a + b * log((strike - c) / d)
     #ok if shift a is negative (distrib shifted right) but could be problematic otherwise
     #println("a=",a,"; b=",b,"; c=",c,"; d=",d,"; u1=",u1,";") # int_... c+d*exp(z-a / b) * normpdf(z) dz... normpdf(a+b log(X-c)/d) /(Xd) dX
@@ -322,4 +334,55 @@ function priceEuropean(
     #  return discountFactor*ifelse(isCall, callPrice, putPrice)
     price = signc * ((u1 - c) * normcdf(-signc * (Q - 1 / b)) - (strike - c) * normcdf(-signc * Q))
     return discountFactor * price
+end
+
+function forwardAndVariance(p::SLN3MMBasketPricer,
+    strike::T,
+    forward::AbstractArray{TV}, #forward to option maturity
+    totalVariance::AbstractArray{<:T}, #vol^2 * τ
+    weight::AbstractArray{<:T},
+    correlation::Matrix{TV}) where {T,TV}
+    n = length(forward)
+    y = log(strike)
+    sbar = @. forward * weight
+    abar = zeros(T, n)
+    rhobar = zeros(T, (n, n))
+    sqrtVar = sqrt.(totalVariance)
+    for j = 1:size(correlation, 2)
+        for i = 1:size(correlation, 1)
+            rhobar[i, j] = exp(correlation[i, j] * sqrtVar[i] * sqrtVar[j])
+        end
+    end
+    abar = rhobar' * sbar
+    basketForward = one(T)
+    sbar /= basketForward
+
+
+    u1 = zero(T)
+    u2 = zero(T)
+    u3 = zero(T)
+    for (i, si) = enumerate(sbar)
+        u1 += si
+        for (j, sj) = enumerate(sbar)
+            temp = si * sj * rhobar[i, j]
+            u2 += temp
+            for (k, sk) = enumerate(sbar)
+                temp3 = temp * sk * rhobar[i, k] * rhobar[j, k]
+                u3 += temp3
+            end
+        end
+    end
+    u3n = u3 - 3u2 * u1 + 2u1^3
+    ς = sqrt(u2 - u1^2)
+    η = u3n / ς^3
+    sqrt3 = (8 + 4η^2 + 4 * sqrt(4η^2 + η^4))^(1 / 3)
+    w = sqrt3 / 2 + 2 / sqrt3 - 1
+    b = 1 / sqrt(log(w))
+    a = b / 2 * log((w) * (w - 1) / ς^2)
+    d = sign(η)
+    c = d * u1 - exp((1 / (2b) - a) / b)
+   # Q = a + b * log((strike - c) / d)
+   # price = signc * ((u1 - c) * normcdf(-signc * (Q - 1 / b)) - (strike - c) * normcdf(-signc * Q))
+   # -Q+1/b = d1, -Q = d1-sqrtv  => sqrtv = d1+Q = 1/b
+   return (u1, 1/b^2,c)
 end

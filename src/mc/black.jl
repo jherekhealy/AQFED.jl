@@ -15,7 +15,7 @@ function simulate(rng, model::ConstantBlackModel, spot::Float64, payoff::Vanilla
 end
 
 
-function simulate(rng, model::AbstractArray{ConstantBlackModel}, spot::AbstractArray{T}, correlation::AbstractMatrix{T}, payoff::VanillaBasketOption, nSim::Int) where {T}
+function simulate(rng, model::AbstractArray{ConstantBlackModel}, spot::AbstractArray{T}, correlation::AbstractMatrix{T}, payoff::Union{VanillaBasketOption}, nSim::Int) where {T}
     specTimes = specificTimes(payoff)
     tte = specTimes[end]
     df = discountFactor(model[1], tte)
@@ -37,6 +37,27 @@ function simulate(rng, model::AbstractArray{ConstantBlackModel}, spot::AbstractA
     mean(payoffValue)
 end
 
+
+function simulate(rng, model::AbstractArray{ConstantBlackModel}, spot::AbstractArray{T}, correlation::AbstractMatrix{T}, payoff::ListPayoff, nSim::Int) where {T}
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
+    df = discountFactor(model[1], tte)
+    nd = length(spot)
+    varianceSqrtV = [sqrt(m.vol^2 * tte) for m = model]
+    varianceSqrtM = diagm(varianceSqrtV)    
+    covar = Symmetric(varianceSqrtM * correlation * varianceSqrtM)
+    covarSqrt = sqrt(covar)
+    f = [forward(m, s, tte) for (m,s) = zip(model,spot)]
+    z = zeros(nSim,nd)
+    varianceMM =  ones(nSim,nd) * diagm(varianceSqrtV.^2)
+    logfMM =  ones(nSim,nd) * diagm(log.(f))
+    sqrtdt = sqrt(tte)
+    for i = 1:size(z,1)
+        nextn!(rng, @view(z[i,:]))
+    end
+    pathValues = exp.(logfMM + z*covarSqrt  - 0.5 * varianceMM)
+    [mean( mapslices(x -> evaluatePayoffOnPath(p, x, df), pathValues,dims=2)) for p = payoff.list]
+end
 function ndims(model::TSBlackModel, specificTimes::Vector{Float64}, timestepSize::Float64)
     genTimes = pathgenTimes(model, specificTimes, timestepSize)
     return (length(genTimes) - 1) #0.0 does not count

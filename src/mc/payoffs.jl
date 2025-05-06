@@ -40,6 +40,19 @@ function advance(schedule::BulletCashFlow, time)
     end
 end
 
+struct ListPayoff <: MCPayoff
+    list::Vector{MCPayoff}
+end
+
+
+function evaluatePayoffOnPath(payoff::ListPayoff, x, df)
+    [ evaluatePayoffOnPath(p,x,df) for p = payoff.list]
+end
+function specificTimes(payoff::ListPayoff)
+    return [payoff.list[1].schedule.observationTime]
+end
+
+
 struct VanillaBasketOption <: MCPayoff
     isCall::Bool    
     strike::Float64

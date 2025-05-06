@@ -102,6 +102,7 @@ end
         "Deelstra" => DeelstraBasketPricer(3, 3,AQFED.Math.GaussLegendre(33)),
         "VG3" => VorstGeometricExpansion(3),
         "VG1" => VorstGeometricExpansion(1),
+        "VL1" => VorstLevyExpansion(1),
         "3MM" => AQFED.Basket.SLN3MMBasketPricer(),
         "VL3" => AQFED.Basket.VorstLevyExpansion(3),
         "VL2" => AQFED.Basket.VorstLevyExpansion(2),

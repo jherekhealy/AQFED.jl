@@ -533,7 +533,7 @@ function calibrateDoubleHestonFromPrices(
 end
 
 
-function convertVolsToPricesOTMWeights(ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractVector{T}, vols::AbstractMatrix{T}; weights::AbstractMatrix{T}=ones(T, length(ts), length(strikes)), vegaFloor=1e-2, isInverse=true) where {T}
+function convertVolsToPricesOTMWeights(ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractVector{T}, vols::AbstractMatrix{T}; weights::AbstractMatrix{T}=ones(T, length(ts), length(strikes)), vegaFloor=1e-2, isInverse=true, truncationDev=3.0) where {T}
     uPrices = zeros(length(ts), length(strikes))
     uVegas = zeros(length(ts), length(strikes))
     uWeights = zeros(length(ts), length(strikes))
@@ -546,25 +546,33 @@ function convertVolsToPricesOTMWeights(ts::AbstractVector{T}, forwards::Abstract
             uVegas[i, j] = Black.blackScholesVega(strike, forwards[i], vols[i, j]^2 * t, 1.0, 1.0, t)
         end
 		if isInverse
-        @. uWeights[i, :] = weights[i, :] / max(uVegas[i, :], vegaFloor * forwards[i])
+            @. uWeights[i, :] = weights[i, :] / max(uVegas[i, :], vegaFloor * forwards[i])
 		else 
 			sumVega = sum(uVegas[i,:])
 			@. uWeights[i, :] = weights[i, :] * uVegas[i, :]/sumVega 
 		end
+        indicator = @. truncationDev*vols[i,:]*sqrt(t) > abs(log(strikes[:]/forwards[i]))
+        uWeights[i,:] .*= indicator
     end
     return uPrices, isCall, uWeights
 end
 
-function estimateVolError(params::HestonParams, ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractVector{T}, vols; weights=ones(T, length(ts), length(strikes))) where {T}
+function estimateVolError(params, ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractVector{T}, vols; weights=ones(T, length(ts), length(strikes))) where {T}
     cf = DefaultCharFunc(params)
 
     volError = zeros(length(ts), length(strikes))
     for (i, t) ∈ enumerate(ts)
-        pricer = CharFuncPricing.ALCharFuncPricer(cf, n=128)
+        #pricer = CharFuncPricing.ALCharFuncPricer(cf, n=128)
+        pricer = CharFuncPricing.JoshiYangCharFuncPricer(cf, t)
         for (j, strike) ∈ enumerate(strikes)
             isCall = strike > forwards[i]
             mPrice = CharFuncPricing.priceEuropean(pricer, isCall, strike / forwards[i], 1.0, t, 1.0)
+            try
             volError[i, j] = weights[i, j] * (Black.impliedVolatility(isCall, mPrice, 1.0, strike / forwards[i], t, 1.0) - vols[i, j])
+            catch e
+                println(e)
+                volError[i , j] = NaN
+            end
         end
     end
     rmseVol = norm(volError) / sqrt(length(strikes) * length(ts)) #around 0.015
@@ -577,3 +585,4 @@ function calibrateHestonFromVols(ts::AbstractVector{T}, forwards::AbstractVector
     volError, rmseVol = estimateVolError(params, ts, forwards, strikes, vols, weights=weights)
     return params, rmseVol
 end
+

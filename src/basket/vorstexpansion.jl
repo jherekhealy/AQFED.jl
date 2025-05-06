@@ -35,6 +35,10 @@ function priceEuropean(
         end
 
     end
+    if (A <= zero(T)) 
+        return max(signc*(A-strike),zero(T))
+    end
+    #println("A ",A," ",vtilde2)
     mtilde = -vtilde2 / 2
     vtilde = sqrt(vtilde2)
     strikeScaled = strike / A
@@ -68,17 +72,18 @@ function priceEuropean(
             mtildep = mtilde + 2vtilde2
             d1 = (mtildep - logStrikeScaled + vtilde2) / vtilde
             d2 = d1 - vtilde
-            eTerm = 0.5 * normpdf(d2) / (strikeScaled * vtilde) * exp(vtilde2) #term in product^2.
+            eTerm = 0.5 /(strikeScaled * vtilde)*  (normpdf(d2))*exp(vtilde2) #term in product^2.
+            
             #now term in sum squared
             for i = 1:nAsset
                 factori = a[i] / (strikeScaled * vtilde)
                 for j = 1:i-1
-                    tv = tvi[i] + tvi[j]
+                    tv = tvi[i] + tvi[j] 
                     d2 = (mtilde + tv - logStrikeScaled) / vtilde
-                    eTerm += factori * a[j] * normpdf(d2) * exp(covar[i, j])
+                    eTerm += factori * a[j] *(normpdf(d2)) * exp(covar[i, j])
                 end
                 d2 = (mtilde + 2tvi[i] - logStrikeScaled) / vtilde
-                eTerm += factori * a[i] / 2 * normpdf(d2) * exp(totalVariance[i])
+                eTerm += factori * a[i] / 2 * (normpdf(d2)) *exp(totalVariance[i])
 
             end
             #finally term in product*sum.
@@ -87,7 +92,7 @@ function priceEuropean(
                 mtildeij = mtilde + tv + vtilde2
                 d1 = (mtildeij - logStrikeScaled + vtilde2) / vtilde
                 d2 = d1 - vtilde
-                eTerm -= a[i] * normpdf(d2) / (strikeScaled * vtilde) * exp(tv)
+                eTerm -= a[i] * (normpdf(d2)) / (strikeScaled * vtilde) * exp(tv)
             end
             price += A * eTerm
             if p.order > 2
@@ -567,4 +572,3 @@ function priceEuropean(
     end
     return price * discountFactor
 end
-

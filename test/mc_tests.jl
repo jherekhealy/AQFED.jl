@@ -61,7 +61,7 @@ function simulateGBMAnti(rng, nSim, nSteps)
     return payoffMean, stdm(payoffValuesA, payoffMean) / sqrt(length(payoffValuesA))
 end
 
-function simulateGBM(rng, nSim, nSteps)
+function simulateGBMPathValues(rng, nSim, nSteps)
     tte = 1.0
     genTimes = LinRange(0.0, tte, ceil(Int, nSteps * tte) + 1)
     logpayoffValues = Vector{Float64}(undef, nSim)
@@ -82,11 +82,48 @@ function simulateGBM(rng, nSim, nSteps)
         end
         t0 = t1
     end
+    payoffValues
+end
+
+function simulateGBM(rng, nSim, nSteps)    
+    payoffValues = simulateGBMPathValues(rng, nSim, nSteps)
     payoffMean = mean(payoffValues)
     return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
 end
 
-
+using Random123
+@testset "LognormalRange" begin
+    rng = MersenneTwister(201300129) #Random123.Philox4x(UInt64, (20130129, 20100921), 10)
+    nSim=1024*16
+    vol = 0.8
+    tte = 1.0
+    h = tte*vol^2
+    ndev = 2.0  
+    u = Vector{Float64}(undef, nSim);
+    countLow = Vector{Float64}(undef, 1024);
+    countLowS = Vector{Float64}(undef, 1024);
+    countHigh = Vector{Float64}(undef, 1024);
+    countHighS = Vector{Float64}(undef, 1024);
+    tl = exp(-h/2+sqrt(h)*norminv(0.05))
+    th = exp(-h/2+sqrt(h)*norminv(0.95))
+    mediane = exp(-h/2+sqrt(h)*norminv(0.5))
+    for i=1:1024
+        AQFED.Random.rand!(rng, u);
+        z = @. AQFED.Math.norminv(u);
+        pathValues = @. exp(-h / 2 + z * sqrt(h))
+        #non shifted
+    countLow[i] = count(value -> value < 1.0 && value > 1.0*exp(-ndev*sqrt(h)), pathValues)
+    countHigh[i] = count(value -> value > 1.0 && value < 1.0*exp(ndev*sqrt(h)), pathValues)
+    #shifted
+    countLowS[i] = count(value -> value < mediane && value > tl, pathValues)
+    countHighS[i] = count(value -> value > mediane && value < th, pathValues)
+    end
+    mean(countLow)
+    mean(countHigh)
+    mean(countLowS)
+    mean(countHighS)
+#mediane is way below mean.
+end
 
 @testset "Antithetic" begin
     nSteps = 10

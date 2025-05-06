@@ -49,7 +49,7 @@ StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 TaylorSeries = "6aa5eb33-94cf-58f4-a9d0-e4b2c4fc25ea"
 
 [compat]
-CharFuncPricing = "0.6"
+CharFuncPricing = "0.7"
 GoldfarbIdnaniSolver = "1.1"
 Optim = "1.10.0"
 PPInterpolation = "0.7"
