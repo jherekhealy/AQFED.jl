@@ -1,6 +1,7 @@
 using AQFED.VolatilityModels
 using CharFuncPricing
 using AQFED.Black
+using Test
 
 @testset "BGMTable3.2" begin
     r = 0.0
@@ -76,7 +77,7 @@ end
     cf = DefaultCharFunc(hParams)
     pricer = CharFuncPricing.JoshiYangCharFuncPricer(cf, tte, n=512)
     pricer = makeCosCharFuncPricer(cf, tte, 2048, 16)
-    logmoneynessA = range(-3.5 * sqrt(tte), 3.5 * sqrt(tte), length=101)
+    logmoneynessA = range(-2 * sqrt(tte), 2 * sqrt(tte), length=101)
     vPrices = map(k -> CharFuncPricing.priceEuropean(pricer, k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA)
     volA = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, vPrices)
     priceFuka = AQFED.VolatilityModels.priceVarianceSwap(AQFED.VolatilityModels.FukasawaVarianceSwapReplication(true), tte, logmoneynessA, volA .^ 2, 1.0)

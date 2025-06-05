@@ -5,31 +5,234 @@ import AQFED.Math:
     LogisticTransformation,
     inv
 
-function priceVarianceSwap(p::HestonTSParams, tte::T)     where {T}
+function priceVarianceSwap(p::HestonTSParams, tte::T) where {T}
     θ = p.θ
     κ = p.κ
     tv = zero(T)
     vPrev = p.v0
     t0 = p.startTime[1]
     indexTte = searchsortedfirst(p.startTime, tte)
-    endTimes = vcat(p.startTime[2:indexTte-1],tte)
+    endTimes = vcat(p.startTime[2:indexTte-1], tte)
     #println(endTimes)
-    for (i,t1)=enumerate(endTimes)
-        dti = t1 - t0            
+    for (i, t1) = enumerate(endTimes)
+        dti = t1 - t0
         eFactor = (1 - exp(-κ[i] * dti)) / κ[i]
-        tv += θ[i]*(dti - eFactor) + vPrev * eFactor        
+        tv += θ[i] * (dti - eFactor) + vPrev * eFactor
         vPrev = (vPrev - θ[i]) * exp(-κ[i] * dti) + θ[i]
         t0 = t1
-     
+
     end
-     #tv,_ = quadgk(t -> xsi(t) ,0.0,tte)
-    tv/tte
+    #tv,_ = quadgk(t -> xsi(t) ,0.0,tte)
+    tv / tte
+end
+
+
+function priceVarianceSwap(p::HaganHestonPiecewiseParams, tte::T) where {T}
+
+    t0 = p.startTime[1]
+    indexTte = searchsortedfirst(p.startTime, tte)
+    endTimes = vcat(p.startTime[2:indexTte-1], tte)
+    #println(endTimes)
+    tv = zero(T)
+    for (i, t1) = enumerate(endTimes)
+        dti = t1 - t0
+        tv += p.leverage[i]^2 * dti
+        t0 = t1
+    end
+    #tv,_ = quadgk(t -> xsi(t) ,0.0,tte)
+    tv / tte
+end
+
+function atmVolFromPrices(forward, t, strikes::AbstractVector{T}, prices::AbstractVector{T}, isCall::AbstractVector{Bool}) where {T}
+    m = length(strikes)
+    iAtm = findfirst(x -> x > forward, strikes)
+    if iAtm == nothing
+        iAtm = m - 1
+    elseif iAtm == 1
+        iAtm = 2
+    else 
+        iAtm -= 1
+    end
+   # println(iAtm, " ", forward , " ",strikes)
+    volsShort = map(index -> Black.impliedVolatility(isCall[index], prices[index], forward, strikes[index], t, 1.0), iAtm-1:iAtm+1)
+    volAtm = PPInterpolation.evaluate(2, strikes[iAtm-1:iAtm+1], volsShort, forward)
+    return volAtm
+end
+
+function makeSwapCurveConstant(atmVol)
+    return t -> atmVol^2
+end
+
+function makeSwapCurveReplication(ts::AbstractVector{T},
+    forwards::AbstractVector{T},
+    strikes::AbstractMatrix{T}, vols::AbstractMatrix{T}
+) where {T}
+    swapPrices = map(i -> priceVarianceSwap(FukasawaVarianceSwapReplication(true), ts[i], log.(strikes[i,:] ./ forwards[i]), vols[i, :] .^ 2, 1.0) / 10000, 1:length(ts))
+    spline = makeCubicPP(ts, swapPrices, PPInterpolation.SECOND_DERIVATIVE, 0.0, PPInterpolation.SECOND_DERIVATIVE, 0.0, HuynRational())
+    return spline
+end
+
+function calibrateHestonHaganFromPricesParam(
+    ts::AbstractVector{T},
+    forwards::AbstractVector{T},
+    strikes::AbstractMatrix{T},
+    prices::AbstractMatrix{T},
+    isCall::AbstractMatrix{Bool},
+    weights::AbstractMatrix{T};
+    κ=1.0,
+    lower=[1e-4, -0.99, 1e-2], upper=[4.0, 0.5, 4.0], #leverage, rho, sigma
+    isRelative=false,
+    method="Joshi-Yang",
+    minimizer="DE", numberOfKnots=[4, 3, 4],
+    swapCurve=makeSwapCurveConstant(atmVolFromPrices(forwards[1], ts[1], strikes[1,:], prices[1, :], isCall[1, :]))) where {T}
+    
+    
+    # uPrices = zeros(T, length(ts),length(strikes))))
+    # uWeights = zeros(T, length(ts),length(strikes))
+    # for i  = eachindex(forwards)
+    # 	@. uPrices[i,:] = prices[i,:] ./ forwards[i]
+    # 	@. uWeights[i,:] = weights[i,:] .* forwards[i]
+    # end
+    n2 = size(prices,2)
+    uPrices = prices
+    uWeights = weights
+    # lower =  [range[1].θ, range[1].ρ, range[1].σ]
+    # upper =  [range[2].θ, range[2].ρ, range[2].σ]
+    transforms = map((low, high) -> LogisticTransformation(low, high), lower, upper)
+
+    startTime = vcat(zero(T), ts[1:end-1])
+    θAll = zeros(length(startTime))
+    ρAll = zeros(length(startTime))
+    σAll = zeros(length(startTime))
+    rmse = zeros(length(startTime))
+    θknots = startTime[round.(Int, LinRange(1, length(startTime), numberOfKnots[1]))]
+    ρknots = startTime[round.(Int, LinRange(1, length(startTime), numberOfKnots[2]))]
+    σknots = startTime[round.(Int, LinRange(1, length(startTime), numberOfKnots[3]))]
+    #println(θknots, " ",ρknots, " ",σknots)
+    function objectiveT(F, xr, hParams::HaganHestonPiecewiseParams)
+        #xr[1] = theta, xr[2] = rho, xr[3] = sigma.
+        #x = map( (transformi, xri) -> transformi(xri), transforms, xr)
+        θp = xr[1:length(θknots)]
+        ρp = xr[length(θknots)+1:length(θknots)+length(ρknots)]
+        σp = xr[length(θknots)+length(ρknots)+1:length(θknots)+length(ρknots)+length(σknots)]
+        #println(θp, " ",ρp, " ",σp)
+        splineθ = makeCubicPP(θknots, θp, PPInterpolation.SECOND_DERIVATIVE, 0.0, PPInterpolation.SECOND_DERIVATIVE, 0.0, HuynRational())
+        splineρ = makeCubicPP(ρknots, ρp, PPInterpolation.SECOND_DERIVATIVE, 0.0, PPInterpolation.SECOND_DERIVATIVE, 0.0, HuynRational())
+        splineσ = makeCubicPP(σknots, σp, PPInterpolation.SECOND_DERIVATIVE, 0.0, PPInterpolation.SECOND_DERIVATIVE, 0.0, HuynRational())
+
+
+        θ = hParams.leverage
+        ρ = hParams.ρ
+        σ = hParams.σ
+        for (i, t) = enumerate(startTime)
+            ti = t #(t + startTime[i]) / 2
+            θ[i] = splineθ(ti)
+            ρ[i] = splineρ(ti)
+            σ[i] = splineσ(ti)
+        end
+        lastTime = ts[end]
+        hestonTSParams, lastτ = makeHestonTSParams(hParams, tte=lastTime)
+        cf = DefaultCharFunc(hestonTSParams)
+        for i = eachindex(ts)
+            t = if i < length(ts)
+                hestonTSParams.startTime[i+1]
+            else
+                lastτ
+            end
+            # pricer =JoshiYangCharFuncPricer(cf, t, n=64)
+            pricer = if method == "Andersen-Lake"
+                CharFuncPricing.ALCharFuncPricer(cf, n=64)
+            elseif method == "Joshi-Yang"
+                JoshiYangCharFuncPricer(cf, t, n=64)
+            elseif method == "Cos-128"
+                CharFuncPricing.makeCosCharFuncPricer(cf, t, 128, 12)
+            elseif method == "Cos"
+                CharFuncPricing.makeCosCharFuncPricer(cf, t, 256, 16)
+            elseif method == "Cos-Junike"
+                CharFuncPricing.makeCosCharFuncPricer(cf, t, tol=1e-4, maxM=4096)
+            elseif method == "Flinn"
+                CharFuncPricing.FlinnCharFuncPricer(cf, t, tTol=1e-4, qTol=1e-8)
+            elseif method == "Flinn-Transformed"
+                #CharFuncPricing.makeCVCharFunc(cf,t,CharFuncPricing.InitialControlVariance())
+                CharFuncPricing.AdaptiveFlinnCharFuncPricer(cf, t)
+            elseif method == "Swift"
+                m, _ = CharFuncPricing.findSwiftScaling(cf, t)
+                CharFuncPricing.makeSwiftCharFuncPricer(cf, t, m, 3)
+            end
+            for (j, strike) ∈ enumerate(strikes[i,:])
+                F[(i-1)*n2+j] = if iszero(uWeights[i, j])
+                    uWeights[i, j]
+                else
+                    mPrice = CharFuncPricing.priceEuropean(pricer, isCall[i, j], strike / forwards[i], 1.0, t, 1.0) * forwards[i]
+                    if isRelative
+                        uWeights[i, j] * (mPrice / uPrices[i, j] - 1)
+                    else
+                        uWeights[i, j] * (mPrice - uPrices[i, j])
+                    end
+                end
+            end
+        end
+        F
+    end
+
+    hParams = HaganHestonPiecewiseParams(θAll, κ, ρAll, σAll, startTime)
+
+    totalSize = n2 * length(ts)
+    out = zeros(totalSize)
+    function objective1(x)
+        objectiveT(out, x, hParams)
+        norm(out) / norm(uWeights)
+    end
+    #int_0^T lev^2 du = swapCurve(T)*T
+    lev0 = zeros(T, length(θknots))
+    lev0[1] = sqrt(swapCurve(θknots[1]))
+    for i = 2:length(lev0)
+        lev0[i] = sqrt((max(1e-4, swapCurve(θknots[i]) * θknots[i] - swapCurve(θknots[i-1]) * θknots[i-1])) / (θknots[i] - θknots[i-1]))
+    end
+    x0 = vcat(lev0, ones(T, length(ρknots)) .* (-0.5), ones(T, length(σknots)) .* (0.5))
+    println("init guess ",x0)
+
+    rng = Random123.Philox4x(UInt64, (20130129, 20100921), 10)
+    lowern = vcat(ones(T, length(θknots)) .* lower[1], ones(T, length(ρknots)) .* lower[2], ones(T, length(σknots)) .* lower[3])
+    uppern = vcat(ones(T, length(θknots)) .* upper[1], ones(T, length(ρknots)) .* upper[2], ones(T, length(σknots)) .* upper[3])
+    problem = GlobalOptimization.Problem(length(x0), objective1, lowern, uppern)
+    if minimizer == "DE"
+        optim = GlobalOptimization.makeDifferentialEvolutionOptimizer(GlobalOptimization.OptimizerParams(15),
+            problem,
+            rng, GlobalOptimization.Best1Bin(0.9, 0.5))
+        result = GlobalOptimization.optimize(optim, GlobalOptimization.TerminationCriteria(1000, 100, 1e-6, 1e-5))
+        println("Result DE ", result, " ", GlobalOptimization.minimizer(optim))
+        x0 = GlobalOptimization.minimizer(optim) #calibrated params.
+    elseif minimizer == "SA"
+        optim = GlobalOptimization.SimulatedAnnealing(problem, rng)
+        result = GlobalOptimization.optimize(optim, x0)
+        println("Result SA ", result, " ", GlobalOptimization.minimizer(optim))
+        x0 = GlobalOptimization.minimizer(optim) #calibrated params.
+    end
+    
+    function objectiveTConstrained(F, xr)
+        x = copy(xr)
+        x[1:length(θknots)] = map(xri -> transforms[1](xri), xr[1:length(θknots)])
+        x[length(θknots)+1:length(θknots)+length(ρknots)] = map(xri -> transforms[2](xri), xr[length(θknots)+1:length(θknots)+length(ρknots)])
+        x[length(θknots)+length(ρknots)+1:length(θknots)+length(ρknots)+length(σknots)] = map(xri -> transforms[3](xri), xr[length(θknots)+length(ρknots)+1:length(θknots)+length(ρknots)+length(σknots)])
+        #println("objectiveX ",x)
+        return objectiveT(F, x, hParams)
+    end
+    x = x0
+    xr = copy(x)
+    xr[1:length(θknots)] = map(xri -> inv(transforms[1], xri), x[1:length(θknots)])
+    xr[length(θknots)+1:length(θknots)+length(ρknots)] = map(xri -> inv(transforms[2], xri), x[length(θknots)+1:length(θknots)+length(ρknots)])
+    xr[length(θknots)+length(ρknots)+1:length(θknots)+length(ρknots)+length(σknots)] = map(xri -> inv(transforms[3], xri), x[length(θknots)+length(ρknots)+1:length(θknots)+length(ρknots)+length(σknots)])
+    gnRmse = GaussNewton.optimize!(objectiveTConstrained, xr, out, autodiff=:single)
+    println("Result GN ", gnRmse)
+    objectiveTConstrained(out, xr)
+    return hParams, gnRmse
 end
 
 function calibrateHestonTSFromPricesParam(
     ts::AbstractVector{T},
     forwards::AbstractVector{T},
-    strikes::AbstractVector{T},
+    strikes::AbstractMatrix{T},
     prices::AbstractMatrix{T},
     isCall::AbstractMatrix{Bool},
     weights::AbstractMatrix{T};
@@ -46,29 +249,21 @@ function calibrateHestonTSFromPricesParam(
     # end
     uPrices = prices
     uWeights = weights
-    m = length(strikes)
-    iAtm = findfirst(x -> x > forwards[1], strikes)
-    if iAtm == nothing
-        iAtm = m - 1
-    elseif iAtm == 1
-        iAtm = 2
-    end
-    volsShort = map(index -> Black.impliedVolatility(isCall[1, index], prices[1, index], forwards[1], strikes[index], ts[1], 1.0), iAtm-1:iAtm+1)
-    volAtm = PPInterpolation.evaluate(2, strikes[iAtm-1:iAtm+1], volsShort, forwards[1])
-    v0 = volAtm^2 
+    volAtm = atmVolFromPrices(forwards[1], ts[1], strikes[1,:], prices[1, :], isCall[1, :])
+    v0 = volAtm^2
     # lower =  [range[1].θ, range[1].ρ, range[1].σ]
     # upper =  [range[2].θ, range[2].ρ, range[2].σ]
     transforms = map((low, high) -> LogisticTransformation(low, high), lower, upper)
-
+n2 = size(prices,2)
     startTime = vcat(zero(T), ts[1:end-1])
     θAll = zeros(length(startTime))
     ρAll = zeros(length(startTime))
     σAll = zeros(length(startTime))
     rmse = zeros(length(startTime))
-    θknots = startTime[ round.(Int,LinRange(1,length(startTime),numberOfKnots[1]))]
-    ρknots = startTime[ round.(Int,LinRange(1,length(startTime),numberOfKnots[2]))]
-    σknots = startTime[ round.(Int,LinRange(1,length(startTime),numberOfKnots[3]))]
-    println(θknots, " ",ρknots, " ",σknots)
+    θknots = startTime[round.(Int, LinRange(1, length(startTime), numberOfKnots[1]))]
+    ρknots = startTime[round.(Int, LinRange(1, length(startTime), numberOfKnots[2]))]
+    σknots = startTime[round.(Int, LinRange(1, length(startTime), numberOfKnots[3]))]
+    println(θknots, " ", ρknots, " ", σknots)
     function objectiveT(F, xr, hParams::HestonTSParams)
         #xr[1] = theta, xr[2] = rho, xr[3] = sigma.
         #x = map( (transformi, xri) -> transformi(xri), transforms, xr)
@@ -113,8 +308,8 @@ function calibrateHestonTSFromPricesParam(
                 m, _ = CharFuncPricing.findSwiftScaling(cf, t)
                 CharFuncPricing.makeSwiftCharFuncPricer(cf, t, m, 3)
             end
-            for (j, strike) ∈ enumerate(strikes)
-                F[(i-1)*length(strikes)+j] = if iszero(uWeights[i, j])
+            for (j, strike) ∈ enumerate(strikes[i,:])
+                F[(i-1)*n2+j] = if iszero(uWeights[i, j])
                     uWeights[i, j]
                 else
                     mPrice = CharFuncPricing.priceEuropean(pricer, isCall[i, j], strike / forwards[i], 1.0, t, 1.0) * forwards[i]
@@ -131,7 +326,7 @@ function calibrateHestonTSFromPricesParam(
 
     hParams = HestonTSParams(v0, κ, θAll, ρAll, σAll, startTime)
 
-    totalSize = length(strikes) * length(ts)
+    totalSize = n2 * length(ts)
     out = zeros(totalSize)
     function objective1(x)
         objectiveT(out, x, hParams)
@@ -159,7 +354,7 @@ function calibrateHestonTSFromPricesParam(
         x[1:length(θknots)] = map(xri -> transforms[1](xri), xr[1:length(θknots)])
         x[length(θknots)+1:length(θknots)+length(ρknots)] = map(xri -> transforms[2](xri), xr[length(θknots)+1:length(θknots)+length(ρknots)])
         x[length(θknots)+length(ρknots)+1:length(θknots)+length(ρknots)+length(σknots)] = map(xri -> transforms[3](xri), xr[length(θknots)+length(ρknots)+1:length(θknots)+length(ρknots)+length(σknots)])
-        println("objectiveX ",x)
+        #println("objectiveX ",x)
         return objectiveT(F, x, hParams)
     end
     x = x0
@@ -178,7 +373,7 @@ end
 function calibrateHestonTSFromPrices(
     ts::AbstractVector{T},
     forwards::AbstractVector{T},
-    strikes::AbstractVector{T},
+    strikes::AbstractMatrix{T},
     prices::AbstractMatrix{T},
     isCall::AbstractMatrix{Bool},
     weights::AbstractMatrix{T};
@@ -193,17 +388,10 @@ function calibrateHestonTSFromPrices(
     # 	@. uPrices[i,:] = prices[i,:] ./ forwards[i]
     # 	@. uWeights[i,:] = weights[i,:] .* forwards[i]
     # end
+    n2 = size(uPrices,2)
     uPrices = prices
     uWeights = weights
-    m = length(strikes)
-    iAtm = findfirst(x -> x > forwards[1], strikes)
-    if iAtm == nothing
-        iAtm = m - 1
-    elseif iAtm == 1
-        iAtm = 2
-    end
-    volsShort = map(index -> Black.impliedVolatility(isCall[1, index], prices[1, index], forwards[1], strikes[index], ts[1], 1.0), iAtm-1:iAtm+1)
-    volAtm = PPInterpolation.evaluate(2, strikes[iAtm-1:iAtm+1], volsShort, forwards[1])
+    volAtm = atmVolFromPrices(forwards[1], ts[1], strikes[1,:], prices[1, :], isCall[1, :])
     v0 = volAtm^2
     # lower =  [range[1].θ, range[1].ρ, range[1].σ]
     # upper =  [range[2].θ, range[2].ρ, range[2].σ]
@@ -247,7 +435,7 @@ function calibrateHestonTSFromPrices(
             m, _ = CharFuncPricing.findSwiftScaling(cf, t)
             CharFuncPricing.makeSwiftCharFuncPricer(cf, t, m, 3)
         end
-        for (j, strike) ∈ enumerate(strikes)
+        for (j, strike) ∈ enumerate(strikes[i,:])
             if iszero(uWeights[i, j])
                 F[j] = uWeights[i, j]
             else
@@ -270,7 +458,7 @@ function calibrateHestonTSFromPrices(
 
         objectiveT(F, xr) = objectiveTi(F, xr, hParams, i)
 
-        totalSize = length(strikes)
+        totalSize = n2
         out = zeros(totalSize)
         function objective1(x)
             objectiveT(out, x)
@@ -321,10 +509,18 @@ function calibrateHestonTSFromPrices(
         hParams = HestonTSParams(v0, κ, θAll, ρAll, σAll, startTime)
 
         function objectiveTConstrained(F, xr)
-            for (i, t) ∈ enumerate(ts)
+            for i = eachindex(ts)
                 xri = xr[3*(i-1)+1:3*(i-1)+3]
-                x = map((transformi, xri) -> transformi(xri), transforms, xr)
-                objectiveTi(@view(F[(i-1)*length(strikes)+1:i*length(strikes)]), x, hParams, i)
+                x = map((transformi, xri) -> transformi(xri), transforms, xri)
+                θAll[i] = x[1]
+                ρAll[i] = x[2]
+                σAll[i] = x[3]
+            end
+            for i = eachindex(ts)
+                xri = xr[3*(i-1)+1:3*(i-1)+3]
+                x = map((transformi, xri) -> transformi(xri), transforms, xri)
+                #println("objectiveTConstrained x=",x," i=",i)
+                objectiveTi(@view(F[(i-1)*n2+1:i*n2]), x, hParams, i)
             end
             F
         end
@@ -333,7 +529,7 @@ function calibrateHestonTSFromPrices(
             x = [θAll[i], ρAll[i], σAll[i]]
             rx[3*(i-1)+1:3*(i-1)+3] = map((transformi, xri) -> inv(transformi, xri), transforms, x)
         end
-        out = zeros(length(ts) * length(strikes))
+        out = zeros(length(ts) * n2)
         gnRmse = GaussNewton.optimize!(objectiveTConstrained, rx, out, autodiff=:single)
         println("Result GN ", gnRmse)
         for i = 1:length(startTime)
@@ -351,17 +547,14 @@ function calibrateHestonTSFromPrices(
 end
 
 
-function calibrateHestonTSFromVolsVS(ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractVector{T}, vols::AbstractMatrix{T}; weights::AbstractMatrix{T}=ones(T, length(ts), length(strikes)), vegaFloor=1e-2, minimizer="DE", isRelative=false,
-    κ=ones(length(ts)) .* 1.0, method="Joshi-Yang",
-    lower=[1e-4, -0.99, 1e-2], upper=[1.0, 0.5, 2.0],
+function calibrateHestonTSFromVolsVS(ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractMatrix{T}, vols::AbstractMatrix{T}; weights::AbstractMatrix{T}=ones(T, length(ts), length(strikes)), vegaFloor=1e-2, minimizer="DE", isRelative=false,
+    κ=ones(length(ts)) .* 1.0, method="Joshi-Yang", truncationDev=2.0,
+    lower=[1e-4, -0.99, 1e-2], upper=[1.0, 0.5, 2.0], swapCurve =makeSwapCurveReplication(ts, forwards,strikes,vols)
 ) where {T}
-    uPrices, isCall, uWeights = convertVolsToPricesOTMWeights(ts, forwards, strikes, vols, weights=weights, vegaFloor=vegaFloor, truncationDev=0.5)
+    uPrices, isCall, uWeights = convertVolsToPricesOTMWeights(ts, forwards, strikes, vols, weights=weights, vegaFloor=vegaFloor, truncationDev=truncationDev)
 
-    swapPrices = map(i -> priceVarianceSwap(FukasawaVarianceSwapReplication(true), ts[i], log.(strikes ./ forwards[i]), vols[i, :] .^ 2, 1.0) / 10000, 1:length(ts))
-    #println(swapPrices)
-
-    volAtm = PPInterpolation.CubicSplineNatural(strikes, vols[1, :])(forwards[1])
-    v0 = swapPrices[1]
+  #println(swapPrices)
+    v0 = swapCurve(0.0)
 
 
     θ = zeros(length(ts))
@@ -369,18 +562,19 @@ function calibrateHestonTSFromVolsVS(ts::AbstractVector{T}, forwards::AbstractVe
     prevTotalVar = zero(T)
     vPrev = v0
     for i = 1:length(ts)
+        swapPricesi = swapCurve(ts[i])
         dti = ts[i] - startTimes[i]
         eFactor = (1 - exp(-κ[i] * dti)) / κ[i]
-        θ[i] = (swapPrices[i] * ts[i] - prevTotalVar - vPrev * eFactor) / (dti - eFactor)
+        θ[i] = (swapPricesi * ts[i] - prevTotalVar - vPrev * eFactor) / (dti - eFactor)
         θ[i] = min(max(θ[i], lower[1]), upper[1])
         vPrev = (vPrev - θ[i]) * exp(-κ[i] * dti) + θ[i]
-        prevTotalVar = swapPrices[i] * ts[i]
+        prevTotalVar = swapPricesi * ts[i]
     end
 
     #println(θ)
 
     transforms = map((low, high) -> LogisticTransformation(low, high), lower[2:end], upper[2:end])
-
+    n2 = size(vols,2)
     startTime = vcat(zero(T), ts[1:end-1])
     θAll = copy(θ)
     ρAll = zeros(length(startTime))
@@ -423,7 +617,7 @@ function calibrateHestonTSFromVolsVS(ts::AbstractVector{T}, forwards::AbstractVe
                 m, _ = CharFuncPricing.findSwiftScaling(cf, t)
                 CharFuncPricing.makeSwiftCharFuncPricer(cf, t, m, 3)
             end
-            for (j, strike) ∈ enumerate(strikes)
+            for (j, strike) ∈ enumerate(strikes[i,:])
                 if iszero(uWeights[i, j])
                     F[j] = uWeights[i, j]
                 else
@@ -437,7 +631,7 @@ function calibrateHestonTSFromVolsVS(ts::AbstractVector{T}, forwards::AbstractVe
             end
             F
         end
-        totalSize = length(strikes)
+        totalSize = n2
         out = zeros(totalSize)
         function objective1(x)
             objectiveT(out, x)
@@ -482,4 +676,30 @@ function calibrateHestonTSFromVolsVS(ts::AbstractVector{T}, forwards::AbstractVe
     #println("RMSEVOL ",volError)
     return hParams, rmse, volError
     #return params, rmseVol
+end
+
+
+function estimateVolError(hagParams::HaganHestonPiecewiseParams, ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractMatrix{T}, vols; weights=ones(T, length(ts), length(strikes))) where {T}
+    params, lastτ = makeHestonTSParams(hagParams, tte=ts[end])
+    τs = vcat(params.startTime[2:end], lastτ)
+
+    volError = zeros(size(vols))
+    for (i, t) ∈ enumerate(ts)
+        cf = DefaultCharFunc(params)
+        #pricer = CharFuncPricing.ALCharFuncPricer(cf, n=128)
+        τ = convertTime(hagParams, t)
+        pricer = CharFuncPricing.JoshiYangCharFuncPricer(cf, τ)
+        for (j, strike) ∈ enumerate(strikes[i,:])
+            isCall = strike > forwards[i]
+            mPrice = CharFuncPricing.priceEuropean(pricer, isCall, strike / forwards[i], 1.0, τ, 1.0)
+            try
+                volError[i, j] = weights[i, j] * (Black.impliedVolatility(isCall, mPrice, 1.0, strike / forwards[i], t, 1.0) - vols[i, j])
+            catch e
+                println(e)
+                volError[i, j] = NaN
+            end
+        end
+    end
+    rmseVol = norm(volError) / sqrt(size(vols,2) * length(ts)) #around 0.015
+    return volError, rmseVol
 end

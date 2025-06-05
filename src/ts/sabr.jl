@@ -1,4 +1,4 @@
-export SABRSection, SABRParams, Hagan2020, normalVarianceByMoneyness
+export SABRSection, SABRParams, Hagan2020, HaganEffective, normalVarianceByMoneyness
 
 struct SABRParams{T}
     α::T
@@ -16,6 +16,10 @@ struct Hagan2020 <: SABRApprox
 end
 
 struct LeFloch <: SABRApprox
+end
+
+#From "Implied volatility formulas for Heston models"
+struct HaganEffective <: SABRApprox
 end
 
 struct SABRSection{T,M<:SABRApprox} <: VarianceSection
@@ -147,3 +151,74 @@ function normalVarianceByMoneyness(s::SABRSection{T,Hagan2020}, y) where {T}
     end
     return bpvol^2
 end
+
+
+function varianceByLogmoneyness(s::SABRSection{T,HaganEffective}, y) where {T}
+    fpo = s.f + s.shift
+    Kpo = fpo * exp(y)
+    β = s.params.β
+    ν = s.params.ν
+    α = s.params.α
+    ρ = s.params.ρ
+    Kpowonebeta = Kpo^(1 - β)
+    fpowonebeta = fpo^(1 - β)
+    αtilde = if β==1
+        α*exp(ρ*ν*α/4*s.tte) 
+    elseif β==0
+        α
+    else
+        α*exp(ρ*ν*α/4*s.tte*β/fpowonebeta) 
+    end
+    χ = if β == 1
+        ν * y / αtilde
+    else
+        ν / αtilde * (Kpowonebeta - fpowonebeta) / (1 - β)
+    end
+    delta0 = β * (2 - β) / (8 * fpowonebeta^2)
+    e = sqrt(1 + 2 * ρ * χ + χ^2)
+    y0 = log((ρ + χ + e) / (1 + ρ))
+    factor = 1 + (-delta0 / 4 * αtilde^2 + (2 - 3 * ρ^2) * (ν^2) / 24) * s.tte
+    blackVol = if y == 0
+        αtilde * factor
+    else
+        y / y0 * ν * factor
+    end
+    return blackVol^2
+end
+
+#moneyness = strike - spot 
+function normalVarianceByMoneyness(s::SABRSection{T,HaganEffective}, y) where {T}
+    fpo = s.f + s.shift
+    Kpo = y + fpo
+    β = s.params.β
+    ν = s.params.ν
+    α = s.params.α
+    ρ = s.params.ρ
+    #println("SABRSection ",s)
+    Kpowonebeta = Kpo^(1 - β)
+    fpowonebeta = fpo^(1 - β)
+    αtilde = if β==1
+        α*exp(ρ*ν*α/4*s.tte) 
+    elseif β==0
+        α
+    else
+        α*exp(ρ*ν*α/4*s.tte*β/fpowonebeta) 
+    end
+    χ = if β == 1
+        ν * log(Kpo / fpo) / αtilde
+    else
+        ν / αtilde * (Kpowonebeta - fpowonebeta) / (1 - β)
+    end
+    delta0 = β * (2 - β) / (8 * fpowonebeta^2)
+    e = sqrt(1 + 2 * ρ * χ + χ^2)
+    y0 = log((ρ + χ + e) / (1 + ρ))
+  #  y0 = log((-ρ - χ + e) / (1 - ρ)) #x*nu
+  
+    factor = 1 + (-delta0 / 3 * αtilde^2 + (2 - 3 * ρ^2) * (ν^2) / 24) * s.tte
+    bpvol = αtilde / fpowonebeta * fpo * factor
+    if abs(Kpo - fpo) > eps(y)
+        bpvol *= ν / αtilde * (Kpo - fpo) * fpowonebeta / (fpo * y0)
+    end
+    return bpvol^2
+end
+

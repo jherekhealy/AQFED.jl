@@ -4515,7 +4515,7 @@ using PPInterpolation
     ]
     vols ./= 100
     strikes = [40, 50, 60, 70, 75, 80, 82, 84, 86, 88, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 112, 114, 116, 118, 120, 125, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300] ./ 100
-
+    strikes = ones(length(ts)) * strikes'
     spot = 5751.13
     uForwards = @. exp(-logdfDiscountCurve(ts) - divyieldCurve(ts) * ts)
     forecastCurve(t) = exp(logdfForecastCurve(t) + divyieldCurve(t) * t) #curve of discount factors
@@ -4530,9 +4530,35 @@ using PPInterpolation
     #fit on 25D ATM only.
 
     #remove to short maturities.
-    uPrices, isCall, uWeights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikes, vols, vegaFloor=1e-2,truncationDev=0.5)
+    uPrices, isCall, uWeights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikes, vols, vegaFloor=1e-2,truncationDev=1.0)
 
-    params, rmse = AQFED.VolatilityModels.calibrateHestonTSFromPrices(ts[4:end], uForwards[4:end], strikes, uPrices[4:end,:], isCall[4:end,:], uWeights[4:end,:], method="Cos",lower=[1e-4,-0.99,0.05],upper=[1.0,0.5,0.6])
+    vParams, rmse, volError = AQFED.VolatilityModels.calibrateHestonTSFromVolsVS(ts[4:end], uForwards[4:end], strikes, vols[4:end,:], lower=[1e-4,-0.9,0.01],upper=[2.0,0.5,5.0] )
+
+    params, rmse = AQFED.VolatilityModels.calibrateHestonTSFromPrices(ts[4:end], uForwards[4:end], strikes, uPrices[4:end,:], isCall[4:end,:], uWeights[4:end,:], method="Cos",lower=[1e-4,-0.99,0.05],upper=[1.0,0.5,4.0])
+
+    params, rmse = AQFED.VolatilityModels.calibrateHestonTSFromPricesParam(ts[4:end], uForwards[4:end], strikes, uPrices[4:end,:], isCall[4:end,:], uWeights[4:end,:], lower=[1e-4,-0.99,0.05],upper=[1.0,0.7,4.0], numberOfKnots=[length(ts)-4,3,5], κ=ones(length(ts[4:end])) .* 1.0, minimizer="DE")
+
+
+    hagParams, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ts[4:end], uForwards[4:end], strikes, uPrices[4:end,:], isCall[4:end,:], uWeights[4:end,:], lower=[1e-2,-0.99,0.05],upper=[2.0,0.7,4.0], numberOfKnots=[length(ts)-4,3,5], κ= 1.0, minimizer="DE")
+
+    tsHagParams,lastτ = AQFED.VolatilityModels.makeHestonTSParams(hagParams, tte=ts[end])
+    τs = vcat(tsHagParams.startTime[2:end],lastτ)
+    swapPrices = map(i -> AQFED.VolatilityModels.priceVarianceSwap(AQFED.VolatilityModels.FukasawaVarianceSwapReplication(true), ts[i], log.(strikes ./ uForwards[i]), vols[i, :] .^ 2, 1.0) / 10000, 1:length(ts))
+    volErrorP, rmseVolP = AQFED.VolatilityModels.estimateVolError(params, ts, uForwards, strikes, vols)
+    volErrorH, rmseVolP = AQFED.VolatilityModels.estimateVolError(hagParams, ts, uForwards, strikes, vols)
+
+    #=plot!(ts, map(t->AQFED.VolatilityModels.priceVarianceSwap(hagParams, t),ts))
+ 
+    plot!(ts, map(t->AQFED.VolatilityModels.priceVarianceSwap(params, t),ts))
+ 
+    plot(log.(strikes./uForwards[8]), volErrorH[8,:]+vols[8,:],label="Hagan");  plot!(log.(strikes./uForwards[8]), volErrorP[8,:]+vols[8,:],label="Param"); plot!(log.(strikes./uForwards[8]), vols[8,:],label="Ref")
+
+    plot(log.(strikes./uForwards[end]), volErrorH[end,:]+vols[end,:],label="Hagan");  plot!(log.(strikes./uForwards[end]), volErrorP[end,:]+vols[end,:],label="Param"); plot!(log.(strikes./uForwards[end]), vols[end,:],label="Ref")
+    i=8
+plot(log.(strikes./uForwards[i]), volErrorH[i,:]+vols[i,:],label="Hagan");  plot!(log.(strikes./uForwards[i]), volErrorP[i,:]+vols[i,:],label="Param"); plot!(log.(strikes./uForwards[i]), vols[i,:],label="Ref"); plot!(log.(strikes./uForwards[i]), volError[i-3,:]+vols[i,:],label="VS")
+=#
+
+
 
 end
 @testset "Heston08October2024" begin
@@ -4755,10 +4781,11 @@ end
 
     spot = 5751.13
     uForwards = @. exp(-logdfForecastCurve(ts) - divyieldCurve(ts) * ts)
-    uPrices, isCall, uWeights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikes, vols, vegaFloor=1e2)
+    strikesM = ones(length(ts)) .* strikes'
+    uPrices, isCall, uWeights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikesM, vols, vegaFloor=1e2)
     paramsf0, rmse = AQFED.VolatilityModels.calibrateHestonFromPrices(ts, uForwards, strikes, uPrices, isCall, uWeights)
 
-    uPrices, isCall, uWeights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikes, vols, vegaFloor=1e-2)
+    uPrices, isCall, uWeights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikesM, vols, vegaFloor=1e-2)
 
     reduction = AQFED.VolatilityModels.makeVarianceSwapReduction(ts, uForwards, strikes, vols, isLinearExtrapolation=true)
     paramsf1, rmse = AQFED.VolatilityModels.calibrateHestonFromPrices(ts, uForwards, strikes, uPrices, isCall, uWeights, reduction=reduction)
@@ -4773,6 +4800,23 @@ end
 
     params, rmse = AQFED.VolatilityModels.calibrateHestonFromPrices(ts, uForwards, strikes, uPrices, isCall, uWeights)
     params, rmse = AQFED.VolatilityModels.calibrateHestonFromPrices(ts, uForwards, strikes, uPrices, isCall, uWeights, reduction=AQFED.VolatilityModels.SigmaKappaReduction(0.4, 0.0))
+
+    #hagan heston
+    logmoneynessF = [-0.5,0.0,0.5]
+    volsF = zeros((length(ts),length(logmoneynessF)))
+    strikesF = zeros((length(ts),length(logmoneynessF)))
+    for (i,t) = enumerate(ts)
+        spl = PPInterpolation.CubicSplineNatural(log.(strikes ./ uForwards[i]),vols[i,:])
+        atmVol = spl(0.0)
+        y = logmoneynessF .* (atmVol*sqrt(t))
+        volsF[i,:] = spl.(y)
+        strikesF[i,:] = exp.(y) .* uForwards[i]
+    end
+    uPricesF, isCallF, uWeightsF = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikesF, volsF, vegaFloor=1e-2)
+    hagParamsF, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ts, uForwards, strikesF, uPricesF, isCallF, uWeightsF .* 100, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], numberOfKnots=[length(ts),length(ts),length(ts)], κ= 5.0, minimizer="NO")
+
+    hagParamsFull, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ts, uForwards, strikesM, uPrices, isCall, uWeights .* 100, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], numberOfKnots=[length(ts),length(ts),length(ts)], κ= 5.0, minimizer="NO")
+
 
     #plot(strikes,vols',seriestype=:scatter,ms=2,ma=0.5,markerstrokewidth=0)
     # plot!(strikes, vols' + volError')
@@ -4811,4 +4855,50 @@ end
     spl = Spline2D(priceGrid[1], priceGrid[2], priceGrid[3][2])
     Dierckx.evaluate(spl, 1.0, params.v0)
     #RKG is much more accurate and faster
+
+end
+
+@testset "HestonHagan2025" begin
+    ts = [140, 508, 873, 1238, 1603, 1967, 2331] ./ 365
+    vols = [ 
+        0.18224 0.13569 0.11079;
+        0.20395 0.14638 0.11770;
+        0.21303 0.15442 0.12353;
+        0.21729 0.16351 0.12153;
+        0.22335 0.17052 0.13366;
+        0.22871 0.17774 0.14625;
+        0.23525 0.18416 0.15960]
+    strikes = [
+        5261.71 5741.42 6264.87;
+        4898.92 5918.10 7149.32;
+        4663.99 6074.17 7910.73;
+        4473.88 6236.21 8692.74;
+        4321.82 6410.78 9509.44;
+        4187.39 6597.89 10396.0;
+        4066.38 6799.25 11368.8;
+    ]
+    forwards = [5741.42,
+    5918.10,
+    6074.17,
+    6236.21,
+    6410.78,
+    6597.89,
+    6799.25]
+    prices, isCall, weights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, forwards, strikes, vols, vegaFloor=1e-2)
+
+
+    hagParams, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ts, forwards, strikes, prices, isCall, weights, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], numberOfKnots=[length(ts),3,5], κ= 1.0, minimizer="DE")
+
+    volErrorH, rmseVolP = AQFED.VolatilityModels.estimateVolError(hagParams, ts, uForwards, 
+    strikes, vols)
+  
+    tsHagParams,lastτ = AQFED.VolatilityModels.makeHestonTSParams(hagParams, tte=ts[end])   
+    τ = AQFED.VolatilityModels.convertTime(hagParams, tte)
+    pricer = CharFuncPricing.JoshiYangCharFuncPricer(DefaultCharFunc(tsHagParams), τ, n=512);
+    logmoneynessA = range(- sqrt(tte),  sqrt(tte), length=51);
+    vPrices = map(k -> CharFuncPricing.priceEuropean(pricer, k >= 0, exp(k), 1.0, τ, 1.0), logmoneynessA);
+    volA = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, vPrices);
+    hPrices = map(k->  AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.HaganHestonTSApprox(hagParams), k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA);
+    volH = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, hPrices);
+
 end

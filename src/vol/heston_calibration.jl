@@ -533,17 +533,24 @@ function calibrateDoubleHestonFromPrices(
 end
 
 
-function convertVolsToPricesOTMWeights(ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractVector{T}, vols::AbstractMatrix{T}; weights::AbstractMatrix{T}=ones(T, length(ts), length(strikes)), vegaFloor=1e-2, isInverse=true, truncationDev=3.0) where {T}
-    uPrices = zeros(length(ts), length(strikes))
-    uVegas = zeros(length(ts), length(strikes))
-    uWeights = zeros(length(ts), length(strikes))
-    isCall = zeros(Bool, length(ts), length(strikes))
+function convertVolsToPricesOTMWeights(ts::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractMatrix{T}, vols::AbstractMatrix{T}; weights::AbstractMatrix{T}=ones(T, size(vols)), vegaFloor=1e-2, isInverse=true, truncationDev=3.0) where {T}
+    uPrices = zeros(size(vols))
+    uVegas = zeros(size(vols))
+    uWeights = zeros(size(vols))
+    isCall = zeros(Bool, size(vols))
+    mStrikes =if ndims(strikes) == 1
+        ones(length(ts)) * strikes'
+    else 
+       strikes
+    end
 
-    for (i, t) ∈ enumerate(ts)
-        for (j, strike) ∈ enumerate(strikes)
+
+    for i = axes(vols,1)
+        for j = axes(vols, 2)
+            strike = mStrikes[i,j]
             isCall[i, j] = strike >= forwards[i]
-            uPrices[i, j] = Black.blackScholesFormula(isCall[i, j], strike, forwards[i], vols[i, j]^2 * t, 1.0, 1.0)
-            uVegas[i, j] = Black.blackScholesVega(strike, forwards[i], vols[i, j]^2 * t, 1.0, 1.0, t)
+            uPrices[i, j] = Black.blackScholesFormula(isCall[i, j], strike, forwards[i], vols[i, j]^2 * ts[i], 1.0, 1.0)
+            uVegas[i, j] = Black.blackScholesVega(strike, forwards[i], vols[i, j]^2 * ts[i], 1.0, 1.0, ts[i])
         end
 		if isInverse
             @. uWeights[i, :] = weights[i, :] / max(uVegas[i, :], vegaFloor * forwards[i])
@@ -551,7 +558,7 @@ function convertVolsToPricesOTMWeights(ts::AbstractVector{T}, forwards::Abstract
 			sumVega = sum(uVegas[i,:])
 			@. uWeights[i, :] = weights[i, :] * uVegas[i, :]/sumVega 
 		end
-        indicator = @. truncationDev*vols[i,:]*sqrt(t) > abs(log(strikes[:]/forwards[i]))
+        indicator = @. truncationDev*vols[i,:]*sqrt(ts[i]) > abs(log(mStrikes[i,:]/forwards[i]))
         uWeights[i,:] .*= indicator
     end
     return uPrices, isCall, uWeights
