@@ -1,6 +1,6 @@
 import AQFED.Math: norminv
 
-import AQFED.TermStructure: HestonModel, DoubleHestonModel, discountFactor, forward, PiecewiseConstantFunction
+import AQFED.TermStructure: HestonModel, DoubleHestonModel, discountFactor, forward, PiecewiseConstantFunction, HaganHestonPiecewiseParams, Curve
 import AQFED.Random: next!, nextn!, skipTo
 import CharFuncPricing: HestonTSParams
 struct HestonPathGeneratorParameters{T}
@@ -40,7 +40,7 @@ function ndims(model::DoubleHestonModel, specificTimes::Vector{Float64}, timeste
     return (length(genTimes) - 1) * 4 #0.0 does not count
 end
 
-function ndims(model::HestonTSParams, specificTimes::Vector{Float64}, timestepSize::Float64)
+function ndims(model::Union{HestonTSParams,HaganHestonPiecewiseParams}, specificTimes::Vector{Float64}, timestepSize::Float64)
     iLast = searchsortedfirst(model.startTime,specificTimes[end])
     specTimesAll = sort(unique(vcat(specificTimes, model.startTime[2:iLast-1])))
     genTimes = pathgenTimes(model, specTimesAll, timestepSize)
@@ -476,6 +476,201 @@ function simulateFullTruncation(
 end
 
 
+
+function simulateDVSS2X(
+    rng,
+    model::HaganHestonPiecewiseParams{T},
+    spot::Float64,
+    forecastCurve::Curve,
+    discountCurve::Curve,
+      payoff::VanillaOption,
+    start::Int,
+    nSim::Int,
+    timestepSize::Float64;
+    withBB=false,
+    cacheSize=0,
+) where {T}
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
+    df = discountFactor(discountCurve, tte)  
+    iLast = searchsortedfirst(model.startTime,tte)
+    specTimesAll = sort(unique(vcat(specTimes, model.startTime[2:iLast-1])))
+    genTimes = pathgenTimes(model, specTimesAll, timestepSize)
+    logpathValues = Vector{T}(undef, nSim)
+    local bb, cache
+    if withBB
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+        if cacheSize == 0
+            nSteps = length(genTimes) - 1
+            cacheSize = ceil(Int, log2(nSteps)) * 4
+        end
+        # cache = BBCache{Int,Array{Float64,2}}(cacheSize)
+        cache = BBCache{Int,Vector{Float64}}(cacheSize)
+    end
+
+    u1 = Vector{Float64}(undef, nSim)
+    u2 = Vector{Float64}(undef, nSim)
+    xsi = u1
+    v = Vector{T}(undef, nSim)
+    t0 = genTimes[1]
+    lnspot = log(spot)
+    lnf0 = lnspot
+    v .= 1.0
+    levFunc = PiecewiseConstantFunction(model.startTime, model.leverage)
+   rhoFunc = PiecewiseConstantFunction(model.startTime, model.ρ)
+   sigmaFunc = PiecewiseConstantFunction(model.startTime, model.σ)
+
+    logpathValues .= lnf0
+    ndimsh = length(genTimes) - 1
+    local payoffValues
+    for (dim, t1) in enumerate(genTimes[2:end])
+        h0 = (t1 - t0)
+        θ = levFunc(t0+h0/2)
+        ρ = rhoFunc(t0+h0/2)
+        σ = sigmaFunc(t0+h0/2)
+        ρBar = sqrt(1 - ρ^2)
+        h = (t1 - t0)* θ^2
+        ekdth = exp(-model.κ *  h0 / 2)
+        c0 =  h / 4
+        c1 = (ekdth - 1) / (model.κ * 2)*θ^2
+        c2 = (1 - ekdth)
+        if withBB
+            d = dim
+            transformByDim!(bb, rng, start, d, xsi, cache)
+            skipTo(rng, d + ndimsh, start)
+            next!(rng, d + ndimsh, u2)
+        else
+            d = 2 * dim - 1
+            skipTo(rng, d, start)
+            nextn!(rng, d, xsi)
+            xsi .*= sqrt(h0)
+            skipTo(rng, d + 1, start)
+            next!(rng, d + 1, u2)
+        end
+
+        vTmp = @. (v * ekdth + c2) / σ^2 * θ^2
+        yr = map(
+            (vTmp, u2) -> ifelse(
+                vTmp > 1.896 * h,  #limit for y1 > 0 => 1.89564392373896
+                dvss2_case1(vTmp, u2, h),
+                dvss2_case2(vTmp, u2, h),
+            ),
+            vTmp,
+            u2,
+        )
+        xb = vTmp # reuse var
+        @. xb =
+            logpathValues - c0 +
+            c1 * (v - 1) +
+            σ/θ * (θ* ρBar * xsi * sqrt((vTmp + yr) / 2) + ρ * (yr - vTmp))
+        yr .= (σ/θ)^2 * yr
+        lnf1 = logForward(forecastCurve, lnspot, t1)
+        @. logpathValues = lnf1 - lnf0 + xb - c0 + c1 * (yr - 1)
+        @. v = yr * ekdth + c2
+        # advancePayoff(payoff, t1, )
+        if t1 == tte
+            pathValues = xb #reuse Var
+            @. pathValues = exp(logpathValues)
+            payoffValues = map(x -> evaluatePayoffOnPath(payoff, x, df), pathValues)
+        end
+        t0 = t1
+        lnf0 = lnf1
+    end
+    payoffMean = mean(payoffValues)
+    return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
+end
+
+function simulateFullTruncationHagan(
+    rng,
+    model::HaganHestonPiecewiseParams{T},
+    spot::T,
+    forecastCurve::Curve,
+    discountCurve::Curve,
+    payoff::VanillaOption,
+    start::Int,
+    nSim::Int,
+    timestepSize::Float64;
+    withBB=false,
+    cacheSize=0,
+) where {T}
+    specTimes = specificTimes(payoff)
+    tte = specTimes[end]
+    df = discountFactor(discountCurve, tte)  
+    iLast = searchsortedfirst(model.startTime,tte)
+    specTimesAll = sort(unique(vcat(specTimes, model.startTime[2:iLast-1])))
+    genTimes = pathgenTimes(model, specTimesAll, timestepSize)
+    logpathValues = Vector{T}(undef, nSim)
+    local bb, cache
+    if withBB
+        bb = BrownianBridgeConstruction(genTimes[2:end])
+        if cacheSize == 0
+            nSteps = length(genTimes) - 1
+            cacheSize = ceil(Int, log2(nSteps)) * 4
+        end
+        cache = BBCache{Int,Array{Float64,2}}(cacheSize)
+        # cache = BBCache{Int,Vector{Float64}}(cacheSize)
+    end
+
+    u = Array{Float64}(undef, (nSim, 2))
+    u1 = @view u[:, 1]
+    u2 = @view u[:, 2]
+    v = Vector{T}(undef, nSim)
+    sqrtmv = Vector{T}(undef, nSim)
+    t0 = genTimes[1]
+    lnspot = log(spot)
+    lnf0 = lnspot
+    logpathValues .= lnf0
+    v .= 1.0
+     levFunc = PiecewiseConstantFunction(model.startTime, model.leverage)
+    rhoFunc = PiecewiseConstantFunction(model.startTime, model.ρ)
+    sigmaFunc = PiecewiseConstantFunction(model.startTime, model.σ)
+    ndimsh = length(genTimes) - 1
+  #  println("genTimes ",genTimes)
+    local payoffValues
+    jump = 0.0
+    for (dim, t1) in enumerate(genTimes[2:end])
+        h = t1 - t0
+        κ = model.κ
+        θ = levFunc(t0+h/2)
+        ρ = rhoFunc(t0+h/2)
+        σ = sigmaFunc(t0+h/2)
+        ρBar = sqrt(1 - ρ^2)
+        sqrth = sqrt(h)
+        if withBB
+            transformByDim!(bb, rng, start, dim, u, cache)
+        else
+            d = 2 * dim - 1
+            skipTo(rng, d, start)
+            nextn!(rng, d, u1)
+            skipTo(rng, d + 1, start)
+            nextn!(rng, d + 1, u2)
+            #@inbounds @. u *= sqrth
+            u1 .*= sqrth
+            u2 .*= sqrth
+        end
+        lnf1 = logForward(forecastCurve, lnspot, t1)
+        @. sqrtmv = sqrt(max(v, 0))        
+        @. logpathValues +=
+        lnf1 - lnf0 - (0.5 * max(0,(θ*sqrtmv)^2)) * h + sqrt(max(0,(sqrtmv*θ)^2)) * (u1 * ρBar + u2 * ρ)
+        # for (i,p) in enumerate(logpathValues)
+        #     if isnan(p)
+        #         println(i," nan ",sqrtmv[i], " ",u1[i]," ", u2[i])
+        #     end
+        # end
+        @. v += κ * (1 - sqrtmv^2) * h + σ * sqrtmv * u2 
+        #@. v /= θ/θ0 
+
+        if t1 == tte
+            pathValues = sqrtmv #reuse Var
+            @. pathValues = exp(logpathValues)
+            payoffValues = map(x -> evaluatePayoffOnPath(payoff, x, df), pathValues)
+        end
+        t0 = t1
+        lnf0 = lnf1
+    end
+    payoffMean = mean(payoffValues)
+    return payoffMean, stdm(payoffValues, payoffMean) / sqrt(length(payoffValues))
+end
 
 
 function simulateFullTruncationHagan(

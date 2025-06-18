@@ -9,7 +9,11 @@ struct ConstantRateCurve{T} <: Curve
 end
 
 function discountFactor(c::ConstantRateCurve{T}, time::TX)::T where {T, TX}
-    return exp(-c.r*time)
+    return exp(logDiscountFactor(c, time))
+end
+
+function logDiscountFactor(c::ConstantRateCurve{T}, time::TX)::T where {T, TX}
+    return -c.r*time
 end
 
 struct InterpolatedLogDiscountFactorCurve{TX,T} <: Curve
@@ -48,6 +52,15 @@ end
 
 function logDiscountFactor(c::SpreadCurve{T,TB}, time::TZ) where {T,TB,TZ}
     return logDiscountFactor(c.curve,time)-logDiscountFactor(c.baseCurve,time)
+end
+
+
+function forward(c::C, spot::T, time)::T where {T, C <: Curve}
+    return spot / discountFactor(c, time)
+end
+
+function logForward(c::C, logSpot::T, time)::T where {T, C <: Curve}
+    return logSpot - logDiscountFactor(c, time)
 end
 
 struct PiecewiseConstantFunction{VX,VT}

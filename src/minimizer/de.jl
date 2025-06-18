@@ -199,7 +199,7 @@ mutable struct Optimizer{T}
 end
 
 # MakeDifferentialEvolutionOptimizer creates a new instance of differential evolution optimizer for a given problem
-function makeDifferentialEvolutionOptimizer(params::OptimizerParams, problem::Problem{T}, rng::AbstractRNG, strategy::Strategy; useQuasiInit::Bool = false) where {T <: Number}
+function makeDifferentialEvolutionOptimizer(params::OptimizerParams, problem::Problem{T}, rng::AbstractRNG, strategy::Strategy; useQuasiInit::Bool = false, x0::Vector{T}=T[]) where {T <: Number}
 	generation = 0
 	evaluation = 0
 
@@ -214,23 +214,33 @@ function makeDifferentialEvolutionOptimizer(params::OptimizerParams, problem::Pr
 	rvec = zeros(T, maxR, dim) # array of randomly chosen vectors
 	rnd = zeros(Int, maxR) # array of random indices
 	r = zeros(T, dim)
+	iStart = if length(x0) == dim 
+		2
+	else 
+		1
+	end
+	if iStart == 2
+		p1[1,:] .= x0
+		cost[1] = problem.ObjectiveFunction(p1[1, :])
+			evaluation += 1
+	end
 	if useQuasiInit
 		qrng = ScramblingSobol(params.dim, params.N, NoScrambling)
-		for i ∈ 1:params.NP
+		for i ∈ iStart:params.NP
 			next!(qrng, r)
 			@. p1[i, :] = problem.LowerBound + (problem.UpperBound - problem.LowerBound) * r
 			cost[i] = problem.ObjectiveFunction(p1[i, :])
 			evaluation += 1
 		end
 	else
-		for i ∈ 1:params.NP
+		for i ∈ iStart:params.NP
 			rand!(rng, r)
 			@. p1[i, :] = problem.LowerBound + (problem.UpperBound - problem.LowerBound) * r
 			cost[i] = problem.ObjectiveFunction(p1[i, :])
 			evaluation += 1
 		end
 	end
-
+	
 	mincost = cost[1]
 	minIndex = 1
 	for j ∈ 1:params.NP

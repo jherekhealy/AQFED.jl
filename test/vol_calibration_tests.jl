@@ -4802,16 +4802,8 @@ end
     params, rmse = AQFED.VolatilityModels.calibrateHestonFromPrices(ts, uForwards, strikes, uPrices, isCall, uWeights, reduction=AQFED.VolatilityModels.SigmaKappaReduction(0.4, 0.0))
 
     #hagan heston
-    logmoneynessF = [-0.5,0.0,0.5]
-    volsF = zeros((length(ts),length(logmoneynessF)))
-    strikesF = zeros((length(ts),length(logmoneynessF)))
-    for (i,t) = enumerate(ts)
-        spl = PPInterpolation.CubicSplineNatural(log.(strikes ./ uForwards[i]),vols[i,:])
-        atmVol = spl(0.0)
-        y = logmoneynessF .* (atmVol*sqrt(t))
-        volsF[i,:] = spl.(y)
-        strikesF[i,:] = exp.(y) .* uForwards[i]
-    end
+    
+    volsF, strikesF = AQFED.VolatilityModels.filterVolsByMoneyness(ts, uForwards, strikes, vols, moneyness = [-0.5,0.0,0.5])
     uPricesF, isCallF, uWeightsF = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, uForwards, strikesF, volsF, vegaFloor=1e-2)
     hagParamsF, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ts, uForwards, strikesF, uPricesF, isCallF, uWeightsF .* 100, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], numberOfKnots=[length(ts),length(ts),length(ts)], κ= 5.0, minimizer="NO")
 
@@ -4892,6 +4884,109 @@ end
     volErrorH, rmseVolP = AQFED.VolatilityModels.estimateVolError(hagParams, ts, uForwards, 
     strikes, vols)
   
+    tsHagParams,lastτ = AQFED.VolatilityModels.makeHestonTSParams(hagParams, tte=ts[end])   
+    τ = AQFED.VolatilityModels.convertTime(hagParams, tte)
+    pricer = CharFuncPricing.JoshiYangCharFuncPricer(DefaultCharFunc(tsHagParams), τ, n=512);
+    logmoneynessA = range(- sqrt(tte),  sqrt(tte), length=51);
+    vPrices = map(k -> CharFuncPricing.priceEuropean(pricer, k >= 0, exp(k), 1.0, τ, 1.0), logmoneynessA);
+    volA = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, vPrices);
+    hPrices = map(k->  AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.HaganHestonTSApprox(hagParams), k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA);
+    volH = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, hPrices);
+
+end
+
+
+
+@testset "Rouah" begin
+    vols = [19.62	19.47	20.19	21.15;
+    19.10	19.05	19.80	20.82;
+    18.60	18.61	19.43	20.57;
+    18.10	18.12	19.07	20.21;
+    17.61	17.74	18.71	20.00;
+    17.18	17.43	18.42	19.74;
+    16.71	17.06	18.13	19.50;
+    16.44	16.71	17.83	19.27;
+    16.45	16.41	17.60	18.99;
+    16.61	16.25	17.43	18.84;
+    17.01	16.02	17.26	18.62;
+    17.55	16.10	17.16	18.46;
+    17.96	16.57	17.24	18.42]' ./100;
+K = (124.0:1:136.0);
+ts = [37, 72, 135, 226, 278]./365;
+S = 129.14;
+rf = 0.0010;
+q  = 0.0068;
+
+ts = ts[1:end-1]
+     strikes = K' .* ones(length(ts))
+    forwards = @. S*exp((rf-q) * ts)
+ 
+    prices, isCall, weights = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ts, forwards, strikes, vols, vegaFloor=1e-2)
+
+
+    hagParamsB, rmseB = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ts, forwards, strikes, prices, isCall, weights, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], numberOfKnots=[length(ts),3,3], κ= 4.0, minimizer="DE", method="BGM")
+
+    hagParams, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ts, forwards, strikes, prices, isCall, weights, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], numberOfKnots=[length(ts),3,3], κ= 4.0, minimizer="DE", method="Cos")
+
+    volErrorB, rmseVolB = AQFED.VolatilityModels.estimateVolError(hagParamsB, ts, forwards, 
+    strikes, vols)
+  
+    volError, rmseVol = AQFED.VolatilityModels.estimateVolError(hagParams, ts, forwards, 
+    strikes, vols)
+
+    tIndex = 4
+    tsHagParamsB,lastτB = AQFED.VolatilityModels.makeHestonTSParams(hagParamsB, tte=ts[end])   
+    τB = AQFED.VolatilityModels.convertTime(hagParamsB, ts[tIndex])
+   pricesB =  map(k -> AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.BGMApprox(tsHagParamsB), true, k, forwards[tIndex], τB, 1.0), K)
+    volB = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, pricesB)
+  
+
+    tsHagParams,lastτ = AQFED.VolatilityModels.makeHestonTSParams(hagParams, tte=ts[end])   
+    τ = AQFED.VolatilityModels.convertTime(hagParams, ts[tIndex])
+    pricer = CharFuncPricing.makeCosCharFuncPricer(DefaultCharFunc(tsHagParams),τ, 256, 16)
+    prices =  map(k -> CharFuncPricing.priceEuropean(pricer, true, k, forwards[tIndex], τ, 1.0), K)
+    volCos = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, prices)
+
+    pricerCosB = CharFuncPricing.makeCosCharFuncPricer(DefaultCharFunc(tsHagParamsB),τB, 256, 16)
+    pricesCosB =  map(k -> CharFuncPricing.priceEuropean(pricerCosB, true, k, forwards[tIndex], τB, 1.0), K)
+    volCosB = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, pricesCosB)
+
+    pricesBCos =  map(k -> AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.BGMApprox(tsHagParams), true, k, forwards[tIndex],τ, 1.0), K)
+    volBCos = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, pricesBCos)
+  
+
+  
+    #=
+    plot(K, volB, label="BGM")
+     plot!(K, volCos, label="Cos")
+    plot!(K, volCosB, label="Cos on BGM parameters")
+    plot!(K, volBCos, label="BGM on Cos parameters")
+    plot!(K, vols[tIndex,:], label="Reference", seriestype=:scatter)
+
+    =#
+
+    tIndex = 1
+    tsHagParamsB,lastτB = AQFED.VolatilityModels.makeHestonTSParams(hagParamsB, tte=ts[end])   
+    τB = AQFED.VolatilityModels.convertTime(hagParamsB, ts[tIndex])
+   pricesB =  map(k -> AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.BGMApprox(tsHagParamsB), true, k, forwards[tIndex], τB, 1.0), K)
+    volB = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, pricesB)
+  
+
+    tsHagParams,lastτ = AQFED.VolatilityModels.makeHestonTSParams(hagParams, tte=ts[end])   
+    τ = AQFED.VolatilityModels.convertTime(hagParams, ts[tIndex])
+    pricer = CharFuncPricing.makeCosCharFuncPricer(DefaultCharFunc(tsHagParams),τ, 256, 16)
+    prices =  map(k -> CharFuncPricing.priceEuropean(pricer, true, k, forwards[tIndex], τ, 1.0), K)
+    volCos = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, prices)
+
+    pricerCosB = CharFuncPricing.makeCosCharFuncPricer(DefaultCharFunc(tsHagParamsB),τB, 256, 16)
+    pricesCosB =  map(k -> CharFuncPricing.priceEuropean(pricerCosB, true, k, forwards[tIndex], τB, 1.0), K)
+    volCosB = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, pricesCosB)
+
+    pricesBCos =  map(k -> AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.BGMApprox(tsHagParams), true, k, forwards[tIndex],τ, 1.0), K)
+    volBCos = map((k, price) -> impliedVolatility(true, price, forwards[tIndex], k,  ts[tIndex], 1.0), K, pricesBCos)
+  
+
+
     tsHagParams,lastτ = AQFED.VolatilityModels.makeHestonTSParams(hagParams, tte=ts[end])   
     τ = AQFED.VolatilityModels.convertTime(hagParams, tte)
     pricer = CharFuncPricing.JoshiYangCharFuncPricer(DefaultCharFunc(tsHagParams), τ, n=512);

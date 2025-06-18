@@ -787,6 +787,8 @@ plot!(p1, tFine, [AQFED.VolatilityModels.integratedVarianceExpectation(paramsf, 
 end
 =#
 end
+
+
 @testset "HestonVVIX" begin
     params = CharFuncPricing.HestonParams(0.04, 0.5, 0.04, -0.9, 1.0)
     hParams = AQFED.TermStructure.HestonModel(0.04, 0.5, 0.04, -0.9, 1.0, 0.0, 0.0)
@@ -1204,4 +1206,115 @@ end
         estimate = AQFED.FDM.estimateVVIXFull(vPayoff, priceGrid[1], priceGrid[2], 1.0, params.v0)
         println(xSize, " ", vSize, " ", tSize, " ", estimate)
     end
+end
+
+
+
+@testset "HestonVariancePath" begin
+    #calibration Heston08October2024 inv vega weighted. to variance swaps
+    param1 = HestonParams(0.029, 4.847, 0.027, -0.352,1.082)
+    param2 = HestonParams(0.044, 0.009, 0.840, -0.454,0.259)
+    param = HestonParams(0.0718,1.431,0.08,-0.372,0.569)
+  paramB = HestonParams{Float64}(0.07093860933433274, 0.8284272454251295, 0.08423535683329449, -0.39127221848186133, 0.4293947711854393)
+    simulateVariancePath = function(paramsf, n)
+        tfine = range(0,10.0,length=n)
+        dt = tfine[2:end]-tfine[1:end-1]
+        dw = randn(length(dt)) .* sqrt.(dt)
+        v = zeros(length(dt)+1)
+        v[1] = paramsf.v0
+        for i=1:length(dt)
+            sqrtmv = sqrt(max(v[i], 0))
+            v[i+1] = v[i] + paramsf.κ * (paramsf.θ - sqrtmv^2)*dt[i] + paramsf.σ*sqrtmv*dw[i]
+        end
+        (tfine, v)
+    end
+    paramSZB = SchobelZhuParams{Float64}(0.26239704055254287, 0.7386193638419278, 0.21511046752047921, -0.3975201641423335, 0.21189212665310628)
+    simulateSZVariancePath = function(paramsf, n)
+        tfine = range(0,10.0,length=n)
+        dt = tfine[2:end]-tfine[1:end-1]
+        dw = randn(length(dt)) .* sqrt.(dt)
+        v = zeros(length(dt)+1)
+        v[1] = paramsf.v0
+        for i=1:length(dt)
+            v[i+1] = v[i] + paramsf.κ * (paramsf.θ - v[i])*dt[i] + paramsf.σ*dw[i]
+        end
+        (tfine, v)
+    end
+   myseed=2; Random.seed!(myseed);   t,v = simulateVariancePath(paramB, 365*10); Random.seed!(myseed); t,vsz = simulateSZVariancePath(paramSZB,365*10)
+
+   simulateHHVariancePath = function(paramsf, n)
+    startTime = paramsf.startTime
+    tfine = range(0,10.0,length=n)
+    dt = tfine[2:end]-tfine[1:end-1]
+    dw = randn(length(dt)) .* sqrt.(dt)
+    v = zeros(length(dt)+1)
+    v1 = zeros(length(dt)+1)
+    v1[1] = 1.0
+    v[1] = paramsf.leverage[1]^2 * v1[1]
+    modelIndex = 1
+    for i=1:length(dt)
+        if tfine[i] < startTime[modelIndex] && modelIndex < length(startTime)
+            modelIndex += 1
+        end
+        sqrtmv = sqrt(max(v1[i], 0))
+        v1[i+1] = v1[i] + paramsf.κ * (1.0 - sqrtmv^2)*dt[i] + paramsf.σ[modelIndex]*sqrtmv*dw[i]
+        v[i+1] = paramsf.leverage[modelIndex]^2 * v1[i+1]
+    end
+    (tfine, v)
+end
+   hagParams2 = HaganHestonPiecewiseParams{Float64}([0.27461541542162726, 0.2595950348073077, 0.26808982574600515, 0.26934167408666293, 0.2752669801070057, 0.2856987038294999, 0.2840274979524871, 0.2911137777444947, 0.28676432470283714, 0.2982736748189721, 0.30305460760572717], 2.0, [-0.33046713301768027, -0.2919570421871561, -0.6426589435056318, -0.9899995772821046, -0.3352689399265528, -0.9899996250510502, -0.29234198474847417, -0.6456793493511088, -0.29098389878173125, -0.548249267604537, -0.407609077835016], [2.1977068491208476, 2.3119563733959128, 2.006099144794511, 0.3924131843056486, 3.647379368661464, 0.9360405392243931, 4.322969674240923, 2.415051257134871, 5.356052999395499, 4.045436371729674, 5.963020006124786], [0.0, 0.057534247, 0.153424658, 0.230136986, 0.479452055, 0.728767123, 1.22739726, 1.726027397, 2.243835616, 2.742465753, 3.24109589])
+   hagParams5 = HaganHestonPiecewiseParams{Float64}([0.27450249506335317, 0.25977235437080537, 0.26782880425875416, 0.26902117368130685, 0.27537328968572994, 0.2863900567537211, 0.2848359412033214, 0.2909692590786829, 0.28852980357513586, 0.2986757658620479, 0.30574713843468165], 5.0, [-0.3049836598089387, -0.33507082481344685, -0.32640906322878227, -0.989997588383315, -0.33225882447091715, -0.46706764129394485, -0.40829333086320274, -0.4297992996849096, -0.4112784949897249, -0.43032374305429066, -0.4425848812559059], [2.5881625681414024, 2.543601337019924, 4.9985363916080665, 0.9688728320645006, 5.82025957219315, 4.944006573955143, 7.165629741910108, 8.411076713057739, 10.162128575566362, 11.514938427839637, 14.027108114664067], [0.0, 0.057534247, 0.153424658, 0.230136986, 0.479452055, 0.728767123, 1.22739726, 1.726027397, 2.243835616, 2.742465753, 3.24109589])
+   hagParams5S = HaganHestonPiecewiseParams{Float64}([0.2745240344196525, 0.2595398776955045, 0.26858295476195077, 0.26906154614519234, 0.2751207787856866, 0.28607615902483896, 0.2848734522513851, 0.291022069092252, 0.2894914578051757, 0.30112443615410467, 0.30183737470088906], 5.0, [-0.3088292524419504, -0.3303788177056513, -0.35053341733697085, -0.37496347332441265, -0.4008145787713666, -0.41597888543758, -0.4253350252335165, -0.4265015921714854, -0.42649468667344353, -0.4264838761737253, -0.4264778076147341], [2.6403345402496203, 2.765938788997617, 2.9344495885407094, 3.392857623061142, 4.307889064625231, 5.493493006801354, 6.910232563981911, 8.53549256516856, 10.327491840383887, 12.17003386813211, 13.105170740749326], [0.0, 0.057534247, 0.153424658, 0.230136986, 0.479452055, 0.728767123, 1.22739726, 1.726027397, 2.243835616, 2.742465753, 3.24109589])
+
+   myseed=2; Random.seed!(myseed);   t,v = simulateVariancePath(paramB, 365*10);Random.seed!(myseed); t,sv=simulateHHVariancePath(hagParamsGlobal,365*10)
+
+#=
+ using AlgebraOfGraphics, CairoMakie
+ t,v = simulateVariancePath(param, 365*10)
+ t,v = simulateVariancePath(param, 365*10)
+ t,v = simulateVariancePath(param, 365*10)
+ theme_set(theme_light())
+ f = Figure(size=(750,350))
+    ax = Axis(f[1, 1],
+    xlabel = "Time in years",
+    ylabel = "Instantaneous volatility",
+    xticks = 0:2:10
+)
+    lines!(ax,t, sqrt.(max.(0.0,v)))
+lines!(ax,t, sqrt.(max.(0.0,v1)),label=L"\sqrt{v_1}")
+lines!(ax,t, sqrt.(max.(0.0,v)),label=L"\sqrt{v_2}")
+lines!(ax,t, sqrt.(max.(0.0,v+v1)),label=L"\sqrt{v_1+v_2}")
+axislegend(position = :ct)
+
+    f = Figure(size=(750,350))
+    ax = Axis(f[1, 1],
+    xlabel = "Time in years",
+    ylabel = "Instantaneous volatility",
+    xticks = 0:2:10
+)
+  lines!(ax,t, sqrt.(max.(0.0,v)),label="Heston")
+lines!(ax,t, vsz,label="Schobel-Zhu")
+axislegend(position = :lb)
+save("/home/fly/mypapers/eqd_book/hestonsz_volatility_path.pdf", f,backend=CairoMakie)
+
+    f = Figure(size=(750,350))
+    ax = Axis(f[1, 1],
+    xlabel = "Time in years",
+    ylabel = "Instantaneous volatility",
+    xticks = 0:2:10
+)
+  lines!(ax,t, sqrt.(max.(0.0,v)),label="Heston")
+lines!(ax,t, sqrt.(max.(0.0,sv2)),label="Time-dependent Heston")
+axislegend(position = :lb)
+
+    f = Figure(size=(750,350))
+    ax = Axis(f[1, 1],
+    xlabel = "Time in years",
+    ylabel = "Instantaneous volatility",
+    xticks = 0:2:10
+)
+  lines!(ax,t, sqrt.(max.(0.0,sv2)),label="κ=2")
+lines!(ax,t, sqrt.(max.(0.0,sv5)),label="κ=5")
+axislegend(position = :lt)
+=#
 end

@@ -161,6 +161,7 @@ include("vol/heston_bgm.jl")
 include("vol/heston_hagan.jl")
 include("vol/heston_calibration.jl")
 include("vol/hestonts_calibration.jl")
+include("vol/sz_calibration.jl")
 include("vol/fx_calibration.jl")
 end
 
