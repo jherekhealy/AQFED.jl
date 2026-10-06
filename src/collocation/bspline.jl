@@ -51,7 +51,9 @@ function solveStrike(c::BSplineCollocation{N,U,T}, strike::T)::Tuple{U,Int} wher
 return res
 end
 
-function solveStrikeAt(pp::FastPP{2,T,TX},i::Int,strike::TX) where {T,TX}
+
+
+function solveStrikeAt(pp::FastPP{2,T,TX},i::Int,strike) where {T,TX}
     #TODO split impl below for quad,cubic, N with halley
     x0 = pp.x[i]
     c = pp.c[i,1]
@@ -71,7 +73,7 @@ function solveStrikeAt(pp::FastPP{2,T,TX},i::Int,strike::TX) where {T,TX}
 end
 
 
-function solveStrikeAt(pp::FastPP{3,T,TX},i::Int,strike::TX) where {T,TX}
+function solveStrikeAt(pp::FastPP{3,T,TX},i::Int,strike) where {T,TX}
     #TODO split impl below for quad,cubic, N with halley
     x0 = pp.x[i]
     d = pp.c[i,2]
@@ -102,7 +104,7 @@ function solveStrikeAt(pp::FastPP{3,T,TX},i::Int,strike::TX) where {T,TX}
     throw(DomainError(strike, "strike not found"))
 end
 
-function solveStrikeAt(pp::FastPP{N,T,TX},i::Int,strike::TX) where {N,T,TX}
+function solveStrikeAt(pp::FastPP{N,T,TX},i::Int,strike) where {N,T,TX}
     # function objHalley(x::W) where {W}
     #     u = evaluatePiece(pp,i,x)-strike
     #     du =  evaluateDerivativePiece(pp,i,x)

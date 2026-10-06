@@ -13,11 +13,13 @@ include("math/hypersphere.jl")
 include("math/polyroots.jl")
 include("math/cheb.jl")
 include("math/quad.jl")
+include("math/bivariatenormal.jl")
 end
 
 
 __precompile__(true)
 module Random
+include("random/splitmix64.jl")
 include("random/mixmax.jl")
 include("random/well1024a.jl")
 include("random/mt64.jl")
@@ -28,6 +30,7 @@ include("random/chacha_simd.jl")
 include("random/mrg32k3a.jl")
 include("random/mrg63k3a.jl")
 include("random/ssobol.jl")
+include("random/burleysobol.jl")
 include("random/dsobol.jl")
 include("random/rngseq.jl")
 end
@@ -45,6 +48,7 @@ include("black/iv_solver_halley.jl")
 include("black/iv_solver_householder.jl")
 include("black/iv_solver_lisor.jl")
 include("black/iv_solver_jaeckel.jl")
+include("black/iv_solver_inversegaussian.jl")
 impliedVolatility(isCall::Bool, price::T, f::T, strike::T, tte::T,  df::T)  where {T} =  impliedVolatilitySRHalley(isCall, price,f,strike,tte, df, T(0.0), 64, Householder())
 export impliedVolatility
 
@@ -58,11 +62,11 @@ include("bachelier/iv_solver_chebyshev.jl")
 end
 
 module TermStructure
-include("ts/heston.jl")
 include("ts/surface.jl")
 include("ts/svi.jl")
 include("ts/curve.jl")
 include("ts/lv.jl")
+include("ts/heston.jl")
 include("ts/dividend.jl")
 include("ts/fukasawa_interp.jl")
 include("ts/sabr.jl")
@@ -74,7 +78,10 @@ include("american/andersenlakepp.jl")
 include("american/andersenlaken.jl")
 include("american/andersenlakejh.jl")
 include("american/andersenlakeg.jl")
+include("american/andersenlakeintervals.jl")
 include("american/ju98.jl")
+include("american/bjerksund.jl")
+include("american/juzhong.jl")
 include("american/rkl.jl")
 end
 
@@ -95,9 +102,12 @@ module MonteCarlo
 include("mc/bb.jl")
 include("mc/bbvector.jl")
 include("mc/payoffs.jl")
+include("mc/regression.jl")
 include("mc/black.jl")
 include("mc/heston.jl")
+include("mc/longstaff_schwartz.jl")
 include("mc/lv.jl")
+include("mc/hestonlv.jl")
 include("mc/cgmy.jl")
 end
 
@@ -108,6 +118,7 @@ include("collocation/logpoly.jl")
 include("collocation/pp_fast.jl")
 include("collocation/bspline.jl")
 include("collocation/expbspline.jl")
+include("collocation/expspline.jl")
 end
 
 
@@ -150,6 +161,7 @@ end
 module VolatilityModels
 include("vol/fx_deltajaeckel.jl")
 include("vol/fx_convention.jl")
+include("vol/spline_surface.jl")
 include("vol/ssvi_calibration.jl")
 include("vol/svi_calibration.jl")
 include("vol/fengler.jl")
@@ -160,9 +172,11 @@ include("vol/sabr_calibration.jl")
 include("vol/heston_bgm.jl")
 include("vol/heston_hagan.jl")
 include("vol/heston_calibration.jl")
+include("vol/double_heston_calibration.jl")
 include("vol/hestonts_calibration.jl")
 include("vol/sz_calibration.jl")
 include("vol/fx_calibration.jl")
+include("vol/heston_cliquet_calibration.jl")
 end
 
 

@@ -37,8 +37,9 @@ function AndersenLakeNRepresentationJH(
     end
     yvec[ndiv2] = 0
     wvec[ndiv2] = pi * hn / 2
-    r = model.r
-    q = model.q
+    r = -log(discountFactor(model,tauMax))/tauMax
+    q = r - logForward(model, 0.0, tauMax)/tauMax
+
     modelB = model
     if isCall  #use McDonald and Schroder symmetry
         r, q = q, r

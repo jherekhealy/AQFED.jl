@@ -1,5 +1,5 @@
 using AQFED.MonteCarlo
-import AQFED.Random: next!, nextn!, skipTo
+import AQFED.Random: next!, nextn!, skipTo!
 using AQFED.Random
 import SpecialFunctions: gamma
 using Statistics

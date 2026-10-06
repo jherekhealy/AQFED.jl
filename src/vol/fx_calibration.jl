@@ -22,8 +22,9 @@ function makeTotalVarianceFunction(smile::SmileFunction, forward, tte)
 end
 
 
-function calibrateSmile(f::SmileFunction, ys::Vector{T}, vols::Vector{T}, forward::Float64, tte::Float64; kwargs...) where {T}
-    calibrateSmile(f, zeros(LogmoneynessAxisTransformation, length(ys)), ys, vols, forward, tte; kwargs...)
+#calibration on strikes
+function calibrateSmile(f::Type{<:SmileFunction}, strikes::Vector{T}, vols::Vector{T}, forward::Float64, tte::Float64; kwargs...) where {T}
+    calibrateSmile(f, fill(StrikeAxisTransformation(forward), length(strikes)), strikes, vols, forward, tte; kwargs...)
 end
 
 function calibrateSmile(::Type{SplineSmile}, axisTransforms::Vector{U}, xs::Vector{T}, vols::Vector{T}, forward::Float64, tte::Float64; isFlat=false) where {T,U<:AxisTransformation}

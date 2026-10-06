@@ -6,7 +6,7 @@ using AbstractAlgebra #for skipping outside of skipMat
 # Mixmax Random Number Generators from "Spectral Test of the MIXMAX Random Number Generators" (2018) by Narek Martirosyan, Konstantin Savvidy and George Savvidy.
 # In particular, this implements the N=17 and N=240 versions.
 #
-# Skipping ahead is possible, and relatively fast (~140 rand calls with nSkip=1000000) for N=17, thanks to a cache for nSkip < 16*2^30.
+# skipping ahead is possible, and relatively fast (~140 rand calls with nskip=1000000) for N=17, thanks to a cache for nskip < 16*2^30.
 # The intent of skipping here is not to retrieve far away independent substreams, but to split a stream in blocks.
 #
 const M61 = UInt64(2305843009213693951)
@@ -148,11 +148,11 @@ end
     return mod128(temp)
 end
 
-@inline function skip(gen::Mixmax{N,SPECIALMUL,SPECIAL}, s::UInt64) where {N,SPECIALMUL,SPECIAL}
+@inline function skip!(gen::Mixmax{N,SPECIALMUL,SPECIAL}, s::UInt64) where {N,SPECIALMUL,SPECIAL}
     n = s + gen.counter - 2
     k = n ÷ (N - 1)
     rk = n - k * (N - 1)
-    nReal = k * N + rk + 1 #we skip one every 17.nReal is the effective n without skipping
+    nReal = k * N + rk + 1 #we skip! one every 17.nReal is the effective n without skipping
     nMat = nReal ÷ N
     #binary decomp of nMat
     _skipInternal(gen, nMat)

@@ -40,8 +40,8 @@ end
 
 function varianceByLogmoneyness(
     s::VarianceSurfaceBySection{T},
-    y::Float64,
-    t::Float64,
+    y::Real,
+    t::Real,
     indexTime::Int = 0,
 ) where {T}
     if t <= s.expiries[1]
@@ -65,7 +65,7 @@ end
 
 function varianceSlopeCurvature(
     s::VarianceSurfaceBySection{T},
-    y::Float64, #could be a vector?
+    y::Real, #could be a vector?
     t::Float64,
     indexTime::Int = 0, #for perf, have a version with t, tIndex
 ) where {T}
@@ -94,7 +94,7 @@ end
 
 function varianceByLogmoneyness(
     s::VarianceSurfaceBySection{T},
-    y::Array{Float64,1},
+    y::AbstractVector{<:Real},
     t::Float64,
     indexTime::Int = 0,
 ) where {T}
@@ -120,7 +120,7 @@ end
 
 function varianceSlopeCurvature(
     s::VarianceSurfaceBySection{T},
-    y::Array{Float64,1}, #could be a vector?
+    y::AbstractVector{<:Real}, #could be a vector?
     t::Float64,
     indexTime::Int = 0, #for perf, have a version with t, tIndex
 ) where {T}
@@ -149,10 +149,10 @@ end
 
 function localVarianceByLogmoneyness(
     surface::VarianceSurfaceBySection{T}, #another implementation could be based on call surface
-    y::Array{Float64,1},
+    y::V,
     t0::Float64,
     t1::Float64,
-) where {T}
+) where {T, V <: Union{AbstractVector{<:Real}, Real}}
     indexT0 = searchsortedlast(surface.expiries, t0)
     indexT1 = searchsortedlast(surface.expiries, t1)
 
@@ -178,3 +178,4 @@ function localVarianceByLogmoneyness(
     )
 
 end
+

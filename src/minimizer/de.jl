@@ -273,6 +273,52 @@ function makeDifferentialEvolutionOptimizer(params::OptimizerParams, problem::Pr
 		minIndex)
 end
 
+# ── Helper: extract final population and costs from a completed optimizer ──
+function extract_population(o::Optimizer)
+    return copy(o.g0), copy(o.cost)
+end
+
+# ── Helper: create a DE optimizer with a pre-seeded elite population ──
+function makeDifferentialEvolutionOptimizerWithElite(
+    params::OptimizerParams,
+    problem::Problem{T},
+    rng::AbstractRNG,
+    strategy::Strategy,
+    elite_pop::Matrix{T},
+    elite_costs::Vector{T};
+    reevaluate::Bool = true
+) where {T}
+
+    n_elite = min(size(elite_pop, 1), params.NP)
+    best_seed = elite_pop[1, :]
+
+    # Fresh random population (best_seed is inserted at index 1)
+    o = makeDifferentialEvolutionOptimizer(params, problem, rng, strategy, x0=best_seed)
+
+    # Overwrite first n_elite slots with elite members
+    o.g0[1:n_elite, :] .= elite_pop[1:n_elite, :]
+
+    if reevaluate
+        # Critical: objective may have changed (different n), so re-evaluate
+        for i in 1:n_elite
+            o.cost[i] = problem.ObjectiveFunction(o.g0[i, :])
+            o.evaluation += 1
+        end
+    else
+        o.cost[1:n_elite] .= elite_costs[1:n_elite]
+    end
+
+    # Recompute best
+    min_idx = argmin(o.cost[1:params.NP])
+    o.mincost = o.cost[min_idx]
+    o.best .= o.g0[min_idx, :]
+    o.genbest .= o.best
+    o.minIndex = min_idx
+
+    return o
+end
+
+
 function optimize(o::Optimizer{T}, termination::TerminationCriteria{T}; MAX_SAME = 10000) where {T}
 	stat = TerminationStatistics(0, 0, false, false, floatmax(T))
 	while !isReached(stat, termination)

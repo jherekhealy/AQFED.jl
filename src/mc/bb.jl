@@ -1,5 +1,5 @@
 #Brownian Bridge path construction
-export BrownianBridgeConstruction, transform!, transformToUnit!
+export BrownianBridgeConstruction, transform!, transformToUnit!, MultiAssetBridge, StepInterleaved, AsssetBlocked
 
 mutable struct BrownianBridgeConstruction
     sqrtdt::Vector{Float64}
@@ -11,6 +11,16 @@ mutable struct BrownianBridgeConstruction
     rightWeight::Vector{Float64}
     pmap::Vector{Int}
 end
+
+abstract type BridgeOrdering end
+struct AssetBlocked <: BridgeOrdering end   # chronological within each asset's block
+struct StepInterleaved <: BridgeOrdering end   # bridge-step order, interleaved across assets
+
+struct MultiAssetBridge{O<:BridgeOrdering}
+    bridge::BrownianBridgeConstruction
+    d::Int
+end
+
 #=
 This is a port of Quantlib code
 
@@ -118,8 +128,8 @@ end
 
 function transformToUnit!(
     bb::BrownianBridgeConstruction,
-    in::Vector{Float64},
-    out::Vector{Float64},
+    in::AbstractVector{Float64},
+    out::AbstractVector{Float64},
 )
     transform!(bb, in, out)
     size = length(bb.stdDev)
@@ -129,13 +139,13 @@ end
 
 function transform!(
     bb::BrownianBridgeConstruction,
-    in::Vector{Float64},
-    out::Vector{Float64},
+    in::AbstractVector{Float64},
+    out::AbstractVector{Float64},
 )
-    size = length(bb.stdDev)
+    bsize = length(bb.stdDev)
     # We use output to store the path...
-    @inbounds out[size] = bb.stdDev[1] * in[1]
-    @inbounds for i = 2:size
+    @inbounds out[bsize] = bb.stdDev[1] * in[1]
+    @inbounds for i = 2:bsize
         j = bb.leftIndex[i]
         k = bb.rightIndex[i]
         l = bb.bridgeIndex[i]
@@ -149,30 +159,33 @@ function transform!(
         end
     end
     # ...after which, we calculate the variations
-    @inbounds for i = size:-1:2
+    @inbounds for i = bsize:-1:2
         out[i] -= out[i-1]
     end
     return out
 end
 
 #return the dW_i
+#this is ok but may be more straightforward to call the vector method on a view as there is less ambiguity
 function transform!(
     bb::BrownianBridgeConstruction,
-    in::Vector{Float64},  #of (d * ntimes). 1,...,d used for first time, d+1,...d+d for second time.
-    out::Array{Float64,2}, #size (d,ntimes) retrieve column(ti) = out[:,ti] (column major order)
+    in::Vector{Float64},
+    out::Array{Float64,2},
 )
-    transformToPath!(bb,in,out)
-    # ...after which, we calculate the variations
-    d = size(out, 1) #number of rows
-    bsize = length(bb.stdDev)
+    transformToPath!(bb, in, out)
+
+    d = size(out, 1)
+    bsize = size(out, 2)
+
+    # Convert Brownian levels into Brownian increments dW.
     @inbounds for i = bsize:-1:2
         for di = 1:d
             out[di, i] -= out[di, i-1]
         end
     end
+
     return out
 end
-
 
 function transformToPath!(
     bb::BrownianBridgeConstruction,
@@ -182,10 +195,10 @@ function transformToPath!(
     d = size(out, 1) #number of rows
     bsize = length(bb.stdDev)
     # We use output to store the path...
-    @inbounds for di = 1:d
+    for di = 1:d
         out[di, bsize] = bb.stdDev[1] * in[di]
     end
-    @inbounds for i = 2:bsize
+    for i = 2:bsize
         j = bb.leftIndex[i]
         k = bb.rightIndex[i]
         l = bb.bridgeIndex[i]
@@ -203,6 +216,111 @@ function transformToPath!(
             end
         end
     end
-  
+
+    return out
+end
+
+
+
+MultiAssetBridge(t::Vector{Float64}, d::Int, ordering::O=AssetBlocked()) where {O<:BridgeOrdering} =
+    MultiAssetBridge{O}(BrownianBridgeConstruction(t), d)
+
+
+function transform!(mb::MultiAssetBridge{AssetBlocked}, in::Vector{Float64}, out::AbstractMatrix{Float64})
+    bb, d, bsize = mb.bridge, mb.d, length(mb.bridge.stdDev)
+    @assert length(in) == d * bsize
+    @assert size(out) == (d, bsize)
+
+    # `in` is ordered by asset:
+    #
+    #   z1(t1), z1(t2), ..., z1(tN),
+    #   z2(t1), z2(t2), ..., z2(tN),
+    #   ...
+    #
+    # The Brownian bridge constructs chronological time points
+    # in the order given by bridgeIndex.
+
+    # First Brownian-bridge variate constructs the final time point.
+    @inbounds for di = 1:d
+        out[di, bsize] =
+            bb.stdDev[1] * in[(di-1)*bsize+bsize]
+    end
+
+    # Remaining Brownian-bridge points.
+    @inbounds for i = 2:bsize
+        j = bb.leftIndex[i]
+        k = bb.rightIndex[i]
+        l = bb.bridgeIndex[i]
+
+        if j != 1
+            lw = bb.leftWeight[i]
+            rw = bb.rightWeight[i]
+            sd = bb.stdDev[i]
+
+            for di = 1:d
+                z = in[(di-1)*bsize+l]
+
+                out[di, l] =
+                    lw * out[di, j-1] +
+                    rw * out[di, k] +
+                    sd * z
+            end
+        else
+            rw = bb.rightWeight[i]
+            sd = bb.stdDev[i]
+
+            for di = 1:d
+                z = in[(di-1)*bsize+l]
+
+                out[di, l] =
+                    rw * out[di, k] +
+                    sd * z
+            end
+        end
+    end
+
+
+    # Convert Brownian levels into Brownian increments dW.
+    @inbounds for i = bsize:-1:2
+        for di = 1:d
+            out[di, i] -= out[di, i-1]
+        end
+    end
+
+    return out
+end
+
+
+function transform!(mb::MultiAssetBridge{StepInterleaved}, in::Vector{Float64}, out::AbstractMatrix{Float64})
+    bb, d, bsize = mb.bridge, mb.d, length(mb.bridge.stdDev)
+    for di = 1:d
+        out[di, bsize] = bb.stdDev[1] * in[di]
+    end
+    for i = 2:bsize
+        j = bb.leftIndex[i]
+        k = bb.rightIndex[i]
+        l = bb.bridgeIndex[i]
+        if j != 1
+            for di = 1:d
+                out[di, l] =
+                    bb.leftWeight[i] * out[di, j-1] +
+                    bb.rightWeight[i] * out[di, k] +
+                    bb.stdDev[i] * in[(i-1)*d+di]
+            end
+        else
+            for di = 1:d
+                out[di, l] =
+                    bb.rightWeight[i] * (out[di, k]) + bb.stdDev[i] * in[(i-1)*d+di]
+            end
+        end
+    end
+
+    # Convert Brownian levels into Brownian increments dW.
+    @inbounds for i = bsize:-1:2
+        for di = 1:d
+            out[di, i] -= out[di, i-1]
+        end
+    end
+
     return out
 end

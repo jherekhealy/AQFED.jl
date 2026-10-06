@@ -3,6 +3,9 @@ export quadRootsReal,cubicRootsReal
 
 #roots of ax^2 +bx +c
 function quadRootsReal(a::T, b, c)::AbstractArray{T} where {T}
+    if iszero(a)
+        return [-c/b]
+    end
     d = b^2 - 4a * c
     if iszero(d)# single root
         return [-b / (2a)]

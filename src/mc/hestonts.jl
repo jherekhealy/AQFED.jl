@@ -1,5 +1,5 @@
 using AQFED.TermStructure
-import AQFED.Random: next!, nextn!, skipTo
+import AQFED.Random: next!, nextn!, skipTo!
 import CharFuncPricing: HestonTSParams
 
 
@@ -34,7 +34,7 @@ function simulateFullTruncationIter(
     lnf0 = logForward(model, lnspot, tte)
     z = Vector{Float64}(undef, (length(genTimes) - 1) * 2)
     u = Array{Float64}(undef, (2, length(genTimes) - 1))
-    skipTo(rng, start)
+    skipTo!(rng, start)
     payoffMean = 0.0
     for sim ∈ 1:nSim
         if withBB

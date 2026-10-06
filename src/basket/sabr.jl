@@ -59,7 +59,7 @@ function priceEuropean(
     Γ = ϕ - κ + 2ϑ
     α = Δ
      ν = sqrt(g + κ)
-    ρ = min(1.0,max(-1.0,η / ν))
+    ρ = min(1.0 - 1e-12, max(-1.0 + 1e-12, η / ν)) #|ρ| = 1 makes the log below singular
    tte = variance[1].tte
     σSBatm = α * (1 + ((2 - 3ρ^2) * ν^2 + 6Γ) * tte / 24)
     σSB = if strike == x 
@@ -67,7 +67,7 @@ function priceEuropean(
     else
 
     ξ = ν / α * (strike - x)
-    y = log((sqrt(1 + 2*ρ*ξ + ξ^2) + ρ + ξ) / (1 + ρ))
+    y = log((sqrt((ξ + ρ)^2 + (1 - ρ) * (1 + ρ)) + ρ + ξ) / (1 + ρ))
     σSBatm * ν / α * (strike - x) / y
     end
     price = bachelierFormula(isCall, strike, x, σSB, tte, discountFactor)
@@ -125,7 +125,7 @@ function priceEuropean(
     Γ = ϕ - κ 
     α = Δ
     ν = sqrt(g + κ)
-    ρ = min(1.0,max(-1.0,η / ν))
+    ρ = min(1.0 - 1e-12, max(-1.0 + 1e-12, η / ν)) #|ρ| = 1 makes the log below singular
     tte = variance[1].tte
     σSBatm = α * (1 + ((2 - 3ρ^2) * ν^2 + 6Γ) * tte / 24)
     σSB = if strike == x 
@@ -133,7 +133,7 @@ function priceEuropean(
     else
 
     ξ = ν / α * (strike - x)
-    y = log((sqrt(1 + 2*ρ*ξ + ξ^2) + ρ + ξ) / (1 + ρ))
+    y = log((sqrt((ξ + ρ)^2 + (1 - ρ) * (1 + ρ)) + ρ + ξ) / (1 + ρ))
     σSBatm * ν / α * (strike - x) / y
     end
     price = bachelierFormula(isCall, strike, x, σSB, tte, discountFactor)

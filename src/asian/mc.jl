@@ -80,7 +80,7 @@ for (dim, t1) in enumerate(genTimes[2:end])
     else
         for iAsset = 1:nAsset
             d = nAsset*(dim-1) + iAsset
-        # skipTo(rng, d+i-1, start)
+        # skipTo!(rng, d+i-1, start)
         nextn!(rng, d, @view(u[:,iAsset]))
         @view(u[:,iAsset]) .*= sqrth
         end
@@ -146,7 +146,7 @@ function priceAsianFixedStrike(
         if p.withBB
             transformByDim!(bb, rng, start, dim, z, cache)
         else
-            skipTo(rng, dim, start)
+            skipTo!(rng, dim, start, length(z))
             nextn!(rng, dim, z)
             @. z *= sqrth
         end
@@ -203,7 +203,7 @@ function priceAsianFixedStrike(
             #local rng = ZRNGSeq(Blabla(),length(totalVariance))
             z = zeros(Float64, length(genTimes) - 1)
             u = zeros(Float64, length(genTimes) - 1)
-            skipTo(rng, chunk[1])
+            skipTo!(rng, chunk[1])
             payoffValues = zeros(Float64, length(chunk))
             for sim = 1:length(chunk)
                 if p.withBB
@@ -292,7 +292,7 @@ function priceAsianSpread(
         if p.withBB
             transformByDim!(bb, rng, start, dim, z, cache)
         else
-            skipTo(rng, dim, start)
+            skipTo!(rng, dim, start, length(z))
             nextn!(rng, dim, z)
             @. z *= sqrth
         end
@@ -380,7 +380,7 @@ function priceAsianSpread(
         if Basket.isBrownianBridge(p)
                         transformByDim!(bb, rng, start, dim, z, cache)
         else
-            skipTo(rng, dim, start)
+            skipTo!(rng, dim, start, length(z))
             nextn!(rng, dim, z)
             @. z *= sqrth
         end

@@ -1,11 +1,12 @@
 #import Random: rand!
 import AQFED.Math: norminv
-
-export AbstractSeq, ScrambledSobolSeq, next!, nextn!, scramble, skip, skipTo
-export Owen, FaureTezuka, OwenFaureTezuka, NoScrambling
+import Random: rand!, AbstractRNG
+export AbstractSeq, ScrambledSobolSeq, next!, nextn!, scramble, skip!, skipTo!
+export Owen, FaureTezuka, OwenFaureTezuka, NoScrambling, Burley, Digital
 
 include("ssoboldata.jl") #loads `sobol_a` and `sobol_minit` from Joe & Kuo.
 include("ssobolrng.jl") #original RNG and RNG adapter for scrambling
+export DirectionSource, joe_kuo, niederreiter_nut, niederreiter_nut_21201, niederreiter_nut_s21201
 
 abstract type AbstractSeq{N} end
 
@@ -28,32 +29,65 @@ struct OwenFaureTezuka <: Scrambling
     rng::ScramblingRng
 end
 
-unirand(s::Union{Owen,FaureTezuka,OwenFaureTezuka}) = unirand(s.rng)
+#This is not Burley but Burley Inspired. Burley is 4D by 4D.
+struct Burley{N} <: Scrambling
+    rng::AbstractRNG
+    seed_array::Vector{UInt32}
+end
+
+Burley{N}(rng::AbstractRNG) where {N} = Burley{N}(rng, zeros(UInt32, N+1))
+Burley{N}() where {N} = Burley{N}(Chacha8SIMD(UInt32))
+
+struct Digital{N} <: Scrambling
+    rng::AbstractRNG
+end
+Digital{N}() where {N} = Digital{N}(Chacha8SIMD(UInt32))
+
+
+unirand(s::S) where {S <: Union{Owen,FaureTezuka,OwenFaureTezuka}} = unirand(s.rng)
 
 
 # N iis the dimension of sequence being generated, S is scrambling type
 mutable struct ScrambledSobolSeq{N,S} <: AbstractSeq{N}
-    v::Array{UInt32,2} #array of size (sdim, log2(n))
-    x::Array{UInt32,1}
-    shift::Array{UInt32,1}
+    v::Matrix{UInt32}
+    x::Vector{UInt32}
+    shift::Vector{UInt32}
     l::UInt32
     counter::UInt32
     scrambling::S
 end
 
+const INV32 = exp2(-32)
+@inline to_unit(x::UInt32) = (Float64(x) + 0.5) * INV32
 
 ndims(s::AbstractSeq{N}) where {N} = N::Int
 
 unirand(s::ScrambledSobolSeq) = unirand(s.scrambling)
 
+Base.copy(s::ScrambledSobolSeq{N,S}) where {N, S} = ScrambledSobolSeq{N,S}(Base.copy(s.v), Base.copy(s.x), Base.copy(s.shift), s.l, s.counter, Base.copy(s.scrambling))
+
+copy_shallow_v(s::ScrambledSobolSeq{N,S}) where {N,S} = ScrambledSobolSeq{N,S}(s.v, Base.copy(s.x), Base.copy(s.shift), s.l, s.counter, Base.copy(s.scrambling))
+
+Base.copy(s::Owen) = Owen(s.maxd, Base.copy(s.rng))
+Base.copy(s::FaureTezuka) = FaureTezuka(Base.copy(s.rng))
+Base.copy(s::OwenFaureTezuka) = OwenFaureTezuka(s.maxd, Base.copy(s.rng))
+Base.copy(s::Burley) = Burley(Base.copy(s.rng), Base.copy(s.seed_array))
+Base.copy(s::Digital{N}) where {N} = Digital{N}(Base.copy(s.rng))
 @inline normalize(
     s::ScrambledSobolSeq{N,S},
     x::UInt32,
-) where {N,S<:Union{NoScrambling,FaureTezuka}} = ldexp(Float64(x), -s.l % Int32)
+) where {N,S<:Union{NoScrambling,FaureTezuka}} = ldexp(Float64(x), -Int(s.l))
+
+@inline normalize(
+    s::ScrambledSobolSeq{N, S},
+    x::UInt32,
+) where {N, S <: Union{Burley{N}, Digital{N}}} = to_unit(x) #s.l must be 32!
+
+
 @inline normalize(
     s::ScrambledSobolSeq{N,S},
     x::UInt32,
-) where {N,S<:Union{Owen,OwenFaureTezuka}} = ldexp(Float64(x), -s.scrambling.maxd % Int32)
+) where {N,S<:Union{Owen,OwenFaureTezuka}} = ldexp(Float64(x)+0.5, -Int(s.scrambling.maxd)) #generate in the open interval since 0.0 may appear.
 
 #fl1 find last 1 index in value
 @inline function fl1(value::Int)
@@ -70,15 +104,25 @@ end
 	l = min(l, 31)
 end
 
-function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
+function number_of_bits(scrambling::S, n::Int) where {S <: Scrambling}
+    return n > 0 ? fl1(n + 1) : 31
+end
+
+
+function number_of_bits(scrambling::S, n::Int) where {S <:Union{Burley,Digital}}
+    return 32
+end
+
+function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::S, direction_source::DirectionSource=joe_kuo) where {S <: Scrambling}
     d = dimension
-    (d < 0 || d > (length(sobol_a) + 1)) && error("invalid Sobol dimension")
+    a, minit, s_loaded = load_direction_numbers(direction_source)
+    (d < 0 || d > (length(a) + 1)) && error("invalid Sobol dimension for source $direction_source (max $(length(a)+1))")
     #special cases
-    d == 0 && return (ScrambledSobolSeq{0})(v, UInt32[], UInt32[], zero(UInt32))
-    l = 31
-    if (n > 0)
-    	l = fl1(n+1) #+1 as we skip the first point
+    if d == 0
+    return ScrambledSobolSeq{0, typeof(scrambling)}(zeros(UInt32, 0, 0), UInt32[], UInt32[], zero(UInt32), zero(UInt32), scrambling)
     end
+
+    l = number_of_bits(scrambling, n)
     x = Vector{UInt32}(undef, d)
     fill!(x, 0)
     counter = 0
@@ -87,28 +131,42 @@ function ScrambledSobolSeq(dimension::Int, n::Int, scrambling::Scrambling)
         @inbounds v[1, i] = one(UInt32) << (l - i)
     end
     for j = 2:d
-        a = sobol_a[j-1]
-        s = floor(Int, log2(a)) #degree of poly
-		a >>= 1
-        #set initial values of m from table
+        a_coeff = a[j-1]
+        # Get polynomial degree: use loaded s for Niederreiter, compute from a for Joe & Kuo
+        if s_loaded !== nothing
+            s = s_loaded[j-1]            
+        else
+            # For Joe & Kuo, a_coeff should never be 0, so this is safe
+            s = a_coeff == 0 ? 0 : floor(Int, log2(a_coeff))
+            a_coeff >>= 1
+        end
+        
+        # If s is 0 or invalid, use default binary representation (like dimension 1)
+        if s <= 0
+            for i = 1:l
+                v[j, i] = one(UInt32) << (l - i)
+            end
+            continue
+        end
+        
+		#set initial values of m from table
         if l <= s
             for i = 1:l
-                v[j, i] = sobol_minit[i, j-1] << (l - i)
+                v[j, i] = minit[i, j-1] << (l - i)
             end
         else
             #fill in remaining values using recurrence
             for i = 1:s
-                v[j, i] = sobol_minit[i, j-1] << (l - i)
+                v[j, i] = minit[i, j-1] << (l - i)
             end
             for i = s+1:l
                 @inbounds v[j, i] = v[j, i-s] ⊻ (v[j, i-s] >> s)
                 for k = 1:s-1 
-                    @inbounds v[j, i] ⊻= (((a >> (s - k - 1)) & one(UInt32)) * v[j, i-k])
+                    @inbounds v[j, i] ⊻= (((a_coeff >> (s - k - 1)) & one(UInt32)) * v[j, i-k])
                 end
             end
         end
-    end
-    vt = ones(UInt32, (l, d))
+    end    
     shift = Vector{UInt32}(undef, d)
     ss = ScrambledSobolSeq{d,typeof(scrambling)}(v, x, shift, l, counter, scrambling)
     scramble(ss)
@@ -118,8 +176,20 @@ end
 ScrambledSobolSeq(N::Integer) = ScrambledSobolSeq(Int(N), 0, NoScrambling())
 
 function scramble(s::ScrambledSobolSeq{D,NoScrambling}) where {D}
-    s.counter = 1 #skip first item for non-scrambled version
+    s.counter = 1 #skip! first item for non-scrambled version
     fill!(s.shift, 0)
+end
+
+function scramble(s::ScrambledSobolSeq{D,Digital{D}}) where {D}
+    s.counter = 0
+    fill!(s.shift, 0)
+    rand!(s.scrambling.rng, s.shift)
+    s.x .= s.shift
+end
+function scramble(s::ScrambledSobolSeq{D,Burley{D}}) where {D}
+    s.counter = 0
+    fill!(s.shift, 0)
+    rand!(s.scrambling.rng, s.scrambling.seed_array)
 end
 
 function scramble(s::ScrambledSobolSeq{D,Owen}) where {D}
@@ -271,7 +341,34 @@ end
     return (x & ~y) % UInt32
 end
 
-@inline function next(s::ScrambledSobolSeq, ::Type{UInt32})
+@inline function reverse_bits(x::UInt32)::UInt32
+    x = ((x & UInt32(0xaaaaaaaa)) >> 1) | ((x & UInt32(0x55555555)) << 1)
+    x = ((x & UInt32(0xcccccccc)) >> 2) | ((x & UInt32(0x33333333)) << 2)
+    x = ((x & UInt32(0xf0f0f0f0)) >> 4) | ((x & UInt32(0x0f0f0f0f)) << 4)
+    x = ((x & UInt32(0xff00ff00)) >> 8) | ((x & UInt32(0x00ff00ff)) << 8)
+    return (x >> 16) | (x << 16)
+end
+
+@inline function laine_karras_permutation(x::UInt32, seed::UInt32)::UInt32
+    x += seed
+    x = xor(x, x * UInt32(0x6c50b47c))
+    x = xor(x, x * UInt32(0xb82f1e52))
+    x = xor(x, x * UInt32(0xc7afe638))
+    x = xor(x, x * UInt32(0x8d22f6e6))
+    return x
+end
+
+@inline function nested_uniform_scramble_base2(x::UInt32, seed::UInt32)
+    x = bitreverse(x)
+    x = laine_karras_permutation(x, seed)
+    x = bitreverse(x)
+    return x
+end
+@inline function hash_combine(seed::T, v::T)::T where {T<:Unsigned}
+    return xor(seed, v + (seed << 6) + (seed >> 2))
+end
+
+@inline function next(s::ScrambledSobolSeq{U,V}, ::Type{UInt32}) where {U,V}
     d = ndims(s)
     if s.counter == 0
         s.counter += one(s.counter)
@@ -290,16 +387,48 @@ end
     return s.x
 end
 
-#next vector of uniform [0,1) numbers at counter containing all dimensions
-@inline function next!(s::ScrambledSobolSeq, points::AbstractVector{<:AbstractFloat})
+@inline function next(s::ScrambledSobolSeq{N,Burley{N}}, ::Type{UInt32}) where {N}
+    d = ndims(s)
+    index = nested_uniform_scramble_base2(s.counter, s.scrambling.seed_array[1])
+    _skipToBinaryInternal(s, index)
+    sx = s.x
+    #_skipTo!BinaryInternal!(sx, s.v, s.shift, index, N)
+    @inbounds for j = 1:d
+        sx[j] = nested_uniform_scramble_base2(sx[j], s.scrambling.seed_array[j+1])
+    end
+    s.counter += one(s.counter)
+    return s.x
+end
+
+@inline function next!(s::ScrambledSobolSeq{U,V}, points::P) where {U,V, P<:Union{AbstractVector{<:AbstractFloat}, AbstractMatrix{<:AbstractFloat}}}
+    d = ndims(s)
+    if s.counter == 0
+        s.counter += one(s.counter)
+        sx = s.x
+        @inbounds @simd for j = 1:d
+            points[j] = normalize(s, sx[j])
+        end
+        return points
+    end
+    c = ffz(s.counter)
+    c > s.l && throw(DomainError(string("counter larger than sequence length: ", s.counter)))
+    s.counter += one(s.counter)
+    
+    sx = s.x
+    sv = s.v
+    @inbounds @simd for j = 1:d
+        val = sx[j] ⊻ sv[j, c]
+        sx[j] = val
+        points[j] = normalize(s, val)
+    end
+    return points
+end
+
+@inline function next!(s::ScrambledSobolSeq{N,Burley{N}}, points::P) where {N, P<:Union{AbstractVector{<:AbstractFloat}, AbstractMatrix{<:AbstractFloat}}}
     next(s, UInt32)
     sx = s.x
-    @inbounds for j = 1:ndims(s)
-        # if sx[j] == 0 #may happen somewhere because of scrambling
-        #     points[j] = normalize(s, one(UInt32)) / 2
-        # else
-            points[j] = normalize(s, sx[j])
-        # end
+    @inbounds for j = eachindex(points)
+        points[j] = normalize(s, sx[j])
     end
     return points
 end
@@ -316,41 +445,113 @@ end
 	@. points = norminv(points)
 end
 
+@inline function sobol_coordinate_at(
+    s::ScrambledSobolSeq,
+    j::Int,
+    n::UInt32,
+)
+    x = s.shift[j]
+
+    @inbounds while n != 0
+        bit = trailing_zeros(n) + 1
+        x ⊻= s.v[j, bit]
+        n &= n - UInt32(1)
+    end
+
+    return x
+end
+    
+@inline function next!(
+    s::ScrambledSobolSeq{N,Burley{N}},
+    dim::Int,
+    points::AbstractVector{<:AbstractFloat},
+) where {N}
+    j = dim
+    seeds = s.scrambling.seed_array
+
+    @inbounds for i = 1:length(points)
+        n = nested_uniform_scramble_base2(s.counter, seeds[1])
+        x = s.shift[j]
+
+        @inbounds while n != 0
+            bit = trailing_zeros(n) + 1
+            x ⊻= s.v[j, bit]
+            n &= n - UInt32(1)
+        end
+
+        x = nested_uniform_scramble_base2(x, seeds[j + 1])
+        points[i] = ldexp(Float64(x), -32)
+        s.counter += one(s.counter)
+    end
+
+    return points
+end
+
 #next vector for a given dimension (vertical) from counter to counter + length(points)
 @inline function next!(s::ScrambledSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
     j = dim
     sx = s.x
     sv = s.v
-    @inbounds for i = 1:length(points)
-        if s.counter != 0
-            c = ffz(s.counter)
-            sx[j] ⊻= sv[j, c]
-        end
-        points[i] =
-        #    (sx[j] == 0) ? normalize(s, one(UInt32)) / 2 :
-            normalize(s, sx[j])
+    len = length(points)
+    len == 0 && return points
+    
+    start_idx = 1
+    if s.counter == 0
+        points[1] = normalize(s, sx[j])
+        s.counter += one(s.counter)
+        start_idx = 2
+    end
+
+    @inbounds @simd for i = start_idx:len
+        c = ffz(s.counter)
+        val = sx[j] ⊻ sv[j, c]
+        sx[j] = val
+        points[i] = normalize(s, val)
         s.counter += one(s.counter)
     end
     return points
 end
 
-@inline function skip(s::ScrambledSobolSeq, n::Int)
-    m = n + s.counter
-    g = m ⊻ (m >> 1)
-    d = ndims(s)
-    @inbounds for j = 1:d
-        @inbounds for index = 1:s.l
-            if ((g >> index) & one(UInt32)) != 0
-                s.x[j] ⊻= s.v[j, index]
-            end
-        end
-    end
+@inline function skip!(s::ScrambledSobolSeq{D, Burley{D}}, n::Int) where {D}
     s.counter += n
     s
 end
 
 
-@inline function skipTo(s::ScrambledSobolSeq, n1::Int)
+@inline function skip!(s::ScrambledSobolSeq{S,U}, n::Int) where {S,U}
+   n == 0 && return s
+
+    old = s.counter
+    new = old + UInt32(n)
+
+    # Gray-code difference
+    g = (old ⊻ (old >> 1)) ⊻
+        (new ⊻ (new >> 1))
+
+    v = s.v
+    x = s.x
+    d = ndims(s)
+
+    @inbounds while g != 0
+        bit = trailing_zeros(g) + 1
+
+        @simd for j = 1:d
+            x[j] ⊻= v[j, bit]
+        end
+
+        g &= g - UInt32(1)
+    end
+
+    s.counter = new
+    return s
+end
+
+
+@inline function skipTo!(s::ScrambledSobolSeq{D, Burley{D}}, n1::Int) where {D}
+    s.counter = n1
+    s
+end
+@inline function skipTo!(s::ScrambledSobolSeq{S,U}, n1::Int) where {S,U}
     # Convert to Gray code
     n = (n1-1) << 1 #first point with index n1=1
     g = n ⊻ (n >> 1)
@@ -367,8 +568,55 @@ end
     s
 end
 
-#skip to position n for a given dimension dim
-@inline function skipTo(s::ScrambledSobolSeq, dim::Int, n1::Int)
+@inline function _skipToBinaryInternalT(s::ScrambledSobolSeq{S,U}, g::UInt32) where {S,U}
+    d = ndims(s)
+    s.x .= s.shift
+    @inbounds for j = 1:d
+        @inbounds for index = 0:s.l-1
+            mask = (g >> index) & one(UInt32)
+                s.x[j] ⊻= mask *s.v[j, index+1]         
+        end
+    end
+end
+@inline function _skipToBinaryInternal!(
+    x::Vector{UInt32},
+    v::Matrix{UInt32},
+    shift::Vector{UInt32},
+    n::UInt32,
+    d::Int)
+    copyto!(x, shift)
+
+    @inbounds while n != 0
+        bit = trailing_zeros(n) + 1
+
+        @simd for j = 1:d
+            x[j] ⊻= v[j, bit]
+        end
+
+        n &= n - UInt32(1)
+    end
+end
+@inline function _skipToBinaryInternal(s::ScrambledSobolSeq{S,U}, n1::UInt32) where {S,U}
+    d = ndims(s)
+    s.x .= s.shift
+    mask = one(UInt32)
+        @inbounds for index = 1:s.l
+        if n1 & mask != zero(UInt32)
+          @inbounds for j = 1:d
+                s.x[j] ⊻= s.v[j, index]
+            end
+        end
+        mask <<= 1
+    end
+end
+
+@inline function skipTo!(s::ScrambledSobolSeq{D, Burley{D}}, dim::Int, n1::Int, npoints::Int=0) where {D}
+   s.counter = n1
+   s
+end
+
+#skip! to position n for a given dimension dim
+@inline function skipTo!(s::ScrambledSobolSeq{S,U}, dim::Int, n1::Int, npoints::Int=0) where {S,U}
     # Convert to Gray code
     n = (n1-1) << 1 #first point with index n1=1
     g = n ⊻ (n >> 1)

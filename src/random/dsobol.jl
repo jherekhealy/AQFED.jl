@@ -11,14 +11,24 @@ mutable struct DigitalSobolSeq{N} <: AbstractSeq{N}
 end
 
 
-function DigitalSobolSeq(dimension::Int, n::Int, rng::AbstractRNG{UInt32})
-    delegate = ScrambledSobolSeq(dimension, n, NoScrambling())
+function DigitalSobolSeq(dimension::Int, n::Int, rng::AbstractRNG{UInt32}, direction_source::DirectionSource=joe_kuo)
+    delegate = ScrambledSobolSeq(dimension, n, NoScrambling(), direction_source)
     upoint = Vector{UInt32}(undef, dimension)
     rand!(rng, upoint)
-    return DigitalSobolSeq(delegate, rng, upoint)
+    #delegate.counter = 0 #reset counter to start
+    return DigitalSobolSeq{dimension}(delegate, rng, upoint)
 end
 
 @inline normalize(s::DigitalSobolSeq, x::UInt32) = ldexp(Float64(x)+0.5, Int32(-32))
+
+@inline function next(s::DigitalSobolSeq{N}, ::Type{UInt32}) where {N}
+    points = copy(next(s.delegate, UInt32))
+    sx = s.delegate.x
+    @inbounds for j = 1:ndims(s)
+        points[j] = (sx[j]<< (32-s.delegate.l)) ⊻ s.upoint[j]
+    end
+    return points
+end
 
 #next vector at counter containing all dimensions
 @inline function next!(s::DigitalSobolSeq, points::AbstractVector{<:AbstractFloat})
@@ -46,8 +56,8 @@ end
     return points
 end
 
-@inline skipTo(s::DigitalSobolSeq, n::Int) = skipTo(s.delegate, n)
-@inline skipTo(s::DigitalSobolSeq, dim::Int, n::Int) = skipTo(s.delegate, dim, n)
+@inline skipTo!(s::DigitalSobolSeq, n::Int) = skipTo!(s.delegate, n)
+@inline skipTo!(s::DigitalSobolSeq, dim::Int, n::Int, size::Int=0) = skipTo!(s.delegate, dim, n, size)
 
 
 
@@ -59,30 +69,33 @@ mutable struct ModuloSobolSeq{N} <: AbstractSeq{N}
 end
 
 
-function ModuloSobolSeq(dimension::Int, n::Int, rng::AbstractRNG)
-    delegate = ScrambledSobolSeq(dimension, n, NoScrambling())
+function ModuloSobolSeq(dimension::Int, n::Int, rng::AbstractRNG, direction_source::DirectionSource=joe_kuo)
+    delegate = ScrambledSobolSeq(dimension, n, NoScrambling(), direction_source)
     upoint = Vector{Float64}(undef, dimension)
     rand!(rng, upoint)
     return ModuloSobolSeq(delegate, rng, upoint)
-end
-
-#next vector at counter containing all dimensions
-@inline function next!(s::ModuloSobolSeq, points::AbstractVector{<:AbstractFloat})
-    next!(s.delegate, points)
-    @. points = (points + s.upoint) % 1
-    return points
 end
 
 #next vector for a given dimension (vertical) from counter to counter + length(points)
 @inline function next!(s::ModuloSobolSeq, dim::Int, points::AbstractVector{<:AbstractFloat})
     next!(s.delegate, dim, points)
     uj = s.upoint[j]
-    @. points = (points + uj) % 1
+    @. points = ((points + uj) % 1) + 0.5/2^32
     return points
 end
 
-@inline skipTo(s::ModuloSobolSeq, n::Int) = skipTo(s.delegate, n)
-@inline skipTo(s::ModuloSobolSeq, dim::Int, n::Int) = skipTo(s.delegate, dim, n)
+
+@inline function next!(s::ModuloSobolSeq, points::P) where { P<:Union{AbstractVector{<:AbstractFloat}, AbstractMatrix{<:AbstractFloat}}}
+    next!(s.delegate, points)
+     @inbounds for j = eachindex(points)
+         points[j] = ((points[j] + s.upoint[j]) % 1) + 0.5/2^32
+     end
+    return points
+end
+
+
+@inline skipTo!(s::ModuloSobolSeq, n::Int) = skipTo!(s.delegate, n)
+@inline skipTo!(s::ModuloSobolSeq, dim::Int, n::Int, size::Int=0) = skipTo!(s.delegate, dim, n, size)
 
 @inline function nextn!(s::Union{DigitalSobolSeq,ModuloSobolSeq}, points::AbstractVector{<:AbstractFloat})
     next!(s, points)

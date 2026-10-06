@@ -16,14 +16,14 @@ function logDiscountFactor(c::ConstantRateCurve{T}, time::TX)::T where {T, TX}
     return -c.r*time
 end
 
-struct InterpolatedLogDiscountFactorCurve{TX,T} <: Curve
-    pp::PPInterpolation.PP{3,TX,T} #make sure to add time 0 and TODO extrapolation
+struct InterpolatedLogDiscountFactorCurve{N,TX,T} <: Curve
+    pp::PPInterpolation.PP{N,TX,T} #make sure to add time 0 and TODO extrapolation
 end
-function discountFactor(c::InterpolatedLogDiscountFactorCurve{TX,T}, time::TZ)::T where {T,TX,TZ}
+function discountFactor(c::InterpolatedLogDiscountFactorCurve{N,TX,T}, time::TZ)::T where {N,T,TX,TZ}
     return exp(logDiscountFactor(c,time))
 end
 
-function logDiscountFactor(c::InterpolatedLogDiscountFactorCurve{TX,T}, time::TZ)::T where {T,TX,TZ}
+function logDiscountFactor(c::InterpolatedLogDiscountFactorCurve{N,TX,T}, time::TZ)::T where {N,T,TX,TZ}
     return c.pp(time)
 end
 

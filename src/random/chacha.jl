@@ -95,10 +95,10 @@ end
     end
 end
 
-@inline function skip(r::Chacha{DOUBLEROUNDS}, skipLength::UInt64) where {DOUBLEROUNDS}
-    actualSkip = (skipLength + r.subCounter - 1) / 16
-    this.v[13] += -1 + (actualSkip & 0xffffffff) % UInt32
-    this.v[14] += (actualSkip >> 32) % UInt32
+@inline function skip!(r::Chacha{DOUBLEROUNDS}, skipLength::UInt64) where {DOUBLEROUNDS}
+    actualskip = (skipLength + r.subCounter - 1) / 16
+    this.v[13] += -1 + (actualskip & 0xffffffff) % UInt32
+    this.v[14] += (actualskip >> 32) % UInt32
     raw(r)
     r.subCounter = (((r.subCounter + (skipLength)) % 16) + 1) % Int8
 end

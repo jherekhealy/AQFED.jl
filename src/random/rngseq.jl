@@ -3,7 +3,7 @@ import RandomNumbers: AbstractRNG
 import AQFED.Math: norminvAS241, norminvBSMS
 #import AQFED.Random: randz
 
-export AbstractRNGSeq, ZRNGSeq, next!, nextn!, skipTo
+export AbstractRNGSeq, ZRNGSeq, next!, nextn!, skipTo!
 
 
 mutable struct AbstractRNGSeq{T,N} <: AbstractSeq{N} #where {T <: AbstractRNG}
@@ -14,7 +14,12 @@ end
 
 AbstractRNGSeq(rng::T, ndims::Int) where {T} = AbstractRNGSeq{T,ndims}(rng, 0, 0)
 
-@inline function next!(s::AbstractRNGSeq, points::AbstractVector{<:AbstractFloat})
+@inline function next!(s::AbstractRNGSeq, points::AbstractMatrix{<:Number})
+    rand!(s.rng, points)
+    s.currentIndex += length(points)
+end
+
+@inline function next!(s::AbstractRNGSeq, points::AbstractVector{<:Number})
     rand!(s.rng, points)
     s.currentIndex += length(points)
 end
@@ -32,25 +37,50 @@ end
     s.currentIndex += length(points)
 
 end
-@inline function next!(s::AbstractRNGSeq{T, N}, dim::Int, points::AbstractVector{<:AbstractFloat}) where {T,N}
+@inline function next!(s::AbstractRNGSeq{T, N}, dim::Int, points::AbstractVector{<:Number}) where {T,N}
     rand!(s.rng, points)
     s.currentIndex += length(points)
 end
 
-function skipTo(s::AbstractRNGSeq, dim::Int, startIndex::Int)
-    #the following allows to not skip at every dim. Breaks BB use in some ways,
-    #but is supported by most RNGs. Counter-based RNGs may have a specific impl.
-    #presupposes that RNG is not used
-    n = ndims(s)
-    if s.startIndex != startIndex
-        skip(s.rng, startIndex*n - s.currentIndex)
-        s.currentIndex = startIndex*n
-        s.startIndex = startIndex
+function skipTo!(
+    s::AbstractRNGSeq,
+    dim::Int,
+    startIndex::Int,
+    npoints::Int,
+)
+    target =
+        (startIndex) * ndims(s) * npoints + (dim - 1) * npoints
+
+    try
+        skipTo!(s.rng, target)
+    catch
     end
+
+    return s
 end
 
 
 
+
+function skipTo!(
+    s::AbstractRNGSeq,
+    startIndex::Int,
+)
+    n = ndims(s)
+    target = startIndex * n
+
+    if s.currentIndex != target
+        try
+            skipTo!(s.rng, target)
+        catch
+        end
+        s.currentIndex = target
+    end
+
+    s.startIndex = startIndex
+
+    return s
+end
 
 
 mutable struct ZRNGSeq{T,N} <: AbstractSeq{N} #where {T <: AbstractRNG}
@@ -58,7 +88,7 @@ mutable struct ZRNGSeq{T,N} <: AbstractSeq{N} #where {T <: AbstractRNG}
     startIndex::Int
 end
 
-ZRNGSeq(rng::T, ndims::Int) where {T} = ZRNGSeq{T,ndims}(rng, 0)
+ZRNGSeq(rng::U, ndims::Int) where {U} = ZRNGSeq{U,ndims}(rng, 0)
 
 @inline function next!(s::ZRNGSeq, points::AbstractVector{<:AbstractFloat})
     rand!(s.rng, points)
@@ -76,21 +106,21 @@ end
     rand!(s.rng, points)
 end
 
-function skipTo(s::ZRNGSeq, dim::Int, startIndex::Int)
+function skipTo!(s::ZRNGSeq, dim::Int, startIndex::Int, npoints::Int=0)
     #the following allows to not skip at every dim. Breaks BB use in some ways,
     #but is supported by most RNGs. Counter-based RNGs may have a specific impl.
     #presupposes that RNG is not used
     n = ndims(s)
     if s.startIndex != startIndex
-        skipTo(s.rng, startIndex*n)
+        skipTo!(s.rng, startIndex*n)
         s.startIndex = startIndex
     end
 end
 
-function skipTo(s::ZRNGSeq, startIndex::Int)
+function skipTo!(s::ZRNGSeq, startIndex::Int)
     n = ndims(s)
     if s.startIndex != startIndex
-        skipTo(s.rng, startIndex*n)
+        skipTo!(s.rng, startIndex*n)
         s.startIndex = startIndex
     end
 end

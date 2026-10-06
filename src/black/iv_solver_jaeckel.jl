@@ -756,7 +756,7 @@ function compute_f_lower_map_and_first_two_derivatives(x::Float64, s::Float64)
     y = z^2
     s2 = s^2
     Phi = jaeckel_normcdf(-z)
-    phi = normpdf(z)
+    phi = Math.normpdf(z)
 
     fpp =
         pi / 6 * y / (s2 * s) *
@@ -1234,11 +1234,11 @@ function jaeckel_erfcx(d::Float64)::Float64
 end
 
 function jaeckel_normcdf(d::Float64)::Float64
-    return normcdf(d)
+    return Math.normcdf(d)
     # return normcdfCody(d) #original imple
 end
 
 function jaeckel_norminv(f::Float64)::Float64
-    return norminv(f)
+    return Math.norminv(f)
     # return norminvAS241(f) #fails a test 1e-13 error
 end

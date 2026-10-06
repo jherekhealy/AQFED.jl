@@ -12,16 +12,17 @@ struct ExpBSplineCollocation{T,U}
     forward::U
 end
 
-function solvePositiveStrike(c::ExpBSplineCollocation{U,T}, expStrike::T)::Tuple{U,Int} where {U, T <: Number}
+function solvePositiveStrike(c::ExpBSplineCollocation{U,T}, expStrike)::Tuple{U,Int} where {U, T <: Number}
     #Note: specifying types above makes a drastic difference in performance
     pp = c.g
     n = length(pp.x)
     strike = log(expStrike)
+   # println("logstrike ",strike, " ",pp.a)
     if strike <= pp.a[1] # is zero
         leftSlope = pp.b[1]
         return (strike - pp.a[1]) / leftSlope + pp.x[1], 0
-    elseif strike > pp.a[n]
-        rightSlope = pp.b[n] #linear extrapolation a + b x-xn = strike
+    elseif strike >= pp.a[n]
+        rightSlope = evaluateDerivativePiece(pp, n-1, pp.x[n]) #linear extrapolation a + b x-xn = strike
         return (strike - pp.a[n]) / rightSlope + pp.x[n], n
     end
     i = searchsortedfirst(pp.a, strike)  # x[i-1]<z<=x[i]
@@ -40,13 +41,13 @@ end
 function priceEuropean(
     c::ExpBSplineCollocation{T,U},
     isCall::Bool,
-    strike::U,
-    forward::U,
-    discountDf::U,
+    strike,
+    forward,
+    discountDf,
 )::T where {T,U}
     ck, ckIndex = solvePositiveStrike(c, strike)
-
-    useForward = true
+    #println("strike ", strike, " ",ck, " ",ckIndex)
+    useForward = false
     if useForward || isCall
         valuef = hermiteIntegralBounded(c, ck, ckIndex)
         valuek = normcdf(-ck)
@@ -60,18 +61,19 @@ function priceEuropean(
     else #put
         integral = zero(ck)
         pp = c.g
+        n = length(pp.x)
         if ck < pp.x[1]
-            integral += firstMomentExtrapolationBounded(p, 1, -300.0, ck)
+            integral += firstMomentExtrapolationBounded(c, 1, -300.0, ck)
         else
-            integral += firstMomentExtrapolationBounded(p, 1, -300.0, pp.x[1])
+            integral += firstMomentExtrapolationBounded(c, 1, -300.0, pp.x[1])
         end
         for j = 1:ckIndex-1
-            integral += firstMomentBounded(p, j, pp.x[j], pp.x[j+1])
+            integral += firstMomentBounded(c, j, pp.x[j], pp.x[j+1])
         end
         if ckIndex >= n
-            integral += firstMomentExtrapolationBounded(p, n, pp.x[n], ck)
-        else
-            integral += firstMomentBounded(p, j, pp.x[ckIndex], ck)
+            integral += firstMomentExtrapolationBounded(c, n, pp.x[n], ck)
+        elseif ckIndex >= 1
+            integral += firstMomentBounded(c, ckIndex, pp.x[ckIndex], ck)
         end
         return strike * normcdf(ck) - integral
     end
@@ -92,7 +94,7 @@ function adjustForward(lsc::ExpBSplineCollocation)
     if isnan(lnTheo) || isinf(lnTheo)
         println("inf forward ", theoForward, " ", lsc.g)
     else
-        # println("for ",theoForward)
+     #    println("for ",theoForward)
         lnf = log(lsc.forward)
         lsc.g.a .+= lnf - lnTheo
     end
@@ -103,17 +105,18 @@ function hermiteIntegral(p::ExpBSplineCollocation{T,U})::T where {T,U}
 end
 
 
-function firstMomentExtrapolationBounded(p::ExpBSplineCollocation{T,U}, i::Int, x0t::Union{U,T}, x1t::Union{U,T})::T where {T,U}
+function firstMomentExtrapolationBounded(p::ExpBSplineCollocation{T,U}, i::Int, x0t, x1t)::T where {T,U}
     pp = p.g
     # i = length(pp.x) or i = 1
     x0 = pp.x[i]
-    a0 = pp.a[i] + x0 * (-pp.b[i])
-    a1 = pp.b[i]
+    slope = evaluateDerivativePiece(pp, min(i,length(pp.x)-1),x0)
+    a0 = pp.a[i] + x0 * (-slope)
+    a1 = slope
     e = exp(a0 + a1^2 / 2)
     if isinf(e) || e == 0 || isnan(e)
         return zero(a0)
     end
-    s = (x0 >= zero(x0)) ? one(x0) : -one(x0)
+    s = (x0 >= zero(x0t)) ? one(x0t) : -one(x0t)
     ndiff = (normcdf(s * (-x0t + a1)) - normcdf(s * (-x1t + a1)))
     if ndiff == zero(ndiff) #necessary for ForwardDiff
         return ndiff
@@ -132,30 +135,52 @@ function firstMomentBounded(p::ExpBSplineCollocation{T,U}, i::Int, a::Union{U,T}
     a0 = pp.a[i] + x0 * (-pp.b[i] + x0 * c0)
     a1 = pp.b[i] - 2 * x0 * c0
     a2 = c0
-    onec = 1 - 2 * a2
+    return firstMomentExpQuadraticBounded(x0t, x1t, a0, a1, a2)
+end
+_finiteD(x::Real) = true
+_finiteD(x::ForwardDiff.Dual) = all(isfinite, x.partials)
+_finiteD(a::AbstractArray) = all(_finiteD, a)
+
+function firstMomentExpQuadraticBounded(x0t, x1t, a0, a1, a2)
+    if abs(x0t-x1t) < 100eps(x0t)
+        return zero(x0t)
+    end
+    #a2 = min(0.49, a2)
+    onec = -2a2+1
     lne = a0 + a1^2 / (2 * onec)
+    if abs2(lne) > 100^2
+        lne = one(x0t)*100^2
+    end
     e = exp(lne)
     if iszero(e)
         return e
     elseif isinf(e) || isnan(e)
         return zero(onec)
     elseif abs(onec) < eps(one(onec))
+        @assert _finiteD(e)
         return e * (x1t - x0t) / sqrt(2 * pi())
     elseif onec > zero(onec)
         sqrtonec = sqrt(onec)
-        s = (x0 >= zero(x0)) ? one(x0) : -one(x0)
-        ndiff = normcdf(s * (-x0t * sqrtonec + a1 / sqrtonec)) - normcdf(s * (-x1t * sqrtonec + a1 / sqrtonec))
+        x0tt = (-x0t * sqrtonec + a1 / sqrtonec)
+        x1tt = (-x1t * sqrtonec + a1 / sqrtonec)
+        s = (x0tt >= zero(x0tt)) ? -one(x0tt) : one(x0tt)
+        # if abs(x0tt) > 20 && abs(x1tt) > 20
+        #     return zero(x0tt)
+        # end
+        ndiff = normcdf(s * x0tt) - normcdf(s * x1tt)
         if ndiff == zero(ndiff) #necessary for ForwardDiff
             return ndiff
         else
             value = s * e * (ndiff) / sqrtonec
+            #println("value ",value)
+            @assert _finiteD(value)
             return value
         end
     else
         sqrtonec = sqrt(-onec)
         fip = x1t * sqrtonec + a1 / sqrtonec
         fi = x0t * sqrtonec + a1 / sqrtonec
-        s = (fi >= zero(fi)) ? one(x0) : -one(x0)
+        s = (fi >= zero(fi)) ? one(x0t) : -one(x0t)
         useDawson = true
         if !useDawson
             ndiff = (erfi(-s * fi / sqrt(2)) - erfi(-s * fip / sqrt(2)))
@@ -163,7 +188,8 @@ function firstMomentBounded(p::ExpBSplineCollocation{T,U}, i::Int, a::Union{U,T}
                 return ndiff
             else
                 value = s * e * ndiff / (2 * sqrtonec)
-
+      @assert _finiteD(value)
+      
                 if isinf(value) || isnan(value)
                     println("naninfo line190 ", e, " ", fi, " ", fip, " ", sqrtonec)
                     #return zero(x0t)
@@ -191,14 +217,14 @@ function firstMomentBounded(p::ExpBSplineCollocation{T,U}, i::Int, a::Union{U,T}
             end
             value = fdif / (2 * sqrtonec)
             if isnan(value) || isinf(value)
-                println("naninf line213 ", onec, " ", -x1t^2 * onec / 2 + a1 * x1t + a0, " ", ea, " ", ebma, " dawson ", erfa, " ", erfb)
+                println("naninf line213 ", onec, " ", -x1t^2 * onec / 2 + a1 * x1t + a0, " a ",-x0t^2 * onec / 2 + a1 * x0t + a0," ea ", ea, " ", ebma, " dawson ", erfa, " ", erfb)
             end
             return value
         end
     end
 end
 
-function hermiteIntegralBounded(p::ExpBSplineCollocation{T,U}, ck::Union{U,T}, ckIndex::Int)::T where {T,U}
+function hermiteIntegralBounded(p::ExpBSplineCollocation{T,U}, ck, ckIndex::Int)::T where {T,U}
     pp = p.g
     n = length(pp.x)
     i = ckIndex
@@ -206,10 +232,10 @@ function hermiteIntegralBounded(p::ExpBSplineCollocation{T,U}, ck::Union{U,T}, c
         i -= 1
     end
     integral = zero(ck)
-    if ck < pp.x[1]
+    if ck <= pp.x[1]
         integral += firstMomentExtrapolationBounded(p, 1, ck, pp.x[1])
         i = 0
-    elseif ck < pp.x[n]
+    elseif ck < pp.x[n] && i < n
         #include logck to x[i] with i-1 coeffs
         integral += firstMomentBounded(p, i, ck, pp.x[i+1])
     end
@@ -233,9 +259,10 @@ function makeExpBSplineCollocationGuess(
     forward::T,
     discountDf::T;
     size = 0,
+    isFlat = false,
     extrapolationFactor = 1.25
 ) where {T}
-    b = fitExpBSplineBachelier(strikes, callPrices, weights, τ, forward, discountDf, size = size,extrapolationFactor=extrapolationFactor)
+    b = fitExpBSplineBachelier(strikes, callPrices, weights, τ, forward, discountDf, size = size, isFlat=isFlat, extrapolationFactor=extrapolationFactor)
 end
 
 function makeExpBSplineCollocation(
@@ -250,7 +277,7 @@ function makeExpBSplineCollocation(
     size = 0,
     rawFit = false,
     extrapolationFactor = 1.25,
-    minSlopeKnots = minSlope
+    minSlopeKnots = minSlope, isFlatGuess=false
 )::Tuple{ExpBSplineCollocation,FitResult} where {T} #return collocation and error measure
     strikesf, pricesf, weightsf = filterConvexPrices(
         strikes,
@@ -265,7 +292,7 @@ function makeExpBSplineCollocation(
         forward,
         tol = minSlopeKnots + sqrt(eps(one(minSlopeKnots))))
 
-    isoc = makeExpBSplineCollocationGuess(strikesk, pricesk, weightsk, τ, forward, 1.0, size = size,extrapolationFactor=extrapolationFactor)
+    isoc = makeExpBSplineCollocationGuess(strikesk, pricesk, weightsk, τ, forward, 1.0, size = size, isFlat=isFlatGuess, extrapolationFactor=extrapolationFactor)
     isoc, m =
         rawFit ? fit(isoc, strikes, callPrices, weights, forward, discountDf, minSlope = minSlope, penalty = penalty) :
         fit(isoc, strikesf, pricesf, weightsf, forward, discountDf, minSlope = minSlope, penalty = penalty)
@@ -273,20 +300,7 @@ function makeExpBSplineCollocation(
 end
 
 using FastGaussQuadrature
-function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountDf; size::Int = 0, extrapolationFactor=1.25,slopeTolerance::Float64 = sqrt(eps(Float64)))
-    m = length(strikes)
-    i = findfirst(x -> x > forward, strikes)
-    if i === nothing
-        i = m
-    elseif i == 1
-        i = 2
-    end
-    price = (prices[i] * (forward - strikes[i-1]) + prices[i-1] * (strikes[i] - forward)) / (strikes[i] - strikes[i-1])
-    strike = forward
-    #bvol = Bachelier.bachelierImpliedVolatility(price, true, strike, τ, forward, discountDf)
-    # isoc = IsotonicCollocation(Polynomials.Polynomial([sqrt(bvol * sqrt(τ))]), Polynomials.Polynomial([0.0]), forward)
-    vol = impliedVolatility(true, price, forward, strike, τ, discountDf)
-    σ = vol * sqrt(τ)
+function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountDf; size::Int = 0, extrapolationFactor=1.25,slopeTolerance::Float64 = sqrt(eps(Float64)), isFlat = false)
     # need to use black because ys need to be > 0. xs < 0 ok.
     strikesf, pif, xf = makeXFromUndiscountedPrices(strikes, prices, slopeTolerance = slopeTolerance)
     #println("xf ",xf, strikesf)
@@ -322,14 +336,33 @@ function fitExpBSplineBachelier(strikes, prices, weights, τ, forward, discountD
         # x = @. (xf[end]-xf[1])*1.1 / (x[end]-x[1]) * (x-x[1]) + xf[1]*1.1
         # x = collect(range(start=xf[1],stop=max(xf[end],1.5),length=n))
     end
+    σ = if isFlat || size != 0
+		m = length(strikes)
+		i = findfirst(x -> x > forward, strikes)
+		if i === nothing
+			i = m
+		elseif i == 1
+			i = 2
+		end
+		price = (prices[i] * (forward - strikes[i-1]) + prices[i-1] * (strikes[i] - forward)) / (strikes[i] - strikes[i-1])
+		strike = forward
+		#bvol = Bachelier.bachelierImpliedVolatility(price, true, strike, τ, forward, discountDf)
+		# isoc = IsotonicCollocation(Polynomials.Polynomial([sqrt(bvol * sqrt(τ))]), Polynomials.Polynomial([0.0]), forward)
+		vol = impliedVolatility(true, price, forward, strike, τ, discountDf)
+		vol * sqrt(τ) * ones(Float64, n)
+	else
+		map((k, price) -> impliedVolatility(true, price, forward, k, τ, discountDf) * sqrt(τ), strikesf, prices)
+    end
+
     # println("x=", x, " ",length(x))
-    a = @. (-σ^2 / 2 + log(forward) + σ * x)
-    b = @. (σ * ones(Float64, n))
+    a = @. (-σ^2 / 2  + log(forward) + σ * x)
+    b = copy(σ)
     c = zeros(Float64, (n,1))
     # pp = FastPP(2,a, b, c, x)
     pp = QuadraticPP{Float64,Float64}(a, b, c, x)
     isoc = ExpBSplineCollocation(pp, forward)
-    # adjustForward(isoc)
+   #println(hermiteIntegral(isoc))
+     adjustForward(isoc)
     return isoc
 end
 
@@ -349,7 +382,7 @@ function fit(isoc::ExpBSplineCollocation{TZ,TX}, strikes, prices, weights, forwa
     maxValue = 2 * (spl.coeffs[end] - spl.coeffs[1])
     # println("initial coeffs ",spl.coeffs)
     #transform = ExpMinTransformation(minValue)
-    transform = ClosedTransformation(minValue, maxValue)
+    transform = LogisticTransformation(minValue, maxValue)
     for i = 1:length(ct)
         ct[i] = inv(transform, min(max(spl.coeffs[i+1] - spl.coeffs[i], minValue), maxValue))
         # println(i, " ", spl.coeffs[i+1] - spl.coeffs[i]," ct ",ct[i])
@@ -404,7 +437,7 @@ function fit(isoc::ExpBSplineCollocation{TZ,TX}, strikes, prices, weights, forwa
     if penalty > 0
         outlen += length(isoc.g.b) - 1
     end
-    #fit = optimize(obj, ct, LevenbergMarquardt(); autodiff = :forward, show_trace = false, iterations = 1024)
+     fvec = zeros(Float64, outlen)
     fit = LeastSquaresOptim.optimize!(
         LeastSquaresProblem(x = ct, f! = obj!, autodiff = :forward,
         # g! = jac!, #useful to debug issue with ForwardDiff NaNs
@@ -412,8 +445,8 @@ function fit(isoc::ExpBSplineCollocation{TZ,TX}, strikes, prices, weights, forwa
         LevenbergMarquardt();
         iterations = 1024,
     )
-    fvec = zeros(Float64, outlen)
     obj!(fvec,fit.minimizer)
+    # _, fit = GaussNewton.optimize!(obj!, ct, fvec, autodiff = :forward)
     # fit = fsolve(obj!, jac!, ct, outlen; show_trace=false, method=:lm, tol=1e-8) #fit.x
     #println(iter, " fit ", fit,  #obj(fit.x))  #fit.f
     ct0 = fit.minimizer

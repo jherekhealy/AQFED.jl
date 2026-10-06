@@ -63,7 +63,7 @@ function ndims(model::TSBlackModel, specificTimes::Vector{Float64}, timestepSize
     return (length(genTimes) - 1) #0.0 does not count
 end
 
-function pathgenTimes(model, specificTimes::Vector{Float64}, timestepSize::Float64)
+function pathgenTimes(model, specificTimes::AbstractVector{<:Real}, timestepSize::Float64)
     t0 = 0.0
     pathTimes = Vector{Float64}(undef, 1)
     pathTimes[1] = t0
@@ -83,6 +83,8 @@ function pathgenTimes(model, specificTimes::Vector{Float64}, timestepSize::Float
     end
     return pathTimes
 end
+
+
 
 
 function simulate(
@@ -119,7 +121,7 @@ function simulate(
         if withBB
             transformByDim!(bb, rng, start, dim, z, cache)
         else
-            skipTo(rng, dim, start)
+            skipTo!(rng, dim, start, length(z))
             nextn!(rng, dim, z)
             @. z *= sqrth
         end

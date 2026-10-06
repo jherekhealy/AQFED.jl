@@ -1,5 +1,5 @@
 export BBCache, transformByDim!
-import AQFED.Random: AbstractSeq, skipTo, nextn! #for vectorized way
+import AQFED.Random: AbstractSeq, skipTo!, nextn! #for vectorized way
 
 
 mutable struct Entry{K,V}
@@ -114,7 +114,7 @@ function transformRecursive(
     bb::BrownianBridgeConstruction,
     qrng::AbstractSeq,
     start::Int,
-    length::Int,
+    lengthSeq::Int,
     dimIndex::Int,
     cache::AbstractDict,
 )
@@ -123,9 +123,9 @@ function transformRecursive(
     if ent != nothing
         return ent
     end #else...
-    outputl = Vector{Float64}(undef, length)
+    outputl = Vector{Float64}(undef,    lengthSeq)
     if dimIndex == Base.length(bb.stdDev)
-        skipTo(qrng, 1, start)
+        skipTo!(qrng, 1, start, lengthSeq)
         nextn!(qrng, 1, outputl)
         #println("transformRecursive dim=",dimIndex, "fetching sobol d=",1)
         @. outputl *= bb.stdDev[1]
@@ -135,9 +135,9 @@ function transformRecursive(
         j = bb.leftIndex[i]
         k = bb.rightIndex[i]
         if j != 1
-            outputj = transformRecursive(bb, qrng, start, length, j - 1, cache)
-            outputk = transformRecursive(bb, qrng, start, length, k, cache)
-            skipTo(qrng, i, start)
+            outputj = transformRecursive(bb, qrng, start, lengthSeq, j - 1, cache)
+            outputk = transformRecursive(bb, qrng, start, lengthSeq, k, cache)
+            skipTo!(qrng, i, start, lengthSeq)
             nextn!(qrng, i, outputl)
         #    println("transformRecursive dim=",dimIndex, " fetching sobol d=",i," and use points ",j," and ",k)
             wl = bb.leftWeight[i]
@@ -146,8 +146,8 @@ function transformRecursive(
             @. outputl = wl * outputj + wr * outputk + sd * outputl
             cache[dimIndex] = outputl
         else
-            outputk = transformRecursive(bb, qrng, start, length, k, cache)
-            skipTo(qrng, i, start)
+            outputk = transformRecursive(bb, qrng, start, lengthSeq, k, cache)
+            skipTo!(qrng, i, start, lengthSeq)
             nextn!(qrng, i, outputl)
             # println("transformRecursive dim=",dimIndex, "fetching sobol d=",i," and use right point ",k)
             wr = bb.rightWeight[i]
@@ -214,7 +214,7 @@ function transformRecursive(
     d = osize[2]
     if dimIndex == Base.length(bb.stdDev)
         @inbounds for di = 1:d
-            skipTo(qrng, di, start)
+            skipTo!(qrng, di, start, length(outputl))
             nextn!(qrng, di, @view outputl[:, di])
         end
         @. outputl *= bb.stdDev[1]
@@ -227,7 +227,7 @@ function transformRecursive(
             outputj = transformRecursive(bb, qrng, start, osize, j - 1, cache)
             outputk = transformRecursive(bb, qrng, start, osize, k, cache)
             @inbounds for di = 1:d
-                skipTo(qrng, d * (i - 1) + di, start) #i
+                skipTo!(qrng, d * (i - 1) + di, start, length(outputl)) #i
                 nextn!(qrng, d * (i - 1) + di, @view outputl[:, di])
             end
             wl = bb.leftWeight[i]
@@ -238,7 +238,7 @@ function transformRecursive(
         else
             outputk = transformRecursive(bb, qrng, start, osize, k, cache)
             @inbounds for di = 1:d
-                skipTo(qrng, d * (i - 1) + di, start) #i
+                skipTo!(qrng, d * (i - 1) + di, start, length(outputl)) #i
                 nextn!(qrng, d * (i - 1) + di, @view outputl[:, di])
             end
             wr = bb.rightWeight[i]

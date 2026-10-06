@@ -359,6 +359,7 @@ function AndersenLakeGRepresentation(
     ftauMax = forward(model, 1.0, tauMax)
     qValues = zeros(Float64, length(quadrature))
     Bmin = 1e-16
+    varianceRateMin = 1e-3 * varianceByLogmoneyness(model, 0.0, tauMax) #variance accrued slower than this is treated as zero
     for j = 1:nIter
         qvec[end] = transform(1.0)
         for i = length(t)-1:-1:1
@@ -391,10 +392,12 @@ function AndersenLakeGRepresentation(
             sumk2 = 0.0
             for (iu, u) = enumerate(qAbscissae)
                 lnBu = logCapX + log(max(invtransform(transform, qValues[iu]),Bmin))
-                sqrtv = sqrt(max(varianceByLogmoneyness(model, 0.0, u) * u - varianceByLogmoneyness(model, 0.0, ti) * ti, 0.0))
-                if sqrtv == 0.0
-                    #    return (0.0,0.0)
+                variance = varianceByLogmoneyness(model, 0.0, u) * u - varianceByLogmoneyness(model, 0.0, ti) * ti
+                if variance <= varianceRateMin * (u - ti)
+                    #(almost) no variance between ti and u (e.g. week-ends with a zero or tiny weight): the asset moves deterministically
+                    #and exercising at u is dominated by exercising at ti. The boundary at ti is then given by holding until variance accrues again.
                 else
+                    sqrtv = sqrt(variance)
                     fu = forward(model, 1.0, u)
                     frac = fu / fi
                     dfu = discountFactor(model, u)

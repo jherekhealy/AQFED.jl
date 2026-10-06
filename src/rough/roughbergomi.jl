@@ -6,7 +6,7 @@ using Statistics
 using HypergeometricFunctions
 using SpecialFunctions
 using LinearAlgebra
-import AQFED.Random: next!, nextn!, skipTo
+import AQFED.Random: next!, nextn!, skipTo!
 using AQFED.Random
 using AQFED.MonteCarlo
 import DSP: conv
@@ -290,7 +290,7 @@ function simulate(
         end
     end
     sqrtCovar = cholesky(covar).L
-    #skipTo(rng, start)
+    #skipTo!(rng, start)
     for sim = 1:nSim
         specIndex = 1
         t0 = genTimes[1]

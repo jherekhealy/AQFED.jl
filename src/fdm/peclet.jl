@@ -37,6 +37,13 @@ end
 
 function conditionedVariance(conditioner::ExponentialFittingConditioner, variance, drift, S, hm, h)
     pecletRatio = drift * hm / variance
+    return exponentialFittedVariance(pecletRatio, drift, hm, h)
+end
+
+function exponentialFittedVariance(pecletRatio, drift, hm, h)
+    if abs(pecletRatio) > 300 #exp overflows (e.g. zero variance): use the upwind limit.
+        return pecletRatio > 0 ? drift * h : -drift * hm
+    end
     eterm = exp(-2 * pecletRatio)
     return -drift * (hm^2 * eterm - h^2 / eterm - (hm^2 - h^2)) / (hm * eterm + h / eterm - (hm + h))
 end
@@ -59,9 +66,7 @@ function conditionedVariance(conditioner::PartialExponentialFittingConditioner, 
     pecletRatio = drift * hm / variance
 
     if abs(pecletRatio) > 1
-        eterm = exp(-2 * pecletRatio)
-        return -drift * (hm^2 * eterm - h^2 / eterm - (hm^2 - h^2)) / (hm * eterm + h / eterm - (hm + h))
-
+        return exponentialFittedVariance(pecletRatio, drift, hm, h)
     else
         return variance
     end

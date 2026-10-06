@@ -34,7 +34,10 @@ function AndersenLakeNRepresentation(
     isCall::Bool = false
 )
     aUp = AndersenLakeRepresentation(model, tauMax, atol, nC, nIter, nTS1, nTS2, isCall = isCall, isLower = false)
-    if (model.r < 0) && (model.q < model.r)
+    r = -log(discountFactor(model,tauMax))/tauMax
+    q = r - logForward(model, 0.0, tauMax)/tauMax
+
+    if (r < 0) && (q < r)
         aDown = AndersenLakeRepresentation(model, tauMax, atol, nC, nIter, nTS1, nTS2, isCall = isCall, isLower = true)
         tauHat = aUp.tauHat
         tauStar = tauHat
@@ -70,8 +73,9 @@ function priceAmerican(p::AndersenLakeNRepresentation, K::Float64, S::Float64)::
         return priceAmerican(AndersenLakeRepresentation(p.isCall, p.model, p.tauMax, p.tauMax, p.nC, p.nTS1, p.nTS2, p.capX, p.avec, p.qvec, p.wvec, p.yvec), K, S)
     end
     vol = p.model.vol
-    local r::Float64 = p.model.r
-    local q::Float64 = p.model.q
+    #p.tauMax is the boundaries crossing time when they cross: the rates must be taken at the option maturity
+    local r::Float64 = -log(discountFactor(p.model,p.tauMaxOrig))/p.tauMaxOrig
+    local q::Float64 = r - logForward(p.model, 0.0, p.tauMaxOrig)/p.tauMaxOrig
     if p.isCall #use McDonald and Schroder symmetry
         K, S = S, K
         r, q = q, r

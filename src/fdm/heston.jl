@@ -14,6 +14,7 @@ end
 
 currentValue(p::VanillaFDM2DPayoff) = p.value
 lastEvaluationTime(p::VanillaFDM2DPayoff) = p.maturity
+lowerBound(p::VanillaFDM2DPayoff, index, F) = zeros(size(F))
 
 function evaluateFDM2DPayoff(p::VanillaFDM2DPayoff, t, axis1, axis2)
 	if t == p.maturity
@@ -24,6 +25,35 @@ function evaluateFDM2DPayoff(p::VanillaFDM2DPayoff, t, axis1, axis2)
 			end
 		end
 	end
+end
+
+mutable struct VanillaAmericanFDM2DPayoff
+	maturity::Float64
+	strikes::Vector{Float64}
+	isCall::Vector{Bool}
+	value::Vector{Matrix{Float64}} #strike, value(S,V)
+end
+
+currentValue(p::VanillaAmericanFDM2DPayoff) = p.value
+lastEvaluationTime(p::VanillaAmericanFDM2DPayoff) = p.maturity
+lowerBound(p::VanillaAmericanFDM2DPayoff, index, F) = copy(F)
+
+function evaluateFDM2DPayoff(p::VanillaAmericanFDM2DPayoff, t, axis1, axis2)
+		for (iStrike, strike) ∈ enumerate(p.strikes)
+			sign = ifelse(p.isCall[iStrike], 1, -1)
+			for i ∈ eachindex(axis1)
+				p.value[iStrike][i, :] .= max(sign * (axis1[i] - strike), 0.0)
+			end
+		end	
+end
+
+
+function computeLowerBoundary(payoff, Smin::Real, r::Real, q::Real, ti::Real)
+    return if payoff.isCall[1]
+		0.0
+	else
+            (payoff.strikes[1] - Smin * exp(-q * ti))		
+    end
 end
 
 mutable struct LogFDM2DPayoff
@@ -54,6 +84,7 @@ end
 
 currentValue(p::VIXFDM2DPayoff) = p.value
 lastEvaluationTime(p::VIXFDM2DPayoff) = p.maturitySPX
+lowerBound(p::VIXFDM2DPayoff, index, F) = fill(-Inf, size(F)) #European, and the log-contract value may be negative: no floor
 function estimateVVIX(p::VIXFDM2DPayoff, axis1, axis2, forwardVIX, spot, v0; truncationStart = 1)
 	strike0Index = searchsortedlast(p.strikesVIX, forwardVIX)
 	strike0VIX = p.strikesVIX[strike0Index]
@@ -582,6 +613,16 @@ function explicitStep(a::Real, rij::Vector{T}, A1ilj::Vector{T}, A1ij::Vector{T}
 	end
 end
 
+#F is the flattened (M*L) grid and lowerBound the (M, L) matrix: the column-major linear indices match.
+function enforceLowerBound(F::AbstractVector{T}, lowerBound::AbstractArray{T}, M::Int, L::Int) where {T}
+	if length(lowerBound) > 0
+		@inbounds for k ∈ eachindex(F)
+			F[k] = max(F[k], lowerBound[k])
+		end
+	end
+	return F
+end
+
 function RKGStep(
 	s::Int,
 	a::Vector{T},
@@ -601,6 +642,7 @@ function RKGStep(
 	Yj::Vector{T},
 	useDirichlet::Bool,
 	lbValue::Real,
+	lowerBound::AbstractArray{T}, 
 	M::Int,
 	L::Int,
 ) where T
@@ -608,6 +650,7 @@ function RKGStep(
 	explicitStep(mu1b, rij, A1ilj, A1ij, A1iuj, A2ijl, A2ij, A2iju, F, F, Yjm, M, L)
 	updatePayoffExplicitTrans(Yjm, useDirichlet, lbValue, M, L)
 	MY0 = (Yjm - F) / mu1b
+	enforceLowerBound(Yjm, lowerBound,M,L)
 	Yjm2 .= F
 	for j ∈ 2:s
 		muu = (2 * j + 1) * b[j+1] / (j * b[j])
@@ -619,6 +662,7 @@ function RKGStep(
 		@. Yj = muj * Yjm + nuj * Yjm2 + (1 - nuj - muj) * F + gammajb * MY0 # + mujb*MYjm
 		explicitStep(mujb, rij, A1ilj, A1ij, A1iuj, A2ijl, A2ij, A2iju, Yjm, Yj, Yj, M, L)
 		updatePayoffExplicitTrans(Yj, useDirichlet, lbValue, M, L)
+        enforceLowerBound(Yj, lowerBound,M,L)
 		Yjm2, Yjm = Yjm, Yjm2
 		Yjm, Yj = Yj, Yjm
 	end
@@ -738,11 +782,14 @@ function priceFDM2D(
 	ti = T
 	dt = T / N
 	lbValue = 0.0
+	lowerBoundA = copy(payoffVector)
 	for iv ∈ eachindex(payoffVector)
 		F = reshape(payoffVector[iv], M * L)
 		updatePayoffExplicitTrans(F, useDirichlet, lbValue, M, L)
 		payoffVector[iv] = reshape(F, (M, L))
+		lowerBoundA[iv] = lowerBound(payoff, iv, payoffVector[iv])
 	end
+	
 	etime = @elapsed begin
 		if method == "EU"
 			for n ∈ 1:N
@@ -787,7 +834,7 @@ function priceFDM2D(
 				for iv ∈ eachindex(payoffVector)
 					F = reshape(payoffVector[iv], M * L)
 					updatePayoffExplicitTrans(F, useDirichlet, lbValue, M, L)
-					F .= RKGStep(s, a, b, w0, w1, rij, A1ilj, A1ij, A1iuj, A2ijl, A2ij, A2iju, F, Y0, Y1, Y2, useDirichlet, lbValue, M, L)
+					F .= RKGStep(s, a, b, w0, w1, rij, A1ilj, A1ij, A1iuj, A2ijl, A2ij, A2iju, F, Y0, Y1, Y2, useDirichlet, lbValue, lowerBoundA[iv], M, L)
 					payoffVector[iv] = reshape(F, (M, L))
 				end
 

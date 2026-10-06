@@ -4,8 +4,27 @@ import PPInterpolation:bspp,PP,FIRST_DERIVATIVE,evaluateDerivative,C2,makeCubicP
 const FastPP{N,T,TX} = PP{N,T,TX,Vector{T},Matrix{T},Vector{TX}}  
 const CubicPP{T,TX} = PP{3,T,TX,Vector{T},Matrix{T},Vector{TX}} 
 const QuadraticPP{T,TX} = PP{2,T,TX,Vector{T},Matrix{T},Vector{TX}} 
-function Base.convert(::Type{QuadraticPP{T,TX}}, spl::BSplines.Spline) where {T,TX}
-    return Base.convert(PP{2,T,TX},spl)
+
+function Base.convert(::Type{FastPP{2,T,TX}}, spl::BSplines.Spline) where {T,TX}
+    t = BSplines.knots(spl.basis)
+    n = length(spl.basis) - 1
+    a = zeros(T, n)
+    b = zeros(T, n)
+    c = zeros(T,( n - 1,1))
+    x = spl.basis.breakpoints
+    α = spl.coeffs
+    for i = 1:n
+        a[i] = (t[i+2] - t[i+1]) / (t[i+3] - t[i+1]) * (α[i+1] - α[i]) + α[i]
+        b[i] = 2 * (α[i+1] - α[i]) / (t[i+3] - t[i+1])
+        # if b[i] < zero(T)
+        #     println(α, " ",t, " ",i)
+        #     throw(DomainError("b negative"))
+        # end
+    end
+    for i = 1:n-1
+        c[i,1] = ((α[i+2] - α[i+1]) / (t[i+4] - t[i+2]) + (α[i] - α[i+1]) / (t[i+3] - t[i+1])) / (t[i+3] - t[i+2])
+    end
+    return PP(2,a, b, c, x)
 end
 
 # function Base.convert(::Type{CubicPP{T,TX}}, spl::BSplines.Spline) where {T,TX}
@@ -23,7 +42,7 @@ function Base.convert(::Type{FastPP{N,T,TX}}, spl::BSplines.Spline) where {N,T,T
         dx = (x[l+1] - x[l])
         a[l+1] = a[l] + dx * (b[l] + dx * (c[l, 1] + dx * (c[l, 2])))
         b[l+1] = b[l] + dx * (2 * c[l, 1] + dx * 3 * c[l, 2])
-        return PP(3, a, b, c, x)
+        return PP(N, a, b, c, x)
 end
 
 function changeSupport(pp::FastPP{3,T,TX}, xa::AbstractArray{TX})::FastPP{3,T,TX} where {N,T,TX}

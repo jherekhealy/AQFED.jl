@@ -1,4 +1,5 @@
-export SVISection,XSSVISection
+export SVISection, XSSVISection
+export varianceByLogmoneyness
 
 struct XSSVISection <: VarianceSection
     ystar::Float64

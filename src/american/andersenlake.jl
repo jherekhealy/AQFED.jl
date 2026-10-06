@@ -61,8 +61,8 @@ function AndersenLakeRepresentation(
     end
     yvec[ndiv2] = 0
     wvec[ndiv2] = pi * hn / 2
-    local r::Float64 = model.r
-    local q::Float64 = model.q
+    local r::Float64 = -log(discountFactor(model,tauMax))/tauMax
+    local q::Float64 = r - logForward(model, 0.0, tauMax)/tauMax
     vol = model.vol
     capX = K
     if isLower 
@@ -223,8 +223,8 @@ end
 #American put
 function priceAmerican(p::AndersenLakeRepresentation{ConstantBlackModel}, K::Float64, S::Float64)::Float64
     vol = p.model.vol
-    local r::Float64 = p.model.r
-    local q::Float64 = p.model.q
+    local r::Float64 = -log(discountFactor(p.model,p.tauMax))/p.tauMax
+    local q::Float64 = r - logForward(p.model, 0.0, p.tauMax)/p.tauMax
     if p.isCall #use McDonald and Schroder symmetry
         K, S = S, K
         r, q = q, r
@@ -587,8 +587,8 @@ function americanBoundaryPutQDP(
     tauMax::Float64,
     atol::Float64,
 )::Float64
-    r = model.r
-    q = model.q
+    r = -log(discountFactor(model,tauMax))/tauMax
+    q = r - logForward(model, 0.0, tauMax)/tauMax
     vol = model.vol
     if r == 0
         r = 1e-5

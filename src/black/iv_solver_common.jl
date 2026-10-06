@@ -7,18 +7,18 @@ function normalizePrice(isCall::Bool, price::TP, f::T, strike::T, df::T) where {
     ex = f / strike
 
     if !isCall
-        if ex <= 1
-            c = c + 1 - 1 / ex # put call parity
+        if ex <= one(T)
+            c = c + one(T) - one(T) / ex # put call parity
         else
             #else duality + put call parity
             c = ex * c
-            ex = 1 / ex
+            ex = one(T) / ex
         end
     else
-        if ex > 1
+        if ex > one(T)
             # use c(-x0, v)
-            c = (f * (c - 1) + strike) / strike # in out duality, c = ex*c + 1 - ex  //not as good numericall
-            ex = 1 / ex
+            c = (f * (c - one(T)) + strike) / strike # in out duality, c = ex*c + 1 - ex  //not as good numericall
+            ex = one(T) / ex
         end
     end
     return c, ex

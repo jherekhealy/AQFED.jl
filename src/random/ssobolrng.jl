@@ -7,7 +7,12 @@ mutable struct ScramblingRngAdapter{T} <: ScramblingRng
     rng::AbstractRNG{T} #may be Chacha, Philox or Blabla. Not suited for MT/Well as individual bits distribution not as good
     counter::UInt8
     x::T
-    ScramblingRngAdapter(rng::AbstractRNG{T}) where {T} = new{T}(rng, UInt8(64), zero(T))
+end
+
+ScramblingRngAdapter(rng::AbstractRNG{T}) where {T} = ScramblingRngAdapter{T}(rng, UInt8(64), zero(T))
+
+function Base.copy(s::ScramblingRngAdapter{T}) where {T}
+    ScramblingRngAdapter{T}(Base.copy(s.rng), s.counter, s.x)
 end
 
 @inline function unirand(s::ScramblingRngAdapter{UInt64})

@@ -48,7 +48,7 @@ function varianceByLogmoneyness(s::SABRSection{T,Hagan2020}, y) where {T}
         ν / α * (Kpowonebeta - fpowonebeta) / (1 - β)
     end
     delta0 = β * (2 - β) / (8 * fpowonebeta^2)
-    e = sqrt(1 + 2 * ρ * χ + χ^2)
+    e = sqrt((χ + ρ)^2 + (1 - ρ) * (1 + ρ)) #equals sqrt(1 + 2ρχ + χ²), without cancellation when |ρ| → 1
     y0 = log((-ρ - χ + e) / (1 - ρ))
     factor = 1 + (-delta0 / 4 * α^2 + ρ * α * ν * β / (4 * fpowonebeta) + (2 - 3 * ρ^2) * (ν^2) / 24) * s.tte
     blackVol = if y == 0
@@ -142,7 +142,7 @@ function normalVarianceByMoneyness(s::SABRSection{T,Hagan2020}, y) where {T}
         ν / α * (Kpowonebeta - fpowonebeta) / (1 - β)
     end
     delta0 = β * (2 - β) / (8 * fpowonebeta^2)
-    e = sqrt(1 + 2 * ρ * χ + χ^2)
+    e = sqrt((χ + ρ)^2 + (1 - ρ) * (1 + ρ)) #equals sqrt(1 + 2ρχ + χ²), without cancellation when |ρ| → 1
     y0 = log((ρ + χ + e) / (1 + ρ))
     factor = 1 + (-delta0 / 3 * α^2 + ρ * α * ν * β / (4 * fpowonebeta) + (2 - 3 * ρ^2) * (ν^2) / 24) * s.tte
     bpvol = α / fpowonebeta * fpo * factor
@@ -175,7 +175,7 @@ function varianceByLogmoneyness(s::SABRSection{T,HaganEffective}, y) where {T}
         ν / αtilde * (Kpowonebeta - fpowonebeta) / (1 - β)
     end
     delta0 = β * (2 - β) / (8 * fpowonebeta^2)
-    e = sqrt(1 + 2 * ρ * χ + χ^2)
+    e = sqrt((χ + ρ)^2 + (1 - ρ) * (1 + ρ)) #equals sqrt(1 + 2ρχ + χ²), without cancellation when |ρ| → 1
     y0 = log((ρ + χ + e) / (1 + ρ))
     factor = 1 + (-delta0 / 4 * αtilde^2 + (2 - 3 * ρ^2) * (ν^2) / 24) * s.tte
     blackVol = if y == 0
@@ -210,7 +210,7 @@ function normalVarianceByMoneyness(s::SABRSection{T,HaganEffective}, y) where {T
         ν / αtilde * (Kpowonebeta - fpowonebeta) / (1 - β)
     end
     delta0 = β * (2 - β) / (8 * fpowonebeta^2)
-    e = sqrt(1 + 2 * ρ * χ + χ^2)
+    e = sqrt((χ + ρ)^2 + (1 - ρ) * (1 + ρ)) #equals sqrt(1 + 2ρχ + χ²), without cancellation when |ρ| → 1
     y0 = log((ρ + χ + e) / (1 + ρ))
   #  y0 = log((-ρ - χ + e) / (1 - ρ)) #x*nu
   

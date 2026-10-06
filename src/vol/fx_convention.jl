@@ -237,6 +237,7 @@ makeStrikeConvention(isCall::Bool, withPremium::Bool, isForward::Bool) =
 abstract type AxisTransformation end
 struct LogmoneynessAxisTransformation <: AxisTransformation
 end
+Base.zero(::Type{LogmoneynessAxisTransformation}) = LogmoneynessAxisTransformation()
 convertToLogmoneyness(::LogmoneynessAxisTransformation, y, vol) = y
 solveLogmoneyness(::LogmoneynessAxisTransformation, y, vol) = y
 
