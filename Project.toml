@@ -1,6 +1,6 @@
 name = "AQFED"
 uuid = "75f7dc1a-7be9-4868-9021-6cf8f4c7ff3a"
-version = "0.5.0"
+version = "0.5.1"
 authors = ["Jherek Healy <jherekhealy@protonmail.com"]
 
 [deps]
@@ -59,12 +59,9 @@ TaylorSeries = "6aa5eb33-94cf-58f4-a9d0-e4b2c4fc25ea"
 TranscodingStreams = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
 Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
 
-[sources]
-CharFuncPricing = {path = "../CharFuncPricing"}
-
 [compat]
 ADNLPModels = ">= 0.8.13"
-CharFuncPricing = ">= 0.8"
+CharFuncPricing = "0.11"
 Clarabel = ">= 0.11.1"
 CodecZlib = ">= 0.7"
 DataStructures = ">= 0.18.22"
