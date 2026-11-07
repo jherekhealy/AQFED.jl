@@ -1176,3 +1176,34 @@ end
     #d a power of two: every coordinate falls on zero but the first, which has no shift and starts after the origin
     @test sort(collect(keys(zeroCollisions(16, 15)))) == collect(2:16)
 end
+@testset "SobolDirectionSources" begin
+    R = AQFED.Random
+    function sobolPoints(d, n, source...)
+        seq = R.ScrambledSobolSeq(d, n, R.NoScrambling(), source...)
+        points, point = zeros(n, d), zeros(d)
+        for i in 1:n
+            R.next!(seq, point)
+            points[i, :] .= point
+        end
+        return points
+    end
+    d, n = 64, 255
+    joeKuo, nut, nut21201 = sobolPoints(d, n, R.joe_kuo), sobolPoints(d, n, R.niederreiter_nut), sobolPoints(d, n, R.niederreiter_nut_21201)
+    @test sobolPoints(d, n) == joeKuo #Joe and Kuo is the default
+    @test R.niederreiter_nut_s21201 == R.niederreiter_nut_21201
+    #the sources agree on the first three coordinates only
+    @test joeKuo[:, 1:3] == nut[:, 1:3]
+    @test all(j -> joeKuo[:, j] != nut[:, j], 4:d)
+    #the first 2^8 points without the origin are a permutation of the multiples of 2^-8 in each coordinate
+    grid = collect((1:n) ./ 256)
+    for points in (joeKuo, nut, nut21201), j in 1:d
+        @test sort(points[:, j]) == grid
+    end
+    #the 21201 table extends the original one
+    @test sobolPoints(1111, 64, R.niederreiter_nut) == sobolPoints(1111, 64, R.niederreiter_nut_21201)
+    #largest dimension of each source
+    for (source, maxDimension) in ((R.joe_kuo, 21201), (R.niederreiter_nut, 1111), (R.niederreiter_nut_21201, 21201))
+        @test size(sobolPoints(maxDimension, 2, source)) == (2, maxDimension)
+        @test_throws Exception R.ScrambledSobolSeq(maxDimension + 1, 2, R.NoScrambling(), source)
+    end
+end

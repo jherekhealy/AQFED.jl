@@ -220,12 +220,13 @@ end
 
 function hestonVolatilityPathFigure(series; file="hestontd_volatility_paths.csv")
     df = readcsv(file)
-    fig = bookFigure(size=(750, 350))
+    fig = bookFigure(size=(750, 350), figure_padding=TIGHT_PADDING)
     ax = bookAxis(fig[1, 1], xlabel="Time in years", ylabel="Instantaneous volatility (%)", xticks=0:2:10)
     for (i, (column, label)) in enumerate(series)
         lines!(ax, df.t, df[!, column], color=PALETTE[i], label=label)
     end
-    Legend(fig[2, 1], ax, orientation=:horizontal, framevisible=false)
+    Legend(fig[2, 1], ax, orientation=:horizontal, framevisible=false, padding=(0, 0, 0, 0), margin=(0, 0, 0, 0))
+    rowgap!(fig.layout, 4)
     fig
 end
 hestonVolatilityPathFigure(file, series) = hestonVolatilityPathFigure(series; file=file)

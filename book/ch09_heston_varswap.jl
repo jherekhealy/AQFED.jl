@@ -123,3 +123,120 @@ const HESTONTD_COLORS = Dict(zip(HESTONTD_LABELS, PALETTE[1:3]))
     end
     fig
 end
+
+## time-dependent Heston calibrations of the section on bootstrap or global calibration, on the quotes interpolated at Δ_simple ∈ {25%, 50%, 75%}
+## (Exact) or on the market quotes (commented study of test/hestonts_test.jl and book/legacy/test_plots.jl). The global calibrations reproduce
+## the published curves. The bootstrap uses Nelder-Mead and Gauss-Newton, which reproduces the table for κ̃ = 2.
+
+const HESTONTD_BOUNDS = (lower=[1e-2, -0.99, 0.05], upper=[2.0, 0.5, 20.0])
+
+function hestonTDBootstrap(ts, forwards, strikes, vols, prices, isCall, weights, κ)
+    swapCurve = VolatilityModels.makeSwapCurveReplication(ts, forwards, strikes, vols)
+    return first(VolatilityModels.calibrateHestonHaganFromPrices(ts, forwards, strikes, prices, isCall, weights; κ=κ, minimizer="NM", method="Cos",
+        isGlobal=false, swapCurve=swapCurve, HESTONTD_BOUNDS...))
+end
+
+function hestonTDGlobal(ts, forwards, strikes, vols, prices, isCall, weights, κ; knots=fill(length(ts), 3))
+    swapCurve = VolatilityModels.makeSwapCurveReplication(ts, forwards, strikes, vols)
+    return first(VolatilityModels.calibrateHestonHaganFromPricesParam(ts, forwards, strikes, prices, isCall, weights; κ=κ, numberOfKnots=knots,
+        minimizer="User", method="Cos", swapCurve=swapCurve, HESTONTD_BOUNDS...))
+end
+
+hestonTDRows(figure, label, ts, p) = DataFrame(Figure=figure, Calibration=label, Maturity=ts, Leverage=p.leverage, Rho=p.ρ, Alpha=p.σ)
+
+@compute "hestontd_spx500_oct2024_25Delta" begin
+    s = loadSurface("spx500_20241008_surface")
+    ts, forwards, vols = s.expiries, s.forwards, s.vols
+    strikes = ones(length(ts)) * s.strikes'
+    volsE, strikesE = VolatilityModels.filterVolsBySimpleDelta(ts, forwards, strikes, vols, deltas=[0.25, 0.5, 0.75])
+    exact = (strikesE, volsE, VolatilityModels.convertVolsToPricesOTMWeights(ts, forwards, strikesE, volsE, vegaFloor=1e-4, truncationDev=10.0)...)
+    #truncationDev = Φ⁻¹(75%) keeps the quotes with Δ_simple ∈ [25%, 75%]
+    range25 = (strikes, vols, VolatilityModels.convertVolsToPricesOTMWeights(ts, forwards, strikes, vols, vegaFloor=1e-4, truncationDev=0.675)...)
+    all = (strikes, vols, VolatilityModels.convertVolsToPricesOTMWeights(ts, forwards, strikes, vols, vegaFloor=1e-2, truncationDev=10.0)...)
+    bootstrap(q, κ) = hestonTDBootstrap(ts, forwards, q..., κ)
+    calibrate(q, κ; kwargs...) = hestonTDGlobal(ts, forwards, q..., κ; kwargs...)
+    globalExact = calibrate(exact, 0.5)
+    params = vcat(
+        hestonTDRows("kappa2", "Bootstrap", ts, bootstrap(range25, 2.0)), hestonTDRows("kappa2", "Global", ts, calibrate(range25, 2.0)),
+        hestonTDRows("kappa2", "Bootstrap Exact", ts, bootstrap(exact, 2.0)), hestonTDRows("kappa2", "Global Exact", ts, calibrate(exact, 2.0)),
+        hestonTDRows("kappa05", "Bootstrap", ts, bootstrap(all, 0.5)), hestonTDRows("kappa05", "Global", ts, calibrate(all, 0.5)),
+        hestonTDRows("kappa05", "Bootstrap Exact", ts, bootstrap(exact, 0.5)), hestonTDRows("kappa05", "Global Exact", ts, globalExact),
+        hestonTDRows("kappa05_smooth", "Global Exact", ts, globalExact),
+        #M knots for σ̃, 5 for ρ and 5 for α̃
+        hestonTDRows("kappa05_smooth", "Global Spline", ts, calibrate(exact, 0.5, knots=[length(ts), 5, 5])))
+    writetable("hestontd_spx500_oct2024_25Delta.csv", params)
+end
+
+function hestonTDParamsFigure(figure, styles)
+    df = readcsv("hestontd_spx500_oct2024_25Delta.csv")
+    df = df[df.Figure.==figure, :]
+    fig = bookFigure(size=(800, 300), figure_padding=TIGHT_PADDING)
+    local ax
+    for (position, (column, scale, label)) in enumerate(((:Leverage, 100.0, L"\tilde{\sigma}\ (\%)"), (:Alpha, 1.0, L"\tilde{\alpha}"), (:Rho, 1.0, L"\rho")))
+        ax = bookAxis(fig[1, position], xlabel="Maturity in years", ylabel=label)
+        for (i, (name, style)) in enumerate(styles)
+            c = df[df.Calibration.==name, :]
+            lines!(ax, c.Maturity, scale .* c[!, column], color=PALETTE[i], linestyle=style, label=name)
+        end
+    end
+    Legend(fig[2, 1:3], ax, orientation=:horizontal, framevisible=false, padding=(0, 0, 0, 0), margin=(0, 0, 0, 0))
+    rowgap!(fig.layout, 4)
+    colgap!(fig.layout, 10)
+    fig
+end
+
+const HESTONTD_ALL_STYLES = [("Bootstrap", :solid), ("Global", :solid), ("Bootstrap Exact", :dash), ("Global Exact", :dash)]
+@figure "hestontd_spx500_oct2024_25Delta_kappa2" hestonTDParamsFigure("kappa2", HESTONTD_ALL_STYLES)
+@figure "hestontd_spx500_oct2024_25Delta_kappa05" hestonTDParamsFigure("kappa05", HESTONTD_ALL_STYLES)
+@figure "hestontd_spx500_oct2024_25Delta_kappa05_smooth" hestonTDParamsFigure("kappa05_smooth", [("Global Exact", :solid), ("Global Spline", :solid)])
+
+## smiles of the Fourier, Benhamou-Gobet-Miri and Hagan approximations on calibrated parameters, κ̃ = 5: DJIA options of Rouah (table tbl:djia_rouah)
+## and SPX500 options in 2010
+
+const DJIA_ROUAH = (spot=129.14, r=0.0010, q=0.0068, days=[37.0, 72.0, 135.0, 226.0], strikes=collect(124.0:136.0),
+    vols=[19.62 19.1 18.6 18.1 17.61 17.18 16.71 16.44 16.45 16.61 17.01 17.55 17.96
+        19.47 19.05 18.61 18.12 17.74 17.43 17.06 16.71 16.41 16.25 16.02 16.1 16.57
+        20.19 19.8 19.43 19.07 18.71 18.42 18.13 17.83 17.6 17.43 17.26 17.16 17.24
+        21.15 20.82 20.57 20.21 20.0 19.74 19.5 19.27 18.99 18.84 18.62 18.46 18.42] ./ 100)
+
+function hestonTDSmileRows(panel, p, tte, forward, strikes)
+    tsParams, τ = AQFED.TermStructure.makeHestonTSParams(p, tte=tte)
+    pricer = CharFuncPricing.makeCosCharFuncPricer(DefaultCharFunc(tsParams), τ, 256, 10)
+    bgm, hagan = VolatilityModels.BGMApprox(tsParams), VolatilityModels.HaganHestonTSApprox(p, tte)
+    vol(price, k) = try Black.impliedVolatility(true, max(price, 1e-16), forward, k, tte, 1.0) catch; NaN end
+    return DataFrame(Panel=panel, Strike=collect(strikes),
+        Fourier=[100 * vol(CharFuncPricing.priceEuropean(pricer, true, k, forward, τ, 1.0), k) for k in strikes],
+        BGM=[100 * vol(VolatilityModels.priceEuropean(bgm, true, k, forward, τ, 1.0), k) for k in strikes],
+        Hagan=[100 * vol(VolatilityModels.priceEuropean(hagan, true, k, forward, tte, 1.0), k) for k in strikes])
+end
+
+@compute "hestontd_spx500_djia_iv" begin
+    fit(ts, forwards, strikes, vols) = hestonTDGlobal(ts, forwards, strikes, vols,
+        VolatilityModels.convertVolsToPricesOTMWeights(ts, forwards, strikes, vols, vegaFloor=1e-2, truncationDev=10.0)..., 5.0)
+    d = DJIA_ROUAH
+    ts = d.days ./ 365
+    forwards = d.spot .* exp.((d.r - d.q) .* ts)
+    djia = fit(ts, forwards, ones(length(ts)) * d.strikes', d.vols)
+    s = loadCalibrationSurface("spx500_2010.csv")
+    forwards2010 = s.spot .* exp.((0.02 - 0.01) .* s.expiries)
+    spx = fit(s.expiries, forwards2010, ones(length(s.expiries)) * s.strikes', s.vols)
+    i = argmin(abs.(s.expiries .- 175 / 365))
+    writetable("hestontd_spx500_djia_iv.csv", vcat(hestonTDSmileRows("DJIA - maturity 135 days", djia, ts[3], forwards[3], range(124.0, 136.0, length=61)),
+        hestonTDSmileRows("SPX500 in 2010 - maturity 175 days", spx, s.expiries[i], forwards2010[i], range(s.strikes[1], s.strikes[end], length=101))))
+end
+
+@figure "hestontd_spx500_djia_iv" begin
+    df = readcsv("hestontd_spx500_djia_iv.csv")
+    fig = bookFigure(size=(800, 400), figure_padding=TIGHT_PADDING)
+    local ax
+    for (position, panel) in enumerate(unique(df.Panel))
+        c = df[df.Panel.==panel, :]
+        ax = bookAxis(fig[1, position], xlabel="Strike", ylabel=position == 1 ? "Implied volatility in %" : "", title=panel)
+        for (i, (column, label)) in enumerate(((:Fourier, "Fourier"), (:BGM, "Benhamou, Gobet, Miri"), (:Hagan, "Hagan")))
+            lines!(ax, c.Strike, c[!, column], color=PALETTE[i], label=label)
+        end
+    end
+    Legend(fig[2, 1:2], ax, orientation=:horizontal, framevisible=false, padding=(0, 0, 0, 0), margin=(0, 0, 0, 0))
+    rowgap!(fig.layout, 4)
+    fig
+end

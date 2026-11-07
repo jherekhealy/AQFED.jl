@@ -12,7 +12,7 @@ module BookTools
 
 using CairoMakie, DataFrames, DelimitedFiles, CSV
 
-export DATA_DIR, figureDir, datapath, readtable, readcsv, writetable, readmatrix, rows, relabel!,
+export DATA_DIR, TIGHT_PADDING, figureDir, datapath, readtable, readcsv, writetable, readmatrix, rows, relabel!,
     @figure, @compute, FIGURES, COMPUTATIONS, renderFigures, runComputations,
     bookFigure, bookAxis, referenceScatter!, groupLines!, groupBands!, bookLegend!, logTicks, PALETTE, emptiestCorner,
     surface3D!, facetLines, SURFMAP, hexc, C_GRID, C_QUOTE, C_RING, C_RIBBON, PLOTDATA_DIR, writePlotData
@@ -107,7 +107,9 @@ const BOOK_THEME = Theme(
 
 __init__() = set_theme!(BOOK_THEME)
 
-bookFigure(; size=(400, 300)) = Figure(size=size)
+bookFigure(; size=(400, 300), kwargs...) = Figure(; size=size, kwargs...)
+#for wide and short figures: little white space around the axes, for a larger plot area at the same printed text size
+const TIGHT_PADDING = (2, 8, 2, 4)
 
 bookAxis(pos; xlabel="", ylabel="", kwargs...) = Axis(pos; xlabel=xlabel, ylabel=ylabel, kwargs...)
 
