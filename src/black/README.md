@@ -26,6 +26,32 @@ ReverseDiff.gradient!(y, compiled_f_tape, x)
 
 *Round-trip test: price a call with a known volatility, invert the price, and compare with the input. Relative error is near machine precision across the range, except for low volatilities far from the money, where the price is too small to invert in double precision and the solver does not recover the input (error shown as 100%).*
 
+Code that generates the figure (run from the repository root with CairoMakie installed):
+
+```julia
+using AQFED, CairoMakie
+import AQFED.Black
+
+# Round trip: price a call with a known volatility, invert the price, and compare with the input
+f = 100.0; T = 1.0; df = 1.0
+vols = 10 .^ range(-3, log10(2.0), length=60)
+strikes = [50.0, 80.0, 100.0, 120.0, 200.0]
+fig = Figure(size=(800, 450))
+ax = Axis(fig[1, 1], xlabel="volatility", ylabel="|σ_recovered - σ| / σ",
+    xscale=log10, yscale=log10, title="Black implied volatility solver: round-trip error")
+for K in strikes
+    errs = Float64[]
+    for σ in vols
+        p = Black.blackScholesFormula(true, K, f, σ * σ * T, df, 1.0)
+        s = Black.impliedVolatility(true, p, f, K, T, 1.0)
+        push!(errs, max(abs(s - σ) / σ, 1e-17))
+    end
+    lines!(ax, vols, errs, label="K = $(Int(K))")
+end
+axislegend(ax, position=:rb)
+save("resources/images/black_iv_roundtrip_error.png", fig, px_per_unit=2)
+```
+
 ### Standard Example
 ```julia
 import AQFED.Black

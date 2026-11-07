@@ -19,3 +19,34 @@ Smile and surface models fitted to market implied volatilities or option prices.
 - `QuadraticLVForwardPDE` and `calibrateQuadraticLVTermStructure`: quadratic local volatility term-structure fit by forward PDE.
 
 Units: volatilities are decimals (0.2 is 20%) in the APIs.
+
+## Figure
+
+![An SVI slice fitted to a smile with a small deterministic pe](../../resources/images/svi_fit.png)
+
+*An SVI slice fitted to a smile with a small deterministic perturbation. The fit captures the shape; the residual is the perturbation.*
+
+Code that generates the figure (run from the repository root with CairoMakie installed):
+
+```julia
+using AQFED, CairoMakie
+import AQFED.VolatilityModels: calibrateSVISection
+import AQFED.TermStructure: varianceByLogmoneyness
+
+# Fit an SVI slice to a noisy synthetic smile
+tte = 1.0; forward = 100.0
+strikes = collect(70.0:5.0:130.0)
+ys = log.(strikes ./ forward)
+trueVol(y) = 0.2 + 0.15 * y^2 - 0.05 * y
+vols = [trueVol(y) + 0.003 * sin(37.0 * y) for y in ys]
+svi, rmse = calibrateSVISection(tte, forward, ys, vols, ones(length(ys)), aMin=-2 * maximum(vols)^2)
+fitVol = sqrt.(varianceByLogmoneyness(svi, ys) ./ tte)
+println("SVI slice RMSE: ", rmse)
+
+fig = Figure(size=(800, 450))
+ax = Axis(fig[1, 1], xlabel="strike", ylabel="implied volatility", title="SVI slice fit to a noisy smile")
+scatter!(ax, strikes, vols, label="quotes")
+lines!(ax, strikes, fitVol, label="SVI")
+axislegend(ax, position=:ct)
+save("resources/images/svi_fit.png", fig, px_per_unit=2)
+```

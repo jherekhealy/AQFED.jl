@@ -61,3 +61,38 @@ Etore, P. and Gobet, E. (2012) [Stochastic expansion for the pricing of call opt
 Healy, J. (2021) [The Pricing of Vanilla Options with Cash Dividends as a Classic Vanilla Basket Option Problem](https://arxiv.org/abs/2106.12971)
 
 Le Floc'h, F. (2019) [More stochastic expansions for the pricing of vanilla options with cash dividends](https://arxiv.org/pdf/2106.12051)
+
+## Figure
+
+![Absolute error against HHL (near exact integration) for one ](../../resources/images/pln_error.png)
+
+*Absolute error against HHL (near exact integration) for one cash dividend, for the Le Floc'h-Lehman (order 3) and Zhang (order 2) approximations.*
+
+Code that generates the figure (run from the repository root with CairoMakie installed):
+
+```julia
+using AQFED, CairoMakie
+import AQFED.PLN: LeFlochLehmanPLNPricer, ZhangPLNPricer, HHLPLNPricer, LIQUIDATOR
+import AQFED.TermStructure: CapitalizedDividend, Dividend
+import AQFED.Math: GaussLegendre
+
+# One cash dividend: error of two approximations against a near exact integration (HHL)
+spot = 100.0; vol = 0.3; r = 0.05; tte = 1.0
+ttd = 0.9 * tte; divAmount = 7.0
+dividends = [CapitalizedDividend(Dividend(divAmount, ttd, ttd, false, false), exp((tte - ttd) * r))]
+rawForward = spot * exp(r * tte); df = exp(-r * tte)
+strikes = collect(60.0:5.0:140.0)
+reference = HHLPLNPricer(GaussLegendre(101), LIQUIDATOR)
+price(p, k) = AQFED.PLN.priceEuropean(p, true, k, rawForward, vol^2 * tte, tte, df, dividends)
+refPrices = [price(reference, k) for k in strikes]
+ll = [abs(price(LeFlochLehmanPLNPricer(3), k) - refPrices[i]) for (i, k) in enumerate(strikes)]
+zh = [abs(price(ZhangPLNPricer(2), k) - refPrices[i]) for (i, k) in enumerate(strikes)]
+
+fig = Figure(size=(800, 450))
+ax = Axis(fig[1, 1], xlabel="strike", ylabel="absolute error against HHL", yscale=log10,
+    title="Piecewise-lognormal approximations, one cash dividend")
+scatterlines!(ax, strikes, max.(ll, 1e-16), label="Le Floc'h-Lehman (order 3)")
+scatterlines!(ax, strikes, max.(zh, 1e-16), label="Zhang (order 2)")
+axislegend(ax, position=:rt)
+save("resources/images/pln_error.png", fig, px_per_unit=2)
+```

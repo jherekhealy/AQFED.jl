@@ -139,3 +139,40 @@ Guyon, J. and Henry-Labordère, P. (2012) [Being particular about calibration](h
 
 Van der Stoep, A. W., Grzelak, L. A., and Oosterlee, C. W. (2014) [The Heston stochastic-local volatility model: efficient Monte Carlo simulation](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2278122)
 
+## Figure
+
+![Error of a single Monte Carlo run against Black-Scholes, ver](../../resources/images/mc_convergence.png)
+
+*Error of a single Monte Carlo run against Black-Scholes, versus the number of paths. It follows the 1/√N trend on average; individual runs fluctuate, so the curve is not monotone.*
+
+Code that generates the figure (run from the repository root with CairoMakie installed):
+
+```julia
+using AQFED, CairoMakie
+import AQFED.MonteCarlo: simulate, VanillaOption, BulletCashFlow
+import AQFED.TermStructure: ConstantBlackModel
+import AQFED.Black
+import AQFED.Random: MersenneTwister64, AbstractRNGSeq
+
+# Monte Carlo error of a European call under Black-Scholes, against the number of paths
+spot = 100.0; strike = 100.0; tte = 1.0; vol = 0.3
+model = ConstantBlackModel(vol, 0.0, 0.0)
+payoff = VanillaOption(true, strike, BulletCashFlow(tte, tte, false, 0.0), 0.0)
+reference = Black.blackScholesFormula(true, strike, spot, vol^2 * tte, 1.0, 1.0)
+nPaths = 2 .^ (8:2:20)
+rng = MersenneTwister64(UInt64(20130129))
+errors = Float64[]
+for n in nPaths
+    estimate = simulate(AbstractRNGSeq(rng, 1), model, spot, payoff, n)
+    price = estimate isa Tuple ? estimate[1] : estimate
+    push!(errors, abs(price - reference))
+end
+
+fig = Figure(size=(800, 450))
+ax = Axis(fig[1, 1], xlabel="number of paths", ylabel="absolute error", xscale=log10, yscale=log10,
+    title="Monte Carlo European call: error against Black-Scholes")
+scatterlines!(ax, nPaths, errors, label="Monte Carlo")
+lines!(ax, nPaths, errors[1] .* sqrt.(nPaths[1] ./ nPaths), linestyle=:dash, color=:gray, label="slope -1/2")
+axislegend(ax, position=:lb)
+save("resources/images/mc_convergence.png", fig, px_per_unit=2)
+```

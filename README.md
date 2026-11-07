@@ -38,3 +38,35 @@ Each module has its own README with the main functions and examples.
 | [Fractals](src/fractal) | Fractal pictures of implied volatility solver convergence. |
 | [Minimizers](src/minimizer) | Differential evolution and simulated annealing for calibration. |
 | [Random Number Generators](src/random) | Good pseudo and quasi random number generators. |
+
+## Example
+
+![Black implied volatility round-trip error](resources/images/black_iv_roundtrip_error.png)
+
+*Round-trip test of the Black implied volatility solver: a call is priced with a known volatility, inverted, and compared with the input. Each module README has its own figure and code.*
+
+Code that generates the figure (run from the repository root with CairoMakie installed):
+
+```julia
+using AQFED, CairoMakie
+import AQFED.Black
+
+# Round trip: price a call with a known volatility, invert the price, and compare with the input
+f = 100.0; T = 1.0; df = 1.0
+vols = 10 .^ range(-3, log10(2.0), length=60)
+strikes = [50.0, 80.0, 100.0, 120.0, 200.0]
+fig = Figure(size=(800, 450))
+ax = Axis(fig[1, 1], xlabel="volatility", ylabel="|σ_recovered - σ| / σ",
+    xscale=log10, yscale=log10, title="Black implied volatility solver: round-trip error")
+for K in strikes
+    errs = Float64[]
+    for σ in vols
+        p = Black.blackScholesFormula(true, K, f, σ * σ * T, df, 1.0)
+        s = Black.impliedVolatility(true, p, f, K, T, 1.0)
+        push!(errs, max(abs(s - σ) / σ, 1e-17))
+    end
+    lines!(ax, vols, errs, label="K = $(Int(K))")
+end
+axislegend(ax, position=:rb)
+save("resources/images/black_iv_roundtrip_error.png", fig, px_per_unit=2)
+```

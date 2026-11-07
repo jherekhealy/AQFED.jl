@@ -60,3 +60,33 @@ otmVolatility(cal.vols[1], AQFED.TermStructure.forward(cal.market, τ)) #(vol, v
 The pricer is generic: any type implementing `priceAmerican(p, market, isCall, strike, τ, σ)` and `similar(p)` may be used,
 for example `JuZhongPricer()` for the carry calibration when no dividend goes ex before the maturity (`carryPricer` keyword).
 A full example on AAPL option chains is in `test/american_calibration_test.jl`.
+
+## Figure
+
+![American put (Ju-Zhong approximation) and European put on a ](../../resources/images/american_put_prices.png)
+
+*American put (Ju-Zhong approximation) and European put on a stock without dividends, σ = 30%, r = 5%, K = 100. The gap is the early-exercise premium.*
+
+Code that generates the figure (run from the repository root with CairoMakie installed):
+
+```julia
+using AQFED, CairoMakie
+import AQFED.American: priceAmerican, JuZhongPricer
+import AQFED.TermStructure: DiscreteDividendMarket, Dividend
+import AQFED.Black
+
+# American put on a stock without dividends (Ju-Zhong approximation) vs European put
+strike = 100.0; tte = 1.0; vol = 0.3; r = 0.05
+spots = collect(range(60.0, 140.0, length=81))
+market(spot) = DiscreteDividendMarket(spot, r, r, Dividend{Float64}[])
+americanPut = [priceAmerican(JuZhongPricer(), market(s), false, strike, tte, vol) for s in spots]
+europeanPut = [Black.blackScholesFormula(false, strike, s * exp(r * tte), vol^2 * tte, 1.0, exp(-r * tte)) for s in spots]
+
+fig = Figure(size=(800, 450))
+ax = Axis(fig[1, 1], xlabel="spot", ylabel="put price", title="American vs European put (σ = 30%, r = 5%, K = 100)")
+lines!(ax, spots, europeanPut, label="European")
+lines!(ax, spots, americanPut, label="American (Ju-Zhong)")
+lines!(ax, spots, max.(strike .- spots, 0.0), linestyle=:dash, color=:gray, label="intrinsic value")
+axislegend(ax, position=:rt)
+save("resources/images/american_put_prices.png", fig, px_per_unit=2)
+```

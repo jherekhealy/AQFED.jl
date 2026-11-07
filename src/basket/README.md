@@ -140,3 +140,37 @@ Ju, N. (2002) [Pricing Asian and basket options via Taylor expansion](https://ww
 Healy, J. (2021) [The Pricing of Vanilla Options with Cash Dividends as a Classic Vanilla Basket Option Problem](https://arxiv.org/abs/2106.12971)
 
 Vellekoop, M.H. and Nieuwenhuis, J.W. (2006) [Efficient Pricing of Derivatives on Assets with Discrete Dividends](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.486.9053&rep=rep1&type=pdf)
+
+## Figure
+
+![Equal-weight basket call on two 20% assets against correlati](../../resources/images/basket_price_correlation.png)
+
+*Equal-weight basket call on two 20% assets against correlation. The methods agree closely; the Vorst order-1 expansion deviates most for negative correlation.*
+
+Code that generates the figure (run from the repository root with CairoMakie installed):
+
+```julia
+using AQFED, CairoMakie
+import AQFED.Basket: DeelstraBasketPricer, VorstGeometricExpansion, SLN3MMBasketPricer, priceEuropean
+
+# European basket call on two assets (equal weights, 20% volatilities) against the correlation
+spot = [100.0, 100.0]; forward = spot; strike = 100.0; tte = 1.0; vol = 0.2
+discountFactor = 1.0; weight = [0.5, 0.5]
+tvar = fill(vol^2 * tte, 2)
+rhos = collect(-0.9:0.1:0.9)
+correlationMatrix(rho) = [1.0 rho; rho 1.0]
+pricers = [
+    "Deelstra" => DeelstraBasketPricer(),
+    "Vorst geometric, order 1" => VorstGeometricExpansion(1),
+    "SLN 3-moment" => SLN3MMBasketPricer(),
+]
+
+fig = Figure(size=(800, 450))
+ax = Axis(fig[1, 1], xlabel="correlation ρ", ylabel="call price", title="Basket call price against correlation")
+for (name, pricer) in pricers
+    prices = [priceEuropean(pricer, true, strike, discountFactor, spot, forward, tvar, weight, correlationMatrix(rho)) for rho in rhos]
+    lines!(ax, rhos, prices, label=name)
+end
+axislegend(ax, position=:rt)
+save("resources/images/basket_price_correlation.png", fig, px_per_unit=2)
+```
