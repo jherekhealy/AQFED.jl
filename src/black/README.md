@@ -21,6 +21,11 @@ ReverseDiff.gradient!(y, compiled_f_tape, x)
 ```
 
 ## Implied Volatility Solver
+
+![Round-trip error of the implied volatility solver](../../resources/images/black_iv_roundtrip_error.png)
+
+*Round-trip test: price a call with a known volatility, invert the price, and compare with the input. Relative error is near machine precision across the range, except for low volatilities far from the money, where the price is too small to invert in double precision and the solver does not recover the input (error shown as 100%).*
+
 ### Standard Example
 ```julia
 import AQFED.Black
