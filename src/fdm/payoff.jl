@@ -501,6 +501,11 @@ observationTimes(p::KreissSmoothDefinition{TS}) where {TS} = observationTimes(p.
 
 nonSmoothPoints(p::KreissSmoothDefinition{TS}) where {TS} = nonSmoothPoints(p.delegate) #we still want to concentrate points there
 
+#true if a barrier is monitored continuously, through a boundary condition inside the grid
+hasContinuousBarrier(::StructureDefinition) = false
+hasContinuousBarrier(::Union{ContinuousKO,ContinuousDKO,ContinuousKI}) = true
+hasContinuousBarrier(p::KreissSmoothDefinition) = hasContinuousBarrier(p.delegate)
+
 function makeFDMStructure(p::KreissSmoothDefinition{TS}, underlying::AbstractArray{T}) where {T,TS}
     return makeFDMStructure(p.delegate, underlying)
 end

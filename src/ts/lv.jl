@@ -90,7 +90,7 @@ function localVarianceDenominator(w, y; autodiff = :central)
 		d2wdy2 = ForwardDiff.derivative(z -> ForwardDiff.derivative(w, z), y)
 		dwdy, d2wdy2
 	end
-	return localVarianceDenominator(w, dwdy, d2wdy2, y)
+	return localVarianceDenominator(w(y), dwdy, d2wdy2, y)
 end
 
 function totalVarianceByLogmoneyness(

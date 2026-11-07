@@ -108,7 +108,7 @@ function initialGuessNormalATM(f::Float64, term::Float64, β::Float64, vol::Floa
 	nuSq = (3 * vol * d2vol - (β^2 + β) / 2 * vol^2 + 3vol * (dvol - β / 2 * vol) + 3 / 2 * (2dvol - β * vol)^2) / f^2
 	nu = sqrt(nuSq)
 	rho = (2 * dvol - β * vol) / (f * nu)
-	SABRParams(vol, term, f, β, rho, nu)
+	SABRParams(vol / f^β, β, rho, nu) #vol is a normal (Bachelier) volatility: α = σN / f^β as before 8f8a083
 end
 
 

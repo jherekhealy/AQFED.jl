@@ -26,15 +26,6 @@ using DataFrames, StatsBase
 	priceRAN = AQFED.FDM.priceTRBDF2(payoffKV, spot, model, dividends, M = xSteps, N = tSteps, Smin = Smin, Smax = Smax, grid = grid, timeSteppingName = "Rannacher4", varianceConditioner = PartialExponentialFittingConditioner())
 	priceRKL = AQFED.FDM.priceRKL2(payoffKV, spot, model, dividends, M = xSteps, N = tSteps, Smin = Smin, Smax = Smax, grid = grid, varianceConditioner = PartialExponentialFittingConditioner())
 	priceRKG = AQFED.FDM.priceRKG2(payoffKV, spot, model, dividends, M = xSteps, N = tSteps, Smin = Smin, Smax = Smax, grid = grid, varianceConditioner = PartialExponentialFittingConditioner())
-	#=
-	p1 = plot(priceCN.x,PPInterpolation.evaluateSecondDerivative.(priceCN,priceCN.x),ylims=(-0.005,0.075),yticks=[0,0.025,0.05,0.075],label="Crank-Nicolson")
-	p2 = plot(priceRAN.x,PPInterpolation.evaluateSecondDerivative.(priceRAN,priceRAN.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="Rannacher")
-	p3 = plot(priceTRBDF2.x,PPInterpolation.evaluateSecondDerivative.(priceTRBDF2,priceTRBDF2.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="TR-BDF2")
-	p4 = plot(priceRKL.x,PPInterpolation.evaluateSecondDerivative.(priceRKL,priceRKL.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="RKL")
-	p5 = plot(priceRKL.x,PPInterpolation.evaluateSecondDerivative.(priceRKG,priceRKG.x),ylims=(-0.005,0.075),yticks=([0,0.025,0.05,0.075],["","","",""]),label="RKG")
-	 plot(p1,p2,p3,p4,p5,layout=(1,5),size=(1024,200),margins=1Plots.mm)
-
-	=#
 
 end
 @testset "SmallGridSolvers" begin
@@ -185,13 +176,6 @@ end
 			end
 		end
 	end
-	# udata = data[startswith.(data.grid,"Uniform"),:]
-	# plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-	# savefig("~//mypapers/eqd_book/uniform_kreiss_time_vanilla.pdf")
-	# udata = data[startswith.(data.grid,"Cubic"),:]
-	# plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-	# savefig("~//mypapers/eqd_book/cubic_kreiss_time_vanilla.pdf")
-	#plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:ln,yticks=([0.0001,0.0002,0.0004],[0.0001,0.0002,0.0004]),ylabel="Absolute error in price", xlabel="number of time-steps",mode="markers")
 
 
 	#American
@@ -392,14 +376,6 @@ end
 			println(σ, " ", m, " AL-PP3 ", alPrice, " ", alPrice - refPrice)
 
 		end
-		#= plot(ms,abs.(alPrices .- refPrice), label="Andersen-Lake nₚₚ=1", xlabel="m", ylabel="Absolute error in price", yscale= :log10)
-		 plot!(ms,abs.(alppPrices .- refPrice), label="Andersen-Lake nₚₚ=m", xlabel="m", ylabel="Absolute error in price", yscale= :log10)
-		plot!(size=(300,200))
-
-		 savefig("~//mypapers/eqd_book/alpp_eur_error.pdf")
-		 savefig("~//mypapers/eqd_book/alpp_try_error_vol20.pdf")
-
-		 =#
 
 	end
 	# => good convergence
@@ -438,33 +414,6 @@ end
 		collocation = AQFED.American.ChebyshevPPCollocation([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1.0], 5, isDiscontinuous = false),
 		quadrature = AQFED.American.TanhSinhPPQuadrature([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1.0], 51),
 	)
-	#=   
-	using PlotThemes
-	theme(:vibrant)
-	plot(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Time to maturity", ylab="Asset price")
-	plot!( t,AQFED.American.exerciseBoundary(al, spot, t), label="Andersen-Lake m=9 nₚₚ=1")
-	plot!( t,AQFED.American.exerciseBoundary(alpp, spot, t), label="Andersen-Lake m=5 nₚₚ=9")
-	plot!(size=(400,300))
-	plot( t,AQFED.American.exerciseBoundary(alg1, spot, t), label="Andersen-Lake m=9 nₚₚ=1")
-	plot!(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Time", ylab="Asset price", size=(450,300))
-	plot!( t,AQFED.American.exerciseBoundary(alg5, spot, t), label="Andersen-Lake m=5 nₚₚ=9",linestyle=:dot)
-	savefig("~//mypapers/eqd_book/alpp_eur_spread.pdf")
-
-	savefig("~//mypapers/eqd_book/alpp_eur_spread.pdf")
-	plot(t, -ForwardDiff.derivative.(eurpp,t) .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
-	plot!(size=(400,200))
-	savefig("~//mypapers/eqd_book/eur_forward_rate.pdf")
-	plot(t, -eurpp.(t) ./t .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
-	plot!(size=(400,200))
-	savefig("~//mypapers/eqd_book/eur_rate.pdf")
-	plot(t, -ForwardDiff.derivative.(trypp,t) .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
-	plot!(size=(400,200))
-	savefig("~//mypapers/eqd_book/try_forward_rate.pdf")
-	plot(t, -trypp.(t) ./t .* 100,xlab="time in ACT/365", ylab="Rate in %",label="")
-	plot!(size=(400,200))
-	savefig("~//mypapers/eqd_book/try_rate.pdf")
-
-	=#
 
 
 	#test 2.2 - discount=EUR, drift=1%+EUR OKish not as good for sigma=0.1
@@ -498,21 +447,10 @@ end
 		quadrature = AQFED.American.TanhSinhPPQuadrature(cutDates, 51, isDiscontinuous = true),
 	)
 
-	#=   
-	using PlotThemes
-	theme(:vibrant)
-	plot(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Time to maturity", ylab="Asset price")
-	plot!( t,AQFED.American.exerciseBoundary(al, spot, t), label="Andersen-Lake m=7 nₚₚ=1")
-	plot!( t,AQFED.American.exerciseBoundary(alpp, spot, t), label="Andersen-Lake m=5 nₚₚ=7")
-	plot!(size=(400,300))
-	savefig("~//mypapers/eqd_book/alpp_try_eur.pdf")
-	=#
-
 	#Fourth test - discount=EUR, drift=EUR-TRY #no issue
 	discountCurve = AQFED.TermStructure.InterpolatedLogDiscountFactorCurve(eurpp)
 	driftCurve = AQFED.TermStructure.InterpolatedLogDiscountFactorCurve(eurtrypp)
 
-	# plot(t,AQFED.American.exerciseBoundary(al, strike, t))
 	#fifth test, discrete prop
 	tte = 1.0
 	spot = 100.0
@@ -543,9 +481,6 @@ end
 		algPrice = AQFED.American.priceAmerican(alg, strike, spot)
 		println(m, " ", alppPrice, " ", alppPrice - refPrice, " ", algPrice, " ", algPrice - refPrice)
 	end
-	# plot( t,AQFED.American.exerciseBoundary(alg, spot, t), label="Andersen-Lake m=15")
-	# plot!(payoffB.exerciseTimes, payoffB.exerciseBoundary, label="TR-BDF2", xlab="Time", ylab="Asset price", size=(450,300))
-	# savefig("~//mypapers/eqd_book/al_prop_nolog.pdf")
 
 
 	# test put call symmetry with dividends
@@ -757,27 +692,6 @@ end
 		push!(data, [strike, keyname, price, price - blackPrice])
 		println(strike, " ", keyname, " ", price, " ", price - blackPrice)
 	end
-	#udata = data[@.(startswith(data.grid,"Log")),:]
-	#julia> udata = data[@.(startswith(data.grid,"Cubic-0") || startswith(data.grid,"Uniform") || startswith(data.grid,"LogGrid")),:]
-	#julia> plot(udata.Strike,abs.(udata.error),group=udata.grid,size=(800,300),xlabel="Strike",ylabel="Absolute error in price",margin=3Plots.mm)
-
-
-
-	#        
-	#         labels[1,8] = "LogSchemeUniform Uncalibrated"
-	#         data[i,8]=price-blackPrice
-	#         println(strike, " LogSchemeUniform Uncalibrated ",price, " ",price-blackPrice)
-	#         price = AQFED.FDM.priceLogTRBDF2(payoff, spot, driftCurve,varianceSurface, discountCurve, dividends,M=M,N=N,Smax=Smax,calibration=ForwardCalibration(),grid="Shift")(spot)
-	#         labels[1,9] = "LogSchemeUniform Calibrated"
-	#         data[i,9]=price-blackPrice
-	# println(strike, " LogSchemeUniform Calibrated ",price, " ",price-blackPrice)
-	#         price = AQFED.FDM.priceLogTRBDF2(payoff, spot, driftCurve,varianceSurface, discountCurve, dividends,M=M,N=N,Smax=Smax,Smin=-1,calibration=NoCalibration(),grid="Cubic")(spot)
-	#         labels[1,10] = "LogSchemeCubic Uncalibrated"
-	#         data[i,10]=price-blackPrice
-	#         println(strike, " LogSchemeCubic Uncalibrated ",price, " ",price-blackPrice)
-	#             end
-	#         end
-	#julia> plot(strikes,abs.(data),label=labels,legend=:outertopleft,markershapes=[:circle],yscale=:log10)
 
 	# end
 

@@ -1,0 +1,3742 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.0,42.60889715051393,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.002,42.181415437427255,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.004,41.77991324233021,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.006,41.403256969365,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.008,41.0503803792188,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.01,40.72027995970901,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.012,40.41201064309761,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.014,40.124681841355894,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.016,39.8574537731942,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.018,39.60953405901182,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.02,39.38017456204031,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.022,39.16866845587003,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.024,38.97434750028499,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.026,38.79657950890424,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.028,38.63476599355527,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.03,38.488339971598485,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.032,38.35676392359918,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.034,38.23952788981123,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.036,38.13614769490921,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.038,38.046163291290306,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.04,37.96913721207286,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.042,37.90465312565251,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.044,37.85231448434666,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.046,37.81174326026832,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.048,37.782578762128686,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.05,37.76447652717664,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.052,37.757107282949704,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.054,37.76015597393648,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.056,37.773320848640765,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.058,37.79631260289424,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.06,37.82885357559195,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.062,37.87067699332417,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.064,37.92152626065358,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.066,37.98115429303851,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.068,38.04932288963503,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.07,38.12580214342267,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.072,38.210369886294394,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.074,38.30281116693101,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.076,38.40291775944457,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.078,38.51048770092814,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.08,38.625324856187895,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.082,38.74723850806291,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.084,38.87604297185547,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.086,39.01155723250403,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.088,39.15360460323109,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.09,39.30201240449014,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.092,39.456611662121254,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.094,39.617236823702484,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.096,39.783725492156755,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.098,39.95591817573967,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.1,40.13365805359465,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.102,40.3167907561181,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.104,40.505164159428695,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.106,40.69862819328183,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.108,40.897034661814416,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.11,41.100237076544566,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.112,41.308090501087754,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.114,41.52045140708394,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.116,41.737177540861836,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.118,41.95812780039364,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.12,42.18316212211951,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.122,42.4121413772453,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.124,42.64492727713662,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.126,42.88138228745388,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.128,43.12136955068871,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.13,43.36475281677958,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.132,43.611396381497485,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.134,43.861165032307476,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.136,44.1139240014218,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.138,44.36953892577172,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.14,44.62787581363532,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.142,44.888801017665564,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.144,45.15218121407184,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.146,45.417883387714056,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.148,45.68577482287492,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.15,45.955723099480814,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.152,46.227596094546925,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.154,46.50126198862554,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.156,46.77658927704127,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.158,47.05344678569865,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.16,47.33170369125151,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.162,47.6112295454256,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.164,47.89189430328754,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.166,48.173568355256144,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.168,48.45612256265266,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.17,48.73942829658892,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.172,49.02335747999375,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.174,49.30778263257808,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.176,49.592576918542385,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.178,49.8776141968297,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.18,50.162769073729685,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.182,50.44791695763966,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.184,50.73293411579052,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.186,51.01769773274668,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.188,51.30208597049031,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.19,51.58597802990202,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.192,51.86925421345212,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.194,52.15179598891774,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.196,52.4334860539441,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.198,52.714208401269424,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.2,52.993848384436106,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.202,53.27229278381327,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.204,53.54942987275819,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.206,53.8251494837474,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.208,54.099343074311555,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.21,54.37190379261132,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.212,54.64272654249521,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.214,54.911708047884346,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.216,55.1787469163328,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.218,55.44374370161672,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.22,55.70660096520962,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.222,55.96722333650631,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.224,56.22551757166207,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.226,56.481392610919336,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.228,56.73475963429897,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.23,56.98553211553862,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.232,57.233625874166336,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.234,57.47895912560287,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.236,57.721452529192184,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.238,57.961029234065684,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.24,58.19761492275107,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.242,58.43113785244341,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.244,58.66152889386217,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.246,58.88872156762347,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.248,59.11265207806415,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.25,59.33325934445951,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.252,59.5504850295837,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.254,59.764273565567784,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.256,59.97457217701633,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.258,60.18133090135104,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.26,60.38450260635414,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.262,60.58404300489276,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.264,60.77991066680985,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.266,60.97206702797393,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.268,61.160476396486374,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.27,61.345105956050006,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.272,61.52592576650871,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.274,61.70290876157415,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.276,61.876030743759756,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.278,62.04527037654894,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.28,62.21060917382829,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.282,62.37203148662268,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.284,62.529524487173084,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.286,62.68307815040299,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.288,62.83268523282351,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.29,62.97834124893173,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.292,63.12004444516032,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.294,63.25779577144088,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.296,63.391598850446286,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.298,63.5214599445814,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.3,63.64738792079383,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.302,63.76939421327991,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.304,63.8874927841633,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.306,64.00170008222626,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.308,64.11203499977547,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.31,64.21851882772641,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.312,64.32117520899243,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.314,64.42003009026477,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.316,64.51511167227275,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.318,64.60645035861282,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.32,64.69407870323711,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.322,64.77803135669154,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.324,64.85834501119515,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.326,64.93505834465118,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.328,65.00821196368139,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.33,65.07784834577397,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.332,65.1440117806358,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.334,65.20674831083824,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.336,65.2661056718456,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.338,65.3221332315138,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.34,65.37488192914604,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.342,65.42440421419079,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.344,65.47075398466558,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.346,65.51398652538938,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.348,65.5541584461034,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.35,65.59132761955927,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.352,65.62555311965119,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.354,65.65689515966625,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.356,65.68541503072571,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.358,65.71117504048665,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.36,65.73423845217235,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.362,65.754669423996,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.364,65.7725329490409,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.366,65.78789479565712,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.368,65.80082144843226,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.37,65.81138004979113,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.372,65.81963834227678,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.374,65.82566461156232,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.376,65.82952763024026,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.378,65.83129660243368,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.38,65.83104110927022,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.382,65.8288310552581,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.384,65.82473661559945,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.386,65.81882818447436,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.388,65.81117632432644,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.39,65.80185171617721,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.392,65.79092511099486,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.394,65.77846728214004,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.396,65.7645489789083,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.398,65.74924088118726,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.4,65.7326135552434,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.402,65.71473741065083,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.404,65.6956826583729,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.406,65.6755192700044,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.408,65.65431693818013,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.41,65.63214503815367,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.412,65.60907259054775,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.414,65.585168225276,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.416,65.56050014663332,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.418,65.53513609955097,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.42,65.50914333701,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.422,65.48258858860547,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.424,65.45553803025173,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.426,65.42805725501802,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.428,65.40021124508158,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.43,65.37206434478475,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.432,65.34368023478022,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.434,65.31512190724854,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.436,65.28645164216962,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.438,65.25773098462992,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.44,65.22902072314498,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.442,65.20038086897712,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.444,65.17187063642608,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.446,65.14354842407046,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.448,65.11547179693687,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.45,65.08769746957267,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.452,65.06028128999809,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.454,65.0332782245129,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.456,65.00674234333195,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.458,64.9807268070241,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.46,64.95528385372849,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.462,64.93046478712158,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.464,64.90631996510879,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.466,64.88289878921391,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.468,64.86024969463959,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.47,64.83842014097229,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.472,64.81745660350497,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.474,64.79740456515091,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.476,64.77830850892234,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.478,64.7602119109474,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.48,64.74315723399981,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.482,64.72718592151507,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.484,64.71233839206828,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.486,64.69865403428821,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.488,64.68617120218325,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.49,64.67492721085492,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.492,64.66495833257554,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.494,64.6562997932067,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.496,64.648985768936,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.498,64.64304938331038,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.5,64.63852270454427,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.502,64.63543674308225,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.504,64.63382144939591,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.506,64.63370571199599,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.508,64.63511735564089,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.51,64.63808313972399,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.512,64.64262875682279,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.514,64.64877883139339,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.516,64.6565569185955,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.518,64.66598550323287,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.52,64.67708599879596,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.522,64.6898787465937,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.524,64.70438301496306,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.526,64.72061699854473,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.528,64.73859781761567,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.53,64.75834151746895,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.532,64.77986306783309,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.534,64.80317636232364,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.536,64.82829421792103,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.538,64.85522837446926,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.54,64.88398949419185,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.542,64.91458716122129,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.544,64.94702988114047,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.546,64.98132508053465,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.548,65.01747910655426,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.55,65.05549722648941,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.552,65.09538362735805,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.554,65.13714141551132,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.556,65.18077261625989,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.558,65.2262781735267,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.56,65.27365794953245,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.562,65.32291072452115,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.564,65.3740341965342,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.566,65.42702498124228,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.568,65.48187861184614,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.57,65.53858953905714,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.572,65.59715113117083,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.574,65.65755567424681,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.576,65.71979437240994,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.578,65.78385734828841,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.58,65.84973364360546,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.582,65.9174112199426,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.584,65.98687695969302,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.586,66.0581166672251,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.588,66.13111507027634,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.59,66.20585582159978,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.592,66.28232150088526,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.594,66.36049361697894,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.596,66.4403526104257,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.598,66.5218778563593,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.6,66.6050476677666,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.602,66.68983929915262,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.604,66.77622895063398,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.606,66.86419177248915,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.608,66.95370187019466,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.61,67.04473230997674,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.612,67.13725512490888,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.614,67.23124132158644,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.616,67.32666088740939,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.618,67.42348279850529,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.62,67.52167502832516,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.622,67.62120455694443,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.624,67.72203738110278,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.626,67.82413852501551,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.628,67.92747205199086,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.63,68.03200107688593,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.632,68.13768777943623,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.634,68.24449341849159,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.636,68.35237834719287,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.638,68.46130202912292,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.64,68.57122305546484,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.642,68.68209916320129,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.644,68.7938872543869,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.646,68.90654341652663,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.648,69.02002294409122,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.65,69.13428036120148,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.652,69.24926944551095,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.654,69.36494325331726,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.656,69.48125414593022,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.658,69.59815381732427,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.66,69.71559332310221,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.662,69.83352311079473,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.664,69.95189305152033,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.666,70.07065247302764,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.668,70.18975019414138,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.67,70.30913456063126,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.672,70.42875348252119,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.674,70.54855447285497,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.676,70.66848468793204,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.678,70.78849096902486,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.68,70.90851988558822,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.682,71.02851777996705,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.684,71.14843081360839,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.686,71.26820501477984,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.688,71.38778632779463,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.69,71.50712066374074,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.692,71.62615395270873,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.694,71.74483219751039,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.696,71.8631015288769,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.698,71.980908262123,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.7,72.09819895525995,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.702,72.21492046853726,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.704,72.33102002538998,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.706,72.4464452747653,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.708,72.56114435479867,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.71,72.67506595780627,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.712,72.7881593965579,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.714,72.90037467179033,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.716,73.01166254091805,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.718,73.12197458789524,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.72,73.23126329417869,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.722,73.33948211073876,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.724,73.44658553106161,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.726,73.55252916508276,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.728,73.65726981398853,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.73,73.76076554581923,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.732,73.8629757718036,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.734,73.96386132335228,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.736,74.06338452963354,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.738,74.16150929565293,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.74,74.25820118075416,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.742,74.35342747745679,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.744,74.44715729054316,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.746,74.53936161630422,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.748,74.6300134218519,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.75,74.71908772440273,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.752,74.80656167043585,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.754,74.89241461462595,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.756,74.97662819845,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.758,75.05918642836498,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.76,75.14007575345192,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.762,75.21928514242032,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.764,75.29680615986588,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.766,75.3726330416729,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.768,75.44676276945222,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.77,75.51919514390471,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.772,75.58993285699918,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.774,75.65898156285407,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.776,75.72634994721064,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.778,75.7920497953867,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.78,75.8560960585983,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.782,75.91850691853797,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.784,75.97930385009757,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.786,76.03851168212427,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.788,76.09615865609837,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.79,76.15227648262179,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.792,76.20690039560637,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.794,76.26006920405158,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.796,76.31182534130085,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.798,76.3622149116665,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.8,76.41128773431228,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.802,76.45909738428317,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.804,76.5057012305705,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.806,76.55116047110077,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.808,76.5955401645343,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.81,76.63890925875869,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.812,76.68134061596017,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.814,76.72291103415255,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.816,76.76370126504081,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.818,76.80379602809201,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.82,76.84328402068094,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.822,76.88225792417286,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.824,76.92081440579783,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.826,76.95905411616403,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.828,76.99708168224707,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.83,77.03500569568259,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.832,77.07293869617628,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.834,77.1109971498317,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.836,77.14930142218054,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.838,77.1879757456816,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.84,77.2271481814349,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.842,77.26695057483435,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.844,77.30751850485758,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.846,77.34899122666296,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.848,77.39151160713286,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.85,77.43522605296785,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.852,77.48028443089808,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.854,77.5268399795366,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.856,77.57504921235287,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.858,77.62507181119483,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.86,77.67707050973254,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.862,77.73121096613632,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.864,77.78766162423717,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.866,77.84659356234627,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.868,77.90818032883377,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.87,77.97259776348389,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.872,78.04002380355473,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.874,78.1106382733747,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.876,78.18462265620532,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.878,78.26215984699057,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.88,78.3434338844964,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.882,78.42862966122105,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.884,78.51793260932686,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.886,78.6115283607083,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.888,78.70960237916927,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.89,78.81233956253683,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.892,78.91992381238906,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.894,79.03253756892357,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.896,79.15036130834363,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.898,79.27357299999314,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.9,79.40234752033302,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.902,79.53685602072876,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.904,79.67726524591312,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.906,79.82373679991363,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.908,79.97642635619785,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.91,80.13548280880663,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.912,80.30104736133357,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.914,80.47325255078903,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.916,80.65222120368705,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.918,80.83806532214977,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.92,81.03088489847764,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.922,81.23076665754412,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.924,81.43778272760963,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.926,81.65198924180159,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.928,81.87342487469273,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.93,82.1021093212733,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.932,82.33804172934828,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.934,82.5811991012395,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.936,82.83153468695929,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.938,83.08897639915882,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.94,83.35342529069365,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.942,83.62475414931413,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.944,83.90280628175016,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.946,84.18739458261696,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.948,84.47830101389047,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.95,84.77527666060035,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.952,85.07804258121159,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.954,85.38629174158623,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.956,85.6996924160491,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.958,86.01789356741607,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.96,86.34053289366837,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.962,86.66724847263613,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.964,86.99769527815107,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.966,87.33156832835462,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.968,87.66863493204237,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.97,88.0087795381699,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.972,88.35206625651273,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.974,88.69882652205719,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.976,89.04978317229882,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.978,89.40622838073608,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.98,89.77028327759045,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.982,90.14528527143426,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.984,90.53638243356606,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.986,90.95147899298483,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.988,91.40281037138989,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.99,91.90973052113577,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.992,92.50406567540253,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.994,93.24167057209692,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.996,94.23232563152764,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,0.998,95.74758408243497,NaN
+1,1,lines,Andersen-Lake m=9 nₚₚ=1,1.0,99.99999999999999,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.0,41.06756724050695,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.002,41.70478686872209,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.004,42.28185704146525,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.006,42.798484447761645,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.008,43.25477614326834,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.01,43.65122394794432,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.012,43.98868563644403,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.014,44.26836338438436,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.016,44.491779947434196,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.018,44.66075305410266,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.02,44.77736848793939,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.022,44.84395232154005,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.024,44.86304274431666,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.026,44.837361899562,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.028,44.76978811506236,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.03,44.66332887654521,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.032,44.52109485571124,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.034,44.346275265563875,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.036,44.142114776203634,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.038,43.91189218510203,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.04,43.65890099790291,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.042,43.38643203970216,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.044,43.09775818309442,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.046,42.79612124849595,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.048,42.48472110468774,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.05,42.16670697338999,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.052,41.8451709210869,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.054,41.523143504268994,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.056,41.203591520645105,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.058,40.88941780847838,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.06,40.583463028688435,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.062,40.28850935925296,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.064,40.00728602808355,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.066,39.742476608046275,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.068,39.49672799491365,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.07,39.27266098404285,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.072,39.072882352004896,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.074,38.89999833163295,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.076,38.75662933763956,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.078,38.64542574689763,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.08,38.569084450005484,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.082,38.53036574877285,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.084,38.532109945229756,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.086,38.57725259764708,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.088,38.668836815612536,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.09,38.81001996673309,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.092,39.00407047404566,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.094,39.2543474249528,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.096,39.56425033610978,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.098,39.937116136896186,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.1,40.376019433224066,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.102,40.88338534219757,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.104,41.46020706245805,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.106,42.104313512972105,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.108,42.805795029610714,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.11,43.52897352799256,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.112,44.10267327077056,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.114,44.66808207136396,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.116,45.23105213676752,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.118,45.791137615648026,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.12,46.34788357771333,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.122,46.900826527186446,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.124,47.449494964006306,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.126,47.99340999424444,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.128,48.53208599124127,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.13,49.065031308987415,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.132,49.59174904931211,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.134,50.11173788449127,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.136,50.624492936959356,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.138,51.12950671790595,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.14,51.62627012666633,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.142,52.11427351298211,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.144,52.59300780442436,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.146,53.061965701545724,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.148,53.52064294367725,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.15,53.96853964872342,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.152,54.40516173085845,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.154,54.83002240071359,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.156,55.242643753500985,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.158,55.642558451586154,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.16,56.029311509349064,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.162,56.402462189830096,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.164,56.761586024724885,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.166,57.106276971879936,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.168,57.43614972769225,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.17,57.75084221591429,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.172,58.05001827955798,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.174,58.33337060920736,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.176,58.600623949530494,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.178,58.8515386367359,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.18,59.08591453397962,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.182,59.303595450467405,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.184,59.504474154862564,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.186,59.68849812698339,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.188,59.85567623711915,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.19,60.0060866047617,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.192,60.139885975929495,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.194,60.2573210825853,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.196,60.35874262794232,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.198,60.44462280856779,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.2,60.5155776896372,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.202,60.57239638230485,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.204,60.61607999096449,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.206,60.64789500026219,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.208,60.669448740261736,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.21,60.68280001621697,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.212,60.69062861884179,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.214,60.696509764278574,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.216,60.70539080016525,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.218,60.72449704297498,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.22,60.76521019220456,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.222,60.841121516892926,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.224,60.82548893661895,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.226,60.81884367547779,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.228,60.81042041238416,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.23,60.80030339811764,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.232,60.7885773618186,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.234,60.775327487137034,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.236,60.76063938877433,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.238,60.74459908935685,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.24,60.72729299656759,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.242,60.70880788044858,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.244,60.6892308507704,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.246,60.66864933434708,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.248,60.647151052152495,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.25,60.62482399607032,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.252,60.60175640507951,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.254,60.578036740643746,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.256,60.55375366103311,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.258,60.52899599425848,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.26,60.50385270924345,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.262,60.4784128847918,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.264,60.45276567582869,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.266,60.427000276298735,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.268,60.40120587798876,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.27,60.37547162440413,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.272,60.34988655865882,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.274,60.32453956413254,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.276,60.29951929639448,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.278,60.27491410458,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.28,60.25081194001667,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.282,60.22730024940749,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.284,60.20446584926537,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.286,60.1823947775104,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.288,60.16117211714243,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.29,60.14088178560893,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.292,60.12160628180422,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.294,60.10342638041652,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.296,60.086420760383476,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.298,60.070665550229606,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.3,60.05623376761078,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.302,60.04319462283342,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.304,60.03161264546356,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.306,60.021546577849826,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.308,60.013047956989865,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.31,60.00615927262024,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.312,60.00091153784025,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.314,59.99732102696509,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.316,59.99538480171179,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.318,59.99507441944098,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.32,59.99632681199285,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.322,59.99903056124095,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.324,60.00300426639213,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.326,60.00796037524797,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.328,60.01343998547929,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.33,60.0186845174147,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.332,60.02239734009442,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.334,60.02867007116416,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.336,60.03608352556571,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.338,60.04506054380499,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.34,60.055604075480076,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.342,60.06771711327323,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.344,60.08140268825659,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.346,60.096663864770235,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.348,60.11350373482993,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.35,60.13192541201773,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.352,60.15193202480229,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.354,60.17352670923001,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.356,60.196712600920165,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.358,60.221492826289726,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.36,60.247870492922814,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.362,60.27584867898994,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.364,60.30543042160803,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.366,60.336618704018704,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.368,60.369416441443626,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.37,60.403826465456426,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.372,60.43985150668666,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.374,60.47749417564277,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.376,60.51675694140851,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.378,60.55764210792772,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.38,60.60015178754479,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.382,60.64428787141259,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.384,60.69005199631087,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.386,60.73744550733623,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.388,60.78646941582371,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.39,60.837124351737025,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.392,60.889410509612155,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.394,60.943327586949025,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.396,60.99887471370934,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.398,61.05605037127805,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.4,61.114852298864406,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.402,61.17527738482702,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.404,61.23732153976943,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.406,61.30097954741467,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.408,61.366244888154334,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.41,61.43310952866897,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.412,61.50156366897102,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.414,61.57159543538487,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.416,61.64319050397612,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.418,61.71633163318598,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.42,61.790998075967316,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.422,61.867164828981714,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.424,61.94480165670249,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.426,62.02387179677444,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.428,62.10433020079296,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.43,62.18612107440112,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.432,62.26917431635107,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.434,62.35340013848643,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.436,62.438680486839445,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.438,62.524854375300265,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.44,62.61169042975791,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.442,62.69882991177279,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.444,62.78573606581767,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.446,62.87579325233198,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.448,62.96646604974248,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.45,63.057744504916016,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.452,63.1495883393756,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.454,63.24195689806913,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.456,63.3348091481206,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.458,63.42810367840567,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.46,63.5217987000295,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.462,63.61585204779397,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.464,63.710221182752505,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.466,63.804863195962994,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.468,63.899734813563626,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.47,63.994792403313284,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.472,64.089991982757,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.474,64.1852892291996,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.476,64.28063949169666,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.478,64.37599780530242,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.48,64.47131890785025,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.482,64.5665572595835,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.484,64.6616670660047,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.486,64.75660230437089,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.488,64.85131675433358,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.49,64.94576403330777,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.492,65.03989763725649,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.494,65.13367098770291,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.496,65.22703748593295,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.498,65.31995057553708,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.5,65.41236381466918,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.502,65.50423095968337,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.504,65.59550606216345,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.506,65.68614358180417,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.508,65.77609851816626,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.51,65.8653265650461,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.512,65.95378429212644,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.514,66.04142935977872,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.516,66.12822077446967,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.518,66.21411919432796,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.52,66.29908729725386,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.522,66.38309022781289,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.524,66.46609614448813,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.526,66.54807689637072,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.528,66.62900886910901,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.53,66.70887405563417,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.532,66.78766143063177,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.534,66.86536874368703,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.536,66.94200490278881,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.538,67.01759321253297,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.54,67.0921758886558,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.542,67.1658205501232,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.544,67.23862991505585,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.546,67.31075698043799,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.548,67.38243025828339,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.55,67.45399913948184,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.552,67.52602399071374,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.554,67.59946601021929,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.556,67.67207904127011,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.558,67.74225040681088,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.56,67.8119699489238,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.562,67.8812436627536,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.564,67.95007763405387,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.566,68.01847803989844,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.568,68.08645114941274,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.57,68.15400332452516,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.572,68.22114102073668,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.574,68.28787078790778,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.576,68.3541992710609,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.578,68.42013321119609,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.58,68.48567944611703,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.582,68.55084491126402,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.584,68.61563664054948,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.586,68.68006176719081,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.588,68.74412752453384,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.59,68.807841246859,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.592,68.87121037016061,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.594,68.93424243288715,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.596,68.99694507662824,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.598,69.05932604673069,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.6,69.12139319282214,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.602,69.18315446921616,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.604,69.2446179351667,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.606,69.30579175493259,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.608,69.36668419760403,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.61,69.42730363663142,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.612,69.48765854898282,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.614,69.54775751383873,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.616,69.60760921070978,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.618,69.66722241683395,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.62,69.72660600367213,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.622,69.78576893227219,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.624,69.8447202472068,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.626,69.90346906870528,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.628,69.96202458248575,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.63,70.02039602663775,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.632,70.07859267469449,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.634,70.1366238137364,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.636,70.1944987159506,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.638,70.2522266014691,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.64,70.30981658942822,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.642,70.3672776328729,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.644,70.42461843110736,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.646,70.48184730990405,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.648,70.538972054789,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.65,70.59599967384315,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.652,70.65293605095314,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.654,70.70978542157216,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.656,70.76654954571462,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.658,70.82322632949584,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.66,70.87980735193314,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.662,70.93627294693441,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.664,70.99258083763034,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.666,71.04863588737436,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.668,71.10488619998776,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.67,71.16117376276875,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.672,71.21740551148933,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.674,71.27358890608853,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.676,71.32973151335776,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.678,71.38584100989884,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.68,71.44192518524805,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.682,71.49799194517831,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.684,71.5540493151931,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.686,71.61010544422712,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.688,71.66616860857012,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.69,71.72224721603196,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.692,71.77834981036911,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.694,71.83448507599496,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.696,71.89066184299891,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.698,71.9468890925015,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.7,72.00317596237726,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.702,72.05953175337949,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.704,72.11596593570653,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.706,72.17248815605333,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.708,72.22910824519855,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.71,72.28583622618397,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.712,72.34268232315061,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.714,72.39965697090608,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.716,72.45677082530784,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.718,72.51403477456084,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.72,72.57145995154286,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.722,72.62905774729043,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.724,72.68683982579985,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.726,72.74481814032589,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.728,72.8030049513936,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.73,72.86141284677997,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.732,72.9200547637733,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.734,72.97894401408095,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.736,73.03809431183727,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.738,73.09751980526433,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.74,73.15723511266967,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.742,73.21725536363506,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.744,73.27759624647321,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.746,73.33827406332702,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.748,73.39930579468655,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.75,73.46070917564893,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.752,73.52250278701084,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.754,73.58470616536975,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.756,73.64733993797921,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.758,73.71042599042386,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.76,73.77398767868367,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.762,73.83805010257514,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.764,73.90264046609873,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.766,73.96778856383553,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.768,74.0335274536997,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.77,74.09989440408505,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.772,74.16693220108453,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.774,74.2346905209966,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.776,74.30322204459159,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.778,74.37225441723673,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.78,74.44205731530725,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.782,74.51247782675922,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.784,74.58352702674821,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.786,74.65521614686872,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.788,74.72755657989953,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.79,74.80055988477609,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.792,74.87423779180538,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.794,74.94860220813969,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.796,75.02366522352759,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.798,75.09943911636203,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.8,75.17593636004707,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.802,75.25316962970699,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.804,75.33115180926394,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.806,75.40989599891273,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.808,75.48941552302404,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.81,75.56972393851103,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.812,75.6508350436975,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.814,75.73276288772983,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.816,75.81552178058001,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.818,75.89912630369146,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.82,75.98359132132563,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.822,76.06893199267374,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.824,76.1551637848055,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.826,76.2423024865348,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.828,76.33036422329157,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.83,76.4193654731002,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.832,76.5093230837757,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.834,76.60025429146282,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.836,76.69217674065717,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.838,76.78510850586346,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.84,76.87906811506289,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.842,76.97407457517885,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.844,77.07014739974727,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.846,77.16730663901251,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.848,77.26557291267862,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.85,77.36496744554437,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.852,77.4655121062277,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.854,77.56722944912707,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.856,77.67014275964321,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.858,77.77427610245033,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.86,77.87965437217056,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.862,77.98630334502005,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.864,78.09424972856904,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.866,78.20352120415349,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.868,78.31414645161726,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.87,78.4261551367615,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.872,78.53957782340125,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.874,78.6544457334807,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.876,78.7707901937778,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.878,78.88864140524345,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.88,79.00802563723657,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.882,79.12895833592944,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.884,79.25142469841207,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.886,79.37530917044856,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.888,79.49992952087922,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.89,79.62664940908738,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.892,79.76110070172086,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.894,79.89662191039436,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.896,80.03333326044006,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.898,80.17135735992879,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.9,80.31081934252317,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.902,80.45184702531836,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.904,80.59457108341837,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.906,80.73912524325105,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.908,80.88564649692177,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.91,81.03427534025647,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.912,81.18515603759559,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.914,81.33843691688665,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.916,81.49427069919969,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.918,81.65281486747462,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.92,81.81423208012833,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.922,81.97869063612943,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.924,82.14636499932946,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.926,82.31743639126545,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.928,82.49209346338132,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.93,82.67053306172863,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.932,82.85296109979777,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.934,83.03959355832437,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.936,83.23065763487332,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.938,83.42639307093631,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.94,83.6270536904692,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.942,83.83290919161023,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.944,84.04424724326026,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.946,84.26137595093817,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.948,84.484626772769,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.95,84.71435798787796,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.952,84.95095884761234,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.954,85.19485457737326,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.956,85.4465124469536,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.958,85.7064491952687,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.96,85.9752401887604,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.962,86.25353082277528,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.964,86.54205085891024,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.966,86.84163265504611,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.968,87.15323463019834,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.97,87.47797188071495,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.972,87.81715673933869,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.974,88.17235343459247,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.976,88.5454532001255,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.978,88.93877981442905,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.98,89.3552417864531,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.982,89.79855857057464,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.984,90.27360921488004,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.986,90.78699383463811,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.988,91.34798849473145,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.99,91.97028633203198,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.992,92.67548020631217,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.994,93.50099605724603,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.996,94.5221540283422,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,0.998,95.940365118888,NaN
+1,2,lines,Andersen-Lake m=5 nₚₚ=9,1.0,100.0,NaN
+1,3,lines,TR-BDF2,0.002,3.4444107542344478,NaN
+1,3,lines,TR-BDF2,0.00225,9.225474714529943,NaN
+1,3,lines,TR-BDF2,0.0025,15.050347100146782,NaN
+1,3,lines,TR-BDF2,0.00275,20.601453869969497,NaN
+1,3,lines,TR-BDF2,0.003,25.209231630964723,NaN
+1,3,lines,TR-BDF2,0.00325,25.780588266678453,NaN
+1,3,lines,TR-BDF2,0.0035,25.838688340048993,NaN
+1,3,lines,TR-BDF2,0.00375,25.85264635889793,NaN
+1,3,lines,TR-BDF2,0.004,25.857102501430965,NaN
+1,3,lines,TR-BDF2,0.00425,25.850050249692277,NaN
+1,3,lines,TR-BDF2,0.0045,25.820367683411288,NaN
+1,3,lines,TR-BDF2,0.00475,25.78651167863103,NaN
+1,3,lines,TR-BDF2,0.005,25.747611811308815,NaN
+1,3,lines,TR-BDF2,0.00525,25.70573138837708,NaN
+1,3,lines,TR-BDF2,0.0055,25.663311043299338,NaN
+1,3,lines,TR-BDF2,0.00575,25.62377750853239,NaN
+1,3,lines,TR-BDF2,0.006,25.58728449511388,NaN
+1,3,lines,TR-BDF2,0.00625,25.5563029222069,NaN
+1,3,lines,TR-BDF2,0.0065,25.54327448327787,NaN
+1,3,lines,TR-BDF2,0.00675,25.52096724523033,NaN
+1,3,lines,TR-BDF2,0.007,25.51005321109789,NaN
+1,3,lines,TR-BDF2,0.00725,25.50180675674909,NaN
+1,3,lines,TR-BDF2,0.0075,25.50570675149735,NaN
+1,3,lines,TR-BDF2,0.00775,25.536439088116452,NaN
+1,3,lines,TR-BDF2,0.00825,25.543432190876814,NaN
+1,3,lines,TR-BDF2,0.0085,25.556060296105947,NaN
+1,3,lines,TR-BDF2,0.00875,25.560837014703026,NaN
+1,3,lines,TR-BDF2,0.009,25.560823940460438,NaN
+1,3,lines,TR-BDF2,0.00925,25.557244350549524,NaN
+1,3,lines,TR-BDF2,0.0095,25.551724835106967,NaN
+1,3,lines,TR-BDF2,0.00975,25.54780059354717,NaN
+1,3,lines,TR-BDF2,0.01,25.538737078406715,NaN
+1,3,lines,TR-BDF2,0.01025,25.520555400099944,NaN
+1,3,lines,TR-BDF2,0.0105,25.510521408993885,NaN
+1,3,lines,TR-BDF2,0.01075,25.48906301790056,NaN
+1,3,lines,TR-BDF2,0.011,25.473541594251916,NaN
+1,3,lines,TR-BDF2,0.01125,25.448187912220174,NaN
+1,3,lines,TR-BDF2,0.0115,25.432079688486347,NaN
+1,3,lines,TR-BDF2,0.01175,25.401073425687933,NaN
+1,3,lines,TR-BDF2,0.012,25.372424692310094,NaN
+1,3,lines,TR-BDF2,0.01225,25.345124155299757,NaN
+1,3,lines,TR-BDF2,0.0125,25.31955115740907,NaN
+1,3,lines,TR-BDF2,0.01275,25.284243055106586,NaN
+1,3,lines,TR-BDF2,0.013,25.2486908294886,NaN
+1,3,lines,TR-BDF2,0.01325,25.212344753845446,NaN
+1,3,lines,TR-BDF2,0.0135,25.174740455485892,NaN
+1,3,lines,TR-BDF2,0.01375,25.136110145090743,NaN
+1,3,lines,TR-BDF2,0.014,25.09642994424634,NaN
+1,3,lines,TR-BDF2,0.01425,25.056344524582023,NaN
+1,3,lines,TR-BDF2,0.0145,25.015787656328566,NaN
+1,3,lines,TR-BDF2,0.01475,24.962629130369816,NaN
+1,3,lines,TR-BDF2,0.015,24.915942156429374,NaN
+1,3,lines,TR-BDF2,0.01525,24.870378399901345,NaN
+1,3,lines,TR-BDF2,0.0155,24.82607939825728,NaN
+1,3,lines,TR-BDF2,0.01575,24.767190887697733,NaN
+1,3,lines,TR-BDF2,0.016,24.717696049039684,NaN
+1,3,lines,TR-BDF2,0.01625,24.661770627074812,NaN
+1,3,lines,TR-BDF2,0.0165,24.607653384689684,NaN
+1,3,lines,TR-BDF2,0.01675,24.550857677044235,NaN
+1,3,lines,TR-BDF2,0.017,24.49328512272017,NaN
+1,3,lines,TR-BDF2,0.01725,24.43326343512642,NaN
+1,3,lines,TR-BDF2,0.0175,24.375040695567165,NaN
+1,3,lines,TR-BDF2,0.01775,24.311232914139993,NaN
+1,3,lines,TR-BDF2,0.018,24.255214471571325,NaN
+1,3,lines,TR-BDF2,0.01825,24.185571461699176,NaN
+1,3,lines,TR-BDF2,0.0185,24.11905175250266,NaN
+1,3,lines,TR-BDF2,0.01875,24.05211224208723,NaN
+1,3,lines,TR-BDF2,0.019,23.989366850932782,NaN
+1,3,lines,TR-BDF2,0.01925,23.91702242978605,NaN
+1,3,lines,TR-BDF2,0.0195,23.845140422354007,NaN
+1,3,lines,TR-BDF2,0.01975,23.773326090838655,NaN
+1,3,lines,TR-BDF2,0.02,23.701012568026297,NaN
+1,3,lines,TR-BDF2,0.02025,23.627383318336644,NaN
+1,3,lines,TR-BDF2,0.0205,23.55251164527783,NaN
+1,3,lines,TR-BDF2,0.02075,23.47645368081258,NaN
+1,3,lines,TR-BDF2,0.021,23.39927181203016,NaN
+1,3,lines,TR-BDF2,0.02125,23.32071651561032,NaN
+1,3,lines,TR-BDF2,0.0215,23.24079654874907,NaN
+1,3,lines,TR-BDF2,0.02175,23.16014391389317,NaN
+1,3,lines,TR-BDF2,0.022,23.079226479782076,NaN
+1,3,lines,TR-BDF2,0.02225,22.99848144543259,NaN
+1,3,lines,TR-BDF2,0.0225,22.91805207940348,NaN
+1,3,lines,TR-BDF2,0.02275,22.82905990414192,NaN
+1,3,lines,TR-BDF2,0.023,22.74189132365267,NaN
+1,3,lines,TR-BDF2,0.02325,22.656080540170016,NaN
+1,3,lines,TR-BDF2,0.0235,22.572537241138242,NaN
+1,3,lines,TR-BDF2,0.02375,22.47903976569752,NaN
+1,3,lines,TR-BDF2,0.024,22.388763227473,NaN
+1,3,lines,TR-BDF2,0.02425,22.302833142982596,NaN
+1,3,lines,TR-BDF2,0.0245,22.205141239103263,NaN
+1,3,lines,TR-BDF2,0.02475,22.114424888209086,NaN
+1,3,lines,TR-BDF2,0.025,22.018690066451647,NaN
+1,3,lines,TR-BDF2,0.02525,21.923891317549238,NaN
+1,3,lines,TR-BDF2,0.0255,21.82726482811819,NaN
+1,3,lines,TR-BDF2,0.02575,21.73028319553649,NaN
+1,3,lines,TR-BDF2,0.026,21.630651229059502,NaN
+1,3,lines,TR-BDF2,0.02625,21.53396125212557,NaN
+1,3,lines,TR-BDF2,0.0265,21.430060213468796,NaN
+1,3,lines,TR-BDF2,0.02675,21.33609462386517,NaN
+1,3,lines,TR-BDF2,0.027,21.227433453107114,NaN
+1,3,lines,TR-BDF2,0.02725,21.121945091724566,NaN
+1,3,lines,TR-BDF2,0.0275,21.025528398704456,NaN
+1,3,lines,TR-BDF2,0.02775,20.914563067777788,NaN
+1,3,lines,TR-BDF2,0.028,20.804798219233604,NaN
+1,3,lines,TR-BDF2,0.02825,20.696243563914148,NaN
+1,3,lines,TR-BDF2,0.0285,20.58804945369188,NaN
+1,3,lines,TR-BDF2,0.02875,20.48381306780119,NaN
+1,3,lines,TR-BDF2,0.029,20.37002221164484,NaN
+1,3,lines,TR-BDF2,0.02925,20.255984370221984,NaN
+1,3,lines,TR-BDF2,0.0295,20.14154137084015,NaN
+1,3,lines,TR-BDF2,0.02975,20.026561783978977,NaN
+1,3,lines,TR-BDF2,0.03,19.91082194039059,NaN
+1,3,lines,TR-BDF2,0.03025,19.794217334520216,NaN
+1,3,lines,TR-BDF2,0.0305,19.676766899505214,NaN
+1,3,lines,TR-BDF2,0.03075,19.558522468922828,NaN
+1,3,lines,TR-BDF2,0.031,19.4395414628748,NaN
+1,3,lines,TR-BDF2,0.03125,19.320038742400822,NaN
+1,3,lines,TR-BDF2,0.0315,19.20003828238926,NaN
+1,3,lines,TR-BDF2,0.03175,19.079513035545073,NaN
+1,3,lines,TR-BDF2,0.032,18.948543058315984,NaN
+1,3,lines,TR-BDF2,0.03225,18.823067504447245,NaN
+1,3,lines,TR-BDF2,0.0325,18.69827863178418,NaN
+1,3,lines,TR-BDF2,0.03275,18.57429636735632,NaN
+1,3,lines,TR-BDF2,0.033,18.44237916803511,NaN
+1,3,lines,TR-BDF2,0.03325,18.312352570776522,NaN
+1,3,lines,TR-BDF2,0.0335,18.184787462532544,NaN
+1,3,lines,TR-BDF2,0.03375,18.058648785902857,NaN
+1,3,lines,TR-BDF2,0.034,17.918204101625946,NaN
+1,3,lines,TR-BDF2,0.03425,17.78859737839906,NaN
+1,3,lines,TR-BDF2,0.0345,17.64979863461556,NaN
+1,3,lines,TR-BDF2,0.03475,17.516622080754626,NaN
+1,3,lines,TR-BDF2,0.035,17.377609622972766,NaN
+1,3,lines,TR-BDF2,0.03525,17.241626222256876,NaN
+1,3,lines,TR-BDF2,0.0355,17.100807832176827,NaN
+1,3,lines,TR-BDF2,0.03575,16.963317011384174,NaN
+1,3,lines,TR-BDF2,0.036,16.81957457976254,NaN
+1,3,lines,TR-BDF2,0.03625,16.68218482024988,NaN
+1,3,lines,TR-BDF2,0.0365,16.53507217446743,NaN
+1,3,lines,TR-BDF2,0.03675,16.39047852889506,NaN
+1,3,lines,TR-BDF2,0.037,16.248403561812047,NaN
+1,3,lines,TR-BDF2,0.03725,16.099228008185857,NaN
+1,3,lines,TR-BDF2,0.0375,15.95121547277815,NaN
+1,3,lines,TR-BDF2,0.03775,15.808134749381136,NaN
+1,3,lines,TR-BDF2,0.038,15.655479713378549,NaN
+1,3,lines,TR-BDF2,0.03825,15.50328587048473,NaN
+1,3,lines,TR-BDF2,0.0385,15.3509631722023,NaN
+1,3,lines,TR-BDF2,0.03875,15.198512551502148,NaN
+1,3,lines,TR-BDF2,0.039,15.050509925618456,NaN
+1,3,lines,TR-BDF2,0.03925,14.893836568903218,NaN
+1,3,lines,TR-BDF2,0.0395,14.736723987268235,NaN
+1,3,lines,TR-BDF2,0.03975,14.579015385713333,NaN
+1,3,lines,TR-BDF2,0.04,14.420577611337341,NaN
+1,3,lines,TR-BDF2,0.04025,14.261330993977342,NaN
+1,3,lines,TR-BDF2,0.0405,14.101216147865975,NaN
+1,3,lines,TR-BDF2,0.04075,13.940234738850746,NaN
+1,3,lines,TR-BDF2,0.041,13.778419139296997,NaN
+1,3,lines,TR-BDF2,0.04125,13.615834270955437,NaN
+1,3,lines,TR-BDF2,0.0415,13.452574851679016,NaN
+1,3,lines,TR-BDF2,0.04175,13.288762299587285,NaN
+1,3,lines,TR-BDF2,0.042,13.117756161998088,NaN
+1,3,lines,TR-BDF2,0.04225,12.950109098632213,NaN
+1,3,lines,TR-BDF2,0.0425,12.78196648241702,NaN
+1,3,lines,TR-BDF2,0.04275,12.613517439379422,NaN
+1,3,lines,TR-BDF2,0.043,12.445175587823929,NaN
+1,3,lines,TR-BDF2,0.04325,12.270638272671393,NaN
+1,3,lines,TR-BDF2,0.0435,12.098020136920843,NaN
+1,3,lines,TR-BDF2,0.04375,11.925731923153595,NaN
+1,3,lines,TR-BDF2,0.044,11.75441649239764,NaN
+1,3,lines,TR-BDF2,0.04425,11.574483378348408,NaN
+1,3,lines,TR-BDF2,0.0445,11.399125235321522,NaN
+1,3,lines,TR-BDF2,0.04475,11.225439993230536,NaN
+1,3,lines,TR-BDF2,0.045,11.042090180838722,NaN
+1,3,lines,TR-BDF2,0.04525,10.865067074144022,NaN
+1,3,lines,TR-BDF2,0.0455,10.682044338496855,NaN
+1,3,lines,TR-BDF2,0.04575,10.50211879935876,NaN
+1,3,lines,TR-BDF2,0.046,10.318235751993821,NaN
+1,3,lines,TR-BDF2,0.04625,10.136025776165852,NaN
+1,3,lines,TR-BDF2,0.0465,9.950467342127483,NaN
+1,3,lines,TR-BDF2,0.04675,9.7666005124338,NaN
+1,3,lines,TR-BDF2,0.047,9.578765622629946,NaN
+1,3,lines,TR-BDF2,0.04725,9.39397954692806,NaN
+1,3,lines,TR-BDF2,0.0475,9.203492355155303,NaN
+1,3,lines,TR-BDF2,0.04775,9.014442901030963,NaN
+1,3,lines,TR-BDF2,0.048,8.825180430579671,NaN
+1,3,lines,TR-BDF2,0.04825,8.63304637221106,NaN
+1,3,lines,TR-BDF2,0.0485,8.444514968346278,NaN
+1,3,lines,TR-BDF2,0.04875,8.249179143977363,NaN
+1,3,lines,TR-BDF2,0.049,8.054395293111055,NaN
+1,3,lines,TR-BDF2,0.04925,7.859724939378229,NaN
+1,3,lines,TR-BDF2,0.0495,7.665770724392969,NaN
+1,3,lines,TR-BDF2,0.04975,7.467893203200423,NaN
+1,3,lines,TR-BDF2,0.05,7.2698861009826885,NaN
+1,3,lines,TR-BDF2,0.05025,7.071486421107275,NaN
+1,3,lines,TR-BDF2,0.0505,6.874590748943504,NaN
+1,3,lines,TR-BDF2,0.05075,6.673244848561374,NaN
+1,3,lines,TR-BDF2,0.051,6.471467458554498,NaN
+1,3,lines,TR-BDF2,0.05125,6.269124747301282,NaN
+1,3,lines,TR-BDF2,0.0515,6.06611223178163,NaN
+1,3,lines,TR-BDF2,0.05175,5.862351174915721,NaN
+1,3,lines,TR-BDF2,0.052,5.657786027265993,NaN
+1,3,lines,TR-BDF2,0.05225,5.452382359752339,NaN
+1,3,lines,TR-BDF2,0.0525,5.24611953928921,NaN
+1,3,lines,TR-BDF2,0.05275,5.0404233467674375,NaN
+1,3,lines,TR-BDF2,0.053,4.832172215874938,NaN
+1,3,lines,TR-BDF2,0.05325,4.623162082630119,NaN
+1,3,lines,TR-BDF2,0.0535,4.4133792010111375,NaN
+1,3,lines,TR-BDF2,0.05375,4.202808694817893,NaN
+1,3,lines,TR-BDF2,0.054,3.9914443546759575,NaN
+1,3,lines,TR-BDF2,0.05425,3.7782487997947096,NaN
+1,3,lines,TR-BDF2,0.0545,3.565229681385177,NaN
+1,3,lines,TR-BDF2,0.05475,3.351422214680743,NaN
+1,3,lines,TR-BDF2,0.055,3.136810367871168,NaN
+1,3,lines,TR-BDF2,0.05525,2.9213884287736085,NaN
+1,3,lines,TR-BDF2,0.0555,2.7051935889235774,NaN
+1,3,lines,TR-BDF2,0.05575,2.4882763478999768,NaN
+1,3,lines,TR-BDF2,0.056,2.2706265169338296,NaN
+1,3,lines,TR-BDF2,0.05625,2.052159281209244,NaN
+1,3,lines,TR-BDF2,0.0565,1.8325728058106863,NaN
+1,3,lines,TR-BDF2,0.05675,1.612460163164919,NaN
+1,3,lines,TR-BDF2,0.057,1.3917077271510818,NaN
+1,3,lines,TR-BDF2,0.05725,1.1702571523890768,NaN
+1,3,lines,TR-BDF2,0.0575,0.9478738867570609,NaN
+1,3,lines,TR-BDF2,0.05775,0.7246961995794998,NaN
+1,3,lines,TR-BDF2,0.058,0.5009324608038316,NaN
+1,3,lines,TR-BDF2,0.05825,0.276562573746516,NaN
+1,3,lines,TR-BDF2,0.0585,0.051346533835141976,NaN
+1,3,lines,TR-BDF2,0.15725,0.17339866770439605,NaN
+1,3,lines,TR-BDF2,0.1575,1.2159133335668593,NaN
+1,3,lines,TR-BDF2,0.15775,2.1608816608109045,NaN
+1,3,lines,TR-BDF2,0.15825,4.216074820812966,NaN
+1,3,lines,TR-BDF2,0.1585,5.2579918930010505,NaN
+1,3,lines,TR-BDF2,0.15875,6.307644882073872,NaN
+1,3,lines,TR-BDF2,0.159,7.370917309726989,NaN
+1,3,lines,TR-BDF2,0.15925,8.44200775541569,NaN
+1,3,lines,TR-BDF2,0.1595,9.51865876629535,NaN
+1,3,lines,TR-BDF2,0.15975,10.611588654837336,NaN
+1,3,lines,TR-BDF2,0.16,11.709423953106437,NaN
+1,3,lines,TR-BDF2,0.16025,12.812614023441695,NaN
+1,3,lines,TR-BDF2,0.1605,13.930593999485222,NaN
+1,3,lines,TR-BDF2,0.16075,15.051870476835937,NaN
+1,3,lines,TR-BDF2,0.161,16.196533778926494,NaN
+1,3,lines,TR-BDF2,0.1615,18.49124275452618,NaN
+1,3,lines,TR-BDF2,0.162,20.83391646000166,NaN
+1,3,lines,TR-BDF2,0.16225,22.008596900054794,NaN
+1,3,lines,TR-BDF2,0.16275,24.408114603047892,NaN
+1,3,lines,TR-BDF2,0.163,25.616298126250772,NaN
+1,3,lines,TR-BDF2,0.16325,26.838395984566326,NaN
+1,3,lines,TR-BDF2,0.1635,28.083966973338104,NaN
+1,3,lines,TR-BDF2,0.16375,29.320370402779297,NaN
+1,3,lines,TR-BDF2,0.16425,31.8339630815678,NaN
+1,3,lines,TR-BDF2,0.16475,34.38464940263747,NaN
+1,3,lines,TR-BDF2,0.165,35.6508278287742,NaN
+1,3,lines,TR-BDF2,0.16525,36.94957391922936,NaN
+1,3,lines,TR-BDF2,0.16575,39.59648659177877,NaN
+1,3,lines,TR-BDF2,0.166,40.910196566795776,NaN
+1,3,lines,TR-BDF2,0.16625,42.24553832711953,NaN
+1,3,lines,TR-BDF2,0.167,46.3445607357736,NaN
+1,3,lines,TR-BDF2,0.16725,47.717349558441505,NaN
+1,3,lines,TR-BDF2,0.1675,49.064286238468256,NaN
+1,3,lines,TR-BDF2,0.16775,50.46422205778355,NaN
+1,3,lines,TR-BDF2,0.168,51.93659613980503,NaN
+1,3,lines,TR-BDF2,0.16825,53.32416566291112,NaN
+1,3,lines,TR-BDF2,0.1685,54.696587938183164,NaN
+1,3,lines,TR-BDF2,0.16875,55.99398847835458,NaN
+1,3,lines,TR-BDF2,0.169,56.407670129289095,NaN
+1,3,lines,TR-BDF2,0.16925,56.62371834805697,NaN
+1,3,lines,TR-BDF2,0.1695,56.78918601693294,NaN
+1,3,lines,TR-BDF2,0.16975,56.92148543952327,NaN
+1,3,lines,TR-BDF2,0.17,57.020666549882264,NaN
+1,3,lines,TR-BDF2,0.17025,57.15285024189966,NaN
+1,3,lines,TR-BDF2,0.1705,57.251944774328436,NaN
+1,3,lines,TR-BDF2,0.17075,57.31798725199586,NaN
+1,3,lines,TR-BDF2,0.171,57.41702021243313,NaN
+1,3,lines,TR-BDF2,0.17125,57.48302171693596,NaN
+1,3,lines,TR-BDF2,0.1715,57.55473413302448,NaN
+1,3,lines,TR-BDF2,0.17175,57.64795401086888,NaN
+1,3,lines,TR-BDF2,0.1725,57.81840685576844,NaN
+1,3,lines,TR-BDF2,0.17275,57.88085493188992,NaN
+1,3,lines,TR-BDF2,0.173,57.944575863293544,NaN
+1,3,lines,TR-BDF2,0.17325,58.01148478425656,NaN
+1,3,lines,TR-BDF2,0.1735,58.04337689750603,NaN
+1,3,lines,TR-BDF2,0.17375,58.11172437564917,NaN
+1,3,lines,TR-BDF2,0.174,58.142141608114336,NaN
+1,3,lines,TR-BDF2,0.17425,58.20826869759595,NaN
+1,3,lines,TR-BDF2,0.1745,58.2408700759346,NaN
+1,3,lines,TR-BDF2,0.17475,58.27820877027737,NaN
+1,3,lines,TR-BDF2,0.175,58.33956238178311,NaN
+1,3,lines,TR-BDF2,0.17525,58.37430505707909,NaN
+1,3,lines,TR-BDF2,0.1755,58.406871592695765,NaN
+1,3,lines,TR-BDF2,0.176,58.50396941776079,NaN
+1,3,lines,TR-BDF2,0.17625,58.538565260903,NaN
+1,3,lines,TR-BDF2,0.1765,58.57341659796075,NaN
+1,3,lines,TR-BDF2,0.17675,58.60485775267036,NaN
+1,3,lines,TR-BDF2,0.177,58.63609291891211,NaN
+1,3,lines,TR-BDF2,0.17725,58.66909668667665,NaN
+1,3,lines,TR-BDF2,0.179,58.89940104530278,NaN
+1,3,lines,TR-BDF2,0.17925,58.93189902143218,NaN
+1,3,lines,TR-BDF2,0.1795,58.96451370055008,NaN
+1,3,lines,TR-BDF2,0.17975,58.998841127938746,NaN
+1,3,lines,TR-BDF2,0.18,59.02940277607508,NaN
+1,3,lines,TR-BDF2,0.18025,59.062208691397146,NaN
+1,3,lines,TR-BDF2,0.181,59.13003575340941,NaN
+1,3,lines,TR-BDF2,0.18125,59.17594103818491,NaN
+1,3,lines,TR-BDF2,0.1815,59.193392950947164,NaN
+1,3,lines,TR-BDF2,0.182,59.226576324959545,NaN
+1,3,lines,TR-BDF2,0.18225,59.26276724231662,NaN
+1,3,lines,TR-BDF2,0.1825,59.291739857593946,NaN
+1,3,lines,TR-BDF2,0.183,59.326075093198625,NaN
+1,3,lines,TR-BDF2,0.18325,59.36962018971982,NaN
+1,3,lines,TR-BDF2,0.1835,59.390051464308854,NaN
+1,3,lines,TR-BDF2,0.18375,59.39132922828446,NaN
+1,3,lines,TR-BDF2,0.184,59.42336523686853,NaN
+1,3,lines,TR-BDF2,0.1845,59.45622151469468,NaN
+1,3,lines,TR-BDF2,0.18475,59.50019765772657,NaN
+1,3,lines,TR-BDF2,0.18525,59.52135960784245,NaN
+1,3,lines,TR-BDF2,0.1855,59.553825917374944,NaN
+1,3,lines,TR-BDF2,0.186,59.58814267440478,NaN
+1,3,lines,TR-BDF2,0.18625,59.619308389765386,NaN
+1,3,lines,TR-BDF2,0.1865,59.619519184082456,NaN
+1,3,lines,TR-BDF2,0.18675,59.65204378603995,NaN
+1,3,lines,TR-BDF2,0.18725,59.68477529302503,NaN
+1,3,lines,TR-BDF2,0.18775,59.73397641885718,NaN
+1,3,lines,TR-BDF2,0.18825,59.75049963253921,NaN
+1,3,lines,TR-BDF2,0.18875,59.80434445652436,NaN
+1,3,lines,TR-BDF2,0.18925,59.81585060205189,NaN
+1,3,lines,TR-BDF2,0.18975,59.84992428068648,NaN
+1,3,lines,TR-BDF2,0.19,59.88108282747486,NaN
+1,3,lines,TR-BDF2,0.19025,59.88259685283069,NaN
+1,3,lines,TR-BDF2,0.19075,59.913980133879555,NaN
+1,3,lines,TR-BDF2,0.19125,59.94926759686969,NaN
+1,3,lines,TR-BDF2,0.19175,59.97918433174043,NaN
+1,3,lines,TR-BDF2,0.192,59.98000887278899,NaN
+1,3,lines,TR-BDF2,0.1925,60.01209996646094,NaN
+1,3,lines,TR-BDF2,0.193,60.04764441653283,NaN
+1,3,lines,TR-BDF2,0.1935,60.077251101788136,NaN
+1,3,lines,TR-BDF2,0.19375,60.077591135692856,NaN
+1,3,lines,TR-BDF2,0.19425,60.109932320390534,NaN
+1,3,lines,TR-BDF2,0.1945,60.11038754857923,NaN
+1,3,lines,TR-BDF2,0.19475,60.14260969160821,NaN
+1,3,lines,TR-BDF2,0.195,60.14301881785863,NaN
+1,3,lines,TR-BDF2,0.1955,60.17528321843431,NaN
+1,3,lines,TR-BDF2,0.19575,60.20003526563162,NaN
+1,3,lines,TR-BDF2,0.19625,60.20795290386206,NaN
+1,3,lines,TR-BDF2,0.1965,60.20828425760668,NaN
+1,3,lines,TR-BDF2,0.197,60.24061875088466,NaN
+1,3,lines,TR-BDF2,0.19725,60.241668328053784,NaN
+1,3,lines,TR-BDF2,0.19775,60.27328076249529,NaN
+1,3,lines,TR-BDF2,0.198,60.27390549985499,NaN
+1,3,lines,TR-BDF2,0.1985,60.30729427030766,NaN
+1,3,lines,TR-BDF2,0.19875,60.32954173359898,NaN
+1,3,lines,TR-BDF2,0.19925,60.338593291453456,NaN
+1,3,lines,TR-BDF2,0.1995,60.33918533735305,NaN
+1,3,lines,TR-BDF2,0.20025,60.373439113640934,NaN
+1,3,lines,TR-BDF2,0.2005,60.37140176248605,NaN
+1,3,lines,TR-BDF2,0.20075,60.4039401668812,NaN
+1,3,lines,TR-BDF2,0.201,60.40389051468215,NaN
+1,3,lines,TR-BDF2,0.20125,60.40416070202497,NaN
+1,3,lines,TR-BDF2,0.2015,60.403915030836465,NaN
+1,3,lines,TR-BDF2,0.202,60.43653339413093,NaN
+1,3,lines,TR-BDF2,0.20225,60.43757011812029,NaN
+1,3,lines,TR-BDF2,0.2025,60.43676610325313,NaN
+1,3,lines,TR-BDF2,0.203,60.46917245612695,NaN
+1,3,lines,TR-BDF2,0.20325,60.469390502286316,NaN
+1,3,lines,TR-BDF2,0.2035,60.500298023018864,NaN
+1,3,lines,TR-BDF2,0.204,60.50342623993417,NaN
+1,3,lines,TR-BDF2,0.20425,60.501897712061876,NaN
+1,3,lines,TR-BDF2,0.2045,60.52844232959521,NaN
+1,3,lines,TR-BDF2,0.20525,60.53443913973345,NaN
+1,3,lines,TR-BDF2,0.2055,60.53487000178887,NaN
+1,3,lines,TR-BDF2,0.20575,60.564960452678925,NaN
+1,3,lines,TR-BDF2,0.2065,60.56706676733033,NaN
+1,3,lines,TR-BDF2,0.20675,60.56760432821428,NaN
+1,3,lines,TR-BDF2,0.207,60.567437235375955,NaN
+1,3,lines,TR-BDF2,0.20725,60.59972898039974,NaN
+1,3,lines,TR-BDF2,0.20775,60.603038612924145,NaN
+1,3,lines,TR-BDF2,0.208,60.61443245491371,NaN
+1,3,lines,TR-BDF2,0.20825,60.59989195797417,NaN
+1,3,lines,TR-BDF2,0.20925,60.63806210620169,NaN
+1,3,lines,TR-BDF2,0.2095,60.64907892101414,NaN
+1,3,lines,TR-BDF2,0.20975,60.632445356743766,NaN
+1,3,lines,TR-BDF2,0.21075,60.66492682921386,NaN
+1,3,lines,TR-BDF2,0.211,60.6652252274802,NaN
+1,3,lines,TR-BDF2,0.21125,60.66494818942741,NaN
+1,3,lines,TR-BDF2,0.2115,60.66517536977159,NaN
+1,3,lines,TR-BDF2,0.2125,60.70003957813424,NaN
+1,3,lines,TR-BDF2,0.21275,60.706696231852526,NaN
+1,3,lines,TR-BDF2,0.213,60.71489058936141,NaN
+1,3,lines,TR-BDF2,0.21325,60.72349841375622,NaN
+1,3,lines,TR-BDF2,0.2135,60.69780823347169,NaN
+1,3,lines,TR-BDF2,0.21375,60.73022683027416,NaN
+1,3,lines,TR-BDF2,0.21425,60.73056742918786,NaN
+1,3,lines,TR-BDF2,0.2145,60.73014788297894,NaN
+1,3,lines,TR-BDF2,0.21475,60.73014788297894,NaN
+1,3,lines,TR-BDF2,0.215,60.73175397870393,NaN
+1,3,lines,TR-BDF2,0.21525,60.749520181597894,NaN
+1,3,lines,TR-BDF2,0.2155,60.75580641644054,NaN
+1,3,lines,TR-BDF2,0.21575,60.76184275425195,NaN
+1,3,lines,TR-BDF2,0.2165,60.76279780871524,NaN
+1,3,lines,TR-BDF2,0.217,60.762982560659985,NaN
+1,3,lines,TR-BDF2,0.21725,60.76338925785874,NaN
+1,3,lines,TR-BDF2,0.2175,60.763060660029915,NaN
+1,3,lines,TR-BDF2,0.21775,60.76298028213029,NaN
+1,3,lines,TR-BDF2,0.218,60.78173750872933,NaN
+1,3,lines,TR-BDF2,0.21825,60.787225338335304,NaN
+1,3,lines,TR-BDF2,0.2185,60.79128171119731,NaN
+1,3,lines,TR-BDF2,0.219,60.79547179735566,NaN
+1,3,lines,TR-BDF2,0.21925,60.79580783342198,NaN
+1,3,lines,TR-BDF2,0.2195,60.79559131042024,NaN
+1,3,lines,TR-BDF2,0.21975,60.79619156773364,NaN
+1,3,lines,TR-BDF2,0.22,60.79596944923848,NaN
+1,3,lines,TR-BDF2,0.22025,60.795573260836264,NaN
+1,3,lines,TR-BDF2,0.2205,60.79535377468806,NaN
+1,3,lines,TR-BDF2,0.22075,60.79535377468806,NaN
+1,3,lines,TR-BDF2,0.221,60.80080671824749,NaN
+1,3,lines,TR-BDF2,0.22125,60.80424429811142,NaN
+1,3,lines,TR-BDF2,0.2215,60.79585616297035,NaN
+1,3,lines,TR-BDF2,0.22175,60.79552071416325,NaN
+1,3,lines,TR-BDF2,0.222,60.81237737678325,NaN
+1,3,lines,TR-BDF2,0.22225,60.8149744382074,NaN
+1,3,lines,TR-BDF2,0.2225,60.81771098193823,NaN
+1,3,lines,TR-BDF2,0.22275,60.82001067791296,NaN
+1,3,lines,TR-BDF2,0.223,60.822702081237196,NaN
+1,3,lines,TR-BDF2,0.22325,60.82467826865121,NaN
+1,3,lines,TR-BDF2,0.2235,60.826678696873174,NaN
+1,3,lines,TR-BDF2,0.224,60.82834083558358,NaN
+1,3,lines,TR-BDF2,0.2245,60.82822099862665,NaN
+1,3,lines,TR-BDF2,0.22475,60.8282313599272,NaN
+1,3,lines,TR-BDF2,0.225,60.82810262274812,NaN
+1,3,lines,TR-BDF2,0.2255,60.828161934818716,NaN
+1,3,lines,TR-BDF2,0.226,60.82819655152787,NaN
+1,3,lines,TR-BDF2,0.227,60.82807698084824,NaN
+1,3,lines,TR-BDF2,0.22725,60.82853412000683,NaN
+1,3,lines,TR-BDF2,0.2275,60.82803588276662,NaN
+1,3,lines,TR-BDF2,0.228,60.82865784190101,NaN
+1,3,lines,TR-BDF2,0.22875,60.82870975512248,NaN
+1,3,lines,TR-BDF2,0.229,60.828060339167024,NaN
+1,3,lines,TR-BDF2,0.22925,60.828225658569124,NaN
+1,3,lines,TR-BDF2,0.23,60.82818742028541,NaN
+1,3,lines,TR-BDF2,0.23025,60.828697962028286,NaN
+1,3,lines,TR-BDF2,0.231,60.82803026972843,NaN
+1,3,lines,TR-BDF2,0.23125,60.82820370741516,NaN
+1,3,lines,TR-BDF2,0.232,60.827243374942846,NaN
+1,3,lines,TR-BDF2,0.23225,60.825442338153195,NaN
+1,3,lines,TR-BDF2,0.2325,60.79537639729568,NaN
+1,3,lines,TR-BDF2,0.23275,60.821711423970484,NaN
+1,3,lines,TR-BDF2,0.233,60.81948135688652,NaN
+1,3,lines,TR-BDF2,0.23325,60.816811113701284,NaN
+1,3,lines,TR-BDF2,0.2335,60.79557035830856,NaN
+1,3,lines,TR-BDF2,0.23375,60.81218981417554,NaN
+1,3,lines,TR-BDF2,0.234,60.80973425475907,NaN
+1,3,lines,TR-BDF2,0.23425,60.80648823833434,NaN
+1,3,lines,TR-BDF2,0.2345,60.803632396656525,NaN
+1,3,lines,TR-BDF2,0.23475,60.801184364339115,NaN
+1,3,lines,TR-BDF2,0.235,60.79947586356649,NaN
+1,3,lines,TR-BDF2,0.23525,60.79736389162691,NaN
+1,3,lines,TR-BDF2,0.2355,60.79592828395211,NaN
+1,3,lines,TR-BDF2,0.23575,60.79692559750907,NaN
+1,3,lines,TR-BDF2,0.236,60.79573308271264,NaN
+1,3,lines,TR-BDF2,0.23625,60.79537892034529,NaN
+1,3,lines,TR-BDF2,0.2365,60.79560227347156,NaN
+1,3,lines,TR-BDF2,0.23675,60.795525669374776,NaN
+1,3,lines,TR-BDF2,0.237,60.795715201172584,NaN
+1,3,lines,TR-BDF2,0.23725,60.795573721755886,NaN
+1,3,lines,TR-BDF2,0.2375,60.79383877089651,NaN
+1,3,lines,TR-BDF2,0.23775,60.762775578643065,NaN
+1,3,lines,TR-BDF2,0.238,60.78579136776938,NaN
+1,3,lines,TR-BDF2,0.23825,60.78161952770221,NaN
+1,3,lines,TR-BDF2,0.2385,60.777838514974924,NaN
+1,3,lines,TR-BDF2,0.23875,60.77378991411172,NaN
+1,3,lines,TR-BDF2,0.239,60.76959400460292,NaN
+1,3,lines,TR-BDF2,0.23925,60.7664348664077,NaN
+1,3,lines,TR-BDF2,0.2395,60.764507956349355,NaN
+1,3,lines,TR-BDF2,0.23975,60.76334328015793,NaN
+1,3,lines,TR-BDF2,0.24025,60.763270372789734,NaN
+1,3,lines,TR-BDF2,0.2405,60.76322853915722,NaN
+1,3,lines,TR-BDF2,0.241,60.73017240904099,NaN
+1,3,lines,TR-BDF2,0.24125,60.756502046564584,NaN
+1,3,lines,TR-BDF2,0.2415,60.751239658006426,NaN
+1,3,lines,TR-BDF2,0.24175,60.74611836058566,NaN
+1,3,lines,TR-BDF2,0.242,60.74079592558555,NaN
+1,3,lines,TR-BDF2,0.24225,60.73532949035436,NaN
+1,3,lines,TR-BDF2,0.2425,60.732288286702655,NaN
+1,3,lines,TR-BDF2,0.24275,60.730516362815294,NaN
+1,3,lines,TR-BDF2,0.243,60.730513167241014,NaN
+1,3,lines,TR-BDF2,0.24325,60.73099070565276,NaN
+1,3,lines,TR-BDF2,0.2435,60.73071703329266,NaN
+1,3,lines,TR-BDF2,0.24375,60.730502736994815,NaN
+1,3,lines,TR-BDF2,0.244,60.72626841456524,NaN
+1,3,lines,TR-BDF2,0.24425,60.72027182851008,NaN
+1,3,lines,TR-BDF2,0.2445,60.7139666210033,NaN
+1,3,lines,TR-BDF2,0.24475,60.708426518937436,NaN
+1,3,lines,TR-BDF2,0.245,60.70374098095347,NaN
+1,3,lines,TR-BDF2,0.24525,60.69964201814588,NaN
+1,3,lines,TR-BDF2,0.2455,60.6986364490796,NaN
+1,3,lines,TR-BDF2,0.24575,60.69809016818968,NaN
+1,3,lines,TR-BDF2,0.246,60.69795982204749,NaN
+1,3,lines,TR-BDF2,0.24625,60.698002309665625,NaN
+1,3,lines,TR-BDF2,0.2465,60.694571667068715,NaN
+1,3,lines,TR-BDF2,0.24675,60.68846663954295,NaN
+1,3,lines,TR-BDF2,0.247,60.681660603927675,NaN
+1,3,lines,TR-BDF2,0.24725,60.67453930999646,NaN
+1,3,lines,TR-BDF2,0.2475,60.6686933675579,NaN
+1,3,lines,TR-BDF2,0.24775,60.66714573142146,NaN
+1,3,lines,TR-BDF2,0.248,60.66617438436558,NaN
+1,3,lines,TR-BDF2,0.24825,60.6658280366091,NaN
+1,3,lines,TR-BDF2,0.2485,60.66567208092157,NaN
+1,3,lines,TR-BDF2,0.24875,60.664452754279026,NaN
+1,3,lines,TR-BDF2,0.249,60.6575144277211,NaN
+1,3,lines,TR-BDF2,0.24925,60.65073805891539,NaN
+1,3,lines,TR-BDF2,0.2495,60.64337162181449,NaN
+1,3,lines,TR-BDF2,0.24975,60.63824869608568,NaN
+1,3,lines,TR-BDF2,0.25,60.63359548201106,NaN
+1,3,lines,TR-BDF2,0.2505,60.6326359234882,NaN
+1,3,lines,TR-BDF2,0.25075,60.63257873687142,NaN
+1,3,lines,TR-BDF2,0.251,60.63143441391106,NaN
+1,3,lines,TR-BDF2,0.25125,60.62391620742566,NaN
+1,3,lines,TR-BDF2,0.2515,60.616315320542846,NaN
+1,3,lines,TR-BDF2,0.25175,60.610734154010814,NaN
+1,3,lines,TR-BDF2,0.252,60.604854681096825,NaN
+1,3,lines,TR-BDF2,0.25225,60.60160914290421,NaN
+1,3,lines,TR-BDF2,0.2525,60.60143709170094,NaN
+1,3,lines,TR-BDF2,0.25275,60.60033693253733,NaN
+1,3,lines,TR-BDF2,0.253,60.60006840446075,NaN
+1,3,lines,TR-BDF2,0.25325,60.595815509883636,NaN
+1,3,lines,TR-BDF2,0.2535,60.58884798440214,NaN
+1,3,lines,TR-BDF2,0.25375,60.581600313808046,NaN
+1,3,lines,TR-BDF2,0.254,60.57482109116853,NaN
+1,3,lines,TR-BDF2,0.25425,60.569684683964525,NaN
+1,3,lines,TR-BDF2,0.2545,60.56716784257154,NaN
+1,3,lines,TR-BDF2,0.25475,60.56765118284712,NaN
+1,3,lines,TR-BDF2,0.255,60.56759550402219,NaN
+1,3,lines,TR-BDF2,0.25525,60.567104559597446,NaN
+1,3,lines,TR-BDF2,0.2555,60.56083727616162,NaN
+1,3,lines,TR-BDF2,0.25575,60.554005282775364,NaN
+1,3,lines,TR-BDF2,0.256,60.54685646377015,NaN
+1,3,lines,TR-BDF2,0.25625,60.541135794408824,NaN
+1,3,lines,TR-BDF2,0.2565,60.53653650125539,NaN
+1,3,lines,TR-BDF2,0.25675,60.53525174780744,NaN
+1,3,lines,TR-BDF2,0.257,60.534501290596374,NaN
+1,3,lines,TR-BDF2,0.25725,60.53491459537174,NaN
+1,3,lines,TR-BDF2,0.2575,60.534580286310316,NaN
+1,3,lines,TR-BDF2,0.25775,60.52778184263852,NaN
+1,3,lines,TR-BDF2,0.258,60.52123245368586,NaN
+1,3,lines,TR-BDF2,0.25825,60.513362793528536,NaN
+1,3,lines,TR-BDF2,0.2585,60.507914507560315,NaN
+1,3,lines,TR-BDF2,0.25875,60.50356045434302,NaN
+1,3,lines,TR-BDF2,0.259,60.5032323662232,NaN
+1,3,lines,TR-BDF2,0.25925,60.502089606398926,NaN
+1,3,lines,TR-BDF2,0.2595,60.502280280972464,NaN
+1,3,lines,TR-BDF2,0.25975,60.50238048754837,NaN
+1,3,lines,TR-BDF2,0.26,60.495784820502436,NaN
+1,3,lines,TR-BDF2,0.26025,60.48930683370085,NaN
+1,3,lines,TR-BDF2,0.2605,60.48254463763769,NaN
+1,3,lines,TR-BDF2,0.26075,60.47747213853593,NaN
+1,3,lines,TR-BDF2,0.261,60.473282355332394,NaN
+1,3,lines,TR-BDF2,0.26125,60.47036905312531,NaN
+1,3,lines,TR-BDF2,0.2615,60.470340367914304,NaN
+1,3,lines,TR-BDF2,0.26175,60.469942301538076,NaN
+1,3,lines,TR-BDF2,0.262,60.46956907802526,NaN
+1,3,lines,TR-BDF2,0.26225,60.43676706529487,NaN
+1,3,lines,TR-BDF2,0.2625,60.45883571334802,NaN
+1,3,lines,TR-BDF2,0.26275,60.45202876044362,NaN
+1,3,lines,TR-BDF2,0.263,60.445961663722436,NaN
+1,3,lines,TR-BDF2,0.26325,60.44065221523343,NaN
+1,3,lines,TR-BDF2,0.2635,60.437801939195,NaN
+1,3,lines,TR-BDF2,0.26375,60.436618812235224,NaN
+1,3,lines,TR-BDF2,0.264,60.43724090484566,NaN
+1,3,lines,TR-BDF2,0.26425,60.437025409961414,NaN
+1,3,lines,TR-BDF2,0.26475,60.43096425910673,NaN
+1,3,lines,TR-BDF2,0.265,60.40391409056147,NaN
+1,3,lines,TR-BDF2,0.26525,60.4184767510146,NaN
+1,3,lines,TR-BDF2,0.2655,60.40423519960817,NaN
+1,3,lines,TR-BDF2,0.26575,60.40599403435039,NaN
+1,3,lines,TR-BDF2,0.266,60.40452873953216,NaN
+1,3,lines,TR-BDF2,0.26625,60.4041081638858,NaN
+1,3,lines,TR-BDF2,0.2665,60.40448313882284,NaN
+1,3,lines,TR-BDF2,0.26675,60.40443805637287,NaN
+1,3,lines,TR-BDF2,0.267,60.40339642788302,NaN
+1,3,lines,TR-BDF2,0.26725,60.397190900284905,NaN
+1,3,lines,TR-BDF2,0.2675,60.39099086019083,NaN
+1,3,lines,TR-BDF2,0.26775,60.384496881979686,NaN
+1,3,lines,TR-BDF2,0.268,60.3735641700724,NaN
+1,3,lines,TR-BDF2,0.26825,60.37124381478739,NaN
+1,3,lines,TR-BDF2,0.2685,60.37132446440774,NaN
+1,3,lines,TR-BDF2,0.26875,60.37192193055613,NaN
+1,3,lines,TR-BDF2,0.269,60.371770391701816,NaN
+1,3,lines,TR-BDF2,0.2695,60.37167503153689,NaN
+1,3,lines,TR-BDF2,0.26975,60.36637620194815,NaN
+1,3,lines,TR-BDF2,0.27,60.36033310622339,NaN
+1,3,lines,TR-BDF2,0.27025,60.355231481021015,NaN
+1,3,lines,TR-BDF2,0.2705,60.34841649458222,NaN
+1,3,lines,TR-BDF2,0.27075,60.34290535216331,NaN
+1,3,lines,TR-BDF2,0.271,60.340506866236474,NaN
+1,3,lines,TR-BDF2,0.2715,60.338771633289646,NaN
+1,3,lines,TR-BDF2,0.27175,60.3388031371813,NaN
+1,3,lines,TR-BDF2,0.272,60.33886717206031,NaN
+1,3,lines,TR-BDF2,0.27225,60.33776271025926,NaN
+1,3,lines,TR-BDF2,0.2725,60.33225507701549,NaN
+1,3,lines,TR-BDF2,0.27275,60.32651337172496,NaN
+1,3,lines,TR-BDF2,0.273,60.32001890718432,NaN
+1,3,lines,TR-BDF2,0.27325,60.314373616282325,NaN
+1,3,lines,TR-BDF2,0.2735,60.30878086885465,NaN
+1,3,lines,TR-BDF2,0.27375,60.30905446335433,NaN
+1,3,lines,TR-BDF2,0.274,60.30745795429508,NaN
+1,3,lines,TR-BDF2,0.27425,60.307021223521495,NaN
+1,3,lines,TR-BDF2,0.2745,60.30646100778859,NaN
+1,3,lines,TR-BDF2,0.27475,60.30637503490028,NaN
+1,3,lines,TR-BDF2,0.275,60.30546908046293,NaN
+1,3,lines,TR-BDF2,0.27525,60.30067061367148,NaN
+1,3,lines,TR-BDF2,0.2755,60.294760324683196,NaN
+1,3,lines,TR-BDF2,0.27575,60.28906218968232,NaN
+1,3,lines,TR-BDF2,0.276,60.28445183056346,NaN
+1,3,lines,TR-BDF2,0.27625,60.27895045881393,NaN
+1,3,lines,TR-BDF2,0.2765,60.27803169153108,NaN
+1,3,lines,TR-BDF2,0.277,60.27397744149588,NaN
+1,3,lines,TR-BDF2,0.27725,60.273865472116405,NaN
+1,3,lines,TR-BDF2,0.2775,60.273859843318014,NaN
+1,3,lines,TR-BDF2,0.27775,60.273363068271216,NaN
+1,3,lines,TR-BDF2,0.278,60.24071623958898,NaN
+1,3,lines,TR-BDF2,0.27825,60.241046463226176,NaN
+1,3,lines,TR-BDF2,0.2785,60.24102560315642,NaN
+1,3,lines,TR-BDF2,0.27875,60.24077602765827,NaN
+1,3,lines,TR-BDF2,0.279,60.25058222085268,NaN
+1,3,lines,TR-BDF2,0.27925,60.24130604433603,NaN
+1,3,lines,TR-BDF2,0.2795,60.24193397610851,NaN
+1,3,lines,TR-BDF2,0.28025,60.240835932363424,NaN
+1,3,lines,TR-BDF2,0.28075,60.24080212758416,NaN
+1,3,lines,TR-BDF2,0.281,60.240101917052925,NaN
+1,3,lines,TR-BDF2,0.28125,60.234821734305356,NaN
+1,3,lines,TR-BDF2,0.2815,60.2305449311574,NaN
+1,3,lines,TR-BDF2,0.28175,60.22542778498371,NaN
+1,3,lines,TR-BDF2,0.282,60.22057847977361,NaN
+1,3,lines,TR-BDF2,0.28225,60.20821630916284,NaN
+1,3,lines,TR-BDF2,0.2825,60.21303683027563,NaN
+1,3,lines,TR-BDF2,0.28275,60.20981953572289,NaN
+1,3,lines,TR-BDF2,0.283,60.210294427724186,NaN
+1,3,lines,TR-BDF2,0.28325,60.20849637682439,NaN
+1,3,lines,TR-BDF2,0.2835,60.20798068031914,NaN
+1,3,lines,TR-BDF2,0.284,60.208175877385855,NaN
+1,3,lines,TR-BDF2,0.28425,60.20764835176335,NaN
+1,3,lines,TR-BDF2,0.2845,60.1755481084904,NaN
+1,3,lines,TR-BDF2,0.28475,60.198747461198245,NaN
+1,3,lines,TR-BDF2,0.285,60.19410459793205,NaN
+1,3,lines,TR-BDF2,0.28525,60.18951287090204,NaN
+1,3,lines,TR-BDF2,0.2855,60.18474267437401,NaN
+1,3,lines,TR-BDF2,0.28575,60.17968257125225,NaN
+1,3,lines,TR-BDF2,0.286,60.176498986903766,NaN
+1,3,lines,TR-BDF2,0.2865,60.17654521048175,NaN
+1,3,lines,TR-BDF2,0.28675,60.17553336833118,NaN
+1,3,lines,TR-BDF2,0.287,60.17547846082155,NaN
+1,3,lines,TR-BDF2,0.28725,60.175811095304674,NaN
+1,3,lines,TR-BDF2,0.2875,60.175361716429364,NaN
+1,3,lines,TR-BDF2,0.28775,60.175680282850166,NaN
+1,3,lines,TR-BDF2,0.288,60.171093914252516,NaN
+1,3,lines,TR-BDF2,0.28825,60.166876603348555,NaN
+1,3,lines,TR-BDF2,0.2885,60.16262438277185,NaN
+1,3,lines,TR-BDF2,0.28875,60.15832810678428,NaN
+1,3,lines,TR-BDF2,0.289,60.15437982076124,NaN
+1,3,lines,TR-BDF2,0.28925,60.15083255669464,NaN
+1,3,lines,TR-BDF2,0.2895,60.14362184107449,NaN
+1,3,lines,TR-BDF2,0.28975,60.143113656775824,NaN
+1,3,lines,TR-BDF2,0.29,60.14315115238865,NaN
+1,3,lines,TR-BDF2,0.29025,60.143436582782364,NaN
+1,3,lines,TR-BDF2,0.29075,60.14384996651394,NaN
+1,3,lines,TR-BDF2,0.291,60.142921648595745,NaN
+1,3,lines,TR-BDF2,0.29125,60.14292170989349,NaN
+1,3,lines,TR-BDF2,0.2915,60.14261446298385,NaN
+1,3,lines,TR-BDF2,0.29175,60.11019574451985,NaN
+1,3,lines,TR-BDF2,0.292,60.13672345980801,NaN
+1,3,lines,TR-BDF2,0.29225,60.11056012397862,NaN
+1,3,lines,TR-BDF2,0.2925,60.129237745248695,NaN
+1,3,lines,TR-BDF2,0.29275,60.11032533403167,NaN
+1,3,lines,TR-BDF2,0.293,60.12112105081795,NaN
+1,3,lines,TR-BDF2,0.29325,60.11790056315003,NaN
+1,3,lines,TR-BDF2,0.2935,60.11559273397847,NaN
+1,3,lines,TR-BDF2,0.29375,60.109932320390534,NaN
+1,3,lines,TR-BDF2,0.294,60.11209449761351,NaN
+1,3,lines,TR-BDF2,0.29475,60.11007542053836,NaN
+1,3,lines,TR-BDF2,0.29525,60.110766289480296,NaN
+1,3,lines,TR-BDF2,0.29575,60.110197924924236,NaN
+1,3,lines,TR-BDF2,0.296,60.07751604253465,NaN
+1,3,lines,TR-BDF2,0.29625,60.10590824186428,NaN
+1,3,lines,TR-BDF2,0.2965,60.1026927588649,NaN
+1,3,lines,TR-BDF2,0.29675,60.09953884758614,NaN
+1,3,lines,TR-BDF2,0.297,60.095766746620846,NaN
+1,3,lines,TR-BDF2,0.29725,60.09330912974162,NaN
+1,3,lines,TR-BDF2,0.2975,60.08908905470503,NaN
+1,3,lines,TR-BDF2,0.29775,60.08653815691933,NaN
+1,3,lines,TR-BDF2,0.298,60.083824683622225,NaN
+1,3,lines,TR-BDF2,0.29825,60.08165983541057,NaN
+1,3,lines,TR-BDF2,0.2985,60.08081047114952,NaN
+1,3,lines,TR-BDF2,0.29875,60.08015919719149,NaN
+1,3,lines,TR-BDF2,0.29925,60.07938831100666,NaN
+1,3,lines,TR-BDF2,0.2995,60.078330466115645,NaN
+1,3,lines,TR-BDF2,0.30075,60.07736793294391,NaN
+1,3,lines,TR-BDF2,0.301,60.07768889303582,NaN
+1,3,lines,TR-BDF2,0.30125,60.04497057157909,NaN
+1,3,lines,TR-BDF2,0.3015,60.04488811099372,NaN
+1,3,lines,TR-BDF2,0.30175,60.06939338182731,NaN
+1,3,lines,TR-BDF2,0.302,60.066817876029646,NaN
+1,3,lines,TR-BDF2,0.30225,60.04483718156151,NaN
+1,3,lines,TR-BDF2,0.3025,60.06117983730814,NaN
+1,3,lines,TR-BDF2,0.30275,60.045275443638815,NaN
+1,3,lines,TR-BDF2,0.303,60.05589634284913,NaN
+1,3,lines,TR-BDF2,0.30325,60.046046126662745,NaN
+1,3,lines,TR-BDF2,0.3035,60.04456603280778,NaN
+1,3,lines,TR-BDF2,0.30375,60.04910548412633,NaN
+1,3,lines,TR-BDF2,0.304,60.04654843852872,NaN
+1,3,lines,TR-BDF2,0.30425,60.04456603280778,NaN
+1,3,lines,TR-BDF2,0.3045,60.04456603280778,NaN
+1,3,lines,TR-BDF2,0.30475,60.046171921374594,NaN
+1,3,lines,TR-BDF2,0.305,60.04642741493414,NaN
+1,3,lines,TR-BDF2,0.3055,60.04566184426139,NaN
+1,3,lines,TR-BDF2,0.30625,60.04495169791819,NaN
+1,3,lines,TR-BDF2,0.307,60.04512894666568,NaN
+1,3,lines,TR-BDF2,0.3075,60.04464019942154,NaN
+1,3,lines,TR-BDF2,0.30775,60.0439068560573,NaN
+1,3,lines,TR-BDF2,0.308,60.0417498210811,NaN
+1,3,lines,TR-BDF2,0.30825,60.03982729480998,NaN
+1,3,lines,TR-BDF2,0.3085,60.03808424145359,NaN
+1,3,lines,TR-BDF2,0.30875,60.01188216757386,NaN
+1,3,lines,TR-BDF2,0.309,60.034610371379635,NaN
+1,3,lines,TR-BDF2,0.30925,60.032591219710085,NaN
+1,3,lines,TR-BDF2,0.3095,60.03073246581105,NaN
+1,3,lines,TR-BDF2,0.30975,60.029418188927174,NaN
+1,3,lines,TR-BDF2,0.31,60.02700822022096,NaN
+1,3,lines,TR-BDF2,0.31025,60.012935551826544,NaN
+1,3,lines,TR-BDF2,0.3105,60.0236433630901,NaN
+1,3,lines,TR-BDF2,0.31075,60.02241158135839,NaN
+1,3,lines,TR-BDF2,0.311,60.012981922538295,NaN
+1,3,lines,TR-BDF2,0.31125,60.01236465877997,NaN
+1,3,lines,TR-BDF2,0.3115,60.01846941065317,NaN
+1,3,lines,TR-BDF2,0.31175,60.01187711045626,NaN
+1,3,lines,TR-BDF2,0.312,60.01187711045626,NaN
+1,3,lines,TR-BDF2,0.31225,60.01493123885407,NaN
+1,3,lines,TR-BDF2,0.3125,60.01623808232082,NaN
+1,3,lines,TR-BDF2,0.31275,60.012797492136166,NaN
+1,3,lines,TR-BDF2,0.313,60.012273765838785,NaN
+1,3,lines,TR-BDF2,0.3135,60.013851932474964,NaN
+1,3,lines,TR-BDF2,0.31375,60.01350450974869,NaN
+1,3,lines,TR-BDF2,0.314,60.01314581774408,NaN
+1,3,lines,TR-BDF2,0.3145,60.01192672341742,NaN
+1,3,lines,TR-BDF2,0.31475,60.012086112438325,NaN
+1,3,lines,TR-BDF2,0.31525,60.012133790312554,NaN
+1,3,lines,TR-BDF2,0.3155,60.0124755534296,NaN
+1,3,lines,TR-BDF2,0.31675,60.01228887196343,NaN
+1,3,lines,TR-BDF2,0.31725,60.01189933496333,NaN
+1,3,lines,TR-BDF2,0.3175,60.01242767820822,NaN
+1,3,lines,TR-BDF2,0.318,60.01257231356363,NaN
+1,3,lines,TR-BDF2,0.31825,60.01209649615113,NaN
+1,3,lines,TR-BDF2,0.31925,60.01196394462851,NaN
+1,3,lines,TR-BDF2,0.3195,60.01214524018164,NaN
+1,3,lines,TR-BDF2,0.31975,60.011901585405376,NaN
+1,3,lines,TR-BDF2,0.32,60.01229349907485,NaN
+1,3,lines,TR-BDF2,0.3205,60.01250822599392,NaN
+1,3,lines,TR-BDF2,0.32075,60.01266650432061,NaN
+1,3,lines,TR-BDF2,0.32125,60.01191076044855,NaN
+1,3,lines,TR-BDF2,0.3215,60.01268012755139,NaN
+1,3,lines,TR-BDF2,0.322,60.01213036568648,NaN
+1,3,lines,TR-BDF2,0.32225,60.01197198468712,NaN
+1,3,lines,TR-BDF2,0.323,60.01194388097919,NaN
+1,3,lines,TR-BDF2,0.32325,60.01222628043147,NaN
+1,3,lines,TR-BDF2,0.3235,60.0121733745418,NaN
+1,3,lines,TR-BDF2,0.32375,60.013160931948455,NaN
+1,3,lines,TR-BDF2,0.324,60.0120306400456,NaN
+1,3,lines,TR-BDF2,0.32425,60.01215460226393,NaN
+1,3,lines,TR-BDF2,0.3245,60.012226271772,NaN
+1,3,lines,TR-BDF2,0.32475,60.01221536592668,NaN
+1,3,lines,TR-BDF2,0.32525,60.01233281360682,NaN
+1,3,lines,TR-BDF2,0.3255,60.01248076438191,NaN
+1,3,lines,TR-BDF2,0.32575,60.01204699151066,NaN
+1,3,lines,TR-BDF2,0.32625,60.01227999765064,NaN
+1,3,lines,TR-BDF2,0.3265,60.01202462975535,NaN
+1,3,lines,TR-BDF2,0.32675,60.012444460368116,NaN
+1,3,lines,TR-BDF2,0.327,60.012572691560756,NaN
+1,3,lines,TR-BDF2,0.32775,60.01195882323248,NaN
+1,3,lines,TR-BDF2,0.32825,60.01223208612145,NaN
+1,3,lines,TR-BDF2,0.3285,60.01222171217678,NaN
+1,3,lines,TR-BDF2,0.32875,60.0130339918341,NaN
+1,3,lines,TR-BDF2,0.32925,60.01235993385433,NaN
+1,3,lines,TR-BDF2,0.3295,60.01261088660129,NaN
+1,3,lines,TR-BDF2,0.32975,60.013433099538155,NaN
+1,3,lines,TR-BDF2,0.33,60.012203989981685,NaN
+1,3,lines,TR-BDF2,0.33025,60.012743897616495,NaN
+1,3,lines,TR-BDF2,0.33075,60.01187711045626,NaN
+1,3,lines,TR-BDF2,0.331,60.01198149639107,NaN
+1,3,lines,TR-BDF2,0.33125,60.01471705454119,NaN
+1,3,lines,TR-BDF2,0.3315,60.01382409453628,NaN
+1,3,lines,TR-BDF2,0.33175,60.014824846338946,NaN
+1,3,lines,TR-BDF2,0.332,60.01830240361881,NaN
+1,3,lines,TR-BDF2,0.33225,60.01840756406288,NaN
+1,3,lines,TR-BDF2,0.3325,60.020588864924754,NaN
+1,3,lines,TR-BDF2,0.33275,60.02149812911373,NaN
+1,3,lines,TR-BDF2,0.333,60.01270386733877,NaN
+1,3,lines,TR-BDF2,0.33325,60.02556516709756,NaN
+1,3,lines,TR-BDF2,0.3335,60.025910425245776,NaN
+1,3,lines,TR-BDF2,0.33375,60.02847141973142,NaN
+1,3,lines,TR-BDF2,0.334,60.03062613075156,NaN
+1,3,lines,TR-BDF2,0.33425,60.03270218856721,NaN
+1,3,lines,TR-BDF2,0.3345,60.01247165094027,NaN
+1,3,lines,TR-BDF2,0.33475,60.03574985963918,NaN
+1,3,lines,TR-BDF2,0.335,60.01257889817632,NaN
+1,3,lines,TR-BDF2,0.33525,60.03989467018218,NaN
+1,3,lines,TR-BDF2,0.3355,60.012281810556495,NaN
+1,3,lines,TR-BDF2,0.33575,60.012304902448214,NaN
+1,3,lines,TR-BDF2,0.33625,60.04460266231104,NaN
+1,3,lines,TR-BDF2,0.33725,60.04526328887538,NaN
+1,3,lines,TR-BDF2,0.338,60.046087319482865,NaN
+1,3,lines,TR-BDF2,0.3385,60.04584877715025,NaN
+1,3,lines,TR-BDF2,0.33875,60.04508486144307,NaN
+1,3,lines,TR-BDF2,0.339,60.04456603280778,NaN
+1,3,lines,TR-BDF2,0.33925,60.04456603280778,NaN
+1,3,lines,TR-BDF2,0.3395,60.051930535402704,NaN
+1,3,lines,TR-BDF2,0.33975,60.04739125484555,NaN
+1,3,lines,TR-BDF2,0.34,60.04468924761829,NaN
+1,3,lines,TR-BDF2,0.34025,60.059422816257445,NaN
+1,3,lines,TR-BDF2,0.3405,60.04502837534927,NaN
+1,3,lines,TR-BDF2,0.34075,60.0454495030674,NaN
+1,3,lines,TR-BDF2,0.341,60.06797039589938,NaN
+1,3,lines,TR-BDF2,0.34125,60.04561772359252,NaN
+1,3,lines,TR-BDF2,0.3415,60.04470713328278,NaN
+1,3,lines,TR-BDF2,0.34175,60.04466309001772,NaN
+1,3,lines,TR-BDF2,0.34225,60.07788854273604,NaN
+1,3,lines,TR-BDF2,0.343,60.07760668183077,NaN
+1,3,lines,TR-BDF2,0.34325,60.07831358459532,NaN
+1,3,lines,TR-BDF2,0.3435,60.079185258863845,NaN
+1,3,lines,TR-BDF2,0.34375,60.07747587076605,NaN
+1,3,lines,TR-BDF2,0.344,60.077251101788136,NaN
+1,3,lines,TR-BDF2,0.34425,60.08119942864876,NaN
+1,3,lines,TR-BDF2,0.3445,60.077661298288376,NaN
+1,3,lines,TR-BDF2,0.34475,60.07773445971131,NaN
+1,3,lines,TR-BDF2,0.345,60.079627484990425,NaN
+1,3,lines,TR-BDF2,0.34525,60.077600267658816,NaN
+1,3,lines,TR-BDF2,0.3455,60.07739102012469,NaN
+1,3,lines,TR-BDF2,0.34575,60.10325735269311,NaN
+1,3,lines,TR-BDF2,0.346,60.07728672331171,NaN
+1,3,lines,TR-BDF2,0.3465,60.11008966527463,NaN
+1,3,lines,TR-BDF2,0.34675,60.110167428495686,NaN
+1,3,lines,TR-BDF2,0.347,60.111044848412156,NaN
+1,3,lines,TR-BDF2,0.34725,60.11002203800654,NaN
+1,3,lines,TR-BDF2,0.34775,60.110625681983315,NaN
+1,3,lines,TR-BDF2,0.348,60.1100484631716,NaN
+1,3,lines,TR-BDF2,0.34825,60.11578881023795,NaN
+1,3,lines,TR-BDF2,0.3485,60.119018531290145,NaN
+1,3,lines,TR-BDF2,0.34875,60.12271584319872,NaN
+1,3,lines,TR-BDF2,0.349,60.11105936971716,NaN
+1,3,lines,TR-BDF2,0.34925,60.11063513398439,NaN
+1,3,lines,TR-BDF2,0.3495,60.110425710387375,NaN
+1,3,lines,TR-BDF2,0.34975,60.110206687898064,NaN
+1,3,lines,TR-BDF2,0.35,60.14291673111596,NaN
+1,3,lines,TR-BDF2,0.35025,60.14320849606878,NaN
+1,3,lines,TR-BDF2,0.3505,60.14287365467885,NaN
+1,3,lines,TR-BDF2,0.35075,60.14371931802136,NaN
+1,3,lines,TR-BDF2,0.351,60.14334567123417,NaN
+1,3,lines,TR-BDF2,0.35125,60.1445025521125,NaN
+1,3,lines,TR-BDF2,0.3515,60.14426949143174,NaN
+1,3,lines,TR-BDF2,0.35175,60.14260969160821,NaN
+1,3,lines,TR-BDF2,0.352,60.14358020322191,NaN
+1,3,lines,TR-BDF2,0.35225,60.142980442594634,NaN
+1,3,lines,TR-BDF2,0.3525,60.16346880320907,NaN
+1,3,lines,TR-BDF2,0.35275,60.1426365665185,NaN
+1,3,lines,TR-BDF2,0.353,60.17289810524846,NaN
+1,3,lines,TR-BDF2,0.35325,60.17549623425285,NaN
+1,3,lines,TR-BDF2,0.354,60.1758460668534,NaN
+1,3,lines,TR-BDF2,0.3545,60.17528321843431,NaN
+1,3,lines,TR-BDF2,0.35475,60.18239586173529,NaN
+1,3,lines,TR-BDF2,0.355,60.17699784629685,NaN
+1,3,lines,TR-BDF2,0.35525,60.175287611452866,NaN
+1,3,lines,TR-BDF2,0.3555,60.19737255701275,NaN
+1,3,lines,TR-BDF2,0.35575,60.17633752623524,NaN
+1,3,lines,TR-BDF2,0.356,60.20770139897796,NaN
+1,3,lines,TR-BDF2,0.35675,60.208682111228825,NaN
+1,3,lines,TR-BDF2,0.357,60.20839715879057,NaN
+1,3,lines,TR-BDF2,0.35725,60.209094935061486,NaN
+1,3,lines,TR-BDF2,0.3575,60.20893642196961,NaN
+1,3,lines,TR-BDF2,0.35775,60.20927013201544,NaN
+1,3,lines,TR-BDF2,0.358,60.21060824852224,NaN
+1,3,lines,TR-BDF2,0.35825,60.231235773591614,NaN
+1,3,lines,TR-BDF2,0.3585,60.20881056069742,NaN
+1,3,lines,TR-BDF2,0.35875,60.24089563366624,NaN
+1,3,lines,TR-BDF2,0.35975,60.24061875088466,NaN
+1,3,lines,TR-BDF2,0.36,60.245533637894404,NaN
+1,3,lines,TR-BDF2,0.36025,60.24061875088466,NaN
+1,3,lines,TR-BDF2,0.3605,60.24237293549444,NaN
+1,3,lines,TR-BDF2,0.36075,60.24082810054581,NaN
+1,3,lines,TR-BDF2,0.361,60.27137077140984,NaN
+1,3,lines,TR-BDF2,0.3615,60.273566366799386,NaN
+1,3,lines,TR-BDF2,0.36225,60.2774231485651,NaN
+1,3,lines,TR-BDF2,0.3625,60.28244737917126,NaN
+1,3,lines,TR-BDF2,0.36275,60.2900287849536,NaN
+1,3,lines,TR-BDF2,0.363,60.297680515933806,NaN
+1,3,lines,TR-BDF2,0.36325,60.303911728270556,NaN
+1,3,lines,TR-BDF2,0.364,60.30648539489395,NaN
+1,3,lines,TR-BDF2,0.36425,60.30635611517048,NaN
+1,3,lines,TR-BDF2,0.3645,60.30593894168715,NaN
+1,3,lines,TR-BDF2,0.36475,60.30656731540146,NaN
+1,3,lines,TR-BDF2,0.365,60.324828568692,NaN
+1,3,lines,TR-BDF2,0.36525,60.30714213864251,NaN
+1,3,lines,TR-BDF2,0.36575,60.339248152640714,NaN
+1,3,lines,TR-BDF2,0.366,60.3397140069402,NaN
+1,3,lines,TR-BDF2,0.36625,60.338593291453456,NaN
+1,3,lines,TR-BDF2,0.3665,60.34359468815936,NaN
+1,3,lines,TR-BDF2,0.36675,60.34841853452107,NaN
+1,3,lines,TR-BDF2,0.367,60.35577552106486,NaN
+1,3,lines,TR-BDF2,0.36725,60.338826306183286,NaN
+1,3,lines,TR-BDF2,0.3675,60.371296623043506,NaN
+1,3,lines,TR-BDF2,0.3685,60.37124381478739,NaN
+1,3,lines,TR-BDF2,0.36875,60.37184545143862,NaN
+1,3,lines,TR-BDF2,0.369,60.372744076598494,NaN
+1,3,lines,TR-BDF2,0.36925,60.372236314219634,NaN
+1,3,lines,TR-BDF2,0.3695,60.40419799643649,NaN
+1,3,lines,TR-BDF2,0.37025,60.40389051468215,NaN
+1,3,lines,TR-BDF2,0.3705,60.40389051468215,NaN
+1,3,lines,TR-BDF2,0.37075,60.404414554391074,NaN
+1,3,lines,TR-BDF2,0.371,60.427902739045635,NaN
+1,3,lines,TR-BDF2,0.37125,60.43636573113527,NaN
+1,3,lines,TR-BDF2,0.372,60.43653339413093,NaN
+1,3,lines,TR-BDF2,0.37225,60.43653339413093,NaN
+1,3,lines,TR-BDF2,0.3725,60.436927233596506,NaN
+1,3,lines,TR-BDF2,0.37275,60.43733265657894,NaN
+1,3,lines,TR-BDF2,0.373,60.43770655234285,NaN
+1,3,lines,TR-BDF2,0.37325,60.470289982022514,NaN
+1,3,lines,TR-BDF2,0.37375,60.47222181068481,NaN
+1,3,lines,TR-BDF2,0.374,60.46917245612695,NaN
+1,3,lines,TR-BDF2,0.37425,60.48444530903293,NaN
+1,3,lines,TR-BDF2,0.3745,60.46967537247534,NaN
+1,3,lines,TR-BDF2,0.37475,60.50257057303175,NaN
+1,3,lines,TR-BDF2,0.37525,60.503995033788506,NaN
+1,3,lines,TR-BDF2,0.3755,60.5074220136782,NaN
+1,3,lines,TR-BDF2,0.37575,60.51391725054388,NaN
+1,3,lines,TR-BDF2,0.376,60.521511150296405,NaN
+1,3,lines,TR-BDF2,0.37625,60.53091416797401,NaN
+1,3,lines,TR-BDF2,0.3765,60.53492129668188,NaN
+1,3,lines,TR-BDF2,0.37675,60.53507299447851,NaN
+1,3,lines,TR-BDF2,0.377,60.53443913973345,NaN
+1,3,lines,TR-BDF2,0.37725,60.53495362716108,NaN
+1,3,lines,TR-BDF2,0.3775,60.53789817752101,NaN
+1,3,lines,TR-BDF2,0.37775,60.53476310213276,NaN
+1,3,lines,TR-BDF2,0.37825,60.567316130636684,NaN
+1,3,lines,TR-BDF2,0.37875,60.56706676733033,NaN
+1,3,lines,TR-BDF2,0.379,60.568497842099625,NaN
+1,3,lines,TR-BDF2,0.37925,60.56849171002278,NaN
+1,3,lines,TR-BDF2,0.37975,60.60014932437925,NaN
+1,3,lines,TR-BDF2,0.38025,60.605082896696764,NaN
+1,3,lines,TR-BDF2,0.3805,60.61490118246703,NaN
+1,3,lines,TR-BDF2,0.38075,60.62536616675019,NaN
+1,3,lines,TR-BDF2,0.38125,60.63287267992142,NaN
+1,3,lines,TR-BDF2,0.3815,60.632310609077344,NaN
+1,3,lines,TR-BDF2,0.38175,60.632310609077344,NaN
+1,3,lines,TR-BDF2,0.382,60.63255488179047,NaN
+1,3,lines,TR-BDF2,0.38225,60.63334378448141,NaN
+1,3,lines,TR-BDF2,0.3825,60.66503147785275,NaN
+1,3,lines,TR-BDF2,0.383,60.66492682921386,NaN
+1,3,lines,TR-BDF2,0.38325,60.66541762028949,NaN
+1,3,lines,TR-BDF2,0.3835,60.684335334588994,NaN
+1,3,lines,TR-BDF2,0.38375,60.69484974731673,NaN
+1,3,lines,TR-BDF2,0.38425,60.69926811044755,NaN
+1,3,lines,TR-BDF2,0.3845,60.69753925284999,NaN
+1,3,lines,TR-BDF2,0.38475,60.71077093971412,NaN
+1,3,lines,TR-BDF2,0.385,60.69812732055597,NaN
+1,3,lines,TR-BDF2,0.38525,60.73044788887067,NaN
+1,3,lines,TR-BDF2,0.3855,60.73018243265167,NaN
+1,3,lines,TR-BDF2,0.38575,60.73132971050933,NaN
+1,3,lines,TR-BDF2,0.386,60.73077755463382,NaN
+1,3,lines,TR-BDF2,0.38625,60.73168681725725,NaN
+1,3,lines,TR-BDF2,0.3865,60.73021500449241,NaN
+1,3,lines,TR-BDF2,0.38725,60.76405331127123,NaN
+1,3,lines,TR-BDF2,0.3875,60.76361975205445,NaN
+1,3,lines,TR-BDF2,0.38775,60.79202822065416,NaN
+1,3,lines,TR-BDF2,0.388,60.796201527075446,NaN
+1,3,lines,TR-BDF2,0.3885,60.79535377468806,NaN
+1,3,lines,TR-BDF2,0.38875,60.8108657177783,NaN
+1,3,lines,TR-BDF2,0.389,60.79581888332089,NaN
+1,3,lines,TR-BDF2,0.38975,60.82795104225462,NaN
+1,3,lines,TR-BDF2,0.39,60.83074473944817,NaN
+1,3,lines,TR-BDF2,0.39025,60.82796394043425,NaN
+1,3,lines,TR-BDF2,0.391,60.860544528286795,NaN
+1,3,lines,TR-BDF2,0.39125,60.87674599106989,NaN
+1,3,lines,TR-BDF2,0.3915,60.86089630490632,NaN
+1,3,lines,TR-BDF2,0.39225,60.89313423577777,NaN
+1,3,lines,TR-BDF2,0.3925,60.894457233656716,NaN
+1,3,lines,TR-BDF2,0.39275,60.89316167991515,NaN
+1,3,lines,TR-BDF2,0.3935,60.92572016772075,NaN
+1,3,lines,TR-BDF2,0.39375,60.926627154748225,NaN
+1,3,lines,TR-BDF2,0.394,60.95910029811915,NaN
+1,3,lines,TR-BDF2,0.3945,60.958302327108946,NaN
+1,3,lines,TR-BDF2,0.39475,60.961124566609875,NaN
+1,3,lines,TR-BDF2,0.395,60.95879279223327,NaN
+1,3,lines,TR-BDF2,0.39575,60.99088071693552,NaN
+1,3,lines,TR-BDF2,0.396,60.99131263786622,NaN
+1,3,lines,TR-BDF2,0.39625,60.991218769765254,NaN
+1,3,lines,TR-BDF2,0.397,61.02761080721211,NaN
+1,3,lines,TR-BDF2,0.39725,61.0484967602792,NaN
+1,3,lines,TR-BDF2,0.3975,61.05628212352947,NaN
+1,3,lines,TR-BDF2,0.39775,61.057427152541116,NaN
+1,3,lines,TR-BDF2,0.398,61.05835361258509,NaN
+1,3,lines,TR-BDF2,0.39825,61.05603488252114,NaN
+1,3,lines,TR-BDF2,0.3985,61.05625219608738,NaN
+1,3,lines,TR-BDF2,0.399,61.08859329897767,NaN
+1,3,lines,TR-BDF2,0.39925,61.10108404441102,NaN
+1,3,lines,TR-BDF2,0.3995,61.09014468263576,NaN
+1,3,lines,TR-BDF2,0.39975,61.1217969055249,NaN
+1,3,lines,TR-BDF2,0.40025,61.128863206490784,NaN
+1,3,lines,TR-BDF2,0.4005,61.121471321162886,NaN
+1,3,lines,TR-BDF2,0.40125,61.15912773996287,NaN
+1,3,lines,TR-BDF2,0.4015,61.15448501262724,NaN
+1,3,lines,TR-BDF2,0.40175,61.18575116223424,NaN
+1,3,lines,TR-BDF2,0.40225,61.186272062720626,NaN
+1,3,lines,TR-BDF2,0.4025,61.188821628931386,NaN
+1,3,lines,TR-BDF2,0.40275,61.187352511602086,NaN
+1,3,lines,TR-BDF2,0.403,61.21930983373726,NaN
+1,3,lines,TR-BDF2,0.40325,61.2188241494256,NaN
+1,3,lines,TR-BDF2,0.4035,61.22002194672412,NaN
+1,3,lines,TR-BDF2,0.40375,61.24742031185797,NaN
+1,3,lines,TR-BDF2,0.40425,61.25239293115115,NaN
+1,3,lines,TR-BDF2,0.4045,61.25288937406601,NaN
+1,3,lines,TR-BDF2,0.40475,61.251430013733916,NaN
+1,3,lines,TR-BDF2,0.40525,61.28391708898074,NaN
+1,3,lines,TR-BDF2,0.4055,61.28504436586927,NaN
+1,3,lines,TR-BDF2,0.40575,61.284262041303045,NaN
+1,3,lines,TR-BDF2,0.40625,61.31912151940721,NaN
+1,3,lines,TR-BDF2,0.4065,61.327774430699755,NaN
+1,3,lines,TR-BDF2,0.40675,61.34400735924032,NaN
+1,3,lines,TR-BDF2,0.40725,61.35232369576668,NaN
+1,3,lines,TR-BDF2,0.4075,61.350556736887555,NaN
+1,3,lines,TR-BDF2,0.40775,61.34908879567442,NaN
+1,3,lines,TR-BDF2,0.40825,61.38152845857444,NaN
+1,3,lines,TR-BDF2,0.4085,61.386201889467664,NaN
+1,3,lines,TR-BDF2,0.40875,61.383286899551614,NaN
+1,3,lines,TR-BDF2,0.40925,61.41405811648139,NaN
+1,3,lines,TR-BDF2,0.4095,61.415419877614084,NaN
+1,3,lines,TR-BDF2,0.40975,61.414588299381684,NaN
+1,3,lines,TR-BDF2,0.41025,61.446584046731545,NaN
+1,3,lines,TR-BDF2,0.4105,61.44842103676595,NaN
+1,3,lines,TR-BDF2,0.411,61.48024135691558,NaN
+1,3,lines,TR-BDF2,0.41125,61.47910625231811,NaN
+1,3,lines,TR-BDF2,0.4115,61.47921850115273,NaN
+1,3,lines,TR-BDF2,0.41225,61.511833248623574,NaN
+1,3,lines,TR-BDF2,0.4125,61.512107799185294,NaN
+1,3,lines,TR-BDF2,0.41275,61.54491369558542,NaN
+1,3,lines,TR-BDF2,0.413,61.5481567975524,NaN
+1,3,lines,TR-BDF2,0.41325,61.54488406107062,NaN
+1,3,lines,TR-BDF2,0.4135,61.544733699618014,NaN
+1,3,lines,TR-BDF2,0.41375,61.57784008728936,NaN
+1,3,lines,TR-BDF2,0.414,61.57715938992041,NaN
+1,3,lines,TR-BDF2,0.41425,61.6005589081161,NaN
+1,3,lines,TR-BDF2,0.415,61.60946506814227,NaN
+1,3,lines,TR-BDF2,0.41525,61.63844735927565,NaN
+1,3,lines,TR-BDF2,0.41575,61.64166151505888,NaN
+1,3,lines,TR-BDF2,0.416,61.66089118551343,NaN
+1,3,lines,TR-BDF2,0.41675,61.67507914183451,NaN
+1,3,lines,TR-BDF2,0.417,61.675037646626045,NaN
+1,3,lines,TR-BDF2,0.4175,61.70665765227201,NaN
+1,3,lines,TR-BDF2,0.41775,61.70850934870171,NaN
+1,3,lines,TR-BDF2,0.41825,61.73946084395083,NaN
+1,3,lines,TR-BDF2,0.4185,61.73915016830496,NaN
+1,3,lines,TR-BDF2,0.41875,61.765229080388316,NaN
+1,3,lines,TR-BDF2,0.41925,61.771638986613134,NaN
+1,3,lines,TR-BDF2,0.4195,61.772724180026756,NaN
+1,3,lines,TR-BDF2,0.42,61.80617291709894,NaN
+1,3,lines,TR-BDF2,0.42025,61.80838695486146,NaN
+1,3,lines,TR-BDF2,0.4205,61.8322814884159,NaN
+1,3,lines,TR-BDF2,0.42075,61.83727152326686,NaN
+1,3,lines,TR-BDF2,0.421,61.840995358778734,NaN
+1,3,lines,TR-BDF2,0.42125,61.837563357243006,NaN
+1,3,lines,TR-BDF2,0.42175,61.871202685424024,NaN
+1,3,lines,TR-BDF2,0.422,61.869083285120865,NaN
+1,3,lines,TR-BDF2,0.42225,61.870679333336284,NaN
+1,3,lines,TR-BDF2,0.42275,61.90155734246189,NaN
+1,3,lines,TR-BDF2,0.423,61.901925864478535,NaN
+1,3,lines,TR-BDF2,0.4235,61.93402771704411,NaN
+1,3,lines,TR-BDF2,0.42375,61.93672940818958,NaN
+1,3,lines,TR-BDF2,0.424,61.966660431393976,NaN
+1,3,lines,TR-BDF2,0.4245,61.966494411860715,NaN
+1,3,lines,TR-BDF2,0.42475,61.96812384957519,NaN
+1,3,lines,TR-BDF2,0.42525,61.99895742990497,NaN
+1,3,lines,TR-BDF2,0.4255,61.999089094830744,NaN
+1,3,lines,TR-BDF2,0.426,62.03141677417004,NaN
+1,3,lines,TR-BDF2,0.42625,62.052439282637216,NaN
+1,3,lines,TR-BDF2,0.42675,62.06387244764911,NaN
+1,3,lines,TR-BDF2,0.427,62.06510754719414,NaN
+1,3,lines,TR-BDF2,0.42775,62.10759357125982,NaN
+1,3,lines,TR-BDF2,0.428,62.09696112640619,NaN
+1,3,lines,TR-BDF2,0.4285,62.12940842273663,NaN
+1,3,lines,TR-BDF2,0.42875,62.15476189849531,NaN
+1,3,lines,TR-BDF2,0.42925,62.1671261261826,NaN
+1,3,lines,TR-BDF2,0.4295,62.1612177822077,NaN
+1,3,lines,TR-BDF2,0.42975,62.19409958209672,NaN
+1,3,lines,TR-BDF2,0.43,62.19922867424014,NaN
+1,3,lines,TR-BDF2,0.43025,62.19475600908789,NaN
+1,3,lines,TR-BDF2,0.4305,62.22707616613773,NaN
+1,3,lines,TR-BDF2,0.43075,62.2260958580169,NaN
+1,3,lines,TR-BDF2,0.431,62.2419693146273,NaN
+1,3,lines,TR-BDF2,0.4315,62.25894908973688,NaN
+1,3,lines,TR-BDF2,0.43175,62.26005992629503,NaN
+1,3,lines,TR-BDF2,0.432,62.29019054571372,NaN
+1,3,lines,TR-BDF2,0.43225,62.29099387422074,NaN
+1,3,lines,TR-BDF2,0.4325,62.29172019234937,NaN
+1,3,lines,TR-BDF2,0.43275,62.29249847510076,NaN
+1,3,lines,TR-BDF2,0.43325,62.33167694613743,NaN
+1,3,lines,TR-BDF2,0.4335,62.3241549567909,NaN
+1,3,lines,TR-BDF2,0.434,62.355808817470084,NaN
+1,3,lines,TR-BDF2,0.43425,62.35590759631253,NaN
+1,3,lines,TR-BDF2,0.43475,62.38822794771548,NaN
+1,3,lines,TR-BDF2,0.435,62.389183942349874,NaN
+1,3,lines,TR-BDF2,0.4355,62.42064344010013,NaN
+1,3,lines,TR-BDF2,0.43575,62.42086810258496,NaN
+1,3,lines,TR-BDF2,0.43625,62.45305529761723,NaN
+1,3,lines,TR-BDF2,0.4365,62.47582484245495,NaN
+1,3,lines,TR-BDF2,0.437,62.48546352325998,NaN
+1,3,lines,TR-BDF2,0.43725,62.48572249741192,NaN
+1,3,lines,TR-BDF2,0.43775,62.51786812002157,NaN
+1,3,lines,TR-BDF2,0.438,62.53992253534029,NaN
+1,3,lines,TR-BDF2,0.43825,62.55092266522833,NaN
+1,3,lines,TR-BDF2,0.4385,62.55669167191698,NaN
+1,3,lines,TR-BDF2,0.43875,62.550619455825704,NaN
+1,3,lines,TR-BDF2,0.43925,62.58266643887415,NaN
+1,3,lines,TR-BDF2,0.4395,62.58453864025747,NaN
+1,3,lines,TR-BDF2,0.44,62.61928529664967,NaN
+1,3,lines,TR-BDF2,0.44025,62.638334219707204,NaN
+1,3,lines,TR-BDF2,0.44075,62.65135397688263,NaN
+1,3,lines,TR-BDF2,0.441,62.64944298976487,NaN
+1,3,lines,TR-BDF2,0.4415,62.67983677537453,NaN
+1,3,lines,TR-BDF2,0.44175,62.67989455804355,NaN
+1,3,lines,TR-BDF2,0.442,62.712504585368826,NaN
+1,3,lines,TR-BDF2,0.44225,62.71221966170654,NaN
+1,3,lines,TR-BDF2,0.4425,62.713656665235085,NaN
+1,3,lines,TR-BDF2,0.443,62.74459894010982,NaN
+1,3,lines,TR-BDF2,0.44325,62.77052652939671,NaN
+1,3,lines,TR-BDF2,0.44375,62.77697461357757,NaN
+1,3,lines,TR-BDF2,0.444,62.77698199831943,NaN
+1,3,lines,TR-BDF2,0.44425,62.80983065315618,NaN
+1,3,lines,TR-BDF2,0.4445,62.80934668510304,NaN
+1,3,lines,TR-BDF2,0.44475,62.8093537747805,NaN
+1,3,lines,TR-BDF2,0.44525,62.84326070394035,NaN
+1,3,lines,TR-BDF2,0.4455,62.84257804284122,NaN
+1,3,lines,TR-BDF2,0.446,62.87615730770386,NaN
+1,3,lines,TR-BDF2,0.44625,62.90628058229246,NaN
+1,3,lines,TR-BDF2,0.4465,62.90830038470184,NaN
+1,3,lines,TR-BDF2,0.44675,62.908829083617334,NaN
+1,3,lines,TR-BDF2,0.447,62.939114041410875,NaN
+1,3,lines,TR-BDF2,0.44725,62.938799011645806,NaN
+1,3,lines,TR-BDF2,0.4475,62.95713808634282,NaN
+1,3,lines,TR-BDF2,0.448,62.97115311835777,NaN
+1,3,lines,TR-BDF2,0.44825,62.972602264686365,NaN
+1,3,lines,TR-BDF2,0.44875,63.00350364108663,NaN
+1,3,lines,TR-BDF2,0.449,63.02631473326934,NaN
+1,3,lines,TR-BDF2,0.4495,63.04379476119407,NaN
+1,3,lines,TR-BDF2,0.44975,63.06181433699466,NaN
+1,3,lines,TR-BDF2,0.45025,63.07877101223598,NaN
+1,3,lines,TR-BDF2,0.4505,63.06859606457978,NaN
+1,3,lines,TR-BDF2,0.451,63.10053373530676,NaN
+1,3,lines,TR-BDF2,0.45125,63.13182554151019,NaN
+1,3,lines,TR-BDF2,0.4515,63.13352507387538,NaN
+1,3,lines,TR-BDF2,0.45175,63.14861254361274,NaN
+1,3,lines,TR-BDF2,0.45225,63.166499294456024,NaN
+1,3,lines,TR-BDF2,0.4525,63.16628053402938,NaN
+1,3,lines,TR-BDF2,0.453,63.197531681434484,NaN
+1,3,lines,TR-BDF2,0.45325,63.22037857513181,NaN
+1,3,lines,TR-BDF2,0.4535,63.23016783444036,NaN
+1,3,lines,TR-BDF2,0.45375,63.229857200091466,NaN
+1,3,lines,TR-BDF2,0.454,63.25588646848633,NaN
+1,3,lines,TR-BDF2,0.4545,63.26217915871102,NaN
+1,3,lines,TR-BDF2,0.45475,63.26244719709895,NaN
+1,3,lines,TR-BDF2,0.455,63.29517924329383,NaN
+1,3,lines,TR-BDF2,0.45525,63.29735576848119,NaN
+1,3,lines,TR-BDF2,0.45575,63.32681240781059,NaN
+1,3,lines,TR-BDF2,0.456,63.32777998004573,NaN
+1,3,lines,TR-BDF2,0.4565,63.359123704277025,NaN
+1,3,lines,TR-BDF2,0.45675,63.36121187892375,NaN
+1,3,lines,TR-BDF2,0.45725,63.39884444242186,NaN
+1,3,lines,TR-BDF2,0.4575,63.39259060836151,NaN
+1,3,lines,TR-BDF2,0.45775,63.423735656009214,NaN
+1,3,lines,TR-BDF2,0.458,63.42436617847724,NaN
+1,3,lines,TR-BDF2,0.45825,63.42413741826881,NaN
+1,3,lines,TR-BDF2,0.45875,63.45852684664085,NaN
+1,3,lines,TR-BDF2,0.45925,63.48833343942856,NaN
+1,3,lines,TR-BDF2,0.4595,63.51008418995425,NaN
+1,3,lines,TR-BDF2,0.45975,63.521379173627906,NaN
+1,3,lines,TR-BDF2,0.46,63.52882738811356,NaN
+1,3,lines,TR-BDF2,0.46025,63.54654739720178,NaN
+1,3,lines,TR-BDF2,0.46075,63.552917078480704,NaN
+1,3,lines,TR-BDF2,0.461,63.55480455748042,NaN
+1,3,lines,TR-BDF2,0.4615,63.5879035447501,NaN
+1,3,lines,TR-BDF2,0.462,63.61748659711126,NaN
+1,3,lines,TR-BDF2,0.46225,63.63842521397052,NaN
+1,3,lines,TR-BDF2,0.46275,63.65325361076688,NaN
+1,3,lines,TR-BDF2,0.463,63.67605959358804,NaN
+1,3,lines,TR-BDF2,0.4635,63.682042019265936,NaN
+1,3,lines,TR-BDF2,0.46375,63.68256909342277,NaN
+1,3,lines,TR-BDF2,0.464,63.714314451647816,NaN
+1,3,lines,TR-BDF2,0.46425,63.73097692286665,NaN
+1,3,lines,TR-BDF2,0.46475,63.751808711187685,NaN
+1,3,lines,TR-BDF2,0.465,63.74815429569435,NaN
+1,3,lines,TR-BDF2,0.4655,63.77884877398671,NaN
+1,3,lines,TR-BDF2,0.46575,63.80654893888571,NaN
+1,3,lines,TR-BDF2,0.46625,63.81480339903676,NaN
+1,3,lines,TR-BDF2,0.467,63.843541463964584,NaN
+1,3,lines,TR-BDF2,0.4675,63.875623946331,NaN
+1,3,lines,TR-BDF2,0.46775,63.87569278308539,NaN
+1,3,lines,TR-BDF2,0.46825,63.910604071218316,NaN
+1,3,lines,TR-BDF2,0.4685,63.909104478407194,NaN
+1,3,lines,TR-BDF2,0.46875,63.94012322203853,NaN
+1,3,lines,TR-BDF2,0.469,63.9412772481802,NaN
+1,3,lines,TR-BDF2,0.4695,63.97236761711536,NaN
+1,3,lines,TR-BDF2,0.46975,63.97337474204091,NaN
+1,3,lines,TR-BDF2,0.47025,64.00460852099847,NaN
+1,3,lines,TR-BDF2,0.4705,64.00526236550103,NaN
+1,3,lines,TR-BDF2,0.471,64.03721700466618,NaN
+1,3,lines,TR-BDF2,0.47125,64.06914606371092,NaN
+1,3,lines,TR-BDF2,0.4715,64.06907986715642,NaN
+1,3,lines,TR-BDF2,0.47175,64.08851000651185,NaN
+1,3,lines,TR-BDF2,0.47225,64.10864948639595,NaN
+1,3,lines,TR-BDF2,0.4725,64.12738526763705,NaN
+1,3,lines,TR-BDF2,0.47275,64.13387626565459,NaN
+1,3,lines,TR-BDF2,0.473,64.13353728445804,NaN
+1,3,lines,TR-BDF2,0.47325,64.13377036898156,NaN
+1,3,lines,TR-BDF2,0.4735,64.16576077727079,NaN
+1,3,lines,TR-BDF2,0.47375,64.18303163497788,NaN
+1,3,lines,TR-BDF2,0.47425,64.19798079684905,NaN
+1,3,lines,TR-BDF2,0.4745,64.1990810131142,NaN
+1,3,lines,TR-BDF2,0.475,64.23019734618607,NaN
+1,3,lines,TR-BDF2,0.47525,64.2305461038732,NaN
+1,3,lines,TR-BDF2,0.4755,64.26241042827505,NaN
+1,3,lines,TR-BDF2,0.47575,64.26246440268244,NaN
+1,3,lines,TR-BDF2,0.476,64.29502307680184,NaN
+1,3,lines,TR-BDF2,0.47625,64.2946200461092,NaN
+1,3,lines,TR-BDF2,0.4765,64.29559961068226,NaN
+1,3,lines,TR-BDF2,0.47675,64.32736176671388,NaN
+1,3,lines,TR-BDF2,0.477,64.33219646327615,NaN
+1,3,lines,TR-BDF2,0.47725,64.32827488187125,NaN
+1,3,lines,TR-BDF2,0.4775,64.35996180592133,NaN
+1,3,lines,TR-BDF2,0.47775,64.36159705205162,NaN
+1,3,lines,TR-BDF2,0.47825,64.39122814401475,NaN
+1,3,lines,TR-BDF2,0.4785,64.41221455161227,NaN
+1,3,lines,TR-BDF2,0.47875,64.42391198278308,NaN
+1,3,lines,TR-BDF2,0.479,64.42850605080126,NaN
+1,3,lines,TR-BDF2,0.47925,64.4236779257359,NaN
+1,3,lines,TR-BDF2,0.4795,64.4557514692457,NaN
+1,3,lines,TR-BDF2,0.47975,64.45752043144283,NaN
+1,3,lines,TR-BDF2,0.48,64.45679851334857,NaN
+1,3,lines,TR-BDF2,0.48025,64.48780517138235,NaN
+1,3,lines,TR-BDF2,0.4805,64.48785580651369,NaN
+1,3,lines,TR-BDF2,0.481,64.51999062324253,NaN
+1,3,lines,TR-BDF2,0.48125,64.52066796965164,NaN
+1,3,lines,TR-BDF2,0.48175,64.55217263479356,NaN
+1,3,lines,TR-BDF2,0.482,64.55307458870622,NaN
+1,3,lines,TR-BDF2,0.48225,64.58435120902861,NaN
+1,3,lines,TR-BDF2,0.4825,64.60206428532459,NaN
+1,3,lines,TR-BDF2,0.483,64.61652634894095,NaN
+1,3,lines,TR-BDF2,0.48325,64.6400252462193,NaN
+1,3,lines,TR-BDF2,0.4835,64.64922265910135,NaN
+1,3,lines,TR-BDF2,0.48375,64.64869805752375,NaN
+1,3,lines,TR-BDF2,0.484,64.64888461917963,NaN
+1,3,lines,TR-BDF2,0.48425,64.68086633777023,NaN
+1,3,lines,TR-BDF2,0.4845,64.6831063989057,NaN
+1,3,lines,TR-BDF2,0.485,64.71303119267358,NaN
+1,3,lines,TR-BDF2,0.48525,64.71312093834787,NaN
+1,3,lines,TR-BDF2,0.48575,64.74519262522705,NaN
+1,3,lines,TR-BDF2,0.486,64.74577807150322,NaN
+1,3,lines,TR-BDF2,0.4865,64.77735063842381,NaN
+1,3,lines,TR-BDF2,0.487,64.80950523525708,NaN
+1,3,lines,TR-BDF2,0.48725,64.81055857928175,NaN
+1,3,lines,TR-BDF2,0.4875,64.84197560475687,NaN
+1,3,lines,TR-BDF2,0.48775,64.84864650863342,NaN
+1,3,lines,TR-BDF2,0.488,64.86695755502416,NaN
+1,3,lines,TR-BDF2,0.4885,64.87380419180604,NaN
+1,3,lines,TR-BDF2,0.48875,64.87567766647776,NaN
+1,3,lines,TR-BDF2,0.489,64.90594855750813,NaN
+1,3,lines,TR-BDF2,0.48925,64.90963141087309,NaN
+1,3,lines,TR-BDF2,0.48975,64.94091360198881,NaN
+1,3,lines,TR-BDF2,0.49,64.93852717934581,NaN
+1,3,lines,TR-BDF2,0.4905,64.97022707873359,NaN
+1,3,lines,TR-BDF2,0.49075,64.97066781372337,NaN
+1,3,lines,TR-BDF2,0.49125,65.00239024555835,NaN
+1,3,lines,TR-BDF2,0.49175,65.03750208681554,NaN
+1,3,lines,TR-BDF2,0.492,65.05522712352997,NaN
+1,3,lines,TR-BDF2,0.49225,65.06664914455062,NaN
+1,3,lines,TR-BDF2,0.4925,65.06688930862825,NaN
+1,3,lines,TR-BDF2,0.49275,65.09275193929581,NaN
+1,3,lines,TR-BDF2,0.493,65.09901570727408,NaN
+1,3,lines,TR-BDF2,0.49325,65.10800066533686,NaN
+1,3,lines,TR-BDF2,0.4935,65.09926906233241,NaN
+1,3,lines,TR-BDF2,0.494,65.14793990015227,NaN
+1,3,lines,TR-BDF2,0.4945,65.16298117649139,NaN
+1,3,lines,TR-BDF2,0.49475,65.16469970449309,NaN
+1,3,lines,TR-BDF2,0.49525,65.19509501043328,NaN
+1,3,lines,TR-BDF2,0.4955,65.19696810398229,NaN
+1,3,lines,TR-BDF2,0.496,65.22854943803789,NaN
+1,3,lines,TR-BDF2,0.49625,65.22768300055414,NaN
+1,3,lines,TR-BDF2,0.4965,65.25931254895501,NaN
+1,3,lines,TR-BDF2,0.49675,65.26008014670848,NaN
+1,3,lines,TR-BDF2,0.49725,65.29141625952131,NaN
+1,3,lines,TR-BDF2,0.4975,65.29187013696851,NaN
+1,3,lines,TR-BDF2,0.49775,65.32493612157667,NaN
+1,3,lines,TR-BDF2,0.498,65.32494111519631,NaN
+1,3,lines,TR-BDF2,0.49825,65.32357720554222,NaN
+1,3,lines,TR-BDF2,0.49875,65.36654002084578,NaN
+1,3,lines,TR-BDF2,0.499,65.35665005472188,NaN
+1,3,lines,TR-BDF2,0.49925,65.38770719236032,NaN
+1,3,lines,TR-BDF2,0.4995,65.4040683959879,NaN
+1,3,lines,TR-BDF2,0.5,65.41979744699744,NaN
+1,3,lines,TR-BDF2,0.50025,65.42036706839718,NaN
+1,3,lines,TR-BDF2,0.50075,65.45188434513527,NaN
+1,3,lines,TR-BDF2,0.501,65.45220153863633,NaN
+1,3,lines,TR-BDF2,0.5015,65.48401659568758,NaN
+1,3,lines,TR-BDF2,0.50175,65.48472331161089,NaN
+1,3,lines,TR-BDF2,0.502,65.51654142015038,NaN
+1,3,lines,TR-BDF2,0.50225,65.5171226638151,NaN
+1,3,lines,TR-BDF2,0.50275,65.54812493048534,NaN
+1,3,lines,TR-BDF2,0.503,65.54896710610437,NaN
+1,3,lines,TR-BDF2,0.50325,65.58058906725556,NaN
+1,3,lines,TR-BDF2,0.5035,65.58019843255822,NaN
+1,3,lines,TR-BDF2,0.50375,65.58040549781708,NaN
+1,3,lines,TR-BDF2,0.504,65.612815867346,NaN
+1,3,lines,TR-BDF2,0.50425,65.61594355168103,NaN
+1,3,lines,TR-BDF2,0.5045,65.61231700142443,NaN
+1,3,lines,TR-BDF2,0.505,65.64618870658077,NaN
+1,3,lines,TR-BDF2,0.50525,65.6445027742865,NaN
+1,3,lines,TR-BDF2,0.50575,65.67799606800268,NaN
+1,3,lines,TR-BDF2,0.506,65.67669927115624,NaN
+1,3,lines,TR-BDF2,0.50625,65.70845905544999,NaN
+1,3,lines,TR-BDF2,0.5065,65.70984297643533,NaN
+1,3,lines,TR-BDF2,0.507,65.74051587978899,NaN
+1,3,lines,TR-BDF2,0.50725,65.74182898982862,NaN
+1,3,lines,TR-BDF2,0.5075,65.77257754803313,NaN
+1,3,lines,TR-BDF2,0.50775,65.77352217117131,NaN
+1,3,lines,TR-BDF2,0.508,65.7937264231221,NaN
+1,3,lines,TR-BDF2,0.50825,65.80472967403658,NaN
+1,3,lines,TR-BDF2,0.5085,65.80461955175882,NaN
+1,3,lines,TR-BDF2,0.50875,65.82677707929761,NaN
+1,3,lines,TR-BDF2,0.509,65.83729991108234,NaN
+1,3,lines,TR-BDF2,0.50925,65.8406606368502,NaN
+1,3,lines,TR-BDF2,0.5095,65.83764025548682,NaN
+1,3,lines,TR-BDF2,0.51,65.8687099414058,NaN
+1,3,lines,TR-BDF2,0.51025,65.86970540744622,NaN
+1,3,lines,TR-BDF2,0.51075,65.90635358013257,NaN
+1,3,lines,TR-BDF2,0.511,65.90094127157758,NaN
+1,3,lines,TR-BDF2,0.5115,65.93539428012865,NaN
+1,3,lines,TR-BDF2,0.51175,65.9336371593094,NaN
+1,3,lines,TR-BDF2,0.51225,65.9652486254919,NaN
+1,3,lines,TR-BDF2,0.5125,65.96520360945472,NaN
+1,3,lines,TR-BDF2,0.513,65.99685096951404,NaN
+1,3,lines,TR-BDF2,0.51325,65.99812259554655,NaN
+1,3,lines,TR-BDF2,0.51375,66.03074392982225,NaN
+1,3,lines,TR-BDF2,0.514,66.02998023870259,NaN
+1,3,lines,TR-BDF2,0.51425,66.06132090639505,NaN
+1,3,lines,TR-BDF2,0.5145,66.07059350315964,NaN
+1,3,lines,TR-BDF2,0.51475,66.06168653151997,NaN
+1,3,lines,TR-BDF2,0.515,66.09299847591669,NaN
+1,3,lines,TR-BDF2,0.51525,66.09457787667411,NaN
+1,3,lines,TR-BDF2,0.5155,66.0933349784035,NaN
+1,3,lines,TR-BDF2,0.51575,66.12493915567939,NaN
+1,3,lines,TR-BDF2,0.516,66.12493915567939,NaN
+1,3,lines,TR-BDF2,0.51625,66.12566080470108,NaN
+1,3,lines,TR-BDF2,0.51675,66.15695296811626,NaN
+1,3,lines,TR-BDF2,0.517,66.15808164923031,NaN
+1,3,lines,TR-BDF2,0.51725,66.18905468602172,NaN
+1,3,lines,TR-BDF2,0.5175,66.18896349289776,NaN
+1,3,lines,TR-BDF2,0.51775,66.19038765741135,NaN
+1,3,lines,TR-BDF2,0.51825,66.22097073301713,NaN
+1,3,lines,TR-BDF2,0.5185,66.22130801110609,NaN
+1,3,lines,TR-BDF2,0.519,66.25297469146756,NaN
+1,3,lines,TR-BDF2,0.51925,66.25318007039041,NaN
+1,3,lines,TR-BDF2,0.51975,66.28497537124225,NaN
+1,3,lines,TR-BDF2,0.52,66.28551231725812,NaN
+1,3,lines,TR-BDF2,0.5205,66.31697277533446,NaN
+1,3,lines,TR-BDF2,0.52075,66.31873767829555,NaN
+1,3,lines,TR-BDF2,0.52125,66.34896690673739,NaN
+1,3,lines,TR-BDF2,0.5215,66.34942226305816,NaN
+1,3,lines,TR-BDF2,0.522,66.38095776844425,NaN
+1,3,lines,TR-BDF2,0.52225,66.38337763492703,NaN
+1,3,lines,TR-BDF2,0.523,66.41297254073068,NaN
+1,3,lines,TR-BDF2,0.5235,66.4449296947426,NaN
+1,3,lines,TR-BDF2,0.52375,66.44622707676439,NaN
+1,3,lines,TR-BDF2,0.524,66.4461549544426,NaN
+1,3,lines,TR-BDF2,0.5245,66.47903822057755,NaN
+1,3,lines,TR-BDF2,0.52475,66.47789264616539,NaN
+1,3,lines,TR-BDF2,0.52525,66.51634851881172,NaN
+1,3,lines,TR-BDF2,0.5255,66.53557966242752,NaN
+1,3,lines,TR-BDF2,0.52575,66.54093967372376,NaN
+1,3,lines,TR-BDF2,0.526,66.54086313629996,NaN
+1,3,lines,TR-BDF2,0.52625,66.56486269384598,NaN
+1,3,lines,TR-BDF2,0.52675,66.5728344426879,NaN
+1,3,lines,TR-BDF2,0.527,66.57283950809202,NaN
+1,3,lines,TR-BDF2,0.5275,66.6053380292682,NaN
+1,3,lines,TR-BDF2,0.52775,66.60540586960205,NaN
+1,3,lines,TR-BDF2,0.5285,66.63684292572151,NaN
+1,3,lines,TR-BDF2,0.52875,66.63681093924195,NaN
+1,3,lines,TR-BDF2,0.52925,66.67702610726386,NaN
+1,3,lines,TR-BDF2,0.5295,66.69568194842093,NaN
+1,3,lines,TR-BDF2,0.53,66.70068721073622,NaN
+1,3,lines,TR-BDF2,0.53025,66.701139424671,NaN
+1,3,lines,TR-BDF2,0.53075,66.73264230333851,NaN
+1,3,lines,TR-BDF2,0.531,66.73387553404595,NaN
+1,3,lines,TR-BDF2,0.5315,66.76459416216333,NaN
+1,3,lines,TR-BDF2,0.53175,66.77913510012282,NaN
+1,3,lines,TR-BDF2,0.532,66.76481191614137,NaN
+1,3,lines,TR-BDF2,0.5325,66.79654279020386,NaN
+1,3,lines,TR-BDF2,0.53275,66.79757109411398,NaN
+1,3,lines,TR-BDF2,0.53325,66.82848819045336,NaN
+1,3,lines,TR-BDF2,0.5335,66.82921461211888,NaN
+1,3,lines,TR-BDF2,0.53375,66.86092884970094,NaN
+1,3,lines,TR-BDF2,0.534,66.860430365905,NaN
+1,3,lines,TR-BDF2,0.53425,66.86073140023937,NaN
+1,3,lines,TR-BDF2,0.5345,66.89253850032357,NaN
+1,3,lines,TR-BDF2,0.53475,66.89236931955206,NaN
+1,3,lines,TR-BDF2,0.535,66.9035438244341,NaN
+1,3,lines,TR-BDF2,0.53525,66.8926703307771,NaN
+1,3,lines,TR-BDF2,0.53575,66.92559856052156,NaN
+1,3,lines,TR-BDF2,0.536,66.9249433333475,NaN
+1,3,lines,TR-BDF2,0.5365,66.95623757340516,NaN
+1,3,lines,TR-BDF2,0.53675,66.95748400490442,NaN
+1,3,lines,TR-BDF2,0.53725,66.98869935170735,NaN
+1,3,lines,TR-BDF2,0.5375,66.99021266265618,NaN
+1,3,lines,TR-BDF2,0.53775,66.98848481947212,NaN
+1,3,lines,TR-BDF2,0.53825,67.0200929759584,NaN
+1,3,lines,TR-BDF2,0.5385,67.02055028802944,NaN
+1,3,lines,TR-BDF2,0.53875,67.05230110499832,NaN
+1,3,lines,TR-BDF2,0.539,67.05227352324533,NaN
+1,3,lines,TR-BDF2,0.53925,67.05263012216032,NaN
+1,3,lines,TR-BDF2,0.5395,67.08396379153724,NaN
+1,3,lines,TR-BDF2,0.53975,67.0846158238983,NaN
+1,3,lines,TR-BDF2,0.54,67.09266106291209,NaN
+1,3,lines,TR-BDF2,0.54025,67.08435356018789,NaN
+1,3,lines,TR-BDF2,0.5405,67.11588981080764,NaN
+1,3,lines,TR-BDF2,0.54075,67.11889554523458,NaN
+1,3,lines,TR-BDF2,0.541,67.11668580455286,NaN
+1,3,lines,TR-BDF2,0.54125,67.14797898105205,NaN
+1,3,lines,TR-BDF2,0.5415,67.14777553182194,NaN
+1,3,lines,TR-BDF2,0.54175,67.14800364926558,NaN
+1,3,lines,TR-BDF2,0.542,67.17790534714734,NaN
+1,3,lines,TR-BDF2,0.5425,67.18414686554235,NaN
+1,3,lines,TR-BDF2,0.54275,67.18059145695167,NaN
+1,3,lines,TR-BDF2,0.54325,67.21158231527643,NaN
+1,3,lines,TR-BDF2,0.5435,67.22681738221107,NaN
+1,3,lines,TR-BDF2,0.54375,67.21162783882741,NaN
+1,3,lines,TR-BDF2,0.54425,67.2436821654093,NaN
+1,3,lines,TR-BDF2,0.5445,67.24414955188506,NaN
+1,3,lines,TR-BDF2,0.545,67.27538655208764,NaN
+1,3,lines,TR-BDF2,0.54525,67.27638236322841,NaN
+1,3,lines,TR-BDF2,0.5455,67.30774201579513,NaN
+1,3,lines,TR-BDF2,0.54575,67.30764765163467,NaN
+1,3,lines,TR-BDF2,0.546,67.31701496451525,NaN
+1,3,lines,TR-BDF2,0.54625,67.3075638122561,NaN
+1,3,lines,TR-BDF2,0.54675,67.33917805732771,NaN
+1,3,lines,TR-BDF2,0.547,67.3394165894432,NaN
+1,3,lines,TR-BDF2,0.54775,67.37190731195055,NaN
+1,3,lines,TR-BDF2,0.548,67.37110409872382,NaN
+1,3,lines,TR-BDF2,0.5485,67.4029568549424,NaN
+1,3,lines,TR-BDF2,0.54875,67.40331555614807,NaN
+1,3,lines,TR-BDF2,0.54925,67.43541349104767,NaN
+1,3,lines,TR-BDF2,0.5495,67.43762822125542,NaN
+1,3,lines,TR-BDF2,0.54975,67.43502503637045,NaN
+1,3,lines,TR-BDF2,0.55025,67.46672296887743,NaN
+1,3,lines,TR-BDF2,0.5505,67.46822057642628,NaN
+1,3,lines,TR-BDF2,0.551,67.49871856569277,NaN
+1,3,lines,TR-BDF2,0.55125,67.50014644975374,NaN
+1,3,lines,TR-BDF2,0.5515,67.5243012287785,NaN
+1,3,lines,TR-BDF2,0.552,67.534005124658,NaN
+1,3,lines,TR-BDF2,0.55225,67.53078170724046,NaN
+1,3,lines,TR-BDF2,0.5525,67.56242793054443,NaN
+1,3,lines,TR-BDF2,0.55275,67.56239587699399,NaN
+1,3,lines,TR-BDF2,0.553,67.56888167316471,NaN
+1,3,lines,TR-BDF2,0.55325,67.58639724288525,NaN
+1,3,lines,TR-BDF2,0.5535,67.59430460894528,NaN
+1,3,lines,TR-BDF2,0.55375,67.59421724149156,NaN
+1,3,lines,TR-BDF2,0.554,67.59440641578846,NaN
+1,3,lines,TR-BDF2,0.55425,67.59465988818029,NaN
+1,3,lines,TR-BDF2,0.55475,67.62608291976055,NaN
+1,3,lines,TR-BDF2,0.555,67.62630985569115,NaN
+1,3,lines,TR-BDF2,0.55575,67.66091625743579,NaN
+1,3,lines,TR-BDF2,0.556,67.65821936956374,NaN
+1,3,lines,TR-BDF2,0.55625,67.69060442142481,NaN
+1,3,lines,TR-BDF2,0.5565,67.69228267795373,NaN
+1,3,lines,TR-BDF2,0.55675,67.69024037594446,NaN
+1,3,lines,TR-BDF2,0.5575,67.72166106673612,NaN
+1,3,lines,TR-BDF2,0.55775,67.72273211928261,NaN
+1,3,lines,TR-BDF2,0.55825,67.75351416309492,NaN
+1,3,lines,TR-BDF2,0.5585,67.75483208833221,NaN
+1,3,lines,TR-BDF2,0.55875,67.75427250308448,NaN
+1,3,lines,TR-BDF2,0.55925,67.78536412145921,NaN
+1,3,lines,TR-BDF2,0.5595,67.78576047149012,NaN
+1,3,lines,TR-BDF2,0.55975,67.8180091724948,NaN
+1,3,lines,TR-BDF2,0.56025,67.81721094482222,NaN
+1,3,lines,TR-BDF2,0.5605,67.8430999871592,NaN
+1,3,lines,TR-BDF2,0.561,67.84905463617717,NaN
+1,3,lines,TR-BDF2,0.56125,67.85056150260306,NaN
+1,3,lines,TR-BDF2,0.5615,67.87927197114449,NaN
+1,3,lines,TR-BDF2,0.56175,67.8816414528805,NaN
+1,3,lines,TR-BDF2,0.562,67.88407040797453,NaN
+1,3,lines,TR-BDF2,0.56225,67.90094074242407,NaN
+1,3,lines,TR-BDF2,0.56275,67.91367332355574,NaN
+1,3,lines,TR-BDF2,0.563,67.92115374633126,NaN
+1,3,lines,TR-BDF2,0.56325,67.91394624172962,NaN
+1,3,lines,TR-BDF2,0.56375,67.94456694812591,NaN
+1,3,lines,TR-BDF2,0.564,67.94477071186515,NaN
+1,3,lines,TR-BDF2,0.56425,67.9452035439085,NaN
+1,3,lines,TR-BDF2,0.56475,67.97639814138086,NaN
+1,3,lines,TR-BDF2,0.565,67.9947946559595,NaN
+1,3,lines,TR-BDF2,0.56575,68.00822621759382,NaN
+1,3,lines,TR-BDF2,0.566,68.00856387528681,NaN
+1,3,lines,TR-BDF2,0.5665,68.04005117975807,NaN
+1,3,lines,TR-BDF2,0.56675,68.04166830632512,NaN
+1,3,lines,TR-BDF2,0.567,68.0413941503908,NaN
+1,3,lines,TR-BDF2,0.5675,68.0718730308668,NaN
+1,3,lines,TR-BDF2,0.56775,68.07477511808963,NaN
+1,3,lines,TR-BDF2,0.568,68.07253903935495,NaN
+1,3,lines,TR-BDF2,0.56825,68.10499880290524,NaN
+1,3,lines,TR-BDF2,0.5685,68.10759124329545,NaN
+1,3,lines,TR-BDF2,0.56875,68.12345809398873,NaN
+1,3,lines,TR-BDF2,0.569,68.13630435996079,NaN
+1,3,lines,TR-BDF2,0.5695,68.14292417364109,NaN
+1,3,lines,TR-BDF2,0.56975,68.1580587222734,NaN
+1,3,lines,TR-BDF2,0.57025,68.16731994779214,NaN
+1,3,lines,TR-BDF2,0.5705,68.16731994779214,NaN
+1,3,lines,TR-BDF2,0.57075,68.16752240626634,NaN
+1,3,lines,TR-BDF2,0.57125,68.20143959151645,NaN
+1,3,lines,TR-BDF2,0.5715,68.21186423903919,NaN
+1,3,lines,TR-BDF2,0.57175,68.19919104569047,NaN
+1,3,lines,TR-BDF2,0.572,68.23139787661984,NaN
+1,3,lines,TR-BDF2,0.57225,68.2309357253405,NaN
+1,3,lines,TR-BDF2,0.5725,68.23109111465578,NaN
+1,3,lines,TR-BDF2,0.57275,68.23106548710264,NaN
+1,3,lines,TR-BDF2,0.57325,68.26273897297382,NaN
+1,3,lines,TR-BDF2,0.5735,68.26357111646237,NaN
+1,3,lines,TR-BDF2,0.57425,68.3010938365452,NaN
+1,3,lines,TR-BDF2,0.5745,68.29516123316571,NaN
+1,3,lines,TR-BDF2,0.575,68.32633620092476,NaN
+1,3,lines,TR-BDF2,0.57525,68.32944379178898,NaN
+1,3,lines,TR-BDF2,0.5755,68.35073731610491,NaN
+1,3,lines,TR-BDF2,0.57575,68.35816094466483,NaN
+1,3,lines,TR-BDF2,0.576,68.35825027672225,NaN
+1,3,lines,TR-BDF2,0.57625,68.35829894063866,NaN
+1,3,lines,TR-BDF2,0.5765,68.35847513516445,NaN
+1,3,lines,TR-BDF2,0.577,68.39083919533049,NaN
+1,3,lines,TR-BDF2,0.57725,68.39051465251455,NaN
+1,3,lines,TR-BDF2,0.5775,68.41866336635249,NaN
+1,3,lines,TR-BDF2,0.578,68.42170891946034,NaN
+1,3,lines,TR-BDF2,0.57825,68.436843656025,NaN
+1,3,lines,TR-BDF2,0.5785,68.42217821357482,NaN
+1,3,lines,TR-BDF2,0.57875,68.45373019115453,NaN
+1,3,lines,TR-BDF2,0.579,68.45680960209471,NaN
+1,3,lines,TR-BDF2,0.57925,68.47203828663629,NaN
+1,3,lines,TR-BDF2,0.5795,68.48590128609514,NaN
+1,3,lines,TR-BDF2,0.57975,68.48608506478922,NaN
+1,3,lines,TR-BDF2,0.58,68.48527535114444,NaN
+1,3,lines,TR-BDF2,0.58025,68.48574761532873,NaN
+1,3,lines,TR-BDF2,0.581,68.51705396176428,NaN
+1,3,lines,TR-BDF2,0.58125,68.51805798559856,NaN
+1,3,lines,TR-BDF2,0.5815,68.54898205288546,NaN
+1,3,lines,TR-BDF2,0.58175,68.54882950622692,NaN
+1,3,lines,TR-BDF2,0.582,68.54882950622692,NaN
+1,3,lines,TR-BDF2,0.58225,68.549564218436,NaN
+1,3,lines,TR-BDF2,0.583,68.58060198752563,NaN
+1,3,lines,TR-BDF2,0.58325,68.58152385082533,NaN
+1,3,lines,TR-BDF2,0.584,68.61371834416371,NaN
+1,3,lines,TR-BDF2,0.58425,68.61309043130407,NaN
+1,3,lines,TR-BDF2,0.585,68.64413777260401,NaN
+1,3,lines,TR-BDF2,0.58525,68.64459626145188,NaN
+1,3,lines,TR-BDF2,0.58575,68.67647329465258,NaN
+1,3,lines,TR-BDF2,0.586,68.67703857707255,NaN
+1,3,lines,TR-BDF2,0.58625,68.67699593265812,NaN
+1,3,lines,TR-BDF2,0.587,68.7096096188843,NaN
+1,3,lines,TR-BDF2,0.58725,68.70798904086939,NaN
+1,3,lines,TR-BDF2,0.58775,68.74000478174912,NaN
+1,3,lines,TR-BDF2,0.588,68.75039103125586,NaN
+1,3,lines,TR-BDF2,0.58825,68.76560193547762,NaN
+1,3,lines,TR-BDF2,0.589,68.77138423409585,NaN
+1,3,lines,TR-BDF2,0.58925,68.79718473172913,NaN
+1,3,lines,TR-BDF2,0.59,68.80488403581488,NaN
+1,3,lines,TR-BDF2,0.59025,68.80347467557971,NaN
+1,3,lines,TR-BDF2,0.59075,68.83568278406221,NaN
+1,3,lines,TR-BDF2,0.591,68.83538994669762,NaN
+1,3,lines,TR-BDF2,0.59125,68.86072323255638,NaN
+1,3,lines,TR-BDF2,0.59175,68.86641697071751,NaN
+1,3,lines,TR-BDF2,0.592,68.8666381807334,NaN
+1,3,lines,TR-BDF2,0.59225,68.89233421812632,NaN
+1,3,lines,TR-BDF2,0.59275,68.8981589850039,NaN
+1,3,lines,TR-BDF2,0.593,68.89863865122653,NaN
+1,3,lines,TR-BDF2,0.59325,68.89880912927896,NaN
+1,3,lines,TR-BDF2,0.59375,68.92989796905178,NaN
+1,3,lines,TR-BDF2,0.594,68.93076511407872,NaN
+1,3,lines,TR-BDF2,0.59425,68.9299160370024,NaN
+1,3,lines,TR-BDF2,0.595,68.97117994945397,NaN
+1,3,lines,TR-BDF2,0.59525,68.96199924803597,NaN
+1,3,lines,TR-BDF2,0.596,69.00122747135084,NaN
+1,3,lines,TR-BDF2,0.59625,68.99413014240548,NaN
+1,3,lines,TR-BDF2,0.597,69.02509676969673,NaN
+1,3,lines,TR-BDF2,0.59725,69.04719474943104,NaN
+1,3,lines,TR-BDF2,0.598,69.05682366272286,NaN
+1,3,lines,TR-BDF2,0.59825,69.05744424345421,NaN
+1,3,lines,TR-BDF2,0.59875,69.08932036788832,NaN
+1,3,lines,TR-BDF2,0.599,69.09268782830456,NaN
+1,3,lines,TR-BDF2,0.59925,69.10792766520042,NaN
+1,3,lines,TR-BDF2,0.6,69.12026840595126,NaN
+1,3,lines,TR-BDF2,0.60025,69.13862068909131,NaN
+1,3,lines,TR-BDF2,0.6005,69.12107467446754,NaN
+1,3,lines,TR-BDF2,0.60075,69.15205377386313,NaN
+1,3,lines,TR-BDF2,0.601,69.15656915593486,NaN
+1,3,lines,TR-BDF2,0.60125,69.1685929027084,NaN
+1,3,lines,TR-BDF2,0.6015,69.1824314423984,NaN
+1,3,lines,TR-BDF2,0.602,69.18370111203595,NaN
+1,3,lines,TR-BDF2,0.60225,69.18508621961345,NaN
+1,3,lines,TR-BDF2,0.6025,69.18418879192792,NaN
+1,3,lines,TR-BDF2,0.603,69.21685960298015,NaN
+1,3,lines,TR-BDF2,0.60325,69.22776702709953,NaN
+1,3,lines,TR-BDF2,0.6035,69.24297268526472,NaN
+1,3,lines,TR-BDF2,0.604,69.24712180492274,NaN
+1,3,lines,TR-BDF2,0.60425,69.2499454502303,NaN
+1,3,lines,TR-BDF2,0.6045,69.24771280233543,NaN
+1,3,lines,TR-BDF2,0.60475,69.27892844831935,NaN
+1,3,lines,TR-BDF2,0.60525,69.27882765389998,NaN
+1,3,lines,TR-BDF2,0.6055,69.27904036938487,NaN
+1,3,lines,TR-BDF2,0.60625,69.31053050855743,NaN
+1,3,lines,TR-BDF2,0.6065,69.33164487405989,NaN
+1,3,lines,TR-BDF2,0.60725,69.34223037188832,NaN
+1,3,lines,TR-BDF2,0.6075,69.34432603697162,NaN
+1,3,lines,TR-BDF2,0.608,69.37425087602217,NaN
+1,3,lines,TR-BDF2,0.60825,69.37692038700295,NaN
+1,3,lines,TR-BDF2,0.6085,69.38962297162983,NaN
+1,3,lines,TR-BDF2,0.60875,69.40372864730092,NaN
+1,3,lines,TR-BDF2,0.60925,69.40620219219971,NaN
+1,3,lines,TR-BDF2,0.6095,69.41892162228083,NaN
+1,3,lines,TR-BDF2,0.60975,69.40566929993044,NaN
+1,3,lines,TR-BDF2,0.61025,69.43731204385382,NaN
+1,3,lines,TR-BDF2,0.6105,69.43743654017983,NaN
+1,3,lines,TR-BDF2,0.61075,69.43764914521152,NaN
+1,3,lines,TR-BDF2,0.6115,69.46899997181067,NaN
+1,3,lines,TR-BDF2,0.61175,69.46976310669429,NaN
+1,3,lines,TR-BDF2,0.6125,69.50454165223863,NaN
+1,3,lines,TR-BDF2,0.61275,69.50084202033015,NaN
+1,3,lines,TR-BDF2,0.61325,69.53239009253716,NaN
+1,3,lines,TR-BDF2,0.6135,69.53236690163632,NaN
+1,3,lines,TR-BDF2,0.61375,69.5334399205202,NaN
+1,3,lines,TR-BDF2,0.614,69.53287419132191,NaN
+1,3,lines,TR-BDF2,0.61425,69.56422782458087,NaN
+1,3,lines,TR-BDF2,0.6145,69.56404590949154,NaN
+1,3,lines,TR-BDF2,0.61475,69.56490879453186,NaN
+1,3,lines,TR-BDF2,0.615,69.5648487643648,NaN
+1,3,lines,TR-BDF2,0.61575,69.60535661363103,NaN
+1,3,lines,TR-BDF2,0.616,69.6198898769801,NaN
+1,3,lines,TR-BDF2,0.61675,69.62822901188801,NaN
+1,3,lines,TR-BDF2,0.617,69.6281223644324,NaN
+1,3,lines,TR-BDF2,0.61775,69.6590651407456,NaN
+1,3,lines,TR-BDF2,0.618,69.67591850095486,NaN
+1,3,lines,TR-BDF2,0.61825,69.65954679097526,NaN
+1,3,lines,TR-BDF2,0.61875,69.69073229703716,NaN
+1,3,lines,TR-BDF2,0.619,69.7038935752411,NaN
+1,3,lines,TR-BDF2,0.61925,69.6910309318454,NaN
+1,3,lines,TR-BDF2,0.62,69.72338836232036,NaN
+1,3,lines,TR-BDF2,0.62025,69.72335965878183,NaN
+1,3,lines,TR-BDF2,0.621,69.75442098811676,NaN
+1,3,lines,TR-BDF2,0.62125,69.7541324238569,NaN
+1,3,lines,TR-BDF2,0.622,69.78571604543764,NaN
+1,3,lines,TR-BDF2,0.62225,69.78606872802814,NaN
+1,3,lines,TR-BDF2,0.6225,69.81524404190219,NaN
+1,3,lines,TR-BDF2,0.623,69.81737139805715,NaN
+1,3,lines,TR-BDF2,0.62325,69.82838587255344,NaN
+1,3,lines,TR-BDF2,0.6235,69.81833046682749,NaN
+1,3,lines,TR-BDF2,0.62375,69.8496107848156,NaN
+1,3,lines,TR-BDF2,0.62425,69.85008906373587,NaN
+1,3,lines,TR-BDF2,0.6245,69.84995357249278,NaN
+1,3,lines,TR-BDF2,0.62525,69.88385256878462,NaN
+1,3,lines,TR-BDF2,0.6255,69.88212210247296,NaN
+1,3,lines,TR-BDF2,0.62575,69.8813550121377,NaN
+1,3,lines,TR-BDF2,0.62625,69.91370064501119,NaN
+1,3,lines,TR-BDF2,0.6265,69.91297676240126,NaN
+1,3,lines,TR-BDF2,0.62675,69.91321180533106,NaN
+1,3,lines,TR-BDF2,0.6275,69.9440501829162,NaN
+1,3,lines,TR-BDF2,0.62775,69.96715501971354,NaN
+1,3,lines,TR-BDF2,0.628,69.97569634519657,NaN
+1,3,lines,TR-BDF2,0.6285,69.97842516911743,NaN
+1,3,lines,TR-BDF2,0.62875,69.97564968178006,NaN
+1,3,lines,TR-BDF2,0.629,70.00655934858914,NaN
+1,3,lines,TR-BDF2,0.6295,70.0072418064036,NaN
+1,3,lines,TR-BDF2,0.62975,70.02040016958549,NaN
+1,3,lines,TR-BDF2,0.63,70.00738335255863,NaN
+1,3,lines,TR-BDF2,0.63075,70.04763430022525,NaN
+1,3,lines,TR-BDF2,0.631,70.039573826897,NaN
+1,3,lines,TR-BDF2,0.63125,70.07101676480869,NaN
+1,3,lines,TR-BDF2,0.6315,70.07140434716034,NaN
+1,3,lines,TR-BDF2,0.63175,70.075082005466,NaN
+1,3,lines,TR-BDF2,0.632,70.0705442380275,NaN
+1,3,lines,TR-BDF2,0.63225,70.10134025180056,NaN
+1,3,lines,TR-BDF2,0.6325,70.10311802153588,NaN
+1,3,lines,TR-BDF2,0.63275,70.10550631194553,NaN
+1,3,lines,TR-BDF2,0.633,70.11491620037374,NaN
+1,3,lines,TR-BDF2,0.63325,70.12933677526351,NaN
+1,3,lines,TR-BDF2,0.634,70.13451311385293,NaN
+1,3,lines,TR-BDF2,0.63425,70.13421882532961,NaN
+1,3,lines,TR-BDF2,0.635,70.16538666867626,NaN
+1,3,lines,TR-BDF2,0.63525,70.16610017494621,NaN
+1,3,lines,TR-BDF2,0.6355,70.16560733851897,NaN
+1,3,lines,TR-BDF2,0.636,70.19700689762962,NaN
+1,3,lines,TR-BDF2,0.63625,70.197169794603,NaN
+1,3,lines,TR-BDF2,0.6365,70.19763225528672,NaN
+1,3,lines,TR-BDF2,0.63675,70.22886712018489,NaN
+1,3,lines,TR-BDF2,0.63725,70.23418609536391,NaN
+1,3,lines,TR-BDF2,0.6375,70.24889800733403,NaN
+1,3,lines,TR-BDF2,0.63775,70.26072357649582,NaN
+1,3,lines,TR-BDF2,0.63825,70.26023863598097,NaN
+1,3,lines,TR-BDF2,0.6385,70.26050399907605,NaN
+1,3,lines,TR-BDF2,0.63875,70.2605528501729,NaN
+1,3,lines,TR-BDF2,0.6395,70.29201802478242,NaN
+1,3,lines,TR-BDF2,0.63975,70.29195984881284,NaN
+1,3,lines,TR-BDF2,0.6405,70.32708088567504,NaN
+1,3,lines,TR-BDF2,0.64075,70.34102981299705,NaN
+1,3,lines,TR-BDF2,0.641,70.32400389023402,NaN
+1,3,lines,TR-BDF2,0.6415,70.3550644895181,NaN
+1,3,lines,TR-BDF2,0.64175,70.3591312563087,NaN
+1,3,lines,TR-BDF2,0.642,70.35590121866564,NaN
+1,3,lines,TR-BDF2,0.64275,70.38666731827271,NaN
+1,3,lines,TR-BDF2,0.643,70.40704377538127,NaN
+1,3,lines,TR-BDF2,0.64325,70.41836722175351,NaN
+1,3,lines,TR-BDF2,0.64375,70.42224073930409,NaN
+1,3,lines,TR-BDF2,0.644,70.41828266873965,NaN
+1,3,lines,TR-BDF2,0.64425,70.44641933316427,NaN
+1,3,lines,TR-BDF2,0.64475,70.45033999253936,NaN
+1,3,lines,TR-BDF2,0.645,70.45080112522041,NaN
+1,3,lines,TR-BDF2,0.64525,70.44989628557128,NaN
+1,3,lines,TR-BDF2,0.646,70.48574381225436,NaN
+1,3,lines,TR-BDF2,0.64625,70.48275703227876,NaN
+1,3,lines,TR-BDF2,0.6465,70.48183642506973,NaN
+1,3,lines,TR-BDF2,0.647,70.51304976765547,NaN
+1,3,lines,TR-BDF2,0.64725,70.51422431298155,NaN
+1,3,lines,TR-BDF2,0.6475,70.51324744070975,NaN
+1,3,lines,TR-BDF2,0.648,70.54463817855837,NaN
+1,3,lines,TR-BDF2,0.64825,70.54463817855837,NaN
+1,3,lines,TR-BDF2,0.6485,70.54533390020246,NaN
+1,3,lines,TR-BDF2,0.64875,70.54549539661454,NaN
+1,3,lines,TR-BDF2,0.64925,70.5762237148706,NaN
+1,3,lines,TR-BDF2,0.6495,70.58884089603295,NaN
+1,3,lines,TR-BDF2,0.64975,70.6027607648543,NaN
+1,3,lines,TR-BDF2,0.65,70.60817020411233,NaN
+1,3,lines,TR-BDF2,0.65025,70.60836422543925,NaN
+1,3,lines,TR-BDF2,0.6505,70.60883006802925,NaN
+1,3,lines,TR-BDF2,0.65075,70.62831025114693,NaN
+1,3,lines,TR-BDF2,0.651,70.63952372472622,NaN
+1,3,lines,TR-BDF2,0.65125,70.64047123998996,NaN
+1,3,lines,TR-BDF2,0.6515,70.639386175696,NaN
+1,3,lines,TR-BDF2,0.65175,70.63944597981227,NaN
+1,3,lines,TR-BDF2,0.652,70.66768028808242,NaN
+1,3,lines,TR-BDF2,0.65225,70.67152921579198,NaN
+1,3,lines,TR-BDF2,0.6525,70.67198325372871,NaN
+1,3,lines,TR-BDF2,0.65275,70.67115344380134,NaN
+1,3,lines,TR-BDF2,0.653,70.69338005816816,NaN
+1,3,lines,TR-BDF2,0.65375,70.70253717407753,NaN
+1,3,lines,TR-BDF2,0.654,70.70365178248274,NaN
+1,3,lines,TR-BDF2,0.65425,70.73136703385751,NaN
+1,3,lines,TR-BDF2,0.65475,70.73410838233494,NaN
+1,3,lines,TR-BDF2,0.655,70.74347953377996,NaN
+1,3,lines,TR-BDF2,0.65525,70.75795008583684,NaN
+1,3,lines,TR-BDF2,0.656,70.76567673396107,NaN
+1,3,lines,TR-BDF2,0.65625,70.76620636457321,NaN
+1,3,lines,TR-BDF2,0.6565,70.7660540435185,NaN
+1,3,lines,TR-BDF2,0.65675,70.79745757419062,NaN
+1,3,lines,TR-BDF2,0.657,70.79724223194916,NaN
+1,3,lines,TR-BDF2,0.65725,70.80742607344752,NaN
+1,3,lines,TR-BDF2,0.6575,70.79815665499157,NaN
+1,3,lines,TR-BDF2,0.65825,70.82880487929245,NaN
+1,3,lines,TR-BDF2,0.6585,70.84679869424784,NaN
+1,3,lines,TR-BDF2,0.65875,70.85963169126016,NaN
+1,3,lines,TR-BDF2,0.65925,70.86036467898415,NaN
+1,3,lines,TR-BDF2,0.6595,70.86136902491135,NaN
+1,3,lines,TR-BDF2,0.65975,70.86075191316726,NaN
+1,3,lines,TR-BDF2,0.66025,70.892086356792,NaN
+1,3,lines,TR-BDF2,0.6605,70.89752394591171,NaN
+1,3,lines,TR-BDF2,0.66075,70.89227897013606,NaN
+1,3,lines,TR-BDF2,0.661,70.89213501201431,NaN
+1,3,lines,TR-BDF2,0.6615,70.92460160341156,NaN
+1,3,lines,TR-BDF2,0.66175,70.92433653097551,NaN
+1,3,lines,TR-BDF2,0.662,70.9237106205396,NaN
+1,3,lines,TR-BDF2,0.6625,70.95502702208215,NaN
+1,3,lines,TR-BDF2,0.66275,70.95502702208215,NaN
+1,3,lines,TR-BDF2,0.663,70.95620303348478,NaN
+1,3,lines,TR-BDF2,0.66375,70.98657546109989,NaN
+1,3,lines,TR-BDF2,0.664,70.98703850318192,NaN
+1,3,lines,TR-BDF2,0.66425,71.013023417351,NaN
+1,3,lines,TR-BDF2,0.665,71.01812106743222,NaN
+1,3,lines,TR-BDF2,0.66525,71.01919170472036,NaN
+1,3,lines,TR-BDF2,0.6655,71.05006081953725,NaN
+1,3,lines,TR-BDF2,0.666,71.04966384407237,NaN
+1,3,lines,TR-BDF2,0.66625,71.0627046071309,NaN
+1,3,lines,TR-BDF2,0.6665,71.07668608794685,NaN
+1,3,lines,TR-BDF2,0.667,71.08120379401356,NaN
+1,3,lines,TR-BDF2,0.66725,71.0837656836922,NaN
+1,3,lines,TR-BDF2,0.6675,71.08130312519276,NaN
+1,3,lines,TR-BDF2,0.66825,71.11274092024904,NaN
+1,3,lines,TR-BDF2,0.6685,71.11364357587493,NaN
+1,3,lines,TR-BDF2,0.66875,71.11321304797771,NaN
+1,3,lines,TR-BDF2,0.6695,71.14431961956238,NaN
+1,3,lines,TR-BDF2,0.66975,71.14464084226451,NaN
+1,3,lines,TR-BDF2,0.6705,71.17772922429785,NaN
+1,3,lines,TR-BDF2,0.67075,71.18955572257447,NaN
+1,3,lines,TR-BDF2,0.671,71.20302018217308,NaN
+1,3,lines,TR-BDF2,0.6715,71.20793824200295,NaN
+1,3,lines,TR-BDF2,0.67175,71.20873796641622,NaN
+1,3,lines,TR-BDF2,0.672,71.20771610971276,NaN
+1,3,lines,TR-BDF2,0.67275,71.23886124799854,NaN
+1,3,lines,TR-BDF2,0.673,71.24092837944339,NaN
+1,3,lines,TR-BDF2,0.67325,71.23945569714753,NaN
+1,3,lines,TR-BDF2,0.674,71.27063818120378,NaN
+1,3,lines,TR-BDF2,0.67425,71.27041230518542,NaN
+1,3,lines,TR-BDF2,0.67475,71.30190454862496,NaN
+1,3,lines,TR-BDF2,0.675,71.3038538734281,NaN
+1,3,lines,TR-BDF2,0.67525,71.30318913921862,NaN
+1,3,lines,TR-BDF2,0.6755,71.30196656478688,NaN
+1,3,lines,TR-BDF2,0.67625,71.33551514251668,NaN
+1,3,lines,TR-BDF2,0.6765,71.33390457710149,NaN
+1,3,lines,TR-BDF2,0.677,71.3656513942618,NaN
+1,3,lines,TR-BDF2,0.67725,71.36493663591531,NaN
+1,3,lines,TR-BDF2,0.6775,71.36533954786483,NaN
+1,3,lines,TR-BDF2,0.67775,71.39242807444178,NaN
+1,3,lines,TR-BDF2,0.678,71.39653782847373,NaN
+1,3,lines,TR-BDF2,0.67825,71.39661352231447,NaN
+1,3,lines,TR-BDF2,0.6785,71.39766370067947,NaN
+1,3,lines,TR-BDF2,0.67875,71.41778289124173,NaN
+1,3,lines,TR-BDF2,0.6795,71.4295721064596,NaN
+1,3,lines,TR-BDF2,0.67975,71.42817452984693,NaN
+1,3,lines,TR-BDF2,0.68,71.45599763929964,NaN
+1,3,lines,TR-BDF2,0.6805,71.45968741407474,NaN
+1,3,lines,TR-BDF2,0.68075,71.46084923011247,NaN
+1,3,lines,TR-BDF2,0.681,71.4596573370456,NaN
+1,3,lines,TR-BDF2,0.68125,71.49098117919921,NaN
+1,3,lines,TR-BDF2,0.68175,71.49096727556638,NaN
+1,3,lines,TR-BDF2,0.682,71.50518531055188,NaN
+1,3,lines,TR-BDF2,0.68225,71.51893235639194,NaN
+1,3,lines,TR-BDF2,0.68275,71.52246796601189,NaN
+1,3,lines,TR-BDF2,0.683,71.52334503992249,NaN
+1,3,lines,TR-BDF2,0.68325,71.52279008309469,NaN
+1,3,lines,TR-BDF2,0.684,71.55396587465695,NaN
+1,3,lines,TR-BDF2,0.68425,71.55454880224187,NaN
+1,3,lines,TR-BDF2,0.6845,71.55405405481669,NaN
+1,3,lines,TR-BDF2,0.68475,71.58580919913358,NaN
+1,3,lines,TR-BDF2,0.685,71.58547716722508,NaN
+1,3,lines,TR-BDF2,0.68525,71.58619436349348,NaN
+1,3,lines,TR-BDF2,0.6855,71.60713125619412,NaN
+1,3,lines,TR-BDF2,0.68625,71.61695335851874,NaN
+1,3,lines,TR-BDF2,0.6865,71.61776684297172,NaN
+1,3,lines,TR-BDF2,0.68675,71.61750387570217,NaN
+1,3,lines,TR-BDF2,0.687,71.64891713517098,NaN
+1,3,lines,TR-BDF2,0.68725,71.64898918282248,NaN
+1,3,lines,TR-BDF2,0.6875,71.65606113902443,NaN
+1,3,lines,TR-BDF2,0.68775,71.67030950240867,NaN
+1,3,lines,TR-BDF2,0.6885,71.67992975109763,NaN
+1,3,lines,TR-BDF2,0.68875,71.69475021174134,NaN
+1,3,lines,TR-BDF2,0.689,71.68002997034895,NaN
+1,3,lines,TR-BDF2,0.68975,71.71207582866552,NaN
+1,3,lines,TR-BDF2,0.69,71.71175759261521,NaN
+1,3,lines,TR-BDF2,0.69075,71.7428950763395,NaN
+1,3,lines,TR-BDF2,0.691,71.74313880534379,NaN
+1,3,lines,TR-BDF2,0.69125,71.74312263030185,NaN
+1,3,lines,TR-BDF2,0.692,71.7763153241715,NaN
+1,3,lines,TR-BDF2,0.69225,71.77438484835002,NaN
+1,3,lines,TR-BDF2,0.69275,71.80592068836509,NaN
+1,3,lines,TR-BDF2,0.693,71.80795232624135,NaN
+1,3,lines,TR-BDF2,0.69325,71.82203073819329,NaN
+1,3,lines,TR-BDF2,0.6935,71.83462976905716,NaN
+1,3,lines,TR-BDF2,0.69375,71.83757388721767,NaN
+1,3,lines,TR-BDF2,0.69425,71.84668707218378,NaN
+1,3,lines,TR-BDF2,0.6945,71.860760998515,NaN
+1,3,lines,TR-BDF2,0.69525,71.86879262059568,NaN
+1,3,lines,TR-BDF2,0.6955,71.86891202807337,NaN
+1,3,lines,TR-BDF2,0.69575,71.89811544200552,NaN
+1,3,lines,TR-BDF2,0.69625,71.90026012698954,NaN
+1,3,lines,TR-BDF2,0.6965,71.9027083512126,NaN
+1,3,lines,TR-BDF2,0.69675,71.90067829208773,NaN
+1,3,lines,TR-BDF2,0.697,71.93201237921178,NaN
+1,3,lines,TR-BDF2,0.69725,71.9323607909054,NaN
+1,3,lines,TR-BDF2,0.6975,71.9360330542636,NaN
+1,3,lines,TR-BDF2,0.69775,71.94895368589279,NaN
+1,3,lines,TR-BDF2,0.698,71.96209444282029,NaN
+1,3,lines,TR-BDF2,0.6985,71.96318690512571,NaN
+1,3,lines,TR-BDF2,0.69875,71.9641797834297,NaN
+1,3,lines,TR-BDF2,0.699,71.96346852937157,NaN
+1,3,lines,TR-BDF2,0.69975,71.99464618285448,NaN
+1,3,lines,TR-BDF2,0.7,71.99538410919067,NaN
+1,3,lines,TR-BDF2,0.70025,72.02542391539733,NaN
+1,3,lines,TR-BDF2,0.701,72.03746876516904,NaN
+1,3,lines,TR-BDF2,0.70125,72.02623988430594,NaN
+1,3,lines,TR-BDF2,0.702,72.05755653059961,NaN
+1,3,lines,TR-BDF2,0.70225,72.05854104567696,NaN
+1,3,lines,TR-BDF2,0.703,72.0890076066024,NaN
+1,3,lines,TR-BDF2,0.70325,72.09083751345824,NaN
+1,3,lines,TR-BDF2,0.7035,72.08968797283848,NaN
+1,3,lines,TR-BDF2,0.70425,72.12045595468304,NaN
+1,3,lines,TR-BDF2,0.7045,72.12094452156208,NaN
+1,3,lines,TR-BDF2,0.705,72.1522946919733,NaN
+1,3,lines,TR-BDF2,0.70525,72.15421455168975,NaN
+1,3,lines,TR-BDF2,0.7055,72.1526422885452,NaN
+1,3,lines,TR-BDF2,0.70575,72.17968573080012,NaN
+1,3,lines,TR-BDF2,0.706,72.18351804451339,NaN
+1,3,lines,TR-BDF2,0.70625,72.18524325002505,NaN
+1,3,lines,TR-BDF2,0.7065,72.192448216107,NaN
+1,3,lines,TR-BDF2,0.70675,72.20594863234845,NaN
+1,3,lines,TR-BDF2,0.707,72.2151768922118,NaN
+1,3,lines,TR-BDF2,0.70725,72.2149442412587,NaN
+1,3,lines,TR-BDF2,0.7075,72.2152233079886,NaN
+1,3,lines,TR-BDF2,0.70775,72.21493396843188,NaN
+1,3,lines,TR-BDF2,0.708,72.24398200418241,NaN
+1,3,lines,TR-BDF2,0.70875,72.24850789254081,NaN
+1,3,lines,TR-BDF2,0.709,72.24686065957911,NaN
+1,3,lines,TR-BDF2,0.70975,72.27797218150006,NaN
+1,3,lines,TR-BDF2,0.71,72.27820979370735,NaN
+1,3,lines,TR-BDF2,0.71025,72.27795297352773,NaN
+1,3,lines,TR-BDF2,0.711,72.30939178891023,NaN
+1,3,lines,TR-BDF2,0.71125,72.30919301639302,NaN
+1,3,lines,TR-BDF2,0.712,72.34139283609288,NaN
+1,3,lines,TR-BDF2,0.71225,72.34101972102323,NaN
+1,3,lines,TR-BDF2,0.713,72.3719448933183,NaN
+1,3,lines,TR-BDF2,0.71325,72.3739104516971,NaN
+1,3,lines,TR-BDF2,0.7135,72.37207997768557,NaN
+1,3,lines,TR-BDF2,0.714,72.40336882479504,NaN
+1,3,lines,TR-BDF2,0.71425,72.40611088462026,NaN
+1,3,lines,TR-BDF2,0.7145,72.40338454775099,NaN
+1,3,lines,TR-BDF2,0.71475,72.43488328255896,NaN
+1,3,lines,TR-BDF2,0.71525,72.434790058282,NaN
+1,3,lines,TR-BDF2,0.7155,72.43489707429643,NaN
+1,3,lines,TR-BDF2,0.71575,72.4350846134034,NaN
+1,3,lines,TR-BDF2,0.71625,72.46620859677239,NaN
+1,3,lines,TR-BDF2,0.7165,72.47785426341432,NaN
+1,3,lines,TR-BDF2,0.71675,72.46650858453461,NaN
+1,3,lines,TR-BDF2,0.717,72.49768509323835,NaN
+1,3,lines,TR-BDF2,0.7175,72.4983989861949,NaN
+1,3,lines,TR-BDF2,0.71775,72.49786374610444,NaN
+1,3,lines,TR-BDF2,0.71825,72.52904548913726,NaN
+1,3,lines,TR-BDF2,0.7185,72.5290376007365,NaN
+1,3,lines,TR-BDF2,0.71875,72.54381363492219,NaN
+1,3,lines,TR-BDF2,0.719,72.52907412840433,NaN
+1,3,lines,TR-BDF2,0.71925,72.56085611017994,NaN
+1,3,lines,TR-BDF2,0.7195,72.56044807219669,NaN
+1,3,lines,TR-BDF2,0.71975,72.5614577998926,NaN
+1,3,lines,TR-BDF2,0.72,72.56076039673854,NaN
+1,3,lines,TR-BDF2,0.72025,72.59206975853559,NaN
+1,3,lines,TR-BDF2,0.7205,72.59216731765166,NaN
+1,3,lines,TR-BDF2,0.72075,72.59824816260233,NaN
+1,3,lines,TR-BDF2,0.721,72.59190508038036,NaN
+1,3,lines,TR-BDF2,0.72175,72.62443007583671,NaN
+1,3,lines,TR-BDF2,0.722,72.6237189324561,NaN
+1,3,lines,TR-BDF2,0.72225,72.62336767253221,NaN
+1,3,lines,TR-BDF2,0.72275,72.6546634004086,NaN
+1,3,lines,TR-BDF2,0.723,72.65593940823271,NaN
+1,3,lines,TR-BDF2,0.72325,72.65493238399084,NaN
+1,3,lines,TR-BDF2,0.724,72.68606315773381,NaN
+1,3,lines,TR-BDF2,0.72425,72.68717285792619,NaN
+1,3,lines,TR-BDF2,0.7245,72.68659994448697,NaN
+1,3,lines,TR-BDF2,0.725,72.7174602440084,NaN
+1,3,lines,TR-BDF2,0.72525,72.71853917760023,NaN
+1,3,lines,TR-BDF2,0.7255,72.71756496470557,NaN
+1,3,lines,TR-BDF2,0.72625,72.75007329534941,NaN
+1,3,lines,TR-BDF2,0.7265,72.77206738458709,NaN
+1,3,lines,TR-BDF2,0.72725,72.78024641537866,NaN
+1,3,lines,TR-BDF2,0.7275,72.78160427272292,NaN
+1,3,lines,TR-BDF2,0.72775,72.78033782321396,NaN
+1,3,lines,TR-BDF2,0.72825,72.81163550646079,NaN
+1,3,lines,TR-BDF2,0.7285,72.81248312850089,NaN
+1,3,lines,TR-BDF2,0.72875,72.81206910978084,NaN
+1,3,lines,TR-BDF2,0.729,72.84311197908549,NaN
+1,3,lines,TR-BDF2,0.72925,72.84302193846521,NaN
+1,3,lines,TR-BDF2,0.7295,72.84349387651373,NaN
+1,3,lines,TR-BDF2,0.72975,72.86696923994633,NaN
+1,3,lines,TR-BDF2,0.73,72.87449874074227,NaN
+1,3,lines,TR-BDF2,0.73025,72.87534801725623,NaN
+1,3,lines,TR-BDF2,0.7305,72.880460070742,NaN
+1,3,lines,TR-BDF2,0.73075,72.87462041265931,NaN
+1,3,lines,TR-BDF2,0.7315,72.90578683721408,NaN
+1,3,lines,TR-BDF2,0.73175,72.9067355660034,NaN
+1,3,lines,TR-BDF2,0.732,72.90629892762323,NaN
+1,3,lines,TR-BDF2,0.7325,72.93716530994496,NaN
+1,3,lines,TR-BDF2,0.73275,72.9372779221296,NaN
+1,3,lines,TR-BDF2,0.733,72.96294393839185,NaN
+1,3,lines,TR-BDF2,0.73375,72.97001060654013,NaN
+1,3,lines,TR-BDF2,0.734,72.99118583226556,NaN
+1,3,lines,TR-BDF2,0.73475,73.00373642136675,NaN
+1,3,lines,TR-BDF2,0.735,73.00005779858692,NaN
+1,3,lines,TR-BDF2,0.73575,73.03128485748232,NaN
+1,3,lines,TR-BDF2,0.736,73.03172319250741,NaN
+1,3,lines,TR-BDF2,0.73625,73.03151620304575,NaN
+1,3,lines,TR-BDF2,0.73675,73.0626527597538,NaN
+1,3,lines,TR-BDF2,0.737,73.07406706295734,NaN
+1,3,lines,TR-BDF2,0.73725,73.06270460126548,NaN
+1,3,lines,TR-BDF2,0.73775,73.09401802689355,NaN
+1,3,lines,TR-BDF2,0.738,73.09402582415979,NaN
+1,3,lines,TR-BDF2,0.73825,73.11722717544762,NaN
+1,3,lines,TR-BDF2,0.739,73.12538066189481,NaN
+1,3,lines,TR-BDF2,0.73925,73.1260590664641,NaN
+1,3,lines,TR-BDF2,0.73975,73.1568971062097,NaN
+1,3,lines,TR-BDF2,0.74,73.1610378455847,NaN
+1,3,lines,TR-BDF2,0.74025,73.17391344072095,NaN
+1,3,lines,TR-BDF2,0.7405,73.18751779582809,NaN
+1,3,lines,TR-BDF2,0.741,73.18809804745479,NaN
+1,3,lines,TR-BDF2,0.74125,73.20233019139788,NaN
+1,3,lines,TR-BDF2,0.7415,73.18826217129542,NaN
+1,3,lines,TR-BDF2,0.742,73.22042595755404,NaN
+1,3,lines,TR-BDF2,0.74225,73.2201735087438,NaN
+1,3,lines,TR-BDF2,0.7425,73.21960461392159,NaN
+1,3,lines,TR-BDF2,0.74325,73.25221821363118,NaN
+1,3,lines,TR-BDF2,0.7435,73.2511674222578,NaN
+1,3,lines,TR-BDF2,0.74425,73.28215445958708,NaN
+1,3,lines,TR-BDF2,0.7445,73.28237037733807,NaN
+1,3,lines,TR-BDF2,0.74525,73.31350136461542,NaN
+1,3,lines,TR-BDF2,0.7455,73.31393935270438,NaN
+1,3,lines,TR-BDF2,0.74625,73.34484565845796,NaN
+1,3,lines,TR-BDF2,0.7465,73.34574752348767,NaN
+1,3,lines,TR-BDF2,0.74675,73.34517996475051,NaN
+1,3,lines,TR-BDF2,0.74725,73.37618734410796,NaN
+1,3,lines,TR-BDF2,0.7475,73.37697318577526,NaN
+1,3,lines,TR-BDF2,0.74775,73.3765260864769,NaN
+1,3,lines,TR-BDF2,0.74825,73.40784978184541,NaN
+1,3,lines,TR-BDF2,0.7485,73.40778732011182,NaN
+1,3,lines,TR-BDF2,0.74875,73.40775512054381,NaN
+1,3,lines,TR-BDF2,0.74925,73.43886290280324,NaN
+1,3,lines,TR-BDF2,0.7495,73.44077027342404,NaN
+1,3,lines,TR-BDF2,0.74975,73.43987483953396,NaN
+1,3,lines,TR-BDF2,0.75025,73.47019678183503,NaN
+1,3,lines,TR-BDF2,0.7505,73.47226929476385,NaN
+1,3,lines,TR-BDF2,0.75075,73.47027306327719,NaN
+1,3,lines,TR-BDF2,0.7515,73.50238632133647,NaN
+1,3,lines,TR-BDF2,0.75175,73.50167373534929,NaN
+1,3,lines,TR-BDF2,0.75225,73.53343705683469,NaN
+1,3,lines,TR-BDF2,0.7525,73.53310678968349,NaN
+1,3,lines,TR-BDF2,0.75275,73.53322137941379,NaN
+1,3,lines,TR-BDF2,0.753,73.56426960999394,NaN
+1,3,lines,TR-BDF2,0.7535,73.5731579785275,NaN
+1,3,lines,TR-BDF2,0.75375,73.58861821086825,NaN
+1,3,lines,TR-BDF2,0.7545,73.60417275765766,NaN
+1,3,lines,TR-BDF2,0.75475,73.59563906397887,NaN
+1,3,lines,TR-BDF2,0.7555,73.62717026778729,NaN
+1,3,lines,TR-BDF2,0.75575,73.62699963003054,NaN
+1,3,lines,TR-BDF2,0.75625,73.65814564017806,NaN
+1,3,lines,TR-BDF2,0.7565,73.65980016759225,NaN
+1,3,lines,TR-BDF2,0.75675,73.65819062823365,NaN
+1,3,lines,TR-BDF2,0.7575,73.6898924626982,NaN
+1,3,lines,TR-BDF2,0.75775,73.68996730738179,NaN
+1,3,lines,TR-BDF2,0.7585,73.72087765195597,NaN
+1,3,lines,TR-BDF2,0.75875,73.72144568993502,NaN
+1,3,lines,TR-BDF2,0.75925,73.75220369490881,NaN
+1,3,lines,TR-BDF2,0.7595,73.75243561075939,NaN
+1,3,lines,TR-BDF2,0.75975,73.77878544294981,NaN
+1,3,lines,TR-BDF2,0.76,73.78352574985365,NaN
+1,3,lines,TR-BDF2,0.7605,73.79669164275325,NaN
+1,3,lines,TR-BDF2,0.76075,73.81119630614658,NaN
+1,3,lines,TR-BDF2,0.76125,73.81469875920601,NaN
+1,3,lines,TR-BDF2,0.7615,73.81546023750468,NaN
+1,3,lines,TR-BDF2,0.76175,73.84377365845691,NaN
+1,3,lines,TR-BDF2,0.762,73.84601515257465,NaN
+1,3,lines,TR-BDF2,0.76225,73.84600168115695,NaN
+1,3,lines,TR-BDF2,0.7625,73.84649237208171,NaN
+1,3,lines,TR-BDF2,0.76275,73.84618089469383,NaN
+1,3,lines,TR-BDF2,0.76325,73.87730204280724,NaN
+1,3,lines,TR-BDF2,0.7635,73.87821702727854,NaN
+1,3,lines,TR-BDF2,0.76425,73.90859984715014,NaN
+1,3,lines,TR-BDF2,0.7645,73.90917336502392,NaN
+1,3,lines,TR-BDF2,0.76475,73.94000260357156,NaN
+1,3,lines,TR-BDF2,0.76525,73.94832682929326,NaN
+1,3,lines,TR-BDF2,0.7655,73.94014973079209,NaN
+1,3,lines,TR-BDF2,0.766,73.97118779588673,NaN
+1,3,lines,TR-BDF2,0.76625,73.97468252215522,NaN
+1,3,lines,TR-BDF2,0.7665,73.97194661197906,NaN
+1,3,lines,TR-BDF2,0.767,74.00247794626692,NaN
+1,3,lines,TR-BDF2,0.76725,74.00387706050795,NaN
+1,3,lines,TR-BDF2,0.7675,74.00352253270829,NaN
+1,3,lines,TR-BDF2,0.768,74.03376555131271,NaN
+1,3,lines,TR-BDF2,0.76825,74.03482179531646,NaN
+1,3,lines,TR-BDF2,0.76875,74.06528512183752,NaN
+1,3,lines,TR-BDF2,0.769,74.06547129995514,NaN
+1,3,lines,TR-BDF2,0.76925,74.08642880505438,NaN
+1,3,lines,TR-BDF2,0.77,74.09736045448427,NaN
+1,3,lines,TR-BDF2,0.77025,74.09657999804256,NaN
+1,3,lines,TR-BDF2,0.77075,74.12761312437601,NaN
+1,3,lines,TR-BDF2,0.771,74.12827893721483,NaN
+1,3,lines,TR-BDF2,0.77125,74.12787240227729,NaN
+1,3,lines,TR-BDF2,0.77175,74.1588905780166,NaN
+1,3,lines,TR-BDF2,0.772,74.15984387459571,NaN
+1,3,lines,TR-BDF2,0.77275,74.190165501289,NaN
+1,3,lines,TR-BDF2,0.773,74.19067581898548,NaN
+1,3,lines,TR-BDF2,0.77375,74.22177435428706,NaN
+1,3,lines,TR-BDF2,0.774,74.24895367723556,NaN
+1,3,lines,TR-BDF2,0.7745,74.25438399433519,NaN
+1,3,lines,TR-BDF2,0.77475,74.25343317277245,NaN
+1,3,lines,TR-BDF2,0.7755,74.28397511882964,NaN
+1,3,lines,TR-BDF2,0.77575,74.30672706154004,NaN
+1,3,lines,TR-BDF2,0.776,74.31538294381544,NaN
+1,3,lines,TR-BDF2,0.7765,74.32719419442914,NaN
+1,3,lines,TR-BDF2,0.77675,74.34326373224125,NaN
+1,3,lines,TR-BDF2,0.77725,74.34650226689203,NaN
+1,3,lines,TR-BDF2,0.7775,74.34663895086699,NaN
+1,3,lines,TR-BDF2,0.77775,74.37794984862013,NaN
+1,3,lines,TR-BDF2,0.77825,74.37821124697649,NaN
+1,3,lines,TR-BDF2,0.7785,74.37831099292137,NaN
+1,3,lines,TR-BDF2,0.779,74.40901936531966,NaN
+1,3,lines,TR-BDF2,0.77925,74.40948308782164,NaN
+1,3,lines,TR-BDF2,0.7795,74.40924490617884,NaN
+1,3,lines,TR-BDF2,0.78,74.44609903276509,NaN
+1,3,lines,TR-BDF2,0.78025,74.44067482357626,NaN
+1,3,lines,TR-BDF2,0.78075,74.47152643805852,NaN
+1,3,lines,TR-BDF2,0.781,74.47206916950718,NaN
+1,3,lines,TR-BDF2,0.78125,74.50037968836726,NaN
+1,3,lines,TR-BDF2,0.78175,74.50277622227777,NaN
+1,3,lines,TR-BDF2,0.782,74.52343012808502,NaN
+1,3,lines,TR-BDF2,0.78225,74.53406477736434,NaN
+1,3,lines,TR-BDF2,0.7825,74.53422089775083,NaN
+1,3,lines,TR-BDF2,0.78275,74.54517902666377,NaN
+1,3,lines,TR-BDF2,0.783,74.56162867260267,NaN
+1,3,lines,TR-BDF2,0.78325,74.56540440971585,NaN
+1,3,lines,TR-BDF2,0.7835,74.56891721050012,NaN
+1,3,lines,TR-BDF2,0.78375,74.58526826560383,NaN
+1,3,lines,TR-BDF2,0.7845,74.5975202442828,NaN
+1,3,lines,TR-BDF2,0.78475,74.59661561227536,NaN
+1,3,lines,TR-BDF2,0.78525,74.62775041466281,NaN
+1,3,lines,TR-BDF2,0.7855,74.62843869449578,NaN
+1,3,lines,TR-BDF2,0.786,74.65898774160232,NaN
+1,3,lines,TR-BDF2,0.78625,74.6606662458052,NaN
+1,3,lines,TR-BDF2,0.7865,74.65949788708805,NaN
+1,3,lines,TR-BDF2,0.787,74.69022258606563,NaN
+1,3,lines,TR-BDF2,0.78725,74.71127056821979,NaN
+1,3,lines,TR-BDF2,0.78775,74.72145495104596,NaN
+1,3,lines,TR-BDF2,0.788,74.7348338424509,NaN
+1,3,lines,TR-BDF2,0.78825,74.72187503120118,NaN
+1,3,lines,TR-BDF2,0.78875,74.75268483953661,NaN
+1,3,lines,TR-BDF2,0.789,74.7529140806328,NaN
+1,3,lines,TR-BDF2,0.78975,74.79947944402667,NaN
+1,3,lines,TR-BDF2,0.7905,74.81720178419896,NaN
+1,3,lines,TR-BDF2,0.79075,74.8153196182546,NaN
+1,3,lines,TR-BDF2,0.79125,74.84635967600283,NaN
+1,3,lines,TR-BDF2,0.7915,74.86584123827971,NaN
+1,3,lines,TR-BDF2,0.792,74.8775796884672,NaN
+1,3,lines,TR-BDF2,0.79225,74.87763738234383,NaN
+1,3,lines,TR-BDF2,0.7925,74.90706503902992,NaN
+1,3,lines,TR-BDF2,0.79275,74.9089627182602,NaN
+1,3,lines,TR-BDF2,0.793,74.90918431268898,NaN
+1,3,lines,TR-BDF2,0.79325,74.9325545937767,NaN
+1,3,lines,TR-BDF2,0.79375,74.94201776636346,NaN
+1,3,lines,TR-BDF2,0.794,74.94042657748834,NaN
+1,3,lines,TR-BDF2,0.7945,74.97148499919035,NaN
+1,3,lines,TR-BDF2,0.79475,74.97218651198159,NaN
+1,3,lines,TR-BDF2,0.795,74.97162897161778,NaN
+1,3,lines,TR-BDF2,0.79525,75.0025716548112,NaN
+1,3,lines,TR-BDF2,0.7955,75.00245155272646,NaN
+1,3,lines,TR-BDF2,0.79575,75.02623036509316,NaN
+1,3,lines,TR-BDF2,0.79625,75.03364288780215,NaN
+1,3,lines,TR-BDF2,0.7965,75.03431779320903,NaN
+1,3,lines,TR-BDF2,0.79675,75.06510692342712,NaN
+1,3,lines,TR-BDF2,0.79725,75.07744798413707,NaN
+1,3,lines,TR-BDF2,0.7975,75.06505904158472,NaN
+1,3,lines,TR-BDF2,0.798,75.09827838189057,NaN
+1,3,lines,TR-BDF2,0.79825,75.09612243110831,NaN
+1,3,lines,TR-BDF2,0.79875,75.12927297251733,NaN
+1,3,lines,TR-BDF2,0.799,75.14876562810908,NaN
+1,3,lines,TR-BDF2,0.7995,75.1584493912811,NaN
+1,3,lines,TR-BDF2,0.79975,75.16012925524787,NaN
+1,3,lines,TR-BDF2,0.8005,75.19099218513836,NaN
+1,3,lines,TR-BDF2,0.80075,75.18977833961296,NaN
+1,3,lines,TR-BDF2,0.80125,75.22236093794136,NaN
+1,3,lines,TR-BDF2,0.8015,75.22171929772189,NaN
+1,3,lines,TR-BDF2,0.80175,75.25222143195379,NaN
+1,3,lines,TR-BDF2,0.802,75.25244349130648,NaN
+1,3,lines,TR-BDF2,0.80225,75.2742814758476,NaN
+1,3,lines,TR-BDF2,0.8025,75.28369572067378,NaN
+1,3,lines,TR-BDF2,0.80275,75.28428773465558,NaN
+1,3,lines,TR-BDF2,0.803,75.30214378523692,NaN
+1,3,lines,TR-BDF2,0.80325,75.31442453989658,NaN
+1,3,lines,TR-BDF2,0.8035,75.3154419680351,NaN
+1,3,lines,TR-BDF2,0.80375,75.32910612657314,NaN
+1,3,lines,TR-BDF2,0.804,75.34602781922821,NaN
+1,3,lines,TR-BDF2,0.8045,75.3574225998219,NaN
+1,3,lines,TR-BDF2,0.80475,75.37492639134992,NaN
+1,3,lines,TR-BDF2,0.80525,75.3767671561183,NaN
+1,3,lines,TR-BDF2,0.8055,75.37737945090882,NaN
+1,3,lines,TR-BDF2,0.806,75.4079457297662,NaN
+1,3,lines,TR-BDF2,0.80625,75.43202840238284,NaN
+1,3,lines,TR-BDF2,0.80675,75.43912189277594,NaN
+1,3,lines,TR-BDF2,0.807,75.43978065003532,NaN
+1,3,lines,TR-BDF2,0.8075,75.47029564814078,NaN
+1,3,lines,TR-BDF2,0.80775,75.47095591668865,NaN
+1,3,lines,TR-BDF2,0.80825,75.50146699885396,NaN
+1,3,lines,TR-BDF2,0.8085,75.50178306920114,NaN
+1,3,lines,TR-BDF2,0.809,75.53309181615693,NaN
+1,3,lines,TR-BDF2,0.80925,75.53280324464761,NaN
+1,3,lines,TR-BDF2,0.81,75.57677146042903,NaN
+1,3,lines,TR-BDF2,0.81025,75.5638887461444,NaN
+1,3,lines,TR-BDF2,0.81075,75.59647850311494,NaN
+1,3,lines,TR-BDF2,0.811,75.59588069633737,NaN
+1,3,lines,TR-BDF2,0.8115,75.6263814083698,NaN
+1,3,lines,TR-BDF2,0.81175,75.6261688212604,NaN
+1,3,lines,TR-BDF2,0.812,75.65749239027348,NaN
+1,3,lines,TR-BDF2,0.81225,75.65731255849538,NaN
+1,3,lines,TR-BDF2,0.8125,75.6573295093364,NaN
+1,3,lines,TR-BDF2,0.813,75.69035427586056,NaN
+1,3,lines,TR-BDF2,0.81325,75.68861052162232,NaN
+1,3,lines,TR-BDF2,0.8135,75.72039203827231,NaN
+1,3,lines,TR-BDF2,0.81375,75.72767228250088,NaN
+1,3,lines,TR-BDF2,0.814,75.71983478888997,NaN
+1,3,lines,TR-BDF2,0.8145,75.75075159629017,NaN
+1,3,lines,TR-BDF2,0.81475,75.77708585191182,NaN
+1,3,lines,TR-BDF2,0.81525,75.78296998146516,NaN
+1,3,lines,TR-BDF2,0.8155,75.78305722812519,NaN
+1,3,lines,TR-BDF2,0.816,75.81304890866046,NaN
+1,3,lines,TR-BDF2,0.81625,75.813714564337,NaN
+1,3,lines,TR-BDF2,0.8165,75.8444856497433,NaN
+1,3,lines,TR-BDF2,0.81675,75.8513316846981,NaN
+1,3,lines,TR-BDF2,0.817,75.87098086323725,NaN
+1,3,lines,TR-BDF2,0.8175,75.8778390737212,NaN
+1,3,lines,TR-BDF2,0.81775,75.87545100884091,NaN
+1,3,lines,TR-BDF2,0.81825,75.91453604787795,NaN
+1,3,lines,TR-BDF2,0.8185,75.93452416885013,NaN
+1,3,lines,TR-BDF2,0.819,75.9376150966368,NaN
+1,3,lines,TR-BDF2,0.81925,75.9661339783652,NaN
+1,3,lines,TR-BDF2,0.81975,75.97026263857951,NaN
+1,3,lines,TR-BDF2,0.82,75.96903606350108,NaN
+1,3,lines,TR-BDF2,0.8205,76.01176758463949,NaN
+1,3,lines,TR-BDF2,0.82075,76.00027409920712,NaN
+1,3,lines,TR-BDF2,0.821,76.03101494973792,NaN
+1,3,lines,TR-BDF2,0.82125,76.03177959560912,NaN
+1,3,lines,TR-BDF2,0.82175,76.06214352856784,NaN
+1,3,lines,TR-BDF2,0.822,76.06316090750738,NaN
+1,3,lines,TR-BDF2,0.82225,76.09382049754241,NaN
+1,3,lines,TR-BDF2,0.8225,76.09326975961791,NaN
+1,3,lines,TR-BDF2,0.82275,76.11193078249339,NaN
+1,3,lines,TR-BDF2,0.82325,76.12657050978669,NaN
+1,3,lines,TR-BDF2,0.8235,76.14477570099511,NaN
+1,3,lines,TR-BDF2,0.82375,76.15587898756277,NaN
+1,3,lines,TR-BDF2,0.824,76.15551519035174,NaN
+1,3,lines,TR-BDF2,0.82425,76.17793814735634,NaN
+1,3,lines,TR-BDF2,0.82475,76.19194062652579,NaN
+1,3,lines,TR-BDF2,0.825,76.18671083171535,NaN
+1,3,lines,TR-BDF2,0.82525,76.2182313376304,NaN
+1,3,lines,TR-BDF2,0.8255,76.22507611707096,NaN
+1,3,lines,TR-BDF2,0.82575,76.24539164038018,NaN
+1,3,lines,TR-BDF2,0.82625,76.25016071952942,NaN
+1,3,lines,TR-BDF2,0.8265,76.24922328203544,NaN
+1,3,lines,TR-BDF2,0.82675,76.27997801016497,NaN
+1,3,lines,TR-BDF2,0.827,76.28235306461937,NaN
+1,3,lines,TR-BDF2,0.8275,76.3110878905676,NaN
+1,3,lines,TR-BDF2,0.82775,76.31123238091196,NaN
+1,3,lines,TR-BDF2,0.82825,76.34219544713653,NaN
+1,3,lines,TR-BDF2,0.8285,76.36427878818753,NaN
+1,3,lines,TR-BDF2,0.829,76.37765841479776,NaN
+1,3,lines,TR-BDF2,0.82925,76.37374303248949,NaN
+1,3,lines,TR-BDF2,0.8295,76.40501540667657,NaN
+1,3,lines,TR-BDF2,0.82975,76.41481408537706,NaN
+1,3,lines,TR-BDF2,0.83,76.40450073336616,NaN
+1,3,lines,TR-BDF2,0.83025,76.43550420377332,NaN
+1,3,lines,TR-BDF2,0.8305,76.43725626345736,NaN
+1,3,lines,TR-BDF2,0.831,76.46660249493982,NaN
+1,3,lines,TR-BDF2,0.83125,76.46748124038578,NaN
+1,3,lines,TR-BDF2,0.8315,76.49787273243186,NaN
+1,3,lines,TR-BDF2,0.83175,76.49769847723886,NaN
+1,3,lines,TR-BDF2,0.832,76.49832981473878,NaN
+1,3,lines,TR-BDF2,0.8325,76.53087119492628,NaN
+1,3,lines,TR-BDF2,0.83275,76.52917998442942,NaN
+1,3,lines,TR-BDF2,0.833,76.56017479339575,NaN
+1,3,lines,TR-BDF2,0.83325,76.56026833036034,NaN
+1,3,lines,TR-BDF2,0.83375,76.59097260086386,NaN
+1,3,lines,TR-BDF2,0.834,76.59161405193144,NaN
+1,3,lines,TR-BDF2,0.8345,76.62205937762567,NaN
+1,3,lines,TR-BDF2,0.83475,76.6226877297548,NaN
+1,3,lines,TR-BDF2,0.83525,76.65314386048635,NaN
+1,3,lines,TR-BDF2,0.83575,76.68422605243912,NaN
+1,3,lines,TR-BDF2,0.836,76.68501827550573,NaN
+1,3,lines,TR-BDF2,0.8365,76.7153059564772,NaN
+1,3,lines,TR-BDF2,0.83675,76.71616430985776,NaN
+1,3,lines,TR-BDF2,0.837,76.74646296977609,NaN
+1,3,lines,TR-BDF2,0.83725,76.74731521480061,NaN
+1,3,lines,TR-BDF2,0.8375,76.74680944767475,NaN
+1,3,lines,TR-BDF2,0.83775,76.7774589127826,NaN
+1,3,lines,TR-BDF2,0.838,76.77849716764611,NaN
+1,3,lines,TR-BDF2,0.83825,76.80866614073209,NaN
+1,3,lines,TR-BDF2,0.8385,76.80853197103637,NaN
+1,3,lines,TR-BDF2,0.83875,76.80909830898888,NaN
+1,3,lines,TR-BDF2,0.83925,76.84206885345976,NaN
+1,3,lines,TR-BDF2,0.83975,76.87288733045253,NaN
+1,3,lines,TR-BDF2,0.84,76.88967101231289,NaN
+1,3,lines,TR-BDF2,0.8405,76.90173750212112,NaN
+1,3,lines,TR-BDF2,0.84075,76.90187298173721,NaN
+1,3,lines,TR-BDF2,0.841,76.93383304088793,NaN
+1,3,lines,TR-BDF2,0.84125,76.93292253068053,NaN
+1,3,lines,TR-BDF2,0.84175,76.96386318304647,NaN
+1,3,lines,TR-BDF2,0.842,76.96450363353739,NaN
+1,3,lines,TR-BDF2,0.84225,76.99555758521886,NaN
+1,3,lines,TR-BDF2,0.8425,77.00279296035751,NaN
+1,3,lines,TR-BDF2,0.84275,77.02487727911358,NaN
+1,3,lines,TR-BDF2,0.84325,77.04489371518058,NaN
+1,3,lines,TR-BDF2,0.8435,77.05758921290573,NaN
+1,3,lines,TR-BDF2,0.84375,77.05724196632544,NaN
+1,3,lines,TR-BDF2,0.844,77.0838911202887,NaN
+1,3,lines,TR-BDF2,0.84425,77.08852560469924,NaN
+1,3,lines,TR-BDF2,0.8445,77.10329391330033,NaN
+1,3,lines,TR-BDF2,0.84475,77.1195138076905,NaN
+1,3,lines,TR-BDF2,0.845,77.1191378706743,NaN
+1,3,lines,TR-BDF2,0.84525,77.1437309245878,NaN
+1,3,lines,TR-BDF2,0.84575,77.1506726240666,NaN
+1,3,lines,TR-BDF2,0.846,77.18153231050188,NaN
+1,3,lines,TR-BDF2,0.84625,77.18123200270973,NaN
+1,3,lines,TR-BDF2,0.8465,77.18156711696952,NaN
+1,3,lines,TR-BDF2,0.847,77.21227570719714,NaN
+1,3,lines,TR-BDF2,0.8475,77.24331717465532,NaN
+1,3,lines,TR-BDF2,0.84775,77.24338936333012,NaN
+1,3,lines,TR-BDF2,0.848,77.27481088156907,NaN
+1,3,lines,TR-BDF2,0.84825,77.27457356241945,NaN
+1,3,lines,TR-BDF2,0.8485,77.30539787546589,NaN
+1,3,lines,TR-BDF2,0.84875,77.30631671595644,NaN
+1,3,lines,TR-BDF2,0.849,77.30570113129988,NaN
+1,3,lines,TR-BDF2,0.8495,77.33811290834046,NaN
+1,3,lines,TR-BDF2,0.85,77.36746073406148,NaN
+1,3,lines,TR-BDF2,0.85025,77.36818350942086,NaN
+1,3,lines,TR-BDF2,0.85075,77.39941427238313,NaN
+1,3,lines,TR-BDF2,0.85125,77.42951916941426,NaN
+1,3,lines,TR-BDF2,0.8515,77.42967911593699,NaN
+1,3,lines,TR-BDF2,0.85175,77.46079097933922,NaN
+1,3,lines,TR-BDF2,0.852,77.47180813928667,NaN
+1,3,lines,TR-BDF2,0.8525,77.49156874046162,NaN
+1,3,lines,TR-BDF2,0.85275,77.49219572793432,NaN
+1,3,lines,TR-BDF2,0.85325,77.52332683765454,NaN
+1,3,lines,TR-BDF2,0.85375,77.5536094711497,NaN
+1,3,lines,TR-BDF2,0.854,77.55385895281313,NaN
+1,3,lines,TR-BDF2,0.8545,77.58504290988515,NaN
+1,3,lines,TR-BDF2,0.85475,77.61578152866201,NaN
+1,3,lines,TR-BDF2,0.855,77.62270379115922,NaN
+1,3,lines,TR-BDF2,0.85525,77.64653531490762,NaN
+1,3,lines,TR-BDF2,0.8555,77.64891046329237,NaN
+1,3,lines,TR-BDF2,0.85575,77.6683043779899,NaN
+1,3,lines,TR-BDF2,0.85625,77.69031506454618,NaN
+1,3,lines,TR-BDF2,0.85675,77.70867277844445,NaN
+1,3,lines,TR-BDF2,0.857,77.70920799991113,NaN
+1,3,lines,TR-BDF2,0.8575,77.74077085977656,NaN
+1,3,lines,TR-BDF2,0.858,77.77429987815943,NaN
+1,3,lines,TR-BDF2,0.8585,77.80168446923157,NaN
+1,3,lines,TR-BDF2,0.85875,77.80233399555281,NaN
+1,3,lines,TR-BDF2,0.85925,77.84870119455444,NaN
+1,3,lines,TR-BDF2,0.85975,77.86368135731504,NaN
+1,3,lines,TR-BDF2,0.86,77.89448814353945,NaN
+1,3,lines,TR-BDF2,0.86025,77.89467653860423,NaN
+1,3,lines,TR-BDF2,0.8605,77.89488212069021,NaN
+1,3,lines,TR-BDF2,0.861,77.9265565331593,NaN
+1,3,lines,TR-BDF2,0.8615,77.95666039064368,NaN
+1,3,lines,TR-BDF2,0.862,77.98764906738052,NaN
+1,3,lines,TR-BDF2,0.86225,77.98844748974716,NaN
+1,3,lines,TR-BDF2,0.86275,78.02008475137681,NaN
+1,3,lines,TR-BDF2,0.863,78.0498434686202,NaN
+1,3,lines,TR-BDF2,0.86325,78.05204625037076,NaN
+1,3,lines,TR-BDF2,0.86375,78.0806021363787,NaN
+1,3,lines,TR-BDF2,0.864,78.08148786062401,NaN
+1,3,lines,TR-BDF2,0.8645,78.11215994792877,NaN
+1,3,lines,TR-BDF2,0.865,78.14296510566369,NaN
+1,3,lines,TR-BDF2,0.86525,78.17366746302417,NaN
+1,3,lines,TR-BDF2,0.8655,78.17353582641701,NaN
+1,3,lines,TR-BDF2,0.866,78.2056909444682,NaN
+1,3,lines,TR-BDF2,0.86625,78.20462501240748,NaN
+1,3,lines,TR-BDF2,0.8665,78.2354808935973,NaN
+1,3,lines,TR-BDF2,0.86675,78.23599464212215,NaN
+1,3,lines,TR-BDF2,0.86725,78.2675833371208,NaN
+1,3,lines,TR-BDF2,0.86775,78.29841338194252,NaN
+1,3,lines,TR-BDF2,0.86825,78.32838246496516,NaN
+1,3,lines,TR-BDF2,0.8685,78.32864604301227,NaN
+1,3,lines,TR-BDF2,0.86875,78.35936285295952,NaN
+1,3,lines,TR-BDF2,0.869,78.38102981902377,NaN
+1,3,lines,TR-BDF2,0.86925,78.39109294702759,NaN
+1,3,lines,TR-BDF2,0.8695,78.4076146308092,NaN
+1,3,lines,TR-BDF2,0.87,78.42130519269737,NaN
+1,3,lines,TR-BDF2,0.8705,78.45245518048822,NaN
+1,3,lines,TR-BDF2,0.87075,78.48354656329414,NaN
+1,3,lines,TR-BDF2,0.871,78.48317587172282,NaN
+1,3,lines,TR-BDF2,0.87125,78.48321023106179,NaN
+1,3,lines,TR-BDF2,0.87175,78.51457484262501,NaN
+1,3,lines,TR-BDF2,0.87225,78.56405140787052,NaN
+1,3,lines,TR-BDF2,0.87275,78.59084416015844,NaN
+1,3,lines,TR-BDF2,0.87325,78.6070522371624,NaN
+1,3,lines,TR-BDF2,0.87375,78.64431137700515,NaN
+1,3,lines,TR-BDF2,0.87425,78.66885822068404,NaN
+1,3,lines,TR-BDF2,0.8745,78.66917599205549,NaN
+1,3,lines,TR-BDF2,0.87475,78.69979792417372,NaN
+1,3,lines,TR-BDF2,0.875,78.70066698324815,NaN
+1,3,lines,TR-BDF2,0.87525,78.73073553431102,NaN
+1,3,lines,TR-BDF2,0.8755,78.7323604414563,NaN
+1,3,lines,TR-BDF2,0.876,78.76310713166839,NaN
+1,3,lines,TR-BDF2,0.87625,78.79292006598742,NaN
+1,3,lines,TR-BDF2,0.8765,78.79285654652637,NaN
+1,3,lines,TR-BDF2,0.877,78.82579027368827,NaN
+1,3,lines,TR-BDF2,0.8775,78.8547442156088,NaN
+1,3,lines,TR-BDF2,0.878,78.88731508847512,NaN
+1,3,lines,TR-BDF2,0.8785,78.91676359683176,NaN
+1,3,lines,TR-BDF2,0.87875,78.94724814218961,NaN
+1,3,lines,TR-BDF2,0.879,78.95256416185653,NaN
+1,3,lines,TR-BDF2,0.87925,78.97839465625484,NaN
+1,3,lines,TR-BDF2,0.8795,78.9781614139164,NaN
+1,3,lines,TR-BDF2,0.87975,78.9784426273997,NaN
+1,3,lines,TR-BDF2,0.88,79.00908031857954,NaN
+1,3,lines,TR-BDF2,0.88025,79.00965277845364,NaN
+1,3,lines,TR-BDF2,0.8805,79.03999715982297,NaN
+1,3,lines,TR-BDF2,0.88075,79.04057490573646,NaN
+1,3,lines,TR-BDF2,0.881,79.07238117091316,NaN
+1,3,lines,TR-BDF2,0.88125,79.09750085658511,NaN
+1,3,lines,TR-BDF2,0.8815,79.10182466402401,NaN
+1,3,lines,TR-BDF2,0.88175,79.10193389092893,NaN
+1,3,lines,TR-BDF2,0.882,79.13273533296814,NaN
+1,3,lines,TR-BDF2,0.88225,79.1577837665459,NaN
+1,3,lines,TR-BDF2,0.8825,79.1636439504657,NaN
+1,3,lines,TR-BDF2,0.88275,79.16413505648833,NaN
+1,3,lines,TR-BDF2,0.88325,79.21844251554626,NaN
+1,3,lines,TR-BDF2,0.88375,79.22613349609739,NaN
+1,3,lines,TR-BDF2,0.884,79.2576074114451,NaN
+1,3,lines,TR-BDF2,0.88425,79.25674116384307,NaN
+1,3,lines,TR-BDF2,0.88475,79.28770568728842,NaN
+1,3,lines,TR-BDF2,0.885,79.31815637101957,NaN
+1,3,lines,TR-BDF2,0.88525,79.3186700089836,NaN
+1,3,lines,TR-BDF2,0.8855,79.3490527426965,NaN
+1,3,lines,TR-BDF2,0.88575,79.34957064094294,NaN
+1,3,lines,TR-BDF2,0.886,79.37994708387976,NaN
+1,3,lines,TR-BDF2,0.88625,79.38044190168957,NaN
+1,3,lines,TR-BDF2,0.8865,79.41083939756265,NaN
+1,3,lines,TR-BDF2,0.88675,79.41143169704594,NaN
+1,3,lines,TR-BDF2,0.887,79.44172968673847,NaN
+1,3,lines,TR-BDF2,0.88725,79.44259241580355,NaN
+1,3,lines,TR-BDF2,0.8875,79.47261795440042,NaN
+1,3,lines,TR-BDF2,0.88775,79.47274833148595,NaN
+1,3,lines,TR-BDF2,0.888,79.50350420354187,NaN
+1,3,lines,TR-BDF2,0.88825,79.53458937365716,NaN
+1,3,lines,TR-BDF2,0.8885,79.53438843715603,NaN
+1,3,lines,TR-BDF2,0.889,79.56570994217857,NaN
+1,3,lines,TR-BDF2,0.8895,79.59615086977566,NaN
+1,3,lines,TR-BDF2,0.89,79.62758844029831,NaN
+1,3,lines,TR-BDF2,0.8905,79.65938303161916,NaN
+1,3,lines,TR-BDF2,0.891,79.68951674354719,NaN
+1,3,lines,TR-BDF2,0.8915,79.72072618620602,NaN
+1,3,lines,TR-BDF2,0.892,79.75121906226234,NaN
+1,3,lines,TR-BDF2,0.89225,79.78139010628077,NaN
+1,3,lines,TR-BDF2,0.8925,79.78202523480466,NaN
+1,3,lines,TR-BDF2,0.89275,79.81482121384089,NaN
+1,3,lines,TR-BDF2,0.893,79.8124003095364,NaN
+1,3,lines,TR-BDF2,0.89325,79.84432680130688,NaN
+1,3,lines,TR-BDF2,0.89375,79.87398283818905,NaN
+1,3,lines,TR-BDF2,0.89425,79.90730094934831,NaN
+1,3,lines,TR-BDF2,0.89475,79.95369978703698,NaN
+1,3,lines,TR-BDF2,0.89525,79.96728413071071,NaN
+1,3,lines,TR-BDF2,0.89575,79.99814470237959,NaN
+1,3,lines,TR-BDF2,0.896,80.02826450578762,NaN
+1,3,lines,TR-BDF2,0.8965,80.06607638030773,NaN
+1,3,lines,TR-BDF2,0.897,80.09002396061659,NaN
+1,3,lines,TR-BDF2,0.8975,80.12101082427654,NaN
+1,3,lines,TR-BDF2,0.898,80.15177412944969,NaN
+1,3,lines,TR-BDF2,0.89825,80.18249705734725,NaN
+1,3,lines,TR-BDF2,0.8985,80.18295397933325,NaN
+1,3,lines,TR-BDF2,0.89875,80.21333770666061,NaN
+1,3,lines,TR-BDF2,0.899,80.24422517236954,NaN
+1,3,lines,TR-BDF2,0.89925,80.25790410379204,NaN
+1,3,lines,TR-BDF2,0.89975,80.29463159062543,NaN
+1,3,lines,TR-BDF2,0.9,80.30584798648243,NaN
+1,3,lines,TR-BDF2,0.90025,80.3058965995638,NaN
+1,3,lines,TR-BDF2,0.9005,80.33668086702794,NaN
+1,3,lines,TR-BDF2,0.901,80.3691777587001,NaN
+1,3,lines,TR-BDF2,0.9015,80.39867014206557,NaN
+1,3,lines,TR-BDF2,0.902,80.42981884817856,NaN
+1,3,lines,TR-BDF2,0.90225,80.46188290008494,NaN
+1,3,lines,TR-BDF2,0.90275,80.50187457375452,NaN
+1,3,lines,TR-BDF2,0.90325,80.52270508672953,NaN
+1,3,lines,TR-BDF2,0.90375,80.55246124085484,NaN
+1,3,lines,TR-BDF2,0.904,80.58327451331219,NaN
+1,3,lines,TR-BDF2,0.9045,80.61586825033247,NaN
+1,3,lines,TR-BDF2,0.905,80.64615779440535,NaN
+1,3,lines,TR-BDF2,0.90525,80.67663922784305,NaN
+1,3,lines,TR-BDF2,0.9055,80.70682297483569,NaN
+1,3,lines,TR-BDF2,0.90575,80.71848287014103,NaN
+1,3,lines,TR-BDF2,0.90625,80.7581929858466,NaN
+1,3,lines,TR-BDF2,0.9065,80.76813941218825,NaN
+1,3,lines,TR-BDF2,0.90675,80.79909731752457,NaN
+1,3,lines,TR-BDF2,0.907,80.80026928913732,NaN
+1,3,lines,TR-BDF2,0.9075,80.85002856927916,NaN
+1,3,lines,TR-BDF2,0.90775,80.86054626837898,NaN
+1,3,lines,TR-BDF2,0.908,80.8612921750748,NaN
+1,3,lines,TR-BDF2,0.90825,80.89415074140263,NaN
+1,3,lines,TR-BDF2,0.90875,80.9231308599673,NaN
+1,3,lines,TR-BDF2,0.909,80.95293617016307,NaN
+1,3,lines,TR-BDF2,0.90925,80.98375858538252,NaN
+1,3,lines,TR-BDF2,0.9095,80.98591060010023,NaN
+1,3,lines,TR-BDF2,0.91,81.01547840689591,NaN
+1,3,lines,TR-BDF2,0.91025,81.04962257898877,NaN
+1,3,lines,TR-BDF2,0.91075,81.07795733718957,NaN
+1,3,lines,TR-BDF2,0.91125,81.10761261108469,NaN
+1,3,lines,TR-BDF2,0.9115,81.1456749009096,NaN
+1,3,lines,TR-BDF2,0.912,81.16924214772814,NaN
+1,3,lines,TR-BDF2,0.91225,81.1992269679981,NaN
+1,3,lines,TR-BDF2,0.9125,81.23004936120253,NaN
+1,3,lines,TR-BDF2,0.91275,81.23009222786129,NaN
+1,3,lines,TR-BDF2,0.91325,81.26104441226235,NaN
+1,3,lines,TR-BDF2,0.9135,81.29483671590322,NaN
+1,3,lines,TR-BDF2,0.914,81.3232064262046,NaN
+1,3,lines,TR-BDF2,0.91425,81.35309846521636,NaN
+1,3,lines,TR-BDF2,0.91475,81.40083996256452,NaN
+1,3,lines,TR-BDF2,0.915,81.4146341916379,NaN
+1,3,lines,TR-BDF2,0.9155,81.44931115207721,NaN
+1,3,lines,TR-BDF2,0.916,81.47673608878243,NaN
+1,3,lines,TR-BDF2,0.91625,81.51722519935376,NaN
+1,3,lines,TR-BDF2,0.9165,81.53788503799014,NaN
+1,3,lines,TR-BDF2,0.91675,81.56360075482173,NaN
+1,3,lines,TR-BDF2,0.917,81.56995844172998,NaN
+1,3,lines,TR-BDF2,0.9175,81.5996606738663,NaN
+1,3,lines,TR-BDF2,0.91775,81.62995174803048,NaN
+1,3,lines,TR-BDF2,0.918,81.66078997123195,NaN
+1,3,lines,TR-BDF2,0.91825,81.68246775522177,NaN
+1,3,lines,TR-BDF2,0.9185,81.697084546087,NaN
+1,3,lines,TR-BDF2,0.91875,81.72272672092744,NaN
+1,3,lines,TR-BDF2,0.919,81.72247818476234,NaN
+1,3,lines,TR-BDF2,0.91925,81.75295048803332,NaN
+1,3,lines,TR-BDF2,0.91975,81.80458774590592,NaN
+1,3,lines,TR-BDF2,0.92,81.81777863800895,NaN
+1,3,lines,TR-BDF2,0.9205,81.84606394841333,NaN
+1,3,lines,TR-BDF2,0.92075,81.87592047575376,NaN
+1,3,lines,TR-BDF2,0.92125,81.90809120049104,NaN
+1,3,lines,TR-BDF2,0.9215,81.93879901791475,NaN
+1,3,lines,TR-BDF2,0.922,81.96970005353486,NaN
+1,3,lines,TR-BDF2,0.92225,81.99897671757424,NaN
+1,3,lines,TR-BDF2,0.92275,82.02983079000492,NaN
+1,3,lines,TR-BDF2,0.923,82.06151332141756,NaN
+1,3,lines,TR-BDF2,0.92325,82.09104934529329,NaN
+1,3,lines,TR-BDF2,0.92375,82.12243591952033,NaN
+1,3,lines,TR-BDF2,0.924,82.15249881486783,NaN
+1,3,lines,TR-BDF2,0.9245,82.18374576850569,NaN
+1,3,lines,TR-BDF2,0.92475,82.21420461343781,NaN
+1,3,lines,TR-BDF2,0.92525,82.24550603386783,NaN
+1,3,lines,TR-BDF2,0.9255,82.27579743958836,NaN
+1,3,lines,TR-BDF2,0.92625,82.3382714602018,NaN
+1,3,lines,TR-BDF2,0.9265,82.36751673522306,NaN
+1,3,lines,TR-BDF2,0.927,82.39892893893791,NaN
+1,3,lines,TR-BDF2,0.92725,82.43131532815114,NaN
+1,3,lines,TR-BDF2,0.9275,82.4606828568871,NaN
+1,3,lines,TR-BDF2,0.92775,82.49102831211651,NaN
+1,3,lines,TR-BDF2,0.928,82.49044074092392,NaN
+1,3,lines,TR-BDF2,0.92825,82.52104878962764,NaN
+1,3,lines,TR-BDF2,0.92875,82.5520489462826,NaN
+1,3,lines,TR-BDF2,0.929,82.58316239538395,NaN
+1,3,lines,TR-BDF2,0.92925,82.61314733209976,NaN
+1,3,lines,TR-BDF2,0.9295,82.6448323841999,NaN
+1,3,lines,TR-BDF2,0.92975,82.67125465175616,NaN
+1,3,lines,TR-BDF2,0.93,82.68807780894707,NaN
+1,3,lines,TR-BDF2,0.93025,82.70523045572261,NaN
+1,3,lines,TR-BDF2,0.93075,82.73680577250893,NaN
+1,3,lines,TR-BDF2,0.931,82.76909069683425,NaN
+1,3,lines,TR-BDF2,0.93125,82.79729824131518,NaN
+1,3,lines,TR-BDF2,0.93175,82.82884810380064,NaN
+1,3,lines,TR-BDF2,0.932,82.85976522295027,NaN
+1,3,lines,TR-BDF2,0.93225,82.88935076969645,NaN
+1,3,lines,TR-BDF2,0.93275,82.9212059374601,NaN
+1,3,lines,TR-BDF2,0.933,82.95272244300547,NaN
+1,3,lines,TR-BDF2,0.93325,82.98496644264942,NaN
+1,3,lines,TR-BDF2,0.934,83.04373434989112,NaN
+1,3,lines,TR-BDF2,0.93425,83.073790291915,NaN
+1,3,lines,TR-BDF2,0.9345,83.10408112296983,NaN
+1,3,lines,TR-BDF2,0.935,83.13521623371734,NaN
+1,3,lines,TR-BDF2,0.93525,83.16591341618043,NaN
+1,3,lines,TR-BDF2,0.9355,83.19608337767292,NaN
+1,3,lines,TR-BDF2,0.93625,83.25793040699938,NaN
+1,3,lines,TR-BDF2,0.9365,83.3004806838194,NaN
+1,3,lines,TR-BDF2,0.93675,83.31872987591939,NaN
+1,3,lines,TR-BDF2,0.9375,83.38170054976494,NaN
+1,3,lines,TR-BDF2,0.93775,83.41132001388674,NaN
+1,3,lines,TR-BDF2,0.938,83.44135006441164,NaN
+1,3,lines,TR-BDF2,0.93875,83.50416337957968,NaN
+1,3,lines,TR-BDF2,0.939,83.53408310029073,NaN
+1,3,lines,TR-BDF2,0.93925,83.57127164176302,NaN
+1,3,lines,TR-BDF2,0.9395,83.59458859378174,NaN
+1,3,lines,TR-BDF2,0.94025,83.65678666869131,NaN
+1,3,lines,TR-BDF2,0.9405,83.68840382288198,NaN
+1,3,lines,TR-BDF2,0.94075,83.71715028575915,NaN
+1,3,lines,TR-BDF2,0.941,83.74778668765339,NaN
+1,3,lines,TR-BDF2,0.94175,83.81070934768859,NaN
+1,3,lines,TR-BDF2,0.942,83.84092838704566,NaN
+1,3,lines,TR-BDF2,0.94225,83.87031630062917,NaN
+1,3,lines,TR-BDF2,0.9425,83.90094472018932,NaN
+1,3,lines,TR-BDF2,0.94275,83.93157155226251,NaN
+1,3,lines,TR-BDF2,0.9435,83.99299864754919,NaN
+1,3,lines,TR-BDF2,0.94375,84.02362933528073,NaN
+1,3,lines,TR-BDF2,0.944,84.05474284986668,NaN
+1,3,lines,TR-BDF2,0.94425,84.08468200509049,NaN
+1,3,lines,TR-BDF2,0.9445,84.1154097977201,NaN
+1,3,lines,TR-BDF2,0.94475,84.14612940449109,NaN
+1,3,lines,TR-BDF2,0.9455,84.20777853225917,NaN
+1,3,lines,TR-BDF2,0.94575,84.23918344446682,NaN
+1,3,lines,TR-BDF2,0.946,84.26876125372662,NaN
+1,3,lines,TR-BDF2,0.94625,84.29990255358204,NaN
+1,3,lines,TR-BDF2,0.9465,84.33209510016972,NaN
+1,3,lines,TR-BDF2,0.94675,84.36018219141157,NaN
+1,3,lines,TR-BDF2,0.947,84.39078557037755,NaN
+1,3,lines,TR-BDF2,0.94825,84.51398698069998,NaN
+1,3,lines,TR-BDF2,0.9485,84.54533020205322,NaN
+1,3,lines,TR-BDF2,0.94875,84.5755369140415,NaN
+1,3,lines,TR-BDF2,0.949,84.60823949919335,NaN
+1,3,lines,TR-BDF2,0.94925,84.63599352431874,NaN
+1,3,lines,TR-BDF2,0.9495,84.66798206797321,NaN
+1,3,lines,TR-BDF2,0.94975,84.69690884633876,NaN
+1,3,lines,TR-BDF2,0.95,84.72732178432427,NaN
+1,3,lines,TR-BDF2,0.95025,84.75790688572005,NaN
+1,3,lines,TR-BDF2,0.9505,84.78870556211581,NaN
+1,3,lines,TR-BDF2,0.95075,84.81907258048189,NaN
+1,3,lines,TR-BDF2,0.951,84.84965317983458,NaN
+1,3,lines,TR-BDF2,0.953,85.09429125618857,NaN
+1,3,lines,TR-BDF2,0.9565,85.52262126243325,NaN
+1,3,lines,TR-BDF2,0.95675,85.5546267657222,NaN
+1,3,lines,TR-BDF2,0.957,85.5831460405881,NaN
+1,3,lines,TR-BDF2,0.95725,85.6136901705737,NaN
+1,3,lines,TR-BDF2,0.9575,85.64423288069769,NaN
+1,3,lines,TR-BDF2,0.95775,85.6847385508365,NaN
+1,3,lines,TR-BDF2,0.958,85.70722150849572,NaN
+1,3,lines,TR-BDF2,0.95825,85.73761341330452,NaN
+1,3,lines,TR-BDF2,0.9585,85.76748769102589,NaN
+1,3,lines,TR-BDF2,0.95875,85.79839610479799,NaN
+1,3,lines,TR-BDF2,0.96,85.98010983728332,NaN
+1,3,lines,TR-BDF2,0.96025,86.0106357425466,NaN
+1,3,lines,TR-BDF2,0.9605,86.04116026686135,NaN
+1,3,lines,TR-BDF2,0.96075,86.07387237278905,NaN
+1,3,lines,TR-BDF2,0.961,86.10288948876841,NaN
+1,3,lines,TR-BDF2,0.96125,86.13395451612007,NaN
+1,3,lines,TR-BDF2,0.96175,86.22486657933949,NaN
+1,3,lines,TR-BDF2,0.962,86.25479352194536,NaN
+1,3,lines,TR-BDF2,0.96225,86.28530710643156,NaN
+1,3,lines,TR-BDF2,0.9625,86.31787210517557,NaN
+1,3,lines,TR-BDF2,0.96275,86.34707396297283,NaN
+1,3,lines,TR-BDF2,0.9635,86.46836028393372,NaN
+1,3,lines,TR-BDF2,0.96375,86.4988644532192,NaN
+1,3,lines,TR-BDF2,0.964,86.53149228995987,NaN
+1,3,lines,TR-BDF2,0.96425,86.56159052462797,NaN
+1,3,lines,TR-BDF2,0.96475,86.65136536368225,NaN
+1,3,lines,TR-BDF2,0.965,86.68209534275606,NaN
+1,3,lines,TR-BDF2,0.96525,86.71412197672315,NaN
+1,3,lines,TR-BDF2,0.966,86.83432299223468,NaN
+1,3,lines,TR-BDF2,0.96625,86.86673461911373,NaN
+1,3,lines,TR-BDF2,0.9665,86.89687580729044,NaN
+1,3,lines,TR-BDF2,0.967,86.98675190171296,NaN
+1,3,lines,TR-BDF2,0.96725,87.01730631429105,NaN
+1,3,lines,TR-BDF2,0.96775,87.10934585007134,NaN
+1,3,lines,TR-BDF2,0.968,87.14187240893881,NaN
+1,3,lines,TR-BDF2,0.96825,87.17163716325207,NaN
+1,3,lines,TR-BDF2,0.96875,87.26104322499313,NaN
+1,3,lines,TR-BDF2,0.969,87.29309777610122,NaN
+1,3,lines,TR-BDF2,0.9695,87.38291763629388,NaN
+1,3,lines,TR-BDF2,0.96975,87.41486260981883,NaN
+1,3,lines,TR-BDF2,0.97025,87.50477210761089,NaN
+1,3,lines,TR-BDF2,0.9705,87.53772333211883,NaN
+1,3,lines,TR-BDF2,0.97075,87.59614999072743,NaN
+1,3,lines,TR-BDF2,0.971,87.62660683051712,NaN
+1,3,lines,TR-BDF2,0.9715,87.71797002804537,NaN
+1,3,lines,TR-BDF2,0.97175,87.74925390258811,NaN
+1,3,lines,TR-BDF2,0.97225,87.84224555249565,NaN
+1,3,lines,TR-BDF2,0.97275,87.93110849568387,NaN
+1,3,lines,TR-BDF2,0.973,87.9634109194156,NaN
+1,3,lines,TR-BDF2,0.97325,88.0224356078408,NaN
+1,3,lines,TR-BDF2,0.9735,88.05485577217722,NaN
+1,3,lines,TR-BDF2,0.97375,88.11375206949623,NaN
+1,3,lines,TR-BDF2,0.974,88.14619821183886,NaN
+1,3,lines,TR-BDF2,0.97425,88.20505796147012,NaN
+1,3,lines,TR-BDF2,0.9745,88.23904202333783,NaN
+1,3,lines,TR-BDF2,0.975,88.32983336932644,NaN
+1,3,lines,TR-BDF2,0.97525,88.38763835965334,NaN
+1,3,lines,TR-BDF2,0.9755,88.42005551774777,NaN
+1,3,lines,TR-BDF2,0.97575,88.47891302750268,NaN
+1,3,lines,TR-BDF2,0.97625,88.57017744895062,NaN
+1,3,lines,TR-BDF2,0.97675,88.66556813656207,NaN
+1,3,lines,TR-BDF2,0.977,88.72226226776085,NaN
+1,3,lines,TR-BDF2,0.9775,88.81349976059207,NaN
+1,3,lines,TR-BDF2,0.978,88.90644081466169,NaN
+1,3,lines,TR-BDF2,0.97825,88.96554017730845,NaN
+1,3,lines,TR-BDF2,0.9785,89.02634868887209,NaN
+1,3,lines,TR-BDF2,0.97875,89.05906872160506,NaN
+1,3,lines,TR-BDF2,0.979,89.12282912947346,NaN
+1,3,lines,TR-BDF2,0.97925,89.17835103950772,NaN
+1,3,lines,TR-BDF2,0.97975,89.27261790946604,NaN
+1,3,lines,TR-BDF2,0.98,89.33032664908673,NaN
+1,3,lines,TR-BDF2,0.98025,89.39110948923603,NaN
+1,3,lines,TR-BDF2,0.981,89.54570400391181,NaN
+1,3,lines,TR-BDF2,0.98125,89.60381655320963,NaN
+1,3,lines,TR-BDF2,0.9815,89.66458070553985,NaN
+1,3,lines,TR-BDF2,0.98175,89.72534077087495,NaN
+1,3,lines,TR-BDF2,0.982,89.78609677316169,NaN
+1,3,lines,TR-BDF2,0.983,90.00075921826785,NaN
+1,3,lines,TR-BDF2,0.98325,90.06235407369654,NaN
+1,3,lines,TR-BDF2,0.9835,90.1227556320239,NaN
+1,3,lines,TR-BDF2,0.98375,90.1825417924535,NaN
+1,3,lines,TR-BDF2,0.984,90.24372545436619,NaN
+1,3,lines,TR-BDF2,0.98475,90.45415148590142,NaN
+1,3,lines,TR-BDF2,0.985,90.51486059945654,NaN
+1,3,lines,TR-BDF2,0.98525,90.5755659612715,NaN
+1,3,lines,TR-BDF2,0.9855,90.63626759529318,NaN
+1,3,lines,TR-BDF2,0.98575,90.70027934013872,NaN
+1,3,lines,TR-BDF2,0.98625,90.84869430372879,NaN
+1,3,lines,TR-BDF2,0.9865,90.90937945902243,NaN
+1,3,lines,TR-BDF2,0.98675,90.97308433644349,NaN
+1,3,lines,TR-BDF2,0.987,91.06107666676498,NaN
+1,3,lines,TR-BDF2,0.98725,91.12174934052584,NaN
+1,3,lines,TR-BDF2,0.9875,91.18479812719171,NaN
+1,3,lines,TR-BDF2,0.98775,91.27341571112245,NaN
+1,3,lines,TR-BDF2,0.988,91.33824966601816,NaN
+1,3,lines,TR-BDF2,0.98825,91.42506050418982,NaN
+1,3,lines,TR-BDF2,0.9885,91.49104694012314,NaN
+1,3,lines,TR-BDF2,0.98875,91.57668409389761,NaN
+1,3,lines,TR-BDF2,0.989,91.63993987169295,NaN
+1,3,lines,TR-BDF2,0.98925,91.72828685441584,NaN
+1,3,lines,TR-BDF2,0.9895,91.81923866837052,NaN
+1,3,lines,TR-BDF2,0.98975,91.88378658404044,NaN
+1,3,lines,TR-BDF2,0.99,91.9708088804592,NaN
+1,3,lines,TR-BDF2,0.99025,92.06174145271886,NaN
+1,3,lines,TR-BDF2,0.9905,92.15266695751441,NaN
+1,3,lines,TR-BDF2,0.99075,92.24358547566666,NaN
+1,3,lines,TR-BDF2,0.991,92.30592461764977,NaN
+1,3,lines,TR-BDF2,0.99125,92.39726984582792,NaN
+1,3,lines,TR-BDF2,0.9915,92.48806964865572,NaN
+1,3,lines,TR-BDF2,0.99175,92.60719129825996,NaN
+1,3,lines,TR-BDF2,0.992,92.69807609550892,NaN
+1,3,lines,TR-BDF2,0.99225,92.78895439104001,NaN
+1,3,lines,TR-BDF2,0.9925,92.87982626567423,NaN
+1,3,lines,TR-BDF2,0.99275,92.97307806851121,NaN
+1,3,lines,TR-BDF2,0.993,93.09183612366066,NaN
+1,3,lines,TR-BDF2,0.99325,93.18499496320544,NaN
+1,3,lines,TR-BDF2,0.9935,93.30381249018265,NaN
+1,3,lines,TR-BDF2,0.99375,93.42492720062214,NaN
+1,3,lines,TR-BDF2,0.994,93.51869737059921,NaN
+1,3,lines,TR-BDF2,0.99425,93.63685301210795,NaN
+1,3,lines,TR-BDF2,0.9945,93.7579395583522,NaN
+1,3,lines,TR-BDF2,0.99475,93.87901622227616,NaN
+1,3,lines,TR-BDF2,0.995,94.0058934048633,NaN
+1,3,lines,TR-BDF2,0.99525,94.15140357617663,NaN
+1,3,lines,TR-BDF2,0.9955,94.27244944563333,NaN
+1,3,lines,TR-BDF2,0.99575,94.42374405285962,NaN
+1,3,lines,TR-BDF2,0.996,94.5472471090399,NaN
+1,3,lines,TR-BDF2,0.99625,94.69904927633529,NaN
+1,3,lines,TR-BDF2,0.9965,94.84927043730627,NaN
+1,3,lines,TR-BDF2,0.99675,95.02878827583704,NaN
+1,3,lines,TR-BDF2,0.997,95.18298998928717,NaN
+1,3,lines,TR-BDF2,0.99725,95.36518234222032,NaN
+1,3,lines,TR-BDF2,0.9975,95.54478288037726,NaN
+1,3,lines,TR-BDF2,0.99775,95.75458371546655,NaN
+1,3,lines,TR-BDF2,0.998,95.96622663274506,NaN
+1,3,lines,TR-BDF2,0.99825,96.20808036469701,NaN
+1,3,lines,TR-BDF2,0.9985,96.44991008509531,NaN
+1,3,lines,TR-BDF2,0.99875,96.7219417275261,NaN
+1,3,lines,TR-BDF2,0.999,97.02416839499011,NaN
+1,3,lines,TR-BDF2,0.99925,97.3565838460243,NaN
+1,3,lines,TR-BDF2,0.9995,97.75604028463968,NaN
+1,3,lines,TR-BDF2,0.99975,98.23458088048271,NaN

@@ -105,11 +105,22 @@ end
   priceFuka = AQFED.VolatilityModels.priceVarianceSwap(AQFED.VolatilityModels.FukasawaVarianceSwapReplication(false),tte, logmoneynessA, volA.^2, df)
   priceFukaL = AQFED.VolatilityModels.priceVarianceSwap(AQFED.VolatilityModels.FukasawaVarianceSwapReplication(true),tte, logmoneynessA, volA.^2, df)
 
-#=  plot(strikes,volatility,seriestype=:scatter, label="Market",xlab="Strike",ylab="Volatility in %",ms=4,markerstrokewidth=0,markeralpha=0.8)
-  plot!(k,@.(100*Black.impliedVolatility(true, PDDE.priceEuropean(lvgqe, true, k), forward, k, tte, 1.0)),label="LVG",linestyle=:auto)
- plot!(k,@.(sqrt(AQFED.TermStructure.varianceByLogmoneyness(svi,log(k/forward)))*100),label="SVI",linestyle=:auto)
- plot!(k,@.(sqrt(AQFED.TermStructure.varianceByLogmoneyness(svi0,log(k/forward)))*100),label="SVI a=0",linestyle=:auto)
- plot!(size=(800,400),margins=3Plots.mm)
-savefig("~//mypapers/eqd_book/varswap_bad_vol.pdf")
- =#
+end
+#the volatility is σᵢ with probability wᵢ, independently of the Brownian motion: the Carr-Lee replication is exact
+struct VolMixtureSection <: AQFED.TermStructure.VarianceSection
+    w::Vector{Float64}
+    σ::Vector{Float64}
+    tte::Float64
+end
+function AQFED.TermStructure.varianceByLogmoneyness(s::VolMixtureSection, y)
+    K = exp(y)
+    isCall = y >= 0
+    price = sum(w * AQFED.Black.blackScholesFormula(isCall, K, 1.0, σ^2 * s.tte, 1.0, 1.0) for (w, σ) in zip(s.w, s.σ))
+    AQFED.Black.impliedVolatility(isCall, price, 1.0, K, s.tte, 1.0)^2
+end
+
+@testset "CarrLeeVolatilitySwap" begin
+    replication = AQFED.VolatilityModels.CarrLeeVolatilitySwapReplication()
+    @test isapprox(AQFED.VolatilityModels.priceVolatilitySwap(replication, 100.0, 1.0, VolMixtureSection([1.0], [0.25], 1.0), 0.95), 0.95 * 25, atol=1e-10)
+    @test isapprox(AQFED.VolatilityModels.priceVolatilitySwap(replication, 100.0, 2.0, VolMixtureSection([0.6, 0.4], [0.15, 0.45], 2.0), 0.95), 0.95 * 100 * (0.6 * 0.15 + 0.4 * 0.45), atol=1e-5)
 end

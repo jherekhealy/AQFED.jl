@@ -9,11 +9,14 @@ mutable struct LowerBoundSolver{T}
     isLowerBoundActive::Bool
     m::Tridiagonal{T,Vector{T}}
     lowerBound::Vector{T}
+    isDecomposed::Bool #the decomposition of algo is only needed, and computed, when the lower bound is active
+    work::Vector{T}
+    LowerBoundSolver(algo::FDMSolverAlgo, isLowerBoundActive::Bool, m::Tridiagonal{T,Vector{T}}, lowerBound::Vector{T}) where {T} = new{T}(algo, isLowerBoundActive, m, lowerBound, false, similar(m.d))
 end
 
 function decompose(solver::LowerBoundSolver{T}, m::Tridiagonal{T,Vector{T}}) where {T}
     solver.m = m
-    decompose(solver, solver.algo, m)
+    solver.isDecomposed = false
 end
 
 function setLowerBoundActive(solver::LowerBoundSolver{T}, isLowerBoundActive::Bool) where {T}
@@ -22,9 +25,13 @@ end
 
 function solve!(solver::LowerBoundSolver{T}, x::AbstractArray{T}, d::AbstractArray) where {T}
     if solver.isLowerBoundActive
+        if !solver.isDecomposed
+            decompose(solver, solver.algo, solver.m)
+            solver.isDecomposed = true
+        end
         solve!(solver, solver.algo, x, d)
     else
-        solve!(solver.m, x, d)
+        solve!(solver.m, x, d, solver.work)
     end
 end
 
@@ -65,16 +72,22 @@ function decompose(ssolver::LowerBoundSolver{T}, solver::TDMA{T}, m::Tridiagonal
 end
 
 function solve!(m::Tridiagonal{T,Vector{T}}, x::AbstractArray{T}, d::AbstractArray{T}) where {T}
+    solve!(m, x, d, similar(m.d))
+end
+
+#Thomas algorithm on the diagonals of `m`, `b` is a work vector of length(d), `d` is modified
+function solve!(m::Tridiagonal{T,Vector{T}}, x::AbstractArray{T}, d::AbstractArray{T}, b::AbstractVector{T}) where {T}
     n = length(d)
-    b = diag(m)
+    dl, dd, du = m.dl, m.d, m.du
+    @inbounds b[1] = dd[1]
     @inbounds for i = 2:n
-        wi = m[i, i-1] / b[i-1]
-        b[i] -= wi * m[i-1, i]
+        wi = dl[i-1] / b[i-1]
+        b[i] = dd[i] - wi * du[i-1]
         d[i] -= wi * d[i-1]
     end
-    x[n] = d[n] / b[n]
+    @inbounds x[n] = d[n] / b[n]
     @inbounds for k = n-1:-1:1
-        x[k] = (d[k] - m[k, k+1] * x[k+1]) / b[k]
+        x[k] = (d[k] - du[k] * x[k+1]) / b[k]
     end
     x
 end
@@ -204,27 +217,30 @@ function decompose(ssolver::LowerBoundSolver{T}, solver::LUUL{T}, m::Tridiagonal
     l = solver.ll
     u = solver.uu
     n = length(solver.l)
-    d[1] = m[1, 1]
-    u[1] = m[1, 2] / d[1]
-    for i = 2:n-1
-        l[i-1] = m[i, i-1]
-        d[i] = m[i, i] - l[i-1] * u[i-1]
-        u[i] = m[i, i+1] / d[i]
+    mdl, md, mdu = m.dl, m.d, m.du
+    @inbounds begin
+        d[1] = md[1]
+        u[1] = mdu[1] / d[1]
+        for i = 2:n-1
+            l[i-1] = mdl[i-1]
+            d[i] = md[i] - l[i-1] * u[i-1]
+            u[i] = mdu[i] / d[i]
+        end
+        l[n-1] = mdl[n-1]
+        d[n] = md[n] - l[n-1] * u[n-1]
+        l̄ = solver.llb
+        d̄ = solver.ub
+        ū = solver.uub
+        d̄[n] = md[n]
+        l̄[n-1] = mdl[n-1] / d̄[n]
+        for i = n-1:-1:2
+            ū[i] = mdu[i]
+            d̄[i] = md[i] - ū[i] * l̄[i]
+            l̄[i-1] = mdl[i-1] / d̄[i]
+        end
+        ū[1] = mdu[1]
+        d̄[1] = md[1] - ū[1] * l̄[1]
     end
-    l[n-1] = m[n, n-1]
-    d[n] = m[n, n] - l[n-1] * u[n-1]
-    l̄ = solver.llb
-    d̄ = solver.ub
-    ū = solver.uub
-    d̄[n] = m[n, n]
-    l̄[n-1] = m[n, n-1] / d̄[n]
-    for i = n-1:-1:2
-        ū[i] = m[i, i+1]
-        d̄[i] = m[i, i] - ū[i] * l̄[i]
-        l̄[i-1] = m[i, i-1] / d̄[i]
-    end
-    ū[1] = m[1, 2]
-    d̄[1] = m[1, 1] - ū[1] * l̄[1]
 end
 
 function solve!(ssolver::LowerBoundSolver{T}, solver::LUUL{T}, x::AbstractArray{T}, r::AbstractArray{T}) where {T}
@@ -419,4 +435,53 @@ function solve!(ss::LowerBoundSolver{T}, s::PSOR{T}, x::AbstractArray{T}, d::Abs
     if (sorLoops == s.maxIterations)
         println("PSOR algorithm did not converge, error=", sqrt(errorSq))
     end
+end
+#Allocation-free Brennan-Schwartz solver for A x = d with x >= lb, on the first n rows of the tridiagonal A.
+#The factorization (multipliers `l`, inverse pivots `ip`) depends only on A and may be reused across solves. Storing the
+#inverse pivots removes the division from the critical path of the (sequential) substitution, muladd shortens it further.
+#The substitution goes from the continuation towards the exercise region: LU when the exercise region is at large x
+#(call-like, isUpward=true), UL otherwise (put-like).
+function decomposeBrennanSchwartz!(l::AbstractVector{T}, ip::AbstractVector{T}, A::Tridiagonal{T}, n::Int, isUpward::Bool) where {T}
+    dl, d, du = A.dl, A.d, A.du
+    @inbounds if isUpward
+        ip[1] = one(T) / d[1]
+        for i = 2:n
+            l[i] = dl[i-1] * ip[i-1]
+            ip[i] = one(T) / (d[i] - l[i] * du[i-1])
+        end
+    else
+        ip[n] = one(T) / d[n]
+        for i = n-1:-1:1
+            l[i] = du[i] * ip[i+1]
+            ip[i] = one(T) / (d[i] - l[i] * dl[i])
+        end
+    end
+end
+
+#solves with the factorization of decomposeBrennanSchwartz!, the right hand side `rhs` is overwritten.
+function solveBrennanSchwartz!(x::AbstractVector{T}, rhs::AbstractVector{T}, l::AbstractVector{T}, ip::AbstractVector{T}, A::Tridiagonal{T}, lb::AbstractVector{T}, n::Int, isUpward::Bool) where {T}
+    @inbounds if isUpward
+        for i = 2:n
+            rhs[i] = muladd(-l[i], rhs[i-1], rhs[i])
+        end
+        du = A.du
+        xi = max(rhs[n] * ip[n], lb[n])
+        x[n] = xi
+        for i = n-1:-1:1
+            xi = max(muladd(-du[i], xi, rhs[i]) * ip[i], lb[i])
+            x[i] = xi
+        end
+    else
+        for i = n-1:-1:1
+            rhs[i] = muladd(-l[i], rhs[i+1], rhs[i])
+        end
+        dl = A.dl
+        xi = max(rhs[1] * ip[1], lb[1])
+        x[1] = xi
+        for i = 2:n
+            xi = max(muladd(-dl[i-1], xi, rhs[i]) * ip[i], lb[i])
+            x[i] = xi
+        end
+    end
+    return x
 end

@@ -1,4 +1,4 @@
-using AQFED.VolatilityModels
+using AQFED, AQFED.VolatilityModels, AQFED.TermStructure
 using CharFuncPricing
 using AQFED.Black
 using AQFED.Random
@@ -16,7 +16,7 @@ using Test
     hparams = HaganHestonPiecewiseParams(sigma, kappa, rho, alpha, t)
     AQFED.VolatilityModels.priceEuropean(HaganHestonTSApprox(hparams,tte), true, strike, forward, tte, 1.0)
     tsparams,ttets = makeHestonTSParams(hparams, tte=tte)
-    CharFuncPricing.priceEuropean(CharFuncPricing.JoshiYangCharFuncPricer(CharFuncPricing.DefaultCharFunc(tsparams), ttets, n=512), true, strike, forward, ttets, 1.0)
+    pricer = CharFuncPricing.JoshiYangCharFuncPricer(CharFuncPricing.DefaultCharFunc(tsparams), ttets, n=512)
     CharFuncPricing.priceEuropean(pricer,true, strike, forward, ttets, 1.0)
     AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.BGMApprox(tsparams), true, strike, forward, ttets, 1.0)
 end
@@ -77,14 +77,15 @@ end
     vPrices = map(k -> CharFuncPricing.priceEuropean(pricer, k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA)
     volA = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, vPrices)
 
-    hPrices = map(k->  AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.HaganHestonTSApprox(hParams), k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA)
-    volH = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, hPrices)
+    hPrices = map(k->  AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.HaganHestonTSApprox(makeHaganHestonPiecewiseParams(params), tte), k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA)
+    #the Hagan approximation gives negative prices in the far wings for this large vol-of-vol
+    volH = map((k, price) -> price > 0 ? impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0) : NaN, logmoneynessA, hPrices)
 
     bgmPrices =  map(k->  AQFED.VolatilityModels.priceEuropean(AQFED.VolatilityModels.BGMApprox(params), k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA)
-    volBGM = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, bgmPrices)
+    volBGM = map((k, price) -> price > 0 ? impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0) : NaN, logmoneynessA, bgmPrices)
 
     haganParams = AQFED.VolatilityModels.HaganHestonPiecewiseParams([0.3,0.25,0.2,0.2],1.0, [-0.75,-0.5,-0.75,-0.75],[0.5,0.5,0.5,0.5],[0.0,0.1,1.0,2.0])
-    hParams = AQFED.VolatilityModels.makeHestonTSParams(haganParams)
+    hParams, _ = AQFED.VolatilityModels.makeHestonTSParams(haganParams)
     
     tte=hParams.startTime[3]
     pricer = CharFuncPricing.JoshiYangCharFuncPricer(DefaultCharFunc(hParams), tte, n=512)

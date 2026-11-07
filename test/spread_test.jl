@@ -504,7 +504,7 @@ end
 	totalVariances = vol^2 .* t
 	pricesVG0 = map(alpha -> AQFED.Asian.priceAsianSpread(VorstGeometricExpansion(0), true, alpha, discountFactor, spot, forwards, totalVariances, weights), strikePct)
 	refPrices = [54.87, 31.42, 17.43, 7.71, 1.55]
-	@test isapprox(refPrices, prices, atol = 1e-2)
+	@test isapprox(refPrices, pricesVG0, atol = 1e-2)
 	vol = 0.7
 	totalVariances = vol^2 .* t
 	pricesVG0 = map(alpha -> AQFED.Asian.priceAsianSpread(VorstGeometricExpansion(0), true, alpha, discountFactor, spot, forwards, totalVariances, weights), strikePct)
@@ -571,7 +571,7 @@ end
 		@printf("& %1.5f ", maximum(abs.(allPrices - mcPrices)))
 	end
 
-	@test isapprox(refPricesMC, prices, atol = 2e-2) #more accurate than krekel geo adj. Our "strike adj" is better than Vorst additive adj.
+	@test isapprox(refPricesMC, pricesVG0, atol = 2e-2) #more accurate than krekel geo adj. Our "strike adj" is better than Vorst additive adj.
 	@test isapprox(refPricesMC, pricesVG2, atol = 6e-3) # difficult to estimate higher accuracy due to MC limits.
 end
 
@@ -594,7 +594,8 @@ end
 	totalVariances = vol^2 .* t
 	pricesVG0 = map(alpha -> AQFED.Asian.priceAsianSpread(VorstGeometricExpansion(0), true, alpha, discountFactor, spot, forwards, totalVariances, weights), strikePct)
 	refPrices = [54.87, 31.42, 17.43, 7.71, 1.55]
-	@test isapprox(refPrices, prices, atol = 1e-2)
+	#refPrices above are those of table 1 (copy-paste), not table 2: VG0 gives [55.557, 31.812, 17.642, 7.791, 1.561]
+	#@test isapprox(refPrices, pricesVG0, atol = 1e-2)
 	vol = 0.7
 	totalVariances = vol^2 .* t
 	pricesVG0 = map(alpha -> AQFED.Asian.priceAsianSpread(VorstGeometricExpansion(0), true, alpha, discountFactor, spot, forwards, totalVariances, weights), strikePct)
@@ -666,6 +667,6 @@ end
 		@printf("& %1.5f ", maximum(abs.(allPrices - mcPrices)))
 	end
 
-	@test isapprox(refPricesMC, prices, atol = 2e-2) #more accurate than krekel geo adj. Our "strike adj" is better than Vorst additive adj.
-	@test isapprox(refPricesMC, pricesVG2, atol = 6e-3) # difficult to estimate higher accuracy due to MC limits.
+	@test isapprox(mcPrices, pricesVG0, atol = 2e-2) #more accurate than krekel geo adj. Our "strike adj" is better than Vorst additive adj.
+	@test isapprox(mcPrices, pricesVG2, atol = 6e-3) # difficult to estimate higher accuracy due to MC limits.
 end

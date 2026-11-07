@@ -1,4 +1,4 @@
-    using AQFED, Test, ForwardDiff, AQFED.Math
+    using AQFED, Test, ForwardDiff, AQFED.Math, DataFrames
     import AQFED.PLN: EtoreGobetPLNPricer, LeFlochLehmanPLNPricer, priceEuropean
     import AQFED.TermStructure: CapitalizedDividend, Dividend, futureValue, TSBlackModel, FlatSurface, ConstantRateCurve
     using AQFED.Basket, AQFED.Black
@@ -93,25 +93,6 @@
             end
         end
             
-        #=
-        using CairoMakie
-            f = Figure();
-    ax = Axis(f[1,1],xlabel="Dividend Ex-Date", ylabel="Error in Implied Volatility %", yscale=log10)
-    for pricerName = ["Deelstra", "GS", "LL2", "LL3", "VL2","VL3", "Ju"]
-        lines!(ax, ttdList, abs.(volMap[pricerName]), label=pricerName)
-    endc
-    axislegend(; position = :cb, nbanks = 3)
-    ylims!(1e-8, 1e-2)
-                    
-    dfn = df[df.Model .=="LL2" .|| df.Model .== "LL3" .|| df.Model .== "GS" .|| df.Model .== "Deelstra" .|| df.Model .== "Ju" .|| df.Model .== "VL2" .|| df.Model .== "VL3",:]
-dfn.StrikeName = string.("Strike = ",dfn.Strike)
-    Td = :Td => (t -> t) => "Dividend ex-date in years"
-    VolError = :VolError => (t -> t) => "Absolute Error in Volatility %"
-    set_theme!(theme_light())
-    plt = data(dfn) * mapping(Td, VolError) * mapping(color= :Model) * mapping(col= :StrikeName)  * visual(Lines)
-    fig = draw(plt, legend=(position=:bottom,titleposition=:left), axis=(yscale=log10,limits=(nothing,(1e-8,1e-2)),width=250,height=250,))
-    save("/home/niamh/mypapers/eqd_book/single_r6_strike100_td.pdf", fig)
-    =#
     end
 
 @testset "ZhangExtreme" begin
@@ -162,26 +143,6 @@ dfn.StrikeName = string.("Strike = ",dfn.Strike)
             priceMap[pricerName] = prices
             println(pricerName, " ", prices - refPrices)
         end
-        #=
-    p = plot(xlab="Strike",ylab="Absolute error in price")
-    for name=["VL3","VL2","LL3","EG3","Deelstra"]
-       plot!(p, strikes, abs.(priceMap[name]-refPrices), label=name, linestyle=:auto)
-       end
-    plot!(p, yscale=:log10)
-
-
- f = Figure(size=(700,350));
- ax = Axis(f[1,1],xlabel="Strike", ylabel="Absolute Error in Price", yscale=log10)
-for name = ["Deelstra", "GS",  "LL2", "LL3", "VL2","VL3"]
-                lines!(ax, strikes, abs.(priceMap[name]-refPrices), label=name)
-              end
-              legend = Legend(f[2,1], ax, "Model", position= :cb, titleposition= :left, orientation= :horizontal)
-save("/home/niamh/mypapers/eqd_book/zhang_extreme.pdf", fig)
-
- #axislegend(; position = :cb, nbanks = 3)
-save("/home/niamh/mypapers/eqd_book/gocsei_10y.pdf", f)
- 
-    =#
 end
 
 @testset "MultipleVellekoop" begin
@@ -353,27 +314,6 @@ end
     end
     @test isapprox(refVols, volMap["LL3"], atol=1e-3)
     @test isapprox(refVols, volMap["Deelstra"], atol=1e-4)
-    #=
-    p = plot(xlab="Strike",ylab="Absolute error in volatility %")
-    for name=["VL3","VL2","LL3","GS","EG3","Deelstra"]
-           plot!(p, strikes, abs.(volMap[name]-refVols).*100, label=name, linestyle=:auto)
-           end
-     plot!(p, yscale=:log10)
-      plot!(p,yticks=([1e-4,1e-3,1e-2,1e-1]))
-
- f = Figure(size=(700,350));
- ax = Axis(f[1,1],xlabel="Strike", ylabel="Error in Implied Volatility %", yscale=log10)
-for pricerName = ["Deelstra", "GS",  "LL2", "LL3", "VL2","VL3"]
-                lines!(ax, strikes, abs.(volMap[pricerName] - refVols).*100, label=pricerName)
-              end
-              legend = Legend(f[2,1], ax, "Model", position= :cb, titleposition= :left, orientation= :horizontal)
-
- #axislegend(; position = :cb, nbanks = 3)
-save("/home/niamh/mypapers/eqd_book/gocsei_10y.pdf", f)
- plt = data(dfn) * mapping(:Strike, VolErrorPct)  * mapping(color=:Model) *  visual(Lines)
-fig = draw(plt, axis=(yscale=log10,width=700,height=350,))
-
-    =#
 
 end
 @testset "StrikeError" begin

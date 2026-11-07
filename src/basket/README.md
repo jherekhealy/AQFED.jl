@@ -3,6 +3,10 @@ The following approximations of vanilla basket option prices under the Black-Sch
 
 - Curran lower bound approximation (using Deelstra et al. formulation): this is `DeelstraLBBasketPricer`.
 - Curran shifted lognormal approximation as per Deelstra et al.: this is `DeelstraBasketPricer`. There are 9 possible variations, represented by δIndex=1,2,3 and fIndex=1,2,3.
+  With `nMoments=3`, the shifted lognormal matches three conditional moments instead of two. With `nDirections=1`, the
+  residual factor (the long-short direction of largest variance given the conditioning variable) is integrated out numerically, which makes the
+  approximation much more accurate for negatively correlated assets (exact for two assets), for a cost around 10 times
+  larger: `DeelstraBasketPricer(2, 3, nMoments=3, nDirections=1)` is the most accurate variant.
 
 Below is an example of a call option of strike 110 and maturity one year on a basket composed of 5 assets with weights [0.05, 0.15, 0.2, 0.25, 0.35].
 ```julia

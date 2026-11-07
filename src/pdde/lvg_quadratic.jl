@@ -1,7 +1,7 @@
 using LinearAlgebra
 using LeastSquaresOptim
 using GaussNewton, LsqFit, Optim, Random
-import AQFED.Black: blackScholesFormula, impliedVolatilitySRHalley, Householder, impliedVolatilityLiSOR, SORTS
+import AQFED.Black: blackScholesFormula, impliedVolatilitySRHalley, Householder, impliedVolatilityLiSOR, SORTS, impliedVolatilityThiophene
 import AQFED.Math: ClosedTransformation, inv, MQMinTransformation, IdentityTransformation, LogisticTransformation, AlgebraicTransformation, TanhTransformation, AtanTransformation
 import PPInterpolation: PP, evaluatePiece, evaluateDerivativePiece, evaluateSecondDerivativePiece, LEFT_KNOT, QuadraticLagrangePP, CubicSplineNatural
 
@@ -33,21 +33,34 @@ function priceEuropean(model::QuadraticLVG{TV,T}, isCall::Bool, strike, t=model.
     return priceEuropeanPiece(i, model, isCall, strike, t)
 end
 
-function imlog(zzi::Complex{T})::T where {T}
-    # imzzi = asin(imag(zzi))
-    # if real(zzi) < zero(T)
-    #     imzzi = -imzzi-pi
-    # end
-    # return imzzi
-    return imag(log(zzi))
+#Im(z(b) - z(a)) with z(x) = log((x-x1)/(x-x2)) for complex conjugate roots x1, x2: twice the angle between a-x1 and
+#b-x1, which lie in the same half plane. Exact, unlike the principal log of the ratio, which is wrong when the angle
+#exceeds π/2 (possible when a B-spline coefficient is negative, e.g. the one set by the C3 condition).
+imlogRatio(b, a, x1) = 2 * angle((b - x1) * conj(a - x1))
+
+
+
+#sinh(a)/sinh(b) for a and b of the same sign, |a| <= |b|, without overflow
+function sinhRatio(a, b)
+    (iszero(b) || iszero(a)) && return iszero(b) ? one(a) : zero(a)
+    aa, bb = abs(a), abs(b)
+    return exp(aa - bb) * (-expm1(-2aa)) / (-expm1(-2bb))
 end
 
-
+#time value on interval i from the time values at both ends: on the hyperbolic pieces the representation
+#θc cosh(u) + θs sinh(u) cancels catastrophically when the solution decays over a long interval (large u, θc ≈ -θs);
+#V = χ (Vᵢ sinh(u_E - u) + V_{i+1}/χ_E sinh(u)) / sinh(u_E) does not.
+function stableTimeValue(model::QuadraticLVG, i, χ, u, χE, uE)
+    Vi = model.θ[2i]
+    Vn = i < length(model.a) ? model.θ[2i+2] : zero(Vi)
+    return χ * (Vi * sinhRatio(uE - u, uE) + Vn / χE * sinhRatio(u, uE))
+end
 
 function priceEuropeanPiece(i::Int, model::QuadraticLVG{TV,T}, isCall::Bool, strike, t=model.tte) where {TV,T}
     if i <= 0 || i > length(model.a)
         return isCall ? max(model.forward - strike, 0.0) : max(strike - model.forward, 0.0)
     end
+    stable = t == model.tte
     β = model.b[i]
     α = model.a[i]
     γ = model.c[i]
@@ -62,6 +75,7 @@ function priceEuropeanPiece(i::Int, model::QuadraticLVG{TV,T}, isCall::Bool, str
         u = ω * zzi
         # println(u," ",model.θ[2i]," ", model.θ[2i-1], " ",cosh(u))    
         # χ * (model.θ[2i] * cosh(u) + model.θ[2i-1] * sinh(u))
+        stable ? stableTimeValue(model, i, χ, u, one(T), ω * (model.x[i+1] - xi)) :
         χ * (model.θ[2i] + model.θ[2i-1] - model.θ[2i-1] * 2 / (1 + exp(2u))) * cosh(u)
     elseif iszero(α)
         δ = β^2
@@ -72,7 +86,12 @@ function priceEuropeanPiece(i::Int, model::QuadraticLVG{TV,T}, isCall::Bool, str
         ω = sqrt(4 / Δ + 1) / 2
         u = ω * log(abs(zzi)) # zi^w        
         #  χ * (model.θ[2i] * cosh(u) + model.θ[2i-1] * sinh(u))         
-        χ * (model.θ[2i] + model.θ[2i-1] - model.θ[2i-1] * 2 / (1 + exp(2u))) * cosh(u)
+        if stable
+            zE = (model.x[i+1] - x1) / (xi - x1)
+            stableTimeValue(model, i, χ, u, sqrt(abs(zE)), ω * log(abs(zE)))
+        else
+            χ * (model.θ[2i] + model.θ[2i-1] - model.θ[2i-1] * 2 / (1 + exp(2u))) * cosh(u)
+        end
     else
         δ = β^2 - 4α * γ
         ω2 = one(T) / δ + one(T) / 4
@@ -85,15 +104,27 @@ function priceEuropeanPiece(i::Int, model::QuadraticLVG{TV,T}, isCall::Bool, str
             zzi = (strike - x1) / (strike - x2) * (xi - x2) / (xi - x1)
             u = ω * log(abs(zzi))
             # χ * (model.θ[2i] * cosh(u) + model.θ[2i-1] * sinh(u))
-            χ * (model.θ[2i] - model.θ[2i-1] + model.θ[2i-1] * 2 / (1 + exp(-2u))) * cosh(u)
+            if stable
+                xn = model.x[i+1]
+                zE = (xn - x1) / (xn - x2) * (xi - x2) / (xi - x1)
+                χE = sqrt(abs((xn^2 + β / α * xn + γ / α) / (xi^2 + β / α * xi + γ / α)))
+                stableTimeValue(model, i, χ, u, χE, ω * log(abs(zE)))
+            else
+                χ * (model.θ[2i] - model.θ[2i-1] + model.θ[2i-1] * 2 / (1 + exp(-2u))) * cosh(u)
+            end
         else
             x1 = (-β - sqrt(complex(δ))) / (2α)
             x2 = (-β + sqrt(complex(δ))) / (2α)
             zzi = (strike - x1) / (strike - x2) * (xi - x2) / (xi - x1)
-            imzzi = imlog(zzi)
+            imzzi = imlogRatio(strike, xi, x1)
             u = ω * imzzi
             if ω2 >= 0
                 χ * (model.θ[2i] * cos(u) + model.θ[2i-1] * sin(-u))
+            elseif stable
+                xn = model.x[i+1]
+                zE = (xn - x1) / (xn - x2) * (xi - x2) / (xi - x1)
+                χE = sqrt(abs((xn^2 + β / α * xn + γ / α) / (xi^2 + β / α * xi + γ / α)))
+                stableTimeValue(model, i, χ, u, χE, ω * imlogRatio(xn, xi, x1))
             else
                 # println(u," ",model.θ[2i]," ", model.θ[2i-1], " ",cosh(u))    
                 # χ * (model.θ[2i] * cosh(u) + model.θ[2i-1] * sinh(u))
@@ -173,7 +204,7 @@ function derivativePrice(model::QuadraticLVG{TV,T}, isCall::Bool, strike::T) whe
             dz = imag(one(T) / (strike - x1) - one(T) / (strike - x2))
             κ = real((one(T) / (strike - x1) + one(T) / (strike - x2))) / 2dz
             # kappa = strike-x2 + strike - X1 / 2(strike-x2 - strike-x1)= (2strike+2beta/2alpha) / 2(-2sqrt(delta)/2alpha)
-            imzzi = imlog(zzi)
+            imzzi = imlogRatio(strike, xi, x1)
             u = ω * imzzi
             v = if ω2 >= 0
                 sh, ch = sin(-u), cos(u)
@@ -200,7 +231,10 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
     lhsd = tri.d
     lhsdl = tri.dl
     lhsdu = tri.du
-    rhs = zeros(T, 2m)
+    rhs = zeros(TA, 2m)
+    # on the intervals where the solution is hyperbolic, the first continuity row is divided by cosh(u) (coefficients in
+    # tanh(u) and sech(u)): cosh(u) overflows for u > 710 (small local variance on a wide interval, very short expiries)
+    sechS = one(TA)
 
     #theta0_c = 0
     lhsd[1] = zero(TA)
@@ -208,7 +242,7 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
     rhs[1] = zero(T)
     #a[i] between zi and zip , a[i+1]at zip
     for i = 1:m-1
-        local χi, zdi, κi, ωi, si, coshi, sinhi
+        local χi, zdi, κi, ωi, si, coshi, sinhi, sechi
         if iszero(α[i]) && iszero(β[i])
             χi = one(T)
             ωi = one(T) / γ[i]
@@ -217,7 +251,7 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
             zdi = one(T)
             si = one(T)
             u = ωi * zzi
-            sinhi, coshi = sinh(u), cosh(u)
+            sinhi, coshi, sechi = tanh(u), one(u), one(u) / cosh(u)
         elseif iszero(α[i])
             δ = β[i]^2
             x1 = -γ[i] / β[i]  # beta (x-x1) = beta x + gamma
@@ -228,7 +262,7 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
             si = one(T)
             zzi = abs((strikes[i+1] - x1) / (strikes[i] - x1))
             u = ωi * log(zzi)
-            sinhi, coshi = sinh(u), cosh(u)
+            sinhi, coshi, sechi = tanh(u), one(u), one(u) / cosh(u)
         else
 
             δ = β[i]^2 - 4α[i] * γ[i]
@@ -243,7 +277,7 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
                 κi = (one(T) / (strikes[i+1] - x1) + one(T) / (strikes[i+1] - x2)) / (2zdi)
                 u = ωi * log(zzi)
                 si = one(T)
-                sinhi, coshi = sinh(u), cosh(u)
+                sinhi, coshi, sechi = tanh(u), one(u), one(u) / cosh(u)
                 #                χ * dz * ((κ * (model.θ[2i-1]) + ω * (model.θ[2i])) * sh + (κ * (model.θ[2i]) + ω * (model.θ[2i-1])) * ch)
             else
                 x1 = (-β[i] - sqrt(complex(δ))) / (2α[i])
@@ -253,15 +287,15 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
                 zdi = imag(one(T) / (strikes[i+1] - x1) - one(T) / (strikes[i+1] - x2))
                 κi = real((one(T) / (strikes[i+1] - x1) + one(T) / (strikes[i+1] - x2))) / 2zdi
                 # kappa = strike-x2 + strike - X1 / 2(strike-x2 - strike-x1)= (2strike+2beta/2alpha) / 2(-2sqrt(delta)/2alpha)
-                imzzi = imlog(zzi)
+                imzzi = imlogRatio(strikes[i+1], strikes[i], x1)
                 u = ωi * imzzi
                 if ω2 >= 0
                     si = -one(T)
-                    sinhi, coshi = sin(-u), cos(u)
+                    sinhi, coshi, sechi = sin(-u), cos(u), one(u)
                     #χ * dz * ((κ * (model.θ[2i-1]) + ω * (model.θ[2i])) * sh + (κ * (model.θ[2i]) - ω * (model.θ[2i-1])) * ch)
                 else
                     si = one(T)
-                    sinhi, coshi = sinh(u), cosh(u)
+                    sinhi, coshi, sechi = tanh(u), one(u), one(u) / cosh(u)
                     # χ * dz * ((κ * (model.θ[2i-1]) + ω * (model.θ[2i])) * sh + (κ * (model.θ[2i]) + ω * (model.θ[2i-1])) * ch)
                 end
                 #println(ch," ",sh," ",κdz," ",((κdz * (model.θ[2i-1]) + dz *ω * (model.θ[2i])) * sh))
@@ -308,26 +342,20 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
         lhsdv = (κi * coshi + ωi * sinhi) * χi * zdi - κip * coshi * χi * zdip
         lhsd[2i] = lhsdv  #2i
         lhsdl[2i-1] = (si * ωi * coshi + κi * sinhi) * χi * zdi - κip * sinhi * χi * zdip   #2i-1
-        lhsdu[2i] = -sip * ωip * zdip                                      #2i+1
+        lhsdu[2i] = -sip * ωip * zdip * sechi                                     #2i+1
         #line 2(i-1)+2    
         lhsd[2i+1] = -sip * ωip * zdip
-        lhsdl[2i] = (κi * coshi + ωi * sinhi - (si * ωi * coshi + κi * sinhi) / sinhi * coshi) * χi * zdi
+        # (κi coshi + ωi sinhi - (si ωi coshi + κi sinhi) coshi / sinhi) simplifies to -si ωi / sinh(u): exponentially small
+        # when the solution decays (V(x_i) barely influences x_{i+1}), and no Inf/Inf
+        lhsdl[2i] = -si * ωi * sechi / sinhi * χi * zdi
         lhsdu[2i+1] = zdi * (si * ωi * coshi + κi * sinhi) / (sinhi) - κip * zdip
-        # tanhi = tanh(omegazipmzi)
-        # coshi = cosh(omegazipmzi)
-        # lhsd[2i] = (κi  + ωi * tanhi) * χi * zdi - κip  * χi * zdip   #2i
-        # lhsdl[2i-1] = (ωi  + κi * tanhi) * χi * zdi - κip * tanhi * χi * zdip   #2i-1
-        # lhsdu[2i] = -ωip * zdip  / coshi                                    #2i+1
-        # #line 2(i-1)+2    
-        # lhsd[2i+1] = -ωip * zdip / coshi
-        # lhsdl[2i] = (κi  + ωi * tanhi - (ωi  + κi * tanhi) /tanhi) * χi * zdi 
-        # lhsdu[2i+1] = zdi * (ωi/tanhi  + κi )/ coshi  - κip * zdip/ coshi
+        i == s && (sechS = sechi)
 
         # if !isfinite(lhsd[2i]) || !isfinite(lhsdl[2i-1]) || !isfinite(lhsdl[2i]) || !isfinite(lhsdu[2i+1]) 
         #     println(" Na N ",ωi*(zip-zi), " at ",i)
         # end
     end
-    rhs[2s] = one(T)
+    rhs[2s] = sechS
     rhs[2s+1] = one(T)
     local tanhm
     if iszero(α[m]) && iszero(β[m])
@@ -356,7 +384,7 @@ function computeCoeffsQuadratic(s::Int, tte::T, strikes::AbstractVector{T}, α::
             x1 = (-β[m] - sqrt(complex(δ))) / (2α[m])
             x2 = (-β[m] + sqrt(complex(δ))) / (2α[m])
             zzi = (strikes[m+1] - x1) / (strikes[m+1] - x2) * (strikes[m] - x2) / (strikes[m] - x1)
-            imzzi = imlog(zzi)
+            imzzi = imlogRatio(strikes[m+1], strikes[m], x1)
             u = ωm * imzzi
             if ω2 >= 0
                 tan(-u)
@@ -476,13 +504,13 @@ end
 function toFreeParameters(λ, model::Quadratic, m, l, s, forward; isC3=true)
     if isC3
         #len lambda = m+3; l = len(sigma).
-        diffLen = length(lambda) - l - 1
-        trimLen = truncate(Int, diffLen / 2)
+        diffLen = length(λ) - l - 1
+        trimLen = trunc(Int, diffLen / 2)
         σ = λ[1+trimLen:end-trimLen]
         deleteat!(σ, s)
     else
-        diffLen = length(lambda) - l
-        trimLen = truncate(Int, diffLen / 2)
+        diffLen = length(λ) - l
+        trimLen = trunc(Int, diffLen / 2)
         σ = λ[1+trimLen:end-trimLen]
     end
     return σ[end-l+1:end] ./ forward
@@ -574,10 +602,13 @@ function makeTransform(minValue::T, maxValue::T, optimizer) where {T}
     end
 end
 
-function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, callPrices::AbstractVector{T}, weights::AbstractVector{T}; U::T=6 * forward, L::T=forward / 6, useVol=false, model::LVGKind=LinearBachelier(), penalty=zero(T), nRefine=3, location="Mid-XX", isC3=true, minCount=1, size=0, guess="Constant", optimizer="LM", previousLVG=Nothing) where {T}
+function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, callPrices::AbstractVector{T}, weights::AbstractVector{T}; U::T=6 * forward, L::T=forward / 6, useVol=false, model::LVGKind=LinearBachelier(), penalty=zero(T), nRefine=3, location="Mid-XX", isC3=true, minCount=1, size=0, guess="Constant", optimizer="LM", previousLVG=Nothing, knots=nothing, nextLVG=Nothing, flatWings=false, tieUnsupported=false, boundSupportedOnly=false, calendarWeight=10.0, minRatio=0.1, calendar=:bounds, calendarPoints=100) where {T}
 
+    # weights normalized to a mean of one: the raw (e.g. inverse vega) weights may carry a scale such as 1/forward, which
+    # makes the residuals and gradients tiny and stalls the optimizer (it then returns the initial guess)
+    weights = weights ./ (sum(weights) / length(weights))
     #if the forward is not part of the strikes, add the forward and interpolate prices with quadratic. Eventually set corresponding weight to 0
-    if typeof(previousLVG) == QuadraticLVG
+    if previousLVG isa QuadraticLVG
         L = previousLVG.x[1]
         U = previousLVG.x[end]
     else
@@ -597,7 +628,7 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
     if strikes[s] != forward
         qStrikes = strikes[s-1:s+1]
         qPrices = callPrices[s-1:s+1]
-        qvols = @. impliedVolatilitySRHalley(true, qPrices, forward, qStrikes, tte, 1.0, 0e-14, 64, Householder())
+        qvols = @. impliedVolatilityThiophene(true, qPrices, forward, qStrikes, tte, 1.0)
         lagrange = QuadraticLagrangePP(qStrikes, qvols, knotStyle=LEFT_KNOT)
         fVol = lagrange(forward)
         fPrice = blackScholesFormula(true, forward, forward, fVol^2 * tte, 1.0, 1.0)
@@ -611,17 +642,29 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
         priceAtm = callPrices[s]
     end
     local x
-    if typeof(previousLVG) == QuadraticLVG
-        x = previousLVG.x
+    if previousLVG isa QuadraticLVG
+        # the knots of the previous expiry, or a refinement of them (`knots` must contain them): the previous local
+        # variance is then a spline on the new knots too, and its coefficients bound the new ones from below.
+        x = knots === nothing ? previousLVG.x : collect(knots)
+        knots === nothing || all(xi -> any(isapprox.(x, xi; atol=1e-12)), previousLVG.x) ||
+            throw(ArgumentError("knots must contain the knots of previousLVG"))
         s = searchsortedfirst(x, forward) - 1
     else
-        x = makeKnots(tte, forward, strikes, size, location=location, minCount=minCount, L=L, U=U)
+        x = knots === nothing ? makeKnots(tte, forward, strikes, size, location=location, minCount=minCount, L=L, U=U) : collect(knots)
+        if flatWings && knots === nothing && length(x) > 3
+            # one knot beyond the outer strikes on each side (one mean log-spacing out): otherwise the last coefficient
+            # covers both the outer quotes and the whole wing up to L or U, and there is nothing beyond the quotes to tie
+            δ = (log(x[end-1]) - log(x[2])) / (length(x) - 3)
+            xl, xu = min(x[2], strikes[1]) * exp(-δ), max(x[end-1], strikes[end]) * exp(δ)
+            x = sort(vcat(x, filter(c -> L < c < U, [xl, xu])))
+        end
         s = searchsortedfirst(x, forward)
         if !useForwardInStrikes && x[s] != forward
             x = sort(vcat(x, forward))
         end
         s = searchsortedfirst(x, forward) - 1
-        adjustKnots!(x, s, priceAtm)
+        # given knots are kept as they are (they may be shared with another expiry)
+        knots === nothing && adjustKnots!(x, s, priceAtm)
     end
     xBasis = makeBasis(model, x, forward, isC3)
     m = length(x) - 1
@@ -629,7 +672,7 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
     vols = zeros(T, length(strikes))
     if useVol || guess != "Constant"
         for i = eachindex(vols)
-            vols[i] = impliedVolatilitySRHalley(true, callPrices[i], forward, strikes[i], tte, 1.0, 0e-14, 64, Householder())
+            vols[i] = impliedVolatilityThiophene(true, callPrices[i], forward, strikes[i], tte, 1.0)
         end
     end
 
@@ -650,20 +693,85 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
     #println("xBasis ", xBasis, " knots ", knots, "len knoths=", length(knots))
     #strikeIndices = indices of strike in x. (PP version) x will contain forward.
     strikeIndices = max.(searchsortedlast.(Ref(x), strikes), 1)  # x[i]<=z<=x[i+1]
-    l = numberOfFreeParameters(model, length(x), length(callPrices), isC3)
+    # with given knots (shared with other expiries) every coefficient is free, even with fewer quotes than knots:
+    # the damping of Levenberg-Marquardt handles the underdetermined directions
+    l = knots === nothing ? numberOfFreeParameters(model, length(x), length(callPrices), isC3) : length(x) - 1
 
-    atmVol = impliedVolatilitySRHalley(true, priceAtm, forward, forward, tte, 1.0, 0e-14, 64, Householder())
+    atmVol = impliedVolatilityThiophene(true, priceAtm, forward, forward, tte, 1.0)
     a0 = atmVol * sqrt(tte / 2)
     local minValueV
     local maxValueV
-    if typeof(previousLVG) == QuadraticLVG
-        aMinV = toFreeParameters(previousLVG.λ, model, m, l, s, forward, isC3=isC3)
-        minValueV = max.(aMinV, a0 / 100)
+    λPrev = nothing
+    λNext = nothing
+    #calendar=:bounds: the sufficient condition of Falck on the coefficients (the local variance times the expiry does not
+    #decrease); calendar=:spreads: the exact condition at the expiries, the total implied variance does not decrease at
+    #any strike, as one-sided residuals at `calendarPoints` strikes log-uniform over the knots
+    boundPrev = calendar == :bounds ? previousLVG : Nothing
+    boundNext = calendar == :bounds ? nextLVG : Nothing
+    if boundPrev isa QuadraticLVG
+        λPrev = x == previousLVG.x ? previousLVG.λ : refineLambda(previousLVG, x, model, forward, isC3)
+        aMinV = toFreeParameters(λPrev, model, m, l, s, forward, isC3=isC3)
+        minValueV = max.(aMinV, a0 * minRatio / 10)
         maxValueV = fill(a0 * 800, l)
     else
-        minValueV = fill(a0 / 10, l)
+        minValueV = fill(a0 * minRatio, l)
         maxValueV = fill(a0 * 800, l)
     end
+    if boundNext isa QuadraticLVG
+        # calibration from the last expiry to the first: the next (longer) expiry bounds the coefficients from above.
+        # `knots` must contain the knots of nextLVG.
+        λNext = x == nextLVG.x ? nextLVG.λ : refineLambda(nextLVG, x, model, forward, isC3)
+        aMaxV = toFreeParameters(λNext, model, m, l, s, forward, isC3=isC3)
+        maxValueV = min.(maxValueV, aMaxV)
+        minValueV = min.(minValueV, maxValueV .* 0.9)
+    end
+    # flat wings: the coefficients whose B-splines lie beyond the quoted strikes are not fitted but tied to the nearest
+    # quoted coefficient on the same side (flat local variance beyond the quotes), within their bounds.
+    tie = collect(1:l)
+    if flatWings
+        marker = makeLambda(model, T.(1:l), m, l, s, one(T), isC3=isC3)
+        tk = BSplines.knots(basis)
+        ξ = [(tk[k+1] + tk[k+2]) / 2 for k = 1:length(basis)]
+        inside = falses(l)
+        for k = 1:min(length(ξ), length(marker))
+            i = round(Int, marker[k])
+            (1 <= i <= l && strikes[1] <= ξ[k] <= strikes[end]) && (inside[i] = true)
+        end
+        if any(inside)
+            firstIn, lastIn = findfirst(inside), findlast(inside)
+            for i = 1:l
+                i < firstIn && (tie[i] = firstIn)
+                i > lastIn && (tie[i] = lastIn)
+            end
+        end
+    end
+    # too many knots for the quotes: a coefficient whose B-spline support contains no quoted strike is not fitted but
+    # tied to the adjacent supported coefficient (the nearest one, the left one on a tie), within its bounds
+    if tieUnsupported
+        marker = makeLambda(model, T.(1:l), m, l, s, one(T), isC3=isC3)
+        tk = BSplines.knots(basis)
+        supported = falses(l)
+        for k = 1:min(length(basis), length(marker))
+            i = round(Int, marker[k])
+            (1 <= i <= l && any(tk[k] < K < tk[k+3] for K in strikes)) && (supported[i] = true)
+        end
+        idx = findall(supported)
+        if !isempty(idx)
+            for i = 1:l
+                supported[i] && continue
+                tie[i] = idx[argmin(abs.(idx .- i) .+ 0.1 .* (idx .> i))]
+                if boundSupportedOnly
+                    # no quote under this coefficient: the calendar bounds of the neighbouring expiry, a sufficient
+                    # condition only, are not imposed here (check the calendar spreads of the surface afterwards)
+                    minValueV[i] = a0 * minRatio
+                    maxValueV[i] = a0 * 800
+                end
+            end
+        end
+    end
+    tieSigma!(σv) = (for i = 1:l
+        tie[i] != i && (σv[i] = min(max(σv[tie[i]], minValueV[i]), maxValueV[i]))
+    end; σv)
 
     a0v =
         if guess == "Constant"
@@ -680,7 +788,24 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
             #we divide by forward since we multiply by it later (black like scaling)
             @.(sqrt(min((a0 * 10)^2, max((a0 / 5)^2, (xPrices - xIntrinsic) / (forward^2 * (xPricesUp - 2xPrices + xPricesDown) / epsDens^2)))))[1:end]
         end
+    # the initial guess must lie within the bounds (the previous expiry may bound it from below)
+    a0v = min.(max.(a0v, minValueV .* 1.01), maxValueV .* 0.99)
+    # bounds too close for the margins above: start in the middle
+    a0v = [lo < v < hi ? v : (lo + hi) / 2 for (v, lo, hi) in zip(a0v, minValueV, maxValueV)]
     transformV = [makeTransform(minValue, maxValue, optimizer) for (minValue, maxValue) = zip(minValueV, maxValueV)]
+    #calendar=:spreads: bounds on the total implied standard deviation at the check strikes, from the neighbouring expiries
+    #(the out-of-the-money prices below 1e-12 of the forward are skipped, their implied volatility being meaningless)
+    calK = T[]; calLo = T[]; calHi = T[]
+    if calendar == :spreads && (previousLVG isa QuadraticLVG || nextLVG isa QuadraticLVG)
+        stdOf(sec, K) = (isCall = K >= forward; p = priceEuropean(sec, isCall, K); p > 1e-12 * forward ? impliedVolatilityThiophene(isCall, p, forward, K, sec.tte, 1.0) * sqrt(sec.tte) : T(NaN))
+        for K in exp.(range(log(x[1]), log(x[end]), length=calendarPoints + 2)[2:end-1])
+            lo = previousLVG isa QuadraticLVG ? stdOf(previousLVG, K) : T(NaN)
+            hi = nextLVG isa QuadraticLVG ? stdOf(nextLVG, K) : T(NaN)
+            (isnan(lo) && isnan(hi)) && continue
+            push!(calK, K); push!(calLo, isnan(lo) ? zero(T) : lo); push!(calHi, isnan(hi) ? T(Inf) : hi)
+        end
+    end
+    calOffset = length(callPrices) + (penalty > 0 ? m - 1 : 0)
 
 
     # println(s, " forward found ", strikes[s], " min ", minValueV, " max ", maxValueV, " a0 ", a0v, " atm ", priceAtm, "m+1-l-2=", (m - l - 1))
@@ -697,6 +822,7 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
         for i = 1:l
             σ[i] = transformV[i](coeff[i])
         end
+        tieSigma!(σ)
         γ = zeros(W, m)
         β = zeros(W, m)
         α = zeros(W, m)
@@ -724,7 +850,7 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
                 else
                     priceEuropeanPiece(strikeIndex, QuadraticLVG(x, α, β, γ, θ, λ, tte, forward), isCall, strikes[i])
                 end
-                fvec[i] = weights[i] * (impliedVolatilitySRHalley(isCall, max(mPrice, 1e-64), forward, strikes[i], tte, 1.0, 0e-14, 64, Householder()) - vols[i])
+                fvec[i] = weights[i] * (impliedVolatilityThiophene(isCall, max(mPrice, 1e-64), forward, strikes[i], tte, 1.0) - vols[i])
                 # fvec[i] =  impliedVolatilityLiSOR(isCall, max(mPrice,1e-64), forward, strikes[i], tte, 1.0, 0.0, 0e-14, 64, SORTS()) - vols[i]
             end
         else
@@ -745,6 +871,24 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
                     println("alpha ", α, "\n beta ", β, "\n gamma ", γ)
                     throw(DomainError(fvec, " fvec must be a number"))
                 end
+            end
+        end
+        if isC3 && (λPrev !== nothing || λNext !== nothing)
+            # the coefficient at the forward is not free (set by the C3 condition), so the calendar bounds of the other
+            # coefficients do not apply to it: a stiff one-sided residual keeps it within the bounds of the neighbouring expiries
+            v = zero(W)
+            λPrev === nothing || (v += max(λPrev[s+2] - λ[s+2], zero(W)))
+            λNext === nothing || (v += max(λ[s+2] - λNext[s+2], zero(W)))
+            fvec[end] = sumw * calendarWeight * v / forward
+        end
+        if !isempty(calK)
+            sec = QuadraticLVG(x, α, β, γ, θ, λ, tte, forward)
+            for (r, K) in enumerate(calK)
+                isCall = K >= forward
+                p = priceEuropeanPiece(max(searchsortedlast(x, K), 1), sec, isCall, K)
+                sd = impliedVolatilityThiophene(isCall, max(p, 1e-64), forward, K, tte, 1.0) * sqrt(tte)
+                #in implied volatility, the weight shared by the check strikes
+                fvec[calOffset+r] = calendarWeight * (max(calLo[r] - sd, zero(W)) + max(sd - calHi[r], zero(W))) / sqrt(tte * length(calK))
             end
         end
         if penalty > 0
@@ -778,50 +922,56 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
     if penalty > 0
         outlen += m - 1
     end
+    outlen += length(calK)
+    isC3 && (λPrev !== nothing || λNext !== nothing) && (outlen += 1)
     fvec = zeros(Float64, outlen)
 
-    x0 = if optimizer == "LM-Curve"
-        fit = LeastSquaresOptim.optimize!(
-            LeastSquaresProblem(x=x0, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
-                output_length=outlen),
-            LevenbergMarquardt();
-            lower=minValueV, upper=maxValueV,
-            iterations=1000        )
-        #    println(iter, " fit ", fit)
-        fit.minimizer
-        # elseif optimizer == "LM-MQ" || optimizer == "LM-SIN" || optimizer == "LM-LOG" || optimizer == "LM-ALG"
+    function runOptimizer(x0)
+        if optimizer == "LM-Curve"
+            fit = LeastSquaresOptim.optimize!(
+                LeastSquaresProblem(x=x0, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
+                    output_length=outlen),
+                LevenbergMarquardt();
+                lower=minValueV, upper=maxValueV,
+                iterations=1000        )
+            #    println(iter, " fit ", fit)
+            fit.minimizer
+            # elseif optimizer == "LM-MQ" || optimizer == "LM-SIN" || optimizer == "LM-LOG" || optimizer == "LM-ALG"
 
-        #     fit = LeastSquaresOptim.optimize!(
-        #         LeastSquaresProblem(x=x0, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
-        #             output_length=outlen),
-        #         LevenbergMarquardt();
-        #         iterations=1000
-        #     )
-        # #    println(iter, " fit ", fit)
-        #     fit.minimizer
-    elseif optimizer == "GN-MQ" || optimizer == "GN-SIN" || optimizer == "GN" || optimizer == "GN-LOG" || optimizer == "GN-ALG" || optimizer == "GN-ATAN" || optimizer == "GN-TANH"
-        fit = GaussNewton.optimize!(obj!, x0, fvec, autodiff=:single, iscale=1, abstol=length(fvec) * eps())
-        #  println(iter, " fit ", fit)
-        x0
-    elseif optimizer == "LM"
-        obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=:forward, inplace=true)
-        fit = LsqFit.levenberg_marquardt(obj1, x0,
-            lower=minValueV, upper=maxValueV)
-        
-        # println(iter, " fit ", fit)
-        fit.minimizer
-    elseif optimizer == "LM-MQ" || optimizer == "LM-SIN" || optimizer == "LM-LOG" || optimizer == "LM-ALG" || optimizer == "LM-TANH" || optimizer == "LM-ATAN"
-        obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=:forward, inplace=true)
-        fit = LsqFit.levenberg_marquardt(obj1, x0)
-        # println(iter, " fit ", fit)
-        fit.minimizer
+            #     fit = LeastSquaresOptim.optimize!(
+            #         LeastSquaresProblem(x=x0, (f!)=obj!, autodiff=:forward, #:forward is 4x faster than :central
+            #             output_length=outlen),
+            #         LevenbergMarquardt();
+            #         iterations=1000
+            #     )
+            # #    println(iter, " fit ", fit)
+            #     fit.minimizer
+        elseif optimizer == "GN-MQ" || optimizer == "GN-SIN" || optimizer == "GN" || optimizer == "GN-LOG" || optimizer == "GN-ALG" || optimizer == "GN-ATAN" || optimizer == "GN-TANH"
+            fit = GaussNewton.optimize!(obj!, x0, fvec, autodiff=:single, iscale=1, abstol=length(fvec) * eps())
+            #  println(iter, " fit ", fit)
+            x0
+        elseif optimizer == "LM"
+            obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=LsqFit.AutoForwardDiff(), inplace=true)
+            fit = LsqFit.levenberg_marquardt(obj1, x0,
+                lower=minValueV, upper=maxValueV)
+            
+            # println(iter, " fit ", fit)
+            fit.minimizer
+        elseif optimizer == "LM-MQ" || optimizer == "LM-SIN" || optimizer == "LM-LOG" || optimizer == "LM-ALG" || optimizer == "LM-TANH" || optimizer == "LM-ATAN"
+            obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=LsqFit.AutoForwardDiff(), inplace=true)
+            fit = LsqFit.levenberg_marquardt(obj1, x0)
+            # println(iter, " fit ", fit)
+            fit.minimizer
 
+        end
+        #  
     end
-    #  
+    x0 = runOptimizer(x0)
     obj!(fvec, x0)
     for i = 1:l
         σ[i] = transformV[i](x0[i])
     end
+    tieSigma!(σ)
     #println("σ=", σ)
     γ = zeros(T, m)
     β = zeros(T, m)
@@ -839,6 +989,20 @@ function calibrateQuadraticLVG(tte::T, forward::T, strikes::AbstractVector{T}, c
             toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
             computeCoeffsQuadratic(s, tte, x, α, β, γ, θ)
         end
+        # the residual on the coefficient at the forward is soft: if it still breaks the calendar bounds of the
+        # neighbouring expiries, clamp it (the density is then no longer C1 at the forward, but the calendar spreads are
+        # non-negative, the sufficient condition holding for every coefficient)
+        if λPrev !== nothing || λNext !== nothing
+            c = s + 2
+            λc = λ[c]
+            λPrev === nothing || (λc = max(λc, λPrev[c]))
+            λNext === nothing || (λc = min(λc, λNext[c]))
+            if λc != λ[c]
+                λ[c] = λc
+                toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
+                computeCoeffsQuadratic(s, tte, x, α, β, γ, θ)
+            end
+        end
     end
     return QuadraticLVG(x, α, β, γ, θ, λ, tte, forward)
 end
@@ -848,6 +1012,23 @@ end
 
 
 
+
+"""
+    refineLambda(previous, x, model, forward, isC3)
+
+B-spline coefficients, on the basis of the knots `x`, of the local variance spline of `previous`, whose knots are a
+subset of `x` (knot insertion): the quadratic spline on the coarser knots is also a spline on the finer ones, and its
+coefficients are recovered exactly by interpolation at the Greville abscissae of the finer basis.
+"""
+function refineLambda(previous::QuadraticLVG, x, model::LVGKind, forward, isC3)
+    spPrev = BSplines.Spline(BSplineBasis(3, makeBasis(model, previous.x, forward, isC3)), previous.λ)
+    basis = BSplineBasis(3, makeBasis(model, x, forward, isC3))
+    t = BSplines.knots(basis)
+    n = length(basis)
+    ξ = [(t[i+1] + t[i+2]) / 2 for i = 1:n]
+    A = [basis[j](ξi) for ξi in ξ, j = 1:n]
+    return A \ spPrev.(ξ)
+end
 
 struct LVGSurface{T}
     expiries::Vector{T}
@@ -874,6 +1055,115 @@ function calibrateLVGSurface(ttes::AbstractVector{T}, forwards::AbstractVector{T
     end
     #returns a surface in prices.
     return LVGSurface(ttes, forwards, slices)
+end
+
+"""
+    calibrateLVGSurface(ttes, forwards, strikes::Vector{Vector}, callPrices::Vector{Vector}, weights::Vector{Vector};
+        size=10, location="Equidistributed", L=nothing, U=nothing, ...)
+
+Calibrate the quadratic LVG slices from the shortest expiry to the longest, with a local variance that does not decrease
+with the expiry (the B-spline coefficients of each expiry bounded below by those of the previous one, on shared knots).
+Each expiry has its own strikes. The knots are nested: the first expiry uses `size` knots placed by `location` between
+the global bounds `L` and `U`; each later expiry keeps all the knots of the previous one and adds its own knots beyond
+the outermost interior knots so far, so that wider long-dated quotes get knots in their wings.
+The lower bound of the coefficients of an expiry not bounded by another one is `minRatio` times its at-the-money
+value (`minRatio/10` times when bounded below by the previous expiry). `flatWings=true` ties the coefficients beyond
+the quotes of each expiry to the last quoted one on the same side; `L`, `U` default to half the lowest and twice the
+highest strike of the surface, which may be too close for long expiries.
+`calendar=:spreads` replaces the bounds between the coefficients of consecutive expiries (sufficient only) by the exact
+condition at the expiries: the total implied variance of an expiry does not fall below that of the previous one (or rise
+above that of the next one, order=:backward) at `calendarPoints` strikes log-uniform over the knots, as one-sided
+residuals in implied volatility of total weight `calendarWeight` (each `calendarWeight/√calendarPoints`; a stiffer
+penalty, from 100 per strike, stalls the optimizer far from the quotes).
+"""
+function calibrateLVGSurface(ttes::AbstractVector{T}, forwards::AbstractVector{T}, strikes::AbstractVector{<:AbstractVector{T}},
+    callPrices::AbstractVector{<:AbstractVector{T}}, weights::AbstractVector{<:AbstractVector{T}}; size=10, location="Equidistributed",
+    L=nothing, U=nothing, useVol=false, model=PDDE.Quadratic(), optimizer="LM-ALG", sharedKnots=nothing, order=:forward,
+    flatWings=false, tieUnsupported=false, boundSupportedOnly=false, pivot=nothing, minRatio=0.1, calendar=:bounds, calendarPoints=100, calendarWeight=10.0) where {T}
+    ks = [strikes[i] ./ forwards[i] for i in eachindex(ttes)]
+    if sharedKnots !== nothing
+        # one knot set for all expiries, in forward-normalised strikes (it must contain the forward 1)
+        slices = Vector{QuadraticLVG}(undef, length(ttes))
+        n = length(ttes)
+        for i in (order == :backward ? (n:-1:1) : (1:n))
+            prev = order == :backward || i == 1 ? Nothing : slices[i-1]
+            next = order == :backward && i < n ? slices[i+1] : Nothing
+            slices[i] = calibrateQuadraticLVG(ttes[i], one(T), ks[i], callPrices[i] ./ forwards[i], weights[i]; knots=sharedKnots,
+                previousLVG=prev, nextLVG=next, useVol=useVol, model=model, optimizer=optimizer, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+        end
+        return LVGSurface(collect(ttes), collect(forwards), slices)
+    end
+    L = L === nothing ? minimum(first.(ks)) / 2 : L
+    U = U === nothing ? 2maximum(last.(ks)) : U
+    slices = Vector{QuadraticLVG}(undef, length(ttes))
+    local x
+    if order == :middle
+        # from the expiry `pivot` (by default the closest to one year), downwards to the first expiry (each shorter one
+        # bounded above by the next) and upwards to the last (each longer one bounded below by the previous); the knots are
+        # nested in each direction
+        n = length(ttes)
+        p = pivot === nothing ? argmin(abs.(ttes .- 1)) : pivot
+        slices[p] = calibrateQuadraticLVG(ttes[p], one(T), ks[p], callPrices[p] ./ forwards[p], weights[p]; size=size, location=location, L=L, U=U,
+            useVol=useVol, model=model, optimizer=optimizer, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+        xp = slices[p].x
+        x = xp
+        for i in p-1:-1:1
+            cand = filter(c -> L < c < U, makeKnots(ttes[i], one(T), ks[i], size, location=location, L=L, U=U))
+            gap = length(cand) < 2 ? zero(T) : minimum(diff(sort(cand))) / 2
+            x = sort(vcat(x, filter(c -> minimum(abs.(x .- c)) > gap, cand)))
+            slices[i] = calibrateQuadraticLVG(ttes[i], one(T), ks[i], callPrices[i] ./ forwards[i], weights[i]; nextLVG=slices[i+1], knots=x, L=L, U=U,
+                useVol=useVol, model=model, optimizer=optimizer, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+        end
+        x = xp
+        for i in p+1:n
+            cand = filter(c -> L < c < U, makeKnots(ttes[i], one(T), ks[i], size, location=location, L=L, U=U))
+            inner = x[2:end-1]
+            gap = length(cand) < 2 ? zero(T) : minimum(diff(sort(cand))) / 2
+            x = sort(vcat(x, filter(c -> c < inner[1] - gap || c > inner[end] + gap, cand)))
+            slices[i] = calibrateQuadraticLVG(ttes[i], one(T), ks[i], callPrices[i] ./ forwards[i], weights[i]; previousLVG=slices[i-1], knots=x,
+                useVol=useVol, model=model, optimizer=optimizer, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+        end
+        return LVGSurface(collect(ttes), collect(forwards), slices)
+    end
+    if order == :backward
+        # from the last expiry to the first: each shorter expiry keeps the knots of the longer one and adds its own where
+        # they are not already covered; the longer expiry bounds its local variance from above
+        n = length(ttes)
+        for i in n:-1:1
+            prices = callPrices[i] ./ forwards[i]
+            if i == n
+                slices[n] = calibrateQuadraticLVG(ttes[n], one(T), ks[n], prices, weights[n]; size=size, location=location, L=L, U=U,
+                    useVol=useVol, model=model, optimizer=optimizer, flatWings=flatWings, tieUnsupported=tieUnsupported, boundSupportedOnly=boundSupportedOnly, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+                x = slices[n].x
+            else
+                cand = filter(c -> L < c < U, makeKnots(ttes[i], one(T), ks[i], size, location=location, L=L, U=U))
+                gap = length(cand) < 2 ? zero(T) : minimum(diff(sort(cand))) / 2
+                added = filter(c -> minimum(abs.(x .- c)) > gap, cand)
+                x = sort(vcat(x, added))
+                slices[i] = calibrateQuadraticLVG(ttes[i], one(T), ks[i], prices, weights[i]; nextLVG=slices[i+1], knots=x, L=L, U=U,
+                    useVol=useVol, model=model, optimizer=optimizer, flatWings=flatWings, tieUnsupported=tieUnsupported, boundSupportedOnly=boundSupportedOnly, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+            end
+        end
+        return LVGSurface(collect(ttes), collect(forwards), slices)
+    end
+    for i in eachindex(ttes)
+        prices = callPrices[i] ./ forwards[i]
+        if i == 1
+            slices[1] = calibrateQuadraticLVG(ttes[1], one(T), ks[1], prices, weights[1]; size=size, location=location, L=L, U=U,
+                useVol=useVol, model=model, optimizer=optimizer, flatWings=flatWings, tieUnsupported=tieUnsupported, boundSupportedOnly=boundSupportedOnly, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+            x = slices[1].x
+        else
+            cand = makeKnots(ttes[i], one(T), ks[i], size, location=location, L=L, U=U)
+            cand = filter(c -> L < c < U, cand)
+            inner = x[2:end-1]
+            gap = length(cand) < 2 ? zero(T) : minimum(diff(sort(cand))) / 2
+            added = filter(c -> c < inner[1] - gap || c > inner[end] + gap, cand)
+            x = sort(vcat(x, added))
+            slices[i] = calibrateQuadraticLVG(ttes[i], one(T), ks[i], prices, weights[i]; previousLVG=slices[i-1], knots=x,
+                useVol=useVol, model=model, optimizer=optimizer, flatWings=flatWings, tieUnsupported=tieUnsupported, boundSupportedOnly=boundSupportedOnly, minRatio=minRatio, calendar=calendar, calendarPoints=calendarPoints, calendarWeight=calendarWeight)
+        end
+    end
+    return LVGSurface(collect(ttes), collect(forwards), slices)
 end
 
 function price(s::LVGSurface, y, t, indexTime::Int=0)
@@ -904,7 +1194,7 @@ function varianceByLogmoneyness(section::QuadraticLVG, y, forward, tte)
     if price <= 0
         price = 1e-16
     end
-    vol = impliedVolatilitySRHalley(isCall, price, f1, strike, tte, 1.0, 0e-14, 64, Householder())
+    vol = impliedVolatilityThiophene(isCall, price, f1, strike, tte, 1.0)
     return vol^2
 end
 
@@ -925,4 +1215,86 @@ function varianceByLogmoneyness(s::LVGSurface, y, t, indexTime::Int=0)
         v = (var1 * t1 * (t - t0) + var0 * t0 * (t1 - t)) / (t1 - t0)
         return v / t
     end
+end
+"""
+    calibrateLVGSurfaceGlobal(surface::LVGSurface, strikes::Vector{Vector}, callPrices::Vector{Vector},
+        weights::Vector{Vector}; useVol=false, model=Quadratic(), isC3=true, nRefine=3, optimizer="LM-ALG", calendarWeight=10.0)
+
+Global pass on a quadratic LVG surface bootstrapped on shared knots (`calibrateLVGSurface` with the strike matrix): all
+the expiries are refitted together, starting from the bootstrap. The free coefficients are those of the first expiry and
+the increments μᵢ = σᵢ - σᵢ₋₁ ≥ 0 of the later ones, so that the sufficient condition λᵢ ≥ λᵢ₋₁ against calendar spread
+arbitrage is a fixed bound; the coefficient at the forward (set by the C3 condition) is kept above the previous one by a
+one-sided residual (`calendarWeight`). Strikes and prices as given to the bootstrap (divided by the forwards here).
+"""
+function calibrateLVGSurfaceGlobal(surface::LVGSurface, strikes::AbstractVector{<:AbstractVector{T}}, callPrices::AbstractVector{<:AbstractVector{T}},
+    weights::AbstractVector{<:AbstractVector{T}}; useVol=false, model=Quadratic(), isC3=true, nRefine=3, optimizer="LM-ALG", calendarWeight=10.0) where {T}
+    secs = surface.sections
+    n = length(secs)
+    x = secs[1].x
+    all(sec -> sec.x == x, secs) || throw(ArgumentError("the sections must share their knots"))
+    ks = [strikes[i] ./ surface.forwards[i] for i = 1:n]
+    cs = [callPrices[i] ./ surface.forwards[i] for i = 1:n]
+    ws = [weights[i] ./ (sum(weights[i]) / length(weights[i])) for i = 1:n]
+    m = length(x) - 1
+    s = searchsortedfirst(x, one(T)) - 1
+    basis = BSplineBasis(3, makeBasis(model, x, one(T), isC3))
+    ls = [numberOfFreeParameters(model, length(x), length(cs[i]), isC3) for i = 1:n]
+    all(==(ls[1]), ls) || throw(ArgumentError("the expiries must have the same number of free parameters"))
+    l = ls[1]
+    σs = [toFreeParameters(sec.λ, model, m, l, s, one(T), isC3=isC3) for sec in secs]
+    priceAtm = [priceEuropean(sec, true, one(T)) for sec in secs]
+    vols = [useVol ? [impliedVolatilityThiophene(true, cs[i][j], one(T), ks[i][j], secs[i].tte, one(T)) for j in eachindex(ks[i])] : T[] for i = 1:n]
+    strikeIndices = [max.(searchsortedlast.(Ref(x), ks[i]), 1) for i = 1:n]
+    a0 = maximum(σs[1])
+    tr1 = makeTransform(minimum(σs[1]) / 10, a0 * 800, optimizer)
+    trμ = makeTransform(zero(T), a0 * 800, optimizer)
+    p0 = vcat([inv(tr1, v) for v in σs[1]], [inv(trμ, max(σs[i][k] - σs[i-1][k], a0 * 1e-6)) for i = 2:n for k = 1:l])
+    function section(σ, i, W)
+        α = zeros(W, m); β = zeros(W, m); γ = zeros(W, m); θ = zeros(W, 2m)
+        λ = makeLambda(model, σ, m, l, s, one(T), isC3=isC3)
+        isC3 && updateLambda!(λ, model, x, s + 1, priceAtm[i], basis=basis)
+        toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
+        computeCoeffsQuadratic(s, secs[i].tte, x, α, β, γ, θ)
+        if isC3
+            for _ = 1:nRefine
+                updateLambda!(λ, model, x, s + 1, θ[2s+2], basis=basis)
+                toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
+                computeCoeffsQuadratic(s, secs[i].tte, x, α, β, γ, θ)
+            end
+        end
+        return QuadraticLVG(x, α, β, γ, θ, λ, secs[i].tte, one(T))
+    end
+    sigmas(p) = (σ = [[tr1(p[k]) for k = 1:l]]; for i = 2:n
+        push!(σ, σ[i-1] .+ [trμ(p[l*(i-1)+k]) for k = 1:l])
+    end; σ)
+    nres = sum(length.(cs)) + (isC3 ? n - 1 : 0)
+    function obj!(fvec, p)
+        W = eltype(p)
+        σ = sigmas(p)
+        r = 0
+        λPrevF = zero(W)
+        for i = 1:n
+            sec = section(σ[i], i, W)
+            for (j, k) in enumerate(ks[i])
+                isCall = k >= one(T)
+                si = strikeIndices[i][j]
+                mPrice = priceEuropeanPiece(si, sec, isCall, k)
+                k < one(T) && (mPrice += one(T) - k)
+                r += 1
+                fvec[r] = useVol ? ws[i][j] * (impliedVolatilityThiophene(true, max(mPrice, 1e-64), one(T), k, sec.tte, one(T)) - vols[i][j]) :
+                          ws[i][j] * (mPrice - cs[i][j])
+            end
+            if isC3 && i > 1
+                r += 1
+                fvec[r] = calendarWeight * max(λPrevF - sec.λ[s+2], zero(W))
+            end
+            λPrevF = sec.λ[s+2]
+        end
+        fvec
+    end
+    fvec = zeros(T, nres)
+    obj1 = OnceDifferentiable(obj!, p0, copy(fvec); autodiff=LsqFit.AutoForwardDiff(), inplace=true)
+    p = LsqFit.levenberg_marquardt(obj1, p0).minimizer
+    σ = sigmas(p)
+    return LVGSurface(surface.expiries, surface.forwards, Vector{QuadraticLVG}([section(σ[i], i, T) for i = 1:n]))
 end

@@ -52,3 +52,41 @@ function alphaBeta(c::DividendDriftCurve{TX,T},time::TZ) where {T,TX,TZ}
     end
     return αs, βs
 end
+
+export DiscreteDividendMarket, withDividendAmount, withGrowthRate
+#A Black-Scholes market with discrete dividends and constant continuously compounded rates:
+#  r: discount rate, μ: growth rate of the asset excluding the discrete dividends (r minus repo/borrow minus continuous yield),
+#  dividends: sorted by ex-date. A proportional dividend multiplies the spot by (1-amount) on the ex-date,
+#  a cash dividend substracts its amount and is capitalized from its payment date in the forward.
+struct DiscreteDividendMarket{T}
+    spot::T
+    r::T
+    μ::T
+    dividends::Vector{Dividend{T}}
+    DiscreteDividendMarket(spot::T, r::T, μ::T, dividends::AbstractVector{Dividend{T}}) where {T} =
+        new{T}(spot, r, μ, sort(collect(dividends), by = d -> d.exDate))
+end
+DiscreteDividendMarket(spot::T, r::T, μ::T) where {T} = DiscreteDividendMarket(spot, r, μ, Dividend{T}[])
+
+discountFactor(m::DiscreteDividendMarket, τ) = exp(-m.r * τ)
+
+function forward(m::DiscreteDividendMarket{T}, τ) where {T}
+    growth = exp(m.μ * τ)
+    f = m.spot * growth
+    for d in m.dividends
+        if d.exDate > τ
+            break
+        end
+        if d.isProportional
+            f *= one(T) - d.amount
+        else
+            f -= d.amount * growth * exp(-m.μ * d.payDate)
+        end
+    end
+    return f
+end
+
+#same market where all the dividends of ex-date <= τ pay the given amount.
+withDividendAmount(m::DiscreteDividendMarket{T}, amount::T, τ = typemax(T)) where {T} = DiscreteDividendMarket(m.spot, m.r, m.μ,
+    [d.exDate <= τ ? Dividend(amount, d.exDate, d.payDate, d.isProportional, d.isKnown) : d for d in m.dividends])
+withGrowthRate(m::DiscreteDividendMarket{T}, μ::T) where {T} = DiscreteDividendMarket(m.spot, m.r, μ, m.dividends)

@@ -1,0 +1,103 @@
+panel,plot,kind,label,x,y,z
+1,1,scatter,TRBDF2 Black,0.0,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.02,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.04,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.06,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.08,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.1,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.12,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.14,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.16,50.000299999999996,NaN
+1,1,scatter,TRBDF2 Black,0.18,50.00019999999999,NaN
+1,1,scatter,TRBDF2 Black,0.2,50.00019999999999,NaN
+1,1,scatter,TRBDF2 Black,0.22,50.00019999999999,NaN
+1,1,scatter,TRBDF2 Black,0.24,50.00019999999999,NaN
+1,1,scatter,TRBDF2 Black,0.26,50.00019999999999,NaN
+1,1,scatter,TRBDF2 Black,0.28,50.0001,NaN
+1,1,scatter,TRBDF2 Black,0.3,50.0001,NaN
+1,1,scatter,TRBDF2 Black,0.32,50.0001,NaN
+1,1,scatter,TRBDF2 Black,0.34,50.0,NaN
+1,1,scatter,TRBDF2 Black,0.36,50.0,NaN
+1,1,scatter,TRBDF2 Black,0.38,50.0,NaN
+1,1,scatter,TRBDF2 Black,0.4,50.0,NaN
+1,1,scatter,TRBDF2 Black,0.42,49.999900000000004,NaN
+1,1,scatter,TRBDF2 Black,0.44,49.999900000000004,NaN
+1,1,scatter,TRBDF2 Black,0.46,49.999900000000004,NaN
+1,1,scatter,TRBDF2 Black,0.48,49.9998,NaN
+1,1,scatter,TRBDF2 Black,0.5,49.9998,NaN
+1,1,scatter,TRBDF2 Black,0.52,50.4973,NaN
+1,1,scatter,TRBDF2 Black,0.54,50.9899,NaN
+1,1,scatter,TRBDF2 Black,0.56,51.4779,NaN
+1,1,scatter,TRBDF2 Black,0.58,51.9612,NaN
+1,1,scatter,TRBDF2 Black,0.6,52.4401,NaN
+1,1,scatter,TRBDF2 Black,0.62,52.9146,NaN
+1,1,scatter,TRBDF2 Black,0.64,53.385000000000005,NaN
+1,1,scatter,TRBDF2 Black,0.66,53.8512,NaN
+1,1,scatter,TRBDF2 Black,0.68,54.3134,NaN
+1,1,scatter,TRBDF2 Black,0.7,54.771800000000006,NaN
+1,1,scatter,TRBDF2 Black,0.72,55.226299999999995,NaN
+1,1,scatter,TRBDF2 Black,0.74,55.6771,NaN
+1,1,scatter,TRBDF2 Black,0.76,56.124300000000005,NaN
+1,1,scatter,TRBDF2 Black,0.78,56.5679,NaN
+1,1,scatter,TRBDF2 Black,0.8,57.008199999999995,NaN
+1,1,scatter,TRBDF2 Black,0.82,57.445,NaN
+1,1,scatter,TRBDF2 Black,0.84,57.8785,NaN
+1,1,scatter,TRBDF2 Black,0.86,58.308800000000005,NaN
+1,1,scatter,TRBDF2 Black,0.88,58.736,NaN
+1,1,scatter,TRBDF2 Black,0.9,59.16010000000001,NaN
+1,1,scatter,TRBDF2 Black,0.92,59.5811,NaN
+1,1,scatter,TRBDF2 Black,0.94,59.999199999999995,NaN
+1,1,scatter,TRBDF2 Black,0.96,60.4144,NaN
+1,1,scatter,TRBDF2 Black,0.98,60.826800000000006,NaN
+1,1,scatter,TRBDF2 Black,1.0,61.2364,NaN
+1,2,lines,TRBDF2 Local vol.,0.0,50.00059999999999,NaN
+1,2,lines,TRBDF2 Local vol.,0.02,50.000699999999995,NaN
+1,2,lines,TRBDF2 Local vol.,0.04,50.000699999999995,NaN
+1,2,lines,TRBDF2 Local vol.,0.06,50.000699999999995,NaN
+1,2,lines,TRBDF2 Local vol.,0.08,50.000699999999995,NaN
+1,2,lines,TRBDF2 Local vol.,0.1,50.0008,NaN
+1,2,lines,TRBDF2 Local vol.,0.12,50.0008,NaN
+1,2,lines,TRBDF2 Local vol.,0.14,50.0008,NaN
+1,2,lines,TRBDF2 Local vol.,0.16,50.0009,NaN
+1,2,lines,TRBDF2 Local vol.,0.18,50.0009,NaN
+1,2,lines,TRBDF2 Local vol.,0.2,50.001,NaN
+1,2,lines,TRBDF2 Local vol.,0.22,50.001,NaN
+1,2,lines,TRBDF2 Local vol.,0.24,50.0011,NaN
+1,2,lines,TRBDF2 Local vol.,0.26,50.0011,NaN
+1,2,lines,TRBDF2 Local vol.,0.28,50.001200000000004,NaN
+1,2,lines,TRBDF2 Local vol.,0.3,50.0013,NaN
+1,2,lines,TRBDF2 Local vol.,0.32,50.0013,NaN
+1,2,lines,TRBDF2 Local vol.,0.34,50.0014,NaN
+1,2,lines,TRBDF2 Local vol.,0.36,50.0015,NaN
+1,2,lines,TRBDF2 Local vol.,0.38,50.0016,NaN
+1,2,lines,TRBDF2 Local vol.,0.4,50.00170000000001,NaN
+1,2,lines,TRBDF2 Local vol.,0.42,50.001799999999996,NaN
+1,2,lines,TRBDF2 Local vol.,0.44,50.002,NaN
+1,2,lines,TRBDF2 Local vol.,0.46,50.002100000000006,NaN
+1,2,lines,TRBDF2 Local vol.,0.48,50.0023,NaN
+1,2,lines,TRBDF2 Local vol.,0.5,50.0027,NaN
+1,2,lines,TRBDF2 Local vol.,0.52,50.4996,NaN
+1,2,lines,TRBDF2 Local vol.,0.54,50.991699999999994,NaN
+1,2,lines,TRBDF2 Local vol.,0.56,51.4791,NaN
+1,2,lines,TRBDF2 Local vol.,0.58,51.961999999999996,NaN
+1,2,lines,TRBDF2 Local vol.,0.6,52.44029999999999,NaN
+1,2,lines,TRBDF2 Local vol.,0.62,52.9142,NaN
+1,2,lines,TRBDF2 Local vol.,0.64,53.3838,NaN
+1,2,lines,TRBDF2 Local vol.,0.66,53.849199999999996,NaN
+1,2,lines,TRBDF2 Local vol.,0.68,54.3105,NaN
+1,2,lines,TRBDF2 Local vol.,0.7,54.7678,NaN
+1,2,lines,TRBDF2 Local vol.,0.72,55.2212,NaN
+1,2,lines,TRBDF2 Local vol.,0.74,55.6706,NaN
+1,2,lines,TRBDF2 Local vol.,0.76,56.116299999999995,NaN
+1,2,lines,TRBDF2 Local vol.,0.78,56.558299999999996,NaN
+1,2,lines,TRBDF2 Local vol.,0.8,56.996500000000005,NaN
+1,2,lines,TRBDF2 Local vol.,0.82,57.431200000000004,NaN
+1,2,lines,TRBDF2 Local vol.,0.84,57.8623,NaN
+1,2,lines,TRBDF2 Local vol.,0.86,58.2898,NaN
+1,2,lines,TRBDF2 Local vol.,0.88,58.713899999999995,NaN
+1,2,lines,TRBDF2 Local vol.,0.9,59.1344,NaN
+1,2,lines,TRBDF2 Local vol.,0.92,59.551500000000004,NaN
+1,2,lines,TRBDF2 Local vol.,0.94,59.965199999999996,NaN
+1,2,lines,TRBDF2 Local vol.,0.96,60.3754,NaN
+1,2,lines,TRBDF2 Local vol.,0.98,60.782199999999996,NaN
+1,2,lines,TRBDF2 Local vol.,1.0,61.185500000000005,NaN

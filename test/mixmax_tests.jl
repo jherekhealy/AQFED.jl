@@ -3,12 +3,12 @@ using AQFED, Test
 import AQFED.Random
 
 
-function testSkip(N::Int)
+function testskip!(N::Int)
    myrange = [1535, 1536, 2000, 2046, 2047, 2048, 2049, 2050, 100000, 100001]
    for i in myrange
       gen1 = AQFED.Random.Mixmax17()
       n = UInt64(i)
-      AQFED.Random.skip(gen1, n)
+      AQFED.Random.skip!(gen1, n)
       u1 = rand(gen1, UInt64)
       gen2 = AQFED.Random.Mixmax17()
       for j = 1:n
@@ -23,23 +23,23 @@ function testSkip(N::Int)
    end
 end
 
-@testset "Mixmax17Skip" begin
-testSkip(17)
+@testset "Mixmax17skip!" begin
+testskip!(17)
 end
 
-@testset "Mixmax240Skip" begin
-testSkip(240)
+@testset "Mixmax240skip!" begin
+testskip!(240)
 end
 
 
-@testset "Mixmax17SkipTwice" begin
+@testset "Mixmax17skip!Twice" begin
    N = 17
    myrange = [1535, 1536, 2000, 2046, 2047, 2048, 2049, 2050, 100000, 100001]
    gen1 = AQFED.Random.Mixmax17()
    gen2 = AQFED.Random.Mixmax17()
    for i in myrange
       n = UInt64(i)
-      AQFED.Random.skip(gen1, n)
+      AQFED.Random.skip!(gen1, n)
       u1 = rand(gen1, UInt64)
       for j = 1:n
          rand(gen2, UInt64)
@@ -53,7 +53,7 @@ end
    end
 end
 
-@testset "Mixmax17Skip20" begin
+@testset "Mixmax17skip!20" begin
    gen = AQFED.Random.Mixmax17()
    N = 17
    a0 = Vector(undef, N)

@@ -1,0 +1,1204 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,Lognormal,0.8,0.2614061335356716,NaN
+1,1,lines,Lognormal,0.8015,0.27301199076978255,NaN
+1,1,lines,Lognormal,0.803,0.28501021577421365,NaN
+1,1,lines,Lognormal,0.8045,0.2974081538456485,NaN
+1,1,lines,Lognormal,0.806,0.31021302595281125,NaN
+1,1,lines,Lognormal,0.8075,0.32343191553944756,NaN
+1,1,lines,Lognormal,0.809,0.33707175516489724,NaN
+1,1,lines,Lognormal,0.8105,0.35113931300365925,NaN
+1,1,lines,Lognormal,0.812,0.3656411792262558,NaN
+1,1,lines,Lognormal,0.8135,0.3805837522843317,NaN
+1,1,lines,Lognormal,0.815,0.39597322512379124,NaN
+1,1,lines,Lognormal,0.8165,0.41181557135034225,NaN
+1,1,lines,Lognormal,0.818,0.42811653137247274,NaN
+1,1,lines,Lognormal,0.8195,0.44488159854751785,NaN
+1,1,lines,Lognormal,0.821,0.4621160053568744,NaN
+1,1,lines,Lognormal,0.8225,0.4798247096370016,NaN
+1,1,lines,Lognormal,0.824,0.49801238089317046,NaN
+1,1,lines,Lognormal,0.8255,0.5166833867233172,NaN
+1,1,lines,Lognormal,0.827,0.5358417793795757,NaN
+1,1,lines,Lognormal,0.8285,0.5554912824953563,NaN
+1,1,lines,Lognormal,0.83,0.5756352780059214,NaN
+1,1,lines,Lognormal,0.8315,0.5962767932905282,NaN
+1,1,lines,Lognormal,0.833,0.6174184885641838,NaN
+1,1,lines,Lognormal,0.8345,0.6390626445470832,NaN
+1,1,lines,Lognormal,0.836,0.6612111504395513,NaN
+1,1,lines,Lognormal,0.8375,0.6838654922302736,NaN
+1,1,lines,Lognormal,0.839,0.707026741365134,NaN
+1,1,lines,Lognormal,0.8405,0.7306955438039052,NaN
+1,1,lines,Lognormal,0.842,0.7548721094913081,NaN
+1,1,lines,Lognormal,0.8435,0.7795562022688479,NaN
+1,1,lines,Lognormal,0.845,0.8047471302529221,NaN
+1,1,lines,Lognormal,0.8465,0.8304437367044004,NaN
+1,1,lines,Lognormal,0.848,0.8566443914139559,NaN
+1,1,lines,Lognormal,0.8495,0.8833469826268752,NaN
+1,1,lines,Lognormal,0.851,0.9105489095300758,NaN
+1,1,lines,Lognormal,0.8525,0.9382470753233901,NaN
+1,1,lines,Lognormal,0.854,0.9664378808960166,NaN
+1,1,lines,Lognormal,0.8555,0.9951172191283006,NaN
+1,1,lines,Lognormal,0.857,1.0242804698376942,NaN
+1,1,lines,Lognormal,0.8585,1.0539224953868802,NaN
+1,1,lines,Lognormal,0.86,1.0840376369706786,NaN
+1,1,lines,Lognormal,0.8615,1.1146197115973595,NaN
+1,1,lines,Lognormal,0.863,1.145662009778543,NaN
+1,1,lines,Lognormal,0.8645,1.1771572939407093,NaN
+1,1,lines,Lognormal,0.866,1.209097797569932,NaN
+1,1,lines,Lognormal,0.8675,1.2414752251001742,NaN
+1,1,lines,Lognormal,0.869,1.274280752553905,NaN
+1,1,lines,Lognormal,0.8705,1.307505028942616,NaN
+1,1,lines,Lognormal,0.872,1.341138178433103,NaN
+1,1,lines,Lognormal,0.8735,1.3751698032841142,NaN
+1,1,lines,Lognormal,0.875,1.4095889875563021,NaN
+1,1,lines,Lognormal,0.8765,1.4443843015970417,NaN
+1,1,lines,Lognormal,0.878,1.479543807300017,NaN
+1,1,lines,Lognormal,0.8795,1.5150550641380904,NaN
+1,1,lines,Lognormal,0.881,1.5509051359663255,NaN
+1,1,lines,Lognormal,0.8825,1.587080598590556,NaN
+1,1,lines,Lognormal,0.884,1.6235675480953378,NaN
+1,1,lines,Lognormal,0.8855,1.6603516099236668,NaN
+1,1,lines,Lognormal,0.887,1.6974179486992245,NaN
+1,1,lines,Lognormal,0.8885,1.734751278780521,NaN
+1,1,lines,Lognormal,0.89,1.772335875534855,NaN
+1,1,lines,Lognormal,0.8915,1.8101555873183652,NaN
+1,1,lines,Lognormal,0.893,1.8481938481474054,NaN
+1,1,lines,Lognormal,0.8945,1.8864336910445951,NaN
+1,1,lines,Lognormal,0.896,1.9248577620420517,NaN
+1,1,lines,Lognormal,0.8975,1.9634483348225649,NaN
+1,1,lines,Lognormal,0.899,2.0021873259784977,NaN
+1,1,lines,Lognormal,0.9005,2.0410563108668116,NaN
+1,1,lines,Lognormal,0.902,2.080036540037445,NaN
+1,1,lines,Lognormal,0.9035,2.1191089562112198,NaN
+1,1,lines,Lognormal,0.905,2.15825421178228,NaN
+1,1,lines,Lognormal,0.9065,2.1974526868190276,NaN
+1,1,lines,Lognormal,0.908,2.2366845075367032,NaN
+1,1,lines,Lognormal,0.9095,2.2759295652135947,NaN
+1,1,lines,Lognormal,0.911,2.3151675355222685,NaN
+1,1,lines,Lognormal,0.9125,2.354377898246207,NaN
+1,1,lines,Lognormal,0.914,2.3935399573516727,NaN
+1,1,lines,Lognormal,0.9155,2.4326328613838992,NaN
+1,1,lines,Lognormal,0.917,2.4716356241560584,NaN
+1,1,lines,Lognormal,0.9185,2.5105271456990415,NaN
+1,1,lines,Lognormal,0.92,2.54928623343962,NaN
+1,1,lines,Lognormal,0.9215,2.587891623574039,NaN
+1,1,lines,Lognormal,0.923,2.6263220026039478,NaN
+1,1,lines,Lognormal,0.9245,2.664556029001257,NaN
+1,1,lines,Lognormal,0.926,2.702572354968345,NaN
+1,1,lines,Lognormal,0.9275,2.740349648259884,NaN
+1,1,lines,Lognormal,0.929,2.777866614032658,NaN
+1,1,lines,Lognormal,0.9305,2.8151020166896292,NaN
+1,1,lines,Lognormal,0.932,2.8520347016847385,NaN
+1,1,lines,Lognormal,0.9335,2.8886436172550236,NaN
+1,1,lines,Lognormal,0.935,2.924907836046955,NaN
+1,1,lines,Lognormal,0.9365,2.960806576604083,NaN
+1,1,lines,Lognormal,0.938,2.9963192246836514,NaN
+1,1,lines,Lognormal,0.9395,3.0314253543700755,NaN
+1,1,lines,Lognormal,0.941,3.0661047489538023,NaN
+1,1,lines,Lognormal,0.9425,3.1003374215446367,NaN
+1,1,lines,Lognormal,0.944,3.1341036353891627,NaN
+1,1,lines,Lognormal,0.9455,3.167383923862648,NaN
+1,1,lines,Lognormal,0.947,3.200159110106462,NaN
+1,1,lines,Lognormal,0.9485,3.2324103262829835,NaN
+1,1,lines,Lognormal,0.95,3.264119032420563,NaN
+1,1,lines,Lognormal,0.9515,3.295267034822261,NaN
+1,1,lines,Lognormal,0.953,3.3258365040127655,NaN
+1,1,lines,Lognormal,0.9545,3.3558099921990725,NaN
+1,1,lines,Lognormal,0.956,3.385170450221325,NaN
+1,1,lines,Lognormal,0.9575,3.413901243971447,NaN
+1,1,lines,Lognormal,0.959,3.441986170258114,NaN
+1,1,lines,Lognormal,0.9605,3.4694094720978703,NaN
+1,1,lines,Lognormal,0.962,3.496155853413172,NaN
+1,1,lines,Lognormal,0.9635,3.5222104931195357,NaN
+1,1,lines,Lognormal,0.965,3.5475590585848584,NaN
+1,1,lines,Lognormal,0.9665,3.5721877184455137,NaN
+1,1,lines,Lognormal,0.968,3.5960831547647722,NaN
+1,1,lines,Lognormal,0.9695,3.6192325745205456,NaN
+1,1,lines,Lognormal,0.971,3.641623720410528,NaN
+1,1,lines,Lognormal,0.9725,3.663244880964244,NaN
+1,1,lines,Lognormal,0.974,3.684084899952645,NaN
+1,1,lines,Lognormal,0.9755,3.7041331850871946,NaN
+1,1,lines,Lognormal,0.977,3.7233797160017357,NaN
+1,1,lines,Lognormal,0.9785,3.741815051511541,NaN
+1,1,lines,Lognormal,0.98,3.7594303361453827,NaN
+1,1,lines,Lognormal,0.9815,3.776217305947561,NaN
+1,1,lines,Lognormal,0.983,3.7921682935481513,NaN
+1,1,lines,Lognormal,0.9845,3.80727623250098,NaN
+1,1,lines,Lognormal,0.986,3.8215346608899328,NaN
+1,1,lines,Lognormal,0.9875,3.83493772420555,NaN
+1,1,lines,Lognormal,0.989,3.847480177494883,NaN
+1,1,lines,Lognormal,0.9905,3.859157386788914,NaN
+1,1,lines,Lognormal,0.992,3.8699653298127323,NaN
+1,1,lines,Lognormal,0.9935,3.879900595985019,NaN
+1,1,lines,Lognormal,0.995,3.8889603857142583,NaN
+1,1,lines,Lognormal,0.9965,3.897142509000261,NaN
+1,1,lines,Lognormal,0.998,3.904445383350518,NaN
+1,1,lines,Lognormal,0.9995,3.910868031021947,NaN
+1,1,lines,Lognormal,1.001,3.9164100755994653,NaN
+1,1,lines,Lognormal,1.0025,3.9210717379238047,NaN
+1,1,lines,Lognormal,1.004,3.9248538313817725,NaN
+1,1,lines,Lognormal,1.0055,3.927757756573066,NaN
+1,1,lines,Lognormal,1.007,3.9297854953684994,NaN
+1,1,lines,Lognormal,1.0085,3.9309396043752467,NaN
+1,1,lines,Lognormal,1.01,3.9312232078254423,NaN
+1,1,lines,Lognormal,1.0115,3.930639989905137,NaN
+1,1,lines,Lognormal,1.013,3.9291941865412126,NaN
+1,1,lines,Lognormal,1.0145,3.926890576664472,NaN
+1,1,lines,Lognormal,1.016,3.923734472967657,NaN
+1,1,lines,Lognormal,1.0175,3.9197317121776107,NaN
+1,1,lines,Lognormal,1.019,3.9148886448612927,NaN
+1,1,lines,Lognormal,1.0205,3.909212124785753,NaN
+1,1,lines,Lognormal,1.022,3.9027094978525265,NaN
+1,1,lines,Lognormal,1.0235,3.8953885906272383,NaN
+1,1,lines,Lognormal,1.025,3.887257698485503,NaN
+1,1,lines,Lognormal,1.0265,3.8783255733964075,NaN
+1,1,lines,Lognormal,1.028,3.868601411365114,NaN
+1,1,lines,Lognormal,1.0295,3.858094839556199,NaN
+1,1,lines,Lognormal,1.031,3.8468159031195404,NaN
+1,1,lines,Lognormal,1.0325,3.834775051740549,NaN
+1,1,lines,Lognormal,1.034,3.8219831259366734,NaN
+1,1,lines,Lognormal,1.0355,3.8084513431219897,NaN
+1,1,lines,Lognormal,1.037,3.794191283461736,NaN
+1,1,lines,Lognormal,1.0385,3.7792148755385004,NaN
+1,1,lines,Lognormal,1.04,3.7635343818517324,NaN
+1,1,lines,Lognormal,1.0415,3.747162384171987,NaN
+1,1,lines,Lognormal,1.043,3.7301117687712266,NaN
+1,1,lines,Lognormal,1.0445,3.7123957115502177,NaN
+1,1,lines,Lognormal,1.046,3.6940276630838618,NaN
+1,1,lines,Lognormal,1.0475,3.6750213336049593,NaN
+1,1,lines,Lognormal,1.049,3.655390677946638,NaN
+1,1,lines,Lognormal,1.0505,3.635149880463319,NaN
+1,1,lines,Lognormal,1.052,3.614313339949771,NaN
+1,1,lines,Lognormal,1.0535,3.5928956545773114,NaN
+1,1,lines,Lognormal,1.055,3.5709116068659363,NaN
+1,1,lines,Lognormal,1.0565,3.5483761487105894,NaN
+1,1,lines,Lognormal,1.058,3.525304386479455,NaN
+1,1,lines,Lognormal,1.0595,3.501711566201551,NaN
+1,1,lines,Lognormal,1.061,3.4776130588605274,NaN
+1,1,lines,Lognormal,1.0625,3.453024345810926,NaN
+1,1,lines,Lognormal,1.064,3.4279610043328317,NaN
+1,1,lines,Lognormal,1.0655,3.4024386933400423,NaN
+1,1,lines,Lognormal,1.067,3.37647313925655,NaN
+1,1,lines,Lognormal,1.0685,3.350080122075491,NaN
+1,1,lines,Lognormal,1.07,3.323275461614079,NaN
+1,1,lines,Lognormal,1.0715,3.2960750039775566,NaN
+1,1,lines,Lognormal,1.073,3.268494608244513,NaN
+1,1,lines,Lognormal,1.0745,3.240550133385458,NaN
+1,1,lines,Lognormal,1.076,3.2122574254257334,NaN
+1,1,lines,Lognormal,1.0775,3.1836323048634445,NaN
+1,1,lines,Lognormal,1.079,3.1546905543523422,NaN
+1,1,lines,Lognormal,1.0805,3.125447906659089,NaN
+1,1,lines,Lognormal,1.082,3.0959200329036136,NaN
+1,1,lines,Lognormal,1.0835,3.0661225310907603,NaN
+1,1,lines,Lognormal,1.085,3.0360709149407534,NaN
+1,1,lines,Lognormal,1.0865,3.005780603025501,NaN
+1,1,lines,Lognormal,1.088,2.975266908216985,NaN
+1,1,lines,Lognormal,1.0895,2.944545027453618,NaN
+1,1,lines,Lognormal,1.091,2.9136300318296398,NaN
+1,1,lines,Lognormal,1.0925,2.882536857012272,NaN
+1,1,lines,Lognormal,1.094,2.8512802939905435,NaN
+1,1,lines,Lognormal,1.0955,2.8198749801593253,NaN
+1,1,lines,Lognormal,1.097,2.788335390741458,NaN
+1,1,lines,Lognormal,1.0985,2.7566758305504098,NaN
+1,1,lines,Lognormal,1.1,2.7249104260951857,NaN
+1,1,lines,Lognormal,1.1015,2.6930531180289377,NaN
+1,1,lines,Lognormal,1.103,2.661117653941983,NaN
+1,1,lines,Lognormal,1.1045,2.6291175814996697,NaN
+1,1,lines,Lognormal,1.106,2.597066241924787,NaN
+1,1,lines,Lognormal,1.1075,2.5649767638240086,NaN
+1,1,lines,Lognormal,1.109,2.532862057357207,NaN
+1,1,lines,Lognormal,1.1105,2.500734808748182,NaN
+1,1,lines,Lognormal,1.112,2.468607475134792,NaN
+1,1,lines,Lognormal,1.1135,2.436492279756156,NaN
+1,1,lines,Lognormal,1.115,2.40440120747418,NaN
+1,1,lines,Lognormal,1.1165,2.372346000626291,NaN
+1,1,lines,Lognormal,1.118,2.3403381552058313,NaN
+1,1,lines,Lognormal,1.1195,2.308388917366331,NaN
+1,1,lines,Lognormal,1.121,2.276509280245427,NaN
+1,1,lines,Lognormal,1.1225,2.2447099811040383,NaN
+1,1,lines,Lognormal,1.124,2.2130014987758795,NaN
+1,1,lines,Lognormal,1.1255,2.181394051422347,NaN
+1,1,lines,Lognormal,1.127,2.1498975945874053,NaN
+1,1,lines,Lognormal,1.1285,2.1185218195468862,NaN
+1,1,lines,Lognormal,1.13,2.0872761519464045,NaN
+1,1,lines,Lognormal,1.1315,2.0561697507217893,NaN
+1,1,lines,Lognormal,1.133,2.0252115072958827,NaN
+1,1,lines,Lognormal,1.1345,1.9944100450452091,NaN
+1,1,lines,Lognormal,1.136,1.9637737190299214,NaN
+1,1,lines,Lognormal,1.1375,1.9333106159802789,NaN
+1,1,lines,Lognormal,1.139,1.903028554532814,NaN
+1,1,lines,Lognormal,1.1405,1.8729350857090166,NaN
+1,1,lines,Lognormal,1.142,1.8430374936295855,NaN
+1,1,lines,Lognormal,1.1435,1.8133427964568152,NaN
+1,1,lines,Lognormal,1.145,1.7838577475580137,NaN
+1,1,lines,Lognormal,1.1465,1.7545888368823481,NaN
+1,1,lines,Lognormal,1.148,1.7255422925438069,NaN
+1,1,lines,Lognormal,1.1495,1.6967240826027383,NaN
+1,1,lines,Lognormal,1.151,1.6681399170384725,NaN
+1,1,lines,Lognormal,1.1525,1.6397952499053987,NaN
+1,1,lines,Lognormal,1.154,1.6116952816650545,NaN
+1,1,lines,Lognormal,1.1555,1.5838449616865802,NaN
+1,1,lines,Lognormal,1.157,1.556248990908081,NaN
+1,1,lines,Lognormal,1.1585,1.5289118246513103,NaN
+1,1,lines,Lognormal,1.16,1.501837675582261,NaN
+1,1,lines,Lognormal,1.1615,1.4750305168101754,NaN
+1,1,lines,Lognormal,1.163,1.4484940851176573,NaN
+1,1,lines,Lognormal,1.1645,1.4222318843145012,NaN
+1,1,lines,Lognormal,1.166,1.3962471887080528,NaN
+1,1,lines,Lognormal,1.1675,1.3705430466828918,NaN
+1,1,lines,Lognormal,1.169,1.3451222843827997,NaN
+1,1,lines,Lognormal,1.1705,1.3199875094879918,NaN
+1,1,lines,Lognormal,1.172,1.2951411150807604,NaN
+1,1,lines,Lognormal,1.1735,1.2705852835927134,NaN
+1,1,lines,Lognormal,1.175,1.2463219908270258,NaN
+1,1,lines,Lognormal,1.1765,1.2223530100490732,NaN
+1,1,lines,Lognormal,1.178,1.1986799161391037,NaN
+1,1,lines,Lognormal,1.1795,1.1753040898005942,NaN
+1,1,lines,Lognormal,1.181,1.1522267218182276,NaN
+1,1,lines,Lognormal,1.1825,1.1294488173593955,NaN
+1,1,lines,Lognormal,1.184,1.106971200313402,NaN
+1,1,lines,Lognormal,1.1855,1.0847945176626073,NaN
+1,1,lines,Lognormal,1.187,1.0629192438800081,NaN
+1,1,lines,Lognormal,1.1885,1.041345685347727,NaN
+1,1,lines,Lognormal,1.19,1.020073984791203,NaN
+1,1,lines,Lognormal,1.1915,0.9991041257239918,NaN
+1,1,lines,Lognormal,1.193,0.9784359368981231,NaN
+1,1,lines,Lognormal,1.1945,0.9580690967553265,NaN
+1,1,lines,Lognormal,1.196,0.9380031378743794,NaN
+1,1,lines,Lognormal,1.1975,0.9182374514102023,NaN
+1,1,lines,Lognormal,1.199,0.8987712915202862,NaN
+1,1,lines,Lognormal,1.2005,0.8796037797743737,NaN
+1,1,lines,Lognormal,1.202,0.8607339095433247,NaN
+1,1,lines,Lognormal,1.2035,0.8421605503634193,NaN
+1,1,lines,Lognormal,1.205,0.823882452272327,NaN
+1,1,lines,Lognormal,1.2065,0.8058982501133177,NaN
+1,1,lines,Lognormal,1.208,0.7882064678042804,NaN
+1,1,lines,Lognormal,1.2095,0.7708055225684202,NaN
+1,1,lines,Lognormal,1.211,0.753693729123542,NaN
+1,1,lines,Lognormal,1.2125,0.7368693038270663,NaN
+1,1,lines,Lognormal,1.214,0.7203303687740094,NaN
+1,1,lines,Lognormal,1.2155,0.7040749558453946,NaN
+1,1,lines,Lognormal,1.217,0.6881010107046207,NaN
+1,1,lines,Lognormal,1.2185,0.6724063967395011,NaN
+1,1,lines,Lognormal,1.22,0.6569888989478602,NaN
+1,1,lines,Lognormal,1.2215,0.6418462277646725,NaN
+1,1,lines,Lognormal,1.223,0.6269760228288747,NaN
+1,1,lines,Lognormal,1.2245,0.6123758566881321,NaN
+1,1,lines,Lognormal,1.226,0.5980432384399799,NaN
+1,1,lines,Lognormal,1.2275,0.5839756173078697,NaN
+1,1,lines,Lognormal,1.229,0.5701703861507997,NaN
+1,1,lines,Lognormal,1.2305,0.5566248849053035,NaN
+1,1,lines,Lognormal,1.232,0.5433364039587372,NaN
+1,1,lines,Lognormal,1.2335,0.5303021874528902,NaN
+1,1,lines,Lognormal,1.235,0.5175194365170639,NaN
+1,1,lines,Lognormal,1.2365,0.5049853124298935,NaN
+1,1,lines,Lognormal,1.238,0.49269693970926076,NaN
+1,1,lines,Lognormal,1.2395,0.48065140912981313,NaN
+1,1,lines,Lognormal,1.241,0.46884578066763405,NaN
+1,1,lines,Lognormal,1.2425,0.4572770863717503,NaN
+1,1,lines,Lognormal,1.244,0.44594233316225657,NaN
+1,1,lines,Lognormal,1.2455,0.43483850555492914,NaN
+1,1,lines,Lognormal,1.247,0.4239625683122567,NaN
+1,1,lines,Lognormal,1.2485,0.41331146902095633,NaN
+1,1,lines,Lognormal,1.25,0.4028821405960695,NaN
+1,1,lines,Lognormal,1.2515,0.3926715037118646,NaN
+1,1,lines,Lognormal,1.253,0.3826764691598008,NaN
+1,1,lines,Lognormal,1.2545,0.37289394013388877,NaN
+1,1,lines,Lognormal,1.256,0.36332081444391595,NaN
+1,1,lines,Lognormal,1.2575,0.35395398665694033,NaN
+1,1,lines,Lognormal,1.259,0.34479035016766285,NaN
+1,1,lines,Lognormal,1.2605,0.335826799198234,NaN
+1,1,lines,Lognormal,1.262,0.3270602307281841,NaN
+1,1,lines,Lognormal,1.2635,0.31848754635516324,NaN
+1,1,lines,Lognormal,1.265,0.3101056540872631,NaN
+1,1,lines,Lognormal,1.2665,0.301911470067721,NaN
+1,1,lines,Lognormal,1.268,0.2939019202328695,NaN
+1,1,lines,Lognormal,1.2695,0.28607394190420266,NaN
+1,1,lines,Lognormal,1.271,0.27842448531551234,NaN
+1,1,lines,Lognormal,1.2725,0.27095051507602796,NaN
+1,1,lines,Lognormal,1.274,0.26364901157060355,NaN
+1,1,lines,Lognormal,1.2755,0.25651697229793624,NaN
+1,1,lines,Lognormal,1.277,0.24955141314789728,NaN
+1,1,lines,Lognormal,1.2785,0.24274936961905444,NaN
+1,1,lines,Lognormal,1.28,0.2361078979774849,NaN
+1,1,lines,Lognormal,1.2815,0.22962407635801094,NaN
+1,1,lines,Lognormal,1.283,0.22329500580899336,NaN
+1,1,lines,Lognormal,1.2845,0.2171178112818515,NaN
+1,1,lines,Lognormal,1.286,0.21108964256648188,NaN
+1,1,lines,Lognormal,1.2875,0.20520767517375876,NaN
+1,1,lines,Lognormal,1.289,0.1994691111663132,NaN
+1,1,lines,Lognormal,1.2905,0.19387117993879685,NaN
+1,1,lines,Lognormal,1.292,0.1884111389488458,NaN
+1,1,lines,Lognormal,1.2935,0.18308627439994718,NaN
+1,1,lines,Lognormal,1.295,0.1778939018774452,NaN
+1,1,lines,Lognormal,1.2965,0.1728313669388814,NaN
+1,1,lines,Lognormal,1.298,0.16789604565992194,NaN
+1,1,lines,Lognormal,1.2995,0.1630853451370552,NaN
+1,1,lines,Lognormal,1.301,0.15839670394830108,NaN
+1,1,lines,Lognormal,1.3025,0.15382759257312018,NaN
+1,1,lines,Lognormal,1.304,0.14937551377275363,NaN
+1,1,lines,Lognormal,1.3055,0.1450380029321609,NaN
+1,1,lines,Lognormal,1.307,0.14081262836477135,NaN
+1,1,lines,Lognormal,1.3085,0.13669699158120566,NaN
+1,1,lines,Lognormal,1.31,0.132688727523163,NaN
+1,1,lines,Lognormal,1.3115,0.1287855047636093,NaN
+1,1,lines,Lognormal,1.313,0.12498502567442622,NaN
+1,1,lines,Lognormal,1.3145,0.1212850265626439,NaN
+1,1,lines,Lognormal,1.316,0.1176832777763964,NaN
+1,1,lines,Lognormal,1.3175,0.11417758378167843,NaN
+1,1,lines,Lognormal,1.319,0.11076578321101259,NaN
+1,1,lines,Lognormal,1.3205,0.10744574888509657,NaN
+1,1,lines,Lognormal,1.322,0.10421538780848195,NaN
+1,1,lines,Lognormal,1.3235,0.10107264114033014,NaN
+1,1,lines,Lognormal,1.325,0.09801548414126715,NaN
+1,1,lines,Lognormal,1.3265,0.09504192609734383,NaN
+1,1,lines,Lognormal,1.328,0.09215001022208202,NaN
+1,1,lines,Lognormal,1.3295,0.08933781353757915,NaN
+1,1,lines,Lognormal,1.331,0.08660344673562172,NaN
+1,1,lines,Lognormal,1.3325,0.08394505401972961,NaN
+1,1,lines,Lognormal,1.334,0.08136081292904833,NaN
+1,1,lines,Lognormal,1.3355,0.0788489341449747,NaN
+1,1,lines,Lognormal,1.337,0.07640766128138357,NaN
+1,1,lines,Lognormal,1.3385,0.07403527065931484,NaN
+1,1,lines,Lognormal,1.34,0.07173007106693859,NaN
+1,1,lines,Lognormal,1.3415,0.06949040350561307,NaN
+1,1,lines,Lognormal,1.343,0.0673146409228265,NaN
+1,1,lines,Lognormal,1.3445,0.06520118793278627,NaN
+1,1,lines,Lognormal,1.346,0.06314848052540563,NaN
+1,1,lines,Lognormal,1.3475,0.06115498576441809,NaN
+1,1,lines,Lognormal,1.349,0.05921920147532093,NaN
+1,1,lines,Lognormal,1.3505,0.05733965592384338,NaN
+1,1,lines,Lognormal,1.352,0.05551490748559908,NaN
+1,1,lines,Lognormal,1.3535,0.053743544307574886,NaN
+1,1,lines,Lognormal,1.355,0.052024183962082055,NaN
+1,1,lines,Lognormal,1.3565,0.050355473093777976,NaN
+1,1,lines,Lognormal,1.358,0.04873608706034764,NaN
+1,1,lines,Lognormal,1.3595,0.047164729567413397,NaN
+1,1,lines,Lognormal,1.361,0.045640132298222,NaN
+1,1,lines,Lognormal,1.3625,0.044161054538646556,NaN
+1,1,lines,Lognormal,1.364,0.042726282798006984,NaN
+1,1,lines,Lognormal,1.3655,0.041334630426213353,NaN
+1,1,lines,Lognormal,1.367,0.03998493722770142,NaN
+1,1,lines,Lognormal,1.3685,0.03867606907262487,NaN
+1,1,lines,Lognormal,1.37,0.037406917505742925,NaN
+1,1,lines,Lognormal,1.3715,0.03617639935342796,NaN
+1,1,lines,Lognormal,1.373,0.034983456329202564,NaN
+1,1,lines,Lognormal,1.3745,0.03382705463819649,NaN
+1,1,lines,Lognormal,1.376,0.0327061845808968,NaN
+1,1,lines,Lognormal,1.3775,0.03161986015655273,NaN
+1,1,lines,Lognormal,1.379,0.030567118666578703,NaN
+1,1,lines,Lognormal,1.3805,0.02954702031828101,NaN
+1,1,lines,Lognormal,1.382,0.02855864782922567,NaN
+1,1,lines,Lognormal,1.3835,0.027601106032542327,NaN
+1,1,lines,Lognormal,1.385,0.026673521483452863,NaN
+1,1,lines,Lognormal,1.3865,0.02577504206729204,NaN
+1,1,lines,Lognormal,1.388,0.024904836609280025,NaN
+1,1,lines,Lognormal,1.3895,0.024062094486289074,NaN
+1,1,lines,Lognormal,1.391,0.023246025240837336,NaN
+1,1,lines,Lognormal,1.3925,0.02245585819752706,NaN
+1,1,lines,Lognormal,1.394,0.021690842082134697,NaN
+1,1,lines,Lognormal,1.3955,0.020950244643547604,NaN
+1,1,lines,Lognormal,1.397,0.020233352278730302,NaN
+1,1,lines,Lognormal,1.3985,0.019539469660893094,NaN
+1,1,lines,Lognormal,1.4,0.018867919371023705,NaN
+1,2,lines,C1 quadratic B-spline,0.8,0.22620945795970293,NaN
+1,2,lines,C1 quadratic B-spline,0.8015,0.23686703019998312,NaN
+1,2,lines,C1 quadratic B-spline,0.803,0.2480267204651998,NaN
+1,2,lines,C1 quadratic B-spline,0.8045,0.25971218540976615,NaN
+1,2,lines,C1 quadratic B-spline,0.806,0.27194819623987954,NaN
+1,2,lines,C1 quadratic B-spline,0.8075,0.28476069123040126,NaN
+1,2,lines,C1 quadratic B-spline,0.809,0.29817683070310075,NaN
+1,2,lines,C1 quadratic B-spline,0.8105,0.3122250546039318,NaN
+1,2,lines,C1 quadratic B-spline,0.812,0.32693514278814284,NaN
+1,2,lines,C1 quadratic B-spline,0.8135,0.3423382781553297,NaN
+1,2,lines,C1 quadratic B-spline,0.815,0.35846711274434284,NaN
+1,2,lines,C1 quadratic B-spline,0.8165,0.3753558369579135,NaN
+1,2,lines,C1 quadratic B-spline,0.818,0.3930402520313514,NaN
+1,2,lines,C1 quadratic B-spline,0.8195,0.41155784593405187,NaN
+1,2,lines,C1 quadratic B-spline,0.821,0.4309478728303784,NaN
+1,2,lines,C1 quadratic B-spline,0.8225,0.4512514362986497,NaN
+1,2,lines,C1 quadratic B-spline,0.824,0.4725115764547816,NaN
+1,2,lines,C1 quadratic B-spline,0.8255,0.49474629643220247,NaN
+1,2,lines,C1 quadratic B-spline,0.827,0.517691388516317,NaN
+1,2,lines,C1 quadratic B-spline,0.8285,0.5412608775312577,NaN
+1,2,lines,C1 quadratic B-spline,0.83,0.5654434392721175,NaN
+1,2,lines,C1 quadratic B-spline,0.8315,0.5902253995282436,NaN
+1,2,lines,C1 quadratic B-spline,0.833,0.6155907078420064,NaN
+1,2,lines,C1 quadratic B-spline,0.8345,0.6415209276633416,NaN
+1,2,lines,C1 quadratic B-spline,0.836,0.6679952435428849,NaN
+1,2,lines,C1 quadratic B-spline,0.8375,0.6949904858200018,NaN
+1,2,lines,C1 quadratic B-spline,0.839,0.7224811730022207,NaN
+1,2,lines,C1 quadratic B-spline,0.8405,0.7504395718738177,NaN
+1,2,lines,C1 quadratic B-spline,0.842,0.7788357750670993,NaN
+1,2,lines,C1 quadratic B-spline,0.8435,0.8076377956878211,NaN
+1,2,lines,C1 quadratic B-spline,0.845,0.8368116782686563,NaN
+1,2,lines,C1 quadratic B-spline,0.8465,0.8663216251914019,NaN
+1,2,lines,C1 quadratic B-spline,0.848,0.8961301374976749,NaN
+1,2,lines,C1 quadratic B-spline,0.8495,0.926198168801351,NaN
+1,2,lines,C1 quadratic B-spline,0.851,0.956485290841691,NaN
+1,2,lines,C1 quadratic B-spline,0.8525,0.9869498692260947,NaN
+1,2,lines,C1 quadratic B-spline,0.854,1.0175492475261727,NaN
+1,2,lines,C1 quadratic B-spline,0.8555,1.0482399381162022,NaN
+1,2,lines,C1 quadratic B-spline,0.857,1.0789778178599274,NaN
+1,2,lines,C1 quadratic B-spline,0.8585,1.1097183268271582,NaN
+1,2,lines,C1 quadratic B-spline,0.86,1.1404166682171812,NaN
+1,2,lines,C1 quadratic B-spline,0.8615,1.1710280076782098,NaN
+1,2,lines,C1 quadratic B-spline,0.863,1.201507670264279,NaN
+1,2,lines,C1 quadratic B-spline,0.8645,1.2318113334097713,NaN
+1,2,lines,C1 quadratic B-spline,0.866,1.2618952142451345,NaN
+1,2,lines,C1 quadratic B-spline,0.8675,1.2917162499392898,NaN
+1,2,lines,C1 quadratic B-spline,0.869,1.3212322696454226,NaN
+1,2,lines,C1 quadratic B-spline,0.8705,1.3504021569221702,NaN
+1,2,lines,C1 quadratic B-spline,0.872,1.37918600160436,NaN
+1,2,lines,C1 quadratic B-spline,0.8735,1.4075452402551036,NaN
+1,2,lines,C1 quadratic B-spline,0.875,1.4354436292962625,NaN
+1,2,lines,C1 quadratic B-spline,0.8765,1.4634571410654384,NaN
+1,2,lines,C1 quadratic B-spline,0.878,1.4921085964147984,NaN
+1,2,lines,C1 quadratic B-spline,0.8795,1.5213936181901477,NaN
+1,2,lines,C1 quadratic B-spline,0.881,1.5513090757501846,NaN
+1,2,lines,C1 quadratic B-spline,0.8825,1.5818529797362313,NaN
+1,2,lines,C1 quadratic B-spline,0.884,1.6130243888223816,NaN
+1,2,lines,C1 quadratic B-spline,0.8855,1.644823327013878,NaN
+1,2,lines,C1 quadratic B-spline,0.887,1.6772507102269518,NaN
+1,2,lines,C1 quadratic B-spline,0.8885,1.7103082811342762,NaN
+1,2,lines,C1 quadratic B-spline,0.89,1.7439985512346379,NaN
+1,2,lines,C1 quadratic B-spline,0.8915,1.7783247494040921,NaN
+1,2,lines,C1 quadratic B-spline,0.893,1.8132907761658767,NaN
+1,2,lines,C1 quadratic B-spline,0.8945,1.8489011630729024,NaN
+1,2,lines,C1 quadratic B-spline,0.896,1.885161036577765,NaN
+1,2,lines,C1 quadratic B-spline,0.8975,1.9220760860394481,NaN
+1,2,lines,C1 quadratic B-spline,0.899,1.9596525352849614,NaN
+1,2,lines,C1 quadratic B-spline,0.9005,1.9978971174705595,NaN
+1,2,lines,C1 quadratic B-spline,0.902,2.0368170528228813,NaN
+1,2,lines,C1 quadratic B-spline,0.9035,2.076420029022419,NaN
+1,2,lines,C1 quadratic B-spline,0.905,2.116714183946211,NaN
+1,2,lines,C1 quadratic B-spline,0.9065,2.157708090539945,NaN
+1,2,lines,C1 quadratic B-spline,0.908,2.1994107436307253,NaN
+1,2,lines,C1 quadratic B-spline,0.9095,2.241831548454032,NaN
+1,2,lines,C1 quadratic B-spline,0.911,2.2849803108104805,NaN
+1,2,lines,C1 quadratic B-spline,0.9125,2.3288672286569945,NaN
+1,2,lines,C1 quadratic B-spline,0.914,2.3735028849825035,NaN
+1,2,lines,C1 quadratic B-spline,0.9155,2.4188982419293126,NaN
+1,2,lines,C1 quadratic B-spline,0.917,2.465064636018033,NaN
+1,2,lines,C1 quadratic B-spline,0.9185,2.5120137743483983,NaN
+1,2,lines,C1 quadratic B-spline,0.92,2.559757731795953,NaN
+1,2,lines,C1 quadratic B-spline,0.9215,2.6083089490114286,NaN
+1,2,lines,C1 quadratic B-spline,0.923,2.657680231270554,NaN
+1,2,lines,C1 quadratic B-spline,0.9245,2.7078847480532797,NaN
+1,2,lines,C1 quadratic B-spline,0.926,2.7584002967351307,NaN
+1,2,lines,C1 quadratic B-spline,0.9275,2.8076535028953575,NaN
+1,2,lines,C1 quadratic B-spline,0.929,2.855486976323096,NaN
+1,2,lines,C1 quadratic B-spline,0.9305,2.9018449484652376,NaN
+1,2,lines,C1 quadratic B-spline,0.932,2.9466758650309455,NaN
+1,2,lines,C1 quadratic B-spline,0.9335,2.98993250374191,NaN
+1,2,lines,C1 quadratic B-spline,0.935,3.0315720655138545,NaN
+1,2,lines,C1 quadratic B-spline,0.9365,3.071556238639639,NaN
+1,2,lines,C1 quadratic B-spline,0.938,3.1098512368044062,NaN
+1,2,lines,C1 quadratic B-spline,0.9395,3.1464278117887545,NaN
+1,2,lines,C1 quadratic B-spline,0.941,3.1812612411530328,NaN
+1,2,lines,C1 quadratic B-spline,0.9425,3.214331292484829,NaN
+1,2,lines,C1 quadratic B-spline,0.944,3.245622165566342,NaN
+1,2,lines,C1 quadratic B-spline,0.9455,3.275122413280984,NaN
+1,2,lines,C1 quadratic B-spline,0.947,3.302824843315344,NaN
+1,2,lines,C1 quadratic B-spline,0.9485,3.3287264023151852,NaN
+1,2,lines,C1 quadratic B-spline,0.95,3.3528280437045144,NaN
+1,2,lines,C1 quadratic B-spline,0.9515,3.3751345813215483,NaN
+1,2,lines,C1 quadratic B-spline,0.953,3.3956545306845776,NaN
+1,2,lines,C1 quadratic B-spline,0.9545,3.4143999392521884,NaN
+1,2,lines,C1 quadratic B-spline,0.956,3.4313862077306467,NaN
+1,2,lines,C1 quadratic B-spline,0.9575,3.446631904289177,NaN
+1,2,lines,C1 quadratic B-spline,0.959,3.460158572726746,NaN
+1,2,lines,C1 quadratic B-spline,0.9605,3.471990536858538,NaN
+1,2,lines,C1 quadratic B-spline,0.962,3.4821547022501065,NaN
+1,2,lines,C1 quadratic B-spline,0.9635,3.490680356844633,NaN
+1,2,lines,C1 quadratic B-spline,0.965,3.4975989715346767,NaN
+1,2,lines,C1 quadratic B-spline,0.9665,3.5029440025646785,NaN
+1,2,lines,C1 quadratic B-spline,0.968,3.5067506959507444,NaN
+1,2,lines,C1 quadratic B-spline,0.9695,3.5090558957173723,NaN
+1,2,lines,C1 quadratic B-spline,0.971,3.5098978565295536,NaN
+1,2,lines,C1 quadratic B-spline,0.9725,3.5093160614718677,NaN
+1,2,lines,C1 quadratic B-spline,0.974,3.5073510455907453,NaN
+1,2,lines,C1 quadratic B-spline,0.9755,3.504309964112995,NaN
+1,2,lines,C1 quadratic B-spline,0.977,3.503070813446474,NaN
+1,2,lines,C1 quadratic B-spline,0.9785,3.5043263740541786,NaN
+1,2,lines,C1 quadratic B-spline,0.98,3.5079807664828433,NaN
+1,2,lines,C1 quadratic B-spline,0.9815,3.5139505829984152,NaN
+1,2,lines,C1 quadratic B-spline,0.983,3.522163686489055,NaN
+1,2,lines,C1 quadratic B-spline,0.9845,3.5325581742562395,NaN
+1,2,lines,C1 quadratic B-spline,0.986,3.5450814829618427,NaN
+1,2,lines,C1 quadratic B-spline,0.9875,3.559689616048356,NaN
+1,2,lines,C1 quadratic B-spline,0.989,3.576346476541481,NaN
+1,2,lines,C1 quadratic B-spline,0.9905,3.595023292600752,NaN
+1,2,lines,C1 quadratic B-spline,0.992,3.6156981245683006,NaN
+1,2,lines,C1 quadratic B-spline,0.9935,3.638355441422103,NaN
+1,2,lines,C1 quadratic B-spline,0.995,3.6629857621828243,NaN
+1,2,lines,C1 quadratic B-spline,0.9965,3.6895853518248423,NaN
+1,2,lines,C1 quadratic B-spline,0.998,3.718155968149839,NaN
+1,2,lines,C1 quadratic B-spline,0.9995,3.748704652848378,NaN
+1,2,lines,C1 quadratic B-spline,1.001,3.7812435648232334,NaN
+1,2,lines,C1 quadratic B-spline,1.0025,3.815789850034612,NaN
+1,2,lines,C1 quadratic B-spline,1.004,3.852365546075376,NaN
+1,2,lines,C1 quadratic B-spline,1.0055,3.8909975191070423,NaN
+1,2,lines,C1 quadratic B-spline,1.007,3.9317174308162173,NaN
+1,2,lines,C1 quadratic B-spline,1.0085,3.9745617342501482,NaN
+1,2,lines,C1 quadratic B-spline,1.01,4.019571696590729,NaN
+1,2,lines,C1 quadratic B-spline,1.0115,4.06679344923111,NaN
+1,2,lines,C1 quadratic B-spline,1.013,4.116278063166501,NaN
+1,2,lines,C1 quadratic B-spline,1.0145,4.168081650501865,NaN
+1,2,lines,C1 quadratic B-spline,1.016,4.222265491397037,NaN
+1,2,lines,C1 quadratic B-spline,1.0175,4.278896187126513,NaN
+1,2,lines,C1 quadratic B-spline,1.019,4.338045839068494,NaN
+1,2,lines,C1 quadratic B-spline,1.0205,4.399792255045387,NaN
+1,2,lines,C1 quadratic B-spline,1.022,4.464219183542006,NaN
+1,2,lines,C1 quadratic B-spline,1.0235,4.531416576810665,NaN
+1,2,lines,C1 quadratic B-spline,1.025,4.595841703449177,NaN
+1,2,lines,C1 quadratic B-spline,1.0265,4.500492258340261,NaN
+1,2,lines,C1 quadratic B-spline,1.028,4.409546055337832,NaN
+1,2,lines,C1 quadratic B-spline,1.0295,4.322792022400379,NaN
+1,2,lines,C1 quadratic B-spline,1.031,4.240034056916531,NaN
+1,2,lines,C1 quadratic B-spline,1.0325,4.161089959029418,NaN
+1,2,lines,C1 quadratic B-spline,1.034,4.085790465351846,NaN
+1,2,lines,C1 quadratic B-spline,1.0355,4.013978375148053,NaN
+1,2,lines,C1 quadratic B-spline,1.037,3.94550775960012,NaN
+1,2,lines,C1 quadratic B-spline,1.0385,3.880243247957882,NaN
+1,2,lines,C1 quadratic B-spline,1.04,3.818059383479122,NaN
+1,2,lines,C1 quadratic B-spline,1.0415,3.7588400435956126,NaN
+1,2,lines,C1 quadratic B-spline,1.043,3.7024779197158963,NaN
+1,2,lines,C1 quadratic B-spline,1.0445,3.6488740520723706,NaN
+1,2,lines,C1 quadratic B-spline,1.046,3.5979374163974676,NaN
+1,2,lines,C1 quadratic B-spline,1.0475,3.549584558818486,NaN
+1,2,lines,C1 quadratic B-spline,1.049,3.5037392766840147,NaN
+1,2,lines,C1 quadratic B-spline,1.0505,3.460332343146466,NaN
+1,2,lines,C1 quadratic B-spline,1.052,3.4193012738364947,NaN
+1,2,lines,C1 quadratic B-spline,1.0535,3.3805901342470746,NaN
+1,2,lines,C1 quadratic B-spline,1.055,3.344149387553008,NaN
+1,2,lines,C1 quadratic B-spline,1.0565,3.3099357818705544,NaN
+1,2,lines,C1 quadratic B-spline,1.058,3.27791227781149,NaN
+1,2,lines,C1 quadratic B-spline,1.0595,3.2480480160057557,NaN
+1,2,lines,C1 quadratic B-spline,1.061,3.2203183271295455,NaN
+1,2,lines,C1 quadratic B-spline,1.0625,3.194704784579838,NaN
+1,2,lines,C1 quadratic B-spline,1.064,3.1711953033919382,NaN
+1,2,lines,C1 quadratic B-spline,1.0655,3.1497842869071535,NaN
+1,2,lines,C1 quadratic B-spline,1.067,3.130472826682329,NaN
+1,2,lines,C1 quadratic B-spline,1.0685,3.113268958611637,NaN
+1,2,lines,C1 quadratic B-spline,1.07,3.0981879818264835,NaN
+1,2,lines,C1 quadratic B-spline,1.0715,3.0852528457409045,NaN
+1,2,lines,C1 quadratic B-spline,1.073,3.0744946155020214,NaN
+1,2,lines,C1 quadratic B-spline,1.0745,3.0659530226129217,NaN
+1,2,lines,C1 quadratic B-spline,1.076,3.058853042749443,NaN
+1,2,lines,C1 quadratic B-spline,1.0775,3.0508314995736363,NaN
+1,2,lines,C1 quadratic B-spline,1.079,3.0417244030434,NaN
+1,2,lines,C1 quadratic B-spline,1.0805,3.0315198721947434,NaN
+1,2,lines,C1 quadratic B-spline,1.082,3.0202074422036596,NaN
+1,2,lines,C1 quadratic B-spline,1.0835,3.007778140330375,NaN
+1,2,lines,C1 quadratic B-spline,1.085,2.99422456004117,NaN
+1,2,lines,C1 quadratic B-spline,1.0865,2.9795409322552757,NaN
+1,2,lines,C1 quadratic B-spline,1.088,2.963723193326051,NaN
+1,2,lines,C1 quadratic B-spline,1.0895,2.9467690495638132,NaN
+1,2,lines,C1 quadratic B-spline,1.091,2.9286780371867716,NaN
+1,2,lines,C1 quadratic B-spline,1.0925,2.909451577663147,NaN
+1,2,lines,C1 quadratic B-spline,1.094,2.8890930279143467,NaN
+1,2,lines,C1 quadratic B-spline,1.0955,2.867607724642285,NaN
+1,2,lines,C1 quadratic B-spline,1.097,2.84500302239421,NaN
+1,2,lines,C1 quadratic B-spline,1.0985,2.8212883248926457,NaN
+1,2,lines,C1 quadratic B-spline,1.1,2.7964751096076768,NaN
+1,2,lines,C1 quadratic B-spline,1.1015,2.770576944175762,NaN
+1,2,lines,C1 quadratic B-spline,1.103,2.7436094952820733,NaN
+1,2,lines,C1 quadratic B-spline,1.1045,2.715590529508427,NaN
+1,2,lines,C1 quadratic B-spline,1.106,2.6865399050068905,NaN
+1,2,lines,C1 quadratic B-spline,1.1075,2.6564795552833087,NaN
+1,2,lines,C1 quadratic B-spline,1.109,2.625433463268878,NaN
+1,2,lines,C1 quadratic B-spline,1.1105,2.5934276269073964,NaN
+1,2,lines,C1 quadratic B-spline,1.112,2.5604900154863053,NaN
+1,2,lines,C1 quadratic B-spline,1.1135,2.5266505168000664,NaN
+1,2,lines,C1 quadratic B-spline,1.115,2.4919408757112516,NaN
+1,2,lines,C1 quadratic B-spline,1.1165,2.4563946234743006,NaN
+1,2,lines,C1 quadratic B-spline,1.118,2.420046998742875,NaN
+1,2,lines,C1 quadratic B-spline,1.1195,2.382934860273578,NaN
+1,2,lines,C1 quadratic B-spline,1.121,2.345096591611917,NaN
+1,2,lines,C1 quadratic B-spline,1.1225,2.3065719985770894,NaN
+1,2,lines,C1 quadratic B-spline,1.124,2.2674021992658,NaN
+1,2,lines,C1 quadratic B-spline,1.1255,2.2277137064896646,NaN
+1,2,lines,C1 quadratic B-spline,1.127,2.1884468169491855,NaN
+1,2,lines,C1 quadratic B-spline,1.1285,2.1498445649920095,NaN
+1,2,lines,C1 quadratic B-spline,1.13,2.111895771807759,NaN
+1,2,lines,C1 quadratic B-spline,1.1315,2.0745894835541567,NaN
+1,2,lines,C1 quadratic B-spline,1.133,2.037914967398524,NaN
+1,2,lines,C1 quadratic B-spline,1.1345,2.0018617077086076,NaN
+1,2,lines,C1 quadratic B-spline,1.136,1.9664194023499837,NaN
+1,2,lines,C1 quadratic B-spline,1.1375,1.9315779591178028,NaN
+1,2,lines,C1 quadratic B-spline,1.139,1.8973274922892691,NaN
+1,2,lines,C1 quadratic B-spline,1.1405,1.86365831928742,NaN
+1,2,lines,C1 quadratic B-spline,1.142,1.8305609575042237,NaN
+1,2,lines,C1 quadratic B-spline,1.1435,1.7980261212119375,NaN
+1,2,lines,C1 quadratic B-spline,1.145,1.7660447186021444,NaN
+1,2,lines,C1 quadratic B-spline,1.1465,1.7346078489745287,NaN
+1,2,lines,C1 quadratic B-spline,1.148,1.7037068000326505,NaN
+1,2,lines,C1 quadratic B-spline,1.1495,1.6733330453021222,NaN
+1,2,lines,C1 quadratic B-spline,1.151,1.6434782416796523,NaN
+1,2,lines,C1 quadratic B-spline,1.1525,1.61413422712392,NaN
+1,2,lines,C1 quadratic B-spline,1.154,1.5852930184703795,NaN
+1,2,lines,C1 quadratic B-spline,1.1555,1.5569468093590277,NaN
+1,2,lines,C1 quadratic B-spline,1.157,1.52908796832385,NaN
+1,2,lines,C1 quadratic B-spline,1.1585,1.5017090370167407,NaN
+1,2,lines,C1 quadratic B-spline,1.16,1.4748027285586829,NaN
+1,2,lines,C1 quadratic B-spline,1.1615,1.4483619260391434,NaN
+1,2,lines,C1 quadratic B-spline,1.163,1.422379681175756,NaN
+1,2,lines,C1 quadratic B-spline,1.1645,1.3968492131166688,NaN
+1,2,lines,C1 quadratic B-spline,1.166,1.371763907400958,NaN
+1,2,lines,C1 quadratic B-spline,1.1675,1.3471173150769733,NaN
+1,2,lines,C1 quadratic B-spline,1.169,1.322903152000121,NaN
+1,2,lines,C1 quadratic B-spline,1.1705,1.299115298308423,NaN
+1,2,lines,C1 quadratic B-spline,1.172,1.2757477980530896,NaN
+1,2,lines,C1 quadratic B-spline,1.1735,1.2527948590529414,NaN
+1,2,lines,C1 quadratic B-spline,1.175,1.2302507119402173,NaN
+1,2,lines,C1 quadratic B-spline,1.1765,1.2080100226743995,NaN
+1,2,lines,C1 quadratic B-spline,1.178,1.1859849559109348,NaN
+1,2,lines,C1 quadratic B-spline,1.1795,1.1641777908188988,NaN
+1,2,lines,C1 quadratic B-spline,1.181,1.1425907127428359,NaN
+1,2,lines,C1 quadratic B-spline,1.1825,1.1212258119369656,NaN
+1,2,lines,C1 quadratic B-spline,1.184,1.1000850823833508,NaN
+1,2,lines,C1 quadratic B-spline,1.1855,1.0791704206797315,NaN
+1,2,lines,C1 quadratic B-spline,1.187,1.0584836250018825,NaN
+1,2,lines,C1 quadratic B-spline,1.1885,1.0380263941843493,NaN
+1,2,lines,C1 quadratic B-spline,1.19,1.0178003268427465,NaN
+1,2,lines,C1 quadratic B-spline,1.1915,0.9978069206132562,NaN
+1,2,lines,C1 quadratic B-spline,1.193,0.9780475714624148,NaN
+1,2,lines,C1 quadratic B-spline,1.1945,0.9585235730880104,NaN
+1,2,lines,C1 quadratic B-spline,1.196,0.9392361164248242,NaN
+1,2,lines,C1 quadratic B-spline,1.1975,0.9201862892292689,NaN
+1,2,lines,C1 quadratic B-spline,1.199,0.9013750757516648,NaN
+1,2,lines,C1 quadratic B-spline,1.2005,0.8828033565082272,NaN
+1,2,lines,C1 quadratic B-spline,1.202,0.8644719081500607,NaN
+1,2,lines,C1 quadratic B-spline,1.2035,0.846381403427493,NaN
+1,2,lines,C1 quadratic B-spline,1.205,0.8285324112292797,NaN
+1,2,lines,C1 quadratic B-spline,1.2065,0.8109253967399088,NaN
+1,2,lines,C1 quadratic B-spline,1.208,0.7935607216787155,NaN
+1,2,lines,C1 quadratic B-spline,1.2095,0.7764386446397487,NaN
+1,2,lines,C1 quadratic B-spline,1.211,0.7595593215153212,NaN
+1,2,lines,C1 quadratic B-spline,1.2125,0.7429228060192722,NaN
+1,2,lines,C1 quadratic B-spline,1.214,0.7265290503073035,NaN
+1,2,lines,C1 quadratic B-spline,1.2155,0.710377905686066,NaN
+1,2,lines,C1 quadratic B-spline,1.217,0.6944691234030825,NaN
+1,2,lines,C1 quadratic B-spline,1.2185,0.6788023555396455,NaN
+1,2,lines,C1 quadratic B-spline,1.22,0.6633771559871188,NaN
+1,2,lines,C1 quadratic B-spline,1.2215,0.6481929815101845,NaN
+1,2,lines,C1 quadratic B-spline,1.223,0.633249192897728,NaN
+1,2,lines,C1 quadratic B-spline,1.2245,0.6185450561862343,NaN
+1,2,lines,C1 quadratic B-spline,1.226,0.6040797439847007,NaN
+1,2,lines,C1 quadratic B-spline,1.2275,0.5898523368595698,NaN
+1,2,lines,C1 quadratic B-spline,1.229,0.5758618248136171,NaN
+1,2,lines,C1 quadratic B-spline,1.2305,0.5621071088217355,NaN
+1,2,lines,C1 quadratic B-spline,1.232,0.5485870024582105,NaN
+1,2,lines,C1 quadratic B-spline,1.2335,0.5353002335799911,NaN
+1,2,lines,C1 quadratic B-spline,1.235,0.5222454460921886,NaN
+1,2,lines,C1 quadratic B-spline,1.2365,0.50942120175472,NaN
+1,2,lines,C1 quadratic B-spline,1.238,0.4968259820771828,NaN
+1,2,lines,C1 quadratic B-spline,1.2395,0.48445819025053766,NaN
+1,2,lines,C1 quadratic B-spline,1.241,0.47231615315630054,NaN
+1,2,lines,C1 quadratic B-spline,1.2425,0.46039812340619574,NaN
+1,2,lines,C1 quadratic B-spline,1.244,0.4487022814436345,NaN
+1,2,lines,C1 quadratic B-spline,1.2455,0.4372267376893946,NaN
+1,2,lines,C1 quadratic B-spline,1.247,0.4259695347313269,NaN
+1,2,lines,C1 quadratic B-spline,1.2485,0.41492864954809777,NaN
+1,2,lines,C1 quadratic B-spline,1.25,0.40410202732807377,NaN
+1,2,lines,C1 quadratic B-spline,1.2515,0.39350964442543684,NaN
+1,2,lines,C1 quadratic B-spline,1.253,0.3831666956612828,NaN
+1,2,lines,C1 quadratic B-spline,1.2545,0.3730680586385565,NaN
+1,2,lines,C1 quadratic B-spline,1.256,0.3632086982457289,NaN
+1,2,lines,C1 quadratic B-spline,1.2575,0.35358366555413717,NaN
+1,2,lines,C1 quadratic B-spline,1.259,0.34418809672472767,NaN
+1,2,lines,C1 quadratic B-spline,1.2605,0.3350172119182676,NaN
+1,2,lines,C1 quadratic B-spline,1.262,0.3260663142154105,NaN
+1,2,lines,C1 quadratic B-spline,1.2635,0.3173307885427981,NaN
+1,2,lines,C1 quadratic B-spline,1.265,0.30880610060519953,NaN
+1,2,lines,C1 quadratic B-spline,1.2665,0.30048779582731233,NaN
+1,2,lines,C1 quadratic B-spline,1.268,0.2923714983017224,NaN
+1,2,lines,C1 quadratic B-spline,1.2695,0.28445290974208476,NaN
+1,2,lines,C1 quadratic B-spline,1.271,0.27672780844775413,NaN
+1,2,lines,C1 quadratic B-spline,1.2725,0.2691920482743131,NaN
+1,2,lines,C1 quadratic B-spline,1.274,0.26184155760970373,NaN
+1,2,lines,C1 quadratic B-spline,1.2755,0.2546723383594837,NaN
+1,2,lines,C1 quadratic B-spline,1.277,0.24768046494191842,NaN
+1,2,lines,C1 quadratic B-spline,1.2785,0.24086208328867598,NaN
+1,2,lines,C1 quadratic B-spline,1.28,0.23421340984928693,NaN
+1,2,lines,C1 quadratic B-spline,1.2815,0.22773073061411325,NaN
+1,2,lines,C1 quadratic B-spline,1.283,0.22141040013348365,NaN
+1,2,lines,C1 quadratic B-spline,1.2845,0.21524884055316995,NaN
+1,2,lines,C1 quadratic B-spline,1.286,0.20924254065376666,NaN
+1,2,lines,C1 quadratic B-spline,1.2875,0.20338805489888284,NaN
+1,2,lines,C1 quadratic B-spline,1.289,0.19768200249280568,NaN
+1,2,lines,C1 quadratic B-spline,1.2905,0.19212106644397528,NaN
+1,2,lines,C1 quadratic B-spline,1.292,0.1867019926385903,NaN
+1,2,lines,C1 quadratic B-spline,1.2935,0.18142158892207189,NaN
+1,2,lines,C1 quadratic B-spline,1.295,0.1762767241884726,NaN
+1,2,lines,C1 quadratic B-spline,1.2965,0.17126432747704978,NaN
+1,2,lines,C1 quadratic B-spline,1.298,0.1663813870797677,NaN
+1,2,lines,C1 quadratic B-spline,1.2995,0.1616249496560248,NaN
+1,2,lines,C1 quadratic B-spline,1.301,0.15699211935299268,NaN
+1,2,lines,C1 quadratic B-spline,1.3025,0.1524800569411254,NaN
+1,2,lines,C1 quadratic B-spline,1.304,0.14808597895011982,NaN
+1,2,lines,C1 quadratic B-spline,1.3055,0.1438071568184065,NaN
+1,2,lines,C1 quadratic B-spline,1.307,0.13964091605158346,NaN
+1,2,lines,C1 quadratic B-spline,1.3085,0.13558463538509113,NaN
+1,2,lines,C1 quadratic B-spline,1.31,0.1316357459601406,NaN
+1,2,lines,C1 quadratic B-spline,1.3115,0.12779173050568754,NaN
+1,2,lines,C1 quadratic B-spline,1.313,0.12405012252866311,NaN
+1,2,lines,C1 quadratic B-spline,1.3145,0.12040850551546349,NaN
+1,2,lines,C1 quadratic B-spline,1.316,0.1168645121386782,NaN
+1,2,lines,C1 quadratic B-spline,1.3175,0.11341582347483385,NaN
+1,2,lines,C1 quadratic B-spline,1.319,0.11006016823053404,NaN
+1,2,lines,C1 quadratic B-spline,1.3205,0.10679532197631,NaN
+1,2,lines,C1 quadratic B-spline,1.322,0.10361910638999501,NaN
+1,2,lines,C1 quadratic B-spline,1.3235,0.1005293885090585,NaN
+1,2,lines,C1 quadratic B-spline,1.325,0.09752407999045164,NaN
+1,2,lines,C1 quadratic B-spline,1.3265,0.09460113638050556,NaN
+1,2,lines,C1 quadratic B-spline,1.328,0.09175855639234967,NaN
+1,2,lines,C1 quadratic B-spline,1.3295,0.08899438119496991,NaN
+1,2,lines,C1 quadratic B-spline,1.331,0.08630669370694646,NaN
+1,2,lines,C1 quadratic B-spline,1.3325,0.08369361790047831,NaN
+1,2,lines,C1 quadratic B-spline,1.334,0.08115331811726911,NaN
+1,2,lines,C1 quadratic B-spline,1.3355,0.07868399838809048,NaN
+1,2,lines,C1 quadratic B-spline,1.337,0.07628390176627094,NaN
+1,2,lines,C1 quadratic B-spline,1.3385,0.07395130966530908,NaN
+1,2,lines,C1 quadratic B-spline,1.34,0.07168454120884231,NaN
+1,2,lines,C1 quadratic B-spline,1.3415,0.06948195258796655,NaN
+1,2,lines,C1 quadratic B-spline,1.343,0.06734193642763275,NaN
+1,2,lines,C1 quadratic B-spline,1.3445,0.06526292116191668,NaN
+1,2,lines,C1 quadratic B-spline,1.346,0.0632433704196361,NaN
+1,2,lines,C1 quadratic B-spline,1.3475,0.06128178241516808,NaN
+1,2,lines,C1 quadratic B-spline,1.349,0.05937668935168672,NaN
+1,2,lines,C1 quadratic B-spline,1.3505,0.057526435839291325,NaN
+1,2,lines,C1 quadratic B-spline,1.352,0.05572730894164331,NaN
+1,2,lines,C1 quadratic B-spline,1.3535,0.05397753673124211,NaN
+1,2,lines,C1 quadratic B-spline,1.355,0.05227603880148153,NaN
+1,2,lines,C1 quadratic B-spline,1.3565,0.050621748659929015,NaN
+1,2,lines,C1 quadratic B-spline,1.358,0.049013613867806075,NaN
+1,2,lines,C1 quadratic B-spline,1.3595,0.047450596166874644,NaN
+1,2,lines,C1 quadratic B-spline,1.361,0.045931671595307935,NaN
+1,2,lines,C1 quadratic B-spline,1.3625,0.044455830592296436,NaN
+1,2,lines,C1 quadratic B-spline,1.364,0.04302207809079055,NaN
+1,2,lines,C1 quadratic B-spline,1.3655,0.04162943359975035,NaN
+1,2,lines,C1 quadratic B-spline,1.367,0.04027693127550995,NaN
+1,2,lines,C1 quadratic B-spline,1.3685,0.03896361998140642,NaN
+1,2,lines,C1 quadratic B-spline,1.37,0.03768856333821258,NaN
+1,2,lines,C1 quadratic B-spline,1.3715,0.03645083976241796,NaN
+1,2,lines,C1 quadratic B-spline,1.373,0.035249542495803705,NaN
+1,2,lines,C1 quadratic B-spline,1.3745,0.034083779623943385,NaN
+1,2,lines,C1 quadratic B-spline,1.376,0.03295267408520621,NaN
+1,2,lines,C1 quadratic B-spline,1.3775,0.031855363669872336,NaN
+1,2,lines,C1 quadratic B-spline,1.379,0.030791001009785202,NaN
+1,2,lines,C1 quadratic B-spline,1.3805,0.029758753559458277,NaN
+1,2,lines,C1 quadratic B-spline,1.382,0.028757803566664946,NaN
+1,2,lines,C1 quadratic B-spline,1.3835,0.027787348035918265,NaN
+1,2,lines,C1 quadratic B-spline,1.385,0.026846598682418385,NaN
+1,2,lines,C1 quadratic B-spline,1.3865,0.025934781877543205,NaN
+1,2,lines,C1 quadratic B-spline,1.388,0.025051138587280867,NaN
+1,2,lines,C1 quadratic B-spline,1.3895,0.02419492430169373,NaN
+1,2,lines,C1 quadratic B-spline,1.391,0.023365408957698237,NaN
+1,2,lines,C1 quadratic B-spline,1.3925,0.022561876854010343,NaN
+1,2,lines,C1 quadratic B-spline,1.394,0.021783626559380813,NaN
+1,2,lines,C1 quadratic B-spline,1.3955,0.021029970813884025,NaN
+1,2,lines,C1 quadratic B-spline,1.397,0.02030023642356389,NaN
+1,2,lines,C1 quadratic B-spline,1.3985,0.01959376414944515,NaN
+1,2,lines,C1 quadratic B-spline,1.4,0.018909908589607963,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8,0.22525524890459891,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8015,0.235780157690213,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.803,0.24679683616968262,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8045,0.2583282619705862,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.806,0.27039848633503283,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8075,0.28303268428619965,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.809,0.29625720713077897,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8105,0.31009963742834046,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.812,0.3245888465097657,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8135,0.3397550547057371,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.815,0.35562989436965786,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8165,0.3722464758593169,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.818,0.38963945659054033,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8195,0.40784511332714324,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.821,0.42690141783929825,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8225,0.4468481161035154,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.824,0.4677268112085464,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8255,0.4895565729168272,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.827,0.5121014731757079,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8285,0.5352871102981549,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.83,0.5591066929244715,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8315,0.5835513574981022,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.833,0.608610125260034,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8345,0.6342698718198037,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.836,0.6605153099847882,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8375,0.6873289864472998,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.839,0.7146912927058491,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8405,0.7425804905125677,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.842,0.7709727519111809,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8435,0.7998422138055794,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.845,0.8291610467903165,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8465,0.858899537831137,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.848,0.8890261862370963,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8495,0.9195078121493339,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.851,0.9503096766905195,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8525,0.9813956127713297,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.854,1.0127281654170872,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8555,1.0442687403888762,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.857,1.0759777598123854,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8585,1.1078148234555663,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.86,1.139738874245122,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8615,1.1717083665951922,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.863,1.2036814361615633,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8645,1.2356160696291862,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.866,1.2674702730652854,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8675,1.2992022377400492,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.869,1.3307705019427463,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8705,1.362134107832924,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.872,1.3932527521465232,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8735,1.4240869298320913,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.875,1.4545986630021268,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8765,1.4851807960303276,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.878,1.5161924065898447,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8795,1.5476228766853062,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.881,1.5794620835907214,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8825,1.6117003565085941,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.884,1.6443284373501843,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8855,1.6773374452505596,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.887,1.7107188444054344,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8885,1.7444644149289257,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.89,1.77856622645578,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8915,1.8130166141594461,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.893,1.8478081570361127,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8945,1.8829336581660527,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.896,1.9183861268079472,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.8975,1.9541587621341172,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.899,1.9902449384556764,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9005,2.026638191803265,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.902,2.0633322077334704,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9035,2.100320810237699,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.905,2.1375979516735644,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9065,2.175157703605546,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.908,2.2129942484894194,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9095,2.2511018720927645,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.911,2.2894749566382266,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9125,2.3281079745240962,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.914,2.3669954826854855,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9155,2.4061321174062567,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.917,2.4455125896438723,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9185,2.4851316807761314,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.92,2.524984238726491,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9215,2.5650651744846265,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.923,2.6053694589134313,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9245,2.645892119855775,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.926,2.686476965018114,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9275,2.7266752235866054,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.929,2.7664420197237582,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9305,2.8057606419507053,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.932,2.8446148823335626,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9335,2.882989058152763,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.935,2.9208680315651048,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9365,2.9582372272207724,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.938,2.9950826478475356,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9395,3.0313908879064932,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.941,3.067149145266068,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9425,3.102345231011938,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.944,3.136967577409555,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9455,3.171005244105851,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.947,3.2044479225656897,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9485,3.2372859389007136,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.95,3.2695102550839295,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9515,3.301112468639955,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.953,3.332084810888647,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9545,3.362420143835365,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.956,3.392111955732302,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9575,3.421154355432998,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.959,3.4495420655855646,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9605,3.4772704147634226,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.962,3.504335328593511,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9635,3.530733319949686,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.965,3.5564614783156756,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9665,3.581517458359773,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.968,3.605899467775675,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9695,3.6296062545304597,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.971,3.6526370935163754,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9725,3.6749917726663917,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.974,3.6966705787044862,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9755,3.7176455138643316,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.977,3.737607118736719,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9785,3.756476606801007,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.98,3.77426217753718,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9815,3.7909729624574506,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.983,3.8066189797714145,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9845,3.821211088589349,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.986,3.834760943047799,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9875,3.847280946187581,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.989,3.858784204195942,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9905,3.8692844807508564,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.992,3.878796151799424,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9935,3.8873341609690915,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.995,3.8949139755128925,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9965,3.90155154310734,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.998,3.9072632494596693,NaN
+1,3,lines,Quadratic B-spline with C3 condition,0.9995,3.9120658768898586,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.001,3.9159765639684707,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0025,3.919012766155916,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.004,3.921192217728464,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0055,3.9225328948278015,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.007,3.923052979708519,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0085,3.922770826425559,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.01,3.9217049277628924,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0115,3.9198738833345903,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.013,3.9172963693345775,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0145,3.913991109389947,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.016,3.9099768469097462,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0175,3.905272318668329,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.019,3.8998962298864015,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0205,3.893867230523318,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.022,3.8872038928783326,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0235,3.8799246906229268,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.025,3.8720479483084214,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0265,3.863565667654445,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.028,3.8544563965381418,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0295,3.8447144266073874,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.031,3.8343343653407524,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0325,3.8233111509278217,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.034,3.811640067253319,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0355,3.799316758704707,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.037,3.786337245038074,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0385,3.772697935948144,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.04,3.7583956455183865,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0415,3.7434276065512195,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.043,3.7277914844385807,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0445,3.7114853910275025,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.046,3.6945078978983803,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0475,3.6768580492679837,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.049,3.658535374610472,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0505,3.6395399005934026,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.052,3.6198721626695685,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0535,3.5995332160471127,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.055,3.578524645813097,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0565,3.5568485766696023,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.058,3.5345076817333565,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0595,3.511505190780251,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.061,3.4878448973540976,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0625,3.463531165290301,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.064,3.4385689341837056,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0655,3.412963723872786,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.067,3.3867216380772946,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0685,3.3598493668612894,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.07,3.3323541879831664,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0715,3.3042439673242052,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.073,3.275527157861058,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0745,3.246212797944903,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.076,3.2164118574168343,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0775,3.186425713950225,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.079,3.1562791336897655,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0805,3.125978250518302,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.082,3.095529305098821,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0835,3.0649386420750213,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.085,3.0342127068999636,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0865,3.0033580426935824,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.088,2.9723812868703847,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0895,2.941289167493477,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.091,2.910088499718244,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0925,2.878786181797488,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.094,2.8473891911054428,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0955,2.815904580018569,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.097,2.784339471471331,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.0985,2.752701054543061,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1,2.7209965798533076,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1015,2.689233354662701,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.103,2.6574187380995484,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1045,2.625560135998961,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.106,2.5936649957300495,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1075,2.5617408009220854,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.109,2.52979506596418,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1105,2.4978353304686007,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.112,2.4658691536133537,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1135,2.433904108320728,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.115,2.4019477754086416,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1165,2.3700077376218043,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.118,2.3380915735404795,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1195,2.3062068514889678,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.121,2.2743611233155825,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1225,2.2425619181148937,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.124,2.2108167359341513,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1255,2.1791389356609625,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.127,2.147599143593748,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1285,2.1162199103269552,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.13,2.085006003847978,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1315,2.0539621304038747,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.133,2.023092931558168,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1345,1.9924029812690147,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.136,1.9618967830095646,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1375,1.9315787669160756,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.139,1.9014532869501832,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1405,1.8715246181122414,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.142,1.841796953700181,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1435,1.8122744025941828,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.145,1.782960986617954,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1465,1.7538606379124966,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.148,1.7249771963973037,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1495,1.696314407272359,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.151,1.6678759185810577,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1525,1.6396652788472355,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.154,1.6116859347777013,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1555,1.5839412290126476,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.157,1.5564343979926343,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1585,1.5291685698741453,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.16,1.5021467625157825,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1615,1.4753718815743722,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.163,1.4488467186832277,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1645,1.4225739496945278,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.166,1.3965561330338272,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1675,1.3707957081521283,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.169,1.3452949940605252,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1705,1.3200561879624095,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.172,1.295081363999473,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1735,1.270372472092357,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.175,1.2459313785863346,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1765,1.2217892573680722,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.178,1.1979717950433288,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1795,1.1744778829221592,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.181,1.1513063494490716,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1825,1.1284559608970568,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.184,1.1059254220940895,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1855,1.0837133771705865,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.187,1.061818410353077,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1885,1.0402390467736944,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.19,1.0189737533143617,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1915,0.9980209394785944,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.193,0.9773789582936954,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1945,0.9570461072296033,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.196,0.9370206291688804,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.1975,0.9173007133637251,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.199,0.8978844964595972,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2005,0.8787700635164847,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.202,0.859955449054664,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2035,0.8414386381427885,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.205,0.8232175674821596,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2065,0.8052901265333257,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.208,0.787654158647122,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2095,0.77030746222638,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.211,0.7532477918961722,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2125,0.7364728597015341,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.214,0.7199803363115709,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2155,0.703767852245768,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.217,0.6878329991095306,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2185,0.6721733308492212,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.22,0.6567863650080302,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2215,0.641669584010296,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.223,0.626820436437775,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2245,0.6122363383238155,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.226,0.5979146744592573,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2275,0.5838527996941678,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.229,0.5700480402543937,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2305,0.5564976950573828,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.232,0.5431990370330029,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2335,0.5301493144458866,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.235,0.5173457522232583,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2365,0.5047855532726991,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.238,0.49246589980664335,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2395,0.4803839546657293,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.241,0.4685368626291056,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2425,0.45692175173087796,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.244,0.44553573456566214,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2455,0.4343759095849775,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.247,0.42343936238989355,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2485,0.4127231670118803,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.25,0.40222439948355004,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2515,0.39194874461974394,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.253,0.3819000722726437,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2545,0.3720743562247997,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.256,0.36246761744674477,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2575,0.35307592407139016,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.259,0.34389539135395303,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2605,0.33492218162362725,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.262,0.32615250422144554,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2635,0.31758261542714356,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.265,0.30920881837875547,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2665,0.3010274629783663,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.268,0.2930349457872308,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2695,0.28522770991180196,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.271,0.27760224488086044,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2725,0.270155086508142,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.274,0.2628828167501075,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2755,0.2557820635498177,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.277,0.2488495006751877,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2785,0.24208184754298187,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.28,0.2354758690393914,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2815,0.22902837532614434,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.283,0.22273622164064796,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2845,0.21659630808712818,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.286,0.2106055794182625,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2875,0.20476102481062006,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.289,0.19905967762809743,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2905,0.1934986151820063,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.292,0.18807495847950398,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2935,0.1827858719675307,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.295,0.17762856326535015,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2965,0.17260028289592735,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.298,0.16769832400388013,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.2995,0.16292002207121853,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.301,0.15826275462404657,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3025,0.15372394093379932,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.304,0.14930104171288588,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3055,0.14499155880267312,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.307,0.14079303485702888,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3085,0.13670305302049615,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.31,0.13271923659990104,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3115,0.1288392487315028,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.313,0.12506079204333864,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3145,0.12138160831302348,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.316,0.11779947811987705,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3175,0.11431222049437112,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.319,0.11091769256196468,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3205,0.10761378918400753,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.322,0.10439844259417692,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3235,0.10126962203337031,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.325,0.09822533337728624,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3265,0.09526361876647724,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.328,0.09238255622794588,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3295,0.08958025929822408,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.331,0.08685487664198982,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3325,0.0842045916691356,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.334,0.08162762214872307,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3355,0.07912221982344075,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.337,0.07668667001924784,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3385,0.07431929125636688,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.34,0.07201843485749211,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3415,0.06978248455544699,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.343,0.06760985609872983,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3445,0.06549899685937086,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.346,0.06344838543724615,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3475,0.06145653126600481,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.349,0.0595219742159387,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3505,0.057643161495411245,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.352,0.05581741032568803,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3535,0.05404312896255866,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.355,0.05231912081810324,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3565,0.050644207921272076,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.358,0.04901723093225785,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3595,0.04743704914464235,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.361,0.045902540477555515,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3625,0.04441260145772105,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.364,0.04296614719027188,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3655,0.041562111320707626,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.367,0.040199445986606464,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3685,0.03887712175964196,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.37,0.03759412757923207,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3715,0.03634947067593375,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.373,0.035142176487347895,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3745,0.03397128856498206,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.376,0.03283586847295994,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3775,0.03173499567888553,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.379,0.030667767436912043,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3805,0.029633298664168747,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.382,0.028630721808629335,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3835,0.027659186711884425,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.385,0.026717860464233606,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3865,0.02580592725356934,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.388,0.024922588209104393,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3895,0.024067061238288324,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.391,0.023238580859233186,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3925,0.022436398027381045,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.394,0.02165977995753762,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3955,0.02090800994135767,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.397,0.020180387160171613,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.3985,0.019476226494350227,NaN
+1,3,lines,Quadratic B-spline with C3 condition,1.4,0.018794858328071307,NaN

@@ -434,6 +434,12 @@ function calibrateHestonHaganFromPrices(
             result = if minimizer == "BFGS"
                 rx0 = map((transformi, xri) -> inv(transformi, xri), transforms, x0)
                 result = Optim.optimize(objective1Constrained, rx0, BFGS(), Optim.Options(f_abstol=1e-9))
+                if i > 1
+                    #the objective is flat in ρ for small σ: BFGS may stop at the fixed guess, also start from the previous slice and keep the best
+                    rxPrev = map((transformi, xri) -> inv(transformi, xri), transforms, [lev0[i], ρ[i-1], σ[i-1]])
+                    resultPrev = Optim.optimize(objective1Constrained, rxPrev, BFGS(), Optim.Options(f_abstol=1e-9))
+                    Optim.minimum(resultPrev) < Optim.minimum(result) && (result = resultPrev)
+                end
                 if isDebug
                     println("Result Optim ", result, " ", Optim.minimizer(result))
                 end
@@ -545,6 +551,217 @@ function calibrateHestonHaganFromPrices(
     return hParams, rmse
 end
 
+
+function calibrateHestonHaganFromPricesVS(
+    ts::AbstractVector{T},
+    forwards::AbstractVector{T},
+    strikes::AbstractMatrix{T},
+    prices::AbstractMatrix{T},
+    isCall::AbstractMatrix{Bool},
+    weights::AbstractMatrix{T};
+    κ=1.0,
+    lower=[1e-4, -0.99, 1e-2], upper=[4.0, 0.5, 4.0], #leverage, rho, sigma
+    isRelative=false,
+    method="Joshi-Yang",
+    minimizer="DE",
+    isGlobal=false,
+    isDebug=false,
+    penalty=0.0,
+    swapCurve=makeSwapCurveConstant(atmVolFromPrices(forwards[1], ts[1], strikes[1, :], prices[1, :], isCall[1, :]))
+) where {T}
+    # uPrices = zeros(T, length(ts),length(strikes))))
+    # uWeights = zeros(T, length(ts),length(strikes))
+    # for i  = eachindex(forwards)
+    # 	@. uPrices[i,:] = prices[i,:] ./ forwards[i]
+    # 	@. uWeights[i,:] = weights[i,:] .* forwards[i]
+    # end
+    n2 = size(prices, 2)
+    uPrices = prices
+    uWeights = weights
+    # lower =  [range[1].θ, range[1].ρ, range[1].σ]
+    # upper =  [range[2].θ, range[2].ρ, range[2].σ]
+    transforms = map((low, high) -> LogisticTransformation(low, high), lower[2:end], upper[2:end])
+
+    startTime = vcat(zero(T), ts[1:end-1])
+    θAll = zeros(length(startTime))
+    ρAll = zeros(length(startTime))
+    σAll = zeros(length(startTime))
+    rmse = zeros(length(startTime))
+
+    function objectiveTi(F, xr, hParams::HaganHestonPiecewiseParams, i)
+        #xr[1] = theta, xr[2] = rho, xr[3] = sigma.
+        #x = map( (transformi, xri) -> transformi(xri), transforms, xr)
+        θ = hParams.leverage
+        ρ = hParams.ρ
+        σ = hParams.σ
+        t = ts[i]
+        ρ[i] = xr[1]
+        σ[i] = xr[2]
+        lastTime = t #ts[end]
+        hestonTSParams, lastτ = makeHestonTSParams(hParams, tte=lastTime)
+
+        cf = DefaultCharFunc(hestonTSParams)
+
+        # pricer =JoshiYangCharFuncPricer(cf, t, n=64)
+        pricer = if method == "Andersen-Lake"
+            CharFuncPricing.ALCharFuncPricer(cf, n=64)
+        elseif method == "Joshi-Yang"
+            JoshiYangCharFuncPricer(cf, lastτ, n=64)
+        elseif method == "Cos-128"
+            CharFuncPricing.makeCosCharFuncPricer(cf, lastτ, 128, 12)
+        elseif method == "Cos"
+            CharFuncPricing.makeCosCharFuncPricer(cf, lastτ, 256, 16)
+        elseif method == "Cos-Junike"
+            CharFuncPricing.makeCosCharFuncPricer(cf, lastτ, tol=1e-4, maxM=4096)
+        elseif method == "Flinn"
+            CharFuncPricing.FlinnCharFuncPricer(cf, lastτ, tTol=1e-4, qTol=1e-8)
+        elseif method == "Flinn-Transformed"
+            #CharFuncPricing.makeCVCharFunc(cf,t,CharFuncPricing.InitialControlVariance())
+            CharFuncPricing.AdaptiveFlinnCharFuncPricer(cf, lastτ)
+        elseif method == "Swift"
+            m, _ = CharFuncPricing.findSwiftScaling(cf, lastτ)
+            CharFuncPricing.makeSwiftCharFuncPricer(cf, lastτ, m, 3)
+        end
+        for (j, strike) ∈ enumerate(strikes[i, :])
+            if iszero(uWeights[i, j])
+                F[j] = uWeights[i, j]
+            else
+                mPrice = CharFuncPricing.priceEuropean(pricer, isCall[i, j], strike / forwards[i], 1.0, lastτ, 1.0) * forwards[i]
+                F[j] = if isRelative
+                    uWeights[i, j] * (mPrice / uPrices[i, j] - 1)
+                else
+                    uWeights[i, j] * (mPrice - uPrices[i, j])
+                end
+            end
+        end
+        if penalty > 0.0
+           if i>1
+                F[n2+1] = penalty * (σ[i]-σ[i-1])
+                F[n2+2] = penalty * (θ[i]-θ[i-1]) #penalty for large parameters.
+                F[n2+3] = penalty * (ρ[i]-ρ[i-1]) #penalty for large parameters.
+           end
+        end
+        F
+    end
+
+    lev0 = zeros(T, length(θAll))
+    lev0[1] = sqrt(swapCurve(ts[1]))
+    for i = 2:length(lev0)
+        lev0[i] = sqrt((max(1e-4, swapCurve(ts[i]) * ts[i] - swapCurve(ts[i-1]) * ts[i-1])) / (ts[i] - ts[i-1]))
+    end
+
+
+    θAll = lev0
+
+    for (i, t) ∈ enumerate(ts)
+        θ = θAll[1:i]
+        ρ = ρAll[1:i]
+        σ = σAll[1:i]
+
+        hParams = HaganHestonPiecewiseParams(θ, κ, ρ, σ, startTime[1:i])
+
+        objectiveT(F, xr) = objectiveTi(F, xr, hParams, i)
+
+        totalSize = n2
+        if penalty > 0.0
+            totalSize += 3 #penalty term
+        end
+        out = zeros(totalSize)
+        function objective1(x)
+            objectiveT(out, x)
+            norm(out) / norm(uWeights)
+        end
+
+        function objectiveTiConstrained(F, xr)
+            x = map((transformi, xri) -> transformi(xri), transforms, xr)
+            return objectiveT(F, x)
+        end
+        function objective1Constrained(xr)
+            objectiveTiConstrained(out, xr)
+            norm(out) / norm(uWeights)
+        end
+        x0 = if i > 0
+            [-0.5, 0.5]
+        else
+            [ρ[i-1], σ[i-1]]
+        end
+        isGlobalGuess = true
+        x = if isGlobalGuess
+            result = if minimizer == "BFGS"
+                rx0 = map((transformi, xri) -> inv(transformi, xri), transforms, x0)
+                result = Optim.optimize(objective1Constrained, rx0, BFGS(), Optim.Options(f_abstol=1e-9))
+                if i > 1
+                    #the objective is flat in ρ for small σ: BFGS may stop at the fixed guess, also start from the previous slice and keep the best
+                    rxPrev = map((transformi, xri) -> inv(transformi, xri), transforms, [ρ[i-1], σ[i-1]])
+                    resultPrev = Optim.optimize(objective1Constrained, rxPrev, BFGS(), Optim.Options(f_abstol=1e-9))
+                    Optim.minimum(resultPrev) < Optim.minimum(result) && (result = resultPrev)
+                end
+                if isDebug
+                    println("Result Optim ", result, " ", Optim.minimizer(result))
+                end
+                xr = Optim.minimizer(result)
+                [transforms[1](xr[1]), transforms[2](xr[2])]
+            elseif minimizer == "NM"
+                rx0 = map((transformi, xri) -> inv(transformi, xri), transforms, x0)
+                result = Optim.optimize(objective1Constrained, rx0, NelderMead(), Optim.Options(f_abstol=1e-9))
+                if isDebug
+                    println("Result NM ", result, " ", Optim.minimizer(result))
+                end
+                xr = Optim.minimizer(result)
+                [transforms[1](xr[1]), transforms[2](xr[2])]
+            elseif minimizer == "FMB"
+                result = Optim.optimize(objective1, lower[2:end], upper[2:end], x0, Fminbox(GradientDescent()))
+                Optim.minimizer(result)
+            elseif minimizer == "DE"
+                rng = Random123.Philox4x(UInt64, (20130129, 20100921), 10)
+                problem = GlobalOptimization.Problem(length(x0), objective1, lower[2:end], upper[2:end])
+                optim = GlobalOptimization.makeDifferentialEvolutionOptimizer(GlobalOptimization.OptimizerParams(9),
+                    problem,
+                    rng, GlobalOptimization.Best2Bin(0.9, 0.5),
+                    x0=x0)
+                GlobalOptimization.optimize(optim, GlobalOptimization.TerminationCriteria(1000, 100, 1e-6, 1e-5))
+                if isDebug
+                    println("Result DE ", result, " ", GlobalOptimization.minimizer(optim))
+                end
+                GlobalOptimization.minimizer(optim) #calibrated params.
+
+            elseif minimizer == "SA"#SA works better
+                rng = Random123.Philox4x(UInt64, (20130129, 20100921), 10)
+                problem = GlobalOptimization.Problem(length(x0), objective1, lower[2:end], upper[2:end])
+                optim = GlobalOptimization.SimulatedAnnealing(problem, rng)
+                GlobalOptimization.optimize(optim, x0)
+                if isDebug
+                    println("Result SA ", result, " ", GlobalOptimization.minimizer(optim))
+                end
+                GlobalOptimization.minimizer(optim) #calibrated params.
+            else
+                x0
+            end
+        else
+            x0
+        end
+
+        isLM = minimizer == "DE" || minimizer == "SA" || minimizer == "NM" || minimizer == "User"
+        if isLM
+            rx = map((transformi, xri) -> inv(transformi, xri), transforms, x)
+            gnRmse = GaussNewton.optimize!(objectiveTiConstrained, rx, out, autodiff=:single)
+            if isDebug
+                println("Result GN ", gnRmse)
+            end
+            ρ[i] = transforms[1](rx[1])
+            σ[i] = transforms[2](rx[2])
+        else
+            ρ[i] = x[1]
+            σ[i] = x[2]
+        end
+        rmse[i] = objective1([ρ[i], σ[i]])
+        ρAll[i] = ρ[i]
+        σAll[i] = σ[i]
+    end
+
+    hParams = HaganHestonPiecewiseParams(θAll, κ, ρAll, σAll, startTime)
+    return hParams, rmse
+end
 
 
 function calibrateHestonTSFromPricesParam(
@@ -1005,7 +1222,7 @@ function estimateVolError(hagParams::HaganHestonPiecewiseParams, ts::AbstractVec
     for (i, t) ∈ enumerate(ts)
         cf = DefaultCharFunc(params)
         #pricer = CharFuncPricing.ALCharFuncPricer(cf, n=128)
-        τ = convertTime(hagParams, t)
+        τ = TermStructure.convertTime(hagParams, t)
         pricer = CharFuncPricing.JoshiYangCharFuncPricer(cf, τ)
         for (j, strike) ∈ enumerate(strikes[i, :])
             isCall = strike > forwards[i]

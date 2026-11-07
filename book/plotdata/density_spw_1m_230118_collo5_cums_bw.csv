@@ -1,0 +1,3153 @@
+panel,plot,kind,label,x,y,z
+1,1,scatter,forward sweep estimate,-3.6620489405804144,1500.0,NaN
+1,1,scatter,forward sweep estimate,-3.529078080995159,1600.0,NaN
+1,1,scatter,forward sweep estimate,-3.3357486013268347,1800.0,NaN
+1,1,scatter,forward sweep estimate,-3.341250245736247,1850.0,NaN
+1,1,scatter,forward sweep estimate,-3.341250245736247,1950.0,NaN
+1,1,scatter,forward sweep estimate,-3.290294944049841,2000.0,NaN
+1,1,scatter,forward sweep estimate,-3.2902949440485925,2050.0,NaN
+1,1,scatter,forward sweep estimate,-3.1437391967350545,2100.0,NaN
+1,1,scatter,forward sweep estimate,-3.089987625003274,2125.0,NaN
+1,1,scatter,forward sweep estimate,-3.089987625005976,2150.0,NaN
+1,1,scatter,forward sweep estimate,-3.089987625003274,2175.0,NaN
+1,1,scatter,forward sweep estimate,-3.0511515139167886,2200.0,NaN
+1,1,scatter,forward sweep estimate,-2.631255497033367,2220.0,NaN
+1,1,scatter,forward sweep estimate,-2.6246499304577102,2225.0,NaN
+1,1,scatter,forward sweep estimate,-2.866813587223193,2250.0,NaN
+1,1,scatter,forward sweep estimate,-2.864999369165525,2260.0,NaN
+1,1,scatter,forward sweep estimate,-2.864999369170128,2280.0,NaN
+1,1,scatter,forward sweep estimate,-2.806768377471531,2290.0,NaN
+1,1,scatter,forward sweep estimate,-2.8982017611957867,2310.0,NaN
+1,1,scatter,forward sweep estimate,-2.864999369170128,2330.0,NaN
+1,1,scatter,forward sweep estimate,-2.673511005879294,2340.0,NaN
+1,1,scatter,forward sweep estimate,-2.6379779097049663,2350.0,NaN
+1,1,scatter,forward sweep estimate,-2.8741663784041593,2370.0,NaN
+1,1,scatter,forward sweep estimate,-2.6379779097024927,2385.0,NaN
+1,1,scatter,forward sweep estimate,-2.6379779097037295,2390.0,NaN
+1,1,scatter,forward sweep estimate,-2.6379779097086673,2400.0,NaN
+1,1,scatter,forward sweep estimate,-2.637977909707431,2405.0,NaN
+1,1,scatter,forward sweep estimate,-2.673511005879294,2415.0,NaN
+1,1,scatter,forward sweep estimate,-2.575544418571155,2425.0,NaN
+1,1,scatter,forward sweep estimate,-2.637977909707431,2430.0,NaN
+1,1,scatter,forward sweep estimate,-2.637977909707431,2440.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868017257,2445.0,NaN
+1,1,scatter,forward sweep estimate,-2.393677615341138,2450.0,NaN
+1,1,scatter,forward sweep estimate,-2.5755444185727203,2460.0,NaN
+1,1,scatter,forward sweep estimate,-2.5755444185721976,2470.0,NaN
+1,1,scatter,forward sweep estimate,-2.575544418571155,2475.0,NaN
+1,1,scatter,forward sweep estimate,-2.5755444185680094,2480.0,NaN
+1,1,scatter,forward sweep estimate,-2.575544418571155,2485.0,NaN
+1,1,scatter,forward sweep estimate,-2.432080686806113,2490.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868017257,2495.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868039173,2500.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868039173,2505.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868039173,2510.0,NaN
+1,1,scatter,forward sweep estimate,-2.432080686806113,2515.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868017257,2520.0,NaN
+1,1,scatter,forward sweep estimate,-2.326038751133977,2525.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868039173,2530.0,NaN
+1,1,scatter,forward sweep estimate,-2.4320806868039173,2535.0,NaN
+1,1,scatter,forward sweep estimate,-2.3260387511356826,2540.0,NaN
+1,1,scatter,forward sweep estimate,-2.326038751132274,2545.0,NaN
+1,1,scatter,forward sweep estimate,-2.2410844635898064,2550.0,NaN
+1,1,scatter,forward sweep estimate,-2.241084463591212,2555.0,NaN
+1,1,scatter,forward sweep estimate,-2.326038751132274,2560.0,NaN
+1,1,scatter,forward sweep estimate,-2.326038751133977,2565.0,NaN
+1,1,scatter,forward sweep estimate,-2.3260387511356826,2570.0,NaN
+1,1,scatter,forward sweep estimate,-2.169764047808097,2575.0,NaN
+1,1,scatter,forward sweep estimate,-2.169764047808097,2580.0,NaN
+1,1,scatter,forward sweep estimate,-2.241084463591212,2585.0,NaN
+1,1,scatter,forward sweep estimate,-2.169764047808097,2590.0,NaN
+1,1,scatter,forward sweep estimate,-2.1080247790530473,2595.0,NaN
+1,1,scatter,forward sweep estimate,-2.1080247790530473,2600.0,NaN
+1,1,scatter,forward sweep estimate,-2.169764047808097,2605.0,NaN
+1,1,scatter,forward sweep estimate,-2.1080247790530473,2610.0,NaN
+1,1,scatter,forward sweep estimate,-2.0534085889428697,2615.0,NaN
+1,1,scatter,forward sweep estimate,-2.004307902475372,2620.0,NaN
+1,1,scatter,forward sweep estimate,-2.004307902475372,2625.0,NaN
+1,1,scatter,forward sweep estimate,-2.053408588941932,2630.0,NaN
+1,1,scatter,forward sweep estimate,-2.0534085889428697,2635.0,NaN
+1,1,scatter,forward sweep estimate,-1.9596115636811868,2640.0,NaN
+1,1,scatter,forward sweep estimate,-1.880430349800598,2645.0,NaN
+1,1,scatter,forward sweep estimate,-1.880430349800598,2650.0,NaN
+1,1,scatter,forward sweep estimate,-1.8804303497999295,2655.0,NaN
+1,1,scatter,forward sweep estimate,-1.8804303497999295,2660.0,NaN
+1,1,scatter,forward sweep estimate,-1.8115374834533642,2665.0,NaN
+1,1,scatter,forward sweep estimate,-1.8115374834533642,2670.0,NaN
+1,1,scatter,forward sweep estimate,-1.8115374834533642,2675.0,NaN
+1,1,scatter,forward sweep estimate,-1.750303635078748,2680.0,NaN
+1,1,scatter,forward sweep estimate,-1.6950065631207594,2685.0,NaN
+1,1,scatter,forward sweep estimate,-1.6950065631207594,2690.0,NaN
+1,1,scatter,forward sweep estimate,-1.6444541993772543,2695.0,NaN
+1,1,scatter,forward sweep estimate,-1.5977857851224302,2700.0,NaN
+1,1,scatter,forward sweep estimate,-1.6444541993776955,2705.0,NaN
+1,1,scatter,forward sweep estimate,-1.5977857851220212,2710.0,NaN
+1,1,scatter,forward sweep estimate,-1.5136795158043665,2715.0,NaN
+1,1,scatter,forward sweep estimate,-1.4753614842168445,2720.0,NaN
+1,1,scatter,forward sweep estimate,-1.4753614842168445,2725.0,NaN
+1,1,scatter,forward sweep estimate,-1.4390949372415633,2730.0,NaN
+1,1,scatter,forward sweep estimate,-1.3717537492496445,2735.0,NaN
+1,1,scatter,forward sweep estimate,-1.3101160096431375,2740.0,NaN
+1,1,scatter,forward sweep estimate,-1.281082086905406,2745.0,NaN
+1,1,scatter,forward sweep estimate,-1.281082086905406,2750.0,NaN
+1,1,scatter,forward sweep estimate,-1.2260461236446467,2755.0,NaN
+1,1,scatter,forward sweep estimate,-1.174492530635024,2760.0,NaN
+1,1,scatter,forward sweep estimate,-1.1258847963105172,2765.0,NaN
+1,1,scatter,forward sweep estimate,-1.0798010825663635,2770.0,NaN
+1,1,scatter,forward sweep estimate,-1.0359033116164973,2775.0,NaN
+1,1,scatter,forward sweep estimate,-0.9735661955678545,2780.0,NaN
+1,1,scatter,forward sweep estimate,-0.9147998701010933,2785.0,NaN
+1,1,scatter,forward sweep estimate,-0.8410326028221864,2790.0,NaN
+1,1,scatter,forward sweep estimate,-0.8058208510860555,2795.0,NaN
+1,1,scatter,forward sweep estimate,-0.7382227168977747,2800.0,NaN
+1,1,scatter,forward sweep estimate,-0.6581833391735923,2805.0,NaN
+1,1,scatter,forward sweep estimate,-0.612140121146981,2810.0,NaN
+1,1,scatter,forward sweep estimate,-0.5381315051699915,2815.0,NaN
+1,1,scatter,forward sweep estimate,-0.4530180921848798,2820.0,NaN
+1,1,scatter,forward sweep estimate,-0.38454179793081256,2825.0,NaN
+1,1,scatter,forward sweep estimate,-0.33104580153819735,2830.0,NaN
+1,1,scatter,forward sweep estimate,-0.25266664685392676,2835.0,NaN
+1,1,scatter,forward sweep estimate,-0.1639641818583425,2840.0,NaN
+1,1,scatter,forward sweep estimate,-0.08895442168671387,2845.0,NaN
+1,1,scatter,forward sweep estimate,-0.0010329504407551985,2850.0,NaN
+1,1,scatter,forward sweep estimate,0.09947864695295,2855.0,NaN
+1,1,scatter,forward sweep estimate,0.1754719740775869,2860.0,NaN
+1,1,scatter,forward sweep estimate,0.25249388505393666,2865.0,NaN
+1,1,scatter,forward sweep estimate,0.3576658318232232,2870.0,NaN
+1,1,scatter,forward sweep estimate,0.439162278358382,2875.0,NaN
+1,1,scatter,forward sweep estimate,0.5236895213353725,2880.0,NaN
+1,1,scatter,forward sweep estimate,0.612140121146981,2885.0,NaN
+1,1,scatter,forward sweep estimate,0.6896666456449554,2890.0,NaN
+1,1,scatter,forward sweep estimate,0.7885853515238848,2895.0,NaN
+1,1,scatter,forward sweep estimate,0.9147998701011583,2900.0,NaN
+1,1,scatter,forward sweep estimate,0.9939160577621883,2905.0,NaN
+1,1,scatter,forward sweep estimate,1.0798010825667463,2910.0,NaN
+1,1,scatter,forward sweep estimate,1.1744925306346548,2915.0,NaN
+1,1,scatter,forward sweep estimate,1.226046123644254,2920.0,NaN
+1,1,scatter,forward sweep estimate,1.3558583845003118,2925.0,NaN
+1,1,scatter,forward sweep estimate,1.4390949372414432,2930.0,NaN
+1,1,scatter,forward sweep estimate,1.4942462674017534,2935.0,NaN
+1,1,scatter,forward sweep estimate,1.5977857851223276,2940.0,NaN
+1,1,scatter,forward sweep estimate,1.6444541993776132,2945.0,NaN
+1,1,scatter,forward sweep estimate,1.721997038992811,2950.0,NaN
+1,1,scatter,forward sweep estimate,1.8115374834532536,2955.0,NaN
+1,1,scatter,forward sweep estimate,1.8448897956072392,2960.0,NaN
+1,1,scatter,forward sweep estimate,1.918518255295486,2965.0,NaN
+1,1,scatter,forward sweep estimate,2.0043079024753463,2970.0,NaN
+1,1,scatter,forward sweep estimate,2.05340858894287,2975.0,NaN
+1,1,scatter,forward sweep estimate,2.1080247790527835,2980.0,NaN
+1,1,scatter,forward sweep estimate,2.169764047808096,2985.0,NaN
+1,1,scatter,forward sweep estimate,2.1697640478080586,2990.0,NaN
+1,1,scatter,forward sweep estimate,2.1697640478079085,2995.0,NaN
+1,1,scatter,forward sweep estimate,2.241084463591124,3000.0,NaN
+1,1,scatter,forward sweep estimate,2.326038751133951,3005.0,NaN
+1,1,scatter,forward sweep estimate,2.3260387511338707,3010.0,NaN
+1,1,scatter,forward sweep estimate,2.326038751134084,3015.0,NaN
+1,1,scatter,forward sweep estimate,2.353717419492319,3020.0,NaN
+1,1,scatter,forward sweep estimate,2.5755444185710528,3050.0,NaN
+1,1,scatter,forward sweep estimate,2.611772484468229,3075.0,NaN
+1,1,scatter,forward sweep estimate,2.7127788824258285,3100.0,NaN
+1,1,scatter,forward sweep estimate,2.8779018521051105,3150.0,NaN
+1,2,lines,cubic guess,-5.0,27.10862585231962,NaN
+1,2,lines,cubic guess,-4.99,43.141835970163356,NaN
+1,2,lines,cubic guess,-4.98,59.11438528412464,NaN
+1,2,lines,cubic guess,-4.97,75.02638885764918,NaN
+1,2,lines,cubic guess,-4.96,90.87796175417861,NaN
+1,2,lines,cubic guess,-4.95,106.66921903715911,NaN
+1,2,lines,cubic guess,-4.94,122.40027577003457,NaN
+1,2,lines,cubic guess,-4.93,138.07124701625162,NaN
+1,2,lines,cubic guess,-4.92,153.68224783925143,NaN
+1,2,lines,cubic guess,-4.91,169.23339330247973,NaN
+1,2,lines,cubic guess,-4.9,184.72479846938086,NaN
+1,2,lines,cubic guess,-4.89,200.156578403401,NaN
+1,2,lines,cubic guess,-4.88,215.52884816798178,NaN
+1,2,lines,cubic guess,-4.87,230.84172282656846,NaN
+1,2,lines,cubic guess,-4.86,246.0953174426072,NaN
+1,2,lines,cubic guess,-4.85,261.2897470795415,NaN
+1,2,lines,cubic guess,-4.84,276.42512680081427,NaN
+1,2,lines,cubic guess,-4.83,291.5015716698713,NaN
+1,2,lines,cubic guess,-4.82,306.5191967501569,NaN
+1,2,lines,cubic guess,-4.81,321.4781171051168,NaN
+1,2,lines,cubic guess,-4.8,336.3784477981926,NaN
+1,2,lines,cubic guess,-4.79,351.220303892831,NaN
+1,2,lines,cubic guess,-4.78,366.00380045247584,NaN
+1,2,lines,cubic guess,-4.77,380.7290525405715,NaN
+1,2,lines,cubic guess,-4.76,395.3961752205623,NaN
+1,2,lines,cubic guess,-4.75,410.0052835558922,NaN
+1,2,lines,cubic guess,-4.74,424.5564926100071,NaN
+1,2,lines,cubic guess,-4.73,439.04991744635004,NaN
+1,2,lines,cubic guess,-4.72,453.4856731283671,NaN
+1,2,lines,cubic guess,-4.71,467.8638747195005,NaN
+1,2,lines,cubic guess,-4.7,482.18463728319557,NaN
+1,2,lines,cubic guess,-4.69,496.4480758828977,NaN
+1,2,lines,cubic guess,-4.68,510.65430558205117,NaN
+1,2,lines,cubic guess,-4.67,524.803441444099,NaN
+1,2,lines,cubic guess,-4.66,538.8955985324862,NaN
+1,2,lines,cubic guess,-4.65,552.9308919106579,NaN
+1,2,lines,cubic guess,-4.64,566.9094366420584,NaN
+1,2,lines,cubic guess,-4.63,580.8313477901322,NaN
+1,2,lines,cubic guess,-4.62,594.6967404183226,NaN
+1,2,lines,cubic guess,-4.61,608.5057295900747,NaN
+1,2,lines,cubic guess,-4.6,622.2584303688348,NaN
+1,2,lines,cubic guess,-4.59,635.9549578180442,NaN
+1,2,lines,cubic guess,-4.58,649.5954270011487,NaN
+1,2,lines,cubic guess,-4.57,663.179952981593,NaN
+1,2,lines,cubic guess,-4.56,676.7086508228226,NaN
+1,2,lines,cubic guess,-4.55,690.1816355882797,NaN
+1,2,lines,cubic guess,-4.54,703.5990223414099,NaN
+1,2,lines,cubic guess,-4.53,716.9609261456571,NaN
+1,2,lines,cubic guess,-4.52,730.2674620644677,NaN
+1,2,lines,cubic guess,-4.51,743.5187451612833,NaN
+1,2,lines,cubic guess,-4.5,756.7148904995493,NaN
+1,2,lines,cubic guess,-4.49,769.8560131427109,NaN
+1,2,lines,cubic guess,-4.48,782.942228154212,NaN
+1,2,lines,cubic guess,-4.47,795.9736505974986,NaN
+1,2,lines,cubic guess,-4.46,808.9503955360121,NaN
+1,2,lines,cubic guess,-4.45,821.872578033199,NaN
+1,2,lines,cubic guess,-4.44,834.7403131525032,NaN
+1,2,lines,cubic guess,-4.43,847.5537159573703,NaN
+1,2,lines,cubic guess,-4.42,860.3129015112424,NaN
+1,2,lines,cubic guess,-4.41,873.0179848775658,NaN
+1,2,lines,cubic guess,-4.4,885.6690811197836,NaN
+1,2,lines,cubic guess,-4.39,898.2663053013428,NaN
+1,2,lines,cubic guess,-4.38,910.8097724856843,NaN
+1,2,lines,cubic guess,-4.37,923.2995977362546,NaN
+1,2,lines,cubic guess,-4.36,935.7358961164985,NaN
+1,2,lines,cubic guess,-4.35,948.1187826898599,NaN
+1,2,lines,cubic guess,-4.34,960.4483725197824,NaN
+1,2,lines,cubic guess,-4.33,972.7247806697117,NaN
+1,2,lines,cubic guess,-4.32,984.9481222030913,NaN
+1,2,lines,cubic guess,-4.31,997.1185121833671,NaN
+1,2,lines,cubic guess,-4.3,1009.2360656739811,NaN
+1,2,lines,cubic guess,-4.29,1021.3008977383797,NaN
+1,2,lines,cubic guess,-4.28,1033.3131234400066,NaN
+1,2,lines,cubic guess,-4.27,1045.2728578423073,NaN
+1,2,lines,cubic guess,-4.26,1057.1802160087248,NaN
+1,2,lines,cubic guess,-4.25,1069.0353130027038,NaN
+1,2,lines,cubic guess,-4.24,1080.8382638876888,NaN
+1,2,lines,cubic guess,-4.23,1092.589183727125,NaN
+1,2,lines,cubic guess,-4.22,1104.2881875844566,NaN
+1,2,lines,cubic guess,-4.21,1115.9353905231276,NaN
+1,2,lines,cubic guess,-4.2,1127.5309076065823,NaN
+1,2,lines,cubic guess,-4.19,1139.0748538982655,NaN
+1,2,lines,cubic guess,-4.18,1150.5673444616227,NaN
+1,2,lines,cubic guess,-4.17,1162.008494360096,NaN
+1,2,lines,cubic guess,-4.16,1173.3984186571313,NaN
+1,2,lines,cubic guess,-4.15,1184.737232416173,NaN
+1,2,lines,cubic guess,-4.14,1196.0250507006658,NaN
+1,2,lines,cubic guess,-4.13,1207.2619885740535,NaN
+1,2,lines,cubic guess,-4.12,1218.4481610997805,NaN
+1,2,lines,cubic guess,-4.11,1229.5836833412914,NaN
+1,2,lines,cubic guess,-4.1,1240.6686703620312,NaN
+1,2,lines,cubic guess,-4.09,1251.703237225444,NaN
+1,2,lines,cubic guess,-4.08,1262.6874989949733,NaN
+1,2,lines,cubic guess,-4.07,1273.6215707340648,NaN
+1,2,lines,cubic guess,-4.06,1284.5055675061635,NaN
+1,2,lines,cubic guess,-4.05,1295.3396043747116,NaN
+1,2,lines,cubic guess,-4.04,1306.1237964031548,NaN
+1,2,lines,cubic guess,-4.03,1316.8582586549376,NaN
+1,2,lines,cubic guess,-4.02,1327.5431061935055,NaN
+1,2,lines,cubic guess,-4.01,1338.1784540823012,NaN
+1,2,lines,cubic guess,-4.0,1348.764417384769,NaN
+1,2,lines,cubic guess,-3.99,1359.3011111643548,NaN
+1,2,lines,cubic guess,-3.98,1369.7886504845026,NaN
+1,2,lines,cubic guess,-3.97,1380.227150408656,NaN
+1,2,lines,cubic guess,-3.96,1390.616726000261,NaN
+1,2,lines,cubic guess,-3.95,1400.95749232276,NaN
+1,2,lines,cubic guess,-3.94,1411.249564439599,NaN
+1,2,lines,cubic guess,-3.93,1421.4930574142218,NaN
+1,2,lines,cubic guess,-3.92,1431.6880863100737,NaN
+1,2,lines,cubic guess,-3.91,1441.8347661905975,NaN
+1,2,lines,cubic guess,-3.9,1451.9332121192394,NaN
+1,2,lines,cubic guess,-3.89,1461.9835391594424,NaN
+1,2,lines,cubic guess,-3.88,1471.9858623746525,NaN
+1,2,lines,cubic guess,-3.87,1481.940296828312,NaN
+1,2,lines,cubic guess,-3.86,1491.8469575838676,NaN
+1,2,lines,cubic guess,-3.85,1501.705959704762,NaN
+1,2,lines,cubic guess,-3.84,1511.5174182544408,NaN
+1,2,lines,cubic guess,-3.83,1521.2814482963481,NaN
+1,2,lines,cubic guess,-3.82,1530.9981648939279,NaN
+1,2,lines,cubic guess,-3.81,1540.667683110625,NaN
+1,2,lines,cubic guess,-3.8,1550.2901180098845,NaN
+1,2,lines,cubic guess,-3.79,1559.8655846551494,NaN
+1,2,lines,cubic guess,-3.78,1569.3941981098653,NaN
+1,2,lines,cubic guess,-3.77,1578.8760734374762,NaN
+1,2,lines,cubic guess,-3.76,1588.3113257014265,NaN
+1,2,lines,cubic guess,-3.75,1597.7000699651599,NaN
+1,2,lines,cubic guess,-3.74,1607.042421292122,NaN
+1,2,lines,cubic guess,-3.73,1616.338494745758,NaN
+1,2,lines,cubic guess,-3.72,1625.5884053895106,NaN
+1,2,lines,cubic guess,-3.71,1634.792268286825,NaN
+1,2,lines,cubic guess,-3.7,1643.9501985011457,NaN
+1,2,lines,cubic guess,-3.69,1653.062311095917,NaN
+1,2,lines,cubic guess,-3.68,1662.1287211345832,NaN
+1,2,lines,cubic guess,-3.67,1671.149543680589,NaN
+1,2,lines,cubic guess,-3.66,1680.1248937973783,NaN
+1,2,lines,cubic guess,-3.65,1689.0548865483966,NaN
+1,2,lines,cubic guess,-3.64,1697.9396369970873,NaN
+1,2,lines,cubic guess,-3.63,1706.7792602068953,NaN
+1,2,lines,cubic guess,-3.62,1715.573871241265,NaN
+1,2,lines,cubic guess,-3.61,1724.3235851636412,NaN
+1,2,lines,cubic guess,-3.6,1733.028517037467,NaN
+1,2,lines,cubic guess,-3.59,1741.6887819261888,NaN
+1,2,lines,cubic guess,-3.58,1750.30449489325,NaN
+1,2,lines,cubic guess,-3.57,1758.8757710020946,NaN
+1,2,lines,cubic guess,-3.56,1767.4027253161678,NaN
+1,2,lines,cubic guess,-3.55,1775.885472898914,NaN
+1,2,lines,cubic guess,-3.54,1784.324128813777,NaN
+1,2,lines,cubic guess,-3.53,1792.7188081242018,NaN
+1,2,lines,cubic guess,-3.52,1801.0696258936327,NaN
+1,2,lines,cubic guess,-3.51,1809.3766971855148,NaN
+1,2,lines,cubic guess,-3.5,1817.6401370632911,NaN
+1,2,lines,cubic guess,-3.49,1825.8600605904066,NaN
+1,2,lines,cubic guess,-3.48,1834.036582830307,NaN
+1,2,lines,cubic guess,-3.47,1842.1698188464352,NaN
+1,2,lines,cubic guess,-3.46,1850.2598837022363,NaN
+1,2,lines,cubic guess,-3.45,1858.3068924611543,NaN
+1,2,lines,cubic guess,-3.44,1866.3109601866342,NaN
+1,2,lines,cubic guess,-3.43,1874.2722019421203,NaN
+1,2,lines,cubic guess,-3.42,1882.190732791057,NaN
+1,2,lines,cubic guess,-3.41,1890.0666677968882,NaN
+1,2,lines,cubic guess,-3.4,1897.9001220230596,NaN
+1,2,lines,cubic guess,-3.39,1905.6912105330139,NaN
+1,2,lines,cubic guess,-3.38,1913.4400483901973,NaN
+1,2,lines,cubic guess,-3.37,1921.146750658053,NaN
+1,2,lines,cubic guess,-3.36,1928.8114324000262,NaN
+1,2,lines,cubic guess,-3.35,1936.434208679561,NaN
+1,2,lines,cubic guess,-3.34,1944.015194560102,NaN
+1,2,lines,cubic guess,-3.33,1951.554505105093,NaN
+1,2,lines,cubic guess,-3.32,1959.0522553779795,NaN
+1,2,lines,cubic guess,-3.31,1966.5085604422047,NaN
+1,2,lines,cubic guess,-3.3,1973.9235353612148,NaN
+1,2,lines,cubic guess,-3.29,1981.2972951984525,NaN
+1,2,lines,cubic guess,-3.28,1988.6299550173633,NaN
+1,2,lines,cubic guess,-3.27,1995.9216298813913,NaN
+1,2,lines,cubic guess,-3.26,2003.1724348539803,NaN
+1,2,lines,cubic guess,-3.25,2010.3824849985758,NaN
+1,2,lines,cubic guess,-3.24,2017.5518953786216,NaN
+1,2,lines,cubic guess,-3.23,2024.6807810575629,NaN
+1,2,lines,cubic guess,-3.22,2031.769257098843,NaN
+1,2,lines,cubic guess,-3.21,2038.8174385659074,NaN
+1,2,lines,cubic guess,-3.2,2045.8254405221996,NaN
+1,2,lines,cubic guess,-3.19,2052.793378031165,NaN
+1,2,lines,cubic guess,-3.18,2059.7213661562473,NaN
+1,2,lines,cubic guess,-3.17,2066.609519960891,NaN
+1,2,lines,cubic guess,-3.16,2073.4579545085408,NaN
+1,2,lines,cubic guess,-3.15,2080.2667848626415,NaN
+1,2,lines,cubic guess,-3.14,2087.036126086637,NaN
+1,2,lines,cubic guess,-3.13,2093.766093243972,NaN
+1,2,lines,cubic guess,-3.12,2100.45680139809,NaN
+1,2,lines,cubic guess,-3.11,2107.108365612438,NaN
+1,2,lines,cubic guess,-3.1,2113.720900950457,NaN
+1,2,lines,cubic guess,-3.09,2120.2945224755936,NaN
+1,2,lines,cubic guess,-3.08,2126.8293452512917,NaN
+1,2,lines,cubic guess,-3.07,2133.3254843409964,NaN
+1,2,lines,cubic guess,-3.06,2139.783054808151,NaN
+1,2,lines,cubic guess,-3.05,2146.202171716201,NaN
+1,2,lines,cubic guess,-3.04,2152.5829501285903,NaN
+1,2,lines,cubic guess,-3.03,2158.925505108763,NaN
+1,2,lines,cubic guess,-3.02,2165.229951720164,NaN
+1,2,lines,cubic guess,-3.01,2171.496405026238,NaN
+1,2,lines,cubic guess,-3.0,2177.724980090429,NaN
+1,2,lines,cubic guess,-2.99,2183.9157919761815,NaN
+1,2,lines,cubic guess,-2.98,2190.06895574694,NaN
+1,2,lines,cubic guess,-2.97,2196.1845864661486,NaN
+1,2,lines,cubic guess,-2.96,2202.262799197253,NaN
+1,2,lines,cubic guess,-2.95,2208.303709003696,NaN
+1,2,lines,cubic guess,-2.94,2214.307430948923,NaN
+1,2,lines,cubic guess,-2.93,2220.2740800963784,NaN
+1,2,lines,cubic guess,-2.92,2226.203771509506,NaN
+1,2,lines,cubic guess,-2.91,2232.096620251751,NaN
+1,2,lines,cubic guess,-2.9,2237.952741386558,NaN
+1,2,lines,cubic guess,-2.89,2243.7722499773704,NaN
+1,2,lines,cubic guess,-2.88,2249.5552610876334,NaN
+1,2,lines,cubic guess,-2.87,2255.3018897807915,NaN
+1,2,lines,cubic guess,-2.86,2261.0122511202885,NaN
+1,2,lines,cubic guess,-2.85,2266.6864601695697,NaN
+1,2,lines,cubic guess,-2.84,2272.3246319920786,NaN
+1,2,lines,cubic guess,-2.83,2277.9268816512604,NaN
+1,2,lines,cubic guess,-2.82,2283.49332421056,NaN
+1,2,lines,cubic guess,-2.81,2289.02407473342,NaN
+1,2,lines,cubic guess,-2.8,2294.5192482832867,NaN
+1,2,lines,cubic guess,-2.79,2299.9789599236033,NaN
+1,2,lines,cubic guess,-2.78,2305.403324717815,NaN
+1,2,lines,cubic guess,-2.77,2310.792457729366,NaN
+1,2,lines,cubic guess,-2.76,2316.146474021701,NaN
+1,2,lines,cubic guess,-2.75,2321.465488658264,NaN
+1,2,lines,cubic guess,-2.74,2326.749616702499,NaN
+1,2,lines,cubic guess,-2.73,2331.9989732178524,NaN
+1,2,lines,cubic guess,-2.72,2337.2136732677664,NaN
+1,2,lines,cubic guess,-2.71,2342.393831915687,NaN
+1,2,lines,cubic guess,-2.7,2347.5395642250573,NaN
+1,2,lines,cubic guess,-2.69,2352.6509852593226,NaN
+1,2,lines,cubic guess,-2.68,2357.728210081927,NaN
+1,2,lines,cubic guess,-2.67,2362.7713537563154,NaN
+1,2,lines,cubic guess,-2.66,2367.780531345932,NaN
+1,2,lines,cubic guess,-2.65,2372.7558579142215,NaN
+1,2,lines,cubic guess,-2.64,2377.6974485246274,NaN
+1,2,lines,cubic guess,-2.63,2382.605418240595,NaN
+1,2,lines,cubic guess,-2.62,2387.479882125569,NaN
+1,2,lines,cubic guess,-2.61,2392.3209552429935,NaN
+1,2,lines,cubic guess,-2.6,2397.128752656312,NaN
+1,2,lines,cubic guess,-2.59,2401.903389428971,NaN
+1,2,lines,cubic guess,-2.58,2406.6449806244127,NaN
+1,2,lines,cubic guess,-2.57,2411.3536413060824,NaN
+1,2,lines,cubic guess,-2.56,2416.0294865374253,NaN
+1,2,lines,cubic guess,-2.55,2420.672631381885,NaN
+1,2,lines,cubic guess,-2.54,2425.283190902906,NaN
+1,2,lines,cubic guess,-2.53,2429.8612801639338,NaN
+1,2,lines,cubic guess,-2.52,2434.4070142284113,NaN
+1,2,lines,cubic guess,-2.51,2438.920508159784,NaN
+1,2,lines,cubic guess,-2.5,2443.4018770214952,NaN
+1,2,lines,cubic guess,-2.49,2447.8512358769904,NaN
+1,2,lines,cubic guess,-2.48,2452.2686997897135,NaN
+1,2,lines,cubic guess,-2.47,2456.6543838231096,NaN
+1,2,lines,cubic guess,-2.46,2461.008403040623,NaN
+1,2,lines,cubic guess,-2.45,2465.3308725056972,NaN
+1,2,lines,cubic guess,-2.44,2469.6219072817776,NaN
+1,2,lines,cubic guess,-2.43,2473.881622432308,NaN
+1,2,lines,cubic guess,-2.42,2478.110133020734,NaN
+1,2,lines,cubic guess,-2.41,2482.307554110499,NaN
+1,2,lines,cubic guess,-2.4,2486.474000765047,NaN
+1,2,lines,cubic guess,-2.39,2490.6095880478238,NaN
+1,2,lines,cubic guess,-2.38,2494.714431022273,NaN
+1,2,lines,cubic guess,-2.37,2498.788644751839,NaN
+1,2,lines,cubic guess,-2.36,2502.8323442999667,NaN
+1,2,lines,cubic guess,-2.35,2506.8456447301,NaN
+1,2,lines,cubic guess,-2.34,2510.828661105684,NaN
+1,2,lines,cubic guess,-2.33,2514.7815084901627,NaN
+1,2,lines,cubic guess,-2.32,2518.7043019469806,NaN
+1,2,lines,cubic guess,-2.31,2522.597156539582,NaN
+1,2,lines,cubic guess,-2.3,2526.460187331412,NaN
+1,2,lines,cubic guess,-2.29,2530.293509385914,NaN
+1,2,lines,cubic guess,-2.28,2534.097237766533,NaN
+1,2,lines,cubic guess,-2.27,2537.871487536713,NaN
+1,2,lines,cubic guess,-2.26,2541.6163737599,NaN
+1,2,lines,cubic guess,-2.25,2545.3320114995367,NaN
+1,2,lines,cubic guess,-2.24,2549.018515819068,NaN
+1,2,lines,cubic guess,-2.23,2552.6760017819392,NaN
+1,2,lines,cubic guess,-2.22,2556.304584451593,NaN
+1,2,lines,cubic guess,-2.21,2559.904378891476,NaN
+1,2,lines,cubic guess,-2.2,2563.4755001650306,NaN
+1,2,lines,cubic guess,-2.19,2567.018063335703,NaN
+1,2,lines,cubic guess,-2.18,2570.532183466936,NaN
+1,2,lines,cubic guess,-2.17,2574.0179756221755,NaN
+1,2,lines,cubic guess,-2.16,2577.475554864865,NaN
+1,2,lines,cubic guess,-2.15,2580.905036258449,NaN
+1,2,lines,cubic guess,-2.14,2584.3065348663727,NaN
+1,2,lines,cubic guess,-2.13,2587.68016575208,NaN
+1,2,lines,cubic guess,-2.12,2591.0260439790145,NaN
+1,2,lines,cubic guess,-2.11,2594.3442846106227,NaN
+1,2,lines,cubic guess,-2.1,2597.635002710347,NaN
+1,2,lines,cubic guess,-2.09,2600.898313341633,NaN
+1,2,lines,cubic guess,-2.08,2604.134331567925,NaN
+1,2,lines,cubic guess,-2.07,2607.343172452667,NaN
+1,2,lines,cubic guess,-2.06,2610.524951059304,NaN
+1,2,lines,cubic guess,-2.05,2613.6797824512805,NaN
+1,2,lines,cubic guess,-2.04,2616.8077816920395,NaN
+1,2,lines,cubic guess,-2.03,2619.9090638450275,NaN
+1,2,lines,cubic guess,-2.02,2622.983743973688,NaN
+1,2,lines,cubic guess,-2.01,2626.031937141465,NaN
+1,2,lines,cubic guess,-2.0,2629.0537584118033,NaN
+1,2,lines,cubic guess,-1.99,2632.0493228481478,NaN
+1,2,lines,cubic guess,-1.98,2635.018745513942,NaN
+1,2,lines,cubic guess,-1.97,2637.962141472631,NaN
+1,2,lines,cubic guess,-1.96,2640.8796257876597,NaN
+1,2,lines,cubic guess,-1.95,2643.771313522472,NaN
+1,2,lines,cubic guess,-1.94,2646.637319740512,NaN
+1,2,lines,cubic guess,-1.93,2649.4777595052246,NaN
+1,2,lines,cubic guess,-1.92,2652.292747880054,NaN
+1,2,lines,cubic guess,-1.91,2655.082399928445,NaN
+1,2,lines,cubic guess,-1.9,2657.8468307138414,NaN
+1,2,lines,cubic guess,-1.89,2660.5861552996885,NaN
+1,2,lines,cubic guess,-1.88,2663.30048874943,NaN
+1,2,lines,cubic guess,-1.87,2665.9899461265104,NaN
+1,2,lines,cubic guess,-1.86,2668.654642494375,NaN
+1,2,lines,cubic guess,-1.85,2671.2946929164673,NaN
+1,2,lines,cubic guess,-1.84,2673.910212456232,NaN
+1,2,lines,cubic guess,-1.83,2676.5013161771135,NaN
+1,2,lines,cubic guess,-1.82,2679.0681191425565,NaN
+1,2,lines,cubic guess,-1.81,2681.6107364160052,NaN
+1,2,lines,cubic guess,-1.8,2684.1292830609045,NaN
+1,2,lines,cubic guess,-1.79,2686.623874140698,NaN
+1,2,lines,cubic guess,-1.78,2689.094624718831,NaN
+1,2,lines,cubic guess,-1.77,2691.5416498587474,NaN
+1,2,lines,cubic guess,-1.76,2693.9650646238915,NaN
+1,2,lines,cubic guess,-1.75,2696.3649840777084,NaN
+1,2,lines,cubic guess,-1.74,2698.741523283642,NaN
+1,2,lines,cubic guess,-1.73,2701.094797305137,NaN
+1,2,lines,cubic guess,-1.72,2703.424921205638,NaN
+1,2,lines,cubic guess,-1.71,2705.732010048589,NaN
+1,2,lines,cubic guess,-1.7,2708.0161788974347,NaN
+1,2,lines,cubic guess,-1.69,2710.2775428156197,NaN
+1,2,lines,cubic guess,-1.68,2712.516216866588,NaN
+1,2,lines,cubic guess,-1.67,2714.732316113784,NaN
+1,2,lines,cubic guess,-1.66,2716.925955620652,NaN
+1,2,lines,cubic guess,-1.65,2719.097250450638,NaN
+1,2,lines,cubic guess,-1.64,2721.2463156671847,NaN
+1,2,lines,cubic guess,-1.63,2723.373266333738,NaN
+1,2,lines,cubic guess,-1.62,2725.47821751374,NaN
+1,2,lines,cubic guess,-1.61,2727.5612842706373,NaN
+1,2,lines,cubic guess,-1.6,2729.622581667874,NaN
+1,2,lines,cubic guess,-1.59,2731.662224768894,NaN
+1,2,lines,cubic guess,-1.58,2733.680328637142,NaN
+1,2,lines,cubic guess,-1.57,2735.6770083360625,NaN
+1,2,lines,cubic guess,-1.56,2737.6523789290995,NaN
+1,2,lines,cubic guess,-1.55,2739.6065554796983,NaN
+1,2,lines,cubic guess,-1.54,2741.5396530513026,NaN
+1,2,lines,cubic guess,-1.53,2743.451786707357,NaN
+1,2,lines,cubic guess,-1.52,2745.3430715113063,NaN
+1,2,lines,cubic guess,-1.51,2747.2136225265945,NaN
+1,2,lines,cubic guess,-1.5,2749.063554816666,NaN
+1,2,lines,cubic guess,-1.49,2750.8929834449655,NaN
+1,2,lines,cubic guess,-1.48,2752.7020234749375,NaN
+1,2,lines,cubic guess,-1.47,2754.4907899700265,NaN
+1,2,lines,cubic guess,-1.46,2756.2593979936764,NaN
+1,2,lines,cubic guess,-1.45,2758.0079626093325,NaN
+1,2,lines,cubic guess,-1.44,2759.736598880438,NaN
+1,2,lines,cubic guess,-1.43,2761.4454218704386,NaN
+1,2,lines,cubic guess,-1.42,2763.1345466427783,NaN
+1,2,lines,cubic guess,-1.41,2764.8040882609016,NaN
+1,2,lines,cubic guess,-1.4,2766.454161788253,NaN
+1,2,lines,cubic guess,-1.39,2768.0848822882763,NaN
+1,2,lines,cubic guess,-1.38,2769.6963648244164,NaN
+1,2,lines,cubic guess,-1.37,2771.288724460118,NaN
+1,2,lines,cubic guess,-1.36,2772.8620762588253,NaN
+1,2,lines,cubic guess,-1.35,2774.4165352839827,NaN
+1,2,lines,cubic guess,-1.34,2775.9522165990343,NaN
+1,2,lines,cubic guess,-1.33,2777.4692352674256,NaN
+1,2,lines,cubic guess,-1.32,2778.9677063525996,NaN
+1,2,lines,cubic guess,-1.31,2780.447744918002,NaN
+1,2,lines,cubic guess,-1.3,2781.909466027077,NaN
+1,2,lines,cubic guess,-1.29,2783.3529847432683,NaN
+1,2,lines,cubic guess,-1.28,2784.778416130021,NaN
+1,2,lines,cubic guess,-1.27,2786.1858752507796,NaN
+1,2,lines,cubic guess,-1.26,2787.5754771689876,NaN
+1,2,lines,cubic guess,-1.25,2788.9473369480907,NaN
+1,2,lines,cubic guess,-1.24,2790.301569651533,NaN
+1,2,lines,cubic guess,-1.23,2791.6382903427584,NaN
+1,2,lines,cubic guess,-1.22,2792.9576140852123,NaN
+1,2,lines,cubic guess,-1.21,2794.2596559423378,NaN
+1,2,lines,cubic guess,-1.2,2795.5445309775805,NaN
+1,2,lines,cubic guess,-1.19,2796.812354254384,NaN
+1,2,lines,cubic guess,-1.18,2798.0632408361935,NaN
+1,2,lines,cubic guess,-1.17,2799.2973057864533,NaN
+1,2,lines,cubic guess,-1.16,2800.5146641686074,NaN
+1,2,lines,cubic guess,-1.15,2801.7154310461,NaN
+1,2,lines,cubic guess,-1.14,2802.899721482377,NaN
+1,2,lines,cubic guess,-1.13,2804.0676505408815,NaN
+1,2,lines,cubic guess,-1.12,2805.2193332850584,NaN
+1,2,lines,cubic guess,-1.11,2806.354884778352,NaN
+1,2,lines,cubic guess,-1.1,2807.4744200842065,NaN
+1,2,lines,cubic guess,-1.09,2808.5780542660664,NaN
+1,2,lines,cubic guess,-1.08,2809.665902387377,NaN
+1,2,lines,cubic guess,-1.07,2810.738079511582,NaN
+1,2,lines,cubic guess,-1.06,2811.794700702126,NaN
+1,2,lines,cubic guess,-1.05,2812.835881022453,NaN
+1,2,lines,cubic guess,-1.04,2813.8617355360084,NaN
+1,2,lines,cubic guess,-1.03,2814.872379306236,NaN
+1,2,lines,cubic guess,-1.02,2815.8679273965804,NaN
+1,2,lines,cubic guess,-1.01,2816.848494870486,NaN
+1,2,lines,cubic guess,-1.0,2817.814196791397,NaN
+1,2,lines,cubic guess,-0.99,2818.765148222758,NaN
+1,2,lines,cubic guess,-0.98,2819.7014642280137,NaN
+1,2,lines,cubic guess,-0.97,2820.6232598706088,NaN
+1,2,lines,cubic guess,-0.96,2821.5306502139865,NaN
+1,2,lines,cubic guess,-0.95,2822.4237503215927,NaN
+1,2,lines,cubic guess,-0.94,2823.3026752568708,NaN
+1,2,lines,cubic guess,-0.93,2824.1675400832655,NaN
+1,2,lines,cubic guess,-0.92,2825.0184598642218,NaN
+1,2,lines,cubic guess,-0.91,2825.8555496631834,NaN
+1,2,lines,cubic guess,-0.9,2826.6789245435953,NaN
+1,2,lines,cubic guess,-0.89,2827.488699568901,NaN
+1,2,lines,cubic guess,-0.88,2828.2849898025465,NaN
+1,2,lines,cubic guess,-0.87,2829.067910307975,NaN
+1,2,lines,cubic guess,-0.86,2829.8375761486313,NaN
+1,2,lines,cubic guess,-0.85,2830.59410238796,NaN
+1,2,lines,cubic guess,-0.84,2831.337604089405,NaN
+1,2,lines,cubic guess,-0.83,2832.0681963164116,NaN
+1,2,lines,cubic guess,-0.82,2832.785994132424,NaN
+1,2,lines,cubic guess,-0.81,2833.491112600886,NaN
+1,2,lines,cubic guess,-0.8,2834.1836667852426,NaN
+1,2,lines,cubic guess,-0.79,2834.8637717489382,NaN
+1,2,lines,cubic guess,-0.78,2835.531542555417,NaN
+1,2,lines,cubic guess,-0.77,2836.1870942681235,NaN
+1,2,lines,cubic guess,-0.76,2836.8305419505027,NaN
+1,2,lines,cubic guess,-0.75,2837.4620006659984,NaN
+1,2,lines,cubic guess,-0.74,2838.0815854780553,NaN
+1,2,lines,cubic guess,-0.73,2838.6894114501174,NaN
+1,2,lines,cubic guess,-0.72,2839.28559364563,NaN
+1,2,lines,cubic guess,-0.71,2839.870247128037,NaN
+1,2,lines,cubic guess,-0.7,2840.4434869607826,NaN
+1,2,lines,cubic guess,-0.69,2841.005428207312,NaN
+1,2,lines,cubic guess,-0.68,2841.5561859310687,NaN
+1,2,lines,cubic guess,-0.67,2842.0958751954977,NaN
+1,2,lines,cubic guess,-0.66,2842.6246110640436,NaN
+1,2,lines,cubic guess,-0.65,2843.1425086001504,NaN
+1,2,lines,cubic guess,-0.64,2843.649682867263,NaN
+1,2,lines,cubic guess,-0.63,2844.1462489288256,NaN
+1,2,lines,cubic guess,-0.62,2844.6323218482826,NaN
+1,2,lines,cubic guess,-0.61,2845.108016689078,NaN
+1,2,lines,cubic guess,-0.6,2845.5734485146577,NaN
+1,2,lines,cubic guess,-0.59,2846.0287323884645,NaN
+1,2,lines,cubic guess,-0.58,2846.473983373943,NaN
+1,2,lines,cubic guess,-0.57,2846.909316534539,NaN
+1,2,lines,cubic guess,-0.56,2847.334846933696,NaN
+1,2,lines,cubic guess,-0.55,2847.750689634858,NaN
+1,2,lines,cubic guess,-0.54,2848.156959701471,NaN
+1,2,lines,cubic guess,-0.53,2848.553772196977,NaN
+1,2,lines,cubic guess,-0.52,2848.941242184823,NaN
+1,2,lines,cubic guess,-0.51,2849.3194847284517,NaN
+1,2,lines,cubic guess,-0.5,2849.688614891309,NaN
+1,2,lines,cubic guess,-0.49,2850.048747736838,NaN
+1,2,lines,cubic guess,-0.48,2850.3999983284834,NaN
+1,2,lines,cubic guess,-0.47,2850.74248172969,NaN
+1,2,lines,cubic guess,-0.46,2851.076313003902,NaN
+1,2,lines,cubic guess,-0.45,2851.4016072145646,NaN
+1,2,lines,cubic guess,-0.44,2851.7184794251207,NaN
+1,2,lines,cubic guess,-0.43,2852.027044699016,NaN
+1,2,lines,cubic guess,-0.42,2852.3274180996955,NaN
+1,2,lines,cubic guess,-0.41,2852.619714690602,NaN
+1,2,lines,cubic guess,-0.4,2852.9040495351805,NaN
+1,2,lines,cubic guess,-0.39,2853.180537696876,NaN
+1,2,lines,cubic guess,-0.38,2853.449294239132,NaN
+1,2,lines,cubic guess,-0.37,2853.710434225394,NaN
+1,2,lines,cubic guess,-0.36,2853.964072719106,NaN
+1,2,lines,cubic guess,-0.35,2854.2103247837117,NaN
+1,2,lines,cubic guess,-0.34,2854.4493054826567,NaN
+1,2,lines,cubic guess,-0.33,2854.6811298793855,NaN
+1,2,lines,cubic guess,-0.32,2854.905913037341,NaN
+1,2,lines,cubic guess,-0.31,2855.1237700199695,NaN
+1,2,lines,cubic guess,-0.3,2855.3348158907147,NaN
+1,2,lines,cubic guess,-0.29,2855.5391657130203,NaN
+1,2,lines,cubic guess,-0.28,2855.7369345503316,NaN
+1,2,lines,cubic guess,-0.27,2855.928237466093,NaN
+1,2,lines,cubic guess,-0.26,2856.1131895237486,NaN
+1,2,lines,cubic guess,-0.25,2856.291905786743,NaN
+1,2,lines,cubic guess,-0.24,2856.4645013185204,NaN
+1,2,lines,cubic guess,-0.23,2856.6310911825262,NaN
+1,2,lines,cubic guess,-0.22,2856.791790442204,NaN
+1,2,lines,cubic guess,-0.21,2856.946714160998,NaN
+1,2,lines,cubic guess,-0.2,2857.095977402353,NaN
+1,2,lines,cubic guess,-0.19,2857.239695229714,NaN
+1,2,lines,cubic guess,-0.18,2857.377982706524,NaN
+1,2,lines,cubic guess,-0.17,2857.510954896229,NaN
+1,2,lines,cubic guess,-0.16,2857.6387268622734,NaN
+1,2,lines,cubic guess,-0.15,2857.7614136681,NaN
+1,2,lines,cubic guess,-0.14,2857.879130377155,NaN
+1,2,lines,cubic guess,-0.13,2857.991992052882,NaN
+1,2,lines,cubic guess,-0.12,2858.100113758725,NaN
+1,2,lines,cubic guess,-0.11,2858.2036105581296,NaN
+1,2,lines,cubic guess,-0.1,2858.3025975145397,NaN
+1,2,lines,cubic guess,-0.09,2858.397189691399,NaN
+1,2,lines,cubic guess,-0.08,2858.487502152153,NaN
+1,2,lines,cubic guess,-0.07,2858.5736499602463,NaN
+1,2,lines,cubic guess,-0.06,2858.655748179122,NaN
+1,2,lines,cubic guess,-0.05,2858.7339118722257,NaN
+1,2,lines,cubic guess,-0.04,2858.808256103002,NaN
+1,2,lines,cubic guess,-0.03,2858.878895934894,NaN
+1,2,lines,cubic guess,-0.02,2858.9459464313472,NaN
+1,2,lines,cubic guess,-0.01,2859.0095226558064,NaN
+1,2,lines,cubic guess,0.0,2859.069739671715,NaN
+1,2,lines,cubic guess,0.01,2859.126712542518,NaN
+1,2,lines,cubic guess,0.02,2859.18055633166,NaN
+1,2,lines,cubic guess,0.03,2859.231386102585,NaN
+1,2,lines,cubic guess,0.04,2859.2793169187375,NaN
+1,2,lines,cubic guess,0.05,2859.3244638435626,NaN
+1,2,lines,cubic guess,0.06,2859.3669419405037,NaN
+1,2,lines,cubic guess,0.07,2859.406866273006,NaN
+1,2,lines,cubic guess,0.08,2859.4443519045135,NaN
+1,2,lines,cubic guess,0.09,2859.479513898471,NaN
+1,2,lines,cubic guess,0.1,2859.512467318323,NaN
+1,2,lines,cubic guess,0.11,2859.5433272275136,NaN
+1,2,lines,cubic guess,0.12,2859.572208689488,NaN
+1,2,lines,cubic guess,0.13,2859.5992267676893,NaN
+1,2,lines,cubic guess,0.14,2859.624496525563,NaN
+1,2,lines,cubic guess,0.15,2859.648133026553,NaN
+1,2,lines,cubic guess,0.16,2859.670251334104,NaN
+1,2,lines,cubic guess,0.17,2859.69096651166,NaN
+1,2,lines,cubic guess,0.18,2859.7103936226663,NaN
+1,2,lines,cubic guess,0.19,2859.728647730567,NaN
+1,2,lines,cubic guess,0.2,2859.745843898806,NaN
+1,2,lines,cubic guess,0.21,2859.7620971908286,NaN
+1,2,lines,cubic guess,0.22,2859.7775226700787,NaN
+1,2,lines,cubic guess,0.23,2859.7922354000007,NaN
+1,2,lines,cubic guess,0.24,2859.8063504440393,NaN
+1,2,lines,cubic guess,0.25,2859.819982865639,NaN
+1,2,lines,cubic guess,0.26,2859.833247728244,NaN
+1,2,lines,cubic guess,0.27,2859.8462600952985,NaN
+1,2,lines,cubic guess,0.28,2859.859135030247,NaN
+1,2,lines,cubic guess,0.29,2859.8719875965353,NaN
+1,2,lines,cubic guess,0.3,2859.884932857606,NaN
+1,2,lines,cubic guess,0.31,2859.898085876905,NaN
+1,2,lines,cubic guess,0.32,2859.9115617178754,NaN
+1,2,lines,cubic guess,0.33,2859.9254754439626,NaN
+1,2,lines,cubic guess,0.34,2859.9399421186104,NaN
+1,2,lines,cubic guess,0.35,2859.9550768052636,NaN
+1,2,lines,cubic guess,0.36,2859.970994567367,NaN
+1,2,lines,cubic guess,0.37,2859.9878104683644,NaN
+1,2,lines,cubic guess,0.38,2860.0056395717006,NaN
+1,2,lines,cubic guess,0.39,2860.0245969408197,NaN
+1,2,lines,cubic guess,0.4,2860.0447976391665,NaN
+1,2,lines,cubic guess,0.41,2860.066356730185,NaN
+1,2,lines,cubic guess,0.42,2860.0893892773206,NaN
+1,2,lines,cubic guess,0.43,2860.1140103440166,NaN
+1,2,lines,cubic guess,0.44,2860.140334993718,NaN
+1,2,lines,cubic guess,0.45,2860.1684782898697,NaN
+1,2,lines,cubic guess,0.46,2860.198555295915,NaN
+1,2,lines,cubic guess,0.47,2860.2306810752993,NaN
+1,2,lines,cubic guess,0.48,2860.2649706914667,NaN
+1,2,lines,cubic guess,0.49,2860.3015392078614,NaN
+1,2,lines,cubic guess,0.5,2860.3405016879287,NaN
+1,2,lines,cubic guess,0.51,2860.381973195112,NaN
+1,2,lines,cubic guess,0.52,2860.4260687928563,NaN
+1,2,lines,cubic guess,0.53,2860.4729035446057,NaN
+1,2,lines,cubic guess,0.54,2860.522592513805,NaN
+1,2,lines,cubic guess,0.55,2860.5752507638986,NaN
+1,2,lines,cubic guess,0.56,2860.6309933583307,NaN
+1,2,lines,cubic guess,0.57,2860.6899353605463,NaN
+1,2,lines,cubic guess,0.58,2860.752191833989,NaN
+1,2,lines,cubic guess,0.59,2860.817877842104,NaN
+1,2,lines,cubic guess,0.6,2860.8871084483353,NaN
+1,2,lines,cubic guess,0.61,2860.9599987161273,NaN
+1,2,lines,cubic guess,0.62,2861.036663708925,NaN
+1,2,lines,cubic guess,0.63,2861.117218490172,NaN
+1,2,lines,cubic guess,0.64,2861.201778123314,NaN
+1,2,lines,cubic guess,0.65,2861.2904576717942,NaN
+1,2,lines,cubic guess,0.66,2861.3833721990572,NaN
+1,2,lines,cubic guess,0.67,2861.480636768548,NaN
+1,2,lines,cubic guess,0.68,2861.5823664437107,NaN
+1,2,lines,cubic guess,0.69,2861.68867628799,NaN
+1,2,lines,cubic guess,0.7,2861.79968136483,NaN
+1,2,lines,cubic guess,0.71,2861.915496737675,NaN
+1,2,lines,cubic guess,0.72,2862.03623746997,NaN
+1,2,lines,cubic guess,0.73,2862.1620186251594,NaN
+1,2,lines,cubic guess,0.74,2862.292955266687,NaN
+1,2,lines,cubic guess,0.75,2862.429162457998,NaN
+1,2,lines,cubic guess,0.76,2862.5707552625367,NaN
+1,2,lines,cubic guess,0.77,2862.717848743747,NaN
+1,2,lines,cubic guess,0.78,2862.870557965073,NaN
+1,2,lines,cubic guess,0.79,2863.0289979899608,NaN
+1,2,lines,cubic guess,0.8,2863.1932838818543,NaN
+1,2,lines,cubic guess,0.81,2863.3635307041964,NaN
+1,2,lines,cubic guess,0.82,2863.539853520433,NaN
+1,2,lines,cubic guess,0.83,2863.722367394009,NaN
+1,2,lines,cubic guess,0.84,2863.911187388367,NaN
+1,2,lines,cubic guess,0.85,2864.106428566953,NaN
+1,2,lines,cubic guess,0.86,2864.3082059932112,NaN
+1,2,lines,cubic guess,0.87,2864.5166347305853,NaN
+1,2,lines,cubic guess,0.88,2864.7318298425203,NaN
+1,2,lines,cubic guess,0.89,2864.9539063924603,NaN
+1,2,lines,cubic guess,0.9,2865.1829794438504,NaN
+1,2,lines,cubic guess,0.91,2865.419164060135,NaN
+1,2,lines,cubic guess,0.92,2865.6625753047574,NaN
+1,2,lines,cubic guess,0.93,2865.913328241163,NaN
+1,2,lines,cubic guess,0.94,2866.1715379327966,NaN
+1,2,lines,cubic guess,0.95,2866.437319443102,NaN
+1,2,lines,cubic guess,0.96,2866.7107878355237,NaN
+1,2,lines,cubic guess,0.97,2866.9920581735055,NaN
+1,2,lines,cubic guess,0.98,2867.281245520493,NaN
+1,2,lines,cubic guess,0.99,2867.5784649399307,NaN
+1,2,lines,cubic guess,1.0,2867.883831495262,NaN
+1,2,lines,cubic guess,1.01,2868.1974602499317,NaN
+1,2,lines,cubic guess,1.02,2868.5194662673853,NaN
+1,2,lines,cubic guess,1.03,2868.8499646110654,NaN
+1,2,lines,cubic guess,1.04,2869.189070344418,NaN
+1,2,lines,cubic guess,1.05,2869.5368985308864,NaN
+1,2,lines,cubic guess,1.06,2869.893564233916,NaN
+1,2,lines,cubic guess,1.07,2870.2591825169507,NaN
+1,2,lines,cubic guess,1.08,2870.633868443435,NaN
+1,2,lines,cubic guess,1.09,2871.017737076814,NaN
+1,2,lines,cubic guess,1.1,2871.410903480531,NaN
+1,2,lines,cubic guess,1.11,2871.8134827180306,NaN
+1,2,lines,cubic guess,1.12,2872.2255898527583,NaN
+1,2,lines,cubic guess,1.13,2872.647339948158,NaN
+1,2,lines,cubic guess,1.14,2873.0788480676733,NaN
+1,2,lines,cubic guess,1.15,2873.52022927475,NaN
+1,2,lines,cubic guess,1.16,2873.9715986328315,NaN
+1,2,lines,cubic guess,1.17,2874.433071205363,NaN
+1,2,lines,cubic guess,1.18,2874.9047620557885,NaN
+1,2,lines,cubic guess,1.19,2875.386786247552,NaN
+1,2,lines,cubic guess,1.2,2875.8792588440992,NaN
+1,2,lines,cubic guess,1.21,2876.382294908874,NaN
+1,2,lines,cubic guess,1.22,2876.89600950532,NaN
+1,2,lines,cubic guess,1.23,2877.4205176968826,NaN
+1,2,lines,cubic guess,1.24,2877.955934547006,NaN
+1,2,lines,cubic guess,1.25,2878.5023751191343,NaN
+1,2,lines,cubic guess,1.26,2879.0599544767124,NaN
+1,2,lines,cubic guess,1.27,2879.628787683185,NaN
+1,2,lines,cubic guess,1.28,2880.2089898019954,NaN
+1,2,lines,cubic guess,1.29,2880.8006758965894,NaN
+1,2,lines,cubic guess,1.3,2881.4039610304103,NaN
+1,2,lines,cubic guess,1.31,2882.0189602669034,NaN
+1,2,lines,cubic guess,1.32,2882.6457886695125,NaN
+1,2,lines,cubic guess,1.33,2883.2845613016825,NaN
+1,2,lines,cubic guess,1.34,2883.9353932268573,NaN
+1,2,lines,cubic guess,1.35,2884.5983995084825,NaN
+1,2,lines,cubic guess,1.36,2885.2736952100013,NaN
+1,2,lines,cubic guess,1.37,2885.9613953948583,NaN
+1,2,lines,cubic guess,1.38,2886.661615126499,NaN
+1,2,lines,cubic guess,1.39,2887.3744694683664,NaN
+1,2,lines,cubic guess,1.4,2888.100073483906,NaN
+1,2,lines,cubic guess,1.41,2888.8385422365623,NaN
+1,2,lines,cubic guess,1.42,2889.5899907897783,NaN
+1,2,lines,cubic guess,1.43,2890.354534207,NaN
+1,2,lines,cubic guess,1.44,2891.132287551671,NaN
+1,2,lines,cubic guess,1.45,2891.9233658872367,NaN
+1,2,lines,cubic guess,1.46,2892.72788427714,NaN
+1,2,lines,cubic guess,1.47,2893.545957784827,NaN
+1,2,lines,cubic guess,1.48,2894.377701473741,NaN
+1,2,lines,cubic guess,1.49,2895.223230407327,NaN
+1,2,lines,cubic guess,1.5,2896.082659649029,NaN
+1,2,lines,cubic guess,1.51,2896.9561042622922,NaN
+1,2,lines,cubic guess,1.52,2897.84367931056,NaN
+1,2,lines,cubic guess,1.53,2898.745499857278,NaN
+1,2,lines,cubic guess,1.54,2899.661680965889,NaN
+1,2,lines,cubic guess,1.55,2900.5923376998394,NaN
+1,2,lines,cubic guess,1.56,2901.5375851225726,NaN
+1,2,lines,cubic guess,1.57,2902.4975382975326,NaN
+1,2,lines,cubic guess,1.58,2903.4723122881646,NaN
+1,2,lines,cubic guess,1.59,2904.4620221579135,NaN
+1,2,lines,cubic guess,1.6,2905.4667829702225,NaN
+1,2,lines,cubic guess,1.61,2906.4867097885367,NaN
+1,2,lines,cubic guess,1.62,2907.5219176763,NaN
+1,2,lines,cubic guess,1.63,2908.5725216969577,NaN
+1,2,lines,cubic guess,1.64,2909.6386369139536,NaN
+1,2,lines,cubic guess,1.65,2910.7203783907325,NaN
+1,2,lines,cubic guess,1.66,2911.817861190739,NaN
+1,2,lines,cubic guess,1.67,2912.9312003774176,NaN
+1,2,lines,cubic guess,1.68,2914.060511014212,NaN
+1,2,lines,cubic guess,1.69,2915.205908164567,NaN
+1,2,lines,cubic guess,1.7,2916.3675068919274,NaN
+1,2,lines,cubic guess,1.71,2917.545422259737,NaN
+1,2,lines,cubic guess,1.72,2918.739769331441,NaN
+1,2,lines,cubic guess,1.73,2919.9506631704826,NaN
+1,2,lines,cubic guess,1.74,2921.1782188403076,NaN
+1,2,lines,cubic guess,1.75,2922.4225514043605,NaN
+1,2,lines,cubic guess,1.76,2923.6837759260843,NaN
+1,2,lines,cubic guess,1.77,2924.9620074689246,NaN
+1,2,lines,cubic guess,1.78,2926.257361096326,NaN
+1,2,lines,cubic guess,1.79,2927.569951871732,NaN
+1,2,lines,cubic guess,1.8,2928.8998948585877,NaN
+1,2,lines,cubic guess,1.81,2930.247305120337,NaN
+1,2,lines,cubic guess,1.82,2931.612297720425,NaN
+1,2,lines,cubic guess,1.83,2932.9949877222957,NaN
+1,2,lines,cubic guess,1.84,2934.3954901893944,NaN
+1,2,lines,cubic guess,1.85,2935.8139201851636,NaN
+1,2,lines,cubic guess,1.86,2937.25039277305,NaN
+1,2,lines,cubic guess,1.87,2938.705023016497,NaN
+1,2,lines,cubic guess,1.88,2940.177925978948,NaN
+1,2,lines,cubic guess,1.89,2941.66921672385,NaN
+1,2,lines,cubic guess,1.9,2943.1790103146454,NaN
+1,2,lines,cubic guess,1.91,2944.707421814779,NaN
+1,2,lines,cubic guess,1.92,2946.2545662876955,NaN
+1,2,lines,cubic guess,1.93,2947.8205587968387,NaN
+1,2,lines,cubic guess,1.94,2949.4055144056547,NaN
+1,2,lines,cubic guess,1.95,2951.009548177586,NaN
+1,2,lines,cubic guess,1.96,2952.6327751760787,NaN
+1,2,lines,cubic guess,1.97,2954.275310464576,NaN
+1,2,lines,cubic guess,1.98,2955.9372691065228,NaN
+1,2,lines,cubic guess,1.99,2957.6187661653635,NaN
+1,2,lines,cubic guess,2.0,2959.3199167045427,NaN
+1,2,lines,cubic guess,2.01,2961.0408357875044,NaN
+1,2,lines,cubic guess,2.02,2962.781638477694,NaN
+1,2,lines,cubic guess,2.03,2964.5424398385544,NaN
+1,2,lines,cubic guess,2.04,2966.323354933532,NaN
+1,2,lines,cubic guess,2.05,2968.1244988260696,NaN
+1,2,lines,cubic guess,2.06,2969.9459865796125,NaN
+1,2,lines,cubic guess,2.07,2971.787933257605,NaN
+1,2,lines,cubic guess,2.08,2973.650453923491,NaN
+1,2,lines,cubic guess,2.09,2975.5336636407155,NaN
+1,2,lines,cubic guess,2.1,2977.4376774727225,NaN
+1,2,lines,cubic guess,2.11,2979.3626104829573,NaN
+1,2,lines,cubic guess,2.12,2981.3085777348633,NaN
+1,2,lines,cubic guess,2.13,2983.275694291886,NaN
+1,2,lines,cubic guess,2.14,2985.264075217469,NaN
+1,2,lines,cubic guess,2.15,2987.2738355750566,NaN
+1,2,lines,cubic guess,2.16,2989.305090428094,NaN
+1,2,lines,cubic guess,2.17,2991.3579548400253,NaN
+1,2,lines,cubic guess,2.18,2993.432543874295,NaN
+1,2,lines,cubic guess,2.19,2995.5289725943476,NaN
+1,2,lines,cubic guess,2.2,2997.6473560636273,NaN
+1,2,lines,cubic guess,2.21,2999.7878093455784,NaN
+1,2,lines,cubic guess,2.22,3001.950447503646,NaN
+1,2,lines,cubic guess,2.23,3004.1353856012743,NaN
+1,2,lines,cubic guess,2.24,3006.3427387019074,NaN
+1,2,lines,cubic guess,2.25,3008.5726218689897,NaN
+1,2,lines,cubic guess,2.26,3010.825150165966,NaN
+1,2,lines,cubic guess,2.27,3013.100438656281,NaN
+1,2,lines,cubic guess,2.28,3015.3986024033784,NaN
+1,2,lines,cubic guess,2.29,3017.719756470703,NaN
+1,2,lines,cubic guess,2.3,3020.0640159216996,NaN
+1,2,lines,cubic guess,2.31,3022.431495819812,NaN
+1,2,lines,cubic guess,2.32,3024.8223112284845,NaN
+1,2,lines,cubic guess,2.33,3027.236577211163,NaN
+1,2,lines,cubic guess,2.34,3029.6744088312903,NaN
+1,2,lines,cubic guess,2.35,3032.1359211523118,NaN
+1,2,lines,cubic guess,2.36,3034.621229237671,NaN
+1,2,lines,cubic guess,2.37,3037.1304481508137,NaN
+1,2,lines,cubic guess,2.38,3039.6636929551833,NaN
+1,2,lines,cubic guess,2.39,3042.2210787142244,NaN
+1,2,lines,cubic guess,2.4,3044.8027204913815,NaN
+1,2,lines,cubic guess,2.41,3047.4087333500993,NaN
+1,2,lines,cubic guess,2.42,3050.0392323538217,NaN
+1,2,lines,cubic guess,2.43,3052.694332565994,NaN
+1,2,lines,cubic guess,2.44,3055.3741490500606,NaN
+1,2,lines,cubic guess,2.45,3058.0787968694644,NaN
+1,2,lines,cubic guess,2.46,3060.8083910876517,NaN
+1,2,lines,cubic guess,2.47,3063.563046768066,NaN
+1,2,lines,cubic guess,2.48,3066.342878974152,NaN
+1,2,lines,cubic guess,2.49,3069.1480027693533,NaN
+1,2,lines,cubic guess,2.5,3071.978533217116,NaN
+1,2,lines,cubic guess,2.51,3074.8345853808833,NaN
+1,2,lines,cubic guess,2.52,3077.7162743241,NaN
+1,2,lines,cubic guess,2.53,3080.6237151102105,NaN
+1,2,lines,cubic guess,2.54,3083.5570228026595,NaN
+1,2,lines,cubic guess,2.55,3086.516312464891,NaN
+1,2,lines,cubic guess,2.56,3089.5016991603497,NaN
+1,2,lines,cubic guess,2.57,3092.51329795248,NaN
+1,2,lines,cubic guess,2.58,3095.5512239047266,NaN
+1,2,lines,cubic guess,2.59,3098.6155920805336,NaN
+1,2,lines,cubic guess,2.6,3101.7065175433454,NaN
+1,2,lines,cubic guess,2.61,3104.824115356607,NaN
+1,2,lines,cubic guess,2.62,3107.968500583762,NaN
+1,2,lines,cubic guess,2.63,3111.1397882882547,NaN
+1,2,lines,cubic guess,2.64,3114.338093533531,NaN
+1,2,lines,cubic guess,2.65,3117.5635313830335,NaN
+1,2,lines,cubic guess,2.66,3120.816216900209,NaN
+1,2,lines,cubic guess,2.67,3124.0962651484992,NaN
+1,2,lines,cubic guess,2.68,3127.4037911913506,NaN
+1,2,lines,cubic guess,2.69,3130.7389100922064,NaN
+1,2,lines,cubic guess,2.7,3134.1017369145115,NaN
+1,2,lines,cubic guess,2.71,3137.4923867217112,NaN
+1,2,lines,cubic guess,2.72,3140.9109745772485,NaN
+1,2,lines,cubic guess,2.73,3144.3576155445685,NaN
+1,2,lines,cubic guess,2.74,3147.832424687116,NaN
+1,2,lines,cubic guess,2.75,3151.3355170683353,NaN
+1,2,lines,cubic guess,2.76,3154.8670077516695,NaN
+1,2,lines,cubic guess,2.77,3158.427011800565,NaN
+1,2,lines,cubic guess,2.78,3162.0156442784655,NaN
+1,2,lines,cubic guess,2.79,3165.633020248815,NaN
+1,2,lines,cubic guess,2.8,3169.2792547750582,NaN
+1,2,lines,cubic guess,2.81,3172.9544629206403,NaN
+1,2,lines,cubic guess,2.82,3176.6587597490043,NaN
+1,2,lines,cubic guess,2.83,3180.392260323596,NaN
+1,2,lines,cubic guess,2.84,3184.1550797078585,NaN
+1,2,lines,cubic guess,2.85,3187.9473329652374,NaN
+1,2,lines,cubic guess,2.86,3191.769135159177,NaN
+1,2,lines,cubic guess,2.87,3195.620601353121,NaN
+1,2,lines,cubic guess,2.88,3199.5018466105143,NaN
+1,2,lines,cubic guess,2.89,3203.412985994802,NaN
+1,2,lines,cubic guess,2.9,3207.3541345694275,NaN
+1,2,lines,cubic guess,2.91,3211.325407397836,NaN
+1,2,lines,cubic guess,2.92,3215.326919543471,NaN
+1,2,lines,cubic guess,2.93,3219.358786069778,NaN
+1,2,lines,cubic guess,2.94,3223.4211220402003,NaN
+1,2,lines,cubic guess,2.95,3227.5140425181835,NaN
+1,2,lines,cubic guess,2.96,3231.637662567172,NaN
+1,2,lines,cubic guess,2.97,3235.7920972506095,NaN
+1,2,lines,cubic guess,2.98,3239.9774616319405,NaN
+1,2,lines,cubic guess,2.99,3244.19387077461,NaN
+1,2,lines,cubic guess,3.0,3248.4414397420614,NaN
+1,2,lines,cubic guess,3.01,3252.7202835977405,NaN
+1,2,lines,cubic guess,3.02,3257.0305174050914,NaN
+1,2,lines,cubic guess,3.03,3261.372256227558,NaN
+1,2,lines,cubic guess,3.04,3265.7456151285846,NaN
+1,2,lines,cubic guess,3.05,3270.150709171616,NaN
+1,2,lines,cubic guess,3.06,3274.587653420097,NaN
+1,2,lines,cubic guess,3.07,3279.056562937472,NaN
+1,2,lines,cubic guess,3.08,3283.557552787185,NaN
+1,2,lines,cubic guess,3.09,3288.0907380326803,NaN
+1,2,lines,cubic guess,3.1,3292.6562337374035,NaN
+1,2,lines,cubic guess,3.11,3297.254154964797,NaN
+1,2,lines,cubic guess,3.12,3301.884616778307,NaN
+1,2,lines,cubic guess,3.13,3306.547734241378,NaN
+1,2,lines,cubic guess,3.14,3311.243622417453,NaN
+1,2,lines,cubic guess,3.15,3315.972396369977,NaN
+1,2,lines,cubic guess,3.16,3320.734171162396,NaN
+1,2,lines,cubic guess,3.17,3325.529061858152,NaN
+1,2,lines,cubic guess,3.18,3330.3571835206913,NaN
+1,2,lines,cubic guess,3.19,3335.2186512134567,NaN
+1,2,lines,cubic guess,3.2,3340.1135799998947,NaN
+1,2,lines,cubic guess,3.21,3345.0420849434477,NaN
+1,2,lines,cubic guess,3.22,3350.004281107562,NaN
+1,2,lines,cubic guess,3.23,3355.0002835556807,NaN
+1,2,lines,cubic guess,3.24,3360.0302073512485,NaN
+1,2,lines,cubic guess,3.25,3365.0941675577096,NaN
+1,2,lines,cubic guess,3.26,3370.1922792385094,NaN
+1,2,lines,cubic guess,3.27,3375.3246574570917,NaN
+1,2,lines,cubic guess,3.28,3380.4914172769004,NaN
+1,2,lines,cubic guess,3.29,3385.6926737613817,NaN
+1,2,lines,cubic guess,3.3,3390.928541973978,NaN
+1,2,lines,cubic guess,3.31,3396.1991369781354,NaN
+1,2,lines,cubic guess,3.32,3401.5045738372974,NaN
+1,2,lines,cubic guess,3.33,3406.8449676149085,NaN
+1,2,lines,cubic guess,3.34,3412.220433374413,NaN
+1,2,lines,cubic guess,3.35,3417.631086179256,NaN
+1,2,lines,cubic guess,3.36,3423.077041092881,NaN
+1,2,lines,cubic guess,3.37,3428.5584131787336,NaN
+1,2,lines,cubic guess,3.38,3434.0753175002574,NaN
+1,2,lines,cubic guess,3.39,3439.6278691208972,NaN
+1,2,lines,cubic guess,3.4,3445.2161831040976,NaN
+1,2,lines,cubic guess,3.41,3450.840374513302,NaN
+1,2,lines,cubic guess,3.42,3456.5005584119563,NaN
+1,2,lines,cubic guess,3.43,3462.1968498635038,NaN
+1,2,lines,cubic guess,3.44,3467.929363931389,NaN
+1,2,lines,cubic guess,3.45,3473.698215679058,NaN
+1,2,lines,cubic guess,3.46,3479.503520169954,NaN
+1,2,lines,cubic guess,3.47,3485.3453924675205,NaN
+1,2,lines,cubic guess,3.48,3491.223947635203,NaN
+1,2,lines,cubic guess,3.49,3497.139300736446,NaN
+1,2,lines,cubic guess,3.5,3503.0915668346934,NaN
+1,2,lines,cubic guess,3.51,3509.08086099339,NaN
+1,2,lines,cubic guess,3.52,3515.107298275981,NaN
+1,2,lines,cubic guess,3.53,3521.170993745909,NaN
+1,2,lines,cubic guess,3.54,3527.272062466621,NaN
+1,2,lines,cubic guess,3.55,3533.410619501559,NaN
+1,2,lines,cubic guess,3.56,3539.586779914169,NaN
+1,2,lines,cubic guess,3.57,3545.8006587678938,NaN
+1,2,lines,cubic guess,3.58,3552.0523711261794,NaN
+1,2,lines,cubic guess,3.59,3558.3420320524697,NaN
+1,2,lines,cubic guess,3.6,3564.6697566102093,NaN
+1,2,lines,cubic guess,3.61,3571.035659862843,NaN
+1,2,lines,cubic guess,3.62,3577.4398568738143,NaN
+1,2,lines,cubic guess,3.63,3583.8824627065683,NaN
+1,2,lines,cubic guess,3.64,3590.363592424549,NaN
+1,2,lines,cubic guess,3.65,3596.883361091201,NaN
+1,2,lines,cubic guess,3.66,3603.441883769969,NaN
+1,2,lines,cubic guess,3.67,3610.0392755242974,NaN
+1,2,lines,cubic guess,3.68,3616.6756514176304,NaN
+1,2,lines,cubic guess,3.69,3623.351126513413,NaN
+1,2,lines,cubic guess,3.7,3630.0658158750884,NaN
+1,2,lines,cubic guess,3.71,3636.819834566102,NaN
+1,2,lines,cubic guess,3.72,3643.6132976498984,NaN
+1,2,lines,cubic guess,3.73,3650.4463201899216,NaN
+1,2,lines,cubic guess,3.74,3657.3190172496165,NaN
+1,2,lines,cubic guess,3.75,3664.231503892427,NaN
+1,2,lines,cubic guess,3.76,3671.183895181797,NaN
+1,2,lines,cubic guess,3.77,3678.1763061811725,NaN
+1,2,lines,cubic guess,3.78,3685.2088519539975,NaN
+1,2,lines,cubic guess,3.79,3692.2816475637155,NaN
+1,2,lines,cubic guess,3.8,3699.394808073772,NaN
+1,2,lines,cubic guess,3.81,3706.54844854761,NaN
+1,2,lines,cubic guess,3.82,3713.7426840486755,NaN
+1,2,lines,cubic guess,3.83,3720.977629640413,NaN
+1,2,lines,cubic guess,3.84,3728.2534003862656,NaN
+1,2,lines,cubic guess,3.85,3735.570111349679,NaN
+1,2,lines,cubic guess,3.86,3742.927877594096,NaN
+1,2,lines,cubic guess,3.87,3750.326814182963,NaN
+1,2,lines,cubic guess,3.88,3757.7670361797236,NaN
+1,2,lines,cubic guess,3.89,3765.2486586478217,NaN
+1,2,lines,cubic guess,3.9,3772.7717966507025,NaN
+1,2,lines,cubic guess,3.91,3780.3365652518105,NaN
+1,2,lines,cubic guess,3.92,3787.9430795145895,NaN
+1,2,lines,cubic guess,3.93,3795.5914545024843,NaN
+1,2,lines,cubic guess,3.94,3803.2818052789394,NaN
+1,2,lines,cubic guess,3.95,3811.014246907399,NaN
+1,2,lines,cubic guess,3.96,3818.788894451308,NaN
+1,2,lines,cubic guess,3.97,3826.605862974111,NaN
+1,2,lines,cubic guess,3.98,3834.465267539251,NaN
+1,2,lines,cubic guess,3.99,3842.3672232101744,NaN
+1,2,lines,cubic guess,4.0,3850.3118450503234,NaN
+1,2,lines,cubic guess,4.01,3858.299248123145,NaN
+1,2,lines,cubic guess,4.02,3866.329547492081,NaN
+1,2,lines,cubic guess,4.03,3874.402858220579,NaN
+1,2,lines,cubic guess,4.04,3882.5192953720803,NaN
+1,2,lines,cubic guess,4.05,3890.678974010031,NaN
+1,2,lines,cubic guess,4.06,3898.8820091978755,NaN
+1,2,lines,cubic guess,4.07,3907.128515999058,NaN
+1,2,lines,cubic guess,4.08,3915.4186094770225,NaN
+1,2,lines,cubic guess,4.09,3923.7524046952144,NaN
+1,2,lines,cubic guess,4.1,3932.130016717077,NaN
+1,2,lines,cubic guess,4.11,3940.5515606060562,NaN
+1,2,lines,cubic guess,4.12,3949.017151425595,NaN
+1,2,lines,cubic guess,4.13,3957.5269042391383,NaN
+1,2,lines,cubic guess,4.14,3966.0809341101303,NaN
+1,2,lines,cubic guess,4.15,3974.679356102017,NaN
+1,2,lines,cubic guess,4.16,3983.322285278241,NaN
+1,2,lines,cubic guess,4.17,3992.0098367022474,NaN
+1,2,lines,cubic guess,4.18,4000.742125437481,NaN
+1,2,lines,cubic guess,4.19,4009.519266547386,NaN
+1,2,lines,cubic guess,4.2,4018.341375095406,NaN
+1,2,lines,cubic guess,4.21,4027.2085661449864,NaN
+1,2,lines,cubic guess,4.22,4036.120954759571,NaN
+1,2,lines,cubic guess,4.23,4045.0786560026063,NaN
+1,2,lines,cubic guess,4.24,4054.081784937534,NaN
+1,2,lines,cubic guess,4.25,4063.130456627799,NaN
+1,2,lines,cubic guess,4.26,4072.224786136847,NaN
+1,2,lines,cubic guess,4.27,4081.364888528121,NaN
+1,2,lines,cubic guess,4.28,4090.550878865068,NaN
+1,2,lines,cubic guess,4.29,4099.78287221113,NaN
+1,2,lines,cubic guess,4.3,4109.060983629752,NaN
+1,2,lines,cubic guess,4.31,4118.3853281843785,NaN
+1,2,lines,cubic guess,4.32,4127.756020938454,NaN
+1,2,lines,cubic guess,4.33,4137.1731769554235,NaN
+1,2,lines,cubic guess,4.34,4146.63691129873,NaN
+1,2,lines,cubic guess,4.35,4156.147339031819,NaN
+1,2,lines,cubic guess,4.36,4165.704575218137,NaN
+1,2,lines,cubic guess,4.37,4175.308734921124,NaN
+1,2,lines,cubic guess,4.38,4184.959933204226,NaN
+1,2,lines,cubic guess,4.39,4194.658285130889,NaN
+1,2,lines,cubic guess,4.4,4204.403905764559,NaN
+1,2,lines,cubic guess,4.41,4214.196910168675,NaN
+1,2,lines,cubic guess,4.42,4224.037413406685,NaN
+1,2,lines,cubic guess,4.43,4233.925530542033,NaN
+1,2,lines,cubic guess,4.44,4243.861376638164,NaN
+1,2,lines,cubic guess,4.45,4253.845066758522,NaN
+1,2,lines,cubic guess,4.46,4263.87671596655,NaN
+1,2,lines,cubic guess,4.47,4273.956439325694,NaN
+1,2,lines,cubic guess,4.48,4284.0843518994,NaN
+1,2,lines,cubic guess,4.49,4294.260568751109,NaN
+1,2,lines,cubic guess,4.5,4304.485204944266,NaN
+1,2,lines,cubic guess,4.51,4314.758375542318,NaN
+1,2,lines,cubic guess,4.52,4325.080195608707,NaN
+1,2,lines,cubic guess,4.53,4335.450780206879,NaN
+1,2,lines,cubic guess,4.54,4345.870244400277,NaN
+1,2,lines,cubic guess,4.55,4356.338703252348,NaN
+1,2,lines,cubic guess,4.56,4366.856271826533,NaN
+1,2,lines,cubic guess,4.57,4377.423065186278,NaN
+1,2,lines,cubic guess,4.58,4388.0391983950285,NaN
+1,2,lines,cubic guess,4.59,4398.704786516228,NaN
+1,2,lines,cubic guess,4.6,4409.41994461332,NaN
+1,2,lines,cubic guess,4.61,4420.184787749751,NaN
+1,2,lines,cubic guess,4.62,4430.9994309889635,NaN
+1,2,lines,cubic guess,4.63,4441.863989394403,NaN
+1,2,lines,cubic guess,4.64,4452.778578029513,NaN
+1,2,lines,cubic guess,4.65,4463.74331195774,NaN
+1,2,lines,cubic guess,4.66,4474.758306242526,NaN
+1,2,lines,cubic guess,4.67,4485.823675947317,NaN
+1,2,lines,cubic guess,4.68,4496.939536135556,NaN
+1,2,lines,cubic guess,4.69,4508.10600187069,NaN
+1,2,lines,cubic guess,4.7,4519.323188216162,NaN
+1,2,lines,cubic guess,4.71,4530.591210235414,NaN
+1,2,lines,cubic guess,4.72,4541.9101829918945,NaN
+1,2,lines,cubic guess,4.73,4553.2802215490465,NaN
+1,2,lines,cubic guess,4.74,4564.701440970313,NaN
+1,2,lines,cubic guess,4.75,4576.17395631914,NaN
+1,2,lines,cubic guess,4.76,4587.697882658971,NaN
+1,2,lines,cubic guess,4.77,4599.273335053252,NaN
+1,2,lines,cubic guess,4.78,4610.900428565426,NaN
+1,2,lines,cubic guess,4.79,4622.579278258938,NaN
+1,2,lines,cubic guess,4.8,4634.309999197232,NaN
+1,2,lines,cubic guess,4.81,4646.092706443753,NaN
+1,2,lines,cubic guess,4.82,4657.927515061945,NaN
+1,2,lines,cubic guess,4.83,4669.814540115252,NaN
+1,2,lines,cubic guess,4.84,4681.75389666712,NaN
+1,2,lines,cubic guess,4.85,4693.745699780991,NaN
+1,2,lines,cubic guess,4.86,4705.7900645203135,NaN
+1,2,lines,cubic guess,4.87,4717.887105948528,NaN
+1,2,lines,cubic guess,4.88,4730.03693912908,NaN
+1,2,lines,cubic guess,4.89,4742.239679125413,NaN
+1,2,lines,cubic guess,4.9,4754.495441000976,NaN
+1,2,lines,cubic guess,4.91,4766.804339819208,NaN
+1,2,lines,cubic guess,4.92,4779.166490643555,NaN
+1,2,lines,cubic guess,4.93,4791.5820085374635,NaN
+1,2,lines,cubic guess,4.94,4804.051008564376,NaN
+1,2,lines,cubic guess,4.95,4816.573605787738,NaN
+1,2,lines,cubic guess,4.96,4829.149915270992,NaN
+1,2,lines,cubic guess,4.97,4841.7800520775845,NaN
+1,2,lines,cubic guess,4.98,4854.464131270959,NaN
+1,2,lines,cubic guess,4.99,4867.202267914561,NaN
+1,2,lines,cubic guess,5.0,4879.994577071833,NaN
+1,3,lines,quintic guess,-5.0,-2200.796931149246,NaN
+1,3,lines,quintic guess,-4.99,-2155.5178768392807,NaN
+1,3,lines,quintic guess,-4.98,-2110.5812560299505,NaN
+1,3,lines,quintic guess,-4.97,-2065.9850747086766,NaN
+1,3,lines,quintic guess,-4.96,-2021.7273466570518,NaN
+1,3,lines,quintic guess,-4.95,-1977.806093435575,NaN
+1,3,lines,quintic guess,-4.94,-1934.2193443684082,NaN
+1,3,lines,quintic guess,-4.93,-1890.9651365281218,NaN
+1,3,lines,quintic guess,-4.92,-1848.0415147204606,NaN
+1,3,lines,quintic guess,-4.91,-1805.4465314690706,NaN
+1,3,lines,quintic guess,-4.9,-1763.1782470002595,NaN
+1,3,lines,quintic guess,-4.89,-1721.2347292277436,NaN
+1,3,lines,quintic guess,-4.88,-1679.6140537374085,NaN
+1,3,lines,quintic guess,-4.87,-1638.3143037720365,NaN
+1,3,lines,quintic guess,-4.86,-1597.3335702160753,NaN
+1,3,lines,quintic guess,-4.85,-1556.6699515803743,NaN
+1,3,lines,quintic guess,-4.84,-1516.321553986953,NaN
+1,3,lines,quintic guess,-4.83,-1476.2864911537242,NaN
+1,3,lines,quintic guess,-4.82,-1436.5628843792636,NaN
+1,3,lines,quintic guess,-4.81,-1397.1488625275465,NaN
+1,3,lines,quintic guess,-4.8,-1358.0425620127157,NaN
+1,3,lines,quintic guess,-4.79,-1319.2421267838056,NaN
+1,3,lines,quintic guess,-4.78,-1280.7457083095123,NaN
+1,3,lines,quintic guess,-4.77,-1242.5514655629283,NaN
+1,3,lines,quintic guess,-4.76,-1204.6575650063105,NaN
+1,3,lines,quintic guess,-4.75,-1167.0621805758076,NaN
+1,3,lines,quintic guess,-4.74,-1129.7634936662234,NaN
+1,3,lines,quintic guess,-4.73,-1092.759693115765,NaN
+1,3,lines,quintic guess,-4.72,-1056.0489751907842,NaN
+1,3,lines,quintic guess,-4.71,-1019.629543570544,NaN
+1,3,lines,quintic guess,-4.7,-983.4996093319487,NaN
+1,3,lines,quintic guess,-4.69,-947.6573909343026,NaN
+1,3,lines,quintic guess,-4.68,-912.1011142040556,NaN
+1,3,lines,quintic guess,-4.67,-876.829012319567,NaN
+1,3,lines,quintic guess,-4.66,-841.8393257958305,NaN
+1,3,lines,quintic guess,-4.65,-807.1303024692438,NaN
+1,3,lines,quintic guess,-4.64,-772.700197482347,NaN
+1,3,lines,quintic guess,-4.63,-738.547273268583,NaN
+1,3,lines,quintic guess,-4.62,-704.6697995370309,NaN
+1,3,lines,quintic guess,-4.61,-671.0660532571721,NaN
+1,3,lines,quintic guess,-4.6,-637.734318643624,NaN
+1,3,lines,quintic guess,-4.59,-604.6728871409073,NaN
+1,3,lines,quintic guess,-4.58,-571.880057408179,NaN
+1,3,lines,quintic guess,-4.57,-539.35413530399,NaN
+1,3,lines,quintic guess,-4.56,-507.0934338710317,NaN
+1,3,lines,quintic guess,-4.55,-475.09627332089303,NaN
+1,3,lines,quintic guess,-4.54,-443.36098101879634,NaN
+1,3,lines,quintic guess,-4.53,-411.8858914683583,NaN
+1,3,lines,quintic guess,-4.52,-380.6693462963317,NaN
+1,3,lines,quintic guess,-4.51,-349.70969423736597,NaN
+1,3,lines,quintic guess,-4.5,-319.00529111874175,NaN
+1,3,lines,quintic guess,-4.49,-288.5544998451305,NaN
+1,3,lines,quintic guess,-4.48,-258.35569038334074,NaN
+1,3,lines,quintic guess,-4.47,-228.40723974706657,NaN
+1,3,lines,quintic guess,-4.46,-198.70753198164425,NaN
+1,3,lines,quintic guess,-4.45,-169.25495814879014,NaN
+1,3,lines,quintic guess,-4.44,-140.04791631135777,NaN
+1,3,lines,quintic guess,-4.43,-111.08481151808246,NaN
+1,3,lines,quintic guess,-4.42,-82.36405578834137,NaN
+1,3,lines,quintic guess,-4.41,-53.88406809688968,NaN
+1,3,lines,quintic guess,-4.4,-25.643274358614235,NaN
+1,3,lines,quintic guess,-4.39,2.3598925867131584,NaN
+1,3,lines,quintic guess,-4.38,30.126992989684823,NaN
+1,3,lines,quintic guess,-4.37,57.65958020651851,NaN
+1,3,lines,quintic guess,-4.36,84.95920071429578,NaN
+1,3,lines,quintic guess,-4.35,112.02739412622441,NaN
+1,3,lines,quintic guess,-4.34,138.86569320687227,NaN
+1,3,lines,quintic guess,-4.33,165.4756238874363,NaN
+1,3,lines,quintic guess,-4.32,191.85870528098167,NaN
+1,3,lines,quintic guess,-4.31,218.016449697697,NaN
+1,3,lines,quintic guess,-4.3,243.95036266013904,NaN
+1,3,lines,quintic guess,-4.29,269.6619429184925,NaN
+1,3,lines,quintic guess,-4.28,295.15268246581263,NaN
+1,3,lines,quintic guess,-4.27,320.4240665532818,NaN
+1,3,lines,quintic guess,-4.26,345.47757370545105,NaN
+1,3,lines,quintic guess,-4.25,370.31467573550094,NaN
+1,3,lines,quintic guess,-4.24,394.93683776048897,NaN
+1,3,lines,quintic guess,-4.23,419.3455182165949,NaN
+1,3,lines,quintic guess,-4.22,443.5421688743804,NaN
+1,3,lines,quintic guess,-4.21,467.52823485402655,NaN
+1,3,lines,quintic guess,-4.2,491.30515464059863,NaN
+1,3,lines,quintic guess,-4.19,514.8743600992896,NaN
+1,3,lines,quintic guess,-4.18,538.2372764906731,NaN
+1,3,lines,quintic guess,-4.17,561.3953224859433,NaN
+1,3,lines,quintic guess,-4.16,584.3499101821847,NaN
+1,3,lines,quintic guess,-4.15,607.1024451176095,NaN
+1,3,lines,quintic guess,-4.14,629.654326286809,NaN
+1,3,lines,quintic guess,-4.13,652.0069461560056,NaN
+1,3,lines,quintic guess,-4.12,674.1616906783077,NaN
+1,3,lines,quintic guess,-4.11,696.1199393089537,NaN
+1,3,lines,quintic guess,-4.1,717.8830650205689,NaN
+1,3,lines,quintic guess,-4.09,739.4524343184048,NaN
+1,3,lines,quintic guess,-4.08,760.8294072556057,NaN
+1,3,lines,quintic guess,-4.07,782.0153374484464,NaN
+1,3,lines,quintic guess,-4.06,803.0115720915926,NaN
+1,3,lines,quintic guess,-4.05,823.8194519733356,NaN
+1,3,lines,quintic guess,-4.04,844.440311490863,NaN
+1,3,lines,quintic guess,-4.03,864.8754786654974,NaN
+1,3,lines,quintic guess,-4.02,885.1262751579477,NaN
+1,3,lines,quintic guess,-4.01,905.1940162835588,NaN
+1,3,lines,quintic guess,-4.0,925.08001102757,NaN
+1,3,lines,quintic guess,-3.99,944.7855620603573,NaN
+1,3,lines,quintic guess,-3.98,964.3119657526875,NaN
+1,3,lines,quintic guess,-3.97,983.6605121909645,NaN
+1,3,lines,quintic guess,-3.96,1002.8324851924885,NaN
+1,3,lines,quintic guess,-3.95,1021.8291623206962,NaN
+1,3,lines,quintic guess,-3.94,1040.6518149004216,NaN
+1,3,lines,quintic guess,-3.93,1059.3017080331372,NaN
+1,3,lines,quintic guess,-3.92,1077.7801006122115,NaN
+1,3,lines,quintic guess,-3.91,1096.0882453381532,NaN
+1,3,lines,quintic guess,-3.9,1114.2273887338724,NaN
+1,3,lines,quintic guess,-3.89,1132.1987711599152,NaN
+1,3,lines,quintic guess,-3.88,1150.0036268297308,NaN
+1,3,lines,quintic guess,-3.87,1167.6431838249084,NaN
+1,3,lines,quintic guess,-3.86,1185.1186641104393,NaN
+1,3,lines,quintic guess,-3.85,1202.4312835499575,NaN
+1,3,lines,quintic guess,-3.84,1219.5822519209974,NaN
+1,3,lines,quintic guess,-3.83,1236.5727729302398,NaN
+1,3,lines,quintic guess,-3.82,1253.404044228766,NaN
+1,3,lines,quintic guess,-3.81,1270.0772574273049,NaN
+1,3,lines,quintic guess,-3.8,1286.5935981114872,NaN
+1,3,lines,quintic guess,-3.79,1302.9542458570913,NaN
+1,3,lines,quintic guess,-3.78,1319.1603742453003,NaN
+1,3,lines,quintic guess,-3.77,1335.2131508779453,NaN
+1,3,lines,quintic guess,-3.76,1351.1137373927613,NaN
+1,3,lines,quintic guess,-3.75,1366.8632894786344,NaN
+1,3,lines,quintic guess,-3.74,1382.4629568908574,NaN
+1,3,lines,quintic guess,-3.73,1397.9138834663731,NaN
+1,3,lines,quintic guess,-3.72,1413.2172071390305,NaN
+1,3,lines,quintic guess,-3.71,1428.3740599548328,NaN
+1,3,lines,quintic guess,-3.7,1443.385568087188,NaN
+1,3,lines,quintic guess,-3.69,1458.2528518521606,NaN
+1,3,lines,quintic guess,-3.68,1472.9770257237228,NaN
+1,3,lines,quintic guess,-3.67,1487.5591983490017,NaN
+1,3,lines,quintic guess,-3.66,1502.0004725635333,NaN
+1,3,lines,quintic guess,-3.65,1516.3019454065115,NaN
+1,3,lines,quintic guess,-3.64,1530.464708136039,NaN
+1,3,lines,quintic guess,-3.63,1544.4898462443766,NaN
+1,3,lines,quintic guess,-3.62,1558.378439473196,NaN
+1,3,lines,quintic guess,-3.61,1572.13156182883,NaN
+1,3,lines,quintic guess,-3.6,1585.7502815975208,NaN
+1,3,lines,quintic guess,-3.59,1599.2356613606717,NaN
+1,3,lines,quintic guess,-3.58,1612.5887580100994,NaN
+1,3,lines,quintic guess,-3.57,1625.8106227632834,NaN
+1,3,lines,quintic guess,-3.56,1638.9023011786144,NaN
+1,3,lines,quintic guess,-3.55,1651.8648331706484,NaN
+1,3,lines,quintic guess,-3.54,1664.6992530253528,NaN
+1,3,lines,quintic guess,-3.53,1677.4065894153646,NaN
+1,3,lines,quintic guess,-3.52,1689.9878654152317,NaN
+1,3,lines,quintic guess,-3.51,1702.4440985166711,NaN
+1,3,lines,quintic guess,-3.5,1714.7763006438122,NaN
+1,3,lines,quintic guess,-3.49,1726.9854781684553,NaN
+1,3,lines,quintic guess,-3.48,1739.0726319253158,NaN
+1,3,lines,quintic guess,-3.47,1751.038757227279,NaN
+1,3,lines,quintic guess,-3.46,1762.884843880646,NaN
+1,3,lines,quintic guess,-3.45,1774.61187620039,NaN
+1,3,lines,quintic guess,-3.44,1786.220833025402,NaN
+1,3,lines,quintic guess,-3.43,1797.712687733744,NaN
+1,3,lines,quintic guess,-3.42,1809.0884082578987,NaN
+1,3,lines,quintic guess,-3.41,1820.348957100019,NaN
+1,3,lines,quintic guess,-3.4,1831.495291347183,NaN
+1,3,lines,quintic guess,-3.39,1842.5283626866358,NaN
+1,3,lines,quintic guess,-3.38,1853.4491174210518,NaN
+1,3,lines,quintic guess,-3.37,1864.2584964837733,NaN
+1,3,lines,quintic guess,-3.36,1874.9574354540703,NaN
+1,3,lines,quintic guess,-3.35,1885.5468645723856,NaN
+1,3,lines,quintic guess,-3.34,1896.0277087555892,NaN
+1,3,lines,quintic guess,-3.33,1906.4008876122234,NaN
+1,3,lines,quintic guess,-3.32,1916.6673154577602,NaN
+1,3,lines,quintic guess,-3.31,1926.8279013298466,NaN
+1,3,lines,quintic guess,-3.3,1936.8835490035578,NaN
+1,3,lines,quintic guess,-3.29,1946.8351570066466,NaN
+1,3,lines,quintic guess,-3.28,1956.6836186347941,NaN
+1,3,lines,quintic guess,-3.27,1966.4298219668608,NaN
+1,3,lines,quintic guess,-3.26,1976.0746498801361,NaN
+1,3,lines,quintic guess,-3.25,1985.6189800655904,NaN
+1,3,lines,quintic guess,-3.24,1995.0636850431245,NaN
+1,3,lines,quintic guess,-3.23,2004.4096321768207,NaN
+1,3,lines,quintic guess,-3.22,2013.6576836901916,NaN
+1,3,lines,quintic guess,-3.21,2022.808696681435,NaN
+1,3,lines,quintic guess,-3.2,2031.8635231386777,NaN
+1,3,lines,quintic guess,-3.19,2040.8230099552331,NaN
+1,3,lines,quintic guess,-3.18,2049.687998944848,NaN
+1,3,lines,quintic guess,-3.17,2058.4593268569533,NaN
+1,3,lines,quintic guess,-3.16,2067.1378253919142,NaN
+1,3,lines,quintic guess,-3.15,2075.724321216283,NaN
+1,3,lines,quintic guess,-3.14,2084.2196359780464,NaN
+1,3,lines,quintic guess,-3.13,2092.6245863218805,NaN
+1,3,lines,quintic guess,-3.12,2100.9399839043963,NaN
+1,3,lines,quintic guess,-3.11,2109.166635409393,NaN
+1,3,lines,quintic guess,-3.1,2117.3053425631088,NaN
+1,3,lines,quintic guess,-3.09,2125.3569021494727,NaN
+1,3,lines,quintic guess,-3.08,2133.3221060253477,NaN
+1,3,lines,quintic guess,-3.07,2141.2017411357933,NaN
+1,3,lines,quintic guess,-3.06,2148.9965895293044,NaN
+1,3,lines,quintic guess,-3.05,2156.7074283730713,NaN
+1,3,lines,quintic guess,-3.04,2164.3350299682215,NaN
+1,3,lines,quintic guess,-3.03,2171.8801617650793,NaN
+1,3,lines,quintic guess,-3.02,2179.3435863784075,NaN
+1,3,lines,quintic guess,-3.01,2186.7260616026665,NaN
+1,3,lines,quintic guess,-3.0,2194.0283404272577,NaN
+1,3,lines,quintic guess,-2.99,2201.251171051777,NaN
+1,3,lines,quintic guess,-2.98,2208.395296901267,NaN
+1,3,lines,quintic guess,-2.97,2215.461456641463,NaN
+1,3,lines,quintic guess,-2.96,2222.4503841940505,NaN
+1,3,lines,quintic guess,-2.95,2229.3628087519073,NaN
+1,3,lines,quintic guess,-2.94,2236.1994547943623,NaN
+1,3,lines,quintic guess,-2.93,2242.9610421024386,NaN
+1,3,lines,quintic guess,-2.92,2249.6482857741103,NaN
+1,3,lines,quintic guess,-2.91,2256.261896239549,NaN
+1,3,lines,quintic guess,-2.9,2262.8025792763756,NaN
+1,3,lines,quintic guess,-2.89,2269.2710360249116,NaN
+1,3,lines,quintic guess,-2.88,2275.667963003428,NaN
+1,3,lines,quintic guess,-2.87,2281.994052123399,NaN
+1,3,lines,quintic guess,-2.86,2288.2499907047477,NaN
+1,3,lines,quintic guess,-2.85,2294.4364614911005,NaN
+1,3,lines,quintic guess,-2.84,2300.5541426650366,NaN
+1,3,lines,quintic guess,-2.83,2306.6037078633394,NaN
+1,3,lines,quintic guess,-2.82,2312.585826192244,NaN
+1,3,lines,quintic guess,-2.81,2318.501162242691,NaN
+1,3,lines,quintic guess,-2.8,2324.3503761055767,NaN
+1,3,lines,quintic guess,-2.79,2330.1341233870003,NaN
+1,3,lines,quintic guess,-2.78,2335.8530552235197,NaN
+1,3,lines,quintic guess,-2.77,2341.5078182973975,NaN
+1,3,lines,quintic guess,-2.76,2347.0990548518557,NaN
+1,3,lines,quintic guess,-2.75,2352.6274027063214,NaN
+1,3,lines,quintic guess,-2.74,2358.0934952716793,NaN
+1,3,lines,quintic guess,-2.73,2363.497961565527,NaN
+1,3,lines,quintic guess,-2.72,2368.8414262274173,NaN
+1,3,lines,quintic guess,-2.71,2374.124509534115,NaN
+1,3,lines,quintic guess,-2.7,2379.347827414844,NaN
+1,3,lines,quintic guess,-2.69,2384.51199146654,NaN
+1,3,lines,quintic guess,-2.68,2389.6176089691,NaN
+1,3,lines,quintic guess,-2.67,2394.665282900633,NaN
+1,3,lines,quintic guess,-2.66,2399.655611952711,NaN
+1,3,lines,quintic guess,-2.65,2404.589190545618,NaN
+1,3,lines,quintic guess,-2.64,2409.466608843602,NaN
+1,3,lines,quintic guess,-2.63,2414.2884527701267,NaN
+1,3,lines,quintic guess,-2.62,2419.05530402312,NaN
+1,3,lines,quintic guess,-2.61,2423.7677400902226,NaN
+1,3,lines,quintic guess,-2.6,2428.4263342640447,NaN
+1,3,lines,quintic guess,-2.59,2433.031655657411,NaN
+1,3,lines,quintic guess,-2.58,2437.5842692186134,NaN
+1,3,lines,quintic guess,-2.57,2442.0847357466623,NaN
+1,3,lines,quintic guess,-2.56,2446.5336119065346,NaN
+1,3,lines,quintic guess,-2.55,2450.931450244427,NaN
+1,3,lines,quintic guess,-2.54,2455.278799203005,NaN
+1,3,lines,quintic guess,-2.53,2459.576203136654,NaN
+1,3,lines,quintic guess,-2.52,2463.8242023267294,NaN
+1,3,lines,quintic guess,-2.51,2468.0233329968073,NaN
+1,3,lines,quintic guess,-2.5,2472.1741273279363,NaN
+1,3,lines,quintic guess,-2.49,2476.277113473887,NaN
+1,3,lines,quintic guess,-2.48,2480.3328155763984,NaN
+1,3,lines,quintic guess,-2.47,2484.341753780439,NaN
+1,3,lines,quintic guess,-2.46,2488.3044442494465,NaN
+1,3,lines,quintic guess,-2.45,2492.221399180583,NaN
+1,3,lines,quintic guess,-2.44,2496.093126819988,NaN
+1,3,lines,quintic guess,-2.43,2499.9201314780234,NaN
+1,3,lines,quintic guess,-2.42,2503.702913544528,NaN
+1,3,lines,quintic guess,-2.41,2507.441969504067,NaN
+1,3,lines,quintic guess,-2.4,2511.1377919511833,NaN
+1,3,lines,quintic guess,-2.39,2514.7908696056447,NaN
+1,3,lines,quintic guess,-2.38,2518.4016873276996,NaN
+1,3,lines,quintic guess,-2.37,2521.970726133324,NaN
+1,3,lines,quintic guess,-2.36,2525.498463209473,NaN
+1,3,lines,quintic guess,-2.35,2528.9853719293305,NaN
+1,3,lines,quintic guess,-2.34,2532.4319218675623,NaN
+1,3,lines,quintic guess,-2.33,2535.838578815563,NaN
+1,3,lines,quintic guess,-2.32,2539.205804796711,NaN
+1,3,lines,quintic guess,-2.31,2542.5340580816137,NaN
+1,3,lines,quintic guess,-2.3,2545.823793203363,NaN
+1,3,lines,quintic guess,-2.29,2549.075460972783,NaN
+1,3,lines,quintic guess,-2.28,2552.2895084936813,NaN
+1,3,lines,quintic guess,-2.27,2555.466379178099,NaN
+1,3,lines,quintic guess,-2.26,2558.6065127615625,NaN
+1,3,lines,quintic guess,-2.25,2561.7103453183336,NaN
+1,3,lines,quintic guess,-2.24,2564.778309276659,NaN
+1,3,lines,quintic guess,-2.23,2567.8108334340236,NaN
+1,3,lines,quintic guess,-2.22,2570.8083429723947,NaN
+1,3,lines,quintic guess,-2.21,2573.771259473482,NaN
+1,3,lines,quintic guess,-2.2,2576.7000009339795,NaN
+1,3,lines,quintic guess,-2.19,2579.5949817808223,NaN
+1,3,lines,quintic guess,-2.18,2582.4566128864317,NaN
+1,3,lines,quintic guess,-2.17,2585.285301583971,NaN
+1,3,lines,quintic guess,-2.16,2588.0814516825926,NaN
+1,3,lines,quintic guess,-2.15,2590.8454634826903,NaN
+1,3,lines,quintic guess,-2.14,2593.5777337911463,NaN
+1,3,lines,quintic guess,-2.13,2596.2786559365877,NaN
+1,3,lines,quintic guess,-2.12,2598.9486197846336,NaN
+1,3,lines,quintic guess,-2.11,2601.588011753144,NaN
+1,3,lines,quintic guess,-2.1,2604.197214827475,NaN
+1,3,lines,quintic guess,-2.09,2606.7766085757235,NaN
+1,3,lines,quintic guess,-2.08,2609.3265691639835,NaN
+1,3,lines,quintic guess,-2.07,2611.8474693715916,NaN
+1,3,lines,quintic guess,-2.06,2614.339678606383,NaN
+1,3,lines,quintic guess,-2.05,2616.8035629199376,NaN
+1,3,lines,quintic guess,-2.04,2619.23948502283,NaN
+1,3,lines,quintic guess,-2.03,2621.6478042998865,NaN
+1,3,lines,quintic guess,-2.02,2624.028876825427,NaN
+1,3,lines,quintic guess,-2.01,2626.3830553785215,NaN
+1,3,lines,quintic guess,-2.0,2628.710689458239,NaN
+1,3,lines,quintic guess,-1.99,2631.012125298897,NaN
+1,3,lines,quintic guess,-1.98,2633.2877058853155,NaN
+1,3,lines,quintic guess,-1.97,2635.537770968062,NaN
+1,3,lines,quintic guess,-1.96,2637.7626570787065,NaN
+1,3,lines,quintic guess,-1.95,2639.96269754507,NaN
+1,3,lines,quintic guess,-1.94,2642.138222506477,NaN
+1,3,lines,quintic guess,-1.93,2644.289558929004,NaN
+1,3,lines,quintic guess,-1.92,2646.4170306207307,NaN
+1,3,lines,quintic guess,-1.91,2648.52095824699,NaN
+1,3,lines,quintic guess,-1.9,2650.60165934562,NaN
+1,3,lines,quintic guess,-1.89,2652.6594483422155,NaN
+1,3,lines,quintic guess,-1.88,2654.6946365653725,NaN
+1,3,lines,quintic guess,-1.87,2656.707532261946,NaN
+1,3,lines,quintic guess,-1.86,2658.698440612298,NaN
+1,3,lines,quintic guess,-1.85,2660.6676637455466,NaN
+1,3,lines,quintic guess,-1.84,2662.6155007548173,NaN
+1,3,lines,quintic guess,-1.83,2664.5422477124944,NaN
+1,3,lines,quintic guess,-1.82,2666.448197685471,NaN
+1,3,lines,quintic guess,-1.81,2668.333640750399,NaN
+1,3,lines,quintic guess,-1.8,2670.198864008941,NaN
+1,3,lines,quintic guess,-1.79,2672.0441516030196,NaN
+1,3,lines,quintic guess,-1.78,2673.8697847300687,NaN
+1,3,lines,quintic guess,-1.77,2675.6760416582824,NaN
+1,3,lines,quintic guess,-1.76,2677.4631977418708,NaN
+1,3,lines,quintic guess,-1.75,2679.231525436301,NaN
+1,3,lines,quintic guess,-1.74,2680.981294313557,NaN
+1,3,lines,quintic guess,-1.73,2682.7127710773866,NaN
+1,3,lines,quintic guess,-1.72,2684.4262195785504,NaN
+1,3,lines,quintic guess,-1.71,2686.1219008300745,NaN
+1,3,lines,quintic guess,-1.7,2687.8000730225003,NaN
+1,3,lines,quintic guess,-1.69,2689.460991539135,NaN
+1,3,lines,quintic guess,-1.68,2691.1049089713033,NaN
+1,3,lines,quintic guess,-1.67,2692.732075133595,NaN
+1,3,lines,quintic guess,-1.66,2694.34273707912,NaN
+1,3,lines,quintic guess,-1.65,2695.9371391147542,NaN
+1,3,lines,quintic guess,-1.64,2697.5155228163944,NaN
+1,3,lines,quintic guess,-1.63,2699.078127044202,NaN
+1,3,lines,quintic guess,-1.62,2700.6251879578654,NaN
+1,3,lines,quintic guess,-1.61,2702.156939031837,NaN
+1,3,lines,quintic guess,-1.6,2703.673611070593,NaN
+1,3,lines,quintic guess,-1.59,2705.175432223881,NaN
+1,3,lines,quintic guess,-1.58,2706.66262800197,NaN
+1,3,lines,quintic guess,-1.57,2708.1354212909014,NaN
+1,3,lines,quintic guess,-1.56,2709.5940323677414,NaN
+1,3,lines,quintic guess,-1.55,2711.038678915827,NaN
+1,3,lines,quintic guess,-1.54,2712.469576040021,NaN
+1,3,lines,quintic guess,-1.53,2713.8869362819614,NaN
+1,3,lines,quintic guess,-1.52,2715.2909696353104,NaN
+1,3,lines,quintic guess,-1.51,2716.681883561008,NaN
+1,3,lines,quintic guess,-1.5,2718.0598830025174,NaN
+1,3,lines,quintic guess,-1.49,2719.425170401082,NaN
+1,3,lines,quintic guess,-1.48,2720.777945710969,NaN
+1,3,lines,quintic guess,-1.47,2722.1184064147296,NaN
+1,3,lines,quintic guess,-1.46,2723.4467475384367,NaN
+1,3,lines,quintic guess,-1.45,2724.763161666947,NaN
+1,3,lines,quintic guess,-1.44,2726.0678389591453,NaN
+1,3,lines,quintic guess,-1.43,2727.360967163196,NaN
+1,3,lines,quintic guess,-1.42,2728.6427316317963,NaN
+1,3,lines,quintic guess,-1.41,2729.9133153374232,NaN
+1,3,lines,quintic guess,-1.4,2731.1728988875857,NaN
+1,3,lines,quintic guess,-1.39,2732.421660540076,NaN
+1,3,lines,quintic guess,-1.38,2733.659776218219,NaN
+1,3,lines,quintic guess,-1.37,2734.8874195261214,NaN
+1,3,lines,quintic guess,-1.36,2736.104761763928,NaN
+1,3,lines,quintic guess,-1.35,2737.311971943064,NaN
+1,3,lines,quintic guess,-1.34,2738.5092168014926,NaN
+1,3,lines,quintic guess,-1.33,2739.6966608189614,NaN
+1,3,lines,quintic guess,-1.32,2740.874466232255,NaN
+1,3,lines,quintic guess,-1.31,2742.042793050444,NaN
+1,3,lines,quintic guess,-1.3,2743.201799070137,NaN
+1,3,lines,quintic guess,-1.29,2744.3516398907323,NaN
+1,3,lines,quintic guess,-1.28,2745.492468929662,NaN
+1,3,lines,quintic guess,-1.27,2746.624437437653,NaN
+1,3,lines,quintic guess,-1.26,2747.747694513967,NaN
+1,3,lines,quintic guess,-1.25,2748.862387121659,NaN
+1,3,lines,quintic guess,-1.24,2749.968660102823,NaN
+1,3,lines,quintic guess,-1.23,2751.0666561938447,NaN
+1,3,lines,quintic guess,-1.22,2752.1565160406526,NaN
+1,3,lines,quintic guess,-1.21,2753.2383782139655,NaN
+1,3,lines,quintic guess,-1.2,2754.312379224547,NaN
+1,3,lines,quintic guess,-1.19,2755.378653538453,NaN
+1,3,lines,quintic guess,-1.18,2756.4373335922846,NaN
+1,3,lines,quintic guess,-1.17,2757.4885498084363,NaN
+1,3,lines,quintic guess,-1.16,2758.5324306103475,NaN
+1,3,lines,quintic guess,-1.15,2759.5691024377543,NaN
+1,3,lines,quintic guess,-1.14,2760.5986897619387,NaN
+1,3,lines,quintic guess,-1.13,2761.62131510098,NaN
+1,3,lines,quintic guess,-1.12,2762.6370990350024,NaN
+1,3,lines,quintic guess,-1.11,2763.646160221431,NaN
+1,3,lines,quintic guess,-1.1,2764.6486154102377,NaN
+1,3,lines,quintic guess,-1.09,2765.644579459194,NaN
+1,3,lines,quintic guess,-1.08,2766.63416534912,NaN
+1,3,lines,quintic guess,-1.07,2767.6174841991365,NaN
+1,3,lines,quintic guess,-1.06,2768.594645281915,NaN
+1,3,lines,quintic guess,-1.05,2769.5657560389277,NaN
+1,3,lines,quintic guess,-1.04,2770.5309220956988,NaN
+1,3,lines,quintic guess,-1.03,2771.4902472770555,NaN
+1,3,lines,quintic guess,-1.02,2772.443833622375,NaN
+1,3,lines,quintic guess,-1.01,2773.3917814008423,NaN
+1,3,lines,quintic guess,-1.0,2774.3341891266937,NaN
+1,3,lines,quintic guess,-0.99,2775.271153574469,NaN
+1,3,lines,quintic guess,-0.98,2776.2027697942644,NaN
+1,3,lines,quintic guess,-0.97,2777.129131126982,NaN
+1,3,lines,quintic guess,-0.96,2778.050329219578,NaN
+1,3,lines,quintic guess,-0.95,2778.966454040319,NaN
+1,3,lines,quintic guess,-0.94,2779.8775938940253,NaN
+1,3,lines,quintic guess,-0.93,2780.7838354373253,NaN
+1,3,lines,quintic guess,-0.92,2781.6852636939084,NaN
+1,3,lines,quintic guess,-0.91,2782.5819620697703,NaN
+1,3,lines,quintic guess,-0.9,2783.4740123684664,NaN
+1,3,lines,quintic guess,-0.89,2784.3614948063623,NaN
+1,3,lines,quintic guess,-0.88,2785.2444880278854,NaN
+1,3,lines,quintic guess,-0.87,2786.1230691207725,NaN
+1,3,lines,quintic guess,-0.86,2786.997313631323,NaN
+1,3,lines,quintic guess,-0.85,2787.867295579647,NaN
+1,3,lines,quintic guess,-0.84,2788.733087474919,NaN
+1,3,lines,quintic guess,-0.83,2789.594760330626,NaN
+1,3,lines,quintic guess,-0.82,2790.4523836798194,NaN
+1,3,lines,quintic guess,-0.81,2791.306025590364,NaN
+1,3,lines,quintic guess,-0.8,2792.15575268019,NaN
+1,3,lines,quintic guess,-0.79,2793.001630132543,NaN
+1,3,lines,quintic guess,-0.78,2793.843721711236,NaN
+1,3,lines,quintic guess,-0.77,2794.6820897758944,NaN
+1,3,lines,quintic guess,-0.76,2795.5167952972165,NaN
+1,3,lines,quintic guess,-0.75,2796.3478978722133,NaN
+1,3,lines,quintic guess,-0.74,2797.1754557394684,NaN
+1,3,lines,quintic guess,-0.73,2797.999525794378,NaN
+1,3,lines,quintic guess,-0.72,2798.8201636044146,NaN
+1,3,lines,quintic guess,-0.71,2799.637423424366,NaN
+1,3,lines,quintic guess,-0.7,2800.4513582115915,NaN
+1,3,lines,quintic guess,-0.69,2801.2620196412727,NaN
+1,3,lines,quintic guess,-0.68,2802.0694581216603,NaN
+1,3,lines,quintic guess,-0.67,2802.8737228093305,NaN
+1,3,lines,quintic guess,-0.66,2803.6748616244276,NaN
+1,3,lines,quintic guess,-0.65,2804.4729212659227,NaN
+1,3,lines,quintic guess,-0.64,2805.2679472268587,NaN
+1,3,lines,quintic guess,-0.63,2806.0599838096045,NaN
+1,3,lines,quintic guess,-0.62,2806.8490741411015,NaN
+1,3,lines,quintic guess,-0.61,2807.6352601881194,NaN
+1,3,lines,quintic guess,-0.6,2808.4185827725,NaN
+1,3,lines,quintic guess,-0.59,2809.1990815864156,NaN
+1,3,lines,quintic guess,-0.58,2809.976795207612,NaN
+1,3,lines,quintic guess,-0.57,2810.751761114666,NaN
+1,3,lines,quintic guess,-0.56,2811.5240157022286,NaN
+1,3,lines,quintic guess,-0.55,2812.293594296282,NaN
+1,3,lines,quintic guess,-0.54,2813.0605311693894,NaN
+1,3,lines,quintic guess,-0.53,2813.824859555939,NaN
+1,3,lines,quintic guess,-0.52,2814.586611667403,NaN
+1,3,lines,quintic guess,-0.51,2815.345818707581,NaN
+1,3,lines,quintic guess,-0.5,2816.1025108878603,NaN
+1,3,lines,quintic guess,-0.49,2816.856717442454,NaN
+1,3,lines,quintic guess,-0.48,2817.608466643659,NaN
+1,3,lines,quintic guess,-0.47,2818.357785817107,NaN
+1,3,lines,quintic guess,-0.46,2819.104701357013,NaN
+1,3,lines,quintic guess,-0.45,2819.849238741425,NaN
+1,3,lines,quintic guess,-0.44,2820.591422547477,NaN
+1,3,lines,quintic guess,-0.43,2821.331276466637,NaN
+1,3,lines,quintic guess,-0.42,2822.068823319959,NaN
+1,3,lines,quintic guess,-0.41,2822.8040850733346,NaN
+1,3,lines,quintic guess,-0.4,2823.5370828527416,NaN
+1,3,lines,quintic guess,-0.39,2824.267836959494,NaN
+1,3,lines,quintic guess,-0.38,2824.996366885496,NaN
+1,3,lines,quintic guess,-0.37,2825.722691328489,NaN
+1,3,lines,quintic guess,-0.36,2826.446828207305,NaN
+1,3,lines,quintic guess,-0.35,2827.1687946771126,NaN
+1,3,lines,quintic guess,-0.34,2827.8886071446727,NaN
+1,3,lines,quintic guess,-0.33,2828.606281283588,NaN
+1,3,lines,quintic guess,-0.32,2829.3218320495503,NaN
+1,3,lines,quintic guess,-0.31,2830.0352736955956,NaN
+1,3,lines,quintic guess,-0.3,2830.7466197873496,NaN
+1,3,lines,quintic guess,-0.29,2831.4558832182834,NaN
+1,3,lines,quintic guess,-0.28,2832.16307622496,NaN
+1,3,lines,quintic guess,-0.27,2832.868210402287,NaN
+1,3,lines,quintic guess,-0.26,2833.571296718767,NaN
+1,3,lines,quintic guess,-0.25,2834.2723455317464,NaN
+1,3,lines,quintic guess,-0.24,2834.97136660267,NaN
+1,3,lines,quintic guess,-0.23,2835.6683691123267,NaN
+1,3,lines,quintic guess,-0.22,2836.3633616761012,NaN
+1,3,lines,quintic guess,-0.21,2837.0563523592286,NaN
+1,3,lines,quintic guess,-0.2,2837.7473486920403,NaN
+1,3,lines,quintic guess,-0.19,2838.436357685216,NaN
+1,3,lines,quintic guess,-0.18,2839.1233858450355,NaN
+1,3,lines,quintic guess,-0.17,2839.808439188625,NaN
+1,3,lines,quintic guess,-0.16,2840.4915232592157,NaN
+1,3,lines,quintic guess,-0.15,2841.1726431413863,NaN
+1,3,lines,quintic guess,-0.14,2841.851803476317,NaN
+1,3,lines,quintic guess,-0.13,2842.5290084770395,NaN
+1,3,lines,quintic guess,-0.12,2843.2042619436897,NaN
+1,3,lines,quintic guess,-0.11,2843.877567278754,NaN
+1,3,lines,quintic guess,-0.1,2844.5489275023247,NaN
+1,3,lines,quintic guess,-0.09,2845.2183452673453,NaN
+1,3,lines,quintic guess,-0.08,2845.885822874866,NaN
+1,3,lines,quintic guess,-0.07,2846.5513622892913,NaN
+1,3,lines,quintic guess,-0.06,2847.2149651536315,NaN
+1,3,lines,quintic guess,-0.05,2847.8766328047514,NaN
+1,3,lines,quintic guess,-0.04,2848.5363662886252,NaN
+1,3,lines,quintic guess,-0.03,2849.1941663755842,NaN
+1,3,lines,quintic guess,-0.02,2849.850033575565,NaN
+1,3,lines,quintic guess,-0.01,2850.503968153364,NaN
+1,3,lines,quintic guess,0.0,2851.155970143886,NaN
+1,3,lines,quintic guess,0.01,2851.8060393673973,NaN
+1,3,lines,quintic guess,0.02,2852.4541754447723,NaN
+1,3,lines,quintic guess,0.03,2853.100377812747,NaN
+1,3,lines,quintic guess,0.04,2853.7446457391666,NaN
+1,3,lines,quintic guess,0.05,2854.3869783382397,NaN
+1,3,lines,quintic guess,0.06,2855.027374585787,NaN
+1,3,lines,quintic guess,0.07,2855.665833334493,NaN
+1,3,lines,quintic guess,0.08,2856.3023533291516,NaN
+1,3,lines,quintic guess,0.09,2856.936933221925,NaN
+1,3,lines,quintic guess,0.1,2857.5695715875872,NaN
+1,3,lines,quintic guess,0.11,2858.2002669387794,NaN
+1,3,lines,quintic guess,0.12,2858.8290177412546,NaN
+1,3,lines,quintic guess,0.13,2859.455822429136,NaN
+1,3,lines,quintic guess,0.14,2860.0806794201603,NaN
+1,3,lines,quintic guess,0.15,2860.7035871309345,NaN
+1,3,lines,quintic guess,0.16,2861.3245439921793,NaN
+1,3,lines,quintic guess,0.17,2861.943548463987,NaN
+1,3,lines,quintic guess,0.18,2862.560599051068,NaN
+1,3,lines,quintic guess,0.19,2863.1756943180003,NaN
+1,3,lines,quintic guess,0.2,2863.788832904485,NaN
+1,3,lines,quintic guess,0.21,2864.400013540591,NaN
+1,3,lines,quintic guess,0.22,2865.0092350620075,NaN
+1,3,lines,quintic guess,0.23,2865.616496425299,NaN
+1,3,lines,quintic guess,0.24,2866.221796723149,NaN
+1,3,lines,quintic guess,0.25,2866.825135199615,NaN
+1,3,lines,quintic guess,0.26,2867.426511265377,NaN
+1,3,lines,quintic guess,0.27,2868.0259245129887,NaN
+1,3,lines,quintic guess,0.28,2868.6233747321307,NaN
+1,3,lines,quintic guess,0.29,2869.218861924853,NaN
+1,3,lines,quintic guess,0.3,2869.812386320837,NaN
+1,3,lines,quintic guess,0.31,2870.4039483926363,NaN
+1,3,lines,quintic guess,0.32,2870.993548870932,NaN
+1,3,lines,quintic guess,0.33,2871.581188759783,NaN
+1,3,lines,quintic guess,0.34,2872.1668693518745,NaN
+1,3,lines,quintic guess,0.35,2872.7505922437713,NaN
+1,3,lines,quintic guess,0.36,2873.332359351166,NaN
+1,3,lines,quintic guess,0.37,2873.912172924131,NaN
+1,3,lines,quintic guess,0.38,2874.4900355623668,NaN
+1,3,lines,quintic guess,0.39,2875.065950230458,NaN
+1,3,lines,quintic guess,0.4,2875.639920273116,NaN
+1,3,lines,quintic guess,0.41,2876.2119494304357,NaN
+1,3,lines,quintic guess,0.42,2876.7820418531446,NaN
+1,3,lines,quintic guess,0.43,2877.350202117851,NaN
+1,3,lines,quintic guess,0.44,2877.9164352422986,NaN
+1,3,lines,quintic guess,0.45,2878.4807467006126,NaN
+1,3,lines,quintic guess,0.46,2879.043142438554,NaN
+1,3,lines,quintic guess,0.47,2879.603628888766,NaN
+1,3,lines,quintic guess,0.48,2880.1622129860307,NaN
+1,3,lines,quintic guess,0.49,2880.7189021825147,NaN
+1,3,lines,quintic guess,0.5,2881.2737044630194,NaN
+1,3,lines,quintic guess,0.51,2881.826628360235,NaN
+1,3,lines,quintic guess,0.52,2882.3776829699896,NaN
+1,3,lines,quintic guess,0.53,2882.926877966497,NaN
+1,3,lines,quintic guess,0.54,2883.474223617612,NaN
+1,3,lines,quintic guess,0.55,2884.019730800078,NaN
+1,3,lines,quintic guess,0.56,2884.563411014777,NaN
+1,3,lines,quintic guess,0.57,2885.1052764019814,NaN
+1,3,lines,quintic guess,0.58,2885.645339756607,NaN
+1,3,lines,quintic guess,0.59,2886.183614543458,NaN
+1,3,lines,quintic guess,0.6,2886.7201149124817,NaN
+1,3,lines,quintic guess,0.61,2887.2548557140176,NaN
+1,3,lines,quintic guess,0.62,2887.7878525140495,NaN
+1,3,lines,quintic guess,0.63,2888.3191216094524,NaN
+1,3,lines,quintic guess,0.64,2888.848680043247,NaN
+1,3,lines,quintic guess,0.65,2889.3765456198485,NaN
+1,3,lines,quintic guess,0.66,2889.902736920317,NaN
+1,3,lines,quintic guess,0.67,2890.4272733176094,NaN
+1,3,lines,quintic guess,0.68,2890.950174991827,NaN
+1,3,lines,quintic guess,0.69,2891.47146294547,NaN
+1,3,lines,quintic guess,0.7,2891.991159018685,NaN
+1,3,lines,quintic guess,0.71,2892.509285904516,NaN
+1,3,lines,quintic guess,0.72,2893.0258671641564,NaN
+1,3,lines,quintic guess,0.73,2893.5409272422,NaN
+1,3,lines,quintic guess,0.74,2894.054491481886,NaN
+1,3,lines,quintic guess,0.75,2894.5665861403595,NaN
+1,3,lines,quintic guess,0.76,2895.0772384039105,NaN
+1,3,lines,quintic guess,0.77,2895.586476403235,NaN
+1,3,lines,quintic guess,0.78,2896.0943292286784,NaN
+1,3,lines,quintic guess,0.79,2896.6008269454887,NaN
+1,3,lines,quintic guess,0.8,2897.1060006090684,NaN
+1,3,lines,quintic guess,0.81,2897.6098822802205,NaN
+1,3,lines,quintic guess,0.82,2898.112505040404,NaN
+1,3,lines,quintic guess,0.83,2898.6139030069835,NaN
+1,3,lines,quintic guess,0.84,2899.114111348477,NaN
+1,3,lines,quintic guess,0.85,2899.6131662998073,NaN
+1,3,lines,quintic guess,0.86,2900.111105177557,NaN
+1,3,lines,quintic guess,0.87,2900.607966395211,NaN
+1,3,lines,quintic guess,0.88,2901.103789478416,NaN
+1,3,lines,quintic guess,0.89,2901.598615080222,NaN
+1,3,lines,quintic guess,0.9,2902.0924849963408,NaN
+1,3,lines,quintic guess,0.91,2902.5854421803924,NaN
+1,3,lines,quintic guess,0.92,2903.0775307591566,NaN
+1,3,lines,quintic guess,0.93,2903.5687960478217,NaN
+1,3,lines,quintic guess,0.94,2904.059284565238,NaN
+1,3,lines,quintic guess,0.95,2904.5490440491667,NaN
+1,3,lines,quintic guess,0.96,2905.0381234715314,NaN
+1,3,lines,quintic guess,0.97,2905.526573053667,NaN
+1,3,lines,quintic guess,0.98,2906.0144442815704,NaN
+1,3,lines,quintic guess,0.99,2906.501789921154,NaN
+1,3,lines,quintic guess,1.0,2906.9886640334926,NaN
+1,3,lines,quintic guess,1.01,2907.475121990077,NaN
+1,3,lines,quintic guess,1.02,2907.961220488061,NaN
+1,3,lines,quintic guess,1.03,2908.447017565515,NaN
+1,3,lines,quintic guess,1.04,2908.932572616676,NaN
+1,3,lines,quintic guess,1.05,2909.417946407198,NaN
+1,3,lines,quintic guess,1.06,2909.9032010894,NaN
+1,3,lines,quintic guess,1.07,2910.3884002175205,NaN
+1,3,lines,quintic guess,1.08,2910.873608762967,NaN
+1,3,lines,quintic guess,1.09,2911.358893129564,NaN
+1,3,lines,quintic guess,1.1,2911.8443211688063,NaN
+1,3,lines,quintic guess,1.11,2912.3299621951096,NaN
+1,3,lines,quintic guess,1.12,2912.8158870010584,NaN
+1,3,lines,quintic guess,1.13,2913.3021678726595,NaN
+1,3,lines,quintic guess,1.14,2913.7888786045924,NaN
+1,3,lines,quintic guess,1.15,2914.2760945154555,NaN
+1,3,lines,quintic guess,1.16,2914.763892463022,NaN
+1,3,lines,quintic guess,1.17,2915.252350859489,NaN
+1,3,lines,quintic guess,1.18,2915.741549686726,NaN
+1,3,lines,quintic guess,1.19,2916.2315705115284,NaN
+1,3,lines,quintic guess,1.2,2916.7224965008645,NaN
+1,3,lines,quintic guess,1.21,2917.2144124371293,NaN
+1,3,lines,quintic guess,1.22,2917.7074047333954,NaN
+1,3,lines,quintic guess,1.23,2918.2015614486586,NaN
+1,3,lines,quintic guess,1.24,2918.696972303094,NaN
+1,3,lines,quintic guess,1.25,2919.193728693305,NaN
+1,3,lines,quintic guess,1.26,2919.69192370757,NaN
+1,3,lines,quintic guess,1.27,2920.1916521411003,NaN
+1,3,lines,quintic guess,1.28,2920.6930105112833,NaN
+1,3,lines,quintic guess,1.29,2921.1960970729397,NaN
+1,3,lines,quintic guess,1.3,2921.7010118335666,NaN
+1,3,lines,quintic guess,1.31,2922.2078565685933,NaN
+1,3,lines,quintic guess,1.32,2922.716734836634,NaN
+1,3,lines,quintic guess,1.33,2923.22775199473,NaN
+1,3,lines,quintic guess,1.34,2923.741015213609,NaN
+1,3,lines,quintic guess,1.35,2924.2566334929293,NaN
+1,3,lines,quintic guess,1.36,2924.774717676536,NaN
+1,3,lines,quintic guess,1.37,2925.2953804677036,NaN
+1,3,lines,quintic guess,1.38,2925.8187364443966,NaN
+1,3,lines,quintic guess,1.39,2926.344902074513,NaN
+1,3,lines,quintic guess,1.4,2926.8739957311336,NaN
+1,3,lines,quintic guess,1.41,2927.4061377077815,NaN
+1,3,lines,quintic guess,1.42,2927.9414502336626,NaN
+1,3,lines,quintic guess,1.43,2928.4800574889227,NaN
+1,3,lines,quintic guess,1.44,2929.0220856198926,NaN
+1,3,lines,quintic guess,1.45,2929.5676627543453,NaN
+1,3,lines,quintic guess,1.46,2930.1169190167416,NaN
+1,3,lines,quintic guess,1.47,2930.6699865434807,NaN
+1,3,lines,quintic guess,1.48,2931.2269994981552,NaN
+1,3,lines,quintic guess,1.49,2931.7880940867963,NaN
+1,3,lines,quintic guess,1.5,2932.353408573127,NaN
+1,3,lines,quintic guess,1.51,2932.9230832938124,NaN
+1,3,lines,quintic guess,1.52,2933.4972606737106,NaN
+1,3,lines,quintic guess,1.53,2934.0760852411213,NaN
+1,3,lines,quintic guess,1.54,2934.659703643041,NaN
+1,3,lines,quintic guess,1.55,2935.248264660407,NaN
+1,3,lines,quintic guess,1.56,2935.841919223353,NaN
+1,3,lines,quintic guess,1.57,2936.440820426458,NaN
+1,3,lines,quintic guess,1.58,2937.045123543995,NaN
+1,3,lines,quintic guess,1.59,2937.654986045187,NaN
+1,3,lines,quintic guess,1.6,2938.2705676094506,NaN
+1,3,lines,quintic guess,1.61,2938.8920301416506,NaN
+1,3,lines,quintic guess,1.62,2939.519537787352,NaN
+1,3,lines,quintic guess,1.63,2940.153256948065,NaN
+1,3,lines,quintic guess,1.64,2940.793356296502,NaN
+1,3,lines,quintic guess,1.65,2941.440006791824,NaN
+1,3,lines,quintic guess,1.66,2942.0933816948905,NaN
+1,3,lines,quintic guess,1.67,2942.753656583514,NaN
+1,3,lines,quintic guess,1.68,2943.4210093677075,NaN
+1,3,lines,quintic guess,1.69,2944.095620304937,NaN
+1,3,lines,quintic guess,1.7,2944.777672015369,NaN
+1,3,lines,quintic guess,1.71,2945.4673494971225,NaN
+1,3,lines,quintic guess,1.72,2946.164840141525,NaN
+1,3,lines,quintic guess,1.73,2946.870333748352,NaN
+1,3,lines,quintic guess,1.74,2947.584022541086,NaN
+1,3,lines,quintic guess,1.75,2948.3061011821674,NaN
+1,3,lines,quintic guess,1.76,2949.036766788237,NaN
+1,3,lines,quintic guess,1.77,2949.7762189453965,NaN
+1,3,lines,quintic guess,1.78,2950.524659724452,NaN
+1,3,lines,quintic guess,1.79,2951.2822936961666,NaN
+1,3,lines,quintic guess,1.8,2952.0493279465145,NaN
+1,3,lines,quintic guess,1.81,2952.8259720919245,NaN
+1,3,lines,quintic guess,1.82,2953.6124382945377,NaN
+1,3,lines,quintic guess,1.83,2954.4089412774524,NaN
+1,3,lines,quintic guess,1.84,2955.2156983399777,NaN
+1,3,lines,quintic guess,1.85,2956.0329293728837,NaN
+1,3,lines,quintic guess,1.86,2956.860856873653,NaN
+1,3,lines,quintic guess,1.87,2957.6997059617274,NaN
+1,3,lines,quintic guess,1.88,2958.5497043937626,NaN
+1,3,lines,quintic guess,1.89,2959.411082578876,NaN
+1,3,lines,quintic guess,1.9,2960.284073593901,NaN
+1,3,lines,quintic guess,1.91,2961.1689131986327,NaN
+1,3,lines,quintic guess,1.92,2962.0658398510805,NaN
+1,3,lines,quintic guess,1.93,2962.9750947227208,NaN
+1,3,lines,quintic guess,1.94,2963.8969217137437,NaN
+1,3,lines,quintic guess,1.95,2964.831567468307,NaN
+1,3,lines,quintic guess,1.96,2965.7792813897845,NaN
+1,3,lines,quintic guess,1.97,2966.740315656018,NaN
+1,3,lines,quintic guess,1.98,2967.7149252345653,NaN
+1,3,lines,quintic guess,1.99,2968.7033678979556,NaN
+1,3,lines,quintic guess,2.0,2969.7059042389333,NaN
+1,3,lines,quintic guess,2.01,2970.7227976857152,NaN
+1,3,lines,quintic guess,2.02,2971.7543145172367,NaN
+1,3,lines,quintic guess,2.03,2972.800723878406,NaN
+1,3,lines,quintic guess,2.04,2973.862297795349,NaN
+1,3,lines,quintic guess,2.05,2974.9393111906656,NaN
+1,3,lines,quintic guess,2.06,2976.0320418986776,NaN
+1,3,lines,quintic guess,2.07,2977.1407706806795,NaN
+1,3,lines,quintic guess,2.08,2978.2657812401876,NaN
+1,3,lines,quintic guess,2.09,2979.4073602381945,NaN
+1,3,lines,quintic guess,2.1,2980.5657973084176,NaN
+1,3,lines,quintic guess,2.11,2981.741385072547,NaN
+1,3,lines,quintic guess,2.12,2982.9344191554974,NaN
+1,3,lines,quintic guess,2.13,2984.145198200664,NaN
+1,3,lines,quintic guess,2.14,2985.3740238851647,NaN
+1,3,lines,quintic guess,2.15,2986.6212009350966,NaN
+1,3,lines,quintic guess,2.16,2987.8870371407843,NaN
+1,3,lines,quintic guess,2.17,2989.17184337203,NaN
+1,3,lines,quintic guess,2.18,2990.475933593364,NaN
+1,3,lines,quintic guess,2.19,2991.799624879299,NaN
+1,3,lines,quintic guess,2.2,2993.143237429575,NaN
+1,3,lines,quintic guess,2.21,2994.5070945844127,NaN
+1,3,lines,quintic guess,2.22,2995.8915228397645,NaN
+1,3,lines,quintic guess,2.23,2997.2968518625644,NaN
+1,3,lines,quintic guess,2.24,2998.7234145059797,NaN
+1,3,lines,quintic guess,2.25,3000.1715468246566,NaN
+1,3,lines,quintic guess,2.26,3001.641588089979,NaN
+1,3,lines,quintic guess,2.27,3003.133880805312,NaN
+1,3,lines,quintic guess,2.28,3004.648770721255,NaN
+1,3,lines,quintic guess,2.29,3006.1866068508943,NaN
+1,3,lines,quintic guess,2.3,3007.7477414850496,NaN
+1,3,lines,quintic guess,2.31,3009.3325302075273,NaN
+1,3,lines,quintic guess,2.32,3010.9413319103696,NaN
+1,3,lines,quintic guess,2.33,3012.574508809109,NaN
+1,3,lines,quintic guess,2.34,3014.2324264580107,NaN
+1,3,lines,quintic guess,2.35,3015.915453765332,NaN
+1,3,lines,quintic guess,2.36,3017.6239630085665,NaN
+1,3,lines,quintic guess,2.37,3019.3583298496997,NaN
+1,3,lines,quintic guess,2.38,3021.1189333504526,NaN
+1,3,lines,quintic guess,2.39,3022.9061559875418,NaN
+1,3,lines,quintic guess,2.4,3024.7203836679228,NaN
+1,3,lines,quintic guess,2.41,3026.56200574404,NaN
+1,3,lines,quintic guess,2.42,3028.431415029084,NaN
+1,3,lines,quintic guess,2.43,3030.329007812234,NaN
+1,3,lines,quintic guess,2.44,3032.255183873917,NaN
+1,3,lines,quintic guess,2.45,3034.2103465010496,NaN
+1,3,lines,quintic guess,2.46,3036.194902502294,NaN
+1,3,lines,quintic guess,2.47,3038.2092622233076,NaN
+1,3,lines,quintic guess,2.48,3040.253839561994,NaN
+1,3,lines,quintic guess,2.49,3042.329051983749,NaN
+1,3,lines,quintic guess,2.5,3044.43532053672,NaN
+1,3,lines,quintic guess,2.51,3046.573069867048,NaN
+1,3,lines,quintic guess,2.52,3048.7427282341214,NaN
+1,3,lines,quintic guess,2.53,3050.944727525829,NaN
+1,3,lines,quintic guess,2.54,3053.179503273807,NaN
+1,3,lines,quintic guess,2.55,3055.447494668689,NaN
+1,3,lines,quintic guess,2.56,3057.7491445753617,NaN
+1,3,lines,quintic guess,2.57,3060.0848995482097,NaN
+1,3,lines,quintic guess,2.58,3062.45520984637,NaN
+1,3,lines,quintic guess,2.59,3064.8605294489794,NaN
+1,3,lines,quintic guess,2.6,3067.301316070428,NaN
+1,3,lines,quintic guess,2.61,3069.7780311756073,NaN
+1,3,lines,quintic guess,2.62,3072.2911399951627,NaN
+1,3,lines,quintic guess,2.63,3074.841111540743,NaN
+1,3,lines,quintic guess,2.64,3077.428418620251,NaN
+1,3,lines,quintic guess,2.65,3080.0535378530935,NaN
+1,3,lines,quintic guess,2.66,3082.7169496854344,NaN
+1,3,lines,quintic guess,2.67,3085.4191384054425,NaN
+1,3,lines,quintic guess,2.68,3088.1605921585424,NaN
+1,3,lines,quintic guess,2.69,3090.941802962664,NaN
+1,3,lines,quintic guess,2.7,3093.7632667234993,NaN
+1,3,lines,quintic guess,2.71,3096.625483249745,NaN
+1,3,lines,quintic guess,2.72,3099.5289562683556,NaN
+1,3,lines,quintic guess,2.73,3102.4741934397966,NaN
+1,3,lines,quintic guess,2.74,3105.4617063732935,NaN
+1,3,lines,quintic guess,2.75,3108.49201064208,NaN
+1,3,lines,quintic guess,2.76,3111.565625798653,NaN
+1,3,lines,quintic guess,2.77,3114.6830753900185,NaN
+1,3,lines,quintic guess,2.78,3117.8448869729446,NaN
+1,3,lines,quintic guess,2.79,3121.051592129213,NaN
+1,3,lines,quintic guess,2.8,3124.3037264808677,NaN
+1,3,lines,quintic guess,2.81,3127.601829705466,NaN
+1,3,lines,quintic guess,2.82,3130.94644555133,NaN
+1,3,lines,quintic guess,2.83,3134.338121852795,NaN
+1,3,lines,quintic guess,2.84,3137.777410545464,NaN
+1,3,lines,quintic guess,2.85,3141.264867681452,NaN
+1,3,lines,quintic guess,2.86,3144.801053444644,NaN
+1,3,lines,quintic guess,2.87,3148.386532165938,NaN
+1,3,lines,quintic guess,2.88,3152.0218723385046,NaN
+1,3,lines,quintic guess,2.89,3155.707646633026,NaN
+1,3,lines,quintic guess,2.9,3159.444431912958,NaN
+1,3,lines,quintic guess,2.91,3163.232809249772,NaN
+1,3,lines,quintic guess,2.92,3167.0733639382115,NaN
+1,3,lines,quintic guess,2.93,3170.966685511538,NaN
+1,3,lines,quintic guess,2.94,3174.913367756785,NaN
+1,3,lines,quintic guess,2.95,3178.9140087300075,NaN
+1,3,lines,quintic guess,2.96,3182.969210771531,NaN
+1,3,lines,quintic guess,2.97,3187.0795805212038,NaN
+1,3,lines,quintic guess,2.98,3191.245728933646,NaN
+1,3,lines,quintic guess,2.99,3195.468271293504,NaN
+1,3,lines,quintic guess,3.0,3199.7478272306953,NaN
+1,3,lines,quintic guess,3.01,3204.085020735664,NaN
+1,3,lines,quintic guess,3.02,3208.4804801746272,NaN
+1,3,lines,quintic guess,3.03,3212.9348383048286,NaN
+1,3,lines,quintic guess,3.04,3217.4487322897885,NaN
+1,3,lines,quintic guess,3.05,3222.022803714554,NaN
+1,3,lines,quintic guess,3.06,3226.6576986009477,NaN
+1,3,lines,quintic guess,3.07,3231.354067422822,NaN
+1,3,lines,quintic guess,3.08,3236.1125651213056,NaN
+1,3,lines,quintic guess,3.09,3240.93385112006,NaN
+1,3,lines,quintic guess,3.1,3245.8185893405216,NaN
+1,3,lines,quintic guess,3.11,3250.7674482171587,NaN
+1,3,lines,quintic guess,3.12,3255.781100712721,NaN
+1,3,lines,quintic guess,3.13,3260.8602243334876,NaN
+1,3,lines,quintic guess,3.14,3266.005501144522,NaN
+1,3,lines,quintic guess,3.15,3271.217617784916,NaN
+1,3,lines,quintic guess,3.16,3276.4972654830467,NaN
+1,3,lines,quintic guess,3.17,3281.845140071824,NaN
+1,3,lines,quintic guess,3.18,3287.2619420039427,NaN
+1,3,lines,quintic guess,3.19,3292.7483763671294,NaN
+1,3,lines,quintic guess,3.2,3298.3051528993988,NaN
+1,3,lines,quintic guess,3.21,3303.932986004298,NaN
+1,3,lines,quintic guess,3.22,3309.6325947661635,NaN
+1,3,lines,quintic guess,3.23,3315.4047029653643,NaN
+1,3,lines,quintic guess,3.24,3321.25003909356,NaN
+1,3,lines,quintic guess,3.25,3327.169336368948,NaN
+1,3,lines,quintic guess,3.26,3333.163332751511,NaN
+1,3,lines,quintic guess,3.27,3339.2327709582732,NaN
+1,3,lines,quintic guess,3.28,3345.3783984785455,NaN
+1,3,lines,quintic guess,3.29,3351.6009675891823,NaN
+1,3,lines,quintic guess,3.3,3357.901235369826,NaN
+1,3,lines,quintic guess,3.31,3364.27996371816,NaN
+1,3,lines,quintic guess,3.32,3370.7379193651605,NaN
+1,3,lines,quintic guess,3.33,3377.275873890345,NaN
+1,3,lines,quintic guess,3.34,3383.894603737022,NaN
+1,3,lines,quintic guess,3.35,3390.5948902275477,NaN
+1,3,lines,quintic guess,3.36,3397.3775195785674,NaN
+1,3,lines,quintic guess,3.37,3404.2432829162735,NaN
+1,3,lines,quintic guess,3.38,3411.1929762916516,NaN
+1,3,lines,quintic guess,3.39,3418.227400695735,NaN
+1,3,lines,quintic guess,3.4,3425.3473620748496,NaN
+1,3,lines,quintic guess,3.41,3432.5536713458705,NaN
+1,3,lines,quintic guess,3.42,3439.8471444114693,NaN
+1,3,lines,quintic guess,3.43,3447.2286021753644,NaN
+1,3,lines,quintic guess,3.44,3454.6988705575727,NaN
+1,3,lines,quintic guess,3.45,3462.258780509662,NaN
+1,3,lines,quintic guess,3.46,3469.9091680299925,NaN
+1,3,lines,quintic guess,3.47,3477.6508741789853,NaN
+1,3,lines,quintic guess,3.48,3485.484745094351,NaN
+1,3,lines,quintic guess,3.49,3493.4116320063576,NaN
+1,3,lines,quintic guess,3.5,3501.432391253072,NaN
+1,3,lines,quintic guess,3.51,3509.5478842956136,NaN
+1,3,lines,quintic guess,3.52,3517.758977733405,NaN
+1,3,lines,quintic guess,3.53,3526.0665433194217,NaN
+1,3,lines,quintic guess,3.54,3534.471457975442,NaN
+1,3,lines,quintic guess,3.55,3542.9746038073,NaN
+1,3,lines,quintic guess,3.56,3551.576868120131,NaN
+1,3,lines,quintic guess,3.57,3560.2791434336323,NaN
+1,3,lines,quintic guess,3.58,3569.0823274972995,NaN
+1,3,lines,quintic guess,3.59,3577.9873233056887,NaN
+1,3,lines,quintic guess,3.6,3586.995039113663,NaN
+1,3,lines,quintic guess,3.61,3596.1063884516425,NaN
+1,3,lines,quintic guess,3.62,3605.322290140854,NaN
+1,3,lines,quintic guess,3.63,3614.6436683085853,NaN
+1,3,lines,quintic guess,3.64,3624.071452403431,NaN
+1,3,lines,quintic guess,3.65,3633.6065772105476,NaN
+1,3,lines,quintic guess,3.66,3643.2499828669006,NaN
+1,3,lines,quintic guess,3.67,3653.002614876515,NaN
+1,3,lines,quintic guess,3.68,3662.8654241257314,NaN
+1,3,lines,quintic guess,3.69,3672.839366898447,NaN
+1,3,lines,quintic guess,3.7,3682.925404891376,NaN
+1,3,lines,quintic guess,3.71,3693.1245052292916,NaN
+1,3,lines,quintic guess,3.72,3703.4376404802842,NaN
+1,3,lines,quintic guess,3.73,3713.8657886710066,NaN
+1,3,lines,quintic guess,3.74,3724.409933301926,NaN
+1,3,lines,quintic guess,3.75,3735.071063362575,NaN
+1,3,lines,quintic guess,3.76,3745.850173346802,NaN
+1,3,lines,quintic guess,3.77,3756.7482632680226,NaN
+1,3,lines,quintic guess,3.78,3767.7663386744684,NaN
+1,3,lines,quintic guess,3.79,3778.905410664439,NaN
+1,3,lines,quintic guess,3.8,3790.166495901549,NaN
+1,3,lines,quintic guess,3.81,3801.5506166299865,NaN
+1,3,lines,quintic guess,3.82,3813.058800689756,NaN
+1,3,lines,quintic guess,3.83,3824.6920815319318,NaN
+1,3,lines,quintic guess,3.84,3836.4514982339065,NaN
+1,3,lines,quintic guess,3.85,3848.3380955146467,NaN
+1,3,lines,quintic guess,3.86,3860.352923749939,NaN
+1,3,lines,quintic guess,3.87,3872.4970389876416,NaN
+1,3,lines,quintic guess,3.88,3884.7715029629335,NaN
+1,3,lines,quintic guess,3.89,3897.1773831135706,NaN
+1,3,lines,quintic guess,3.9,3909.715752595128,NaN
+1,3,lines,quintic guess,3.91,3922.387690296258,NaN
+1,3,lines,quintic guess,3.92,3935.194280853935,NaN
+1,3,lines,quintic guess,3.93,3948.1366146687105,NaN
+1,3,lines,quintic guess,3.94,3961.2157879199603,NaN
+1,3,lines,quintic guess,3.95,3974.4329025811376,NaN
+1,3,lines,quintic guess,3.96,3987.7890664350202,NaN
+1,3,lines,quintic guess,3.97,4001.285393088966,NaN
+1,3,lines,quintic guess,3.98,4014.923001990159,NaN
+1,3,lines,quintic guess,3.99,4028.7030184408627,NaN
+1,3,lines,quintic guess,4.0,4042.626573613668,NaN
+1,3,lines,quintic guess,4.01,4056.694804566746,NaN
+1,3,lines,quintic guess,4.02,4070.908854259099,NaN
+1,3,lines,quintic guess,4.03,4085.2698715658107,NaN
+1,3,lines,quintic guess,4.04,4099.779011293291,NaN
+1,3,lines,quintic guess,4.05,4114.437434194535,NaN
+1,3,lines,quintic guess,4.06,4129.2463069843725,NaN
+1,3,lines,quintic guess,4.07,4144.206802354714,NaN
+1,3,lines,quintic guess,4.08,4159.320098989799,NaN
+1,3,lines,quintic guess,4.09,4174.587381581456,NaN
+1,3,lines,quintic guess,4.1,4190.009840844346,NaN
+1,3,lines,quintic guess,4.11,4205.588673531221,NaN
+1,3,lines,quintic guess,4.12,4221.325082448157,NaN
+1,3,lines,quintic guess,4.13,4237.220276469825,NaN
+1,3,lines,quintic guess,4.14,4253.27547055473,NaN
+1,3,lines,quintic guess,4.15,4269.491885760466,NaN
+1,3,lines,quintic guess,4.16,4285.87074925896,NaN
+1,3,lines,quintic guess,4.17,4302.413294351731,NaN
+1,3,lines,quintic guess,4.18,4319.120760485137,NaN
+1,3,lines,quintic guess,4.19,4335.994393265626,NaN
+1,3,lines,quintic guess,4.2,4353.035444474983,NaN
+1,3,lines,quintic guess,4.21,4370.245172085583,NaN
+1,3,lines,quintic guess,4.22,4387.624840275648,NaN
+1,3,lines,quintic guess,4.23,4405.175719444489,NaN
+1,3,lines,quintic guess,4.24,4422.899086227752,NaN
+1,3,lines,quintic guess,4.25,4440.796223512686,NaN
+1,3,lines,quintic guess,4.26,4458.868420453378,NaN
+1,3,lines,quintic guess,4.27,4477.116972486009,NaN
+1,3,lines,quintic guess,4.28,4495.543181344108,NaN
+1,3,lines,quintic guess,4.29,4514.148355073794,NaN
+1,3,lines,quintic guess,4.3,4532.9338080490315,NaN
+1,3,lines,quintic guess,4.31,4551.900860986886,NaN
+1,3,lines,quintic guess,4.32,4571.050840962767,NaN
+1,3,lines,quintic guess,4.33,4590.385081425679,NaN
+1,3,lines,quintic guess,4.34,4609.904922213475,NaN
+1,3,lines,quintic guess,4.35,4629.611709568109,NaN
+1,3,lines,quintic guess,4.36,4649.506796150884,NaN
+1,3,lines,quintic guess,4.37,4669.5915410576945,NaN
+1,3,lines,quintic guess,4.38,4689.867309834295,NaN
+1,3,lines,quintic guess,4.39,4710.335474491534,NaN
+1,3,lines,quintic guess,4.4,4730.997413520616,NaN
+1,3,lines,quintic guess,4.41,4751.854511908339,NaN
+1,3,lines,quintic guess,4.42,4772.908161152362,NaN
+1,3,lines,quintic guess,4.43,4794.159759276439,NaN
+1,3,lines,quintic guess,4.44,4815.610710845686,NaN
+1,3,lines,quintic guess,4.45,4837.262426981813,NaN
+1,3,lines,quintic guess,4.46,4859.116325378391,NaN
+1,3,lines,quintic guess,4.47,4881.173830316094,NaN
+1,3,lines,quintic guess,4.48,4903.43637267795,NaN
+1,3,lines,quintic guess,4.49,4925.905389964593,NaN
+1,3,lines,quintic guess,4.5,4948.582326309515,NaN
+1,3,lines,quintic guess,4.51,4971.468632494316,NaN
+1,3,lines,quintic guess,4.52,4994.565765963951,NaN
+1,3,lines,quintic guess,4.53,5017.875190841985,NaN
+1,3,lines,quintic guess,4.54,5041.398377945839,NaN
+1,3,lines,quintic guess,4.55,5065.136804802045,NaN
+1,3,lines,quintic guess,4.56,5089.091955661494,NaN
+1,3,lines,quintic guess,4.57,5113.265321514693,NaN
+1,3,lines,quintic guess,4.58,5137.658400106999,NaN
+1,3,lines,quintic guess,4.59,5162.272695953889,NaN
+1,3,lines,quintic guess,4.6,5187.1097203562,NaN
+1,3,lines,quintic guess,4.61,5212.170991415381,NaN
+1,3,lines,quintic guess,4.62,5237.458034048741,NaN
+1,3,lines,quintic guess,4.63,5262.972380004709,NaN
+1,3,lines,quintic guess,4.64,5288.715567878072,NaN
+1,3,lines,quintic guess,4.65,5314.689143125237,NaN
+1,3,lines,quintic guess,4.66,5340.894658079472,NaN
+1,3,lines,quintic guess,4.67,5367.333671966164,NaN
+1,3,lines,quintic guess,4.68,5394.007750918059,NaN
+1,3,lines,quintic guess,4.69,5420.9184679905375,NaN
+1,3,lines,quintic guess,4.7,5448.067403176824,NaN
+1,3,lines,quintic guess,4.71,5475.456143423278,NaN
+1,3,lines,quintic guess,4.72,5503.086282644624,NaN
+1,3,lines,quintic guess,4.73,5530.959421739203,NaN
+1,3,lines,quintic guess,4.74,5559.0771686042235,NaN
+1,3,lines,quintic guess,4.75,5587.441138151021,NaN
+1,3,lines,quintic guess,4.76,5616.052952320296,NaN
+1,3,lines,quintic guess,4.77,5644.914240097372,NaN
+1,3,lines,quintic guess,4.78,5674.0266375274505,NaN
+1,3,lines,quintic guess,4.79,5703.391787730841,NaN
+1,3,lines,quintic guess,4.8,5733.011340918241,NaN
+1,3,lines,quintic guess,4.81,5762.8869544059635,NaN
+1,3,lines,quintic guess,4.82,5793.0202926311995,NaN
+1,3,lines,quintic guess,4.83,5823.413027167258,NaN
+1,3,lines,quintic guess,4.84,5854.06683673883,NaN
+1,3,lines,quintic guess,4.85,5884.9834072372305,NaN
+1,3,lines,quintic guess,4.86,5916.164431735651,NaN
+1,3,lines,quintic guess,4.87,5947.611610504406,NaN
+1,3,lines,quintic guess,4.88,5979.326651026192,NaN
+1,3,lines,quintic guess,4.89,6011.31126801133,NaN
+1,3,lines,quintic guess,4.9,6043.567183413026,NaN
+1,3,lines,quintic guess,4.91,6076.096126442604,NaN
+1,3,lines,quintic guess,4.92,6108.899833584777,NaN
+1,3,lines,quintic guess,4.93,6141.980048612887,NaN
+1,3,lines,quintic guess,4.94,6175.338522604154,NaN
+1,3,lines,quintic guess,4.95,6208.977013954924,NaN
+1,3,lines,quintic guess,4.96,6242.897288395936,NaN
+1,3,lines,quintic guess,4.97,6277.101119007556,NaN
+1,3,lines,quintic guess,4.98,6311.590286235034,NaN
+1,3,lines,quintic guess,4.99,6346.366577903747,NaN
+1,3,lines,quintic guess,5.0,6381.431789234463,NaN
+1,4,lines,optimal quintic collocation,-5.0,-1228.9796115279755,NaN
+1,4,lines,optimal quintic collocation,-4.99,-1195.1955356153837,NaN
+1,4,lines,optimal quintic collocation,-4.98,-1161.6480282813432,NaN
+1,4,lines,optimal quintic collocation,-4.97,-1128.3358041001757,NaN
+1,4,lines,optimal quintic collocation,-4.96,-1095.2575823784082,NaN
+1,4,lines,optimal quintic collocation,-4.95,-1062.4120871459254,NaN
+1,4,lines,optimal quintic collocation,-4.94,-1029.7980471471396,NaN
+1,4,lines,optimal quintic collocation,-4.93,-997.4141958321543,NaN
+1,4,lines,optimal quintic collocation,-4.92,-965.2592713479416,NaN
+1,4,lines,optimal quintic collocation,-4.91,-933.3320165294833,NaN
+1,4,lines,optimal quintic collocation,-4.9,-901.6311788909527,NaN
+1,4,lines,optimal quintic collocation,-4.89,-870.1555106168742,NaN
+1,4,lines,optimal quintic collocation,-4.88,-838.9037685532946,NaN
+1,4,lines,optimal quintic collocation,-4.87,-807.8747141989325,NaN
+1,4,lines,optimal quintic collocation,-4.86,-777.0671136963592,NaN
+1,4,lines,optimal quintic collocation,-4.85,-746.4797378231513,NaN
+1,4,lines,optimal quintic collocation,-4.84,-716.1113619830694,NaN
+1,4,lines,optimal quintic collocation,-4.83,-685.9607661972061,NaN
+1,4,lines,optimal quintic collocation,-4.82,-656.0267350951631,NaN
+1,4,lines,optimal quintic collocation,-4.81,-626.3080579062062,NaN
+1,4,lines,optimal quintic collocation,-4.8,-596.803528450447,NaN
+1,4,lines,optimal quintic collocation,-4.79,-567.5119451299863,NaN
+1,4,lines,optimal quintic collocation,-4.78,-538.4321109200914,NaN
+1,4,lines,optimal quintic collocation,-4.77,-509.56283336035744,NaN
+1,4,lines,optimal quintic collocation,-4.76,-480.9029245458787,NaN
+1,4,lines,optimal quintic collocation,-4.75,-452.4512011183997,NaN
+1,4,lines,optimal quintic collocation,-4.74,-424.20648425749323,NaN
+1,4,lines,optimal quintic collocation,-4.73,-396.16759967171674,NaN
+1,4,lines,optimal quintic collocation,-4.72,-368.33337758977814,NaN
+1,4,lines,optimal quintic collocation,-4.71,-340.7026527517114,NaN
+1,4,lines,optimal quintic collocation,-4.7,-313.27426440002455,NaN
+1,4,lines,optimal quintic collocation,-4.69,-286.04705627087264,NaN
+1,4,lines,optimal quintic collocation,-4.68,-259.019876585221,NaN
+1,4,lines,optimal quintic collocation,-4.67,-232.19157804002066,NaN
+1,4,lines,optimal quintic collocation,-4.66,-205.5610177993501,NaN
+1,4,lines,optimal quintic collocation,-4.65,-179.12705748560234,NaN
+1,4,lines,optimal quintic collocation,-4.64,-152.8885631706346,NaN
+1,4,lines,optimal quintic collocation,-4.63,-126.84440536694706,NaN
+1,4,lines,optimal quintic collocation,-4.62,-100.99345901883339,NaN
+1,4,lines,optimal quintic collocation,-4.61,-75.33460349355255,NaN
+1,4,lines,optimal quintic collocation,-4.6,-49.866722572491426,NaN
+1,4,lines,optimal quintic collocation,-4.59,-24.58870444233844,NaN
+1,4,lines,optimal quintic collocation,-4.58,0.5005583137688063,NaN
+1,4,lines,optimal quintic collocation,-4.57,25.402168725062893,NaN
+1,4,lines,optimal quintic collocation,-4.56,50.11722544199347,NaN
+1,4,lines,optimal quintic collocation,-4.55,74.64682274505049,NaN
+1,4,lines,optimal quintic collocation,-4.54,98.9920505536113,NaN
+1,4,lines,optimal quintic collocation,-4.53,123.15399443476963,NaN
+1,4,lines,optimal quintic collocation,-4.52,147.13373561217327,NaN
+1,4,lines,optimal quintic collocation,-4.51,170.93235097485308,NaN
+1,4,lines,optimal quintic collocation,-4.5,194.55091308606916,NaN
+1,4,lines,optimal quintic collocation,-4.49,217.99049019213658,NaN
+1,4,lines,optimal quintic collocation,-4.48,241.25214623126726,NaN
+1,4,lines,optimal quintic collocation,-4.47,264.3369408424019,NaN
+1,4,lines,optimal quintic collocation,-4.46,287.24592937403963,NaN
+1,4,lines,optimal quintic collocation,-4.45,309.980162893087,NaN
+1,4,lines,optimal quintic collocation,-4.44,332.5406881936815,NaN
+1,4,lines,optimal quintic collocation,-4.43,354.9285478060333,NaN
+1,4,lines,optimal quintic collocation,-4.42,377.1447800052531,NaN
+1,4,lines,optimal quintic collocation,-4.41,399.1904188201979,NaN
+1,4,lines,optimal quintic collocation,-4.4,421.0664940422971,NaN
+1,4,lines,optimal quintic collocation,-4.39,442.7740312343949,NaN
+1,4,lines,optimal quintic collocation,-4.38,464.31405173957614,NaN
+1,4,lines,optimal quintic collocation,-4.37,485.6875726900114,NaN
+1,4,lines,optimal quintic collocation,-4.36,506.8956070157881,NaN
+1,4,lines,optimal quintic collocation,-4.35,527.9391634537494,NaN
+1,4,lines,optimal quintic collocation,-4.34,548.8192465563156,NaN
+1,4,lines,optimal quintic collocation,-4.33,569.5368567003388,NaN
+1,4,lines,optimal quintic collocation,-4.32,590.0929900959275,NaN
+1,4,lines,optimal quintic collocation,-4.31,610.488638795282,NaN
+1,4,lines,optimal quintic collocation,-4.3,630.7247907015303,NaN
+1,4,lines,optimal quintic collocation,-4.29,650.8024295775665,NaN
+1,4,lines,optimal quintic collocation,-4.28,670.7225350548827,NaN
+1,4,lines,optimal quintic collocation,-4.27,690.4860826424067,NaN
+1,4,lines,optimal quintic collocation,-4.26,710.0940437353329,NaN
+1,4,lines,optimal quintic collocation,-4.25,729.5473856239618,NaN
+1,4,lines,optimal quintic collocation,-4.24,748.8470715025364,NaN
+1,4,lines,optimal quintic collocation,-4.23,767.9940604780714,NaN
+1,4,lines,optimal quintic collocation,-4.22,786.9893075791969,NaN
+1,4,lines,optimal quintic collocation,-4.21,805.8337637649817,NaN
+1,4,lines,optimal quintic collocation,-4.2,824.5283759337815,NaN
+1,4,lines,optimal quintic collocation,-4.19,843.0740869320667,NaN
+1,4,lines,optimal quintic collocation,-4.18,861.4718355632627,NaN
+1,4,lines,optimal quintic collocation,-4.17,879.7225565965728,NaN
+1,4,lines,optimal quintic collocation,-4.16,897.8271807758316,NaN
+1,4,lines,optimal quintic collocation,-4.15,915.7866348283271,NaN
+1,4,lines,optimal quintic collocation,-4.14,933.6018414736432,NaN
+1,4,lines,optimal quintic collocation,-4.13,951.273719432485,NaN
+1,4,lines,optimal quintic collocation,-4.12,968.8031834355272,NaN
+1,4,lines,optimal quintic collocation,-4.11,986.191144232241,NaN
+1,4,lines,optimal quintic collocation,-4.1,1003.438508599732,NaN
+1,4,lines,optimal quintic collocation,-4.09,1020.546179351572,NaN
+1,4,lines,optimal quintic collocation,-4.08,1037.5150553466403,NaN
+1,4,lines,optimal quintic collocation,-4.07,1054.3460314979543,NaN
+1,4,lines,optimal quintic collocation,-4.06,1071.0399987815074,NaN
+1,4,lines,optimal quintic collocation,-4.05,1087.5978442451005,NaN
+1,4,lines,optimal quintic collocation,-4.04,1104.0204510171816,NaN
+1,4,lines,optimal quintic collocation,-4.03,1120.3086983156788,NaN
+1,4,lines,optimal quintic collocation,-4.02,1136.4634614568386,NaN
+1,4,lines,optimal quintic collocation,-4.01,1152.4856118640525,NaN
+1,4,lines,optimal quintic collocation,-4.0,1168.3760170767043,NaN
+1,4,lines,optimal quintic collocation,-3.99,1184.1355407589967,NaN
+1,4,lines,optimal quintic collocation,-3.98,1199.765042708791,NaN
+1,4,lines,optimal quintic collocation,-3.97,1215.2653788664365,NaN
+1,4,lines,optimal quintic collocation,-3.96,1230.6374013236154,NaN
+1,4,lines,optimal quintic collocation,-3.95,1245.881958332168,NaN
+1,4,lines,optimal quintic collocation,-3.94,1260.9998943129353,NaN
+1,4,lines,optimal quintic collocation,-3.93,1275.99204986459,NaN
+1,4,lines,optimal quintic collocation,-3.92,1290.8592617724748,NaN
+1,4,lines,optimal quintic collocation,-3.91,1305.6023630174336,NaN
+1,4,lines,optimal quintic collocation,-3.9,1320.222182784652,NaN
+1,4,lines,optimal quintic collocation,-3.89,1334.7195464724869,NaN
+1,4,lines,optimal quintic collocation,-3.88,1349.0952757013072,NaN
+1,4,lines,optimal quintic collocation,-3.87,1363.3501883223253,NaN
+1,4,lines,optimal quintic collocation,-3.86,1377.4850984264344,NaN
+1,4,lines,optimal quintic collocation,-3.85,1391.500816353041,NaN
+1,4,lines,optimal quintic collocation,-3.84,1405.3981486989048,NaN
+1,4,lines,optimal quintic collocation,-3.83,1419.1778983269692,NaN
+1,4,lines,optimal quintic collocation,-3.82,1432.8408643752,NaN
+1,4,lines,optimal quintic collocation,-3.81,1446.3878422654172,NaN
+1,4,lines,optimal quintic collocation,-3.8,1459.8196237121358,NaN
+1,4,lines,optimal quintic collocation,-3.79,1473.1369967313929,NaN
+1,4,lines,optimal quintic collocation,-3.78,1486.340745649593,NaN
+1,4,lines,optimal quintic collocation,-3.77,1499.4316511123325,NaN
+1,4,lines,optimal quintic collocation,-3.76,1512.4104900932452,NaN
+1,4,lines,optimal quintic collocation,-3.75,1525.2780359028307,NaN
+1,4,lines,optimal quintic collocation,-3.74,1538.0350581972898,NaN
+1,4,lines,optimal quintic collocation,-3.73,1550.6823229873644,NaN
+1,4,lines,optimal quintic collocation,-3.72,1563.2205926471697,NaN
+1,4,lines,optimal quintic collocation,-3.71,1575.6506259230293,NaN
+1,4,lines,optimal quintic collocation,-3.7,1587.9731779423091,NaN
+1,4,lines,optimal quintic collocation,-3.69,1600.189000222258,NaN
+1,4,lines,optimal quintic collocation,-3.68,1612.2988406788363,NaN
+1,4,lines,optimal quintic collocation,-3.67,1624.3034436355565,NaN
+1,4,lines,optimal quintic collocation,-3.66,1636.2035498323144,NaN
+1,4,lines,optimal quintic collocation,-3.65,1647.9998964342287,NaN
+1,4,lines,optimal quintic collocation,-3.64,1659.6932170404702,NaN
+1,4,lines,optimal quintic collocation,-3.63,1671.2842416931053,NaN
+1,4,lines,optimal quintic collocation,-3.62,1682.7736968859208,NaN
+1,4,lines,optimal quintic collocation,-3.61,1694.1623055732719,NaN
+1,4,lines,optimal quintic collocation,-3.6,1705.4507871789028,NaN
+1,4,lines,optimal quintic collocation,-3.59,1716.6398576047973,NaN
+1,4,lines,optimal quintic collocation,-3.58,1727.7302292400016,NaN
+1,4,lines,optimal quintic collocation,-3.57,1738.7226109694657,NaN
+1,4,lines,optimal quintic collocation,-3.56,1749.617708182876,NaN
+1,4,lines,optimal quintic collocation,-3.55,1760.4162227834963,NaN
+1,4,lines,optimal quintic collocation,-3.54,1771.1188531969929,NaN
+1,4,lines,optimal quintic collocation,-3.53,1781.7262943802803,NaN
+1,4,lines,optimal quintic collocation,-3.52,1792.2392378303487,NaN
+1,4,lines,optimal quintic collocation,-3.51,1802.6583715931051,NaN
+1,4,lines,optimal quintic collocation,-3.5,1812.9843802722028,NaN
+1,4,lines,optimal quintic collocation,-3.49,1823.2179450378821,NaN
+1,4,lines,optimal quintic collocation,-3.48,1833.3597436358025,NaN
+1,4,lines,optimal quintic collocation,-3.47,1843.4104503958783,NaN
+1,4,lines,optimal quintic collocation,-3.46,1853.3707362411142,NaN
+1,4,lines,optimal quintic collocation,-3.45,1863.2412686964406,NaN
+1,4,lines,optimal quintic collocation,-3.44,1873.022711897549,NaN
+1,4,lines,optimal quintic collocation,-3.43,1882.7157265997266,NaN
+1,4,lines,optimal quintic collocation,-3.42,1892.3209701866929,NaN
+1,4,lines,optimal quintic collocation,-3.41,1901.8390966794325,NaN
+1,4,lines,optimal quintic collocation,-3.4,1911.2707567450339,NaN
+1,4,lines,optimal quintic collocation,-3.39,1920.6165977055214,NaN
+1,4,lines,optimal quintic collocation,-3.38,1929.8772635466921,NaN
+1,4,lines,optimal quintic collocation,-3.37,1939.0533949269507,NaN
+1,4,lines,optimal quintic collocation,-3.36,1948.1456291861455,NaN
+1,4,lines,optimal quintic collocation,-3.35,1957.1546003544015,NaN
+1,4,lines,optimal quintic collocation,-3.34,1966.08093916096,NaN
+1,4,lines,optimal quintic collocation,-3.33,1974.925273043007,NaN
+1,4,lines,optimal quintic collocation,-3.32,1983.6882261545177,NaN
+1,4,lines,optimal quintic collocation,-3.31,1992.3704193750812,NaN
+1,4,lines,optimal quintic collocation,-3.3,2000.9724703187444,NaN
+1,4,lines,optimal quintic collocation,-3.29,2009.4949933428438,NaN
+1,4,lines,optimal quintic collocation,-3.28,2017.9385995568396,NaN
+1,4,lines,optimal quintic collocation,-3.27,2026.3038968311523,NaN
+1,4,lines,optimal quintic collocation,-3.26,2034.5914898060007,NaN
+1,4,lines,optimal quintic collocation,-3.25,2042.8019799002311,NaN
+1,4,lines,optimal quintic collocation,-3.24,2050.9359653201573,NaN
+1,4,lines,optimal quintic collocation,-3.23,2058.9940410683957,NaN
+1,4,lines,optimal quintic collocation,-3.22,2066.9767989526954,NaN
+1,4,lines,optimal quintic collocation,-3.21,2074.8848275947826,NaN
+1,4,lines,optimal quintic collocation,-3.2,2082.718712439186,NaN
+1,4,lines,optimal quintic collocation,-3.19,2090.4790357620805,NaN
+1,4,lines,optimal quintic collocation,-3.18,2098.166376680115,NaN
+1,4,lines,optimal quintic collocation,-3.17,2105.781311159255,NaN
+1,4,lines,optimal quintic collocation,-3.16,2113.3244120236095,NaN
+1,4,lines,optimal quintic collocation,-3.15,2120.796248964277,NaN
+1,4,lines,optimal quintic collocation,-3.14,2128.1973885481693,NaN
+1,4,lines,optimal quintic collocation,-3.13,2135.5283942268547,NaN
+1,4,lines,optimal quintic collocation,-3.12,2142.78982634539,NaN
+1,4,lines,optimal quintic collocation,-3.11,2149.982242151158,NaN
+1,4,lines,optimal quintic collocation,-3.1,2157.1061958026985,NaN
+1,4,lines,optimal quintic collocation,-3.09,2164.162238378549,NaN
+1,4,lines,optimal quintic collocation,-3.08,2171.1509178860742,NaN
+1,4,lines,optimal quintic collocation,-3.07,2178.0727792703074,NaN
+1,4,lines,optimal quintic collocation,-3.06,2184.9283644227817,NaN
+1,4,lines,optimal quintic collocation,-3.05,2191.7182121903643,NaN
+1,4,lines,optimal quintic collocation,-3.04,2198.4428583840963,NaN
+1,4,lines,optimal quintic collocation,-3.03,2205.102835788025,NaN
+1,4,lines,optimal quintic collocation,-3.02,2211.6986741680366,NaN
+1,4,lines,optimal quintic collocation,-3.01,2218.2309002806996,NaN
+1,4,lines,optimal quintic collocation,-3.0,2224.70003788209,NaN
+1,4,lines,optimal quintic collocation,-2.99,2231.1066077366318,NaN
+1,4,lines,optimal quintic collocation,-2.98,2237.451127625935,NaN
+1,4,lines,optimal quintic collocation,-2.97,2243.734112357627,NaN
+1,4,lines,optimal quintic collocation,-2.96,2249.956073774185,NaN
+1,4,lines,optimal quintic collocation,-2.95,2256.117520761779,NaN
+1,4,lines,optimal quintic collocation,-2.94,2262.2189592591008,NaN
+1,4,lines,optimal quintic collocation,-2.93,2268.2608922662007,NaN
+1,4,lines,optimal quintic collocation,-2.92,2274.243819853326,NaN
+1,4,lines,optimal quintic collocation,-2.91,2280.1682391697514,NaN
+1,4,lines,optimal quintic collocation,-2.9,2286.0346444526176,NaN
+1,4,lines,optimal quintic collocation,-2.89,2291.8435270357636,NaN
+1,4,lines,optimal quintic collocation,-2.88,2297.5953753585673,NaN
+1,4,lines,optimal quintic collocation,-2.87,2303.290674974774,NaN
+1,4,lines,optimal quintic collocation,-2.86,2308.929908561337,NaN
+1,4,lines,optimal quintic collocation,-2.85,2314.51355592725,NaN
+1,4,lines,optimal quintic collocation,-2.84,2320.042094022383,NaN
+1,4,lines,optimal quintic collocation,-2.83,2325.515996946319,NaN
+1,4,lines,optimal quintic collocation,-2.82,2330.935735957186,NaN
+1,4,lines,optimal quintic collocation,-2.81,2336.301779480495,NaN
+1,4,lines,optimal quintic collocation,-2.8,2341.6145931179763,NaN
+1,4,lines,optimal quintic collocation,-2.79,2346.87463965641,NaN
+1,4,lines,optimal quintic collocation,-2.78,2352.0823790764666,NaN
+1,4,lines,optimal quintic collocation,-2.77,2357.23826856154,NaN
+1,4,lines,optimal quintic collocation,-2.76,2362.342762506579,NaN
+1,4,lines,optimal quintic collocation,-2.75,2367.396312526931,NaN
+1,4,lines,optimal quintic collocation,-2.74,2372.39936746717,NaN
+1,4,lines,optimal quintic collocation,-2.73,2377.352373409935,NaN
+1,4,lines,optimal quintic collocation,-2.72,2382.2557736847634,NaN
+1,4,lines,optimal quintic collocation,-2.71,2387.11000887693,NaN
+1,4,lines,optimal quintic collocation,-2.7,2391.915516836276,NaN
+1,4,lines,optimal quintic collocation,-2.69,2396.6727326860514,NaN
+1,4,lines,optimal quintic collocation,-2.68,2401.382088831746,NaN
+1,4,lines,optimal quintic collocation,-2.67,2406.044014969924,NaN
+1,4,lines,optimal quintic collocation,-2.66,2410.6589380970618,NaN
+1,4,lines,optimal quintic collocation,-2.65,2415.2272825183836,NaN
+1,4,lines,optimal quintic collocation,-2.64,2419.749469856692,NaN
+1,4,lines,optimal quintic collocation,-2.63,2424.2259190612103,NaN
+1,4,lines,optimal quintic collocation,-2.62,2428.65704641641,NaN
+1,4,lines,optimal quintic collocation,-2.61,2433.0432655508534,NaN
+1,4,lines,optimal quintic collocation,-2.6,2437.3849874460257,NaN
+1,4,lines,optimal quintic collocation,-2.59,2441.6826204451654,NaN
+1,4,lines,optimal quintic collocation,-2.58,2445.9365702621103,NaN
+1,4,lines,optimal quintic collocation,-2.57,2450.147239990122,NaN
+1,4,lines,optimal quintic collocation,-2.56,2454.31503011073,NaN
+1,4,lines,optimal quintic collocation,-2.55,2458.4403385025585,NaN
+1,4,lines,optimal quintic collocation,-2.54,2462.5235604501686,NaN
+1,4,lines,optimal quintic collocation,-2.53,2466.565088652891,NaN
+1,4,lines,optimal quintic collocation,-2.52,2470.565313233659,NaN
+1,4,lines,optimal quintic collocation,-2.51,2474.5246217478507,NaN
+1,4,lines,optimal quintic collocation,-2.5,2478.443399192113,NaN
+1,4,lines,optimal quintic collocation,-2.49,2482.3220280132077,NaN
+1,4,lines,optimal quintic collocation,-2.48,2486.1608881168436,NaN
+1,4,lines,optimal quintic collocation,-2.47,2489.9603568765046,NaN
+1,4,lines,optimal quintic collocation,-2.46,2493.720809142298,NaN
+1,4,lines,optimal quintic collocation,-2.45,2497.442617249779,NaN
+1,4,lines,optimal quintic collocation,-2.44,2501.1261510287886,NaN
+1,4,lines,optimal quintic collocation,-2.43,2504.7717778122924,NaN
+1,4,lines,optimal quintic collocation,-2.42,2508.379862445214,NaN
+1,4,lines,optimal quintic collocation,-2.41,2511.950767293265,NaN
+1,4,lines,optimal quintic collocation,-2.4,2515.4848522517923,NaN
+1,4,lines,optimal quintic collocation,-2.39,2518.9824747545977,NaN
+1,4,lines,optimal quintic collocation,-2.38,2522.443989782788,NaN
+1,4,lines,optimal quintic collocation,-2.37,2525.8697498736,NaN
+1,4,lines,optimal quintic collocation,-2.36,2529.260105129241,NaN
+1,4,lines,optimal quintic collocation,-2.35,2532.6154032257227,NaN
+1,4,lines,optimal quintic collocation,-2.34,2535.9359894216955,NaN
+1,4,lines,optimal quintic collocation,-2.33,2539.2222065672836,NaN
+1,4,lines,optimal quintic collocation,-2.32,2542.4743951129235,NaN
+1,4,lines,optimal quintic collocation,-2.31,2545.692893118196,NaN
+1,4,lines,optimal quintic collocation,-2.3,2548.8780362606612,NaN
+1,4,lines,optimal quintic collocation,-2.29,2552.0301578446965,NaN
+1,4,lines,optimal quintic collocation,-2.28,2555.1495888103314,NaN
+1,4,lines,optimal quintic collocation,-2.27,2558.2366577420767,NaN
+1,4,lines,optimal quintic collocation,-2.26,2561.291690877771,NaN
+1,4,lines,optimal quintic collocation,-2.25,2564.315012117406,NaN
+1,4,lines,optimal quintic collocation,-2.24,2567.3069430319656,NaN
+1,4,lines,optimal quintic collocation,-2.23,2570.2678028722626,NaN
+1,4,lines,optimal quintic collocation,-2.22,2573.1979085777716,NaN
+1,4,lines,optimal quintic collocation,-2.21,2576.097574785465,NaN
+1,4,lines,optimal quintic collocation,-2.2,2578.967113838648,NaN
+1,4,lines,optimal quintic collocation,-2.19,2581.806835795795,NaN
+1,4,lines,optimal quintic collocation,-2.18,2584.617048439383,NaN
+1,4,lines,optimal quintic collocation,-2.17,2587.3980572847277,NaN
+1,4,lines,optimal quintic collocation,-2.16,2590.150165588821,NaN
+1,4,lines,optimal quintic collocation,-2.15,2592.873674359162,NaN
+1,4,lines,optimal quintic collocation,-2.14,2595.568882362597,NaN
+1,4,lines,optimal quintic collocation,-2.13,2598.236086134148,NaN
+1,4,lines,optimal quintic collocation,-2.12,2600.875579985856,NaN
+1,4,lines,optimal quintic collocation,-2.11,2603.4876560156117,NaN
+1,4,lines,optimal quintic collocation,-2.1,2606.07260411599,NaN
+1,4,lines,optimal quintic collocation,-2.09,2608.6307119830885,NaN
+1,4,lines,optimal quintic collocation,-2.08,2611.162265125361,NaN
+1,4,lines,optimal quintic collocation,-2.07,2613.6675468724497,NaN
+1,4,lines,optimal quintic collocation,-2.06,2616.146838384028,NaN
+1,4,lines,optimal quintic collocation,-2.05,2618.6004186586288,NaN
+1,4,lines,optimal quintic collocation,-2.04,2621.028564542483,NaN
+1,4,lines,optimal quintic collocation,-2.03,2623.4315507383526,NaN
+1,4,lines,optimal quintic collocation,-2.02,2625.809649814369,NaN
+1,4,lines,optimal quintic collocation,-2.01,2628.163132212867,NaN
+1,4,lines,optimal quintic collocation,-2.0,2630.492266259218,NaN
+1,4,lines,optimal quintic collocation,-1.99,2632.797318170668,NaN
+1,4,lines,optimal quintic collocation,-1.98,2635.078552065172,NaN
+1,4,lines,optimal quintic collocation,-1.97,2637.3362299702285,NaN
+1,4,lines,optimal quintic collocation,-1.96,2639.570611831716,NaN
+1,4,lines,optimal quintic collocation,-1.95,2641.7819555227256,NaN
+1,4,lines,optimal quintic collocation,-1.94,2643.9705168524024,NaN
+1,4,lines,optimal quintic collocation,-1.93,2646.1365495747723,NaN
+1,4,lines,optimal quintic collocation,-1.92,2648.280305397584,NaN
+1,4,lines,optimal quintic collocation,-1.91,2650.4020339911413,NaN
+1,4,lines,optimal quintic collocation,-1.9,2652.501982997138,NaN
+1,4,lines,optimal quintic collocation,-1.89,2654.5803980374953,NaN
+1,4,lines,optimal quintic collocation,-1.88,2656.637522723197,NaN
+1,4,lines,optimal quintic collocation,-1.87,2658.673598663119,NaN
+1,4,lines,optimal quintic collocation,-1.86,2660.6888654728746,NaN
+1,4,lines,optimal quintic collocation,-1.85,2662.683560783641,NaN
+1,4,lines,optimal quintic collocation,-1.84,2664.6579202509984,NaN
+1,4,lines,optimal quintic collocation,-1.83,2666.6121775637657,NaN
+1,4,lines,optimal quintic collocation,-1.82,2668.5465644528344,NaN
+1,4,lines,optimal quintic collocation,-1.81,2670.4613107000023,NaN
+1,4,lines,optimal quintic collocation,-1.8,2672.356644146814,NaN
+1,4,lines,optimal quintic collocation,-1.79,2674.2327907033905,NaN
+1,4,lines,optimal quintic collocation,-1.78,2676.089974357267,NaN
+1,4,lines,optimal quintic collocation,-1.77,2677.9284171822296,NaN
+1,4,lines,optimal quintic collocation,-1.76,2679.748339347148,NaN
+1,4,lines,optimal quintic collocation,-1.75,2681.54995912481,NaN
+1,4,lines,optimal quintic collocation,-1.74,2683.3334929007615,NaN
+1,4,lines,optimal quintic collocation,-1.73,2685.0991551821376,NaN
+1,4,lines,optimal quintic collocation,-1.72,2686.847158606497,NaN
+1,4,lines,optimal quintic collocation,-1.71,2688.5777139506627,NaN
+1,4,lines,optimal quintic collocation,-1.7,2690.2910301395495,NaN
+1,4,lines,optimal quintic collocation,-1.69,2691.987314255008,NaN
+1,4,lines,optimal quintic collocation,-1.68,2693.6667715446547,NaN
+1,4,lines,optimal quintic collocation,-1.67,2695.329605430703,NaN
+1,4,lines,optimal quintic collocation,-1.66,2696.97601751881,NaN
+1,4,lines,optimal quintic collocation,-1.65,2698.6062076069015,NaN
+1,4,lines,optimal quintic collocation,-1.64,2700.2203736940123,NaN
+1,4,lines,optimal quintic collocation,-1.63,2701.8187119891186,NaN
+1,4,lines,optimal quintic collocation,-1.62,2703.4014169199772,NaN
+1,4,lines,optimal quintic collocation,-1.61,2704.968681141956,NaN
+1,4,lines,optimal quintic collocation,-1.6,2706.520695546873,NaN
+1,4,lines,optimal quintic collocation,-1.59,2708.057649271829,NaN
+1,4,lines,optimal quintic collocation,-1.58,2709.5797297080458,NaN
+1,4,lines,optimal quintic collocation,-1.57,2711.087122509699,NaN
+1,4,lines,optimal quintic collocation,-1.56,2712.5800116027526,NaN
+1,4,lines,optimal quintic collocation,-1.55,2714.058579193796,NaN
+1,4,lines,optimal quintic collocation,-1.54,2715.52300577888,NaN
+1,4,lines,optimal quintic collocation,-1.53,2716.9734701523516,NaN
+1,4,lines,optimal quintic collocation,-1.52,2718.4101494156853,NaN
+1,4,lines,optimal quintic collocation,-1.51,2719.833218986325,NaN
+1,4,lines,optimal quintic collocation,-1.5,2721.242852606514,NaN
+1,4,lines,optimal quintic collocation,-1.49,2722.6392223521334,NaN
+1,4,lines,optimal quintic collocation,-1.48,2724.022498641534,NaN
+1,4,lines,optimal quintic collocation,-1.47,2725.3928502443778,NaN
+1,4,lines,optimal quintic collocation,-1.46,2726.750444290463,NaN
+1,4,lines,optimal quintic collocation,-1.45,2728.095446278571,NaN
+1,4,lines,optimal quintic collocation,-1.44,2729.428020085294,NaN
+1,4,lines,optimal quintic collocation,-1.43,2730.7483279738713,NaN
+1,4,lines,optimal quintic collocation,-1.42,2732.056530603026,NaN
+1,4,lines,optimal quintic collocation,-1.41,2733.352787035802,NaN
+1,4,lines,optimal quintic collocation,-1.4,2734.637254748394,NaN
+1,4,lines,optimal quintic collocation,-1.39,2735.9100896389887,NaN
+1,4,lines,optimal quintic collocation,-1.38,2737.171446036594,NaN
+1,4,lines,optimal quintic collocation,-1.37,2738.4214767098806,NaN
+1,4,lines,optimal quintic collocation,-1.36,2739.6603328760125,NaN
+1,4,lines,optimal quintic collocation,-1.35,2740.8881642094843,NaN
+1,4,lines,optimal quintic collocation,-1.34,2742.1051188509546,NaN
+1,4,lines,optimal quintic collocation,-1.33,2743.3113434160864,NaN
+1,4,lines,optimal quintic collocation,-1.32,2744.506983004375,NaN
+1,4,lines,optimal quintic collocation,-1.31,2745.6921812079877,NaN
+1,4,lines,optimal quintic collocation,-1.3,2746.8670801206003,NaN
+1,4,lines,optimal quintic collocation,-1.29,2748.031820346228,NaN
+1,4,lines,optimal quintic collocation,-1.28,2749.1865410080645,NaN
+1,4,lines,optimal quintic collocation,-1.27,2750.3313797573146,NaN
+1,4,lines,optimal quintic collocation,-1.26,2751.4664727820314,NaN
+1,4,lines,optimal quintic collocation,-1.25,2752.591954815951,NaN
+1,4,lines,optimal quintic collocation,-1.24,2753.707959147327,NaN
+1,4,lines,optimal quintic collocation,-1.23,2754.814617627765,NaN
+1,4,lines,optimal quintic collocation,-1.22,2755.9120606810643,NaN
+1,4,lines,optimal quintic collocation,-1.21,2757.000417312041,NaN
+1,4,lines,optimal quintic collocation,-1.2,2758.079815115375,NaN
+1,4,lines,optimal quintic collocation,-1.19,2759.150380284439,NaN
+1,4,lines,optimal quintic collocation,-1.18,2760.212237620136,NaN
+1,4,lines,optimal quintic collocation,-1.17,2761.265510539733,NaN
+1,4,lines,optimal quintic collocation,-1.16,2762.3103210856975,NaN
+1,4,lines,optimal quintic collocation,-1.15,2763.346789934533,NaN
+1,4,lines,optimal quintic collocation,-1.14,2764.3750364056123,NaN
+1,4,lines,optimal quintic collocation,-1.13,2765.3951784700166,NaN
+1,4,lines,optimal quintic collocation,-1.12,2766.4073327593637,NaN
+1,4,lines,optimal quintic collocation,-1.11,2767.4116145746525,NaN
+1,4,lines,optimal quintic collocation,-1.1,2768.4081378950928,NaN
+1,4,lines,optimal quintic collocation,-1.09,2769.397015386938,NaN
+1,4,lines,optimal quintic collocation,-1.08,2770.378358412328,NaN
+1,4,lines,optimal quintic collocation,-1.07,2771.3522770381182,NaN
+1,4,lines,optimal quintic collocation,-1.06,2772.318880044715,NaN
+1,4,lines,optimal quintic collocation,-1.05,2773.278274934916,NaN
+1,4,lines,optimal quintic collocation,-1.04,2774.2305679427404,NaN
+1,4,lines,optimal quintic collocation,-1.03,2775.1758640422663,NaN
+1,4,lines,optimal quintic collocation,-1.02,2776.1142669564647,NaN
+1,4,lines,optimal quintic collocation,-1.01,2777.0458791660362,NaN
+1,4,lines,optimal quintic collocation,-1.0,2777.9708019182467,NaN
+1,4,lines,optimal quintic collocation,-0.99,2778.8891352357605,NaN
+1,4,lines,optimal quintic collocation,-0.98,2779.8009779254767,NaN
+1,4,lines,optimal quintic collocation,-0.97,2780.7064275873645,NaN
+1,4,lines,optimal quintic collocation,-0.96,2781.6055806232994,NaN
+1,4,lines,optimal quintic collocation,-0.95,2782.498532245896,NaN
+1,4,lines,optimal quintic collocation,-0.94,2783.3853764873456,NaN
+1,4,lines,optimal quintic collocation,-0.93,2784.2662062082504,NaN
+1,4,lines,optimal quintic collocation,-0.92,2785.1411131064597,NaN
+1,4,lines,optimal quintic collocation,-0.91,2786.010187725903,NaN
+1,4,lines,optimal quintic collocation,-0.9,2786.873519465429,NaN
+1,4,lines,optimal quintic collocation,-0.89,2787.731196587635,NaN
+1,4,lines,optimal quintic collocation,-0.88,2788.583306227709,NaN
+1,4,lines,optimal quintic collocation,-0.87,2789.4299344022597,NaN
+1,4,lines,optimal quintic collocation,-0.86,2790.2711660181553,NaN
+1,4,lines,optimal quintic collocation,-0.85,2791.107084881355,NaN
+1,4,lines,optimal quintic collocation,-0.84,2791.937773705749,NaN
+1,4,lines,optimal quintic collocation,-0.83,2792.76331412199,NaN
+1,4,lines,optimal quintic collocation,-0.82,2793.5837866863285,NaN
+1,4,lines,optimal quintic collocation,-0.81,2794.399270889451,NaN
+1,4,lines,optimal quintic collocation,-0.8,2795.209845165312,NaN
+1,4,lines,optimal quintic collocation,-0.79,2796.0155868999736,NaN
+1,4,lines,optimal quintic collocation,-0.78,2796.8165724404344,NaN
+1,4,lines,optimal quintic collocation,-0.77,2797.6128771034696,NaN
+1,4,lines,optimal quintic collocation,-0.76,2798.404575184466,NaN
+1,4,lines,optimal quintic collocation,-0.75,2799.191739966254,NaN
+1,4,lines,optimal quintic collocation,-0.74,2799.9744437279473,NaN
+1,4,lines,optimal quintic collocation,-0.73,2800.752757753775,NaN
+1,4,lines,optimal quintic collocation,-0.72,2801.5267523419166,NaN
+1,4,lines,optimal quintic collocation,-0.71,2802.2964968133406,NaN
+1,4,lines,optimal quintic collocation,-0.7,2803.0620595206356,NaN
+1,4,lines,optimal quintic collocation,-0.69,2803.823507856849,NaN
+1,4,lines,optimal quintic collocation,-0.68,2804.5809082643204,NaN
+1,4,lines,optimal quintic collocation,-0.67,2805.334326243517,NaN
+1,4,lines,optimal quintic collocation,-0.66,2806.083826361868,NaN
+1,4,lines,optimal quintic collocation,-0.65,2806.8294722626038,NaN
+1,4,lines,optimal quintic collocation,-0.64,2807.5713266735866,NaN
+1,4,lines,optimal quintic collocation,-0.63,2808.3094514161467,NaN
+1,4,lines,optimal quintic collocation,-0.62,2809.04390741392,NaN
+1,4,lines,optimal quintic collocation,-0.61,2809.7747547016825,NaN
+1,4,lines,optimal quintic collocation,-0.6,2810.502052434182,NaN
+1,4,lines,optimal quintic collocation,-0.59,2811.2258588949794,NaN
+1,4,lines,optimal quintic collocation,-0.58,2811.9462315052797,NaN
+1,4,lines,optimal quintic collocation,-0.57,2812.663226832766,NaN
+1,4,lines,optimal quintic collocation,-0.56,2813.376900600442,NaN
+1,4,lines,optimal quintic collocation,-0.55,2814.087307695457,NaN
+1,4,lines,optimal quintic collocation,-0.54,2814.794502177951,NaN
+1,4,lines,optimal quintic collocation,-0.53,2815.4985372898827,NaN
+1,4,lines,optimal quintic collocation,-0.52,2816.1994654638693,NaN
+1,4,lines,optimal quintic collocation,-0.51,2816.897338332018,NaN
+1,4,lines,optimal quintic collocation,-0.5,2817.5922067347665,NaN
+1,4,lines,optimal quintic collocation,-0.49,2818.28412072971,NaN
+1,4,lines,optimal quintic collocation,-0.48,2818.973129600447,NaN
+1,4,lines,optimal quintic collocation,-0.47,2819.6592818654062,NaN
+1,4,lines,optimal quintic collocation,-0.46,2820.342625286685,NaN
+1,4,lines,optimal quintic collocation,-0.45,2821.0232068788837,NaN
+1,4,lines,optimal quintic collocation,-0.44,2821.7010729179424,NaN
+1,4,lines,optimal quintic collocation,-0.43,2822.3762689499763,NaN
+1,4,lines,optimal quintic collocation,-0.42,2823.0488398001053,NaN
+1,4,lines,optimal quintic collocation,-0.41,2823.718829581302,NaN
+1,4,lines,optimal quintic collocation,-0.4,2824.38628170321,NaN
+1,4,lines,optimal quintic collocation,-0.39,2825.0512388809952,NaN
+1,4,lines,optimal quintic collocation,-0.38,2825.71374314417,NaN
+1,4,lines,optimal quintic collocation,-0.37,2826.373835845432,NaN
+1,4,lines,optimal quintic collocation,-0.36,2827.0315576695025,NaN
+1,4,lines,optimal quintic collocation,-0.35,2827.6869486419573,NaN
+1,4,lines,optimal quintic collocation,-0.34,2828.3400481380645,NaN
+1,4,lines,optimal quintic collocation,-0.33,2828.9908948916172,NaN
+1,4,lines,optimal quintic collocation,-0.32,2829.6395270037724,NaN
+1,4,lines,optimal quintic collocation,-0.31,2830.2859819518826,NaN
+1,4,lines,optimal quintic collocation,-0.3,2830.9302965983347,NaN
+1,4,lines,optimal quintic collocation,-0.29,2831.5725071993816,NaN
+1,4,lines,optimal quintic collocation,-0.28,2832.2126494139798,NaN
+1,4,lines,optimal quintic collocation,-0.27,2832.850758312625,NaN
+1,4,lines,optimal quintic collocation,-0.26,2833.4868683861846,NaN
+1,4,lines,optimal quintic collocation,-0.25,2834.1210135547367,NaN
+1,4,lines,optimal quintic collocation,-0.24,2834.7532271764017,NaN
+1,4,lines,optimal quintic collocation,-0.23,2835.3835420561804,NaN
+1,4,lines,optimal quintic collocation,-0.22,2836.011990454787,NaN
+1,4,lines,optimal quintic collocation,-0.21,2836.6386040974885,NaN
+1,4,lines,optimal quintic collocation,-0.2,2837.2634141829317,NaN
+1,4,lines,optimal quintic collocation,-0.19,2837.8864513919893,NaN
+1,4,lines,optimal quintic collocation,-0.18,2838.5077458965866,NaN
+1,4,lines,optimal quintic collocation,-0.17,2839.127327368539,NaN
+1,4,lines,optimal quintic collocation,-0.16,2839.745224988392,NaN
+1,4,lines,optimal quintic collocation,-0.15,2840.3614674542478,NaN
+1,4,lines,optimal quintic collocation,-0.14,2840.976082990606,NaN
+1,4,lines,optimal quintic collocation,-0.13,2841.589099357202,NaN
+1,4,lines,optimal quintic collocation,-0.12,2842.2005438578344,NaN
+1,4,lines,optimal quintic collocation,-0.11,2842.8104433492053,NaN
+1,4,lines,optimal quintic collocation,-0.1,2843.4188242497557,NaN
+1,4,lines,optimal quintic collocation,-0.09,2844.025712548497,NaN
+1,4,lines,optimal quintic collocation,-0.08,2844.6311338138507,NaN
+1,4,lines,optimal quintic collocation,-0.07,2845.2351132024824,NaN
+1,4,lines,optimal quintic collocation,-0.06,2845.837675468135,NaN
+1,4,lines,optimal quintic collocation,-0.05,2846.438844970464,NaN
+1,4,lines,optimal quintic collocation,-0.04,2847.0386456838773,NaN
+1,4,lines,optimal quintic collocation,-0.03,2847.637101206366,NaN
+1,4,lines,optimal quintic collocation,-0.02,2848.23423476834,NaN
+1,4,lines,optimal quintic collocation,-0.01,2848.8300692414655,NaN
+1,4,lines,optimal quintic collocation,0.0,2849.4246271474985,NaN
+1,4,lines,optimal quintic collocation,0.01,2850.0179306671203,NaN
+1,4,lines,optimal quintic collocation,0.02,2850.6100016487735,NaN
+1,4,lines,optimal quintic collocation,0.03,2851.200861617496,NaN
+1,4,lines,optimal quintic collocation,0.04,2851.790531783757,NaN
+1,4,lines,optimal quintic collocation,0.05,2852.3790330522943,NaN
+1,4,lines,optimal quintic collocation,0.06,2852.966386030944,NaN
+1,4,lines,optimal quintic collocation,0.07,2853.552611039482,NaN
+1,4,lines,optimal quintic collocation,0.08,2854.1377281184573,NaN
+1,4,lines,optimal quintic collocation,0.09,2854.7217570380235,NaN
+1,4,lines,optimal quintic collocation,0.1,2855.304717306778,NaN
+1,4,lines,optimal quintic collocation,0.11,2855.8866281805977,NaN
+1,4,lines,optimal quintic collocation,0.12,2856.4675086714724,NaN
+1,4,lines,optimal quintic collocation,0.13,2857.0473775563396,NaN
+1,4,lines,optimal quintic collocation,0.14,2857.6262533859212,NaN
+1,4,lines,optimal quintic collocation,0.15,2858.204154493559,NaN
+1,4,lines,optimal quintic collocation,0.16,2858.781099004049,NaN
+1,4,lines,optimal quintic collocation,0.17,2859.3571048424756,NaN
+1,4,lines,optimal quintic collocation,0.18,2859.9321897430486,NaN
+1,4,lines,optimal quintic collocation,0.19,2860.506371257941,NaN
+1,4,lines,optimal quintic collocation,0.2,2861.0796667661157,NaN
+1,4,lines,optimal quintic collocation,0.21,2861.652093482171,NaN
+1,4,lines,optimal quintic collocation,0.22,2862.2236684651693,NaN
+1,4,lines,optimal quintic collocation,0.23,2862.7944086274742,NaN
+1,4,lines,optimal quintic collocation,0.24,2863.3643307435864,NaN
+1,4,lines,optimal quintic collocation,0.25,2863.9334514589787,NaN
+1,4,lines,optimal quintic collocation,0.26,2864.5017872989297,NaN
+1,4,lines,optimal quintic collocation,0.27,2865.0693546773596,NaN
+1,4,lines,optimal quintic collocation,0.28,2865.63616990567,NaN
+1,4,lines,optimal quintic collocation,0.29,2866.202249201571,NaN
+1,4,lines,optimal quintic collocation,0.3,2866.7676086979222,NaN
+1,4,lines,optimal quintic collocation,0.31,2867.3322644515683,NaN
+1,4,lines,optimal quintic collocation,0.32,2867.8962324521704,NaN
+1,4,lines,optimal quintic collocation,0.33,2868.459528631043,NaN
+1,4,lines,optimal quintic collocation,0.34,2869.0221688699944,NaN
+1,4,lines,optimal quintic collocation,0.35,2869.5841690101497,NaN
+1,4,lines,optimal quintic collocation,0.36,2870.1455448608,NaN
+1,4,lines,optimal quintic collocation,0.37,2870.7063122082272,NaN
+1,4,lines,optimal quintic collocation,0.38,2871.266486824547,NaN
+1,4,lines,optimal quintic collocation,0.39,2871.8260844765377,NaN
+1,4,lines,optimal quintic collocation,0.4,2872.385120934479,NaN
+1,4,lines,optimal quintic collocation,0.41,2872.943611980987,NaN
+1,4,lines,optimal quintic collocation,0.42,2873.5015734198487,NaN
+1,4,lines,optimal quintic collocation,0.43,2874.059021084857,NaN
+1,4,lines,optimal quintic collocation,0.44,2874.615970848647,NaN
+1,4,lines,optimal quintic collocation,0.45,2875.172438631532,NaN
+1,4,lines,optimal quintic collocation,0.46,2875.7284404103348,NaN
+1,4,lines,optimal quintic collocation,0.47,2876.283992227228,NaN
+1,4,lines,optimal quintic collocation,0.48,2876.839110198566,NaN
+1,4,lines,optimal quintic collocation,0.49,2877.3938105237207,NaN
+1,4,lines,optimal quintic collocation,0.5,2877.9481094939183,NaN
+1,4,lines,optimal quintic collocation,0.51,2878.5020235010743,NaN
+1,4,lines,optimal quintic collocation,0.52,2879.0555690466254,NaN
+1,4,lines,optimal quintic collocation,0.53,2879.6087627503684,NaN
+1,4,lines,optimal quintic collocation,0.54,2880.1616213592956,NaN
+1,4,lines,optimal quintic collocation,0.55,2880.714161756428,NaN
+1,4,lines,optimal quintic collocation,0.56,2881.2664009696505,NaN
+1,4,lines,optimal quintic collocation,0.57,2881.8183561805504,NaN
+1,4,lines,optimal quintic collocation,0.58,2882.3700447332485,NaN
+1,4,lines,optimal quintic collocation,0.59,2882.9214841432354,NaN
+1,4,lines,optimal quintic collocation,0.6,2883.4726921062106,NaN
+1,4,lines,optimal quintic collocation,0.61,2884.023686506911,NaN
+1,4,lines,optimal quintic collocation,0.62,2884.574485427954,NaN
+1,4,lines,optimal quintic collocation,0.63,2885.125107158665,NaN
+1,4,lines,optimal quintic collocation,0.64,2885.675570203918,NaN
+1,4,lines,optimal quintic collocation,0.65,2886.2258932929685,NaN
+1,4,lines,optimal quintic collocation,0.66,2886.77609538829,NaN
+1,4,lines,optimal quintic collocation,0.67,2887.3261956944093,NaN
+1,4,lines,optimal quintic collocation,0.68,2887.8762136667397,NaN
+1,4,lines,optimal quintic collocation,0.69,2888.426169020418,NaN
+1,4,lines,optimal quintic collocation,0.7,2888.9760817391407,NaN
+1,4,lines,optimal quintic collocation,0.71,2889.5259720839963,NaN
+1,4,lines,optimal quintic collocation,0.72,2890.0758606023032,NaN
+1,4,lines,optimal quintic collocation,0.73,2890.625768136444,NaN
+1,4,lines,optimal quintic collocation,0.74,2891.1757158327014,NaN
+1,4,lines,optimal quintic collocation,0.75,2891.725725150091,NaN
+1,4,lines,optimal quintic collocation,0.76,2892.2758178692,NaN
+1,4,lines,optimal quintic collocation,0.77,2892.8260161010217,NaN
+1,4,lines,optimal quintic collocation,0.78,2893.3763422957873,NaN
+1,4,lines,optimal quintic collocation,0.79,2893.926819251805,NaN
+1,4,lines,optimal quintic collocation,0.8,2894.477470124295,NaN
+1,4,lines,optimal quintic collocation,0.81,2895.0283184342234,NaN
+1,4,lines,optimal quintic collocation,0.82,2895.579388077137,NaN
+1,4,lines,optimal quintic collocation,0.83,2896.1307033319995,NaN
+1,4,lines,optimal quintic collocation,0.84,2896.6822888700276,NaN
+1,4,lines,optimal quintic collocation,0.85,2897.2341697635266,NaN
+1,4,lines,optimal quintic collocation,0.86,2897.7863714947202,NaN
+1,4,lines,optimal quintic collocation,0.87,2898.338919964593,NaN
+1,4,lines,optimal quintic collocation,0.88,2898.8918415017242,NaN
+1,4,lines,optimal quintic collocation,0.89,2899.4451628711176,NaN
+1,4,lines,optimal quintic collocation,0.9,2899.9989112830426,NaN
+1,4,lines,optimal quintic collocation,0.91,2900.5531144018687,NaN
+1,4,lines,optimal quintic collocation,0.92,2901.1078003548973,NaN
+1,4,lines,optimal quintic collocation,0.93,2901.6629977412,NaN
+1,4,lines,optimal quintic collocation,0.94,2902.2187356404547,NaN
+1,4,lines,optimal quintic collocation,0.95,2902.7750436217766,NaN
+1,4,lines,optimal quintic collocation,0.96,2903.3319517525574,NaN
+1,4,lines,optimal quintic collocation,0.97,2903.889490607301,NaN
+1,4,lines,optimal quintic collocation,0.98,2904.4476912764526,NaN
+1,4,lines,optimal quintic collocation,0.99,2905.006585375243,NaN
+1,4,lines,optimal quintic collocation,1.0,2905.5662050525175,NaN
+1,4,lines,optimal quintic collocation,1.01,2906.1265829995714,NaN
+1,4,lines,optimal quintic collocation,1.02,2906.6877524589895,NaN
+1,4,lines,optimal quintic collocation,1.03,2907.2497472334767,NaN
+1,4,lines,optimal quintic collocation,1.04,2907.812601694695,NaN
+1,4,lines,optimal quintic collocation,1.05,2908.376350792102,NaN
+1,4,lines,optimal quintic collocation,1.06,2908.9410300617783,NaN
+1,4,lines,optimal quintic collocation,1.07,2909.506675635271,NaN
+1,4,lines,optimal quintic collocation,1.08,2910.073324248426,NaN
+1,4,lines,optimal quintic collocation,1.09,2910.641013250219,NaN
+1,4,lines,optimal quintic collocation,1.1,2911.2097806115994,NaN
+1,4,lines,optimal quintic collocation,1.11,2911.7796649343168,NaN
+1,4,lines,optimal quintic collocation,1.12,2912.3507054597617,NaN
+1,4,lines,optimal quintic collocation,1.13,2912.9229420777992,NaN
+1,4,lines,optimal quintic collocation,1.14,2913.496415335605,NaN
+1,4,lines,optimal quintic collocation,1.15,2914.0711664464993,NaN
+1,4,lines,optimal quintic collocation,1.16,2914.6472372987814,NaN
+1,4,lines,optimal quintic collocation,1.17,2915.224670464569,NaN
+1,4,lines,optimal quintic collocation,1.18,2915.8035092086284,NaN
+1,4,lines,optimal quintic collocation,1.19,2916.383797497213,NaN
+1,4,lines,optimal quintic collocation,1.2,2916.9655800068977,NaN
+1,4,lines,optimal quintic collocation,1.21,2917.5489021334147,NaN
+1,4,lines,optimal quintic collocation,1.22,2918.1338100004864,NaN
+1,4,lines,optimal quintic collocation,1.23,2918.720350468664,NaN
+1,4,lines,optimal quintic collocation,1.24,2919.3085711441604,NaN
+1,4,lines,optimal quintic collocation,1.25,2919.8985203876864,NaN
+1,4,lines,optimal quintic collocation,1.26,2920.4902473232873,NaN
+1,4,lines,optimal quintic collocation,1.27,2921.083801847173,NaN
+1,4,lines,optimal quintic collocation,1.28,2921.679234636562,NaN
+1,4,lines,optimal quintic collocation,1.29,2922.2765971585063,NaN
+1,4,lines,optimal quintic collocation,1.3,2922.8759416787366,NaN
+1,4,lines,optimal quintic collocation,1.31,2923.477321270489,NaN
+1,4,lines,optimal quintic collocation,1.32,2924.080789823347,NaN
+1,4,lines,optimal quintic collocation,1.33,2924.686402052072,NaN
+1,4,lines,optimal quintic collocation,1.34,2925.2942135054427,NaN
+1,4,lines,optimal quintic collocation,1.35,2925.9042805750864,NaN
+1,4,lines,optimal quintic collocation,1.36,2926.5166605043155,NaN
+1,4,lines,optimal quintic collocation,1.37,2927.131411396965,NaN
+1,4,lines,optimal quintic collocation,1.38,2927.748592226225,NaN
+1,4,lines,optimal quintic collocation,1.39,2928.3682628434776,NaN
+1,4,lines,optimal quintic collocation,1.4,2928.99048398713,NaN
+1,4,lines,optimal quintic collocation,1.41,2929.6153172914537,NaN
+1,4,lines,optimal quintic collocation,1.42,2930.2428252954155,NaN
+1,4,lines,optimal quintic collocation,1.43,2930.8730714515164,NaN
+1,4,lines,optimal quintic collocation,1.44,2931.506120134622,NaN
+1,4,lines,optimal quintic collocation,1.45,2932.1420366508037,NaN
+1,4,lines,optimal quintic collocation,1.46,2932.780887246171,NaN
+1,4,lines,optimal quintic collocation,1.47,2933.4227391157046,NaN
+1,4,lines,optimal quintic collocation,1.48,2934.067660412097,NaN
+1,4,lines,optimal quintic collocation,1.49,2934.7157202545814,NaN
+1,4,lines,optimal quintic collocation,1.5,2935.3669887377728,NaN
+1,4,lines,optimal quintic collocation,1.51,2936.0215369404996,NaN
+1,4,lines,optimal quintic collocation,1.52,2936.6794369346403,NaN
+1,4,lines,optimal quintic collocation,1.53,2937.340761793958,NaN
+1,4,lines,optimal quintic collocation,1.54,2938.005585602937,NaN
+1,4,lines,optimal quintic collocation,1.55,2938.673983465616,NaN
+1,4,lines,optimal quintic collocation,1.56,2939.3460315144243,NaN
+1,4,lines,optimal quintic collocation,1.57,2940.0218069190205,NaN
+1,4,lines,optimal quintic collocation,1.58,2940.701387895119,NaN
+1,4,lines,optimal quintic collocation,1.59,2941.3848537133354,NaN
+1,4,lines,optimal quintic collocation,1.6,2942.072284708016,NaN
+1,4,lines,optimal quintic collocation,1.61,2942.763762286072,NaN
+1,4,lines,optimal quintic collocation,1.62,2943.4593689358207,NaN
+1,4,lines,optimal quintic collocation,1.63,2944.159188235815,NaN
+1,4,lines,optimal quintic collocation,1.64,2944.863304863678,NaN
+1,4,lines,optimal quintic collocation,1.65,2945.5718046049456,NaN
+1,4,lines,optimal quintic collocation,1.66,2946.2847743618954,NaN
+1,4,lines,optimal quintic collocation,1.67,2947.002302162383,NaN
+1,4,lines,optimal quintic collocation,1.68,2947.7244771686783,NaN
+1,4,lines,optimal quintic collocation,1.69,2948.4513896863004,NaN
+1,4,lines,optimal quintic collocation,1.7,2949.183131172854,NaN
+1,4,lines,optimal quintic collocation,1.71,2949.919794246859,NaN
+1,4,lines,optimal quintic collocation,1.72,2950.661472696598,NaN
+1,4,lines,optimal quintic collocation,1.73,2951.408261488936,NaN
+1,4,lines,optimal quintic collocation,1.74,2952.16025677817,NaN
+1,4,lines,optimal quintic collocation,1.75,2952.9175559148516,NaN
+1,4,lines,optimal quintic collocation,1.76,2953.680257454633,NaN
+1,4,lines,optimal quintic collocation,1.77,2954.4484611670964,NaN
+1,4,lines,optimal quintic collocation,1.78,2955.222268044589,NaN
+1,4,lines,optimal quintic collocation,1.79,2956.0017803110622,NaN
+1,4,lines,optimal quintic collocation,1.8,2956.787101430903,NaN
+1,4,lines,optimal quintic collocation,1.81,2957.57833611777,NaN
+1,4,lines,optimal quintic collocation,1.82,2958.3755903434317,NaN
+1,4,lines,optimal quintic collocation,1.83,2959.178971346598,NaN
+1,4,lines,optimal quintic collocation,1.84,2959.9885876417557,NaN
+1,4,lines,optimal quintic collocation,1.85,2960.8045490280065,NaN
+1,4,lines,optimal quintic collocation,1.86,2961.6269665979016,NaN
+1,4,lines,optimal quintic collocation,1.87,2962.455952746273,NaN
+1,4,lines,optimal quintic collocation,1.88,2963.291621179075,NaN
+1,4,lines,optimal quintic collocation,1.89,2964.1340869222145,NaN
+1,4,lines,optimal quintic collocation,1.9,2964.9834663303873,NaN
+1,4,lines,optimal quintic collocation,1.91,2965.8398770959175,NaN
+1,4,lines,optimal quintic collocation,1.92,2966.7034382575857,NaN
+1,4,lines,optimal quintic collocation,1.93,2967.5742702094685,NaN
+1,4,lines,optimal quintic collocation,1.94,2968.452494709776,NaN
+1,4,lines,optimal quintic collocation,1.95,2969.3382348896816,NaN
+1,4,lines,optimal quintic collocation,1.96,2970.2316152621593,NaN
+1,4,lines,optimal quintic collocation,1.97,2971.1327617308216,NaN
+1,4,lines,optimal quintic collocation,1.98,2972.041801598752,NaN
+1,4,lines,optimal quintic collocation,1.99,2972.958863577341,NaN
+1,4,lines,optimal quintic collocation,2.0,2973.884077795121,NaN
+1,4,lines,optimal quintic collocation,2.01,2974.817575806602,NaN
+1,4,lines,optimal quintic collocation,2.02,2975.759490601107,NaN
+1,4,lines,optimal quintic collocation,2.03,2976.7099566116067,NaN
+1,4,lines,optimal quintic collocation,2.04,2977.6691097235544,NaN
+1,4,lines,optimal quintic collocation,2.05,2978.637087283725,NaN
+1,4,lines,optimal quintic collocation,2.06,2979.6140281090434,NaN
+1,4,lines,optimal quintic collocation,2.07,2980.6000724954256,NaN
+1,4,lines,optimal quintic collocation,2.08,2981.5953622266106,NaN
+1,4,lines,optimal quintic collocation,2.09,2982.6000405829996,NaN
+1,4,lines,optimal quintic collocation,2.1,2983.6142523504855,NaN
+1,4,lines,optimal quintic collocation,2.11,2984.638143829292,NaN
+1,4,lines,optimal quintic collocation,2.12,2985.671862842811,NaN
+1,4,lines,optimal quintic collocation,2.13,2986.715558746431,NaN
+1,4,lines,optimal quintic collocation,2.14,2987.769382436378,NaN
+1,4,lines,optimal quintic collocation,2.15,2988.833486358551,NaN
+1,4,lines,optimal quintic collocation,2.16,2989.9080245173523,NaN
+1,4,lines,optimal quintic collocation,2.17,2990.993152484527,NaN
+1,4,lines,optimal quintic collocation,2.18,2992.0890274079998,NaN
+1,4,lines,optimal quintic collocation,2.19,2993.1958080207028,NaN
+1,4,lines,optimal quintic collocation,2.2,2994.3136546494184,NaN
+1,4,lines,optimal quintic collocation,2.21,2995.44272922361,NaN
+1,4,lines,optimal quintic collocation,2.22,2996.583195284263,NaN
+1,4,lines,optimal quintic collocation,2.23,2997.7352179927116,NaN
+1,4,lines,optimal quintic collocation,2.24,2998.898964139479,NaN
+1,4,lines,optimal quintic collocation,2.25,3000.074602153115,NaN
+1,4,lines,optimal quintic collocation,2.26,3001.2623021090253,NaN
+1,4,lines,optimal quintic collocation,2.27,3002.462235738312,NaN
+1,4,lines,optimal quintic collocation,2.28,3003.6745764366037,NaN
+1,4,lines,optimal quintic collocation,2.29,3004.899499272899,NaN
+1,4,lines,optimal quintic collocation,2.3,3006.137180998391,NaN
+1,4,lines,optimal quintic collocation,2.31,3007.387800055312,NaN
+1,4,lines,optimal quintic collocation,2.32,3008.6515365857626,NaN
+1,4,lines,optimal quintic collocation,2.33,3009.9285724405486,NaN
+1,4,lines,optimal quintic collocation,2.34,3011.2190911880202,NaN
+1,4,lines,optimal quintic collocation,2.35,3012.5232781229024,NaN
+1,4,lines,optimal quintic collocation,2.36,3013.8413202751294,NaN
+1,4,lines,optimal quintic collocation,2.37,3015.173406418685,NaN
+1,4,lines,optimal quintic collocation,2.38,3016.5197270804347,NaN
+1,4,lines,optimal quintic collocation,2.39,3017.88047454896,NaN
+1,4,lines,optimal quintic collocation,2.4,3019.2558428833972,NaN
+1,4,lines,optimal quintic collocation,2.41,3020.6460279222683,NaN
+1,4,lines,optimal quintic collocation,2.42,3022.0512272923197,NaN
+1,4,lines,optimal quintic collocation,2.43,3023.471640417356,NaN
+1,4,lines,optimal quintic collocation,2.44,3024.907468527076,NaN
+1,4,lines,optimal quintic collocation,2.45,3026.358914665905,NaN
+1,4,lines,optimal quintic collocation,2.46,3027.826183701837,NaN
+1,4,lines,optimal quintic collocation,2.47,3029.309482335261,NaN
+1,4,lines,optimal quintic collocation,2.48,3030.809019107802,NaN
+1,4,lines,optimal quintic collocation,2.49,3032.325004411158,NaN
+1,4,lines,optimal quintic collocation,2.5,3033.857650495926,NaN
+1,4,lines,optimal quintic collocation,2.51,3035.4071714804495,NaN
+1,4,lines,optimal quintic collocation,2.52,3036.973783359646,NaN
+1,4,lines,optimal quintic collocation,2.53,3038.5577040138414,NaN
+1,4,lines,optimal quintic collocation,2.54,3040.1591532176108,NaN
+1,4,lines,optimal quintic collocation,2.55,3041.7783526486105,NaN
+1,4,lines,optimal quintic collocation,2.56,3043.415525896412,NaN
+1,4,lines,optimal quintic collocation,2.57,3045.070898471341,NaN
+1,4,lines,optimal quintic collocation,2.58,3046.744697813308,NaN
+1,4,lines,optimal quintic collocation,2.59,3048.437153300648,NaN
+1,4,lines,optimal quintic collocation,2.6,3050.148496258953,NaN
+1,4,lines,optimal quintic collocation,2.61,3051.878959969909,NaN
+1,4,lines,optimal quintic collocation,2.62,3053.6287796801294,NaN
+1,4,lines,optimal quintic collocation,2.63,3055.3981926099905,NaN
+1,4,lines,optimal quintic collocation,2.64,3057.18743796247,NaN
+1,4,lines,optimal quintic collocation,2.65,3058.996756931976,NaN
+1,4,lines,optimal quintic collocation,2.66,3060.826392713191,NaN
+1,4,lines,optimal quintic collocation,2.67,3062.676590509897,NaN
+1,4,lines,optimal quintic collocation,2.68,3064.5475975438185,NaN
+1,4,lines,optimal quintic collocation,2.69,3066.439663063456,NaN
+1,4,lines,optimal quintic collocation,2.7,3068.353038352918,NaN
+1,4,lines,optimal quintic collocation,2.71,3070.287976740761,NaN
+1,4,lines,optimal quintic collocation,2.72,3072.244733608821,NaN
+1,4,lines,optimal quintic collocation,2.73,3074.22356640105,NaN
+1,4,lines,optimal quintic collocation,2.74,3076.224734632352,NaN
+1,4,lines,optimal quintic collocation,2.75,3078.2484998974196,NaN
+1,4,lines,optimal quintic collocation,2.76,3080.2951258795633,NaN
+1,4,lines,optimal quintic collocation,2.77,3082.364878359554,NaN
+1,4,lines,optimal quintic collocation,2.78,3084.4580252244546,NaN
+1,4,lines,optimal quintic collocation,2.79,3086.574836476456,NaN
+1,4,lines,optimal quintic collocation,2.8,3088.7155842417087,NaN
+1,4,lines,optimal quintic collocation,2.81,3090.880542779167,NaN
+1,4,lines,optimal quintic collocation,2.82,3093.0699884894157,NaN
+1,4,lines,optimal quintic collocation,2.83,3095.2841999235075,NaN
+1,4,lines,optimal quintic collocation,2.84,3097.523457791802,NaN
+1,4,lines,optimal quintic collocation,2.85,3099.788044972794,NaN
+1,4,lines,optimal quintic collocation,2.86,3102.0782465219577,NaN
+1,4,lines,optimal quintic collocation,2.87,3104.3943496805737,NaN
+1,4,lines,optimal quintic collocation,2.88,3106.7366438845693,NaN
+1,4,lines,optimal quintic collocation,2.89,3109.105420773352,NaN
+1,4,lines,optimal quintic collocation,2.9,3111.5009741986432,NaN
+1,4,lines,optimal quintic collocation,2.91,3113.923600233318,NaN
+1,4,lines,optimal quintic collocation,2.92,3116.3735971802357,NaN
+1,4,lines,optimal quintic collocation,2.93,3118.8512655810778,NaN
+1,4,lines,optimal quintic collocation,2.94,3121.356908225181,NaN
+1,4,lines,optimal quintic collocation,2.95,3123.890830158377,NaN
+1,4,lines,optimal quintic collocation,2.96,3126.453338691821,NaN
+1,4,lines,optimal quintic collocation,2.97,3129.0447434108337,NaN
+1,4,lines,optimal quintic collocation,2.98,3131.6653561837315,NaN
+1,4,lines,optimal quintic collocation,2.99,3134.3154911706647,NaN
+1,4,lines,optimal quintic collocation,3.0,3136.9954648324515,NaN
+1,4,lines,optimal quintic collocation,3.01,3139.705595939414,NaN
+1,4,lines,optimal quintic collocation,3.02,3142.4462055802123,NaN
+1,4,lines,optimal quintic collocation,3.03,3145.2176171706806,NaN
+1,4,lines,optimal quintic collocation,3.04,3148.020156462663,NaN
+1,4,lines,optimal quintic collocation,3.05,3150.8541515528486,NaN
+1,4,lines,optimal quintic collocation,3.06,3153.719932891604,NaN
+1,4,lines,optimal quintic collocation,3.07,3156.6178332918134,NaN
+1,4,lines,optimal quintic collocation,3.08,3159.5481879377094,NaN
+1,4,lines,optimal quintic collocation,3.09,3162.511334393712,NaN
+1,4,lines,optimal quintic collocation,3.1,3165.50761261326,NaN
+1,4,lines,optimal quintic collocation,3.11,3168.5373649476487,NaN
+1,4,lines,optimal quintic collocation,3.12,3171.6009361548668,NaN
+1,4,lines,optimal quintic collocation,3.13,3174.698673408427,NaN
+1,4,lines,optimal quintic collocation,3.14,3177.8309263062056,NaN
+1,4,lines,optimal quintic collocation,3.15,3180.9980468792746,NaN
+1,4,lines,optimal quintic collocation,3.16,3184.20038960074,NaN
+1,4,lines,optimal quintic collocation,3.17,3187.4383113945732,NaN
+1,4,lines,optimal quintic collocation,3.18,3190.7121716444517,NaN
+1,4,lines,optimal quintic collocation,3.19,3194.0223322025877,NaN
+1,4,lines,optimal quintic collocation,3.2,3197.3691573985693,NaN
+1,4,lines,optimal quintic collocation,3.21,3200.7530140481917,NaN
+1,4,lines,optimal quintic collocation,3.22,3204.174271462296,NaN
+1,4,lines,optimal quintic collocation,3.23,3207.6333014555994,NaN
+1,4,lines,optimal quintic collocation,3.24,3211.130478355537,NaN
+1,4,lines,optimal quintic collocation,3.25,3214.66617901109,NaN
+1,4,lines,optimal quintic collocation,3.26,3218.2407828016285,NaN
+1,4,lines,optimal quintic collocation,3.27,3221.8546716457413,NaN
+1,4,lines,optimal quintic collocation,3.28,3225.50823001007,NaN
+1,4,lines,optimal quintic collocation,3.29,3229.201844918151,NaN
+1,4,lines,optimal quintic collocation,3.3,3232.935905959244,NaN
+1,4,lines,optimal quintic collocation,3.31,3236.710805297171,NaN
+1,4,lines,optimal quintic collocation,3.32,3240.5269376791516,NaN
+1,4,lines,optimal quintic collocation,3.33,3244.3847004446343,NaN
+1,4,lines,optimal quintic collocation,3.34,3248.284493534138,NaN
+1,4,lines,optimal quintic collocation,3.35,3252.226719498082,NaN
+1,4,lines,optimal quintic collocation,3.36,3256.211783505622,NaN
+1,4,lines,optimal quintic collocation,3.37,3260.2400933534896,NaN
+1,4,lines,optimal quintic collocation,3.38,3264.3120594748225,NaN
+1,4,lines,optimal quintic collocation,3.39,3268.4280949480017,NaN
+1,4,lines,optimal quintic collocation,3.4,3272.5886155054873,NaN
+1,4,lines,optimal quintic collocation,3.41,3276.794039542655,NaN
+1,4,lines,optimal quintic collocation,3.42,3281.044788126625,NaN
+1,4,lines,optimal quintic collocation,3.43,3285.3412850051063,NaN
+1,4,lines,optimal quintic collocation,3.44,3289.6839566152266,NaN
+1,4,lines,optimal quintic collocation,3.45,3294.073232092367,NaN
+1,4,lines,optimal quintic collocation,3.46,3298.5095432789994,NaN
+1,4,lines,optimal quintic collocation,3.47,3302.9933247335225,NaN
+1,4,lines,optimal quintic collocation,3.48,3307.525013739094,NaN
+1,4,lines,optimal quintic collocation,3.49,3312.1050503124675,NaN
+1,4,lines,optimal quintic collocation,3.5,3316.7338772128296,NaN
+1,4,lines,optimal quintic collocation,3.51,3321.411939950632,NaN
+1,4,lines,optimal quintic collocation,3.52,3326.139686796427,NaN
+1,4,lines,optimal quintic collocation,3.53,3330.917568789708,NaN
+1,4,lines,optimal quintic collocation,3.54,3335.7460397477353,NaN
+1,4,lines,optimal quintic collocation,3.55,3340.6255562743804,NaN
+1,4,lines,optimal quintic collocation,3.56,3345.5565777689576,NaN
+1,4,lines,optimal quintic collocation,3.57,3350.5395664350553,NaN
+1,4,lines,optimal quintic collocation,3.58,3355.5749872893803,NaN
+1,4,lines,optimal quintic collocation,3.59,3360.6633081705854,NaN
+1,4,lines,optimal quintic collocation,3.6,3365.8049997481057,NaN
+1,4,lines,optimal quintic collocation,3.61,3371.0005355309995,NaN
+1,4,lines,optimal quintic collocation,3.62,3376.250391876775,NaN
+1,4,lines,optimal quintic collocation,3.63,3381.555048000234,NaN
+1,4,lines,optimal quintic collocation,3.64,3386.9149859823005,NaN
+1,4,lines,optimal quintic collocation,3.65,3392.3306907788574,NaN
+1,4,lines,optimal quintic collocation,3.66,3397.8026502295875,NaN
+1,4,lines,optimal quintic collocation,3.67,3403.3313550668,NaN
+1,4,lines,optimal quintic collocation,3.68,3408.9172989242716,NaN
+1,4,lines,optimal quintic collocation,3.69,3414.5609783460814,NaN
+1,4,lines,optimal quintic collocation,3.7,3420.262892795443,NaN
+1,4,lines,optimal quintic collocation,3.71,3426.0235446635406,NaN
+1,4,lines,optimal quintic collocation,3.72,3431.8434392783693,NaN
+1,4,lines,optimal quintic collocation,3.73,3437.723084913563,NaN
+1,4,lines,optimal quintic collocation,3.74,3443.6629927972353,NaN
+1,4,lines,optimal quintic collocation,3.75,3449.663677120809,NaN
+1,4,lines,optimal quintic collocation,3.76,3455.7256550478596,NaN
+1,4,lines,optimal quintic collocation,3.77,3461.849446722942,NaN
+1,4,lines,optimal quintic collocation,3.78,3468.035575280431,NaN
+1,4,lines,optimal quintic collocation,3.79,3474.2845668533564,NaN
+1,4,lines,optimal quintic collocation,3.8,3480.596950582235,NaN
+1,4,lines,optimal quintic collocation,3.81,3486.973258623909,NaN
+1,4,lines,optimal quintic collocation,3.82,3493.414026160378,NaN
+1,4,lines,optimal quintic collocation,3.83,3499.9197914076403,NaN
+1,4,lines,optimal quintic collocation,3.84,3506.491095624521,NaN
+1,4,lines,optimal quintic collocation,3.85,3513.1284831215125,NaN
+1,4,lines,optimal quintic collocation,3.86,3519.8325012696055,NaN
+1,4,lines,optimal quintic collocation,3.87,3526.6037005091293,NaN
+1,4,lines,optimal quintic collocation,3.88,3533.442634358581,NaN
+1,4,lines,optimal quintic collocation,3.89,3540.3498594234684,NaN
+1,4,lines,optimal quintic collocation,3.9,3547.3259354051356,NaN
+1,4,lines,optimal quintic collocation,3.91,3554.3714251096085,NaN
+1,4,lines,optimal quintic collocation,3.92,3561.486894456422,NaN
+1,4,lines,optimal quintic collocation,3.93,3568.67291248746,NaN
+1,4,lines,optimal quintic collocation,3.94,3575.930051375787,NaN
+1,4,lines,optimal quintic collocation,3.95,3583.2588864344884,NaN
+1,4,lines,optimal quintic collocation,3.96,3590.6599961255015,NaN
+1,4,lines,optimal quintic collocation,3.97,3598.1339620684494,NaN
+1,4,lines,optimal quintic collocation,3.98,3605.681369049483,NaN
+1,4,lines,optimal quintic collocation,3.99,3613.3028050301095,NaN
+1,4,lines,optimal quintic collocation,4.0,3620.998861156031,NaN
+1,4,lines,optimal quintic collocation,4.01,3628.7701317659803,NaN
+1,4,lines,optimal quintic collocation,4.02,3636.617214400553,NaN
+1,4,lines,optimal quintic collocation,4.03,3644.540709811046,NaN
+1,4,lines,optimal quintic collocation,4.04,3652.5412219682894,NaN
+1,4,lines,optimal quintic collocation,4.05,3660.619358071487,NaN
+1,4,lines,optimal quintic collocation,4.06,3668.775728557046,NaN
+1,4,lines,optimal quintic collocation,4.07,3677.010947107416,NaN
+1,4,lines,optimal quintic collocation,4.08,3685.3256306599205,NaN
+1,4,lines,optimal quintic collocation,4.09,3693.7203994155966,NaN
+1,4,lines,optimal quintic collocation,4.1,3702.195876848029,NaN
+1,4,lines,optimal quintic collocation,4.11,3710.752689712183,NaN
+1,4,lines,optimal quintic collocation,4.12,3719.3914680532407,NaN
+1,4,lines,optimal quintic collocation,4.13,3728.1128452154376,NaN
+1,4,lines,optimal quintic collocation,4.14,3736.917457850898,NaN
+1,4,lines,optimal quintic collocation,4.15,3745.8059459284677,NaN
+1,4,lines,optimal quintic collocation,4.16,3754.778952742551,NaN
+1,4,lines,optimal quintic collocation,4.17,3763.8371249219463,NaN
+1,4,lines,optimal quintic collocation,4.18,3772.981112438681,NaN
+1,4,lines,optimal quintic collocation,4.19,3782.211568616849,NaN
+1,4,lines,optimal quintic collocation,4.2,3791.5291501414363,NaN
+1,4,lines,optimal quintic collocation,4.21,3800.934517067172,NaN
+1,4,lines,optimal quintic collocation,4.22,3810.428332827349,NaN
+1,4,lines,optimal quintic collocation,4.23,3820.01126424267,NaN
+1,4,lines,optimal quintic collocation,4.24,3829.683981530075,NaN
+1,4,lines,optimal quintic collocation,4.25,3839.4471583115806,NaN
+1,4,lines,optimal quintic collocation,4.26,3849.3014716231146,NaN
+1,4,lines,optimal quintic collocation,4.27,3859.247601923351,NaN
+1,4,lines,optimal quintic collocation,4.28,3869.2862331025444,NaN
+1,4,lines,optimal quintic collocation,4.29,3879.4180524913672,NaN
+1,4,lines,optimal quintic collocation,4.3,3889.6437508697436,NaN
+1,4,lines,optimal quintic collocation,4.31,3899.964022475685,NaN
+1,4,lines,optimal quintic collocation,4.32,3910.3795650141255,NaN
+1,4,lines,optimal quintic collocation,4.33,3920.8910796657556,NaN
+1,4,lines,optimal quintic collocation,4.34,3931.4992710958604,NaN
+1,4,lines,optimal quintic collocation,4.35,3942.204847463153,NaN
+1,4,lines,optimal quintic collocation,4.36,3953.0085204286115,NaN
+1,4,lines,optimal quintic collocation,4.37,3963.9110051643074,NaN
+1,4,lines,optimal quintic collocation,4.38,3974.9130203622526,NaN
+1,4,lines,optimal quintic collocation,4.39,3986.0152882432258,NaN
+1,4,lines,optimal quintic collocation,4.4,3997.2185345656103,NaN
+1,4,lines,optimal quintic collocation,4.41,4008.523488634227,NaN
+1,4,lines,optimal quintic collocation,4.42,4019.9308833091777,NaN
+1,4,lines,optimal quintic collocation,4.43,4031.441455014667,NaN
+1,4,lines,optimal quintic collocation,4.44,4043.055943747854,NaN
+1,4,lines,optimal quintic collocation,4.45,4054.77509308767,NaN
+1,4,lines,optimal quintic collocation,4.46,4066.599650203668,NaN
+1,4,lines,optimal quintic collocation,4.47,4078.5303658648486,NaN
+1,4,lines,optimal quintic collocation,4.48,4090.5679944485055,NaN
+1,4,lines,optimal quintic collocation,4.49,4102.713293949046,NaN
+1,4,lines,optimal quintic collocation,4.5,4114.967025986838,NaN
+1,4,lines,optimal quintic collocation,4.51,4127.329955817047,NaN
+1,4,lines,optimal quintic collocation,4.52,4139.802852338457,NaN
+1,4,lines,optimal quintic collocation,4.53,4152.386488102325,NaN
+1,4,lines,optimal quintic collocation,4.54,4165.081639321195,NaN
+1,4,lines,optimal quintic collocation,4.55,4177.889085877752,NaN
+1,4,lines,optimal quintic collocation,4.56,4190.8096113336505,NaN
+1,4,lines,optimal quintic collocation,4.57,4203.8440029383455,NaN
+1,4,lines,optimal quintic collocation,4.58,4216.993051637932,NaN
+1,4,lines,optimal quintic collocation,4.59,4230.25755208398,NaN
+1,4,lines,optimal quintic collocation,4.6,4243.638302642368,NaN
+1,4,lines,optimal quintic collocation,4.61,4257.136105402124,NaN
+1,4,lines,optimal quintic collocation,4.62,4270.7517661842485,NaN
+1,4,lines,optimal quintic collocation,4.63,4284.486094550566,NaN
+1,4,lines,optimal quintic collocation,4.64,4298.339903812546,NaN
+1,4,lines,optimal quintic collocation,4.65,4312.314011040148,NaN
+1,4,lines,optimal quintic collocation,4.66,4326.409237070649,NaN
+1,4,lines,optimal quintic collocation,4.67,4340.6264065174855,NaN
+1,4,lines,optimal quintic collocation,4.68,4354.966347779083,NaN
+1,4,lines,optimal quintic collocation,4.69,4369.429893047699,NaN
+1,4,lines,optimal quintic collocation,4.7,4384.017878318248,NaN
+1,4,lines,optimal quintic collocation,4.71,4398.731143397146,NaN
+1,4,lines,optimal quintic collocation,4.72,4413.5705319111385,NaN
+1,4,lines,optimal quintic collocation,4.73,4428.536891316146,NaN
+1,4,lines,optimal quintic collocation,4.74,4443.631072906081,NaN
+1,4,lines,optimal quintic collocation,4.75,4458.8539318217045,NaN
+1,4,lines,optimal quintic collocation,4.76,4474.206327059449,NaN
+1,4,lines,optimal quintic collocation,4.77,4489.6891214802545,NaN
+1,4,lines,optimal quintic collocation,4.78,4505.303181818406,NaN
+1,4,lines,optimal quintic collocation,4.79,4521.049378690369,NaN
+1,4,lines,optimal quintic collocation,4.8,4536.9285866036225,NaN
+1,4,lines,optimal quintic collocation,4.81,4552.941683965498,NaN
+1,4,lines,optimal quintic collocation,4.82,4569.089553092013,NaN
+1,4,lines,optimal quintic collocation,4.83,4585.3730802167,NaN
+1,4,lines,optimal quintic collocation,4.84,4601.793155499455,NaN
+1,4,lines,optimal quintic collocation,4.85,4618.35067303536,NaN
+1,4,lines,optimal quintic collocation,4.86,4635.046530863528,NaN
+1,4,lines,optimal quintic collocation,4.87,4651.881630975927,NaN
+1,4,lines,optimal quintic collocation,4.88,4668.856879326229,NaN
+1,4,lines,optimal quintic collocation,4.89,4685.973185838636,NaN
+1,4,lines,optimal quintic collocation,4.9,4703.231464416716,NaN
+1,4,lines,optimal quintic collocation,4.91,4720.632632952243,NaN
+1,4,lines,optimal quintic collocation,4.92,4738.1776133340245,NaN
+1,4,lines,optimal quintic collocation,4.93,4755.867331456746,NaN
+1,4,lines,optimal quintic collocation,4.94,4773.7027172298,NaN
+1,4,lines,optimal quintic collocation,4.95,4791.68470458612,NaN
+1,4,lines,optimal quintic collocation,4.96,4809.814231491022,NaN
+1,4,lines,optimal quintic collocation,4.97,4828.092239951038,NaN
+1,4,lines,optimal quintic collocation,4.98,4846.519676022746,NaN
+1,4,lines,optimal quintic collocation,4.99,4865.09748982161,NaN
+1,4,lines,optimal quintic collocation,5.0,4883.826635530813,NaN

@@ -4,6 +4,8 @@ The Julia package provides two related approximations:
 
 * EtoreGobetPLNPricer, from [Etore and Gobet](https://hal.archives-ouvertes.fr/hal-00507787),
 * LeFlochLehmanPLNPricer, the improvement from [Le Floc'h](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2698283).
+* ZhangPLNPricer(1) and ZhangPLNPricer(2), the first and second order approximations of Zhang (2011), "Fast Valuation for European options with cash dividends".
+* LaborderePLNPricer, the displaced lognormal approximation of Henry-Labordère (2009), which also supports proportional dividends.
 
 
 As input, a vector of CapitalizedDividend objects is used. Each CapitalizedDividend contains the dividend details as well as the capitalization factor from dividend ex-date to option maturity date. Below is an example that displays the accuracy for a single cash dividend accross three strikes.

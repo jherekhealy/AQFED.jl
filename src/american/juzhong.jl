@@ -87,3 +87,16 @@ function americanJuZhong(isCall::Bool, S, K, T, r, q, σ; atol=1e-10)
     X = b * lnS^2 + c * lnS
     return europeanBS(isCall, S, K, T, r, q, σ) + hA * (S / sStar)^λ / (1 - X)
 end
+
+export JuZhongPricer
+#Ju-Zhong approximation with the generic pricer interface priceAmerican(pricer, market, isCall, strike, τ, σ).
+#Discrete dividends are not supported: the market may not have any ex-date before the maturity.
+struct JuZhongPricer end
+
+function priceAmerican(::JuZhongPricer, market::DiscreteDividendMarket{T}, isCall::Bool, strike::T, τ::T, σ::T) where {T}
+    if any(d -> d.exDate <= τ, market.dividends)
+        throw(DomainError(τ, "Ju-Zhong does not support discrete dividends before the maturity"))
+    end
+    return americanJuZhong(isCall, market.spot, strike, τ, market.r, market.r - market.μ, σ)
+end
+Base.similar(p::JuZhongPricer) = p

@@ -1,0 +1,733 @@
+panel,plot,kind,label,x,y,z
+1,1,scatter,Payoff on path,32.9493184023,7.6478898566,NaN
+1,1,scatter,Payoff on path,35.7727167007,3.26612851,NaN
+1,1,scatter,Payoff on path,26.0025066421,14.3702990326,NaN
+1,1,scatter,Payoff on path,28.6944264811,10.3218888006,NaN
+1,1,scatter,Payoff on path,38.209271824,6.1283718649,NaN
+1,1,scatter,Payoff on path,30.7903355235,6.1084669401,NaN
+1,1,scatter,Payoff on path,19.8812222836,18.9998627697,NaN
+1,1,scatter,Payoff on path,16.6123883982,21.5752044542,NaN
+1,1,scatter,Payoff on path,32.0221264711,9.266372503,NaN
+1,1,scatter,Payoff on path,37.1268639668,1.1234539157,NaN
+1,1,scatter,Payoff on path,30.0081147045,9.9861922222,NaN
+1,1,scatter,Payoff on path,27.3775699206,8.6531501346,NaN
+1,1,scatter,Payoff on path,39.2840370359,2.1967175789,NaN
+1,1,scatter,Payoff on path,34.6681874443,5.3268356635,NaN
+1,1,scatter,Payoff on path,34.1048890547,5.52315929,NaN
+1,1,scatter,Payoff on path,22.0279950925,18.4520429792,NaN
+1,1,scatter,Payoff on path,22.408905278,16.3951571752,NaN
+1,1,scatter,Payoff on path,33.7465729096,8.0383528566,NaN
+1,1,scatter,Payoff on path,35.4398310634,0.7681101939,NaN
+1,1,scatter,Payoff on path,26.3201365558,13.2967096235,NaN
+1,1,scatter,Payoff on path,29.0572519538,9.1325372703,NaN
+1,1,scatter,Payoff on path,37.9252992882,2.9126615821,NaN
+1,1,scatter,Payoff on path,31.6608618752,6.7728437447,NaN
+1,1,scatter,Payoff on path,17.5573103953,22.0541261459,NaN
+1,1,scatter,Payoff on path,20.7198531321,16.8078308193,NaN
+1,1,scatter,Payoff on path,30.5447494137,9.0641561292,NaN
+1,1,scatter,Payoff on path,39.154393269,0.2445242636,NaN
+1,1,scatter,Payoff on path,27.8724960458,13.633840665,NaN
+1,1,scatter,Payoff on path,25.0524887108,13.5336945147,NaN
+1,1,scatter,Payoff on path,36.675335101,4.5284068544,NaN
+1,1,scatter,Payoff on path,32.7095207146,5.250370877,NaN
+1,1,scatter,Payoff on path,24.2942677136,15.5787335048,NaN
+1,1,scatter,Payoff on path,24.8382715806,13.8626817767,NaN
+1,1,scatter,Payoff on path,32.5910105778,8.3818433704,NaN
+1,1,scatter,Payoff on path,36.5532595894,1.1951472851,NaN
+1,1,scatter,Payoff on path,25.5677013959,14.2941975432,NaN
+1,1,scatter,Payoff on path,28.0140725725,9.1519142587,NaN
+1,1,scatter,Payoff on path,38.7157014177,1.2621743514,NaN
+1,1,scatter,Payoff on path,30.1225733112,9.0021330196,NaN
+1,1,scatter,Payoff on path,20.9818848526,19.9426553287,NaN
+1,1,scatter,Payoff on path,17.9875852335,19.9050040918,NaN
+1,1,scatter,Payoff on path,31.2553895859,8.8754730196,NaN
+1,1,scatter,Payoff on path,37.5078412131,1.2692805551,NaN
+1,1,scatter,Payoff on path,29.1831750673,11.9080278307,NaN
+1,1,scatter,Payoff on path,26.8061698245,12.3245967718,NaN
+1,1,scatter,Payoff on path,35.3111401651,7.0212934784,NaN
+1,1,scatter,Payoff on path,33.6192849407,0.9676635277,NaN
+1,1,scatter,Payoff on path,23.0697319182,16.2128794429,NaN
+1,1,scatter,Payoff on path,21.8168037535,15.1001980848,NaN
+1,1,scatter,Payoff on path,34.505548964,5.6297084378,NaN
+1,1,scatter,Payoff on path,35.0698281555,4.4545590455,NaN
+1,1,scatter,Payoff on path,39.7290884678,0.0,NaN
+1,1,scatter,Payoff on path,27.2420445191,13.6860159371,NaN
+1,1,scatter,Payoff on path,29.580459353,8.8701830692,NaN
+1,1,scatter,Payoff on path,37.2591470914,4.3724835271,NaN
+1,1,scatter,Payoff on path,32.1498856958,6.2205383596,NaN
+1,1,scatter,Payoff on path,13.5705219699,25.2062104422,NaN
+1,1,scatter,Payoff on path,18.8350073851,19.6323162506,NaN
+1,1,scatter,Payoff on path,30.9115402525,11.315479028,NaN
+1,1,scatter,Payoff on path,38.3348759584,0.0,NaN
+1,1,scatter,Payoff on path,28.2587905935,11.2586026611,NaN
+1,1,scatter,Payoff on path,25.8456148034,11.998043103,NaN
+1,1,scatter,Payoff on path,36.1875475319,4.8661253292,NaN
+1,1,scatter,Payoff on path,33.3585891922,5.4454143138,NaN
+1,1,scatter,Payoff on path,23.570477238,16.4094412751,NaN
+1,1,scatter,Payoff on path,23.3700277981,15.4642989611,NaN
+1,1,scatter,Payoff on path,33.2065782192,9.9300275919,NaN
+1,1,scatter,Payoff on path,36.033681474,1.0254068504,NaN
+1,1,scatter,Payoff on path,25.6778289371,13.5343360903,NaN
+1,1,scatter,Payoff on path,28.4200753566,9.2781211856,NaN
+1,1,scatter,Payoff on path,38.472220525,2.4658796395,NaN
+1,1,scatter,Payoff on path,31.0439188731,7.8561181994,NaN
+1,1,scatter,Payoff on path,19.2433999322,20.3345475496,NaN
+1,1,scatter,Payoff on path,14.938857089,21.6172869649,NaN
+1,1,scatter,Payoff on path,32.3026706548,7.6458474072,NaN
+1,1,scatter,Payoff on path,37.4159834265,2.3558510506,NaN
+1,1,scatter,Payoff on path,29.7215086565,12.0162786962,NaN
+1,1,scatter,Payoff on path,27.0722745068,11.3508070149,NaN
+1,1,scatter,Payoff on path,39.5826625865,0.5863960067,NaN
+1,1,scatter,Payoff on path,34.9395808321,6.7362048572,NaN
+1,1,scatter,Payoff on path,34.3754623378,3.6964916999,NaN
+1,1,scatter,Payoff on path,21.5471239786,17.811041672,NaN
+1,1,scatter,Payoff on path,22.8583343171,15.2669212397,NaN
+1,1,scatter,Payoff on path,33.4675754279,6.8780859171,NaN
+1,1,scatter,Payoff on path,35.158479766,3.4201095394,NaN
+1,1,scatter,Payoff on path,39.9805855946,0.0,NaN
+1,1,scatter,Payoff on path,26.6480878611,13.8410834502,NaN
+1,1,scatter,Payoff on path,29.3398151017,9.9024700116,NaN
+1,1,scatter,Payoff on path,37.6425370469,4.5748812192,NaN
+1,1,scatter,Payoff on path,31.3873623061,5.4100103161,NaN
+1,1,scatter,Payoff on path,18.4674897149,20.5550248899,NaN
+1,1,scatter,Payoff on path,21.2467489364,17.1302819276,NaN
+1,1,scatter,Payoff on path,30.2797056212,10.3306539841,NaN
+1,1,scatter,Payoff on path,38.8777654714,0.0,NaN
+1,1,scatter,Payoff on path,28.1623199892,12.0848755627,NaN
+1,1,scatter,Payoff on path,25.3798953709,12.0293223736,NaN
+1,1,scatter,Payoff on path,36.4210784741,3.6814722547,NaN
+1,1,scatter,Payoff on path,32.4605607723,6.5960561633,NaN
+1,1,scatter,Payoff on path,24.6411086951,16.7086084613,NaN
+1,1,scatter,Payoff on path,24.4788978989,12.6909311378,NaN
+1,1,scatter,Payoff on path,32.8617850789,6.8550797467,NaN
+1,1,scatter,Payoff on path,36.8306067836,2.5803130297,NaN
+1,1,scatter,Payoff on path,25.227597089,16.9994309215,NaN
+1,1,scatter,Payoff on path,27.7076256703,11.0043347486,NaN
+1,1,scatter,Payoff on path,39.0148426507,2.6741661467,NaN
+1,1,scatter,Payoff on path,30.4111311099,7.122955718,NaN
+1,1,scatter,Payoff on path,20.404517713,19.0403993388,NaN
+1,1,scatter,Payoff on path,17.0158855297,21.6427155165,NaN
+1,1,scatter,Payoff on path,31.5071328397,10.2261525698,NaN
+1,1,scatter,Payoff on path,37.7668724459,0.0,NaN
+1,1,scatter,Payoff on path,28.9133957496,10.7455430399,NaN
+1,1,scatter,Payoff on path,26.4968911276,11.5342452811,NaN
+1,1,scatter,Payoff on path,35.570704774,4.8007227454,NaN
+1,1,scatter,Payoff on path,33.8763578426,4.8323291043,NaN
+1,1,scatter,Payoff on path,22.6523622617,17.5649061135,NaN
+1,1,scatter,Payoff on path,22.2598255891,15.9076982149,NaN
+1,1,scatter,Payoff on path,34.2568115482,7.1245928357,NaN
+1,1,scatter,Payoff on path,34.8202331831,3.4528236649,NaN
+1,1,scatter,Payoff on path,39.4436631533,0.154321168,NaN
+1,1,scatter,Payoff on path,27.5299467403,12.4295641456,NaN
+1,1,scatter,Payoff on path,29.8543091315,6.6864757981,NaN
+1,1,scatter,Payoff on path,36.9934651879,3.4355167576,NaN
+1,1,scatter,Payoff on path,31.8910986062,7.4459504683,NaN
+1,1,scatter,Payoff on path,15.8235598271,23.8323937977,NaN
+1,1,scatter,Payoff on path,19.5522720829,18.2723065973,NaN
+1,1,scatter,Payoff on path,30.6348496672,9.7892262976,NaN
+1,1,scatter,Payoff on path,38.0496123201,0.9385477476,NaN
+1,1,scatter,Payoff on path,28.5490966921,11.8140021291,NaN
+1,1,scatter,Payoff on path,26.1829480799,12.6832147907,NaN
+1,1,scatter,Payoff on path,35.9037947916,6.8701765801,NaN
+1,1,scatter,Payoff on path,33.0794494809,4.3873713581,NaN
+1,1,scatter,Payoff on path,23.9710974736,15.2304166924,NaN
+1,1,scatter,Payoff on path,24.0711436691,14.2960489569,NaN
+1,1,scatter,Payoff on path,33.1499259167,8.3712586374,NaN
+1,1,scatter,Payoff on path,35.9750455268,2.1643934835,NaN
+1,1,scatter,Payoff on path,26.268348639,13.4862612748,NaN
+1,1,scatter,Payoff on path,28.6260764219,4.4991060892,NaN
+1,1,scatter,Payoff on path,38.1229179883,2.1943675318,NaN
+1,1,scatter,Payoff on path,30.7076530089,8.6535844709,NaN
+1,1,scatter,Payoff on path,19.725650658,20.5727016803,NaN
+1,1,scatter,Payoff on path,15.3693430491,22.3504192286,NaN
+1,1,scatter,Payoff on path,31.8200724775,8.5942003928,NaN
+1,1,scatter,Payoff on path,36.9211586325,2.257552799,NaN
+1,1,scatter,Payoff on path,29.7807118664,10.8892275868,NaN
+1,1,scatter,Payoff on path,27.4494352636,11.5587171772,NaN
+1,1,scatter,Payoff on path,39.5197575491,1.4199621416,NaN
+1,1,scatter,Payoff on path,34.7503155576,8.428975771,NaN
+1,1,scatter,Payoff on path,34.1857272686,2.8250526229,NaN
+1,1,scatter,Payoff on path,22.1400865642,16.8370093449,NaN
+1,1,scatter,Payoff on path,22.7675595361,14.6202014179,NaN
+1,1,scatter,Payoff on path,33.9459937705,5.9590816355,NaN
+1,1,scatter,Payoff on path,35.6425083292,3.5133861968,NaN
+1,1,scatter,Payoff on path,26.5797651442,14.9587895397,NaN
+1,1,scatter,Payoff on path,28.9885591002,9.6816439878,NaN
+1,1,scatter,Payoff on path,37.8406193919,3.5651614103,NaN
+1,1,scatter,Payoff on path,31.578141243,6.2800225192,NaN
+1,1,scatter,Payoff on path,17.310279462,21.9665623242,NaN
+1,1,scatter,Payoff on path,20.2466664531,18.4845953984,NaN
+1,1,scatter,Payoff on path,30.3393107249,10.9251720197,NaN
+1,1,scatter,Payoff on path,38.9385361437,0.0,NaN
+1,1,scatter,Payoff on path,27.6293066298,12.031453731,NaN
+1,1,scatter,Payoff on path,25.1364725936,13.0622450066,NaN
+1,1,scatter,Payoff on path,36.7582110137,3.8911878311,NaN
+1,1,scatter,Payoff on path,32.7915251839,5.7673475808,NaN
+1,1,scatter,Payoff on path,24.3819304434,15.8966949154,NaN
+1,1,scatter,Payoff on path,24.5442842752,13.4934243588,NaN
+1,1,scatter,Payoff on path,32.3909684637,7.7678450106,NaN
+1,1,scatter,Payoff on path,36.3482823886,2.4733225424,NaN
+1,1,scatter,Payoff on path,25.2908118962,15.2623049175,NaN
+1,1,scatter,Payoff on path,28.0851935626,11.1808977597,NaN
+1,1,scatter,Payoff on path,38.8020161363,3.7779206889,NaN
+1,1,scatter,Payoff on path,30.2074084242,5.814124358,NaN
+1,1,scatter,Payoff on path,21.1080982264,17.9871216629,NaN
+1,1,scatter,Payoff on path,18.6842077576,19.7130536436,NaN
+1,1,scatter,Payoff on path,31.457635716,9.5024235388,NaN
+1,1,scatter,Payoff on path,37.7169526262,0.0,NaN
+1,1,scatter,Payoff on path,29.4131285733,10.8542186587,NaN
+1,1,scatter,Payoff on path,26.7306058734,10.3101922748,NaN
+1,1,scatter,Payoff on path,39.9023231856,1.9961261656,NaN
+1,1,scatter,Payoff on path,35.2297267777,4.6063124319,NaN
+1,1,scatter,Payoff on path,33.5374668332,5.6904479416,NaN
+1,1,scatter,Payoff on path,22.9705995575,18.5616502654,NaN
+1,1,scatter,Payoff on path,21.4156085392,17.2136341462,NaN
+1,1,scatter,Payoff on path,34.3046273346,8.1358311093,NaN
+1,1,scatter,Payoff on path,34.869337426,2.5146409146,NaN
+1,1,scatter,Payoff on path,39.6587292774,0.0,NaN
+1,1,scatter,Payoff on path,26.9902830901,12.3804759938,NaN
+1,1,scatter,Payoff on path,29.646786688,8.3071396342,NaN
+1,1,scatter,Payoff on path,37.343981198,3.7375741884,NaN
+1,1,scatter,Payoff on path,32.2310679993,6.6015972051,NaN
+1,1,scatter,Payoff on path,14.3173788102,24.7222461768,NaN
+1,1,scatter,Payoff on path,19.4271330657,17.3909635811,NaN
+1,1,scatter,Payoff on path,31.1159454654,8.8367489839,NaN
+1,1,scatter,Payoff on path,38.546516605,1.0923003855,NaN
+1,1,scatter,Payoff on path,28.4971254791,12.6821320515,NaN
+1,1,scatter,Payoff on path,25.7669877897,12.5055924467,NaN
+1,1,scatter,Payoff on path,36.1042021592,5.5320331885,NaN
+1,1,scatter,Payoff on path,33.277852159,5.0134939321,NaN
+1,1,scatter,Payoff on path,23.474552885,16.1679600951,NaN
+1,1,scatter,Payoff on path,23.6742547784,12.8145504109,NaN
+1,1,scatter,Payoff on path,33.4290434841,6.5202083458,NaN
+1,1,scatter,Payoff on path,36.2590689095,3.5335165603,NaN
+1,1,scatter,Payoff on path,25.9328185965,15.1188841756,NaN
+1,1,scatter,Payoff on path,28.3366272332,10.1830075589,NaN
+1,1,scatter,Payoff on path,38.4086676137,3.5527095661,NaN
+1,1,scatter,Payoff on path,30.9840183695,7.1346731859,NaN
+1,1,scatter,Payoff on path,19.0323369442,20.0922281608,NaN
+1,1,scatter,Payoff on path,12.3219757576,25.9384554116,NaN
+1,1,scatter,Payoff on path,32.0790071749,11.7383436899,NaN
+1,1,scatter,Payoff on path,37.1864795395,0.0,NaN
+1,1,scatter,Payoff on path,29.5063046825,9.9879922163,NaN
+1,1,scatter,Payoff on path,27.1604115887,10.4129732729,NaN
+1,1,scatter,Payoff on path,39.8057793095,2.6146851687,NaN
+1,1,scatter,Payoff on path,34.999772899,5.7368572793,NaN
+1,1,scatter,Payoff on path,34.4343777645,4.5131172533,NaN
+1,1,scatter,Payoff on path,21.6903109065,18.1971594156,NaN
+1,1,scatter,Payoff on path,23.1800152615,15.3089566867,NaN
+1,1,scatter,Payoff on path,33.6889220142,7.1780710977,NaN
+1,1,scatter,Payoff on path,35.3827803388,2.5322046223,NaN
+1,1,scatter,Payoff on path,26.8876922966,13.1853961347,NaN
+1,1,scatter,Payoff on path,29.2577190991,8.2599974763,NaN
+1,1,scatter,Payoff on path,37.581220609,2.5111719526,NaN
+1,1,scatter,Payoff on path,31.3266438535,7.7596420824,NaN
+1,1,scatter,Payoff on path,18.2240538802,22.0006822227,NaN
+1,1,scatter,Payoff on path,20.8372944821,17.1801096587,NaN
+1,1,scatter,Payoff on path,30.0502897687,10.0993549779,NaN
+1,1,scatter,Payoff on path,38.6399324295,0.0,NaN
+1,1,scatter,Payoff on path,27.9367664925,12.784881968,NaN
+1,1,scatter,Payoff on path,25.4787058003,13.5084541498,NaN
+1,1,scatter,Payoff on path,36.4811473715,5.7318180366,NaN
+1,1,scatter,Payoff on path,32.5206310493,4.0076410295,NaN
+1,1,scatter,Payoff on path,24.7440326486,14.7831556228,NaN
+1,1,scatter,Payoff on path,24.194596475,14.8234931472,NaN
+1,1,scatter,Payoff on path,32.640021048,9.4414697743,NaN
+1,1,scatter,Payoff on path,36.6022540865,0.0,NaN
+1,1,scatter,Payoff on path,24.9612426782,14.4846731717,NaN
+1,1,scatter,Payoff on path,27.7944117813,10.176003487,NaN
+1,1,scatter,Payoff on path,39.078098222,1.6345105509,NaN
+1,1,scatter,Payoff on path,30.4728231426,8.0658763976,NaN
+1,1,scatter,Payoff on path,20.5700947705,19.4741304432,NaN
+1,1,scatter,Payoff on path,17.8199789557,19.5766230314,NaN
+1,1,scatter,Payoff on path,31.7309267863,7.8591671835,NaN
+1,1,scatter,Payoff on path,38.0001701356,1.5392812524,NaN
+1,1,scatter,Payoff on path,29.1312150548,13.2307897973,NaN
+1,1,scatter,Payoff on path,26.4042009932,12.324966103,NaN
+1,1,scatter,Payoff on path,35.5112759697,5.7061112285,NaN
+1,1,scatter,Payoff on path,33.8164856561,3.8591954251,NaN
+1,1,scatter,Payoff on path,22.5268248844,17.0427402221,NaN
+1,1,scatter,Payoff on path,21.9043132523,15.8703243559,NaN
+1,1,scatter,Payoff on path,34.0340997448,6.7688555772,NaN
+1,1,scatter,Payoff on path,34.5980442949,4.1991600868,NaN
+1,1,scatter,Payoff on path,39.3595353712,0.0,NaN
+1,1,scatter,Payoff on path,27.2967753669,13.007886468,NaN
+1,1,scatter,Payoff on path,29.9339188735,9.0292473612,NaN
+1,1,scatter,Payoff on path,37.0552246273,6.2495883472,NaN
+1,1,scatter,Payoff on path,31.9503448209,5.3574195227,NaN
+1,1,scatter,Payoff on path,16.2617352696,22.4853676194,NaN
+1,1,scatter,Payoff on path,20.0459967079,18.1308409543,NaN
+1,1,scatter,Payoff on path,30.8626729231,10.0462267634,NaN
+1,1,scatter,Payoff on path,38.2831391601,0.1727870352,NaN
+1,1,scatter,Payoff on path,28.7707404204,11.2178676093,NaN
+1,1,scatter,Payoff on path,26.0898752627,10.7975230304,NaN
+1,1,scatter,Payoff on path,35.8430367653,4.4349814459,NaN
+1,1,scatter,Payoff on path,33.0206630192,6.4380191666,NaN
+1,1,scatter,Payoff on path,23.8596560173,16.7135737247,NaN
+1,1,scatter,Payoff on path,23.8025176987,15.160459044,NaN
+1,1,scatter,Payoff on path,32.9896878005,8.6827487811,NaN
+1,1,scatter,Payoff on path,35.8121038999,0.830363092,NaN
+1,1,scatter,Payoff on path,26.0411855819,13.5137743184,NaN
+1,1,scatter,Payoff on path,28.8130478944,9.4405406895,NaN
+1,1,scatter,Payoff on path,38.3159150701,2.4516440233,NaN
+1,1,scatter,Payoff on path,30.8939460948,7.5460462134,NaN
+1,1,scatter,Payoff on path,20.1377076727,19.6547646892,NaN
+1,1,scatter,Payoff on path,16.0440145829,21.4500796916,NaN
+1,1,scatter,Payoff on path,31.9195101503,7.8583330571,NaN
+1,1,scatter,Payoff on path,37.0232507985,2.2593658799,NaN
+1,1,scatter,Payoff on path,29.8929643756,12.269324881,NaN
+1,1,scatter,Payoff on path,27.3422435096,11.211935658,NaN
+1,1,scatter,Payoff on path,39.3260386685,0.9845054351,NaN
+1,1,scatter,Payoff on path,34.6286464773,6.3942040535,NaN
+1,1,scatter,Payoff on path,34.0650721542,3.7511971832,NaN
+1,1,scatter,Payoff on path,21.9742408519,17.7267871186,NaN
+1,1,scatter,Payoff on path,22.5916564431,15.0676831051,NaN
+1,1,scatter,Payoff on path,33.8474737558,6.6904100213,NaN
+1,1,scatter,Payoff on path,35.5422053871,3.5477506043,NaN
+1,1,scatter,Payoff on path,26.4518055622,13.8668911151,NaN
+1,1,scatter,Payoff on path,29.0892264301,10.0203059829,NaN
+1,1,scatter,Payoff on path,37.9676480677,5.7371556609,NaN
+1,1,scatter,Payoff on path,31.7001198912,5.5005027511,NaN
+1,1,scatter,Payoff on path,17.6753888841,21.0601621525,NaN
+1,1,scatter,Payoff on path,20.6547152748,17.5957914533,NaN
+1,1,scatter,Payoff on path,30.5042193025,10.7060312596,NaN
+1,1,scatter,Payoff on path,39.1114641039,0.0,NaN
+1,1,scatter,Payoff on path,27.8384452539,12.004495284,NaN
+1,1,scatter,Payoff on path,24.9086820285,11.1685326549,NaN
+1,1,scatter,Payoff on path,36.5709000158,3.6893306495,NaN
+1,1,scatter,Payoff on path,32.6089672847,6.8847635053,NaN
+1,1,scatter,Payoff on path,24.1392883694,16.7767841744,NaN
+1,1,scatter,Payoff on path,24.702513789,12.0617183881,NaN
+1,1,scatter,Payoff on path,32.481049825,7.6391711685,NaN
+1,1,scatter,Payoff on path,36.4406897181,3.1074176613,NaN
+1,1,scatter,Payoff on path,25.4395995797,15.4083557677,NaN
+1,1,scatter,Payoff on path,27.9709700831,10.3506643665,NaN
+1,1,scatter,Payoff on path,38.6820671703,3.1950597719,NaN
+1,1,scatter,Payoff on path,30.0914879628,8.0889807382,NaN
+1,1,scatter,Payoff on path,20.9001353972,18.4890864504,NaN
+1,1,scatter,Payoff on path,18.1225789866,20.3604596083,NaN
+1,1,scatter,Payoff on path,31.2863730697,10.8086830537,NaN
+1,1,scatter,Payoff on path,37.5400676048,0.0,NaN
+1,1,scatter,Payoff on path,29.2250451497,10.3340388016,NaN
+1,1,scatter,Payoff on path,26.9235295128,10.9453641094,NaN
+1,1,scatter,Payoff on path,35.4227159581,5.4003380646,NaN
+1,1,scatter,Payoff on path,33.7283853005,5.1409526466,NaN
+1,1,scatter,Payoff on path,23.2275853973,16.6399575286,NaN
+1,1,scatter,Payoff on path,21.7464779888,16.7340991047,NaN
+1,1,scatter,Payoff on path,34.4739681159,6.7116142983,NaN
+1,1,scatter,Payoff on path,35.0396822878,2.5294053277,NaN
+1,1,scatter,Payoff on path,39.762653219,0.0196257577,NaN
+1,1,scatter,Payoff on path,27.195720981,12.845835238,NaN
+1,1,scatter,Payoff on path,29.4737611449,7.5207172456,NaN
+1,1,scatter,Payoff on path,37.1456642372,2.8299357348,NaN
+1,1,scatter,Payoff on path,32.0391902781,7.1559929686,NaN
+1,1,scatter,Payoff on path,11.3574348158,28.6607676942,NaN
+1,1,scatter,Payoff on path,19.1170420876,18.8340333939,NaN
+1,1,scatter,Payoff on path,31.0243631543,9.0106374724,NaN
+1,1,scatter,Payoff on path,38.4505359674,0.3878101834,NaN
+1,1,scatter,Payoff on path,28.3704027919,12.4525708412,NaN
+1,1,scatter,Payoff on path,25.8949075829,13.2856960138,NaN
+1,1,scatter,Payoff on path,36.2186300757,6.1960013799,NaN
+1,1,scatter,Payoff on path,33.3895436062,2.5452302685,NaN
+1,1,scatter,Payoff on path,23.6288642987,15.6597725456,NaN
+1,1,scatter,Payoff on path,23.4286474678,14.6847653831,NaN
+1,1,scatter,Payoff on path,33.2380362847,7.2192357526,NaN
+1,1,scatter,Payoff on path,36.0641605084,2.466166329,NaN
+1,1,scatter,Payoff on path,25.7283688058,14.7547685785,NaN
+1,1,scatter,Payoff on path,28.5303652684,10.5898573472,NaN
+1,1,scatter,Payoff on path,38.5887735733,3.8499835597,NaN
+1,1,scatter,Payoff on path,31.1559628026,5.0893677117,NaN
+1,1,scatter,Payoff on path,19.5067532002,19.5999940219,NaN
+1,1,scatter,Payoff on path,13.9846761884,24.1928842893,NaN
+1,1,scatter,Payoff on path,32.1915441032,8.551485082,NaN
+1,1,scatter,Payoff on path,37.302801199,0.7463203685,NaN
+1,1,scatter,Payoff on path,29.6146914881,10.7489318109,NaN
+1,1,scatter,Payoff on path,27.0261741038,10.4075353176,NaN
+1,1,scatter,Payoff on path,39.6154376235,2.5865315708,NaN
+1,1,scatter,Payoff on path,34.9088965846,4.9679909009,NaN
+1,1,scatter,Payoff on path,34.3445028156,4.8522615975,NaN
+1,1,scatter,Payoff on path,21.4733611563,19.2022918634,NaN
+1,1,scatter,Payoff on path,23.0187186716,15.7118180428,NaN
+1,1,scatter,Payoff on path,33.577166797,9.8575028506,NaN
+1,1,scatter,Payoff on path,35.2693622824,1.5493445724,NaN
+1,1,scatter,Payoff on path,39.8586989994,0.0,NaN
+1,1,scatter,Payoff on path,26.7671060728,12.5527308528,NaN
+1,1,scatter,Payoff on path,29.3808564862,8.2413851311,NaN
+1,1,scatter,Payoff on path,37.675368099,3.3096606666,NaN
+1,1,scatter,Payoff on path,31.4177496421,7.4832017169,NaN
+1,1,scatter,Payoff on path,18.5913493448,21.0177175298,NaN
+1,1,scatter,Payoff on path,21.1690492553,15.2749345537,NaN
+1,1,scatter,Payoff on path,30.2481421129,9.4744223641,NaN
+1,1,scatter,Payoff on path,38.8446449039,1.0257822047,NaN
+1,1,scatter,Payoff on path,28.1189251936,13.118465403,NaN
+1,1,scatter,Payoff on path,25.250787017,13.228553302,NaN
+1,1,scatter,Payoff on path,36.3081468176,5.4838239139,NaN
+1,1,scatter,Payoff on path,32.3511120804,5.8146491031,NaN
+1,1,scatter,Payoff on path,24.5025187888,15.044971395,NaN
+1,1,scatter,Payoff on path,24.3270693236,13.9912583167,NaN
+1,1,scatter,Payoff on path,32.7607353642,8.4307216911,NaN
+1,1,scatter,Payoff on path,36.7265344973,1.7070732476,NaN
+1,1,scatter,Payoff on path,25.0849997761,14.6223054948,NaN
+1,1,scatter,Payoff on path,27.6739287978,9.1305163438,NaN
+1,1,scatter,Payoff on path,38.9714543025,1.4952274069,NaN
+1,1,scatter,Payoff on path,30.3711110584,8.8980018453,NaN
+1,1,scatter,Payoff on path,20.3350515601,19.736551834,NaN
+1,1,scatter,Payoff on path,17.1477300921,20.6139249352,NaN
+1,1,scatter,Payoff on path,31.5469661878,9.0637747762,NaN
+1,1,scatter,Payoff on path,37.808527413,1.158049393,NaN
+1,1,scatter,Payoff on path,28.9461235908,11.5872364976,NaN
+1,1,scatter,Payoff on path,26.6265343435,12.1623930465,NaN
+1,1,scatter,Payoff on path,35.6737246316,7.1503562832,NaN
+1,1,scatter,Payoff on path,33.9767499528,3.292224631,NaN
+1,1,scatter,Payoff on path,22.8311977681,16.3373558811,NaN
+1,1,scatter,Payoff on path,22.2084659407,15.0448494592,NaN
+1,1,scatter,Payoff on path,34.2164059307,5.4683887009,NaN
+1,1,scatter,Payoff on path,34.7812574662,4.5976292771,NaN
+1,1,scatter,Payoff on path,39.4864561585,0.0,NaN
+1,1,scatter,Payoff on path,27.4943056614,14.4767837632,NaN
+1,1,scatter,Payoff on path,29.7392771496,9.1383070053,NaN
+1,1,scatter,Payoff on path,36.889503975,4.5066832611,NaN
+1,1,scatter,Payoff on path,31.7889542218,5.9657820979,NaN
+1,1,scatter,Payoff on path,15.0816681276,23.8940291789,NaN
+1,1,scatter,Payoff on path,19.821598204,18.9439061999,NaN
+1,1,scatter,Payoff on path,30.7392573614,11.0141299559,NaN
+1,1,scatter,Payoff on path,38.155325735,0.0,NaN
+1,1,scatter,Payoff on path,28.6689292744,10.9821703334,NaN
+1,1,scatter,Payoff on path,26.2204743493,11.7822033745,NaN
+1,1,scatter,Payoff on path,35.9437496884,4.5865900066,NaN
+1,1,scatter,Payoff on path,33.1192708473,5.4975235262,NaN
+1,1,scatter,Payoff on path,24.0147399007,16.4569336161,NaN
+1,1,scatter,Payoff on path,23.9145883579,13.5943517726,NaN
+1,1,scatter,Payoff on path,33.0485192285,6.7430182511,NaN
+1,1,scatter,Payoff on path,35.8728079318,3.4279507278,NaN
+1,1,scatter,Payoff on path,26.1344995045,15.273423833,NaN
+1,1,scatter,Payoff on path,28.5917716907,10.0800062955,NaN
+1,1,scatter,Payoff on path,38.0822643207,3.1625299772,NaN
+1,1,scatter,Payoff on path,30.666218359,7.2530617881,NaN
+1,1,scatter,Payoff on path,19.6518032111,19.781084828,NaN
+1,1,scatter,Payoff on path,15.5744923834,22.9055879948,NaN
+1,1,scatter,Payoff on path,31.8602749834,9.8292477667,NaN
+1,1,scatter,Payoff on path,36.9614862064,0.0,NaN
+1,1,scatter,Payoff on path,29.8132326375,10.087920246,NaN
+1,1,scatter,Payoff on path,27.5749587729,10.5857530479,NaN
+1,1,scatter,Payoff on path,39.4101244592,4.4559330644,NaN
+1,1,scatter,Payoff on path,34.8509081616,5.7032123417,NaN
+1,1,scatter,Payoff on path,34.2877703117,4.1548916435,NaN
+1,1,scatter,Payoff on path,22.3267767104,17.7562638646,NaN
+1,1,scatter,Payoff on path,22.7163645785,15.6559386563,NaN
+1,1,scatter,Payoff on path,33.9073869332,7.5619711942,NaN
+1,1,scatter,Payoff on path,35.6016242355,2.5680008201,NaN
+1,1,scatter,Payoff on path,26.5442084852,13.1332828916,NaN
+1,1,scatter,Payoff on path,28.8711566102,7.4224413851,NaN
+1,1,scatter,Payoff on path,37.734544602,2.5377678959,NaN
+1,1,scatter,Payoff on path,31.4762140978,8.0111821293,NaN
+1,1,scatter,Payoff on path,16.8393074753,23.0178682774,NaN
+1,1,scatter,Payoff on path,20.491349244,17.0962474891,NaN
+1,1,scatter,Payoff on path,30.4425983248,9.8667946231,NaN
+1,1,scatter,Payoff on path,39.0481131944,0.1018988643,NaN
+1,1,scatter,Payoff on path,27.7517825484,12.7654903051,NaN
+1,1,scatter,Payoff on path,25.1761019284,13.6802401368,NaN
+1,1,scatter,Payoff on path,36.7991721558,7.6466248827,NaN
+1,1,scatter,Payoff on path,32.8307237902,4.1343377917,NaN
+1,1,scatter,Payoff on path,24.4248521024,14.7757427426,NaN
+1,1,scatter,Payoff on path,24.5992912023,14.1272461755,NaN
+1,1,scatter,Payoff on path,32.4209936047,10.0551265829,NaN
+1,1,scatter,Payoff on path,36.3806177271,0.9385592259,NaN
+1,1,scatter,Payoff on path,25.3404678902,14.014377811,NaN
+1,1,scatter,Payoff on path,28.1962475687,9.5722177338,NaN
+1,1,scatter,Payoff on path,38.9201717613,2.3195771011,NaN
+1,1,scatter,Payoff on path,30.3206557416,8.3462276631,NaN
+1,1,scatter,Payoff on path,21.3060124396,18.4431510581,NaN
+1,1,scatter,Payoff on path,18.371270646,18.8021070998,NaN
+1,1,scatter,Payoff on path,31.347165471,8.6104535912,NaN
+1,1,scatter,Payoff on path,37.6013026642,2.0941351541,NaN
+1,1,scatter,Payoff on path,29.3071895618,11.8858250426,NaN
+1,1,scatter,Payoff on path,26.68443114,11.6704973131,NaN
+1,1,scatter,Payoff on path,39.9371745339,0.1784662074,NaN
+1,1,scatter,Payoff on path,35.1983726776,6.2041440942,NaN
+1,1,scatter,Payoff on path,33.507004319,4.8145395794,NaN
+1,1,scatter,Payoff on path,22.9074698854,16.6032814857,NaN
+1,1,scatter,Payoff on path,21.6043873759,16.3093821463,NaN
+1,1,scatter,Payoff on path,34.4150725053,5.9620472465,NaN
+1,1,scatter,Payoff on path,34.9794316624,3.6543432303,NaN
+1,1,scatter,Payoff on path,39.5397524197,0.0,NaN
+1,1,scatter,Payoff on path,27.1076955739,13.6816557662,NaN
+1,1,scatter,Payoff on path,29.6891833414,9.6588469186,NaN
+1,1,scatter,Payoff on path,37.3750302859,5.3693637984,NaN
+1,1,scatter,Payoff on path,32.2628869492,3.0813909888,NaN
+1,1,scatter,Payoff on path,14.6803279075,24.0227920773,NaN
+1,1,scatter,Payoff on path,19.3249772239,19.105087562,NaN
+1,1,scatter,Payoff on path,31.0842634945,9.6798987278,NaN
+1,1,scatter,Payoff on path,38.5141186816,0.0,NaN
+1,1,scatter,Payoff on path,28.4537119927,11.6411149471,NaN
+1,1,scatter,Payoff on path,25.6393338695,11.6200902352,NaN
+1,1,scatter,Payoff on path,35.9934005102,3.8245154499,NaN
+1,1,scatter,Payoff on path,33.167037605,6.160051255,NaN
+1,1,scatter,Payoff on path,23.3232346808,18.1534815784,NaN
+1,1,scatter,Payoff on path,23.5250516696,14.9365823533,NaN
+1,1,scatter,Payoff on path,33.3188173095,7.6279151547,NaN
+1,1,scatter,Payoff on path,36.1474302842,1.7504258773,NaN
+1,1,scatter,Payoff on path,25.8071567328,14.2827245461,NaN
+1,1,scatter,Payoff on path,28.2923685716,9.0110627341,NaN
+1,1,scatter,Payoff on path,38.3769719541,1.7886238991,NaN
+1,1,scatter,Payoff on path,30.9516561288,8.0341934806,NaN
+1,1,scatter,Payoff on path,18.9237383511,21.5245636404,NaN
+1,1,scatter,Payoff on path,13.1054169739,24.8450889965,NaN
+1,1,scatter,Payoff on path,32.1103645763,8.1871894825,NaN
+1,1,scatter,Payoff on path,37.2179914965,1.4228896429,NaN
+1,1,scatter,Payoff on path,29.5482650672,11.2726208911,NaN
+1,1,scatter,Payoff on path,27.2775247499,11.8453546885,NaN
+1,1,scatter,Payoff on path,39.6857461478,1.4621110197,NaN
+1,1,scatter,Payoff on path,35.1094780603,6.7367200345,NaN
+1,1,scatter,Payoff on path,34.5454258507,1.9586221799,NaN
+1,1,scatter,Payoff on path,21.8715827797,17.3580389054,NaN
+1,1,scatter,Payoff on path,23.1174213245,12.6058739158,NaN
+1,1,scatter,Payoff on path,33.6590236824,6.3562511332,NaN
+1,1,scatter,Payoff on path,35.3507762767,4.2563743465,NaN
+1,1,scatter,Payoff on path,26.8424865599,14.3530247957,NaN
+1,1,scatter,Payoff on path,29.1507253482,9.3735479161,NaN
+1,1,scatter,Payoff on path,37.4664639496,4.6056159259,NaN
+1,1,scatter,Payoff on path,31.215362738,6.8229038987,NaN
+1,1,scatter,Payoff on path,17.8797016383,21.2046983439,NaN
+1,1,scatter,Payoff on path,21.0439796282,17.6477205855,NaN
+1,1,scatter,Payoff on path,30.163416031,12.1505550251,NaN
+1,1,scatter,Payoff on path,38.7581997916,0.0,NaN
+1,1,scatter,Payoff on path,28.0478596911,11.2864351555,NaN
+1,1,scatter,Payoff on path,25.5284784415,12.1882757167,NaN
+1,1,scatter,Payoff on path,36.5130362823,4.2928221205,NaN
+1,1,scatter,Payoff on path,32.5511646859,6.4565936159,NaN
+1,1,scatter,Payoff on path,24.7974202768,15.3971995863,NaN
+1,1,scatter,Payoff on path,24.2390419556,13.6552567332,NaN
+1,1,scatter,Payoff on path,32.678748097,7.9463794199,NaN
+1,1,scatter,Payoff on path,36.6436612488,2.3788408001,NaN
+1,1,scatter,Payoff on path,25.0006421546,15.0697234238,NaN
+1,1,scatter,Payoff on path,27.9166862237,10.9809627255,NaN
+1,1,scatter,Payoff on path,39.1875204131,3.8933385175,NaN
+1,1,scatter,Payoff on path,30.5763799657,6.858113093,NaN
+1,1,scatter,Payoff on path,20.8020405203,18.1957574734,NaN
+1,1,scatter,Payoff on path,17.4045200803,20.6910011283,NaN
+1,1,scatter,Payoff on path,31.6297577443,9.5267635826,NaN
+1,1,scatter,Payoff on path,37.8931189952,0.4705993643,NaN
+1,1,scatter,Payoff on path,29.0148784695,11.0702426195,NaN
+1,1,scatter,Payoff on path,26.3676464593,10.1884386455,NaN
+1,1,scatter,Payoff on path,35.4710209688,4.8279046034,NaN
+1,1,scatter,Payoff on path,33.7772866574,5.5889545505,NaN
+1,1,scatter,Payoff on path,22.4750700067,17.9509865639,NaN
+1,1,scatter,Payoff on path,22.0973468046,16.8346289334,NaN
+1,1,scatter,Payoff on path,34.1355902509,7.9106158958,NaN
+1,1,scatter,Payoff on path,34.6990731921,0.8038668234,NaN
+1,1,scatter,Payoff on path,39.2508965019,0.0,NaN
+1,1,scatter,Payoff on path,27.4225480796,12.0924497241,NaN
+1,1,scatter,Payoff on path,29.9669419558,8.1876406593,NaN
+1,1,scatter,Payoff on path,37.0951305818,3.434644554,NaN
+1,1,scatter,Payoff on path,31.9910306577,6.6818096668,NaN
+1,1,scatter,Payoff on path,16.4170474107,23.1044867747,NaN
+1,1,scatter,Payoff on path,19.974801233,17.1740126734,NaN
+1,1,scatter,Payoff on path,30.8219316846,8.7337626863,NaN
+1,1,scatter,Payoff on path,38.2417097595,1.2125868667,NaN
+1,1,scatter,Payoff on path,28.7371442204,14.033483671,NaN
+1,1,scatter,Payoff on path,25.9538962477,12.7199848906,NaN
+1,1,scatter,Payoff on path,35.7415343518,5.6265071439,NaN
+1,1,scatter,Payoff on path,32.9186165953,4.7275935277,NaN
+1,1,scatter,Payoff on path,23.7007828817,16.0709229231,NaN
+1,2,lines,Regression,11.3574348158,26.766196914174717,NaN
+1,2,lines,Regression,11.500550569694,26.643076444362833,NaN
+1,2,lines,Regression,11.643666323588,26.51963143076604,NaN
+1,2,lines,Regression,11.786782077482,26.395865543259948,NaN
+1,2,lines,Regression,11.929897831376,26.27178245172018,NaN
+1,2,lines,Regression,12.07301358527,26.147385826022347,NaN
+1,2,lines,Regression,12.216129339164,26.022679336042064,NaN
+1,2,lines,Regression,12.359245093058,25.89766665165494,NaN
+1,2,lines,Regression,12.502360846952,25.772351442736596,NaN
+1,2,lines,Regression,12.645476600846,25.646737379162648,NaN
+1,2,lines,Regression,12.78859235474,25.520828130808706,NaN
+1,2,lines,Regression,12.931708108634,25.39462736755039,NaN
+1,2,lines,Regression,13.074823862528,25.268138759263316,NaN
+1,2,lines,Regression,13.217939616421999,25.14136597582309,NaN
+1,2,lines,Regression,13.361055370316,25.01431268710534,NaN
+1,2,lines,Regression,13.50417112421,24.886982562985665,NaN
+1,2,lines,Regression,13.647286878104,24.759379273339693,NaN
+1,2,lines,Regression,13.790402631997999,24.63150648804303,NaN
+1,2,lines,Regression,13.933518385892,24.503367876971296,NaN
+1,2,lines,Regression,14.076634139786,24.37496711000011,NaN
+1,2,lines,Regression,14.21974989368,24.24630785700508,NaN
+1,2,lines,Regression,14.362865647573999,24.117393787861822,NaN
+1,2,lines,Regression,14.505981401468,23.98822857244595,NaN
+1,2,lines,Regression,14.649097155362,23.858815880633088,NaN
+1,2,lines,Regression,14.792212909256,23.729159382298842,NaN
+1,2,lines,Regression,14.935328663149999,23.599262747318825,NaN
+1,2,lines,Regression,15.078444417044,23.469129645568653,NaN
+1,2,lines,Regression,15.221560170938,23.33876374692395,NaN
+1,2,lines,Regression,15.364675924832,23.208168721260325,NaN
+1,2,lines,Regression,15.507791678725999,23.07734823845339,NaN
+1,2,lines,Regression,15.65090743262,22.946305968378756,NaN
+1,2,lines,Regression,15.794023186514,22.81504558091205,NaN
+1,2,lines,Regression,15.937138940408,22.683570745928883,NaN
+1,2,lines,Regression,16.080254694302,22.551885133304868,NaN
+1,2,lines,Regression,16.223370448196,22.419992412915615,NaN
+1,2,lines,Regression,16.366486202089998,22.28789625463675,NaN
+1,2,lines,Regression,16.509601955984,22.155600328343876,NaN
+1,2,lines,Regression,16.652717709878,22.023108303912622,NaN
+1,2,lines,Regression,16.795833463772,21.89042385121859,NaN
+1,2,lines,Regression,16.938949217666,21.757550640137396,NaN
+1,2,lines,Regression,17.08206497156,21.62449234054466,NaN
+1,2,lines,Regression,17.225180725454,21.491252622316,NaN
+1,2,lines,Regression,17.368296479348,21.357835155327027,NaN
+1,2,lines,Regression,17.511412233241998,21.22424360945335,NaN
+1,2,lines,Regression,17.654527987136,21.090481654570592,NaN
+1,2,lines,Regression,17.79764374103,20.956552960554365,NaN
+1,2,lines,Regression,17.940759494924,20.822461197280287,NaN
+1,2,lines,Regression,18.083875248818,20.688210034623967,NaN
+1,2,lines,Regression,18.226991002712,20.55380314246102,NaN
+1,2,lines,Regression,18.370106756606,20.41924419066707,NaN
+1,2,lines,Regression,18.5132225105,20.28453684911772,NaN
+1,2,lines,Regression,18.656338264394,20.1496847876886,NaN
+1,2,lines,Regression,18.799454018288,20.014691676255307,NaN
+1,2,lines,Regression,18.942569772182,19.87956118469347,NaN
+1,2,lines,Regression,19.085685526076,19.74429698287869,NaN
+1,2,lines,Regression,19.22880127997,19.608902740686595,NaN
+1,2,lines,Regression,19.371917033864,19.4733821279928,NaN
+1,2,lines,Regression,19.515032787758,19.337738814672914,NaN
+1,2,lines,Regression,19.658148541652,19.20197647060255,NaN
+1,2,lines,Regression,19.801264295546,19.06609876565733,NaN
+1,2,lines,Regression,19.94438004944,18.930109369712863,NaN
+1,2,lines,Regression,20.087495803334,18.794011952644762,NaN
+1,2,lines,Regression,20.230611557228,18.657810184328653,NaN
+1,2,lines,Regression,20.373727311122,18.52150773464014,NaN
+1,2,lines,Regression,20.516843065016,18.38510827345484,NaN
+1,2,lines,Regression,20.65995881891,18.248615470648378,NaN
+1,2,lines,Regression,20.803074572804,18.11203299609635,NaN
+1,2,lines,Regression,20.946190326698,17.97536451967439,NaN
+1,2,lines,Regression,21.089306080592,17.8386137112581,NaN
+1,2,lines,Regression,21.232421834486,17.701784240723097,NaN
+1,2,lines,Regression,21.37553758838,17.564879777945006,NaN
+1,2,lines,Regression,21.518653342274,17.42790399279943,NaN
+1,2,lines,Regression,21.661769096168,17.290860555161984,NaN
+1,2,lines,Regression,21.804884850062,17.153753134908293,NaN
+1,2,lines,Regression,21.948000603956,17.016585401913964,NaN
+1,2,lines,Regression,22.09111635785,16.879361026054614,NaN
+1,2,lines,Regression,22.234232111744,16.74208367720586,NaN
+1,2,lines,Regression,22.377347865638,16.604757025243313,NaN
+1,2,lines,Regression,22.520463619532,16.467384740042586,NaN
+1,2,lines,Regression,22.663579373426,16.329970491479305,NaN
+1,2,lines,Regression,22.80669512732,16.192517949429075,NaN
+1,2,lines,Regression,22.949810881214,16.05503078376751,NaN
+1,2,lines,Regression,23.092926635108,15.917512664370232,NaN
+1,2,lines,Regression,23.236042389002,15.779967261112848,NaN
+1,2,lines,Regression,23.379158142896,15.642398243870986,NaN
+1,2,lines,Regression,23.52227389679,15.504809282520245,NaN
+1,2,lines,Regression,23.665389650684,15.367204046936248,NaN
+1,2,lines,Regression,23.808505404578,15.229586206994611,NaN
+1,2,lines,Regression,23.951621158472,15.091959432570947,NaN
+1,2,lines,Regression,24.094736912366,14.954327393540872,NaN
+1,2,lines,Regression,24.23785266626,14.816693759779996,NaN
+1,2,lines,Regression,24.380968420154,14.679062201163937,NaN
+1,2,lines,Regression,24.524084174048,14.541436387568316,NaN
+1,2,lines,Regression,24.667199927942,14.403819988868742,NaN
+1,2,lines,Regression,24.810315681836,14.266216674940825,NaN
+1,2,lines,Regression,24.95343143573,14.12863011566019,NaN
+1,2,lines,Regression,25.096547189624,13.991063980902446,NaN
+1,2,lines,Regression,25.239662943518,13.853521940543214,NaN
+1,2,lines,Regression,25.382778697412,13.716007664458097,NaN
+1,2,lines,Regression,25.525894451306,13.57852482252272,NaN
+1,2,lines,Regression,25.6690102052,13.441077084612695,NaN
+1,2,lines,Regression,25.812125959094,13.303668120603636,NaN
+1,2,lines,Regression,25.955241712988002,13.166301600371163,NaN
+1,2,lines,Regression,26.098357466882,13.028981193790884,NaN
+1,2,lines,Regression,26.241473220776,12.891710570738416,NaN
+1,2,lines,Regression,26.38458897467,12.754493401089377,NaN
+1,2,lines,Regression,26.527704728564,12.617333354719378,NaN
+1,2,lines,Regression,26.670820482458,12.480234101504037,NaN
+1,2,lines,Regression,26.813936236352,12.343199311318966,NaN
+1,2,lines,Regression,26.957051990246,12.20623265403978,NaN
+1,2,lines,Regression,27.100167744140002,12.069337799542094,NaN
+1,2,lines,Regression,27.243283498034,11.93251841770153,NaN
+1,2,lines,Regression,27.386399251928,11.795778178393697,NaN
+1,2,lines,Regression,27.529515005822,11.659120751494205,NaN
+1,2,lines,Regression,27.672630759716,11.522549806878676,NaN
+1,2,lines,Regression,27.81574651361,11.386069014422723,NaN
+1,2,lines,Regression,27.958862267504,11.249682044001965,NaN
+1,2,lines,Regression,28.101978021398,11.113392565492008,NaN
+1,2,lines,Regression,28.245093775292002,10.977204248768473,NaN
+1,2,lines,Regression,28.388209529186,10.841120763706973,NaN
+1,2,lines,Regression,28.53132528308,10.705145780183127,NaN
+1,2,lines,Regression,28.674441036974,10.569282968072542,NaN
+1,2,lines,Regression,28.817556790868,10.43353599725084,NaN
+1,2,lines,Regression,28.960672544762,10.297908537593631,NaN
+1,2,lines,Regression,29.103788298656,10.162404258976533,NaN
+1,2,lines,Regression,29.24690405255,10.027026831275164,NaN
+1,2,lines,Regression,29.390019806444002,9.891779924365132,NaN
+1,2,lines,Regression,29.533135560338,9.756667208122057,NaN
+1,2,lines,Regression,29.676251314232,9.621692352421547,NaN
+1,2,lines,Regression,29.819367068126,9.486859027139223,NaN
+1,2,lines,Regression,29.96248282202,9.352170902150705,NaN
+1,2,lines,Regression,30.105598575914,9.217631647331597,NaN
+1,2,lines,Regression,30.248714329808,9.083244932557522,NaN
+1,2,lines,Regression,30.391830083702,8.949014427704087,NaN
+1,2,lines,Regression,30.534945837596002,8.814943802646916,NaN
+1,2,lines,Regression,30.67806159149,8.681036727261617,NaN
+1,2,lines,Regression,30.821177345384,8.547296871423805,NaN
+1,2,lines,Regression,30.964293099278,8.4137279050091,NaN
+1,2,lines,Regression,31.107408853172,8.280333497893114,NaN
+1,2,lines,Regression,31.250524607066,8.147117319951462,NaN
+1,2,lines,Regression,31.39364036096,8.01408304105976,NaN
+1,2,lines,Regression,31.536756114854,7.881234331093621,NaN
+1,2,lines,Regression,31.679871868748002,7.748574859928662,NaN
+1,2,lines,Regression,31.822987622642,7.616108297440495,NaN
+1,2,lines,Regression,31.966103376536,7.483838313504741,NaN
+1,2,lines,Regression,32.10921913043,7.351768577997006,NaN
+1,2,lines,Regression,32.252334884324,7.21990276079291,NaN
+1,2,lines,Regression,32.395450638218,7.088244531768069,NaN
+1,2,lines,Regression,32.538566392112,6.9567975607981,NaN
+1,2,lines,Regression,32.681682146006,6.825565517758605,NaN
+1,2,lines,Regression,32.8247978999,6.694552072525218,NaN
+1,2,lines,Regression,32.967913653794,6.563760894973538,NaN
+1,2,lines,Regression,33.111029407688,6.433195654979189,NaN
+1,2,lines,Regression,33.254145161582,6.30286002241778,NaN
+1,2,lines,Regression,33.397260915476004,6.172757667164936,NaN
+1,2,lines,Regression,33.54037666937,6.042892259096261,NaN
+1,2,lines,Regression,33.683492423264,5.913267468087372,NaN
+1,2,lines,Regression,33.826608177158,5.783886964013883,NaN
+1,2,lines,Regression,33.969723931052,5.654754416751416,NaN
+1,2,lines,Regression,34.112839684946,5.525873496175585,NaN
+1,2,lines,Regression,34.25595543884,5.397247872161998,NaN
+1,2,lines,Regression,34.399071192734,5.2688812145862745,NaN
+1,2,lines,Regression,34.542186946628,5.140777193324027,NaN
+1,2,lines,Regression,34.685302700522,5.012939478250871,NaN
+1,2,lines,Regression,34.828418454416,4.885371739242425,NaN
+1,2,lines,Regression,34.971534208310004,4.758077646174298,NaN
+1,2,lines,Regression,35.114649962204,4.631060868922109,NaN
+1,2,lines,Regression,35.257765716098,4.504325077361475,NaN
+1,2,lines,Regression,35.400881469992,4.377873941368003,NaN
+1,2,lines,Regression,35.543997223886,4.251711130817318,NaN
+1,2,lines,Regression,35.687112977780004,4.1258403155850285,NaN
+1,2,lines,Regression,35.830228731674,4.0002651655467485,NaN
+1,2,lines,Regression,35.973344485568,3.8749893505780975,NaN
+1,2,lines,Regression,36.116460239462,3.7500165405546877,NaN
+1,2,lines,Regression,36.259575993356,3.6253504053521333,NaN
+1,2,lines,Regression,36.40269174725,3.5009946148460536,NaN
+1,2,lines,Regression,36.545807501144,3.3769528389120573,NaN
+1,2,lines,Regression,36.688923255038,3.253228747425762,NaN
+1,2,lines,Regression,36.832039008932,3.129826010262784,NaN
+1,2,lines,Regression,36.975154762826,3.0067482972987367,NaN
+1,2,lines,Regression,37.11827051672,2.8839992784092363,NaN
+1,2,lines,Regression,37.261386270614004,2.761582623469895,NaN
+1,2,lines,Regression,37.404502024508,2.6395020023563305,NaN
+1,2,lines,Regression,37.547617778402,2.5177610849441585,NaN
+1,2,lines,Regression,37.690733532296,2.396363541108988,NaN
+1,2,lines,Regression,37.83384928619,2.2753130407264415,NaN
+1,2,lines,Regression,37.976965040084,2.1546132536721334,NaN
+1,2,lines,Regression,38.120080793978,2.034267849821669,NaN
+1,2,lines,Regression,38.263196547872,1.9142804990506725,NaN
+1,2,lines,Regression,38.406312301766,1.7946548712347603,NaN
+1,2,lines,Regression,38.54942805566,1.6753946362495409,NaN
+1,2,lines,Regression,38.692543809554,1.5565034639706319,NaN
+1,2,lines,Regression,38.835659563448,1.4379850242736474,NaN
+1,2,lines,Regression,38.978775317342,1.3198429870342032,NaN
+1,2,lines,Regression,39.121891071236,1.202081022127917,NaN
+1,2,lines,Regression,39.26500682513,1.084702799430394,NaN
+1,2,lines,Regression,39.408122579024,0.9677119888172623,NaN
+1,2,lines,Regression,39.551238332918004,0.8511122601641254,NaN
+1,2,lines,Regression,39.694354086812,0.7349072833466064,NaN
+1,2,lines,Regression,39.837469840706,0.6191007282403174,NaN
+1,2,lines,Regression,39.9805855946,0.5036962647208689,NaN

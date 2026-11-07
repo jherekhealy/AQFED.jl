@@ -614,25 +614,35 @@ function applyBoundaryConditionOnGrid(::Union{Up,Down}, rowIndex::Int, colIndex:
 end
 
 
-function interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bc::DirichletBoundaryCondition; interpolation="Quadratic")
+#weights of the quadratic Lagrange interpolation at x on the nodes S[i-1], S[i], S[i+1]
+@inline function lagrange3(S, i::Int, x)
+    a, b, c = S[i-1], S[i], S[i+1]
+    return ((x - b) * (x - c) / ((a - b) * (a - c)), (x - a) * (x - c) / ((b - a) * (b - c)), (x - a) * (x - b) / ((c - a) * (c - b)))
+end
+
+function interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bc::DirichletBoundaryCondition)
     return bc.value
 end
 
-function interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bc::DirichletPayoffBoundaryCondition; interpolation="Quadratic")
+function interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bc::DirichletPayoffBoundaryCondition)
     colIndex = bc.columnIndex
-    if interpolation == "Quadratic"
-        return if iU == length(Sip)
-            v0Matrix[iU, colIndex] * ((Ui - Sip[iU-1]) * (Ui - Sip[iU-2]) / ((Sip[iU] - Sip[iU-1]) * (Sip[iU] - Sip[iU-2]))) + (Ui - Sip[iU-1]) * (Ui - Sip[iU]) / ((Sip[iU-2] - Sip[iU-1]) * (Sip[iU-2] - Sip[iU])) * v0Matrix[iU-2, colIndex] + (Ui - Sip[iU]) * (Ui - Sip[iU-2]) / ((Sip[iU-1] - Sip[iU]) * (Sip[iU-1] - Sip[iU-2])) * v0Matrix[iU-1, colIndex]
-        elseif iU == 1
-            v0Matrix[iU, colIndex] * ((Ui - Sip[iU+1]) * (Ui - Sip[iU+2]) / ((Sip[iU] - Sip[iU+1]) * (Sip[iU] - Sip[iU+2]))) + (Ui - Sip[iU+1]) * (Ui - Sip[iU]) / ((Sip[iU+2] - Sip[iU+1]) * (Sip[iU+2] - Sip[iU])) * v0Matrix[iU+2, colIndex] + (Ui - Sip[iU]) * (Ui - Sip[iU+2]) / ((Sip[iU+1] - Sip[iU]) * (Sip[iU+1] - Sip[iU+2])) * v0Matrix[iU+1, colIndex]
-        else
-            v0Matrix[iU, colIndex] * ((Ui - Sip[iU-1]) * (Ui - Sip[iU+1]) / ((Sip[iU] - Sip[iU-1]) * (Sip[iU] - Sip[iU+1]))) + (Ui - Sip[iU-1]) * (Ui - Sip[iU]) / ((Sip[iU+1] - Sip[iU-1]) * (Sip[iU+1] - Sip[iU])) * v0Matrix[iU+1, colIndex] + (Ui - Sip[iU]) * (Ui - Sip[iU+1]) / ((Sip[iU-1] - Sip[iU]) * (Sip[iU-1] - Sip[iU+1])) * v0Matrix[iU-1, colIndex]
-        end
-    else
-        return (v0Matrix[iU, colIndex] * (Ui - Sip[iU-1]) + v0Matrix[iU-1, colIndex] * (Sip[iU] - Ui)) / (Sip[iU] - Sip[iU-1])
-    end
+    i = clamp(iU, 2, length(Sip) - 1) #stencil centered on iU, shifted inside at the grid ends
+    w = lagrange3(Sip, i, Ui)
+    return w[1] * v0Matrix[i-1, colIndex] + w[2] * v0Matrix[i, colIndex] + w[3] * v0Matrix[i+1, colIndex]
 end
 
+
+#index of the first grid point at or above the barrier level, and whether the level is on the grid. A level just above a grid
+#point (rounding) is on the grid at that point: as a ghost point, the quadratic extrapolation weight would vanish.
+function locateBarrier(Si::AbstractArray{TS}, level) where {TS}
+    rowIndex = searchsortedfirst(Si, level)
+    if rowIndex <= length(Si) && abs(level - Si[rowIndex]) <= sqrt(eps(TS))
+        return rowIndex, true
+    elseif rowIndex > 1 && abs(level - Si[rowIndex-1]) <= sqrt(eps(TS))
+        return rowIndex - 1, true
+    end
+    return rowIndex, false
+end
 
 function getBoundaryValue(bcDown::DirichletPayoffBoundaryCondition, v0Matrix, i)
     v0Matrix[i, bcDown.columnIndex]
@@ -642,7 +652,7 @@ function getBoundaryValue(bcDown::DirichletBoundaryCondition, v0Matrix, i)
 end
 
 function applyBoundaryCondition(way::Down, colIndex::Int, bcDown::Union{DirichletBoundaryCondition,DirichletPayoffBoundaryCondition}, Si::AbstractArray{TS}, v0Matrix, lhs, dt, advectionCoeff, sinkCoeff) where {TS}
-    rowIndex = searchsortedfirst(Si, bcDown.level)
+    rowIndex, isOnGrid = locateBarrier(Si, bcDown.level)
     for i = 1:rowIndex-2
         lhs.d[i] = one(TS)
         lhs.du[i] = zero(TS)
@@ -651,15 +661,16 @@ function applyBoundaryCondition(way::Down, colIndex::Int, bcDown::Union{Dirichle
         end
         v0Matrix[i, colIndex] = getBoundaryValue(bcDown, v0Matrix, i)
     end
-    if abs(bcDown.level - Si[rowIndex]) <= sqrt(eps(TS))
+    if isOnGrid
         applyBoundaryConditionOnGrid(way, rowIndex, colIndex, bcDown, v0Matrix, lhs)
     else
         Li = bcDown.level
         Sip = Si
         iL = rowIndex # S[iL-1] < level < S[iL]
         value = interpolateBoundaryValue(v0Matrix, Sip, iL - 1, Li, bcDown)
-        divisor = ((Li - Sip[iL]) * (Li - Sip[iL+1]) / ((Sip[iL-1] - Sip[iL]) * (Sip[iL-1] - Sip[iL+1])))
-        v0Matrix[iL-1, colIndex] = (value - (Li - Sip[iL-1]) * (Li - Sip[iL]) / ((Sip[iL+1] - Sip[iL-1]) * (Sip[iL+1] - Sip[iL])) * v0Matrix[iL+1, colIndex] - (Li - Sip[iL-1]) * (Li - Sip[iL+1]) / ((Sip[iL] - Sip[iL-1]) * (Sip[iL] - Sip[iL+1])) * v0Matrix[iL, colIndex]) / divisor
+        #ghost value at iL-1 such that the quadratic on iL-1, iL, iL+1 equals the boundary value at the barrier
+        w = lagrange3(Sip, iL, Li)
+        v0Matrix[iL-1, colIndex] = (value - w[3] * v0Matrix[iL+1, colIndex] - w[2] * v0Matrix[iL, colIndex]) / w[1]
         lhs.d[iL-1] = one(TS)
         lhs.du[iL-1] = zero(TS)
         if iL > 2
@@ -669,7 +680,7 @@ function applyBoundaryCondition(way::Down, colIndex::Int, bcDown::Union{Dirichle
 end
 
 function applyBoundaryConditionLeft(way::Down, colIndex::Int, bcDown::Union{DirichletBoundaryCondition,DirichletPayoffBoundaryCondition}, Si::AbstractArray{TS}, v0Matrix, lhs, dt, advectionCoeff, sinkCoeff) where {TS}
-    rowIndex = searchsortedfirst(Si, bcDown.level)
+    rowIndex, isOnGrid = locateBarrier(Si, bcDown.level)
     for i = 1:rowIndex-2
         lhs.d[i] = one(TS)
         lhs.du[i] = zero(TS)
@@ -678,19 +689,20 @@ function applyBoundaryConditionLeft(way::Down, colIndex::Int, bcDown::Union{Diri
         end
         v0Matrix[i, colIndex] = getBoundaryValue(bcDown, v0Matrix, i)
     end
-    if abs(bcDown.level - Si[rowIndex]) <= sqrt(eps(TS))
+    if isOnGrid
         applyBoundaryConditionOnGrid(way, rowIndex, colIndex, bcDown, v0Matrix, lhs)
     else
         Li = bcDown.level
         Sip = Si
         iL = rowIndex # S[iL-1] < level < S[iL]
         v0Matrix[iL-1, colIndex] = interpolateBoundaryValue(v0Matrix, Sip, iL - 1, Li, bcDown)
-        lhs.d[iL-1] = (Li - Sip[iL]) * (Li - Sip[iL+1]) / ((Sip[iL-1] - Sip[iL]) * (Sip[iL-1] - Sip[iL+1]))
-        lhs.du[iL-1] = (Li - Sip[iL-1]) * (Li - Sip[iL+1]) / ((Sip[iL] - Sip[iL-1]) * (Sip[iL] - Sip[iL+1]))
+        w = lagrange3(Sip, iL, Li)
+        lhs.d[iL-1] = w[1]
+        lhs.du[iL-1] = w[2]
         if iL > 2
             lhs.dl[iL-2] = zero(TS)
         end
-        lhsduu = (Li - Sip[iL-1]) * (Li - Sip[iL]) / ((Sip[iL+1] - Sip[iL-1]) * (Sip[iL+1] - Sip[iL]))
+        lhsduu = w[3] #eliminated with the row iL to keep the matrix tridiagonal
         lhs.d[iL-1] -= lhs.dl[iL-1] * lhsduu / lhs.du[iL]
         lhs.du[iL-1] -= lhs.d[iL] * lhsduu / lhs.du[iL]
         v0Matrix[iL-1, colIndex] -= v0Matrix[iL, colIndex] * lhsduu / lhs.du[iL]
@@ -709,8 +721,10 @@ function applyBoundaryConditionOnGrid(::Union{Up,Down}, rowIndex::Int, colIndex:
     v0Matrix[rowIndex, colIndex] = v0Matrix[rowIndex, bcDown.columnIndex]
 end
 
-function applyBoundaryCondition(way::Up, colIndex::Int, bcDown::Union{DirichletBoundaryCondition,DirichletPayoffBoundaryCondition}, Si::AbstractArray{TS}, v0Matrix, rhs, dt, advectionCoeff, sinkCoeff; interpolation="Linear") where {TS}
-    rowIndex = searchsortedfirst(Si, bcDown.level)
+#quadratic ghost point, mirror of the down barrier: a linear ghost point made the up-and-in error 3 to 5 times larger
+#when the barrier is not on the grid
+function applyBoundaryCondition(way::Up, colIndex::Int, bcDown::Union{DirichletBoundaryCondition,DirichletPayoffBoundaryCondition}, Si::AbstractArray{TS}, v0Matrix, rhs, dt, advectionCoeff, sinkCoeff) where {TS}
+    rowIndex, isOnGrid = locateBarrier(Si, bcDown.level)
     for i = rowIndex+1:length(Si)
         rhs.d[i] = one(TS)
         if i < length(Si)
@@ -719,7 +733,7 @@ function applyBoundaryCondition(way::Up, colIndex::Int, bcDown::Union{DirichletB
         rhs.dl[i-1] = zero(TS)
         v0Matrix[i, colIndex] = getBoundaryValue(bcDown, v0Matrix, i)
     end
-    if abs(bcDown.level - Si[rowIndex]) <= sqrt(eps(TS))
+    if isOnGrid
         applyBoundaryConditionOnGrid(way, rowIndex, colIndex, bcDown, v0Matrix, rhs)
         #  println(" OnGrid ",v0Matrix[rowIndex, colIndex], " ", v0Matrix[rowIndex, colIndex]," ",v0Matrix[rowIndex-1, colIndex], " ", v0Matrix[rowIndex-2, colIndex])
     else
@@ -727,38 +741,21 @@ function applyBoundaryCondition(way::Up, colIndex::Int, bcDown::Union{DirichletB
         Ui = bcDown.level
         Sip = Si
         iU = rowIndex # S[iU-1] < level < S[iU]
-        value = interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bcDown; interpolation=interpolation)
-        if interpolation == "Quadratic"
-            divisor = ((Ui - Sip[iU-1]) * (Ui - Sip[iU-2]) / ((Sip[iU] - Sip[iU-1]) * (Sip[iU] - Sip[iU-2])))
-            v0Matrix[iU, colIndex] = (value - (Ui - Sip[iU-1]) * (Ui - Sip[iU]) / ((Sip[iU-2] - Sip[iU-1]) * (Sip[iU-2] - Sip[iU])) * v0Matrix[iU-2, colIndex] - (Ui - Sip[iU]) * (Ui - Sip[iU-2]) / ((Sip[iU-1] - Sip[iU]) * (Sip[iU-1] - Sip[iU-2])) * v0Matrix[iU-1, colIndex]) / divisor
-            rhs.d[iU] = one(TS)
-            rhs.dl[iU-1] = zero(TS)
-            if iU <= length(rhs.du)
-                rhs.du[iU] = zero(TS)
-            end
-        else
-            # v0Matrix[iU, colIndex] = ((Sip[iU] - Sip[iU-1]) * value - (Sip[iU] - Ui) * v0Matrix[iU-1, colIndex]) / (Ui - Sip[iU-1])
-            rhs.d[iU] = one(TS)
-            rhs.dl[iU-1] = zero(TS)
-            v0Matrix[iU, colIndex] = value
-            #  rhs.d[iU] = (Sip[iU]- Sip[iU-1])/ (Ui - Sip[iU-1])
-            #  rhs.dl[iU-1] = -(Sip[iU]-Ui)/ (Ui - Sip[iU-1]) 
-            rhs.d[iU-1] = rhs.d[iU-1] - rhs.du[iU-1] * ((Sip[iU] - Ui) / (Ui - Sip[iU-1]))
-            rhs.du[iU-1] = rhs.du[iU-1] * ((Sip[iU] - Sip[iU-1]) / (Ui - Sip[iU-1]))
-
-            if iU <= length(rhs.du)
-                rhs.du[iU] = zero(TS)
-            end
+        value = interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bcDown)
+        #ghost value at iU such that the quadratic on iU-2, iU-1, iU equals the boundary value at the barrier
+        w = lagrange3(Sip, iU - 1, Ui)
+        v0Matrix[iU, colIndex] = (value - w[1] * v0Matrix[iU-2, colIndex] - w[2] * v0Matrix[iU-1, colIndex]) / w[3]
+        rhs.d[iU] = one(TS)
+        rhs.dl[iU-1] = zero(TS)
+        if iU <= length(rhs.du)
+            rhs.du[iU] = zero(TS)
         end
-        # println(" Quadratic ", value, " ", v0Matrix[iU, colIndex], " ", v0Matrix[iU-1, colIndex], " ", v0Matrix[iU-2, colIndex])
-        # println("interpolated value ", value, " ", v0Matrix[iU, colIndex], " ", Ui, " ", v0Matrix[iU-1, colIndex], " ", v0Matrix[iU-2, colIndex])
-
     end
 end
 
 
-function applyBoundaryConditionLeft(way::Up, colIndex::Int, bcDown::Union{DirichletBoundaryCondition,DirichletPayoffBoundaryCondition}, Si::AbstractArray{TS}, v0Matrix, lhs, dt, advectionCoeff, sinkCoeff; interpolation="Quadratic") where {TS}
-    rowIndex = searchsortedfirst(Si, bcDown.level)
+function applyBoundaryConditionLeft(way::Up, colIndex::Int, bcDown::Union{DirichletBoundaryCondition,DirichletPayoffBoundaryCondition}, Si::AbstractArray{TS}, v0Matrix, lhs, dt, advectionCoeff, sinkCoeff) where {TS}
+    rowIndex, isOnGrid = locateBarrier(Si, bcDown.level)
     for i = rowIndex+1:length(Si)
         lhs.d[i] = one(TS)
         if i < length(Si)
@@ -767,32 +764,23 @@ function applyBoundaryConditionLeft(way::Up, colIndex::Int, bcDown::Union{Dirich
         lhs.dl[i-1] = zero(TS)
         v0Matrix[i, colIndex] = getBoundaryValue(bcDown, v0Matrix, i)
     end
-    if abs(bcDown.level - Si[rowIndex]) <= sqrt(eps(TS))
+    if isOnGrid
         applyBoundaryConditionOnGrid(way, rowIndex, colIndex, bcDown, v0Matrix, lhs)
     else
         Ui = bcDown.level
         Sip = Si
         iU = rowIndex # S[iU-1] < level < S[iU]
-        # println("found boundary ",Si[iU-1]," ",bcDown.level," ",Si[iU])
-        value = interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bcDown, interpolation=interpolation)
-        v0Matrix[iU, colIndex] = value
-        if interpolation == "Quadratic"
-            lhs.d[iU] = (Ui - Sip[iU-1]) * (Ui - Sip[iU-2]) / ((Sip[iU] - Sip[iU-1]) * (Sip[iU] - Sip[iU-2]))
-            lhs.dl[iU-1] = (Ui - Sip[iU]) * (Ui - Sip[iU-2]) / ((Sip[iU-1] - Sip[iU]) * (Sip[iU-1] - Sip[iU-2]))
-            if iU <= length(lhs.du)
-                lhs.du[iU] = zero(TS)
-            end
-            lhsdll = (Ui - Sip[iU-1]) * (Ui - Sip[iU]) / ((Sip[iU-2] - Sip[iU-1]) * (Sip[iU-2] - Sip[iU]))
-            lhs.d[iU] -= lhs.du[iU-1] * lhsdll / lhs.dl[iU-2]
-            lhs.dl[iU-1] -= lhs.d[iU-1] * lhsdll / lhs.dl[iU-2]
-            v0Matrix[iU, colIndex] -= v0Matrix[iU-1, colIndex] * lhsdll / lhs.dl[iU-2]
-        else
-            lhs.d[iU] = (Ui - Sip[iU-1]) / (Sip[iU] - Sip[iU-1])   #lhd * v[iU] + lhsdl v[iU-1] = value
-            lhs.dl[iU-1] = (Sip[iU] - Ui) / (Sip[iU] - Sip[iU-1])
-            if iU <= length(lhs.du)
-                lhs.du[iU] = zero(TS)
-            end
+        v0Matrix[iU, colIndex] = interpolateBoundaryValue(v0Matrix, Sip, iU, Ui, bcDown)
+        w = lagrange3(Sip, iU - 1, Ui)
+        lhs.d[iU] = w[3]
+        lhs.dl[iU-1] = w[2]
+        if iU <= length(lhs.du)
+            lhs.du[iU] = zero(TS)
         end
+        lhsdll = w[1] #eliminated with the row iU-1 to keep the matrix tridiagonal
+        lhs.d[iU] -= lhs.du[iU-1] * lhsdll / lhs.dl[iU-2]
+        lhs.dl[iU-1] -= lhs.d[iU-1] * lhsdll / lhs.dl[iU-2]
+        v0Matrix[iU, colIndex] -= v0Matrix[iU-1, colIndex] * lhsdll / lhs.dl[iU-2]
     end
 end
 

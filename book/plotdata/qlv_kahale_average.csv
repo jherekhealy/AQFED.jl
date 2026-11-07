@@ -1,0 +1,21 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,Fokker-Planck,501.5,17.329279936892295,NaN
+1,1,lines,Fokker-Planck,531.0,15.917288196964282,NaN
+1,1,lines,Fokker-Planck,560.5,14.645154565961297,NaN
+1,1,lines,Fokker-Planck,590.0,13.504114390585592,NaN
+1,1,lines,Fokker-Planck,619.5,12.488922869396815,NaN
+1,1,lines,Fokker-Planck,649.0,11.599478470381595,NaN
+1,1,lines,Fokker-Planck,678.5,10.844643550027614,NaN
+1,1,lines,Fokker-Planck,708.0,10.251389410875015,NaN
+1,1,lines,Fokker-Planck,767.0,9.853491592472906,NaN
+1,1,lines,Fokker-Planck,826.0,10.858736612111407,NaN
+1,2,lines,Parameter averaging,501.5,17.14779480760009,NaN
+1,2,lines,Parameter averaging,531.0,15.793770683139524,NaN
+1,2,lines,Parameter averaging,560.5,14.556738793336852,NaN
+1,2,lines,Parameter averaging,590.0,13.43217321444021,NaN
+1,2,lines,Parameter averaging,619.5,12.417618070862451,NaN
+1,2,lines,Parameter averaging,649.0,11.512222458149434,NaN
+1,2,lines,Parameter averaging,678.5,10.716127280137815,NaN
+1,2,lines,Parameter averaging,708.0,10.029645737555278,NaN
+1,2,lines,Parameter averaging,767.0,8.981618302217406,NaN
+1,2,lines,Parameter averaging,826.0,8.337913187884032,NaN

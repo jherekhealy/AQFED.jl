@@ -36,13 +36,14 @@ function varianceByLogmoneyness(s::SVISection, y)
     return s.a + s.b * (s.rho * (y - s.m) + sqrt(sqrsy))
 end
 
-function varianceSlopeCurvature(s::SVISection, y::Float64)
+@inline function varianceSlopeCurvature(s::SVISection, y::Float64)
     ym = (y - s.m)
     sqrsy = s.s * s.s + ym * ym
     sqrtsy = sqrt(sqrsy)
+    invSqrtsy = 1 / sqrtsy
     variance = s.a + s.b * (s.rho * ym + sqrtsy)
-    slope = s.b * (ym / sqrtsy + s.rho)
-    curvature = s.b * (1 - ym^2 / sqrsy) / sqrtsy
+    slope = s.b * (ym * invSqrtsy + s.rho)
+    curvature = s.b * s.s * s.s * invSqrtsy^3 #b(1 - ym²/sqrsy)/sqrtsy
     return variance, slope, curvature
 end
 

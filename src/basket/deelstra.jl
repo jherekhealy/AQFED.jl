@@ -9,7 +9,19 @@ struct DeelstraBasketPricer <: BasketPricer
     δIndex::Int
     fIndex::Int
     q::Quadrature
+    #number of conditional moments matched by the shifted lognormal: 2 (Deelstra et al., shift given by fIndex) or 3
+    #(the shift is fitted to the conditional third moment, fIndex is then ignored). 3 is more accurate for negatively
+    #correlated assets, where the conditional distribution is far from lognormal, at the cost of O(d³) operations.
+    nMoments::Int
+    #number of directions integrated out besides Λ (0 or 1). With negatively correlated assets, the basket given Λ still
+    #depends on a long-short combination of the assets, along which it behaves like a hyperbolic cosine: its left tail is then poorly described by
+    #a shifted lognormal, whatever the number of moments matched. With 1, the residual factor (the direction of largest variance given Λ) is
+    #integrated (qz on fixed panels of width 2, the kinks of the intrinsic value being integrated exactly) and the shifted
+    #lognormal approximation is applied to the basket given Λ and the residual factor.
+    nDirections::Int
+    qz::GaussLegendre
 end
+DeelstraBasketPricer(δIndex::Int, fIndex::Int, q::Quadrature, nMoments::Int=2) = DeelstraBasketPricer(δIndex, fIndex, q, nMoments, 0, GaussLegendre(4))
 export LowerBound
 struct LowerBound <: Quadrature
 end
@@ -17,8 +29,8 @@ isSplit(q::T) where {T<:Quadrature} = false
 
 
 
-function DeelstraBasketPricer(δIndex::Int, fIndex::Int; q::Quadrature=GaussLegendre(21))
-    DeelstraBasketPricer(δIndex, fIndex, q)
+function DeelstraBasketPricer(δIndex::Int, fIndex::Int; q::Quadrature=GaussLegendre(21), nMoments::Int=2, nDirections::Int=0, qz::GaussLegendre=GaussLegendre(4))
+    DeelstraBasketPricer(δIndex, fIndex, q, nMoments, nDirections, qz)
 end
 
 
@@ -29,6 +41,88 @@ end
 DeelstraBasketPricer() = DeelstraBasketPricer(3, 3)
 DeelstraLBBasketPricer() = DeelstraLBBasketPricer(3, 3)
 
+#undiscounted call on the shifted lognormal fS + Y matching the conditional moments eS = E[B], eS2 = E[B²], with the
+#shift fS given (Deelstra et al.)
+shiftedLognormalCall(eS::T, eS2::T, fS::T, strike::T) where {T} = shiftedLognormalCentralCall(eS, eS2 - eS^2, fS, strike)
+
+#same, from the mean eS and the variance of B, without cancellation when the variance is small
+function shiftedLognormalCentralCall(eS::T, variance::T, fS::T, strike::T)::T where {T}
+    euphs2 = eS - fS
+    if euphs2 < eps(T)
+        fS = zero(T)
+        euphs2 = eS
+    end
+    e2ups2 = max(variance + euphs2^2, eps(T))
+    uphs2 = log(euphs2)
+    ups2 = log(e2ups2) / 2
+    muS = (uphs2 - ups2 / 2) * 2
+    sigmaS2 = max(ups2 - muS, eps(T))
+    if strike <= fS #the shifted lognormal is always in the money
+        return euphs2 + fS - strike
+    end
+    d1 = (ups2 - log(strike - fS)) / sqrt(sigmaS2)
+    d2 = d1 - sqrt(sigmaS2)
+    return euphs2 * normcdf(d1) - (strike - fS) * normcdf(d2)
+end
+
+#undiscounted call on c + sgn Y, Y lognormal, matching the mean eS, the variance and the third central moment m3 of B
+#(sgn: sign of the skewness)
+function shiftedLognormal3Call(eS::T, variance::T, m3::T, strike::T)::T where {T}
+    if variance <= eps(T) * eS^2
+        return max(eS - strike, zero(T))
+    end
+    skew = m3 / variance^1.5
+    sgn = skew < 0 ? -1 : 1
+    #skewness of a lognormal (w+2)√(w-1) with w = exp(s²): u = √(w-1) solves u³ + 3u = |skew|, in a form without
+    #cancellation for small skewness
+    u = 2 * sinh(asinh(abs(skew) / 2) / 3)
+    if u < cbrt(eps(T)) #nearly Gaussian: first order Edgeworth correction in the skewness, continuous with the lognormal
+        sd = sqrt(variance)
+        d = (eS - strike) / sd
+        return (eS - strike) * normcdf(d) + sd * normpdf(d) + skew * (strike - eS) * normpdf(d) / 6
+    end
+    s2 = log1p(u^2)
+    s = sqrt(s2)
+    meanY = sqrt(variance) / u
+    c = eS - sgn * meanY
+    if sgn > 0 #(c + Y - K)^+
+        k = strike - c
+        if k <= 0
+            return eS - strike
+        end
+        d1 = (log(meanY / k) + s2 / 2) / s
+        return meanY * normcdf(d1) - k * normcdf(d1 - s)
+    else #(c - Y - K)^+ = (k - Y)^+
+        k = c - strike
+        if k <= 0
+            return zero(T)
+        end
+        d1 = (log(meanY / k) + s2 / 2) / s
+        return k * normcdf(-d1 + s) - meanY * normcdf(-d1)
+    end
+end
+
+
+#g_i = Cov[X_i, Λ]/σ_Λ, M = exp(Σ - g gᵀ) - 1 and, with a residual factor, ℓ the direction of largest variance of the
+#log-returns given Λ: given Λ and Z, the covariance is Σ - g gᵀ - ℓ ℓᵀ, and Mz = exp(Σ - g gᵀ - ℓ ℓᵀ) - 1. The
+#variance of the log-returns, rather than the one of the basket (ConditionalBasketPricer), is used: the left tail of the
+#conditional basket, which the shifted lognormal does not capture, is driven by the long-short combinations of the most volatile assets.
+function conditionalCovariance(p::DeelstraBasketPricer, r, forward::AbstractArray{TV}, totalVariance, weight, correlation) where {TV}
+    n = length(forward)
+    sqrtVar = sqrt.(totalVariance)
+    g = r .* sqrtVar
+    Σ = correlation .* (sqrtVar * sqrtVar')
+    R = Σ - g * g'
+    E = expm1.(R)
+    if p.nDirections > 0 && n > 1
+        eig = eigen(Symmetric(R))
+        if eig.values[end] > 1e-10 * tr(Σ)
+            ℓ = eig.vectors[:, end] .* sqrt(eig.values[end])
+            return g, E, ℓ, expm1.(R - ℓ * ℓ'), true
+        end
+    end
+    return g, E, zeros(TV, n), E, false
+end
 
 function priceEuropean(
     p::DeelstraBasketPricer,
@@ -40,7 +134,7 @@ function priceEuropean(
     totalVariance::AbstractArray{<:T}, #vol^2 * τ
     weight::AbstractArray{<:T},
     correlation::Matrix{TV};
-    ndev=4.0, isLognormal=1, useM3=false
+    ndev=8.0, isLognormal=1, useM3=false #the call keeps a value for very negative λ when the conditional mean is large there (deep in the money calls, puts by the parity, U-shaped conditional mean): a truncation at 4 standard deviations misses up to Φ(-4)(E[B|Λ]-K), and gives negative puts
 )::T where {T,TV}
     n = length(spot)
     δ = zeros(TV, n) #we store δ * S here.
@@ -84,6 +178,10 @@ function priceEuropean(
    varGamma = max(varGamma,sqrt(eps(T)))
     volGamma = sqrt(varGamma)
     r ./= volGamma
+    #conditional moments of the basket given Λ = λ, with x = λ/σ_Λ and g_i = r_i σ_i √T:
+    #  E[Π_{i∈I} q_i S_i | Λ] = Π_{i∈I} A_i(x) Π_{i<j∈I} M_ij,  A_i(x) = q_i F_i exp(-g_i²/2 + g_i x),  M_ij = exp(c_ij - g_i g_j)
+    #where c_ij = ρ_ij σ_i σ_j T (I is a multiset). Used for the third moment and for the residual factor.
+    g, M, ℓ, Mz, useResidualFactor = conditionalCovariance(p, r, forward, totalVariance, weight, correlation)
     priceCall = zero(Float64)
     if typeof(p.q) == LowerBound
         function objective(λ::T)::Tuple{<:T,<:T,<:T}
@@ -136,34 +234,121 @@ function priceEuropean(
             varLambda = varGamma
             return exp(-λ^2 / (2 * varLambda)) / sqrt(T(pi) * 2 * varLambda)
         end
-        function expectationValue(λ::T) where {T}
-            #depends on forward, weight, tvar, r, volGamma,correl, f, sumwbd, strike
-            eS = zero(T)
-            eS2 = zero(T)
-            for (i, fi) in enumerate(forward)
-                tempi = weight[i] * fi
-                eSi = tempi
-                viT = totalVariance[i]
-                sqrti = zero(Float64)
-                if viT > 0
-                    sqrti = sqrt(viT)
-                    eSi *= exp(-r[i]^2 * viT / 2 + r[i] * sqrti * (λ) / (volGamma))
+        #conditional central moments of the basket from its conditional forwards A and the matrix Ec = exp(conditional
+        #covariance) - 1, without cancellation when the conditional variance is small: Var[B] = Σ A_i A_j Ec_ij,
+        #E[(B - E[B])³] = Σ A_i A_j A_k t(Ec_ij, Ec_ik, Ec_jk) with t(a, b, c) = ab + ac + bc + abc. The three pairwise
+        #terms sum to 3 Σ_i A_i (Ec A)_i², in O(d²): only the term abc is cubic, summed over i ≥ j ≥ k with the
+        #multiplicities 1 (i = j = k), 3 (two equal) and 6. Ec is symmetric: the inner loops run over its columns.
+        function conditionalCall(A, Ec, fS)
+            nA = length(A)
+            eS = sum(A)
+            variance = zero(eS)
+            m3 = zero(eS)
+            @inbounds for i = 1:nA
+                Ai = A[i]
+                EAi = zero(eS)
+                @simd for j = 1:nA
+                    EAi += Ec[j, i] * A[j]
                 end
-                eS += eSi
+                variance += Ai * EAi
+                p.nMoments == 3 || continue
+                Eii = Ec[i, i]
+                m3 += 3 * Ai * EAi^2 + Ai^3 * Eii^3
                 for j = 1:i-1
-                    vjT = totalVariance[j]
-                    sqrtj = zero(Float64)
-                    if vjT > 0
-                        sqrtj = sqrt(vjT)
+                    Aj, Eij = A[j], Ec[j, i]
+                    m3 += 3 * Ai * Aj * Eij^2 * (Ai * Eii + Aj * Ec[j, j])
+                    acc = zero(eS)
+                    @simd for k = 1:j-1
+                        acc += A[k] * Ec[k, i] * Ec[k, j]
                     end
-                    sigmaij = sqrt(viT + vjT + 2 * sqrti * sqrtj * correlation[i, j])
-                    rij = (r[i] * sqrti + r[j] * sqrtj) / sigmaij
-                    eFactor = -viT / 2 - vjT / 2 + (1 - rij^2) / 2 * sigmaij^2 + rij * sigmaij * (λ) / (volGamma)
-                    eS2 += 2 * tempi * weight[j] * forward[j] * exp(eFactor)
+                    m3 += 6 * Ai * Aj * Eij * acc
                 end
-                eS2 += tempi^2 * exp(-viT + 2 * (1 - r[i]^2) * viT + r[i] * 2 * sqrti * (λ) / (volGamma))
             end
-
+            variance = max(variance, zero(eS))
+            if p.nMoments == 3
+                return shiftedLognormal3Call(eS, variance, m3, strike)
+            end
+            return variance <= eps(eS) * eS^2 ? max(eS - strike, zero(eS)) : shiftedLognormalCentralCall(eS, variance, fS, strike)
+        end
+        #integral over the residual factor Z, given Λ: the conditional forwards are A0_i exp(ℓ_i z - ℓ_i²/2), and the conditional
+        #mean m(z) is convex in z. When the variance left is small, the conditional price is close to the intrinsic value
+        #(m(z) - K)^+, with a (smoothed) kink at the crossings z* of the strike. At each crossing, we subtract the proxy
+        #α v ψ(m'(z*)(z - z*)/v), ψ(u) = uΦ(u) + φ(u), the price of the linearized conditional basket with the conditional
+        #standard deviation v at z*, and add its integral E[(m'(Z - z*) + vN)^+] = s ψ(-m' z*/s), s² = m'² + v², exactly.
+        #The remainder is smooth and integrated on fixed panels: no knot depends on the parameters, and the price is smooth.
+        #The weight α = exp(-(v/m')²) vanishes with all its derivatives when the crossings appear (m' → 0). For two
+        #assets (v = 0), the exact intrinsic value is subtracted instead, and the integral is exact.
+        function residualFactorCall(A0, fS)
+            zMax = T(6) #range of the numerical integration
+            zRoot = T(12) #range of the search of the crossings of the strike
+            meanZ(z) = sum(@. A0 * exp(ℓ * z - ℓ^2 / 2))
+            zmin = all(ℓ .>= 0) ? -zRoot : (all(ℓ .<= 0) ? zRoot : zero(T))
+            if zmin == 0 #Newton on the derivative of the convex conditional mean
+                for _ = 1:50
+                    e = @. A0 * exp(ℓ * zmin - ℓ^2 / 2)
+                    step = dot(e, ℓ) / dot(e, ℓ .^ 2)
+                    zmin = clamp(zmin - step, -zRoot, zRoot)
+                    abs(step) < 1e-10 && break
+                end
+            end
+            #crossings by Newton's method from the outside, monotone for a convex function; ±∞ without crossing
+            function crossing(zEnd)
+                meanZ(zEnd) > strike || return zEnd < 0 ? T(-Inf) : T(Inf)
+                z = zEnd
+                for _ = 1:50
+                    e = @. A0 * exp(ℓ * z - ℓ^2 / 2)
+                    step = (sum(e) - strike) / dot(e, ℓ)
+                    z -= step
+                    abs(step) < 1e-10 && break
+                end
+                return z
+            end
+            ψ(u) = u * normcdf(u) + normpdf(u)
+            hasCrossing = meanZ(zmin) < strike
+            #per crossing: (z*, m'(z*), v(z*), α); α = 0 without crossing
+            proxies = NTuple{4,T}[]
+            if hasCrossing
+                for zEnd in (-zRoot, zRoot)
+                    zc = crossing(zEnd)
+                    isinf(zc) && continue
+                    A = @. A0 * exp(ℓ * zc - ℓ^2 / 2)
+                    slope = dot(A, ℓ)
+                    sdc = sqrt(max(dot(A, Mz * A), zero(T)))
+                    α = sdc <= sqrt(eps(T)) * strike ? one(T) : exp(-(sdc / slope)^2)
+                    push!(proxies, (zc, slope, sdc, α))
+                end
+            end
+            value = zero(T)
+            for (zc, slope, sdc, α) in proxies
+                if sdc <= sqrt(eps(T)) * strike #exact intrinsic value on the side of the crossing
+                    value += zc < zmin ? sum(@. A0 * normcdf(zc - ℓ)) - strike * normcdf(zc) : sum(@. A0 * normcdf(ℓ - zc)) - strike * normcdf(-zc)
+                else
+                    sc = sqrt(slope^2 + sdc^2)
+                    value += α * sc * ψ(-slope * zc / sc)
+                end
+            end
+            function remainder(z)
+                A = @. A0 * exp(ℓ * z - ℓ^2 / 2)
+                rem = conditionalCall(A, Mz, fS)
+                for (zc, slope, sdc, α) in proxies
+                    if sdc <= sqrt(eps(T)) * strike
+                        if (zc < zmin && z <= zc) || (zc > zmin && z >= zc)
+                            rem -= max(sum(A) - strike, zero(T))
+                        end
+                    else
+                        rem -= α * sdc * ψ(slope * (z - zc) / sdc)
+                    end
+                end
+                return rem
+            end
+            #fixed panels of width 2 (the Gaussian weight is well integrated by a short Gauss-Legendre rule): knots that
+            #follow the crossings would move as the square root of the distance to their birth, and spoil the greeks
+            for zl = -zMax:2:zMax-2
+                value += Math.integrate(p.qz, z -> normpdf(z) * remainder(z), T(zl), T(zl + 2))
+            end
+            return value
+        end
+        function expectationValue(λ::T) where {T}
             fS = zero(T)
             if p.fIndex == 1
                 #zero
@@ -176,29 +361,8 @@ function priceEuropean(
                 gF = exp(lnGF)
                 fS = f * gF
             end
-            euphs2 = eS - fS
-            if euphs2 < eps(T)
-                fS = 0
-                euphs2 = eS
-            end
-            e2ups2 = eS2 - 2 * fS * eS + fS^2
-
-            if e2ups2 < eps(T)
-                e2ups2 = eps(T)
-            end
-            uphs2 = log(euphs2)
-            ups2 = log(e2ups2) / 2
-            muS = (uphs2 - ups2 / 2) * 2
-            sigmaS2 = ups2 - muS
-            if sigmaS2 < eps(T)
-                sigmaS2 = eps(T)
-            end
-            if strike <= fS
-                return euphs2
-            end
-            d1 = (ups2 - log(strike - fS)) / sqrt(sigmaS2)
-            d2 = d1 - sqrt(sigmaS2)
-            return euphs2 * normcdf(d1) - (strike - fS) * normcdf(d2)
+            A = @. weight * forward * exp(-g^2 / 2 + g * λ / volGamma)
+            return useResidualFactor ? residualFactorCall(A, fS) : conditionalCall(A, M, fS)
         end
 
         function integrand(λ::T) where {T}

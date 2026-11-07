@@ -40,6 +40,17 @@ function computeDiscretePrices(lvg::QuadraticLVG{TV,T},z,dt) where {TV,T}
 end
 
 
+"""
+Interpolation of the discrete (grid) option prices of the Andreasen-Huge (discrete LVG) model in between the grid points.
+`CubicSplinePriceInterpolation()` (natural cubic spline, the default) or `QuadraticLagrangePriceInterpolation()`.
+"""
+abstract type DiscretePriceInterpolation end
+struct CubicSplinePriceInterpolation <: DiscretePriceInterpolation end
+struct QuadraticLagrangePriceInterpolation <: DiscretePriceInterpolation end
+
+makePriceInterpolant(::CubicSplinePriceInterpolation, z, prices) = CubicSplineNatural(z, prices)
+makePriceInterpolant(::QuadraticLagrangePriceInterpolation, z, prices) = QuadraticLagrangePP(z, prices)
+
 struct DiscreteLogLVG{TV,T,TI}
     lvg::QuadraticLVG{TV,T}
     z::Vector{T} #discretization z[1] = lvg.x[1], z[end]=lvg.x[end]
@@ -49,13 +60,13 @@ struct DiscreteLogLVG{TV,T,TI}
 end
 Base.broadcastable(p::DiscreteLogLVG) = Ref(p)
 
-function DiscreteLogLVG(lvg::QuadraticLVG{TV,T},n::Int) where {TV,T}
+function DiscreteLogLVG(lvg::QuadraticLVG{TV,T},n::Int; interpolation::DiscretePriceInterpolation=CubicSplinePriceInterpolation()) where {TV,T}
     z = exp.(collect(range(log(lvg.x[1]),stop=log(lvg.x[end]),length=n)))
     xIndices = [max(searchsortedlast(lvg.x, zi), 1) for zi in z]
-    pp = computeDiscreteLogPrices(lvg,xIndices, z,lvg.tte )
+    pp = computeDiscreteLogPrices(lvg,xIndices, z,lvg.tte, interpolation=interpolation)
     return DiscreteLogLVG(lvg, z, lvg.tte, pp)
 end
-function computeDiscreteLogPrices(lvg::QuadraticLVG{TV,T},xIndices,z,dt;  tri = Tridiagonal(zeros(TV, length(z)-1),zeros(TV,length(z)),zeros(TV,length(z)-1)), rhs = @. max(lvg.forward-z,zero(T))) where {TV,T}
+function computeDiscreteLogPrices(lvg::QuadraticLVG{TV,T},xIndices,z,dt;  tri = Tridiagonal(zeros(TV, length(z)-1),zeros(TV,length(z)),zeros(TV,length(z)-1)), rhs = (@. max(lvg.forward-z,zero(T))), interpolation::DiscretePriceInterpolation=CubicSplinePriceInterpolation()) where {TV,T}
    
     #tri = model.tri
     a = lvg.a
@@ -74,8 +85,7 @@ function computeDiscreteLogPrices(lvg::QuadraticLVG{TV,T},xIndices,z,dt;  tri = 
         tri.du[i] = -factor*(one(T)-dz/2)
     end
     prices = tri\rhs
-    pp = CubicSplineNatural(z,prices)
-    # pp = QuadraticLagrangePP(z,prices)
+    pp = makePriceInterpolant(interpolation, z, prices)
      return pp
 end
 
@@ -106,10 +116,10 @@ function priceEuropeanPiece(i::Int, model::DiscreteLogLVG{TV,T,TI}, isCall::Bool
 end
 
 #same calibration as QuadraticLVG, only difference is pricceEuropean calls. Also cache index of forward in z
-function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T}, callPrices::AbstractVector{T}, weights::AbstractVector{T}; discreteSize=101, U::T=6 * forward, L::T=forward / 6, useVol=false, model::LVGKind=LinearBachelier(), penalty=zero(T), nRefine=3, location="Mid-XX", isC3=true, minCount=1, size=0, guess="Constant", optimizer="LM", previousLVG=Nothing) where {T}
+function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T}, callPrices::AbstractVector{T}, weights::AbstractVector{T}; discreteSize=101, U::T=6 * forward, L::T=forward / 6, useVol=false, model::LVGKind=LinearBachelier(), penalty=zero(T), nRefine=3, location="Mid-XX", isC3=true, minCount=1, size=0, guess="Constant", optimizer="LM", previousLVG=Nothing, interpolation::DiscretePriceInterpolation=CubicSplinePriceInterpolation()) where {T}
 
     #if the forward is not part of the strikes, add the forward and interpolate prices with quadratic. Eventually set corresponding weight to 0
-    if typeof(previousLVG) == QuadraticLVG
+    if previousLVG isa QuadraticLVG
         L = previousLVG.x[1]
         U = previousLVG.x[end]
     else
@@ -142,7 +152,7 @@ function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T},
         priceAtm = callPrices[s]
     end
     local x
-    if typeof(previousLVG) == QuadraticLVG
+    if previousLVG isa QuadraticLVG
         x = previousLVG.x
         s = searchsortedfirst(x, forward) - 1
     else
@@ -176,7 +186,7 @@ function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T},
     a0 = atmVol * sqrt(tte / 2)
     local minValueV
     local maxValueV
-    if typeof(previousLVG) == QuadraticLVG
+    if previousLVG isa QuadraticLVG
         aMinV = toFreeParameters(previousLVG.λ, model, m, l, s, forward, isC3=isC3)
         minValueV = max.(aMinV, a0 / 100)
         maxValueV = fill(a0 * 8000, l)
@@ -211,6 +221,7 @@ function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T},
     end
     discreteForwardIndex = searchsortedlast(z,forward)
     logForward = log(forward)
+    priceInterpolation = interpolation
 
     ### TODO don't set sigma0=sigma1: one more variable to minimize on. don't set lambda2 = lambda3.
     #TODO split in separate types Linear,... and operate on those toQuadForm. instead of strings.
@@ -230,14 +241,14 @@ function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T},
         end
         toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
         lvg = QuadraticLVG(x, α, β, γ, θ, λ, tte, forward)
-        pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte)        
+        pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte, interpolation=priceInterpolation)        
         if isC3
             for _ = 1:nRefine
                 modelPriceAtm = evaluatePiece(pp,discreteForwardIndex,forward)
                 updateLambda!(λ, model, x, s + 1, modelPriceAtm, basis=basis)
                 toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
                 lvg = QuadraticLVG(x, α, β, γ, θ, λ, tte, forward)
-                pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte)               
+                pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte, interpolation=priceInterpolation)               
             end
         end
         # println("θ ", θ)
@@ -324,14 +335,14 @@ function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T},
         # println(iter, " fit ", fit)
         x0
     elseif optimizer == "LM"
-        obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=:forward, inplace=true)
+        obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=LsqFit.AutoForwardDiff(), inplace=true)
         fit = LsqFit.levenberg_marquardt(obj1, x0,
             lower=minValueV, upper=maxValueV)
         
         # println(iter, " fit ", fit)
         fit.minimizer
     elseif optimizer == "LM-MQ" || optimizer == "LM-SIN" || optimizer == "LM-LOG" || optimizer == "LM-ALG" || optimizer == "LM-TANH" || optimizer == "LM-ATAN"
-        obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=:forward, inplace=true)
+        obj1 = OnceDifferentiable(obj!, x0, copy(fvec); autodiff=LsqFit.AutoForwardDiff(), inplace=true)
         fit = LsqFit.levenberg_marquardt(obj1, x0)
         # println(iter, " fit ", fit)
         fit.minimizer
@@ -353,7 +364,7 @@ function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T},
     end
     toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
     lvg = QuadraticLVG(x, α, β, γ, θ, λ, tte, forward)
-    pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte)        
+    pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte, interpolation=priceInterpolation)        
     if isC3
         for _ = 1:nRefine
             modelPriceAtm = evaluatePiece(pp,discreteForwardIndex,forward)
@@ -361,7 +372,7 @@ function calibrateDiscreteLogLVG(tte::T, forward::T, strikes::AbstractVector{T},
             updateLambda!(λ, model, x, s + 1, modelPriceAtm, basis=basis)
             toQuadForm!(model, m, l, s, x, α, β, γ, λ, basis=basis)
             lvg = QuadraticLVG(x, α, β, γ, θ, λ, tte, forward)
-            pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte)               
+            pp = computeDiscreteLogPrices(lvg,lvIndices,z,tte, interpolation=priceInterpolation)               
         end
     end
     return DiscreteLogLVG(lvg, z, lvg.tte, pp)

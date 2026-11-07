@@ -1,0 +1,2003 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.34887695753723,0.8209747847920422,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.342179203622156,0.8066149588043362,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.335481449707081,0.7923816714300225,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.3287836957920067,0.7782777423108406,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.3220859418769324,0.7643058856308605,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.3153881879618576,0.7504687102350899,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.3086904340467833,0.7367687198299939,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.301992680131709,0.7232083132641838,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2952949262166342,0.7097897848874469,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.28859717230156,0.6965153249862328,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2818994183864856,0.6833870202936277,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.275201664471411,0.6704068545718219,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2685039105563365,0.65757670926499,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.261806156641262,0.644898364220462,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2551084027261874,0.6323734984760245,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.248410648811113,0.6200036911111305,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2417128948960388,0.6077904221597661,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.235015140980964,0.5957350735826787,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2283173870658897,0.583838930296656,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2216196331508153,0.5721031812584755,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2149218792357406,0.5605289206011748,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.2082241253206663,0.5491171488202257,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.201526371405592,0.5378687740071898,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.194828617490517,0.5267846131284407,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.188130863575443,0.5158653933464968,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1814331096603685,0.505111753381521,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1747353557452938,0.49452424491054126,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1680376018302194,0.4841033340019438,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.161339847915145,0.4738494025827877,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1546420940000703,0.4637627499365199,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.147944340084996,0.4538435942286654,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1412465861699217,0.4440920740580815,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.134548832254847,0.4345082500314052,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1278510783397726,0.4250921063583258,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1211533244246983,0.4158435524653449,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.1144555705096235,0.40676242462573414,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.107757816594549,0.3978484876034105,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.101060062679475,0.3891014363084966,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0943623087644,0.38052089746238305,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.087664554849326,0.3721064312701358,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0809668009342515,0.3638575330981435,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0742690470191767,0.3557736351549605,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0675712931041024,0.34785410817333334,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.060873539189028,0.34009826309146357,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0541757852739533,0.33250535273162335,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.047478031358879,0.32507457347428037,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0407802774438046,0.31780506692596733,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.03408252352873,0.31069592157918846,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0273847696136555,0.30374617446272206,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0206870156985812,0.29695481278073854,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.0139892617835065,0.29032077553924046,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.007291507868432,0.28384295515838137,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-3.000593753953358,0.27752019906930303,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.993896000038283,0.2713513112942124,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9871982461232087,0.2653350540084762,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9805004922081344,0.259470149083597,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9738027382930596,0.2537552796100206,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9671049843779853,0.24818909139878395,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.960407230462911,0.24277019446110099,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.953709476547836,0.23749716446506672,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.947011722632762,0.23236854416873076,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9403139687176876,0.22738284482886956,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.933616214802613,0.2225385475848763,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9269184608875385,0.21783410481725793,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.920220706972464,0.2132679414803008,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9135229530573894,0.20883845640856435,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.906825199142315,0.2045440235969186,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.9001274452272408,0.20038299345392668,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.893429691312166,0.19635369402845157,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8867319373970917,0.19245443220943392,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8800341834820173,0.1886834948988627,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8733364295669426,0.18503915015803363,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8666386756518683,0.1815196483272576,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.859940921736794,0.1781232231192476,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.853243167821719,0.17484809268648194,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.846545413906645,0.17169246066290167,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8398476599915705,0.16865451718036203,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8331499060764957,0.1657324398603179,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8264521521614214,0.16292439478127776,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.819754398246347,0.16022853742261187,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.8130566443312723,0.15764301358535868,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.806358890416198,0.15516596029071125,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7996611365011237,0.15279550665691502,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.792963382586049,0.15052977475535115,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7862656286709746,0.14836688044661422,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7795678747559003,0.1463049341974273,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7728701208408255,0.14434204187927216,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.766172366925751,0.14247630554963728,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.759474613010677,0.14070582421680816,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.752776859095602,0.13902869458914924,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.746079105180528,0.13744301180984062,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7393813512654535,0.1359468701780412,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7326835973503787,0.1345383638574667,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7259858434353044,0.13321558757336863,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.71928808952023,0.13197663729890244,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.7125903356051553,0.13081961093187208,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.705892581690081,0.12974260896282813,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.6991948277750066,0.12874373513548698,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.692497073859932,0.12782109710042072,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.6857993199448575,0.12697280706295372,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.679101566029783,0.12619698242617028,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.6724038121147085,0.12549174642991992,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.665706058199634,0.124855228786669,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.65900830428456,0.12428556631501662,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.652310550369485,0.12378090357165382,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.6456127964544107,0.1233393934825042,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.6389150425393364,0.12295919797373613,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.6322172886242616,0.12263848860329299,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.6255195347091873,0.12237544719353388,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.618821780794113,0.12216826646552063,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.612124026879038,0.12201515067543472,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.605426272963964,0.12191431625354353,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5987285190488896,0.12186399244607345,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.592030765133815,0.12186242196028407,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5853330112187405,0.12190786161296875,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.578635257303666,0.12199858298253756,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5719375033885914,0.12213287306477044,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.565239749473517,0.12230903493225186,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5585419955584427,0.12252538839742794,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.551844241643368,0.12278027067915051,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5451464877282937,0.12307203707249738,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5384487338132193,0.1233990616215817,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5317509798981446,0.12375973779498686,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.5250532259830702,0.12415247916338627,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.518355472067996,0.12457572007883182,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.511657718152921,0.1250279163551175,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.504959964237847,0.12550754594855035,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4982622103227725,0.12601310963838608,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4915644564076977,0.12654313170611384,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4848667024926234,0.12709616061270246,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.478168948577549,0.1276707696728515,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4714711946624743,0.12826555772522263,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4647734407474,0.12887914979756007,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4580756868323257,0.12951019776554848,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.451377932917251,0.13015738100419488,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4446801790021766,0.13081940703046352,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4379824250871023,0.13149501213584372,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4312846711720275,0.13218296200747323,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.424586917256953,0.13288205233640166,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.417889163341879,0.13359110941153024,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.411191409426804,0.13430899069773022,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.4044936555117298,0.13503458539660693,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3977959015966555,0.13576681498834958,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3910981476815807,0.1365046337530809,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3844003937665064,0.13724702927010418,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.377702639851432,0.1379930228934315,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3710048859363573,0.1387416702019672,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.364307132021283,0.13949206142271936,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3576093781062086,0.14024332182541566,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.350911624191134,0.14099461208690614,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3442138702760595,0.14174512862375244,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.337516116360985,0.14249410389142278,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3308183624459105,0.14324080664853636,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.324120608530836,0.14398454218463563,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.317422854615762,0.1447246525100023,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.310725100700687,0.145460516506076,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.3040273467856127,0.14619155003508622,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2973295928705384,0.14691720600756483,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2906318389554636,0.14763697440646645,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2839340850403893,0.14835038226669428,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.277236331125315,0.14905699360890262,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.27053857721024,0.14975640932652595,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.263840823295166,0.1504482670250706,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2571430693800916,0.1511322408127966,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.250445315465017,0.15180804104201176,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2437475615499425,0.15247541400030376,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.237049807634868,0.1531341415511414,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2303520537197934,0.153784040723388,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.223654299804719,0.15442496324938576,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2169565458896447,0.155056795051393,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.21025879197457,0.15567945567627783,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.2035610380594957,0.15629289767850402,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1968632841444213,0.15689710595157716,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1901655302293466,0.15749209700825523,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1834677763142722,0.15807791820996753,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.176770022399198,0.1586546469460324,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.170072268484123,0.15922238976340383,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.163374514569049,0.15978128144783188,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1566767606539745,0.16033148405746928,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1499790067388997,0.16087318591010735,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1432812528238254,0.1614066005253827,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.136583498908751,0.16193196552344824,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1298857449936763,0.16244954148175764,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.123187991078602,0.1629596107517717,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1164902371635277,0.1634624762375492,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.109792483248453,0.16395846013834114,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.1030947293333786,0.16444790265746612,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0963969754183043,0.16493116067989447,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0896992215032295,0.1654086064211262,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.083001467588155,0.16588062605009654,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.076303713673081,0.16634761828899397,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.069605959758006,0.16680999299301874,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0629082058429318,0.1672681697132573,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0562104519278575,0.16772257624598355,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0495126980127827,0.16817364717183447,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0428149440977084,0.16862182238843917,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.036117190182634,0.16906754564020374,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0294194362675593,0.1695112630490755,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.022721682352485,0.16995342165022218,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0160239284374106,0.17039446793666913,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.009326174522336,0.1708348464170361,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-2.0026284206072615,0.1712749981906056,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.995930666692187,0.17171535954403852,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9892329127771124,0.17215636057412484,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9825351588620381,0.17259842384101934,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9758374049469636,0.1730419630564686,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.969139651031889,0.17348738181157142,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9624418971168147,0.17393507234864997,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9557441432017402,0.17438541438182065,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9490463892866656,0.17483877397086184,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9423486353715913,0.17529550245296088,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9356508814565168,0.17575593543690068,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9289531275414422,0.17622039186420352,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.922255373626368,0.1766891731416933,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9155576197112933,0.17716256234986447,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9088598657962188,0.17764082353135172,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.9021621118811445,0.17812420106368737,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.89546435796607,0.1786129191204037,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8887666040509954,0.17910718122438696,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.882068850135921,0.17960716989722394,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8753710962208465,0.18011304640808926,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.868673342305772,0.18062495062551237,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8619755883906977,0.1811430009751287,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8552778344756231,0.18166729450626348,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8485800805605486,0.18219790706991937,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8418823266454742,0.182734893610436,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8351845727303997,0.18327828857276446,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8284868188153252,0.18382810642695255,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8217890649002508,0.1843843423110619,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8150913109851763,0.1849469727933433,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8083935570701017,0.18551595675407848,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.8016958031550274,0.18609123638705122,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7949980492399529,0.18667273832014808,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7883002953248783,0.1872603748541011,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.781602541409804,0.18785404531787397,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7749047874947295,0.1884536375386683,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.768207033579655,0.18905902942397287,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7615092796645806,0.18967009065251542,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.754811525749506,0.19028668447039143,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7481137718344315,0.19090866958804387,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7414160179193572,0.191535902173158,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7347182640042826,0.19216823793390914,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.728020510089208,0.1928055342863683,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7213227561741338,0.1934476525992313,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7146250022590592,0.19409446050839244,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7079272483439847,0.19474583429323591,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.7012294944289104,0.19540166130587824,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6945317405138358,0.19606184244395086,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6878339865987613,0.19672629465688415,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.681136232683687,0.19739495347503516,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6744384787686124,0.19806777555039498,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6677407248535379,0.19874474119703206,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6610429709384635,0.1994258569188646,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.654345217023389,0.20011115791182535,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6476474631083144,0.20080071052698262,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6409497091932401,0.20149461468071786,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6342519552781656,0.20219300619764188,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.627554201363091,0.2028960590715545,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6208564474480167,0.20360398762943235,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6141586935329422,0.2043170485831581,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6074609396178676,0.20503554295349952,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.6007631857027933,0.20575981785070369,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5940654317877188,0.206490268095996,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5873676778726442,0.20722733766827794,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.58066992395757,0.20797152096039215,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5739721700424953,0.20872336382948697,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5672744161274208,0.20948346442625657,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5605766622123465,0.21025247378816947,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.553878908297272,0.2110310961822268,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5471811543821974,0.21182008918331374,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.540483400467123,0.2126202634748305,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5337856465520485,0.2134324823590088,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.527087892636974,0.2142576609651432,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5203901387218997,0.21509676514489226,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.513692384806825,0.21595081004482933,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5069946308917506,0.21682085834755666,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.5002968769766762,0.21770801817392704,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4935991230616017,0.21861344064025137,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4869013691465272,0.21953831706580093,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4802036152314528,0.22048387582744353,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4735058613163783,0.22145137885987187,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4668081074013037,0.2224421178015909,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4601103534862294,0.22345740978862597,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4534125995711549,0.2244985928997832,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4467148456560803,0.2255670212592346,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.440017091741006,0.2266640598042142,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4333193378259315,0.22779107872766718,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.426621583910857,0.22894944760781719,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4199238299957826,0.23014052923876252,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.413226076080708,0.23136567317839998,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.4065283221656335,0.2326262090321757,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3998305682505592,0.23392343949337258,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3931328143354846,0.2352586331628569,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.38643506042041,0.23663301717339474,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3797373065053358,0.23804776964582042,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3730395525902612,0.239504012006463,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3663417986751867,0.2410028011973137,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3596440447601124,0.24254512181242335,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3529462908450378,0.24413187819594853,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3462485369299633,0.24576388653910186,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.339550783014889,0.24744186701498877,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3328530290998144,0.24916643599192564,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3261552751847399,0.25093809836730624,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3194575212696655,0.2527572400654191,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.312759767354591,0.2546241207437808,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.3060620134395164,0.2565388667535555,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2993642595244421,0.25850146440044436,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2926665056093676,0.26051175355304645,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.285968751694293,0.2625694216461044,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2792709977792187,0.2646739981262557,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2725732438641442,0.26682484938786544,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2658754899490696,0.26902117424626926,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2591777360339953,0.2712619999952375,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2524799821189208,0.2735461790947218,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2457822282038462,0.27587238653393403,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2390844742887719,0.2782391179135313,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2323867203736973,0.2806446882891495,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2256889664586228,0.2830872318167168,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2189912125435485,0.28556470223790786,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.212293458628474,0.2880748742417486,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.2055957047133994,0.29061534573576703,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.198897950798325,0.29318354105719413,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1922001968832505,0.29577671515156606,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.185502442968176,0.2983919587426563,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1788046890531017,0.30102620451398765,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.172106935138027,0.3036762343182365,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1654091812229526,0.30633868742665965,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1587114273078782,0.30901006982625245,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1520136733928037,0.3116867645676883,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1453159194777291,0.31436504316221214,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1386181655626548,0.3170410780205766,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1319204116475803,0.3197109559218195,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1252226577325057,0.3223706924942048,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1185249038174314,0.32501624768501447,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1118271499023569,0.327643542190068,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.1051293959872823,0.3302484748079144,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.098431642072208,0.3328269406775742,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0917338881571335,0.3353748503525538,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.085036134242059,0.33788814965760183,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0783383803269846,0.3403628402683774,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.07164062641191,0.3427950009478608,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0649428724968355,0.3451808093669857,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0582451185817612,0.3475165644306364,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0515473646666866,0.3497987090238649,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.044849610751612,0.3520238530869685,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0381518568365378,0.3541887969219577,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0314541029214632,0.3562905546269815,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0247563490063887,0.35832637754948166,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0180585950913144,0.3602937776432826,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0113608411762398,0.3621905506094938,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-1.0046630872611653,0.36401479869609144,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9979653333460909,0.36576495302636053,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9912675794310164,0.36743979532209375,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9845698255159419,0.36903847888358365,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9778720716008674,0.3705605486850858,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.971174317685793,0.3720059604415934,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9644765637707184,0.3733750985005277,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.957778809855644,0.37466879241035783,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9510810559405696,0.375888332017259,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.944383302025495,0.3770354809407866,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9376855481104206,0.37811248828019983,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9309877941953462,0.379122098404611,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9242900402802717,0.3800675586825697,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9175922863651971,0.38095262501011723,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9108945324501228,0.3817815650007713,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.9041967785350482,0.3825591587063996,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8974990246199739,0.38329069674454125,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8908012707048993,0.3839819757154788,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8841035167898248,0.38463929080128323,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8774057628747504,0.3852694254491789,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8707080089596759,0.38587963805291203,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8640102550446014,0.386477645558384,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.857312501129527,0.3870716039336116,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8506147472144525,0.38767008545810855,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.843916993299378,0.3882820528030132,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8372192393843035,0.38891682989070203,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8305214854692291,0.3895840695411621,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8238237315541546,0.3902937179320242,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8171259776390801,0.3910559759197742,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8104282237240056,0.3918812572912192,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.8037304698089311,0.3927801440366667,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7970327158938566,0.39376333875936087,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7903349619787823,0.3948416143594295,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7836372080637078,0.3960257611547146,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7769394541486332,0.397326531625314,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7702417002335589,0.39875458299322214,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7635439463184843,0.4003204178729804,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7568461924034099,0.4020343232535177,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7501484384883355,0.4039063080951984,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7434506845732609,0.405946039849259,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7367529306581865,0.4081627802291117,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.730055176743112,0.4105653205841667,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7233574228280375,0.4131619172466774,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7166596689129631,0.4159602272403772,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7099619149978886,0.41896724475613056,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.7032641610828141,0.42218923881424136,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6965664071677397,0.42563169254520405,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6898686532526653,0.4292992445303247,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6831708993375907,0.4331956326505889,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6764731454225161,0.4373236408961778,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6697753915074418,0.44168504958998395,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6630776375923673,0.44628058947615007,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6563798836772928,0.45110990011892543,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6496821297622183,0.4561714930478793,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6429843758471439,0.4614627200725936,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6362866219320694,0.46697974717336715,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.629588868016995,0.47271753435409053,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6228911141019203,0.478669821819326,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6161933601868459,0.4848291228097509,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.6094956062717716,0.4911867233985515,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.602797852356697,0.49773268951617944,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5961000984416226,0.5044558814322097,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5894023445265482,0.5113439758810636,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5827045906114737,0.5183834959732213,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5760068366963992,0.5255598489855291,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5693090827813247,0.5328573720735298,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5626113288662502,0.5402593858957327,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5559135749511757,0.5477482560846896,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5492158210361013,0.5553054624430541,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5425180671210268,0.5629116756848092,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5358203132059522,0.5705468414829978,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5291225592908779,0.5781902715259855,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5224248053758035,0.5858207412250064,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.515727051460729,0.5934165936569005,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.5090292975456545,0.600955849268086,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.50233154363058,0.6084163208093497,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.4956337897155056,0.6157757329164949,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.488936035800431,0.6230118456997533,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.48223828188535656,0.6301025816555956,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.4755405279702822,0.6370261551686849,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.46884277405520763,0.6437612038296163,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.46214502014013314,0.6502869207562711,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.45544726622505866,0.6565831870734746,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.4487495123099843,0.6626307036775968,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.4420517583949098,0.6684111213901557,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.43535400447983535,0.6739071685876946,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.42865625056476087,0.6791027753845436,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.42195849664968627,0.6839831934407878,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.41526074273461194,0.6885351104700848,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.4085629888195374,0.6927467585311171,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.4018652349044629,0.696608015202501,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.39516748098938853,0.7001104967641075,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.388469727074314,0.7032476425378957,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.38177197315923955,0.7060147895786224,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.37507421924416506,0.7084092369490497,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.3683764653290905,0.7104302988654169,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.36167871141401603,0.7120793460568421,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.35498095749894165,0.7133598347467047,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.3482832035838671,0.7142773227346939,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.34158544966879273,0.714839472134735,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.33488769575371824,0.7150560384060483,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.32818994183864375,0.7149388454017129,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.3214921879235693,0.7145017462508088,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.3147944340084948,0.7137605699859559,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.3080966800934204,0.7127330539272473,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.3013989261783458,0.7114387619355756,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.29470117226327147,0.7098989887524738,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.288003418348197,0.7081366507490989,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.2813056644331224,0.7061761635131545,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.27460791051804795,0.7040433068085445,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.26791015660297346,0.701765077547552,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.26121240268789897,0.6993695315185431,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.25451464877282465,0.6968856147126722,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.24781689485775016,0.6943429851899824,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.24111914094267564,0.6917718265177718,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.23442138702760115,0.6892026539012152,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.2277236331125267,0.6866661142071746,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.22102587919745223,0.6841927811560101,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.2143281252823777,0.6818129470222092,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.2076303713673033,0.6795564122420177,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.20093261745222885,0.6774522743741805,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.1942348635371543,0.6755287178977887,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.18753710962207987,0.6738128063583566,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.18083935570700532,0.6723302783891419,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.17414160179193086,0.6711053491388786,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.16744384787685648,0.6701605186291107,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.16074609396178194,0.6695163885439587,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.15404834004670745,0.6691914889222036,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.14735058613163307,0.6692021161759886,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.14065283221655855,0.6695621838022502,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.13395507830148415,0.6702830870823945,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.12725732438640958,0.6713735829829952,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.12055957047133509,0.6728396863758539,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.11386181655626071,0.6746845835901525,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.10716406264118618,0.6769085641933634,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.10046630872611173,0.6795089717717657,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.09376855481103727,0.6824801743468925,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.08707080089596285,0.6858135549218817,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.08037304698088829,0.6894975225027752,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.0736752930658138,0.6935175437854335,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.06697753915073944,0.6978561955402837,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.0602797852356649,0.7024932375659103,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.05358203132059046,0.7074057059200248,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.04688427740551602,0.7125680259740246,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.04018652349044155,0.7179521446767313,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.03348876957536702,0.7235276812554691,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.026791015660292582,0.7292620954298954,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.020093261745218097,0.7351208720674478,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.01339550783014365,0.7410677210703421,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",-0.006697753915069194,0.7470647911541075,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",5.329070518200737e-15,0.7530728960580237,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.006697753915079861,0.759051751619717,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.013395507830154332,0.7649602220506739,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.020093261745228647,0.7707565736675637,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.026791015660303143,0.7763987342668538,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.03348876957537774,0.7818445562779514,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.04018652349045221,0.7870520817936031,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.04688427740552671,0.7919798075559074,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.05358203132060105,0.7965869479722462,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.060279785235675634,0.8008336942478594,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.06697753915075005,0.8046814677504702,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.07367529306582447,0.8080931657671242,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.08037304698089907,0.8110333978737497,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.08707080089597344,0.8134687112132988,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.093768554811048,0.8153678030679469,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.10046630872612235,0.8167017192137996,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.1071640626411968,0.8174440366619158,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.1138618165562714,0.8175710295159874,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.12055957047134576,0.8170618168135702,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.12725732438642026,0.8158984913629341,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.1339550783014947,0.8140662287400391,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.1406528322165692,0.8115533757683782,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.14735058613164365,0.8083515179669525,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.15404834004671814,0.8044555256169645,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.1607460939617927,0.7998635782643925,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.16744384787686714,0.7945771676419356,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.17414160179194155,0.7886010791584357,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.18083935570701604,0.78194335226531,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.18753710962209053,0.7746152201664428,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.19423486353716496,0.7666310294890184,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.20093261745223945,0.7580081406767626,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2076303713673139,0.7487668100028165,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.21432812528238834,0.7389300542260028,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.22102587919746286,0.7285234990306291,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2277236331125373,0.7175752124953916,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2344213870276118,0.7061155249307542,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2411191409426863,0.694176836505773,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2478168948577607,0.6817934141543553,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.25451464877283525,0.6690011793069979,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.26121240268790974,0.6558374880370506,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2679101566029841,0.6423409052403408,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2746079105180586,0.6285509744837554,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.28130566443313315,0.6145079851621258,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.28800341834820764,0.6002527385939206,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.2947011722632821,0.5858263146651025,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.30139892617835656,0.5712698405975436,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.30809668009343094,0.5566242633741754,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.31479443400850554,0.5419301272982012,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.32149218792358,0.5272273580988872,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.3281899418386544,0.512555054922457,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.33488769575372884,0.49795129146422096,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.34158544966880333,0.4834529274081163,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.34828320358387777,0.4690954312431901,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.3549809574989523,0.4549127154241162,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.3616787114140268,0.44093698473551923,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.3683764653291012,0.42719859860855813,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.3750742192441758,0.4137259480238885,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.38177197315925016,0.40054534751861054,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.3884697270743247,0.3876809426970599,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.3951674809893991,0.375154633527216,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.4018652349044735,0.36298601358685656,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.4085629888195481,0.35119232530734806,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.41526074273462255,0.33978843114878143,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.421958496649697,0.32878680052893605,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.42865625056477147,0.3181975122209349,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.43535400447984596,0.3080282718311471,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.44205175839492045,0.29828444387056735,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.44874951230999494,0.28896909784012903,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.4554472662250693,0.2800830676637493,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.46214502014014386,0.2716250237228708,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.46884277405521824,0.26359155667329043,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.47554052797029284,0.2559772721595683,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.4822382818853672,0.24877489548460846,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.48893603580044165,0.2419753852424047,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.4956337897155162,0.2355680548806757,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5023315436305906,0.2295407011273199,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5090292975456652,0.22387973819045026,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5157270514607396,0.21857033662625394,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.522424805375814,0.2135965657620246,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5291225592908886,0.20894153856342854,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.535820313205963,0.20458755784517418,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5425180671210375,0.20051626274262557,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.549215821036112,0.19670877438823992,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5559135749511864,0.19314583977071148,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5626113288662609,0.18980797279598552,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5693090827813354,0.18667559161743968,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5760068366964098,0.18372915135701523,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5827045906114842,0.18094927139939768,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5894023445265588,0.1783168565068803,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.5961000984416333,0.17581321107269654,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6027978523567077,0.17342014590468605,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6094956062717821,0.1711200770084827,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6161933601868567,0.1688961159192481,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6228911141019311,0.16673215121257898,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6295888680170056,0.16461292090784108,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6362866219320801,0.16252407556006274,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6429843758471545,0.16045223191890334,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.649682129762229,0.15838501711435343,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6563798836773035,0.15631110340800106,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6630776375923779,0.15422023362521295,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6697753915074525,0.1521032374567746,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6764731454225269,0.14995203888778377,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6831708993376013,0.14775965507633765,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6898686532526759,0.14552018706427558,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.6965664071677503,0.14322880275648797,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7032641610828246,0.14088171265369426,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7099619149978994,0.13847613886581445,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7166596689129736,0.13601027796886794,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7233574228280482,0.13348325829756266,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7300551767431228,0.1308950922883147,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.736752930658197,0.1282466245033187,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7434506845732716,0.1255394759755786,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7501484384883461,0.12277598551760709,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7568461924034207,0.11995914863303353,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7635439463184951,0.1170925546608976,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7702417002335696,0.11418032276727591,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7769394541486441,0.1112270373784775,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7836372080637183,0.10823768362479302,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.790334961978793,0.10521758333416445,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.7970327158938674,0.10217233208166501,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8037304698089418,0.09910773776387928,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8104282237240165,0.0960297611277112,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8171259776390908,0.09294445864137027,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8238237315541651,0.08985792805187423,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8305214854692398,0.08677625692891332,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8372192393843142,0.08370547444988333,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8439169932993886,0.08065150663585509,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8506147472144632,0.07762013520369204,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8573125011295376,0.07461696015593137,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8640102550446122,0.07164736618783349,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8707080089596867,0.0687164929505781,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.877405762874761,0.06582920917128009,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8841035167898356,0.0629900905946253,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8908012707049099,0.06020340167773109,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.8974990246199843,0.057473080939524517,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9041967785350589,0.05480272983866436,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9108945324501335,0.05219560502990819,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9175922863652078,0.049654613827914945,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9242900402802823,0.047182312689784,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9309877941953569,0.04478090851315157,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9376855481104313,0.042452262535313146,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9443833020255057,0.04019789661053616,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9510810559405802,0.03801900163733124,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9577788098556547,0.03591644790480542,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9644765637707291,0.03389079712715113,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9711743176858036,0.03194231593763104,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9778720716008781,0.030070990617886803,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9845698255159525,0.028276542844802063,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9912675794310271,0.026558446245268635,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",0.9979653333461015,0.024915943558789233,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.004663087261176,0.023348064218685526,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0113608411762505,0.02185364217452657,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.018058595091325,0.020431333791034085,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0247563490063993,0.019079635671944914,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0314541029214739,0.017796902270914353,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0381518568365484,0.016581363165345364,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0448496107516227,0.015431139882845666,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0515473646666973,0.01434426218370253,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0582451185817718,0.013318683716173466,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0649428724968462,0.012352296974399149,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0716406264119207,0.011442947501250208,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0783383803269952,0.010588447290324479,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0850361342420696,0.009786587352548476,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0917338881571441,0.009035149423343204,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.0984316420722187,0.008331916796051666,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.105129395987293,0.007674684276257107,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1118271499023675,0.007061267259738312,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.118524903817442,0.006489509944099944,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1252226577325164,0.005957292690590168,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.131920411647591,0.005462538558289324,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1386181655626655,0.0050032190377446726,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1453159194777398,0.004577359015266134,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1520136733928144,0.004183041002522669,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.158711427307889,0.0038184086688289364,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1654091812229632,0.0034816697156274693,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1721069351380378,0.0031710981342031198,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1788046890531123,0.002885035888657644,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1855024429681866,0.00262189406667273,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1922001968832612,0.00238015354064905,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.1988979507983357,0.0021583651814726297,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.20559570471341,0.0019551496664767815,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2122934586284846,0.0017691969221822262,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2189912125435591,0.0015992652411538323,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2256889664586335,0.0014441801108499694,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.232386720373708,0.0013028327906998067,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2390844742887825,0.0011741786718597374,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2457822282038569,0.0010572354522069079,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2524799821189314,0.0009510811571556178,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.259177736034006,0.0008548520348593601,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2658754899490803,0.0007677403523121581,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2725732438641548,0.0006889921168103961,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2792709977792294,0.0006179047452001712,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2859687516943037,0.000553824701332211,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2926665056093782,0.0004961451201922031,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.2993642595244528,0.00044430343528072136,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.306062013439527,0.0003977790239949564,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3127597673546016,0.0003560908840223985,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3194575212696762,0.00031879535210125985,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3261552751847505,0.00028548387493885477,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.332853029099825,0.00025578084061106697,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3395507830148996,0.0002293414773954893,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.346248536929974,0.00020584982571897177,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3529462908450485,0.00018501678772714459,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.359644044760123,0.0001665782579079338,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3663417986751973,0.00015029333722140715,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3730395525902719,0.00013594263230206778,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3797373065053464,0.00012332664050375522,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3864350604204208,0.00011226422084815192,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3931328143354953,0.00010259115031155377,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.3998305682505698,9.415876433677078e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4065283221656442,8.68326799832929e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4132260760807187,8.049159972453827e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4199238299957933,7.502619356137087e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4266215839108676,7.033805684128861e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4333193378259421,6.63387409480376e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4400170917410167,6.29488538521489e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.446714845656091,6.009722738439128e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4534125995711655,5.772014800694424e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.46011035348624,5.5760647806828384e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4668081074013144,5.4167852418680955e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.473505861316389,5.28963825953553e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4802036152314635,5.19058061813262e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4869013691465378,5.1160137301987527e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.4935991230616124,5.0627379658355665e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.500296876976687,5.027911090840191e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5069946308917612,5.0090105220427514e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5136923848068358,5.0037991198005986e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5203901387219103,5.0102942497711585e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5270878926369846,5.026739858803703e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5337856465520592,5.0515813228691554e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5404834004671337,5.0834428382194194e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.547181154382208,5.121107140287527e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5538789082972826,5.1634973480789313e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5605766622123571,5.2096607448537425e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5672744161274315,5.258754318666475e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.573972170042506,5.310031898736831e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5806699239575805,5.362832735609372e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5873676778726549,5.416571384571584e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.5940654317877294,5.470728762800722e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.600763185702804,5.52484426117234e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6074609396178783,5.5785088015695395e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6141586935329528,5.631358739871477e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6208564474480274,5.6830705235703274e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6275542013631017,5.7333560211708804e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6342519552781762,5.7819584481753574e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6409497091932508,5.828648821560839e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.647647463108325,5.873222881235192e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6543452170233997,5.915498423028835e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6610429709384742,5.955312993366462e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6677407248535485,5.992521900888582e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.674438478768623,6.0269965049819715e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6811362326836976,6.058622745456702e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.687833986598772,6.087299881500738e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.6945317405138465,6.112939411577152e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.701229494428921,6.135464149128836e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7079272483439953,6.154807431846371e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7146250022590699,6.170912444859817e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7213227561741444,6.183731640558336e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7280205100892188,6.193226239844259e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7347182640042933,6.199365801511348e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7414160179193678,6.202127848120658e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7481137718344422,6.201497538249301e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7548115257495167,6.197467376325466e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7615092796645913,6.190036952452657e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7682070335796656,6.179212705682271e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7749047874947401,6.16500770512993e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7816025414098147,6.147441444159597e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.788300295324889,6.126539643592103e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.7949980492399635,6.1023340605412644e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.801695803155038,6.0748623000508294e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8083935570701124,6.044167627207419e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.815091310985187,6.010298777845855e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8217890649002615,5.973309766350842e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8284868188153358,5.933259689398689e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8351845727304104,5.890212524780207e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.841882326645485,5.8442369247057986e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8485800805605592,5.795406003220325e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8552778344756338,5.7437971175524704e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8619755883907083,5.689491643394102e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8686733423057826,5.6325747442528084e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8753710962208572,5.573135135147411e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8820688501359317,5.511264841024933e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.888766604051006,5.447058950368963e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.8954643579660806,5.38061536454676e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9021621118811551,5.3120345435060804e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9088598657962295,5.241419248484595e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.915557619711304,5.168874282436051e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9222553736263785,5.094506228908567e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9289531275414529,5.0184231901331884e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9356508814565274,4.940734525095428e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.942348635371602,4.8615505883698655e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9490463892866763,4.7809824704985966e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9557441432017508,4.6991417406890855e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9624418971168254,4.616140192596212e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9691396510318997,4.5320895939374644e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9758374049469742,4.447101440670029e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9825351588620488,4.361286716434108e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.989232912777123,4.274755657938662e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",1.9959306666921977,4.1876175269343943e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.002628420607272,4.0999803893844563e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0093261745223465,4.011950902406306e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0160239284374213,3.9236341095189625e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0227216823524956,3.835133244688798e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.02941943626757,3.7465495456239554e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0361171901826447,3.6579820767236826e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.042814944097719,3.56952756204347e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0495126980127933,3.4812802285909987e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.056210451927868,3.3933316602216864e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0629082058429424,3.305770662355932e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0696059597580168,3.218683137693567e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.0763037136730915,3.132151973055084e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.083001467588166,3.046256937433234e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.08969922150324,2.961074591293852e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.096396975418315,2.8766782071208262e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1030947293333893,2.793137701157289e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1097924832484636,2.7105195762536893e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1164902371635383,2.62888687569364e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1231879910786127,2.5482991478301177e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.129885744993687,2.468812421328187e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1365834989087618,2.3904791907761734e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.143281252823836,2.313348412394685e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1499790067389104,2.2374655095427577e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.156676760653985,2.1628723876925033e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1633745145690595,2.0896074585179885e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.170072268484134,2.0177056727207577e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1767700223992086,1.9471985611937006e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.183467776314283,1.878114284106479e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.1901655302293572,1.8104776874796672e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.196863284144432,1.744310366801428e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2035610380595063,1.679630737229222e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2102587919745806,1.6164541099103966e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2169565458896554,1.554792773949158e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2236542998047297,1.4946560835432019e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.230352053719804,1.4360505498115061e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.237049807634879,1.3789799368350367e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.243747561549953,1.3234453614344563e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2504453154650275,1.2694453962132134e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2571430693801022,1.216976175400697e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2638408232951766,1.1660315030380204e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.270538577210251,1.1166029630586775e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2772363311253256,1.068680030827547e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2839340850404,1.02225018571432e-5,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.2906318389554743,9.772990242913449e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.297329592870549,9.338103737610732e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3040273467856234,8.917664052344692e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3107251007006977,8.511477464987854e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3174228546157725,8.119335939312368e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.324120608530847,7.741018232335693e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.330818362445921,7.376290986817877e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.337516116360996,7.024909806050173e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.34421387027607,6.686620308273668e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3509116241911445,6.361159158269132e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3576093781062193,6.048255073862639e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3643071320212936,5.747629805294429e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.371004885936368,5.4589990856007265e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3777026398514427,5.182073550359244e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.384400393766517,4.9165596253461926e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.3910981476815913,4.662160380846752e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.397795901596666,4.418576351551482e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4044936555117404,4.1855063211549405e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4111914094268148,3.962648070952292e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4178891633418895,3.7496990919025077e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.424586917256964,3.5463572597927895e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.431284671172038,3.3523214732971463e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.437982425087113,3.1672922548740175e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4446801790021873,2.9909723145903794e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4513779329172616,2.8230670770951803e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4580756868323363,2.663285172091335e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4647734407474107,2.511338888773946e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.471471194662485,2.366944594811251e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4781689485775598,2.229823120546054e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.484866702492634,2.0997001091871763e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.4915644564077084,1.976306333843721e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.498262210322783,1.8593779823301274e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5049599642378575,1.7486569107361236e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.511657718152932,1.6438908668139452e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5183554720680066,1.5448336842856293e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.525053225983081,1.4512454492151464e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5317509798981552,1.3628926396254044e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.53844873381323,1.2795482395675641e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5451464877283043,1.2009918288710095e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5518442416433786,1.1270096498161913e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5585419955584534,1.057394651980777e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5652397494735277,9.919465165113332e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.571937503388602,9.304716610691916e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.578635257303677,8.727832266907374e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.585333011218751,8.187010477886057e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5920307651338255,7.680516065025718e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.5987285190489002,7.206679725870059e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6054262729639746,6.763897299962491e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.612124026879049,6.350628913002976e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6188217807941236,5.965398010316426e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.625519534709198,5.606790290295881e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6322172886242723,5.273452548118731e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.638915042539347,4.964091439649637e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6456127964544214,4.6774721750428404e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6523105503694957,4.412417151142817e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6590083042845705,4.1678045313595705e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.665706058199645,3.942566781263329e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.672403812114719,3.73568916770854e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.679101566029794,3.546208228859765e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.685799319944868,3.373210222054263e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6924970738599425,3.2158295560010153e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.6991948277750173,3.0732472133850677e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7058925816900916,2.944689169520449e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.712590335605166,2.8294248122773615e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7192880895202407,2.7267653681007156e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.725985843435315,2.636062338538262e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7326835973503893,2.556705951309496e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.739381351265464,2.4881236295718467e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7460791051805384,2.4297784826788714e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7527768590956128,2.381167821377754e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7594746130106875,2.3418217000601942e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.766172366925762,2.3113014883627932e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.772870120840836,2.2891984741102469e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.779567874755911,2.2751324993075875e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7862656286709853,2.26875063061634e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7929633825860596,2.2697258654937849e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.7996611365011344,2.2777558749348065e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8063588904162087,2.2925617835314554e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.813056644331283,2.313886987356646e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8197543982463578,2.341496009984809e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.826452152161432,2.3751733967835346e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8331499060765064,2.414722647446076e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.839847659991581,2.4599651865843627e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8465454139066555,2.510739372065693e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.85324316782173,2.5668995406529586e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8599409217368046,2.628315090397443e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.866638675651879,2.694869599134687e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8733364295669532,2.766459978346888e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.880034183482028,2.842995661579148e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8867319373971023,2.9243978265313074e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.8934296913121766,3.0105986498913745e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9001274452272514,3.101540593929868e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9068251991423257,3.1971757238366944e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9135229530574,3.2974650547525613e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.920220706972475,3.402377927424522e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.926918460887549,3.5118914114004596e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9336162148026235,3.625989734668495e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9403139687176982,3.744663738644823e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9470117226327726,3.867910357415944e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.953709476547847,3.995732120149694e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9604072304629216,4.128136675601001e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.967104984377996,4.265136337655245e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9738027382930703,4.406747650871935e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.980500492208145,4.5529909750144786e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9871982461232194,4.703890087578083e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",2.9938960000382937,4.859471803356529e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0005937539533685,5.019765610118756e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.007291507868443,5.184803319499299e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.013989261783517,5.354618732240392e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.020687015698592,5.529247316958724e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.027384769613666,5.708725901646332e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0340825235287405,5.893092377152056e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0407802774438153,6.082385411927373e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0474780313588896,6.27664417735831e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.054175785273964,6.47590808304335e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0608735391890387,6.680216521414725e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.067571293104113,6.889608621138386e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0742690470191874,7.104123008765691e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.080966800934262,7.323797578145984e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0876645548493364,7.548669267146256e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.0943623087644108,7.778773841259547e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1010600626794855,8.014145683718388e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.10775781659456,8.254817591763891e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.114455570509634,8.500820578754403e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.121153324424709,8.752183681829181e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1278510783397833,9.008933774874387e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1345488322548576,9.27109538656854e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1412465861699324,9.538690523313231e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1479443400850067,9.81173849688335e-7,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.154642094000081,1.0090255756657574e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1613398479151558,1.037425572631512e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.16803760183023,1.0663748644909485e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1747353557453044,1.0958741412253526e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.181433109660379,1.1259237438570944e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.1881308635754535,1.1565236498391606e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.194828617490528,1.1876734588686737e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2015263714056026,1.219372379125892e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.208224125320677,1.2516192139418874e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2149218792357512,1.2844123488997576e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.221619633150826,1.3177497393756587e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2283173870659003,1.3516288985273705e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2350151409809746,1.386046885739394e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2417128948960494,1.4210002955346662e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2484106488111237,1.4564852469640954e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.255108402726198,1.4924973734860536e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.261806156641273,1.529031813348715e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.268503910556347,1.5660832004889627e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2752016644714215,1.603645655962176e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2818994183864962,1.6417127799176507e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.2885971723015706,1.680277644134959e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.295294926216645,1.7193327851368126e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.3019926801317196,1.7588701978941674e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.308690434046794,1.7988813301395653e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.3153881879618683,1.8393570773046625e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.322085941876943,1.8802877780978513e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.3287836957920174,1.9216632107377817e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.3354814497070917,1.9634725898583666e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.3421792036221665,2.0057045641004964e-6,NaN
+1,1,lines,"CSA0: adaptive kernels, no penalty",3.348876957537241,2.0483472144053484e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.34887695753723,0.8235717522059074,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.342179203622156,0.8091458036225386,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.335481449707081,0.7948451418348776,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.3287836957920067,0.7806726192214485,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.3220859418769324,0.766630983329179,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.3153881879618576,0.7527228769995569,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.3086904340467833,0.7389508385774275,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.301992680131709,0.7253173022006296,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2952949262166342,0.7118245981686019,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.28859717230156,0.6984749533880162,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2818994183864856,0.6852704918934178,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.275201664471411,0.6722132354408047,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2685039105563365,0.6593051041720125,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.261806156641262,0.646547917347705,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2551084027261874,0.6339433941467391,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.248410648811113,0.6214931545296076,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2417128948960388,0.6091987201636241,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.235015140980964,0.597061515407476,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2283173870658897,0.585082868352744,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2216196331508153,0.5732640119199186,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2149218792357406,0.5616060850064769,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.2082241253206663,0.5501101336844948,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.201526371405592,0.5387771124452905,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.194828617490517,0.527607885488569,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.188130863575443,0.5166032280535204,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1814331096603685,0.5057638277893177,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1747353557452938,0.49509028616246126,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1680376018302194,0.484583119898421,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.161339847915145,0.4742427624550074,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1546420940000703,0.4640695655249463,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.147944340084996,0.45406380056511964,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1412465861699217,0.4442256603499501,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.134548832254847,0.4345552605464468,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1278510783397726,0.42505264130843384,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1211533244246983,0.41571776888751355,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.1144555705096235,0.4065505372583617,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.107757816594549,0.3975507697559685,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.101060062679475,0.3887182207224831,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0943623087644,0.3800525771613737,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.087664554849326,0.3715534603966393,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0809668009342515,0.3632204277348682,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0742690470191767,0.35505297412799935,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0675712931041024,0.3470505338346749,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.060873539189028,0.33921248207814647,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0541757852739533,0.33153813669875953,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.047478031358879,0.324026759799088,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0407802774438046,0.31667755937986886,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.03408252352873,0.30948969096495765,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0273847696136555,0.3024622592135852,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0206870156985812,0.2955943195182717,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.0139892617835065,0.2888848795868411,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.007291507868432,0.2823329010070371,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-3.000593753953358,0.27593730079233,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.993896000038283,0.2696969529075925,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9871982461232087,0.26361068977338564,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9805004922081344,0.25767730374768827,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9738027382930596,0.2518955485839982,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9671049843779853,0.24626414086479947,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.960407230462911,0.2407817614094838,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.953709476547836,0.23544705665591179,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.947011722632762,0.23025864001486912,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9403139687176876,0.22521509319676963,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.933616214802613,0.22031496751004737,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9269184608875385,0.21555678513076418,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.920220706972464,0.2109390403430393,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9135229530573894,0.20646020075001328,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.906825199142315,0.20211870845512603,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.9001274452272408,0.19791298121358397,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.893429691312166,0.1938414135539772,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8867319373970917,0.18990237787008726,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8800341834820173,0.18609422548300872,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8733364295669426,0.18241528767379434,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8666386756518683,0.1788638766869062,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.859940921736794,0.17543828670483622,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.853243167821719,0.17213679479433608,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.846545413906645,0.1689576618247677,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8398476599915705,0.16589913335915782,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8331499060764957,0.1629594405186089,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8264521521614214,0.16013680082078566,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.819754398246347,0.15742941899325646,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.8130566443312723,0.15483548776253406,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.806358890416198,0.1523531886197141,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7996611365011237,0.14998069256366278,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.792963382586049,0.14771616082276026,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7862656286709746,0.1455577455562505,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7795678747559003,0.14350359053628975,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7728701208408255,0.14155183181183137,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.766172366925751,0.13970059835551604,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.759474613010677,0.13794801269476953,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.752776859095602,0.1362921915283392,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.746079105180528,0.13473124632952574,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7393813512654535,0.1332632839373794,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7326835973503787,0.13188640713715677,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7259858434353044,0.1305987152313351,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.71928808952023,0.12939830460249302,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.7125903356051553,0.12828326926936898,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.705892581690081,0.127251701437405,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.6991948277750066,0.12630169204507868,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.692497073859932,0.12543133130731332,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.6857993199448575,0.12463870925724523,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.679101566029783,0.12392191628760134,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.6724038121147085,0.12327904369292307,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.665706058199634,0.12270818421383876,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.65900830428456,0.1222074325845572,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.652310550369485,0.12177488608471757,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.6456127964544107,0.12140864509669078,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.6389150425393364,0.12110681366937896,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.6322172886242616,0.12086750008951636,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.6255195347091873,0.12068881746141838,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.618821780794113,0.1205688842960688,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.612124026879038,0.12050582511037755,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.605426272963964,0.12049777103737727,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5987285190488896,0.12054286044805727,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.592030765133815,0.12063923958546797,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5853330112187405,0.12078506321165312,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.578635257303666,0.12097849526789067,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5719375033885914,0.12121770954864917,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.565239749473517,0.12150089038957959,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5585419955584427,0.12182623336978558,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.551844241643368,0.12219194602852584,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5451464877282937,0.1225962485964185,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5384487338132193,0.1230373747411274,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5317509798981446,0.12351357232742188,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.5250532259830702,0.12402310419140979,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.518355472067996,0.1245642489286539,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.511657718152921,0.12513530169578854,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.504959964237847,0.1257345750251605,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4982622103227725,0.12636039965192805,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4915644564076977,0.12701112535295817,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4848667024926234,0.12768512179676972,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.478168948577549,0.12838077940368106,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4714711946624743,0.12909651021523025,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4647734407474,0.12983074877184483,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4580756868323257,0.13058195299765457,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.451377932917251,0.13134860509125174,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4446801790021766,0.13212921242112097,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4379824250871023,0.1329223084243814,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4312846711720275,0.13372645350740003,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.424586917256953,0.13454023594676448,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.417889163341879,0.13536227278902674,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.411191409426804,0.1361912107475604,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.4044936555117298,0.13702572709480784,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3977959015966555,0.13786453054813055,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3910981476815807,0.13870636214741586,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3844003937665064,0.1395499961225404,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.377702639851432,0.14039424074873894,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3710048859363573,0.1412379391878802,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.364307132021283,0.1420799703136107,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3576093781062086,0.14291924951829238,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.350911624191134,0.14375472949962495,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3442138702760595,0.14458540102482018,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.337516116360985,0.1454102936701733,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3308183624459105,0.1462284765338612,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.324120608530836,0.14703905891978553,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.317422854615762,0.1478411909902782,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.310725100700687,0.14863406438548396,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.3040273467856127,0.14941691280724503,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2973295928705384,0.15018901256532563,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2906318389554636,0.15094968308383336,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2839340850403893,0.1516982873657207,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.277236331125315,0.15243423241328194,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.27053857721024,0.15315696960259936,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.263840823295166,0.15386599500993686,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2571430693800916,0.15456084968813133,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.250445315465017,0.15524111989108838,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2437475615499425,0.15590643724455486,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.237049807634868,0.15655647886140947,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2303520537197934,0.15719096739979127,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.223654299804719,0.157809671062468,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2169565458896447,0.1584124035359369,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.21025879197457,0.1589990238678476,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.2035610380594957,0.15956943628143663,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1968632841444213,0.16012358992577666,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1901655302293466,0.1606614785607522,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1834677763142722,0.1611831401758024,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.176770022399198,0.16168865654159173,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.170072268484123,0.16217815269390792,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.163374514569049,0.16265179634922236,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1566767606539745,0.1631097972514946,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1499790067388997,0.1635524064499523,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1432812528238254,0.1639799155077335,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.136583498908751,0.1643926556414397,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1298857449936763,0.16479099679181375,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.123187991078602,0.16517534662592576,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1164902371635277,0.16554614947142995,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.109792483248453,0.165903885183628,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.1030947293333786,0.16624906794626523,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0963969754183043,0.16658224500716817,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0896992215032295,0.1669039953500243,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.083001467588155,0.1672149283038,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.076303713673081,0.16751568209148673,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.069605959758006,0.16780692232006542,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0629082058429318,0.1680893404137795,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0562104519278575,0.1683636519930095,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0495126980127827,0.16863059520124296,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0428149440977084,0.16889092898283944,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.036117190182634,0.16914543131449064,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0294194362675593,0.16939489739348054,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.022721682352485,0.16964013778604917,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0160239284374106,0.16988197653936338,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.009326174522336,0.1701212492607957,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-2.0026284206072615,0.17035880116840124,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.995930666692187,0.17059548511667577,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9892329127771124,0.17083215960185857,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9825351588620381,0.171069686751222,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9758374049469636,0.1713089303009627,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.969139651031889,0.17155075356747038,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9624418971168147,0.1717960174169079,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9557441432017402,0.17204557823818023,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9490463892866656,0.17230028592450775,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9423486353715913,0.1725609818689411,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9356508814565168,0.17282849697926955,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9289531275414422,0.17310364971787146,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.922255373626368,0.17338724417214163,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9155576197112933,0.1736800681611982,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9088598657962188,0.17398289138462597,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.9021621118811445,0.17429646361904627,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.89546435796607,0.17462151296832343,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8887666040509954,0.17495874417321333,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.882068850135921,0.1753088369862374,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8753710962208465,0.17567244461752157,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.868673342305772,0.17605019225727345,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8619755883906977,0.1764426756804814,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8552778344756231,0.17685045993930587,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8485800805605486,0.17727407814849508,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8418823266454742,0.17771403036899522,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8351845727303997,0.17817078259473326,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8284868188153252,0.17864476584733865,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8217890649002508,0.1791363753833236,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8150913109851763,0.17964597001797397,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8083935570701017,0.18017387156990602,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.8016958031550274,0.1807203644299176,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7949980492399529,0.18128569525741117,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7883002953248783,0.18187007280728806,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.781602541409804,0.18247366788980496,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7749047874947295,0.1830966134654511,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.768207033579655,0.18373900487644976,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7615092796645806,0.18440090021599922,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.754811525749506,0.18508232083586715,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7481137718344315,0.18578325199241852,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7414160179193572,0.18650364363060953,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7347182640042826,0.1872434113049089,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.728020510089208,0.1880024372355212,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7213227561741338,0.18878057149768146,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7146250022590592,0.18957763334117747,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7079272483439847,0.19039341263662327,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.7012294944289104,0.19122767144437722,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6945317405138358,0.19208014570135062,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6878339865987613,0.19295054702031278,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.681136232683687,0.1938385645956526,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6744384787686124,0.19474386720891876,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6677407248535379,0.1956661053268261,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6610429709384635,0.19660491328379825,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.654345217023389,0.1975599115405083,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6476474631083144,0.19853070900929315,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6409497091932401,0.19951690543675357,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6342519552781656,0.2005180938333167,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.627554201363091,0.20153386293902945,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6208564474480167,0.2025637997143858,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6141586935329422,0.20360749184455737,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6074609396178676,0.20466453024501402,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.6007631857027933,0.205734511556182,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5940654317877188,0.20681704061450418,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5873676778726442,0.20791173288703538,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.58066992395757,0.20901821685654087,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5739721700424953,0.2101361363439608,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5672744161274208,0.2112651527550634,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5605766622123465,0.21240494723814934,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.553878908297272,0.21355522273977245,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5471811543821974,0.2147157059456271,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.540483400467123,0.2158861490940167,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5337856465520485,0.21706633164965794,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.527087892636974,0.21825606182600157,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5203901387218997,0.21945517794476013,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.513692384806825,0.22066354962191975,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5069946308917506,0.22188107877019392,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.5002968769766762,0.22310770040863026,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4935991230616017,0.22434338327092507,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4869013691465272,0.22558813020491705,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4802036152314528,0.2268419783567321,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4735058613163783,0.2281049991341241,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4668081074013037,0.22937729794469852,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4601103534862294,0.23065901370591937,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4534125995711549,0.23195031812507286,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4467148456560803,0.23325141474868985,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.440017091741006,0.23456253778231145,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4333193378259315,0.2358839506829041,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.426621583910857,0.23721594452769054,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4199238299957826,0.23855883616465082,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.413226076080708,0.23991296615145358,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.4065283221656335,0.24127869649109357,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3998305682505592,0.24265640817402756,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3931328143354846,0.24404649853811028,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.38643506042041,0.24544937845911097,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3797373065053358,0.24686546938605272,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3730395525902612,0.2482952002370222,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3663417986751867,0.24973900417245823,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3596440447601124,0.2511973152642164,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3529462908450378,0.2526705650799237,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3462485369299633,0.25415917920325987,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.339550783014889,0.2556635737118298,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3328530290998144,0.2571841516352047,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3261552751847399,0.2587212994165002,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3194575212696655,0.26027538340152173,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.312759767354591,0.26184674638002353,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.3060620134395164,0.26343570420399104,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2993642595244421,0.26504254250806714,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2926665056093676,0.26666751355727775,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.285968751694293,0.2683108332470725,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2792709977792187,0.2699726782803918,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2725732438641442,0.27165318354595525,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2658754899490696,0.2733524397212946,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2591777360339953,0.2750704911231627,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2524799821189208,0.27680733382689593,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2457822282038462,0.27856291407503836,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2390844742887719,0.2803371269941022,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2323867203736973,0.28212981563670997,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2256889664586228,0.28394077036456133,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2189912125435485,0.28576972858569405,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.212293458628474,0.2876163748573815,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.2055957047133994,0.28948034136372075,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.198897950798325,0.29136120877454835,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1922001968832505,0.2932585074897789,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.185502442968176,0.2951717192706054,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1788046890531017,0.29710027925626575,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.172106935138027,0.2990435783622555,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1654091812229526,0.3010009660530053,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1587114273078782,0.3029717534791423,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1520136733928037,0.30495521696654193,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1453159194777291,0.30695060184148254,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1386181655626548,0.3089571265733598,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1319204116475803,0.31097398721361896,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1252226577325057,0.31300036210685217,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1185249038174314,0.3150354168474152,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1118271499023569,0.31707830945245313,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.1051293959872823,0.31912819571993034,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.098431642072208,0.3211842347381409,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0917338881571335,0.32324559451128565,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.085036134242059,0.3253114576640184,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0783383803269846,0.3273810271864619,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.07164062641191,0.32945353218004503,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0649428724968355,0.3315282335636726,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0582451185817612,0.33360442969919424,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0515473646666866,0.33568146189492803,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.044849610751612,0.33775871974611615,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0381518568365378,0.3398356462716488,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0314541029214632,0.34191174280721615,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0247563490063887,0.34398657361620893,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0180585950913144,0.3460597701812156,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0113608411762398,0.34813103514083715,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-1.0046630872611653,0.3502001458387565,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9979653333460909,0.352266957454549,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9912675794310164,0.35433140568859567,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9845698255159419,0.3563935089766278,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9778720716008674,0.35845337021288987,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.971174317685793,0.36051117796462173,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9644765637707184,0.36256720716449614,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.957778809855644,0.36462181927179677,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9510810559405696,0.3666754618974178,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.944383302025495,0.3687286678922104,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9376855481104206,0.37078205390271024,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9309877941953462,0.3728363184028626,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9242900402802717,0.3748922392149238,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9175922863651971,0.37695067053725495,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9108945324501228,0.37901253950116426,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.9041967785350482,0.3810788422832661,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8974990246199739,0.3831506398039508,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8908012707048993,0.3852290530464597,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8841035167898248,0.387315258034686,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8774057628747504,0.3894104805111283,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8707080089596759,0.39151599035937135,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8640102550446014,0.3936330958180117,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.857312501129527,0.3957631375350502,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8506147472144525,0.39790748251341185,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.843916993299378,0.40006751799937695,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8372192393843035,0.40224464536631727,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8305214854692291,0.40444027404618116,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8238237315541546,0.4066558155606693,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8171259776390801,0.4088926777029567,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8104282237240056,0.4111522589191693,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.8037304698089311,0.41343594293659147,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7970327158938566,0.4157450936828009,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7903349619787823,0.418081050536584,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7836372080637078,0.4204451239476451,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7769394541486332,0.4228385914577708,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7702417002335589,0.42526269415131246,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7635439463184843,0.4277186335576519,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7568461924034099,0.43020756902273555,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7501484384883355,0.43273061556090514,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7434506845732609,0.43528884219212677,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7367529306581865,0.4378832707634428,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.730055176743112,0.4405148752470667,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7233574228280375,0.44318458150111734,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7166596689129631,0.4458932674726152,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7099619149978886,0.4486417638160989,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.7032641610828141,0.4514308548951745,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6965664071677397,0.45426128012855205,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6898686532526653,0.4571337356367166,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6831708993375907,0.4600488761404331,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6764731454225161,0.4630073170578415,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6697753915074418,0.4660096367430589,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6630776375923673,0.46905637880600104,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6563798836772928,0.4721480544506565,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6496821297622183,0.47528514476734196,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6429843758471439,0.47846810291354175,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6362866219320694,0.48169735611789455,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.629588868016995,0.4849733074426868,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6228911141019203,0.48829633724191535,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6161933601868459,0.4916668042545622,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.6094956062717716,0.4950850462762019,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.602797852356697,0.49855138035638197,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5961000984416226,0.5020661024743899,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5894023445265482,0.5056294866519675,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5827045906114737,0.5092417834682251,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5760068366963992,0.5129032179493553,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5693090827813247,0.516613986813699,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5626113288662502,0.5203742550611593,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5559135749511757,0.5241841519048145,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5492158210361013,0.5280437660517318,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5425180671210268,0.5319531403493342,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5358203132059522,0.5359122658230695,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5291225592908779,0.5399210751405027,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5224248053758035,0.5439794355461184,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.515727051460729,0.5480871413199958,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.5090292975456545,0.5522439058219504,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.50233154363058,0.5564493531906254,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.4956337897155056,0.5607030097741991,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.488936035800431,0.565004295375804,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.48223828188535656,0.569352514402245,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.4755405279702822,0.5737468470091351,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.46884277405520763,0.5781863403389947,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.46214502014013314,0.5826698999511479,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.45544726622505866,0.5871962815433281,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.4487495123099843,0.5917640830647168,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.4420517583949098,0.5963717373186991,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.43535400447983535,0.6010175051508573,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.42865625056476087,0.6056994693137294,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.42195849664968627,0.6104155290945703,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.41526074273461194,0.6151633957858994,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.4085629888195374,0.6199405890710162,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.4018652349044629,0.6247444343880001,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.39516748098938853,0.6295720613261205,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.388469727074314,0.6344204030981275,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.38177197315923955,0.6392861971207651,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.37507421924416506,0.6441659867241346,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.3683764653290905,0.6490561239984399,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.36167871141401603,0.6539527737743032,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.35498095749894165,0.6588519187204315,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.3482832035838671,0.6637493655301193,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.34158544966879273,0.6686407521560676,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.33488769575371824,0.6735215560414544,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.32818994183864375,0.678387103284292,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.3214921879235693,0.6832325786620116,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.3147944340084948,0.6880530364340789,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.3080966800934204,0.6928434118324103,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.3013989261783458,0.6975985331425899,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.29470117226327147,0.7023131342734181,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.288003418348197,0.7069818677083556,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.2813056644331224,0.7115993177299205,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.27460791051804795,0.7161600138071956,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.26791015660297346,0.7206584440372682,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.26121240268789897,0.7250890685336815,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.25451464877282465,0.7294463326588025,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.24781689485775016,0.7337246800023405,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.24111914094267564,0.7379185650150031,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.23442138702760115,0.7420224652143763,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.2277236331125267,0.746030892889393,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.22102587919745223,0.7499384062400968,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.2143281252823777,0.7537396199006406,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.2076303713673033,0.7574292148053647,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.20093261745222885,0.7610019473702316,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.1942348635371543,0.7644526579745863,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.18753710962207987,0.7677762787409824,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.18083935570700532,0.7709678406234253,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.17414160179193086,0.774022479826586,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.16744384787685648,0.7769354435901821,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.16074609396178194,0.7797020953834901,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.15404834004670745,0.7823179195647453,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.14735058613163307,0.7847785255687312,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.14065283221655855,0.787079651693057,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.13395507830148415,0.7892171685592667,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.12725732438640958,0.7911870823289484,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.12055957047133509,0.7929855377572795,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.11386181655626071,0.794608821166918,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.10716406264118618,0.7960533634238024,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.10046630872611173,0.7973157429932229,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.09376855481103727,0.7983926891495721,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.08707080089596285,0.799281085406468,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.08037304698088829,0.7999779732256475,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.0736752930658138,0.8004805560532173,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.06697753915073944,0.8007862037207637,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.0602797852356649,0.8008924572365683,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.05358203132059046,0.8007970339790652,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.04688427740551602,0.8004978332908633,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.04018652349044155,0.7999929424574546,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.03348876957536702,0.7992806430403925,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.026791015660292582,0.798359417520501,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.020093261745218097,0.797227956192893,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.01339550783014365,0.7958851642424807,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",-0.006697753915069194,0.7943301689165202,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",5.329070518200737e-15,0.7925623266998196,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.006697753915079861,0.790581230388801,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.013395507830154332,0.7883867159528174,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.020093261745228647,0.7859788690652398,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.026791015660303143,0.7833580311829433,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.03348876957537774,0.7805248050511168,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.04018652349045221,0.7774800595108425,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.04688427740552671,0.774224933489709,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.05358203132060105,0.7707608390608626,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.060279785235675634,0.7670894634632719,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.06697753915075005,0.7632127699855836,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.07367529306582447,0.7591329976275982,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.08037304698089907,0.7548526594669802,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.08707080089597344,0.7503745396741219,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.093768554811048,0.7457016891348761,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.10046630872612235,0.7408374196589222,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.1071640626411968,0.7357852967705082,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.1138618165562714,0.7305491310979448,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.12055957047134576,0.7251329683981808,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.12725732438642026,0.7195410782726968,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.1339550783014947,0.71377794165055,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.1406528322165692,0.7078482371332346,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.14735058613164365,0.7017568263138729,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.15404834004671814,0.6955087381997161,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.1607460939617927,0.6891091528817466,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.16744384787686714,0.6825633846080474,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.17414160179194155,0.6758768644283049,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.18083935570701604,0.6690551225850826,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.18753710962209053,0.6621037708332393,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.19423486353716496,0.6550284848718366,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.20093261745223945,0.6478349870731018,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2076303713673139,0.6405290296903379,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.21432812528238834,0.633116378721182,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.22102587919746286,0.6256027985943035,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2277236331125373,0.6179940378366421,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2344213870276118,0.6102958158647124,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2411191409426863,0.6025138110275773,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2478168948577607,0.5946536500110068,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.25451464877283525,0.5867208986923698,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.26121240268790974,0.5787210545142706,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2679101566029841,0.5706595404221062,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2746079105180586,0.5625417003870271,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.28130566443313315,0.5543727965114863,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.28800341834820764,0.5461580076901335,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.2947011722632821,0.5379024297745812,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.30139892617835656,0.529611077166937,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.30809668009343094,0.5212888857443243,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.31479443400850554,0.5129407169952915,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.32149218792358,0.5045713632293491,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.3281899418386544,0.4961855537032082,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.33488769575372884,0.4877879614919251,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.34158544966880333,0.47938321092032116,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.34828320358387777,0.4709758853599676,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.3549809574989523,0.46257053518989866,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.3616787114140268,0.454171685715148,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.3683764653291012,0.4457838448362953,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.3750742192441758,0.43741151026550923,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.38177197315925016,0.42905917609004973,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.3884697270743247,0.4207313384928002,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.3951674809893991,0.4124325004510545,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.4018652349044735,0.40416717524927953,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.4085629888195481,0.39593988865879337,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.41526074273462255,0.387755179656926,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.421958496649697,0.37961759958005825,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.42865625056477147,0.37153170962862003,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.43535400447984596,0.3635020766673414,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.44205175839492045,0.355533267290447,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.44874951230999494,0.3476298401486606,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.4554472662250693,0.3397963365624762,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.46214502014014386,0.33203726947373274,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.46884277405521824,0.32435711081470936,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.47554052797029284,0.31676027740034524,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.4822382818853672,0.30925111547437245,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.48893603580044165,0.3018338840637777,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.4956337897155162,0.29451273731772565,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5023315436305906,0.2872917060265296,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5090292975456652,0.2801746785331847,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5157270514607396,0.27316538126410284,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.522424805375814,0.2662673591167661,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5291225592908886,0.25948395594992424,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.535820313205963,0.25281829542648576,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5425180671210375,0.2462732624603815,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.549215821036112,0.23985148551632093,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5559135749511864,0.2335553200055496,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5626113288662609,0.22738683301150805,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5693090827813354,0.22134778956679255,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5760068366964098,0.2154396406871847,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5827045906114842,0.20966351334995809,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5894023445265588,0.20402020258241843,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.5961000984416333,0.19851016580298597,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6027978523567077,0.1931335195313929,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6094956062717821,0.18789003855710748,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6161933601868567,0.1827791576262688,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6228911141019311,0.1777999756776318,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6295888680170056,0.17295126262768457,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6362866219320801,0.16823146867462657,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6429843758471545,0.16363873606070808,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.649682129762229,0.15917091320294063,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6563798836773035,0.15482557107381156,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6630776375923779,0.15060002168673628,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6697753915074525,0.14649133851596235,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6764731454225269,0.14249637865779546,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6831708993376013,0.13861180651969218,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6898686532526759,0.1348341188062005,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.6965664071677503,0.13115967055615937,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7032641610828246,0.1275847019741823,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7099619149978994,0.12410536579136967,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7166596689129736,0.12071775488551188,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7233574228280482,0.1174179298897949,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7300551767431228,0.1142019465211918,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.736752930658197,0.11106588236523891,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7434506845732716,0.10800586286266141,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7501484384883461,0.1050180862551626,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7568461924034207,0.10209884726241548,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7635439463184951,0.09924455927967535,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7702417002335696,0.09645177490517318,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7769394541486441,0.0937172046282586,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7836372080637183,0.09103773353280419,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.790334961978793,0.08841043589531149,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.7970327158938674,0.08583258758311146,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8037304698089418,0.08330167618464883,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8104282237240165,0.08081540883072887,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8171259776390908,0.0783717176923875,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8238237315541651,0.07596876316738695,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8305214854692398,0.07360493479288904,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8372192393843142,0.07127884994627748,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8439169932993886,0.06898935041911153,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8506147472144632,0.06673549697050975,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8573125011295376,0.06451656198564769,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8640102550446122,0.06233202038230824,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8707080089596867,0.060181538923373204,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.877405762874761,0.05806496410566929,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8841035167898356,0.05598230880558235,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8908012707049099,0.05393373786929254,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.8974990246199843,0.05191955284033592,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9041967785350589,0.04994017601950775,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9108945324501335,0.047996134051937756,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9175922863652078,0.04608804123359776,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9242900402802823,0.04421658272466585,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9309877941953569,0.04238249785023473,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9376855481104313,0.04058656365998338,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9443833020255057,0.038829578907842485,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9510810559405802,0.037112348600587514,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9577788098556547,0.03543566925091611,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9644765637707291,0.0338003149561504,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9711743176858036,0.032207024408490235,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9778720716008781,0.030656488926971284,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9845698255159525,0.029149341585189028,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9912675794310271,0.027686147492673042,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",0.9979653333461015,0.026267395271746204,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.004663087261176,0.024893489755998068,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0113608411762505,0.02356474592132308,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.018058595091325,0.02228138404600242,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0247563490063993,0.0210435260826907,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0314541029214739,0.01985119321254239,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0381518568365484,0.018704304540187202,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0448496107516227,0.01760267687792212,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0515473646666973,0.01654602555840549,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0582451185817718,0.015533966207349408,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0649428724968462,0.014566017401238238,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0716406264119207,0.01364160412995599,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0783383803269952,0.012760061980362124,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0850361342420696,0.011920641954283554,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0917338881571441,0.011122515833035704,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.0984316420722187,0.010364782000387719,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.105129395987293,0.009646471636761841,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1118271499023675,0.008966555199326291,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.118524903817442,0.008323949105403404,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1252226577325164,0.007717522540171257,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.131920411647591,0.007146104313884515,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1386181655626655,0.006608489698669175,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1453159194777398,0.0061034471802509345,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1520136733928144,0.005629725065650701,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.158711427307889,0.0051860578938236115,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1654091812229632,0.004771172602326209,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1721069351380378,0.004383794409283046,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1788046890531123,0.0040226523760978515,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1855024429681866,0.003686484622437675,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1922001968832612,0.0033740431709411403,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.1988979507983357,0.003084098404798156,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.20559570471341,0.0028154431267659653,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2122934586284846,0.0025668962132780475,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2189912125435591,0.0023373058620315464,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2256889664586335,0.0021255524357757004,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.232386720373708,0.001930550908948977,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2390844742887825,0.0017512529273113024,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2457822282038569,0.0015866484937856274,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2524799821189314,0.0014357672963595369,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.259177736034006,0.001297679696110206,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2658754899490803,0.001171497395215892,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2725732438641548,0.0010563738062214553,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2792709977792294,0.0009515041448543784,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2859687516943037,0.0008561252693646121,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2926665056093782,0.0007695152897134276,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.2993642595244528,0.0006909929699903277,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.306062013439527,0.000619916947223006,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3127597673546016,0.0005556847892931356,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3194575212696762,0.0004977319140105378,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3261552751847505,0.0004455303905599564,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.332853029099825,0.0003985876435476016,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3395507830148996,0.00035644507876660976,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.346248536929974,0.0003186766485985123,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3529462908450485,0.0002848873736967955,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.359644044760123,0.00025471183628182696,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3663417986751973,0.0002278126590351045,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3730395525902719,0.00020387898223433635,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3797373065053464,0.00018262495043618596,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3864350604204208,0.00016378821870570394,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3931328143354953,0.00014712848712344358,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.3998305682505698,0.00013242607108375842,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4065283221656442,0.0001194805137397559,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4132260760807187,0.00010810924585881839,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4199238299957933,9.814629733282812e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4266215839108676,8.94410636428309e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4333193378259421,8.185712971115744e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4400170917410167,7.52711527858492e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.446714845656091,6.957180529230865e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4534125995711655,6.465877795423909e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.46011035348624,6.0441842927912365e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4668081074013144,5.6839976207830734e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.473505861316389,5.3780538144444246e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4802036152314635,5.11985105618612e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4869013691465378,4.903578867119862e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.4935991230616124,4.724052573888272e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.500296876976687,4.576652828420949e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5069946308917612,4.457269944213402e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5136923848068358,4.362252803094092e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5203901387219103,4.2883620805571395e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5270878926369846,4.232727535154016e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5337856465520592,4.192809107732144e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5404834004671337,4.1663615790790996e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.547181154382208,4.151402539401779e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5538789082972826,4.146183429688366e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5605766622123571,4.149163423044572e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5672744161274315,4.15898592326916e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.573972170042506,4.174457467970474e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5806699239575805,4.194528834187173e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5873676778726549,4.218278155550815e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.5940654317877294,4.244895871330449e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.600763185702804,4.273671339069146e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6074609396178783,4.303980953822781e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6141586935329528,4.335277628126469e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6208564474480274,4.3670814976490726e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6275542013631017,4.3989717279736205e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6342519552781762,4.430579308000805e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6409497091932508,4.461580725068188e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.647647463108325,4.491692425976414e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6543452170233997,4.520665976694108e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6610429709384742,4.548283841564068e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6677407248535485,4.574355710351378e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.674438478768623,4.598715308463611e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6811362326836976,4.621217632144146e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.687833986598772,4.641736556406583e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.6945317405138465,4.660162768959945e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.701229494428921,4.676401988392158e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7079272483439953,4.690373429456833e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7146250022590699,4.702008482470543e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7213227561741444,4.71124957760055e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7280205100892188,4.7180492082323205e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7347182640042933,4.722369090678355e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7414160179193678,4.724179440250491e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7481137718344422,4.7234583461918146e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7548115257495167,4.720191230175801e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7615092796645913,4.714370375052101e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7682070335796656,4.705994512272351e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7749047874947401,4.6950684579859315e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7816025414098147,4.681602789173804e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.788300295324889,4.665613552406286e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.7949980492399635,4.6471219988842555e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.801695803155038,4.626154340367793e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8083935570701124,4.602741521425825e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.815091310985187,4.576919004167067e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8217890649002615,4.5487265622483054e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8284868188153358,4.518208081510923e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8351845727304104,4.4854113650798416e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.841882326645485,4.4503879411792164e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8485800805605592,4.413192872283528e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8552778344756338,4.3738845645379805e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8619755883907083,4.332524576654146e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8686733423057826,4.2891774277207955e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8753710962208572,4.243910403570464e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8820688501359317,4.196793361513723e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.888766604051006,4.147898533398554e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.8954643579660806,4.097300327075264e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9021621118811551,4.0450751264505074e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9088598657962295,3.991301090399442e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.915557619711304,3.93605795087555e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9222553736263785,3.8794268106141836e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9289531275414529,3.8214899408708125e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9356508814565274,3.76233057966927e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.942348635371602,3.702032731060212e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9490463892866763,3.640680965906838e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9557441432017508,3.5783602247244255e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9624418971168254,3.515155623103301e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9691396510318997,3.4511522602421674e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9758374049469742,3.38643503111111e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9825351588620488,3.321088442751413e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.989232912777123,3.255196435203194e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",1.9959306666921977,3.1888422075324056e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.002628420607272,3.122108049406135e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0093261745223465,3.055075178639923e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0160239284374213,2.9878235851134447e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0227216823524956,2.9204318814214883e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.02941943626757,2.8529771605961228e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0361171901826447,2.785534861203827e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.042814944097719,2.7181786400879118e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0495126980127933,2.6509802529924825e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.056210451927868,2.5840094432697125e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0629082058429424,2.5173338388372178e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0696059597580168,2.4510188575173198e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.0763037136730915,2.385127620855357e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.083001467588166,2.3197208764795203e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.08969922150324,2.2548569290308523e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.096396975418315,2.1905915796587823e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1030947293333893,2.1269780740451154e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1097924832484636,2.0640670588879655e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1164902371635383,2.001906546746958e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1231879910786127,1.940541889121913e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.129885744993687,1.8800157576095655e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1365834989087618,1.820368132956864e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.143281252823836,1.7616363018046327e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1499790067389104,1.7038548608925105e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.156676760653985,1.6470557284748296e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1633745145690595,1.5912681626776004e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.170072268484134,1.5365187865090322e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1767700223992086,1.4828316192202432e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.183467776314283,1.4302281136987711e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.1901655302293572,1.3787271995652391e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.196863284144432,1.3283453316334235e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2035610380595063,1.2790965433853173e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2102587919745806,1.2309925051062164e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2169565458896554,1.1840425863200275e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2236542998047297,1.1382539221617751e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.230352053719804,1.0936314833229267e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.237049807634879,1.0501781492053712e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.243747561549953,1.0078947839216386e-5,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2504453154650275,9.667803147822288e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2571430693801022,9.268318129157259e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2638408232951766,8.88044575673353e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.270538577210251,8.504122104770131e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2772363311253256,8.139267197784121e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2839340850404,7.785785868064367e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.2906318389554743,7.443568617905809e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.297329592870549,7.112492483597669e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3040273467856234,6.792421898282274e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3107251007006977,6.483209550930959e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3174228546157725,6.184697238821499e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.324120608530847,5.896716711042178e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.330818362445921,5.619090500694225e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.337516116360996,5.351632743614555e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.34421387027607,5.0941499815920676e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3509116241911445,4.84644194820512e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3576093781062193,4.608302335562498e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3643071320212936,4.379519540384807e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.371004885936368,4.159877388017139e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3777026398514427,3.94915583311694e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.384400393766517,3.7471316359110925e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.3910981476815913,3.5535790130640236e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.397795901596666,3.3682702623436975e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4044936555117404,3.1909763604123156e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4111914094268148,3.021467533205219e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4178891633418895,2.8595137984930737e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.424586917256964,2.7048854803487887e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.431284671172038,2.5573536953612122e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.437982425087113,2.4166908105532938e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4446801790021873,2.2826708730709215e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4513779329172616,2.155070011811791e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4580756868323363,2.033666811259804e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4647734407474107,1.9182426578807272e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.471471194662485,1.8085820595176514e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4781689485775598,1.7044729383018855e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.484866702492634,1.6057068976647996e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.4915644564077084,1.512079464099483e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.498262210322783,1.423390304378324e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5049599642378575,1.339443418982944e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.511657718152932,1.260047312547269e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5183554720680066,1.185015142152892e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.525053225983081,1.1141648443478085e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5317509798981552,1.0473192417864414e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.53844873381323,9.843061304097137e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5451464877283043,9.249583480998118e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5518442416433786,8.691138257548367e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5585419955584534,8.166156217347543e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5652397494735277,7.673119406314068e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.571937503388602,7.210561373125904e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.578635257303677,6.777067071837829e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.585333011218751,6.371272636005945e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5920307651338255,5.991865033515246e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.5987285190489002,5.637581611138841e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6054262729639746,5.30720953766297e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.612124026879049,4.999585154191097e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6188217807941236,4.7135932399999533e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.625519534709198,4.448166202057285e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6322172886242723,4.2022831960329645e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.638915042539347,3.9749691863420056e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6456127964544214,3.765293952452503e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6523105503694957,3.5723710483763513e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6590083042845705,3.3953567219384556e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.665706058199645,3.2334488000915076e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.672403812114719,3.0858855462120156e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.679101566029794,2.951944494980224e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.685799319944868,2.830941270113002e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6924970738599425,2.722228389887451e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.6991948277750173,2.6251940650647733e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7058925816900916,2.539260993499786e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.712590335605166,2.4638851554034565e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7192880895202407,2.398554612914667e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.725985843435315,2.342788317333687e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7326835973503893,2.2961349270751579e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.739381351265464,2.258171639113082e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7460791051805384,2.228503036414922e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7527768590956128,2.2067599535974555e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7594746130106875,2.192598362783397e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.766172366925762,2.1856982813958223e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.772870120840836,2.1857627033970715e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.779567874755911,2.1925165552603518e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7862656286709853,2.205705677755915e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7929633825860596,2.2250958344392403e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.7996611365011344,2.2504717475464064e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8063588904162087,2.281636161831347e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.813056644331283,2.3184089367211487e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8197543982463578,2.3606261670184684e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.826452152161432,2.408139332244501e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8331499060765064,2.46081447459138e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.839847659991581,2.5185314053389787e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8465454139066555,2.5811829394877266e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.85324316782173,2.6486741582657415e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8599409217368046,2.7209216990847775e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.866638675651879,2.797853072445125e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8733364295669532,2.8794060052240305e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.880034183482028,2.9655278097249046e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8867319373971023,3.056174777815443e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.8934296913121766,3.151311599441171e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9001274452272514,3.2509108047661454e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9068251991423257,3.3549522291647545e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9135229530574,3.463422500266933e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.920220706972475,3.5763145462429355e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.926918460887549,3.693627124503564e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9336162148026235,3.8153643699860457e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9403139687176982,3.941535362194907e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9470117226327726,4.072153710170087e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.953709476547847,4.207237154562211e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9604072304629216,4.346807186004668e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.967104984377996,4.490888678986342e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9738027382930703,4.6395095404451395e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.980500492208145,4.792700372321143e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9871982461232194,4.950494147329539e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",2.9938960000382937,5.112925897236611e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0005937539533685,5.280032412946242e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.007291507868443,5.451851955731016e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.013989261783517,5.628423978968986e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.020687015698592,5.809788859775234e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.027384769613666,5.995987639946575e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0340825235287405,6.187061775667178e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0407802774438153,6.383052895452737e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0474780313588896,6.584002565840903e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.054175785273964,6.789952064366427e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0608735391890387,7.000942159389004e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.067571293104113,7.217012896372243e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0742690470191874,7.438203390242285e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.080966800934262,7.664551623483204e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0876645548493364,7.896094249656107e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.0943623087644108,8.13286640205696e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1010600626794855,8.374901507255839e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.10775781659456,8.622231103287731e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.114455570509634,8.874884662291573e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.121153324424709,9.132889417419295e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1278510783397833,9.396270193862195e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1345488322548576,9.6650492438657e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1412465861699324,9.939246085626387e-7,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1479443400850067,1.021887734598796e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.154642094000081,1.0503956606873902e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1613398479151558,1.0794494255414641e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.16803760183023,1.1090497337746753e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1747353557453044,1.1391969416480616e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.181433109660379,1.1698910431849118e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.1881308635754535,1.2011316566567992e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.194828617490528,1.2329180114452906e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2015263714056026,1.2652489352853401e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.208224125320677,1.2981228418976983e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2149218792357512,1.3315377190189958e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.221619633150826,1.3654911168392318e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2283173870659003,1.3999801368575271e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2350151409809746,1.4350014211679787e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2417128948960494,1.47055114218827e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2484106488111237,1.5066249928445273e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.255108402726198,1.543218177226618e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.261806156641273,1.5803254017285865e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.268503910556347,1.617940866689552e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2752016644714215,1.6560582585507682e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2818994183864962,1.6946707425447995e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.2885971723015706,1.7337709559331375e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.295294926216645,1.77335100180868e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.3019926801317196,1.8134024434795066e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.308690434046794,1.8539162994505024e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.3153881879618683,1.8948830390191991e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.322085941876943,1.9362925785020423e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.3287836957920174,1.978134278107074e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.3354814497070917,2.020396939468693e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.3421792036221665,2.0630688038597073e-6,NaN
+1,2,lines,"CSA: adaptive kernels, penalty",3.348876957537241,2.1061375510954585e-6,NaN

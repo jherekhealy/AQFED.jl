@@ -83,9 +83,9 @@ function varianceSlopeCurvature(
         var1, slope1, curvature1 = varianceSlopeCurvature(s.sections[indexTime+1], y)
         #linear interpolation in total variance along same logmoneyness
         v = (var1 * t1 * (t - t0) + var0 * t0 * (t1 - t)) / (t1 - t0)
-        s = (slope1 * t1 * (t - t0) + slope0 * t0 * (t1 - t)) / (t1 - t0)
+        slope = (slope1 * t1 * (t - t0) + slope0 * t0 * (t1 - t)) / (t1 - t0)
         c = (curvature1 * t1 * (t - t0) + curvature0 * t0 * (t1 - t)) / (t1 - t0)
-        return v / t, s / t, c / t
+        return v / t, slope / t, c / t
     end
 end
 
@@ -138,12 +138,12 @@ function varianceSlopeCurvature(
         var1, slope1, curvature1 = varianceSlopeCurvature(s.sections[indexTime+1], y)
         #linear interpolation in total variance along same logmoneyness
         v = @. (var1 * t1 * (t - t0) + var0 * t0 * (t1 - t)) / (t1 - t0)
-        s = @. (slope1 * t1 * (t - t0) + slope0 * t0 * (t1 - t)) / (t1 - t0)
+        slope = @. (slope1 * t1 * (t - t0) + slope0 * t0 * (t1 - t)) / (t1 - t0)
         c = @. (curvature1 * t1 * (t - t0) + curvature0 * t0 * (t1 - t)) / (t1 - t0)
         @. v /= t
-        @. s /= t
+        @. slope /= t
         @. c /= t
-        return v, s, c
+        return v, slope, c
     end
 end
 
@@ -179,3 +179,73 @@ function localVarianceByLogmoneyness(
 
 end
 
+
+export discreteLocalVarianceByLogmoneyness, DiscreteLocalVarianceSlice
+#sections i, j and weights a, b of the total variance a*w_i(y) + b*w_j(y) at t (linear in total variance, flat variance outside).
+@inline function totalVarianceWeights(surface::VarianceSurfaceBySection, t::Real)
+    expiries = surface.expiries
+    n = length(expiries)
+    if t <= expiries[1]
+        return 1, 1, t, zero(t)
+    elseif t >= expiries[n]
+        return n, n, t, zero(t)
+    end
+    i = searchsortedlast(expiries, t)
+    ti, tj = expiries[i], expiries[i+1]
+    return i, i + 1, ti * (tj - t) / (tj - ti), tj * (t - ti) / (tj - ti)
+end
+
+#y ↦ local variance over [t0,t1] at the log-moneyness y: the forward difference of the total implied variance divided by
+#the Dupire denominator in log-moneyness at t1. Capped to [0,10] where the surface allows arbitrages.
+#The time interpolation is precomputed, for the many evaluations of a Monte-Carlo time step.
+struct DiscreteLocalVarianceSlice{S,T}
+    sections::Vector{S}
+    i1::Int
+    j1::Int
+    a1::T
+    b1::T
+    i0::Int
+    j0::Int
+    a0::T
+    b0::T
+    t1::T
+    invT1::T
+    invDt::T
+end
+
+function DiscreteLocalVarianceSlice(surface::VarianceSurfaceBySection, t0::Real, t1::Real)
+    i1, j1, a1, b1 = totalVarianceWeights(surface, t1)
+    i0, j0, a0, b0 = totalVarianceWeights(surface, t0)
+    T = typeof(a1 / 1)
+    return DiscreteLocalVarianceSlice(surface.sections, i1, j1, T(a1), T(b1), i0, j0, T(a0), T(b0), T(t1), T(1 / t1), T(1 / (t1 - t0)))
+end
+
+@inline function (s::DiscreteLocalVarianceSlice)(y)
+    @inbounds wi, dwi, d2wi = varianceSlopeCurvature(s.sections[s.i1], y)
+    @inbounds wj, dwj, d2wj = varianceSlopeCurvature(s.sections[s.j1], y)
+    totalVariance1 = s.a1 * wi + s.b1 * wj
+    totalVariance0 = if s.i0 == s.i1 && s.j0 == s.j1 #the sections are evaluated once in general
+        s.a0 * wi + s.b0 * wj
+    else
+        @inbounds s.a0 * varianceByLogmoneyness(s.sections[s.i0], y) + s.b0 * varianceByLogmoneyness(s.sections[s.j0], y)
+    end
+    t1 = s.t1
+    w = totalVariance1 * s.invT1
+    dw = (s.a1 * dwi + s.b1 * dwj) * s.invT1
+    d2w = (s.a1 * d2wi + s.b1 * d2wj) * s.invT1
+    invW = inv(w)
+    yw = y * invW
+    denom = iszero(w) ? one(w) : 1 - yw * dw + (-t1^2 / 4 - t1 * invW + yw^2) * dw^2 / 4 + d2w * t1 / 2
+    num = (totalVariance1 - totalVariance0) * s.invDt
+    lv = if num < 0
+        zero(num)
+    elseif denom <= 0
+        10 * one(num)
+    else
+        num / denom
+    end
+    return min(lv, 10 * one(lv))
+end
+
+discreteLocalVarianceByLogmoneyness(surface::VarianceSurfaceBySection, y::Real, t0::Real, t1::Real) =
+    DiscreteLocalVarianceSlice(surface, t0, t1)(y)

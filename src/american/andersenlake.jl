@@ -694,12 +694,13 @@ function americanBoundaryPutQDP(
     if r < 0.0 && q < r
         sigmaStar = sqrt(-2q) - sqrt(-2r)
         if vol < sigmaStar
+            #boundaries never cross: u ≥ u∞ and l ≤ l∞, with the perpetual boundaries K(λ-1)/λ, λ roots of the call-frame equation (put-call symmetry)
             mu = q - r - vol2 / 2
             if isLower
-                lambda = (-mu + sqrt(mu^2 + 2 * q * vol2)) / vol2
+                lambda = (-mu - sqrt(mu^2 + 2 * q * vol2)) / vol2
                 Sstar = min(K / lambda * (lambda - 1), Sstar)
             else
-                lambda = (-mu - sqrt(mu^2 + 2 * q * vol2)) / vol2
+                lambda = (-mu + sqrt(mu^2 + 2 * q * vol2)) / vol2
                 Sstar = max(K / lambda * (lambda - 1), Sstar)
             end
         else

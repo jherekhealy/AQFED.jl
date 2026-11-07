@@ -1,0 +1,52 @@
+panel,plot,kind,label,x,y,z
+1,1,stairs,Reduced calibration on full range,0.0,0.04489802637122242,NaN
+1,1,stairs,Reduced calibration on full range,0.10410958904109589,0.04698823555236322,NaN
+1,1,stairs,Reduced calibration on full range,0.2,0.04970700768860615,NaN
+1,1,stairs,Reduced calibration on full range,0.4767123287671233,0.03868526067669631,NaN
+1,1,stairs,Reduced calibration on full range,0.6986301369863014,0.04301698695876318,NaN
+1,1,stairs,Reduced calibration on full range,0.947945205479452,0.04242005563490264,NaN
+1,1,stairs,Reduced calibration on full range,1.1972602739726028,0.04172673063418814,NaN
+1,1,stairs,Reduced calibration on full range,1.6931506849315068,0.03675301692621159,NaN
+1,1,stairs,Reduced calibration on full range,2.1945205479452055,0.048192221796488834,NaN
+1,1,stairs,Reduced calibration on full range,2.6904109589041094,0.04242903536122571,NaN
+1,1,stairs,Reduced calibration on full range,3.191780821917808,0.04639582740092339,NaN
+1,1,stairs,Reduced calibration on full range,4.189041095890411,0.052991568032044245,NaN
+1,1,stairs,Reduced calibration on full range,5.205479452054795,0.061968065450627136,NaN
+1,1,stairs,Reduced calibration on full range,6.2027397260273975,0.06757754529053395,NaN
+1,1,stairs,Reduced calibration on full range,7.2,0.06526412183036753,NaN
+1,1,stairs,Reduced calibration on full range,8.197260273972603,0.06966437125668233,NaN
+1,1,stairs,Reduced calibration on full range,9.194520547945206,0.06966437125668233,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",0.0,0.03529033225447655,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",0.10410958904109589,0.033075944603806064,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",0.2,0.03636454861697519,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",0.4767123287671233,0.03349432326802522,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",0.6986301369863014,0.03888237186625544,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",0.947945205479452,0.03924089679077688,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",1.1972602739726028,0.039728501307918454,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",1.6931506849315068,0.032742030390096086,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",2.1945205479452055,0.052484070076088296,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",2.6904109589041094,0.030924421900263198,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",3.191780821917808,0.0541205963638194,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",4.189041095890411,0.05519254824948433,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",5.205479452054795,0.06388110081457964,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",6.2027397260273975,0.07007694591439736,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",7.2,0.06755420511530327,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",8.197260273972603,0.07239215768010955,NaN
+1,2,stairs,"Reduced calibration Δ ∈ [10%, 90%]",9.194520547945206,0.07239215768010955,NaN
+1,3,stairs,Full calibration,0.0,0.03418075881112533,NaN
+1,3,stairs,Full calibration,0.10410958904109589,0.03580789322104634,NaN
+1,3,stairs,Full calibration,0.2,0.03970072413790908,NaN
+1,3,stairs,Full calibration,0.4767123287671233,0.0434795595637106,NaN
+1,3,stairs,Full calibration,0.6986301369863014,0.04749744750444308,NaN
+1,3,stairs,Full calibration,0.947945205479452,0.04534460967435779,NaN
+1,3,stairs,Full calibration,1.1972602739726028,0.046304545736885694,NaN
+1,3,stairs,Full calibration,1.6931506849315068,0.04640459161345016,NaN
+1,3,stairs,Full calibration,2.1945205479452055,0.04450162660568834,NaN
+1,3,stairs,Full calibration,2.6904109589041094,0.04670568580807568,NaN
+1,3,stairs,Full calibration,3.191780821917808,0.05359572032241698,NaN
+1,3,stairs,Full calibration,4.189041095890411,0.0585420233186768,NaN
+1,3,stairs,Full calibration,5.205479452054795,0.06531085580133228,NaN
+1,3,stairs,Full calibration,6.2027397260273975,0.0679965786778411,NaN
+1,3,stairs,Full calibration,7.2,0.06207161374849446,NaN
+1,3,stairs,Full calibration,8.197260273972603,0.068672210111003,NaN
+1,3,stairs,Full calibration,9.194520547945206,0.068672210111003,NaN

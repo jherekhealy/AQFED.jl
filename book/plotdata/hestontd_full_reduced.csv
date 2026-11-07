@@ -1,0 +1,2032 @@
+panel,plot,kind,label,x,y,z
+1,1,stairs,,0.0,0.04489802637122242,NaN
+1,1,stairs,,0.10410958904109589,0.04698823555236322,NaN
+1,1,stairs,,0.2,0.04970700768860615,NaN
+1,1,stairs,,0.4767123287671233,0.03868526067669631,NaN
+1,1,stairs,,0.6986301369863014,0.04301698695876318,NaN
+1,1,stairs,,0.947945205479452,0.04242005563490264,NaN
+1,1,stairs,,1.1972602739726028,0.04172673063418814,NaN
+1,1,stairs,,1.6931506849315068,0.03675301692621159,NaN
+1,1,stairs,,2.1945205479452055,0.048192221796488834,NaN
+1,1,stairs,,2.6904109589041094,0.04242903536122571,NaN
+1,1,stairs,,3.191780821917808,0.04639582740092339,NaN
+1,1,stairs,,4.189041095890411,0.052991568032044245,NaN
+1,1,stairs,,5.205479452054795,0.061968065450627136,NaN
+1,1,stairs,,6.2027397260273975,0.06757754529053395,NaN
+1,1,stairs,,7.2,0.06526412183036753,NaN
+1,1,stairs,,8.197260273972603,0.06966437125668233,NaN
+1,1,stairs,,9.194520547945206,0.06966437125668233,NaN
+1,2,stairs,,0.0,0.03529033225447655,NaN
+1,2,stairs,,0.10410958904109589,0.033075944603806064,NaN
+1,2,stairs,,0.2,0.03636454861697519,NaN
+1,2,stairs,,0.4767123287671233,0.03349432326802522,NaN
+1,2,stairs,,0.6986301369863014,0.03888237186625544,NaN
+1,2,stairs,,0.947945205479452,0.03924089679077688,NaN
+1,2,stairs,,1.1972602739726028,0.039728501307918454,NaN
+1,2,stairs,,1.6931506849315068,0.032742030390096086,NaN
+1,2,stairs,,2.1945205479452055,0.052484070076088296,NaN
+1,2,stairs,,2.6904109589041094,0.030924421900263198,NaN
+1,2,stairs,,3.191780821917808,0.0541205963638194,NaN
+1,2,stairs,,4.189041095890411,0.05519254824948433,NaN
+1,2,stairs,,5.205479452054795,0.06388110081457964,NaN
+1,2,stairs,,6.2027397260273975,0.07007694591439736,NaN
+1,2,stairs,,7.2,0.06755420511530327,NaN
+1,2,stairs,,8.197260273972603,0.07239215768010955,NaN
+1,2,stairs,,9.194520547945206,0.07239215768010955,NaN
+1,3,stairs,,0.0,0.03418075881112533,NaN
+1,3,stairs,,0.10410958904109589,0.035733592301387326,NaN
+1,3,stairs,,0.2,0.03897727764352047,NaN
+1,3,stairs,,0.4767123287671233,0.042466021234060264,NaN
+1,3,stairs,,0.6986301369863014,0.045740461897991795,NaN
+1,3,stairs,,0.947945205479452,0.046016762889866586,NaN
+1,3,stairs,,1.1972602739726028,0.04293004386797402,NaN
+1,3,stairs,,1.6931506849315068,0.04127386870058486,NaN
+1,3,stairs,,2.1945205479452055,0.04021702836568302,NaN
+1,3,stairs,,2.6904109589041094,0.043556309706573836,NaN
+1,3,stairs,,3.191780821917808,0.05211616673296462,NaN
+1,3,stairs,,4.189041095890411,0.0576783441556419,NaN
+1,3,stairs,,5.205479452054795,0.06506256562149385,NaN
+1,3,stairs,,6.2027397260273975,0.06835233262679241,NaN
+1,3,stairs,,7.2,0.06439360735143561,NaN
+1,3,stairs,,8.197260273972603,0.07369590255223823,NaN
+1,3,stairs,,9.194520547945206,0.07369590255223823,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.9,21.9817,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.905,21.69,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.91,21.398,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.915,21.1053,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.92,20.8119,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.925,20.5177,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.93,20.2224,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.935,19.9263,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.94,19.6294,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.945,19.3318,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.95,19.0336,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.955,18.7353,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.96,18.4372,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.965,18.1398,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.97,17.8434,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.975,17.5484,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.98,17.255,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.985,16.9633,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.99,16.6737,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",0.995,16.3866,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.0,16.1025,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.005,15.8219,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.01,15.545200000000001,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.015,15.2729,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.02,15.0055,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.025,14.7436,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.03,14.4883,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.035,14.2403,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.04,14.000599999999999,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.045,13.7701,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.05,13.549700000000001,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.055,13.3407,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.06,13.144400000000001,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.065,12.961300000000001,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.07,12.7906,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.075,12.6299,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.08,12.4772,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.085,12.3315,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.09,12.1935,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.095,12.0645,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.1,11.9459,NaN
+2,1,lines,"Market, Δ ∈ [10%, 90%]",1.15,11.4195,NaN
+2,2,scatter,Market,0.5,50.2098,NaN
+2,2,scatter,Market,0.55,46.0004,NaN
+2,2,scatter,Market,0.6,41.9003,NaN
+2,2,scatter,Market,0.65,38.0821,NaN
+2,2,scatter,Market,0.7,34.4658,NaN
+2,2,scatter,Market,0.75,31.080799999999996,NaN
+2,2,scatter,Market,0.8,27.902699999999996,NaN
+2,2,scatter,Market,0.85,24.8961,NaN
+2,2,scatter,Market,1.2,11.7722,NaN
+2,2,scatter,Market,1.25,12.683,NaN
+2,2,scatter,Market,1.3,13.7568,NaN
+2,2,scatter,Market,1.35,14.854699999999998,NaN
+2,2,scatter,Market,1.4,15.9252,NaN
+2,2,scatter,Market,1.45,16.9512,NaN
+2,2,scatter,Market,1.5,17.933,NaN
+2,3,lines,Reduced calibration on full range,0.5,48.37591150208339,NaN
+2,3,lines,Reduced calibration on full range,0.505,48.059205572616165,NaN
+2,3,lines,Reduced calibration on full range,0.51,47.74199900471724,NaN
+2,3,lines,Reduced calibration on full range,0.515,47.421615730718294,NaN
+2,3,lines,Reduced calibration on full range,0.52,47.100258473107765,NaN
+2,3,lines,Reduced calibration on full range,0.525,46.782039215783065,NaN
+2,3,lines,Reduced calibration on full range,0.53,46.46811088795587,NaN
+2,3,lines,Reduced calibration on full range,0.535,46.15555818172511,NaN
+2,3,lines,Reduced calibration on full range,0.54,45.84087262028773,NaN
+2,3,lines,Reduced calibration on full range,0.545,45.523752718847994,NaN
+2,3,lines,Reduced calibration on full range,0.55,45.20715010418061,NaN
+2,3,lines,Reduced calibration on full range,0.555,44.89390463185261,NaN
+2,3,lines,Reduced calibration on full range,0.56,44.58378525116685,NaN
+2,3,lines,Reduced calibration on full range,0.565,44.2739066820253,NaN
+2,3,lines,Reduced calibration on full range,0.57,43.961764555478446,NaN
+2,3,lines,Reduced calibration on full range,0.575,43.64763604172289,NaN
+2,3,lines,Reduced calibration on full range,0.58,43.33408815469117,NaN
+2,3,lines,Reduced calibration on full range,0.585,43.023344670709605,NaN
+2,3,lines,Reduced calibration on full range,0.59,42.71518830817892,NaN
+2,3,lines,Reduced calibration on full range,0.595,42.407291851435986,NaN
+2,3,lines,Reduced calibration on full range,0.6,42.09744576818758,NaN
+2,3,lines,Reduced calibration on full range,0.605,41.78550163809893,NaN
+2,3,lines,Reduced calibration on full range,0.61,41.47334295407042,NaN
+2,3,lines,Reduced calibration on full range,0.615,41.16309040532924,NaN
+2,3,lines,Reduced calibration on full range,0.62,40.85523902806121,NaN
+2,3,lines,Reduced calibration on full range,0.625,40.548310915570454,NaN
+2,3,lines,Reduced calibration on full range,0.63,40.24017962984852,NaN
+2,3,lines,Reduced calibration on full range,0.635,39.92982825484205,NaN
+2,3,lines,Reduced calibration on full range,0.64,39.61808031472904,NaN
+2,3,lines,Reduced calibration on full range,0.645,39.30681073087782,NaN
+2,3,lines,Reduced calibration on full range,0.65,38.997385254167135,NaN
+2,3,lines,Reduced calibration on full range,0.655,38.689603368500094,NaN
+2,3,lines,Reduced calibration on full range,0.66,38.381913888750596,NaN
+2,3,lines,Reduced calibration on full range,0.665,38.07263551708823,NaN
+2,3,lines,Reduced calibration on full range,0.67,37.76119039582056,NaN
+2,3,lines,Reduced calibration on full range,0.675,37.4484452083233,NaN
+2,3,lines,Reduced calibration on full range,0.68,37.13598474608531,NaN
+2,3,lines,Reduced calibration on full range,0.685,36.82491909588859,NaN
+2,3,lines,Reduced calibration on full range,0.69,36.515100979444995,NaN
+2,3,lines,Reduced calibration on full range,0.695,36.20526773397761,NaN
+2,3,lines,Reduced calibration on full range,0.7,35.89394039804025,NaN
+2,3,lines,Reduced calibration on full range,0.705,35.58041311010834,NaN
+2,3,lines,Reduced calibration on full range,0.71,35.26516533771909,NaN
+2,3,lines,Reduced calibration on full range,0.715,34.94946789337281,NaN
+2,3,lines,Reduced calibration on full range,0.72,34.6344963623422,NaN
+2,3,lines,Reduced calibration on full range,0.725,34.32055613405707,NaN
+2,3,lines,Reduced calibration on full range,0.73,34.00690413062859,NaN
+2,3,lines,Reduced calibration on full range,0.735,33.69223842532818,NaN
+2,3,lines,Reduced calibration on full range,0.74,33.375506492611336,NaN
+2,3,lines,Reduced calibration on full range,0.745,33.056516410878565,NaN
+2,3,lines,Reduced calibration on full range,0.75,32.73599584666647,NaN
+2,3,lines,Reduced calibration on full range,0.755,32.41509962767059,NaN
+2,3,lines,Reduced calibration on full range,0.76,32.09469031208548,NaN
+2,3,lines,Reduced calibration on full range,0.765,31.774824460536983,NaN
+2,3,lines,Reduced calibration on full range,0.77,31.454727939828075,NaN
+2,3,lines,Reduced calibration on full range,0.775,31.133244699012813,NaN
+2,3,lines,Reduced calibration on full range,0.78,30.809478278356515,NaN
+2,3,lines,Reduced calibration on full range,0.785,30.48325894973729,NaN
+2,3,lines,Reduced calibration on full range,0.79,30.155191146529052,NaN
+2,3,lines,Reduced calibration on full range,0.795,29.82627928618715,NaN
+2,3,lines,Reduced calibration on full range,0.8,29.497355025655104,NaN
+2,3,lines,Reduced calibration on full range,0.805,29.168619583476268,NaN
+2,3,lines,Reduced calibration on full range,0.81,28.839534915040264,NaN
+2,3,lines,Reduced calibration on full range,0.815,28.509102160253143,NaN
+2,3,lines,Reduced calibration on full range,0.82,28.176365010688283,NaN
+2,3,lines,Reduced calibration on full range,0.825,27.840872222344643,NaN
+2,3,lines,Reduced calibration on full range,0.83,27.50287045464631,NaN
+2,3,lines,Reduced calibration on full range,0.835,27.16314510825803,NaN
+2,3,lines,Reduced calibration on full range,0.84,26.822602781410065,NaN
+2,3,lines,Reduced calibration on full range,0.845,26.481808329634337,NaN
+2,3,lines,Reduced calibration on full range,0.85,26.140700047252665,NaN
+2,3,lines,Reduced calibration on full range,0.855,25.798610731167855,NaN
+2,3,lines,Reduced calibration on full range,0.86,25.45457257172325,NaN
+2,3,lines,Reduced calibration on full range,0.865,25.107753553626882,NaN
+2,3,lines,Reduced calibration on full range,0.87,24.75782067947411,NaN
+2,3,lines,Reduced calibration on full range,0.875,24.405068416435377,NaN
+2,3,lines,Reduced calibration on full range,0.88,24.050262955353887,NaN
+2,3,lines,Reduced calibration on full range,0.885,23.694280382942353,NaN
+2,3,lines,Reduced calibration on full range,0.89,23.337703819249462,NaN
+2,3,lines,Reduced calibration on full range,0.895,22.980556121425305,NaN
+2,3,lines,Reduced calibration on full range,0.9,22.622280101457033,NaN
+2,3,lines,Reduced calibration on full range,0.905,22.261968958738525,NaN
+2,3,lines,Reduced calibration on full range,0.91,21.89874432423253,NaN
+2,3,lines,Reduced calibration on full range,0.915,21.53212146526631,NaN
+2,3,lines,Reduced calibration on full range,0.92,21.162211544673116,NaN
+2,3,lines,Reduced calibration on full range,0.925,20.78968121003837,NaN
+2,3,lines,Reduced calibration on full range,0.93,20.415489232596492,NaN
+2,3,lines,Reduced calibration on full range,0.935,20.040508313992596,NaN
+2,3,lines,Reduced calibration on full range,0.94,19.665183782221398,NaN
+2,3,lines,Reduced calibration on full range,0.945,19.28936451443242,NaN
+2,3,lines,Reduced calibration on full range,0.95,18.912373369419015,NaN
+2,3,lines,Reduced calibration on full range,0.955,18.533292315983225,NaN
+2,3,lines,Reduced calibration on full range,0.96,18.151356661819037,NaN
+2,3,lines,Reduced calibration on full range,0.965,17.766312630004073,NaN
+2,3,lines,Reduced calibration on full range,0.97,17.37860612945564,NaN
+2,3,lines,Reduced calibration on full range,0.975,16.98933165398975,NaN
+2,3,lines,Reduced calibration on full range,0.98,16.5999566729078,NaN
+2,3,lines,Reduced calibration on full range,0.985,16.211918729337732,NaN
+2,3,lines,Reduced calibration on full range,0.99,15.826242087556281,NaN
+2,3,lines,Reduced calibration on full range,0.995,15.443321818777084,NaN
+2,3,lines,Reduced calibration on full range,1.0,15.062975751666158,NaN
+2,3,lines,Reduced calibration on full range,1.005,14.684784478234453,NaN
+2,3,lines,Reduced calibration on full range,1.01,14.30865191068104,NaN
+2,3,lines,Reduced calibration on full range,1.015,13.935450009900913,NaN
+2,3,lines,Reduced calibration on full range,1.02,13.567580738013843,NaN
+2,3,lines,Reduced calibration on full range,1.025,13.209303740125112,NaN
+2,3,lines,Reduced calibration on full range,1.03,12.86673386534549,NaN
+2,3,lines,Reduced calibration on full range,1.035,12.547490416698684,NaN
+2,3,lines,Reduced calibration on full range,1.04,12.260055167201246,NaN
+2,3,lines,Reduced calibration on full range,1.045,12.01294598616151,NaN
+2,3,lines,Reduced calibration on full range,1.05,11.813826804443531,NaN
+2,3,lines,Reduced calibration on full range,1.055,11.66866004810001,NaN
+2,3,lines,Reduced calibration on full range,1.06,11.580986256605351,NaN
+2,3,lines,Reduced calibration on full range,1.065,11.551408525774718,NaN
+2,3,lines,Reduced calibration on full range,1.07,11.577368728598394,NaN
+2,3,lines,Reduced calibration on full range,1.075,11.653303729313178,NaN
+2,3,lines,Reduced calibration on full range,1.08,11.771228591587908,NaN
+2,3,lines,Reduced calibration on full range,1.085,11.921699275001219,NaN
+2,3,lines,Reduced calibration on full range,1.09,12.094992613183887,NaN
+2,3,lines,Reduced calibration on full range,1.095,12.282264939616464,NaN
+2,3,lines,Reduced calibration on full range,1.1,12.476452956761516,NaN
+2,3,lines,Reduced calibration on full range,1.105,12.672757029628043,NaN
+2,3,lines,Reduced calibration on full range,1.11,12.86865997962109,NaN
+2,3,lines,Reduced calibration on full range,1.115,13.06354159308234,NaN
+2,3,lines,Reduced calibration on full range,1.12,13.258024551466107,NaN
+2,3,lines,Reduced calibration on full range,1.125,13.453223339423984,NaN
+2,3,lines,Reduced calibration on full range,1.13,13.650065776319956,NaN
+2,3,lines,Reduced calibration on full range,1.135,13.848822247042367,NaN
+2,3,lines,Reduced calibration on full range,1.14,14.048917950346787,NaN
+2,3,lines,Reduced calibration on full range,1.145,14.24903083436828,NaN
+2,3,lines,Reduced calibration on full range,1.15,14.447409760699637,NaN
+2,3,lines,Reduced calibration on full range,1.155,14.642301519110301,NaN
+2,3,lines,Reduced calibration on full range,1.16,14.832362245301622,NaN
+2,3,lines,Reduced calibration on full range,1.165,15.016947986178891,NaN
+2,3,lines,Reduced calibration on full range,1.17,15.19622067866152,NaN
+2,3,lines,Reduced calibration on full range,1.175,15.371056118948001,NaN
+2,3,lines,Reduced calibration on full range,1.18,15.54278759916324,NaN
+2,3,lines,Reduced calibration on full range,1.185,15.712854334449611,NaN
+2,3,lines,Reduced calibration on full range,1.19,15.88244223729866,NaN
+2,3,lines,Reduced calibration on full range,1.195,16.0522030359636,NaN
+2,3,lines,Reduced calibration on full range,1.2,16.222116206426808,NaN
+2,3,lines,Reduced calibration on full range,1.205,16.391521242688782,NaN
+2,3,lines,Reduced calibration on full range,1.21,16.559304853062294,NaN
+2,3,lines,Reduced calibration on full range,1.215,16.72419060875353,NaN
+2,3,lines,Reduced calibration on full range,1.22,16.885057221760057,NaN
+2,3,lines,Reduced calibration on full range,1.225,17.04121007309669,NaN
+2,3,lines,Reduced calibration on full range,1.23,17.192546551603456,NaN
+2,3,lines,Reduced calibration on full range,1.235,17.339582881092173,NaN
+2,3,lines,Reduced calibration on full range,1.24,17.48334128109569,NaN
+2,3,lines,Reduced calibration on full range,1.245,17.625125568195525,NaN
+2,3,lines,Reduced calibration on full range,1.25,17.766236106232373,NaN
+2,3,lines,Reduced calibration on full range,1.255,17.907687614868586,NaN
+2,3,lines,Reduced calibration on full range,1.26,18.049992785109154,NaN
+2,3,lines,Reduced calibration on full range,1.265,18.19305988167702,NaN
+2,3,lines,Reduced calibration on full range,1.27,18.336226012565294,NaN
+2,3,lines,Reduced calibration on full range,1.275,18.478415970516775,NaN
+2,3,lines,Reduced calibration on full range,1.28,18.618388136631282,NaN
+2,3,lines,Reduced calibration on full range,1.285,18.755011321147272,NaN
+2,3,lines,Reduced calibration on full range,1.29,18.887512986500113,NaN
+2,3,lines,Reduced calibration on full range,1.295,19.015648816341162,NaN
+2,3,lines,Reduced calibration on full range,1.3,19.13976187888021,NaN
+2,3,lines,Reduced calibration on full range,1.305,19.26072193485813,NaN
+2,3,lines,Reduced calibration on full range,1.31,19.379757937984856,NaN
+2,3,lines,Reduced calibration on full range,1.315,19.498216642615635,NaN
+2,3,lines,Reduced calibration on full range,1.32,19.61729487191893,NaN
+2,3,lines,Reduced calibration on full range,1.325,19.737799531585765,NaN
+2,3,lines,Reduced calibration on full range,1.33,19.859985303254174,NaN
+2,3,lines,Reduced calibration on full range,1.335,19.983504448190004,NaN
+2,3,lines,Reduced calibration on full range,1.34,20.107479028050008,NaN
+2,3,lines,Reduced calibration on full range,1.345,20.230679169104228,NaN
+2,3,lines,Reduced calibration on full range,1.35,20.351769010962496,NaN
+2,3,lines,Reduced calibration on full range,1.355,20.469570082933252,NaN
+2,3,lines,Reduced calibration on full range,1.36,20.583291596518173,NaN
+2,3,lines,Reduced calibration on full range,1.365,20.692686478265067,NaN
+2,3,lines,Reduced calibration on full range,1.37,20.798107111926793,NaN
+2,3,lines,Reduced calibration on full range,1.375,20.90045222707742,NaN
+2,3,lines,Reduced calibration on full range,1.38,21.001013928090014,NaN
+2,3,lines,Reduced calibration on full range,1.385,21.10125017776952,NaN
+2,3,lines,Reduced calibration on full range,1.39,21.202521678821316,NaN
+2,3,lines,Reduced calibration on full range,1.395,21.30584066576829,NaN
+2,3,lines,Reduced calibration on full range,1.4,21.411679633408642,NaN
+2,3,lines,Reduced calibration on full range,1.405,21.519878375034562,NaN
+2,3,lines,Reduced calibration on full range,1.41,21.629668580696734,NaN
+2,3,lines,Reduced calibration on full range,1.415,21.73981097948022,NaN
+2,3,lines,Reduced calibration on full range,1.42,21.84881724988771,NaN
+2,3,lines,Reduced calibration on full range,1.425,21.955213745904892,NaN
+2,3,lines,Reduced calibration on full range,1.43,22.0577993859377,NaN
+2,3,lines,Reduced calibration on full range,1.435,22.155854885353772,NaN
+2,3,lines,Reduced calibration on full range,1.44,22.249271520449103,NaN
+2,3,lines,Reduced calibration on full range,1.445,22.338581219406365,NaN
+2,3,lines,Reduced calibration on full range,1.45,22.424883743771286,NaN
+2,3,lines,Reduced calibration on full range,1.455,22.50968037028909,NaN
+2,3,lines,Reduced calibration on full range,1.46,22.594636801808257,NaN
+2,3,lines,Reduced calibration on full range,1.465,22.681310390913616,NaN
+2,3,lines,Reduced calibration on full range,1.47,22.77088598403953,NaN
+2,3,lines,Reduced calibration on full range,1.475,22.863967341647136,NaN
+2,3,lines,Reduced calibration on full range,1.48,22.96046408551478,NaN
+2,3,lines,Reduced calibration on full range,1.485,23.059597066459062,NaN
+2,3,lines,Reduced calibration on full range,1.49,23.160021556611838,NaN
+2,3,lines,Reduced calibration on full range,1.495,23.260044405321338,NaN
+2,3,lines,Reduced calibration on full range,1.5,23.35789490011351,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.5,40.46237925730223,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.505,40.22946607394192,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.51,39.99798307079263,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.515,39.76634308706169,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.52,39.534791513225336,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.525,39.304651050238434,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.53,39.07545104172456,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.535,38.845993298537735,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.54,38.616745049136796,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.545,38.3887065290491,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.55,38.16137359291353,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.555,37.933786987055754,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.56,37.70632387525498,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.565,37.47982372700933,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.57,37.25396226772018,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.575,37.027892732636836,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.58,36.80174950413779,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.585,36.5762775693031,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.59,36.351443736945754,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.595,36.12651565357858,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.6,35.9013101883232,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.605,35.676406341876806,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.61,35.45208816167015,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.615,35.22786690542155,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.62,35.00328271388801,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.625,34.77858479457173,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.63,34.554245141777955,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.635,34.3301751151203,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.64,34.10586328682981,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.645,33.88113318768991,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.65,33.65633820540819,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.655,33.43176627741214,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.66,33.207190624368316,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.665,32.98219107334997,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.67,32.7567192029117,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.675,32.53109983557114,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.68,32.305520733229784,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.685,32.07974933977128,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.69,31.85343399721155,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.695,31.626537812943795,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.7,31.399327085702268,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.705,31.171969345310718,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.71,30.944287586810283,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.715,30.715966237326587,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.72,30.486913447154723,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.725,30.25732107050076,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.73,30.027375026938298,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.735,29.796992819512575,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.74,29.565897425940307,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.745,29.333913570072728,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.75,29.10112500807559,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.755,28.867723445853144,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.76,28.633744168966075,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.765,28.39899327875755,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.77,28.163232757240053,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.775,27.926401430940196,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.78,27.688629704342155,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.785,27.450046936339955,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.79,27.210600150994168,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.795,26.97007340335445,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.8,26.72827412132715,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.805,26.485184056135253,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.81,26.240923800680772,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.815,25.995578270468823,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.82,25.749065197587377,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.825,25.501173371147125,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.83,25.2517233038223,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.835,25.000688382799062,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.84,24.74816310635821,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.845,24.494216641756005,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.85,24.238774553855706,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.855,23.981636645426075,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.86,23.722607772273072,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.865,23.461617515698173,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.87,23.19872167825501,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.875,22.933989422932168,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.88,22.66738025681278,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.885,22.398718603804706,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.89,22.127784241768232,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.895,21.854437019171876,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.9,21.578668937364682,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.905,21.300542184483962,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.91,21.020068188880163,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.915,20.73712935084263,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.92,20.451506853383012,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.925,20.16299024165784,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.93,19.871479763596025,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.935,19.577000725639586,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.94,19.279620521569054,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.945,18.979335540862877,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.95,18.67601789157165,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.955,18.369465386812838,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.96,18.05951981557002,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.965,17.74616772321523,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.97,17.429551848060264,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.975,17.10988869048842,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.98,16.787358814170776,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.985,16.46206008309829,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.99,16.134073311632847,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.995,15.803613381747953,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.0,15.471180324081974,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.005,15.137625880207986,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.01,14.80411345966929,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.015,14.472033515664714,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.02,14.142986107928579,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.025,13.818920489134534,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.03,13.502432864152695,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.035,13.197113193188107,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.04,12.907760049501372,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.045,12.640290625033279,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.05,12.401262109225987,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.055,12.197053246513168,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.06,12.032877488906816,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.065,11.911869863476191,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.07,11.83449066989361,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.075,11.798421060564335,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.08,11.79899964360578,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.085,11.830092571734571,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.09,11.885153412083882,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.095,11.95817428810565,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.1,12.044288164420069,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.105,12.139928851485939,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.11,12.242621292475969,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.115,12.35058777077842,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.12,12.462376648171666,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.125,12.576655016966415,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.13,12.69219652380029,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.135,12.80799522426643,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.14,12.923388458493617,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.145,13.038089469331856,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.15,13.152094916429622,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.155,13.26550590093992,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.16,13.378346935143892,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.165,13.490466035318658,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.17,13.601555478973212,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.175,13.711271490423533,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.18,13.819383833947093,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.185,13.925875492150233,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.19,14.030941266138239,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.195,14.134886114445347,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.2,14.237973466820655,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.205,14.340297410516802,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.21,14.441740161548564,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.215,14.542034409775887,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.22,14.640899657433861,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.225,14.738186901616121,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.23,14.833962852456962,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.235,14.928493676253584,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.24,15.022134906211368,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.245,15.115177404703797,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.25,15.207719835128957,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.255,15.299626685182885,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.26,15.390592413520388,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.265,15.48028430120264,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.27,15.568501062733967,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.275,15.655276932498086,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.28,15.740884285535769,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.285,15.825731268351728,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.29,15.91019614869629,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.295,15.994468396153028,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.3,16.078465504569976,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.305,16.16186369173662,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.31,16.24423255930254,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.315,16.325219468539547,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.32,16.404707863605605,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.325,16.482883450752308,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.33,16.5601782830816,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.335,16.637111123706404,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.34,16.714084821879414,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.345,16.791221287689208,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.35,16.868302672100324,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.355,16.944846592104952,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.36,17.020289820615762,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.365,17.094211225155657,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.37,17.166508504282124,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.375,17.237459547091575,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.38,17.307640763089164,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.385,17.377726876058684,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.39,17.44824217105902,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.395,17.519355507085212,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.4,17.590799689361447,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.405,17.661951455868607,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.41,17.732047867475906,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.415,17.80046321407785,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.42,17.86694788121666,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.425,17.931743207892172,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.43,17.995527240655914,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.435,18.059201950625987,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.44,18.123587478224557,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.445,18.189126529294754,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.45,18.25570618201377,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.455,18.322667908006558,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.46,18.389010107702173,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.465,18.453717812136414,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.47,18.516109954713713,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.475,18.576089814506794,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.48,18.634214923381258,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.485,18.69155591170666,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.49,18.749376469275795,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.495,18.80872606104635,NaN
+2,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.5,18.870075889404788,NaN
+2,5,lines,Full calibration,0.5,41.109861944705614,NaN
+2,5,lines,Full calibration,0.505,40.875367625799925,NaN
+2,5,lines,Full calibration,0.51,40.64073333509792,NaN
+2,5,lines,Full calibration,0.515,40.40766213072241,NaN
+2,5,lines,Full calibration,0.52,40.17589346364327,NaN
+2,5,lines,Full calibration,0.525,39.94385361290253,NaN
+2,5,lines,Full calibration,0.53,39.71180994541928,NaN
+2,5,lines,Full calibration,0.535,39.48112039535913,NaN
+2,5,lines,Full calibration,0.54,39.2514877226035,NaN
+2,5,lines,Full calibration,0.545,39.02161981636908,NaN
+2,5,lines,Full calibration,0.55,38.79166153542156,NaN
+2,5,lines,Full calibration,0.555,38.56274608403164,NaN
+2,5,lines,Full calibration,0.56,38.334815599201086,NaN
+2,5,lines,Full calibration,0.565,38.10678276677955,NaN
+2,5,lines,Full calibration,0.57,37.87847715565197,NaN
+2,5,lines,Full calibration,0.575,37.650810731359115,NaN
+2,5,lines,Full calibration,0.58,37.42408538545278,NaN
+2,5,lines,Full calibration,0.585,37.197494295406194,NaN
+2,5,lines,Full calibration,0.59,36.97050820413674,NaN
+2,5,lines,Full calibration,0.595,36.74367209325661,NaN
+2,5,lines,Full calibration,0.6,36.51759449057788,NaN
+2,5,lines,Full calibration,0.605,36.29193331755187,NaN
+2,5,lines,Full calibration,0.61,36.0659687816076,NaN
+2,5,lines,Full calibration,0.615,35.83970624592485,NaN
+2,5,lines,Full calibration,0.62,35.613769394383155,NaN
+2,5,lines,Full calibration,0.625,35.388372155187795,NaN
+2,5,lines,Full calibration,0.63,35.16299353161502,NaN
+2,5,lines,Full calibration,0.635,34.937159777392225,NaN
+2,5,lines,Full calibration,0.64,34.71108795998988,NaN
+2,5,lines,Full calibration,0.645,34.48528536611427,NaN
+2,5,lines,Full calibration,0.65,34.25977436005482,NaN
+2,5,lines,Full calibration,0.655,34.03405934439845,NaN
+2,5,lines,Full calibration,0.66,33.807808464178834,NaN
+2,5,lines,Full calibration,0.665,33.581255165592616,NaN
+2,5,lines,Full calibration,0.67,33.35480832240119,NaN
+2,5,lines,Full calibration,0.675,33.12846193183972,NaN
+2,5,lines,Full calibration,0.68,32.9017948062703,NaN
+2,5,lines,Full calibration,0.685,32.67450593767322,NaN
+2,5,lines,Full calibration,0.69,32.446753743137045,NaN
+2,5,lines,Full calibration,0.695,32.21888975941625,NaN
+2,5,lines,Full calibration,0.7,31.990972153371388,NaN
+2,5,lines,Full calibration,0.705,31.762676368171995,NaN
+2,5,lines,Full calibration,0.71,31.533676745998605,NaN
+2,5,lines,Full calibration,0.715,31.304000660550525,NaN
+2,5,lines,Full calibration,0.72,31.07393776630034,NaN
+2,5,lines,Full calibration,0.725,30.84364792823236,NaN
+2,5,lines,Full calibration,0.73,30.612946507715755,NaN
+2,5,lines,Full calibration,0.735,30.381498146843466,NaN
+2,5,lines,Full calibration,0.74,30.149167007503745,NaN
+2,5,lines,Full calibration,0.745,29.916119647686372,NaN
+2,5,lines,Full calibration,0.75,29.682586225651136,NaN
+2,5,lines,Full calibration,0.755,29.448566995666514,NaN
+2,5,lines,Full calibration,0.76,29.213805052893765,NaN
+2,5,lines,Full calibration,0.765,28.97803451618053,NaN
+2,5,lines,Full calibration,0.77,28.741221959722008,NaN
+2,5,lines,Full calibration,0.775,28.5035496436494,NaN
+2,5,lines,Full calibration,0.78,28.265176107278318,NaN
+2,5,lines,Full calibration,0.785,28.026033850959763,NaN
+2,5,lines,Full calibration,0.79,27.78586571984461,NaN
+2,5,lines,Full calibration,0.795,27.544447589802605,NaN
+2,5,lines,Full calibration,0.8,27.301765153889963,NaN
+2,5,lines,Full calibration,0.805,27.057975065962147,NaN
+2,5,lines,Full calibration,0.81,26.813201521194053,NaN
+2,5,lines,Full calibration,0.815,26.567372799270732,NaN
+2,5,lines,Full calibration,0.82,26.320249904991915,NaN
+2,5,lines,Full calibration,0.825,26.071609109938866,NaN
+2,5,lines,Full calibration,0.83,25.821400417104172,NaN
+2,5,lines,Full calibration,0.835,25.569738004468938,NaN
+2,5,lines,Full calibration,0.84,25.316740372683455,NaN
+2,5,lines,Full calibration,0.845,25.062371544211103,NaN
+2,5,lines,Full calibration,0.85,24.806424296268734,NaN
+2,5,lines,Full calibration,0.855,24.548653041438737,NaN
+2,5,lines,Full calibration,0.86,24.28893335677359,NaN
+2,5,lines,Full calibration,0.865,24.02730929416669,NaN
+2,5,lines,Full calibration,0.87,23.763892970454027,NaN
+2,5,lines,Full calibration,0.875,23.498707491807767,NaN
+2,5,lines,Full calibration,0.88,23.23160692066673,NaN
+2,5,lines,Full calibration,0.885,22.96233658730822,NaN
+2,5,lines,Full calibration,0.89,22.6906789911886,NaN
+2,5,lines,Full calibration,0.895,22.41656357596132,NaN
+2,5,lines,Full calibration,0.9,22.14005302407157,NaN
+2,5,lines,Full calibration,0.905,21.861220669021115,NaN
+2,5,lines,Full calibration,0.91,21.580019001491234,NaN
+2,5,lines,Full calibration,0.915,21.296242649671594,NaN
+2,5,lines,Full calibration,0.92,21.009612619090166,NaN
+2,5,lines,Full calibration,0.925,20.719914739312728,NaN
+2,5,lines,Full calibration,0.93,20.427086013625324,NaN
+2,5,lines,Full calibration,0.935,20.131184644332762,NaN
+2,5,lines,Full calibration,0.94,19.832268032641757,NaN
+2,5,lines,Full calibration,0.945,19.530271072404364,NaN
+2,5,lines,Full calibration,0.95,19.224975851172186,NaN
+2,5,lines,Full calibration,0.955,18.916096717403516,NaN
+2,5,lines,Full calibration,0.96,18.603421656022153,NaN
+2,5,lines,Full calibration,0.965,18.286911323494778,NaN
+2,5,lines,Full calibration,0.97,17.96668778431747,NaN
+2,5,lines,Full calibration,0.975,17.64292343333062,NaN
+2,5,lines,Full calibration,0.98,17.315712195084583,NaN
+2,5,lines,Full calibration,0.985,16.98502105181447,NaN
+2,5,lines,Full calibration,0.99,16.650769564533334,NaN
+2,5,lines,Full calibration,0.995,16.31300186555825,NaN
+2,5,lines,Full calibration,1.0,15.972054723541051,NaN
+2,5,lines,Full calibration,1.005,15.628627659653304,NaN
+2,5,lines,Full calibration,1.01,15.283727621452767,NaN
+2,5,lines,Full calibration,1.015,14.938551555404715,NaN
+2,5,lines,Full calibration,1.02,14.594428717445462,NaN
+2,5,lines,Full calibration,1.025,14.252930900124609,NaN
+2,5,lines,Full calibration,1.03,13.916173405341794,NaN
+2,5,lines,Full calibration,1.035,13.587213638518564,NaN
+2,5,lines,Full calibration,1.04,13.270367223552071,NaN
+2,5,lines,Full calibration,1.045,12.9712499683302,NaN
+2,5,lines,Full calibration,1.05,12.696427354014798,NaN
+2,5,lines,Full calibration,1.055,12.452680956893001,NaN
+2,5,lines,Full calibration,1.06,12.24603142029587,NaN
+2,5,lines,Full calibration,1.065,12.080744601441149,NaN
+2,5,lines,Full calibration,1.07,11.958569412028188,NaN
+2,5,lines,Full calibration,1.075,11.878412048842758,NaN
+2,5,lines,Full calibration,1.08,11.836550371371688,NaN
+2,5,lines,Full calibration,1.085,11.82735020172855,NaN
+2,5,lines,Full calibration,1.09,11.844297369082945,NaN
+2,5,lines,Full calibration,1.095,11.881061040968866,NaN
+2,5,lines,Full calibration,1.1,11.932304560856565,NaN
+2,5,lines,Full calibration,1.105,11.99406565223158,NaN
+2,5,lines,Full calibration,1.11,12.063691691098317,NaN
+2,5,lines,Full calibration,1.115,12.139465937866671,NaN
+2,5,lines,Full calibration,1.12,12.220139224773702,NaN
+2,5,lines,Full calibration,1.125,12.30456777415868,NaN
+2,5,lines,Full calibration,1.13,12.391569660222448,NaN
+2,5,lines,Full calibration,1.135,12.479994854150164,NaN
+2,5,lines,Full calibration,1.14,12.56890883210181,NaN
+2,5,lines,Full calibration,1.145,12.657754471219002,NaN
+2,5,lines,Full calibration,1.15,12.746388507892448,NaN
+2,5,lines,Full calibration,1.155,12.83496431357715,NaN
+2,5,lines,Full calibration,1.16,12.923713212234716,NaN
+2,5,lines,Full calibration,1.165,13.012725499630085,NaN
+2,5,lines,Full calibration,1.17,13.101830136764569,NaN
+2,5,lines,Full calibration,1.175,13.190622846458325,NaN
+2,5,lines,Full calibration,1.18,13.278621239540971,NaN
+2,5,lines,Full calibration,1.185,13.365467041793627,NaN
+2,5,lines,Full calibration,1.19,13.451076334874887,NaN
+2,5,lines,Full calibration,1.195,13.5356658036291,NaN
+2,5,lines,Full calibration,1.2,13.619641808027211,NaN
+2,5,lines,Full calibration,1.205,13.703402433566852,NaN
+2,5,lines,Full calibration,1.21,13.787142707329044,NaN
+2,5,lines,Full calibration,1.215,13.87075238500029,NaN
+2,5,lines,Full calibration,1.22,13.95385419922138,NaN
+2,5,lines,Full calibration,1.225,14.035966865031302,NaN
+2,5,lines,Full calibration,1.23,14.116720715823735,NaN
+2,5,lines,Full calibration,1.235,14.196030085654982,NaN
+2,5,lines,Full calibration,1.24,14.274145018408579,NaN
+2,5,lines,Full calibration,1.245,14.351556426229042,NaN
+2,5,lines,Full calibration,1.25,14.428791566912528,NaN
+2,5,lines,Full calibration,1.255,14.506185129026886,NaN
+2,5,lines,Full calibration,1.26,14.583724771845516,NaN
+2,5,lines,Full calibration,1.265,14.661041134657129,NaN
+2,5,lines,Full calibration,1.27,14.737551823937642,NaN
+2,5,lines,Full calibration,1.275,14.81270288823342,NaN
+2,5,lines,Full calibration,1.28,14.886208984946272,NaN
+2,5,lines,Full calibration,1.285,14.958192278165802,NaN
+2,5,lines,Full calibration,1.29,15.029159062379701,NaN
+2,5,lines,Full calibration,1.295,15.099816314707748,NaN
+2,5,lines,Full calibration,1.3,15.170794774234276,NaN
+2,5,lines,Full calibration,1.305,15.242386783145307,NaN
+2,5,lines,Full calibration,1.31,15.314407498904856,NaN
+2,5,lines,Full calibration,1.315,15.386242919029112,NaN
+2,5,lines,Full calibration,1.32,15.457073799018275,NaN
+2,5,lines,Full calibration,1.325,15.52619289686446,NaN
+2,5,lines,Full calibration,1.33,15.593294646939906,NaN
+2,5,lines,Full calibration,1.335,15.65862482972383,NaN
+2,5,lines,Full calibration,1.34,15.722926815566815,NaN
+2,5,lines,Full calibration,1.345,15.787192768946426,NaN
+2,5,lines,Full calibration,1.35,15.852301033513461,NaN
+2,5,lines,Full calibration,1.355,15.918670884657155,NaN
+2,5,lines,Full calibration,1.36,15.986070246740569,NaN
+2,5,lines,Full calibration,1.365,16.053661091921523,NaN
+2,5,lines,Full calibration,1.37,16.12027722322815,NaN
+2,5,lines,Full calibration,1.375,16.184838964667236,NaN
+2,5,lines,Full calibration,1.38,16.246757848112438,NaN
+2,5,lines,Full calibration,1.385,16.306187765702752,NaN
+2,5,lines,Full calibration,1.39,16.364028485752133,NaN
+2,5,lines,Full calibration,1.395,16.421664226335807,NaN
+2,5,lines,Full calibration,1.4,16.48050657743367,NaN
+2,5,lines,Full calibration,1.405,16.541487424584947,NaN
+2,5,lines,Full calibration,1.41,16.604684399208807,NaN
+2,5,lines,Full calibration,1.415,16.669230158203728,NaN
+2,5,lines,Full calibration,1.42,16.733556664531243,NaN
+2,5,lines,Full calibration,1.425,16.79589854021967,NaN
+2,5,lines,Full calibration,1.43,16.854886207253962,NaN
+2,5,lines,Full calibration,1.435,16.91003534553566,NaN
+2,5,lines,Full calibration,1.44,16.96197682595492,NaN
+2,5,lines,Full calibration,1.445,17.012343258534273,NaN
+2,5,lines,Full calibration,1.45,17.063317152504776,NaN
+2,5,lines,Full calibration,1.455,17.11694706211599,NaN
+2,5,lines,Full calibration,1.46,17.174436476748912,NaN
+2,5,lines,Full calibration,1.465,17.235659534851198,NaN
+2,5,lines,Full calibration,1.47,17.299104503608255,NaN
+2,5,lines,Full calibration,1.475,17.36228939250047,NaN
+2,5,lines,Full calibration,1.48,17.422511933628222,NaN
+2,5,lines,Full calibration,1.485,17.477687137859952,NaN
+2,5,lines,Full calibration,1.49,17.527024930839584,NaN
+2,5,lines,Full calibration,1.495,17.571367309277537,NaN
+2,5,lines,Full calibration,1.5,17.61308402899974,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.85,21.8179,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.9,20.4796,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.905,20.344,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.91,20.2084,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.915,20.0729,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.92,19.9374,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.925,19.8018,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.93,19.6659,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.935,19.5295,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.94,19.3925,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.945,19.2547,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.95,19.1163,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.955,18.9773,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.96,18.838,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.965,18.6988,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.97,18.5598,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.975,18.4211,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.98,18.2826,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.985,18.1441,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.99,18.0056,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",0.995,17.867,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.0,17.7283,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.005,17.5898,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.01,17.4516,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.015,17.3137,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.02,17.1761,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.025,17.0387,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.03,16.9011,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.035,16.7631,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.04,16.6245,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.045,16.4856,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.05,16.3468,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.055,16.2086,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.06,16.0714,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.065,15.935099999999998,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.07,15.7998,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.075,15.6656,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.08,15.532500000000002,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.085,15.4006,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.09,15.2702,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.095,15.1411,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.1,15.013599999999999,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.15,13.8103,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.2,12.771799999999999,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.25,12.1131,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.3,11.6693,NaN
+3,1,lines,"Market, Δ ∈ [10%, 90%]",1.35,11.505,NaN
+3,2,scatter,Market,0.5,33.6397,NaN
+3,2,scatter,Market,0.55,31.478100000000005,NaN
+3,2,scatter,Market,0.6,29.515399999999996,NaN
+3,2,scatter,Market,0.65,27.754800000000003,NaN
+3,2,scatter,Market,0.7,26.137,NaN
+3,2,scatter,Market,0.75,24.5766,NaN
+3,2,scatter,Market,0.8,23.1837,NaN
+3,2,scatter,Market,1.4,11.5409,NaN
+3,2,scatter,Market,1.45,11.6949,NaN
+3,2,scatter,Market,1.5,11.9168,NaN
+3,3,lines,Reduced calibration on full range,0.5,33.73276981845139,NaN
+3,3,lines,Reduced calibration on full range,0.505,33.525391958404555,NaN
+3,3,lines,Reduced calibration on full range,0.51,33.31919547112373,NaN
+3,3,lines,Reduced calibration on full range,0.515,33.11399430256606,NaN
+3,3,lines,Reduced calibration on full range,0.52,32.90961355934291,NaN
+3,3,lines,Reduced calibration on full range,0.525,32.705949087618485,NaN
+3,3,lines,Reduced calibration on full range,0.53,32.50299535975785,NaN
+3,3,lines,Reduced calibration on full range,0.535,32.300834647482176,NaN
+3,3,lines,Reduced calibration on full range,0.54,32.099595420080995,NaN
+3,3,lines,Reduced calibration on full range,0.545,31.899397981333315,NaN
+3,3,lines,Reduced calibration on full range,0.55,31.700307736449506,NaN
+3,3,lines,Reduced calibration on full range,0.555,31.502311471785266,NaN
+3,3,lines,Reduced calibration on full range,0.56,31.305322421991626,NaN
+3,3,lines,Reduced calibration on full range,0.565,31.109209597093034,NaN
+3,3,lines,Reduced calibration on full range,0.57,30.913839370614333,NaN
+3,3,lines,Reduced calibration on full range,0.575,30.71911472212897,NaN
+3,3,lines,Reduced calibration on full range,0.58,30.524999914478112,NaN
+3,3,lines,Reduced calibration on full range,0.585,30.331524293244804,NaN
+3,3,lines,Reduced calibration on full range,0.59,30.138765997176144,NaN
+3,3,lines,Reduced calibration on full range,0.595,29.946822346515457,NaN
+3,3,lines,Reduced calibration on full range,0.6,29.755776910057953,NaN
+3,3,lines,Reduced calibration on full range,0.605,29.565673166885638,NaN
+3,3,lines,Reduced calibration on full range,0.61,29.37650174200877,NaN
+3,3,lines,Reduced calibration on full range,0.615,29.18820361950809,NaN
+3,3,lines,Reduced calibration on full range,0.62,29.0006870247953,NaN
+3,3,lines,Reduced calibration on full range,0.625,28.813852145107116,NaN
+3,3,lines,Reduced calibration on full range,0.63,28.627616330897737,NaN
+3,3,lines,Reduced calibration on full range,0.635,28.44193303806587,NaN
+3,3,lines,Reduced calibration on full range,0.64,28.256800087567257,NaN
+3,3,lines,Reduced calibration on full range,0.645,28.072256013069,NaN
+3,3,lines,Reduced calibration on full range,0.65,27.888366412779813,NaN
+3,3,lines,Reduced calibration on full range,0.655,27.7052045369503,NaN
+3,3,lines,Reduced calibration on full range,0.66,27.522831359635664,NaN
+3,3,lines,Reduced calibration on full range,0.665,27.34128001279875,NaN
+3,3,lines,Reduced calibration on full range,0.67,27.16054795836882,NaN
+3,3,lines,Reduced calibration on full range,0.675,26.980598130949744,NaN
+3,3,lines,Reduced calibration on full range,0.68,26.801368079216093,NaN
+3,3,lines,Reduced calibration on full range,0.685,26.62278438565393,NaN
+3,3,lines,Reduced calibration on full range,0.69,26.444778697524164,NaN
+3,3,lines,Reduced calibration on full range,0.695,26.26730167469854,NaN
+3,3,lines,Reduced calibration on full range,0.7,26.090331949638973,NaN
+3,3,lines,Reduced calibration on full range,0.705,25.913878533346235,NaN
+3,3,lines,Reduced calibration on full range,0.71,25.73797663812548,NaN
+3,3,lines,Reduced calibration on full range,0.715,25.562678276736634,NaN
+3,3,lines,Reduced calibration on full range,0.72,25.388039966121813,NaN
+3,3,lines,Reduced calibration on full range,0.725,25.214110260401924,NaN
+3,3,lines,Reduced calibration on full range,0.73,25.040919644258942,NaN
+3,3,lines,Reduced calibration on full range,0.735,24.868474636437817,NaN
+3,3,lines,Reduced calibration on full range,0.74,24.696756970814025,NaN
+3,3,lines,Reduced calibration on full range,0.745,24.525727663466988,NaN
+3,3,lines,Reduced calibration on full range,0.75,24.355334851371403,NaN
+3,3,lines,Reduced calibration on full range,0.755,24.185523663425528,NaN
+3,3,lines,Reduced calibration on full range,0.76,24.016246143669587,NaN
+3,3,lines,Reduced calibration on full range,0.765,23.847469393892315,NaN
+3,3,lines,Reduced calibration on full range,0.77,23.67918057065868,NaN
+3,3,lines,Reduced calibration on full range,0.775,23.51138804253523,NaN
+3,3,lines,Reduced calibration on full range,0.78,23.344118747058783,NaN
+3,3,lines,Reduced calibration on full range,0.785,23.17741244904497,NaN
+3,3,lines,Reduced calibration on full range,0.79,23.011314084991795,NaN
+3,3,lines,Reduced calibration on full range,0.795,22.845865617762495,NaN
+3,3,lines,Reduced calibration on full range,0.8,22.681098804609974,NaN
+3,3,lines,Reduced calibration on full range,0.805,22.51703002833909,NaN
+3,3,lines,Reduced calibration on full range,0.81,22.353657919723446,NaN
+3,3,lines,Reduced calibration on full range,0.815,22.190963993855522,NaN
+3,3,lines,Reduced calibration on full range,0.82,22.028916023301434,NaN
+3,3,lines,Reduced calibration on full range,0.825,21.86747345593135,NaN
+3,3,lines,Reduced calibration on full range,0.83,21.70659391255715,NaN
+3,3,lines,Reduced calibration on full range,0.835,21.546239698204474,NaN
+3,3,lines,Reduced calibration on full range,0.84,21.3863833307024,NaN
+3,3,lines,Reduced calibration on full range,0.845,21.227011305039543,NaN
+3,3,lines,Reduced calibration on full range,0.85,21.06812562647957,NaN
+3,3,lines,Reduced calibration on full range,0.855,20.909743004536093,NaN
+3,3,lines,Reduced calibration on full range,0.86,20.751891947514974,NaN
+3,3,lines,Reduced calibration on full range,0.865,20.59460828455802,NaN
+3,3,lines,Reduced calibration on full range,0.87,20.437929833406,NaN
+3,3,lines,Reduced calibration on full range,0.875,20.281891008667504,NaN
+3,3,lines,Reduced calibration on full range,0.88,20.12651812613119,NaN
+3,3,lines,Reduced calibration on full range,0.885,19.971826018468473,NaN
+3,3,lines,Reduced calibration on full range,0.89,19.817816363771545,NaN
+3,3,lines,Reduced calibration on full range,0.895,19.66447787542889,NaN
+3,3,lines,Reduced calibration on full range,0.9,19.511788246565914,NaN
+3,3,lines,Reduced calibration on full range,0.905,19.359717518350433,NaN
+3,3,lines,Reduced calibration on full range,0.91,19.20823237541444,NaN
+3,3,lines,Reduced calibration on full range,0.915,19.057300780175428,NaN
+3,3,lines,Reduced calibration on full range,0.92,18.90689634670024,NaN
+3,3,lines,Reduced calibration on full range,0.925,18.757001919151534,NaN
+3,3,lines,Reduced calibration on full range,0.93,18.607611946149042,NaN
+3,3,lines,Reduced calibration on full range,0.935,18.458733410612417,NaN
+3,3,lines,Reduced calibration on full range,0.94,18.3103852615816,NaN
+3,3,lines,Reduced calibration on full range,0.945,18.162596476655708,NaN
+3,3,lines,Reduced calibration on full range,0.95,18.01540304006976,NaN
+3,3,lines,Reduced calibration on full range,0.955,17.868844235738983,NaN
+3,3,lines,Reduced calibration on full range,0.96,17.72295871665038,NaN
+3,3,lines,Reduced calibration on full range,0.965,17.57778081826942,NaN
+3,3,lines,Reduced calibration on full range,0.97,17.43333753717134,NaN
+3,3,lines,Reduced calibration on full range,0.975,17.28964650549859,NaN
+3,3,lines,Reduced calibration on full range,0.98,17.14671516985848,NaN
+3,3,lines,Reduced calibration on full range,0.985,17.00454124508371,NaN
+3,3,lines,Reduced calibration on full range,0.99,16.86311437462919,NaN
+3,3,lines,Reduced calibration on full range,0.995,16.722418804876874,NaN
+3,3,lines,Reduced calibration on full range,1.0,16.582436782321178,NaN
+3,3,lines,Reduced calibration on full range,1.005,16.443152318973688,NaN
+3,3,lines,Reduced calibration on full range,1.01,16.30455494676838,NaN
+3,3,lines,Reduced calibration on full range,1.015,16.166643096457832,NaN
+3,3,lines,Reduced calibration on full range,1.02,16.029426786853254,NaN
+3,3,lines,Reduced calibration on full range,1.025,15.892929389491858,NaN
+3,3,lines,Reduced calibration on full range,1.03,15.757188332852282,NaN
+3,3,lines,Reduced calibration on full range,1.035,15.622254718777038,NaN
+3,3,lines,Reduced calibration on full range,1.04,15.488191931317735,NaN
+3,3,lines,Reduced calibration on full range,1.045,15.355073415015866,NaN
+3,3,lines,Reduced calibration on full range,1.05,15.222979877541784,NaN
+3,3,lines,Reduced calibration on full range,1.055,15.091996224625548,NaN
+3,3,lines,Reduced calibration on full range,1.06,14.962208559880336,NaN
+3,3,lines,Reduced calibration on full range,1.065,14.833701577619369,NaN
+3,3,lines,Reduced calibration on full range,1.07,14.706556644747593,NaN
+3,3,lines,Reduced calibration on full range,1.075,14.58085081207708,NaN
+3,3,lines,Reduced calibration on full range,1.08,14.456656921381574,NaN
+3,3,lines,Reduced calibration on full range,1.085,14.33404488869901,NaN
+3,3,lines,Reduced calibration on full range,1.09,14.213084153732003,NaN
+3,3,lines,Reduced calibration on full range,1.095,14.093847196531915,NaN
+3,3,lines,Reduced calibration on full range,1.1,13.976413942184285,NaN
+3,3,lines,Reduced calibration on full range,1.105,13.86087680709036,NaN
+3,3,lines,Reduced calibration on full range,1.11,13.747346090495538,NaN
+3,3,lines,Reduced calibration on full range,1.115,13.635955384441086,NaN
+3,3,lines,Reduced calibration on full range,1.12,13.526866665049535,NaN
+3,3,lines,Reduced calibration on full range,1.125,13.420274737184332,NaN
+3,3,lines,Reduced calibration on full range,1.13,13.316410730967787,NaN
+3,3,lines,Reduced calibration on full range,1.135,13.215544389163039,NaN
+3,3,lines,Reduced calibration on full range,1.14,13.11798493522717,NaN
+3,3,lines,Reduced calibration on full range,1.145,13.02408036876871,NaN
+3,3,lines,Reduced calibration on full range,1.15,12.934215094356185,NaN
+3,3,lines,Reduced calibration on full range,1.155,12.848805847892955,NaN
+3,3,lines,Reduced calibration on full range,1.16,12.76829593998018,NaN
+3,3,lines,Reduced calibration on full range,1.165,12.693147886973144,NaN
+3,3,lines,Reduced calibration on full range,1.17,12.623834548359325,NaN
+3,3,lines,Reduced calibration on full range,1.175,12.56082893538791,NaN
+3,3,lines,Reduced calibration on full range,1.18,12.50459290306466,NaN
+3,3,lines,Reduced calibration on full range,1.185,12.455564988281846,NaN
+3,3,lines,Reduced calibration on full range,1.19,12.41414771270311,NaN
+3,3,lines,Reduced calibration on full range,1.195,12.380694729935584,NaN
+3,3,lines,Reduced calibration on full range,1.2,12.355498259649055,NaN
+3,3,lines,Reduced calibration on full range,1.205,12.338777310486266,NaN
+3,3,lines,Reduced calibration on full range,1.21,12.330667239527461,NaN
+3,3,lines,Reduced calibration on full range,1.215,12.331211217181906,NaN
+3,3,lines,Reduced calibration on full range,1.22,12.340354150710887,NaN
+3,3,lines,Reduced calibration on full range,1.225,12.357939557365402,NaN
+3,3,lines,Reduced calibration on full range,1.23,12.383709764424013,NaN
+3,3,lines,Reduced calibration on full range,1.235,12.41730965052869,NaN
+3,3,lines,Reduced calibration on full range,1.24,12.458293941074016,NaN
+3,3,lines,Reduced calibration on full range,1.245,12.506137848020952,NaN
+3,3,lines,Reduced calibration on full range,1.25,12.560250624371944,NaN
+3,3,lines,Reduced calibration on full range,1.255,12.619991409908081,NaN
+3,3,lines,Reduced calibration on full range,1.26,12.68468659889753,NaN
+3,3,lines,Reduced calibration on full range,1.265,12.753647877016688,NaN
+3,3,lines,Reduced calibration on full range,1.27,12.826190059636295,NaN
+3,3,lines,Reduced calibration on full range,1.275,12.901647913994344,NaN
+3,3,lines,Reduced calibration on full range,1.28,12.979391253156376,NaN
+3,3,lines,Reduced calibration on full range,1.285,13.058837734792158,NaN
+3,3,lines,Reduced calibration on full range,1.29,13.139462965484997,NaN
+3,3,lines,Reduced calibration on full range,1.295,13.220807685141962,NaN
+3,3,lines,Reduced calibration on full range,1.3,13.302481972366277,NaN
+3,3,lines,Reduced calibration on full range,1.305,13.384166560332186,NaN
+3,3,lines,Reduced calibration on full range,1.31,13.465611477532033,NaN
+3,3,lines,Reduced calibration on full range,1.315,13.546632325902804,NaN
+3,3,lines,Reduced calibration on full range,1.32,13.627104580003843,NaN
+3,3,lines,Reduced calibration on full range,1.325,13.706956336562795,NaN
+3,3,lines,Reduced calibration on full range,1.33,13.78615996628261,NaN
+3,3,lines,Reduced calibration on full range,1.335,13.86472312192925,NaN
+3,3,lines,Reduced calibration on full range,1.34,13.942679541248316,NaN
+3,3,lines,Reduced calibration on full range,1.345,14.020080052508735,NaN
+3,3,lines,Reduced calibration on full range,1.35,14.096984146845218,NaN
+3,3,lines,Reduced calibration on full range,1.355,14.173452427153215,NaN
+3,3,lines,Reduced calibration on full range,1.36,14.249540180351024,NaN
+3,3,lines,Reduced calibration on full range,1.365,14.325292250760302,NaN
+3,3,lines,Reduced calibration on full range,1.37,14.400739319924025,NaN
+3,3,lines,Reduced calibration on full range,1.375,14.475895625342316,NaN
+3,3,lines,Reduced calibration on full range,1.38,14.550758080629036,NaN
+3,3,lines,Reduced calibration on full range,1.385,14.625306695578155,NaN
+3,3,lines,Reduced calibration on full range,1.39,14.69950613962606,NaN
+3,3,lines,Reduced calibration on full range,1.395,14.773308248556214,NaN
+3,3,lines,Reduced calibration on full range,1.4,14.846655243791954,NaN
+3,3,lines,Reduced calibration on full range,1.405,14.919483417044917,NaN
+3,3,lines,Reduced calibration on full range,1.41,14.991727030391766,NaN
+3,3,lines,Reduced calibration on full range,1.415,15.063322192087131,NaN
+3,3,lines,Reduced calibration on full range,1.42,15.134210489894262,NaN
+3,3,lines,Reduced calibration on full range,1.425,15.2043421942923,NaN
+3,3,lines,Reduced calibration on full range,1.43,15.273678881111916,NaN
+3,3,lines,Reduced calibration on full range,1.435,15.342195364417508,NaN
+3,3,lines,Reduced calibration on full range,1.44,15.409880873423296,NaN
+3,3,lines,Reduced calibration on full range,1.445,15.476739449658721,NaN
+3,3,lines,Reduced calibration on full range,1.45,15.542789580726982,NaN
+3,3,lines,Reduced calibration on full range,1.455,15.608063123284197,NaN
+3,3,lines,Reduced calibration on full range,1.46,15.672603599158133,NaN
+3,3,lines,Reduced calibration on full range,1.465,15.736463974054946,NaN
+3,3,lines,Reduced calibration on full range,1.47,15.799704047395718,NaN
+3,3,lines,Reduced calibration on full range,1.475,15.862387594263113,NaN
+3,3,lines,Reduced calibration on full range,1.48,15.92457940600555,NaN
+3,3,lines,Reduced calibration on full range,1.485,15.986342374894239,NaN
+3,3,lines,Reduced calibration on full range,1.49,16.04773476055882,NaN
+3,3,lines,Reduced calibration on full range,1.495,16.108807762327636,NaN
+3,3,lines,Reduced calibration on full range,1.5,16.169603502736223,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.5,31.602688607364232,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.505,31.43547744648289,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.51,31.2689040069278,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.515,31.10300234541298,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.52,30.93782992250947,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.525,30.773420338962577,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.53,30.609755213887524,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.535,30.446769668305425,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.54,30.284384500451537,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.545,30.1225437635961,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.55,29.961236087667608,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.555,29.80048973705397,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.56,29.640346865975083,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.565,29.480832864067068,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.57,29.321937355665117,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.575,29.16361543833951,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.58,29.00580646344235,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.585,28.84845921654945,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.59,28.691550500011882,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.595,28.535088796750713,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.6,28.37910273168447,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.605,28.223621194295834,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.61,28.068655067490678,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.615,27.91418868809046,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.62,27.760183933078466,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.625,27.606593958407643,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.63,27.453379752124103,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.635,27.3005221865567,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.64,27.14802491292101,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.645,26.995907715936667,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.65,26.84419387644072,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.655,26.692897138267845,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.66,26.542013470310327,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.665,26.391520425793857,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.67,26.241383700179206,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.675,26.091567796525943,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.68,25.942046470091295,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.685,25.79280912049537,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.69,25.643861136842528,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.695,25.495218556323394,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.7,25.346899373860353,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.705,25.198914793598565,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.71,25.05126343398428,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.715,24.903930224599513,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.72,24.756890006674965,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.725,24.610114293795572,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.73,24.46357875388939,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.735,24.317268952699923,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.74,24.171182661648857,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.745,24.025328253311905,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.75,23.87971995774306,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.755,23.734371647396348,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.76,23.589291125545863,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.765,23.44447658348516,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.77,23.299916121052064,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.775,23.15559026503788,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.78,23.011476565881168,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.785,22.867554836072777,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.79,22.723811524496412,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.795,22.58024207368376,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.8,22.43685074348369,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.805,22.293648105531123,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.81,22.15064701809967,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.815,22.007858232408836,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.82,21.865286795517193,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.825,21.722930128645103,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.83,21.580778173670804,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.835,21.43881545493262,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.84,21.297024439035237,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.845,21.155389298573475,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.85,21.01389914680236,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.855,20.872549997589346,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.86,20.73134505446454,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.865,20.590293348632656,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.87,20.44940712671904,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.875,20.30869865081003,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.88,20.168177166816157,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.885,20.027846715227078,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.89,19.887705233188726,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.895,19.74774508904674,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.9,19.607954872990845,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.905,19.468322008703964,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.91,19.32883560102536,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.915,19.189488916607967,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.92,19.050281002247875,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.925,18.911217147803892,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.93,18.772308149803212,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.935,18.633568574943492,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.94,18.49501441226354,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.945,18.356660605476627,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.95,18.218518958911083,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.955,18.080596817988763,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.96,17.942896761825246,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.965,17.805417346376277,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.97,17.66815474061294,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.975,17.53110494105708,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.98,17.394266157703882,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.985,17.257640949545664,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.99,17.121237748786587,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.995,16.985071534510396,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.0,16.849163574764304,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.005,16.71354032179134,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.01,16.578231690168117,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.015,16.443269048712565,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.02,16.308683299723235,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.025,16.17450339918823,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.03,16.040755595163926,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.035,15.907463543262072,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.04,15.774649318547567,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.045,15.642335204767347,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.05,15.510546026003377,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.055,15.379311709391983,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.06,15.248669740647491,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.065,15.118667199202495,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.07,14.98936213163028,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.075,14.860824128978939,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.08,14.733134099566,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.085,14.606383355454003,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.09,14.480672240571915,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.095,14.356108606388954,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.1,14.232806476917556,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.105,14.110885233992512,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.11,13.990469597566626,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.115,13.871690580930206,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.12,13.75468747843831,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.125,13.639610807457442,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.13,13.526625991862803,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.135,13.415917455903617,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.14,13.30769270681077,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.145,13.202185931003866,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.15,13.099660616988029,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.155,13.000410748681041,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.16,12.904760182788639,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.165,12.81305992674242,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.17,12.725683161407822,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.175,12.643017996170212,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.18,12.565458094140766,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.185,12.493391453893484,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.19,12.427187774128422,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.195,12.367184952472632,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.2,12.313675372936881,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.205,12.26689271148446,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.21,12.227000028003962,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.215,12.194079907347884,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.22,12.168127354142703,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.225,12.149046030425763,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.23,12.136648251311016,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.235,12.130658928467229,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.24,12.13072338909546,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.245,12.13641872196443,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.25,12.147268039775518,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.255,12.162756827598722,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.26,12.182350395529246,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.265,12.20551138703424,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.27,12.231716318766239,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.275,12.260470237465226,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.28,12.291318759589519,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.285,12.323856987435915,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.29,12.35773504675644,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.295,12.392660241044725,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.3,12.428396045951859,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.305,12.464758358003955,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.31,12.501609554631926,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.315,12.5388510125469,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.32,12.576414767956887,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.325,12.614254988039331,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.33,12.652339864049509,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.335,12.69064444025147,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.34,12.729144768892237,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.345,12.767813640267594,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.35,12.806617989725808,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.355,12.845517941377588,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.36,12.884467321726328,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.365,12.923415374073722,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.37,12.962309332784649,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.375,13.001097478778604,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.38,13.039732294298151,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.385,13.078173363577553,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.39,13.116389721420996,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.395,13.154361427130265,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.4,13.19208022896329,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.405,13.229549276224194,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.41,13.266781924806084,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.415,13.303799760728097,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.42,13.340630029697422,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.425,13.377302704994904,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.43,13.413847448845035,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.435,13.450290723104716,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.44,13.48665328464967,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.445,13.52294826164423,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.45,13.559179952862642,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.455,13.59534342823791,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.46,13.631424940566571,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.465,13.66740309147352,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.47,13.703250635012227,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.475,13.738936754185083,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.48,13.77442961278064,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.485,13.809698969102005,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.49,13.84471863996056,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.495,13.87946862145239,NaN
+3,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.5,13.913936705415718,NaN
+3,5,lines,Full calibration,0.5,32.99800786825722,NaN
+3,5,lines,Full calibration,0.505,32.82544032492549,NaN
+3,5,lines,Full calibration,0.51,32.65346422543474,NaN
+3,5,lines,Full calibration,0.515,32.48209451521482,NaN
+3,5,lines,Full calibration,0.52,32.311418491647146,NaN
+3,5,lines,Full calibration,0.525,32.141535100838496,NaN
+3,5,lines,Full calibration,0.53,31.972494315593163,NaN
+3,5,lines,Full calibration,0.535,31.804267168131435,NaN
+3,5,lines,Full calibration,0.54,31.6367578956186,NaN
+3,5,lines,Full calibration,0.545,31.46984765355661,NaN
+3,5,lines,Full calibration,0.55,31.303445431908074,NaN
+3,5,lines,Full calibration,0.555,31.137521442286275,NaN
+3,5,lines,Full calibration,0.56,30.972109403346426,NaN
+3,5,lines,Full calibration,0.565,30.80727995455872,NaN
+3,5,lines,Full calibration,0.57,30.64310007731999,NaN
+3,5,lines,Full calibration,0.575,30.479597793764963,NaN
+3,5,lines,Full calibration,0.58,30.31674686545468,NaN
+3,5,lines,Full calibration,0.585,30.15447597983259,NaN
+3,5,lines,Full calibration,0.59,29.992696128629053,NaN
+3,5,lines,Full calibration,0.595,29.831333101007196,NaN
+3,5,lines,Full calibration,0.6,29.670351425033893,NaN
+3,5,lines,Full calibration,0.605,29.509761041911283,NaN
+3,5,lines,Full calibration,0.61,29.34960574825804,NaN
+3,5,lines,Full calibration,0.615,29.189939594968887,NaN
+3,5,lines,Full calibration,0.62,29.030801342119837,NaN
+3,5,lines,Full calibration,0.625,28.872196712445135,NaN
+3,5,lines,Full calibration,0.63,28.71409426935177,NaN
+3,5,lines,Full calibration,0.635,28.556435175014748,NaN
+3,5,lines,Full calibration,0.64,28.399152084533092,NaN
+3,5,lines,Full calibration,0.645,28.242189701017413,NaN
+3,5,lines,Full calibration,0.65,28.08551970871741,NaN
+3,5,lines,Full calibration,0.655,27.92914546788236,NaN
+3,5,lines,Full calibration,0.66,27.77309577268558,NaN
+3,5,lines,Full calibration,0.665,27.617410677155064,NaN
+3,5,lines,Full calibration,0.67,27.462124695905928,NaN
+3,5,lines,Full calibration,0.675,27.307253017314757,NaN
+3,5,lines,Full calibration,0.68,27.152784864254848,NaN
+3,5,lines,Full calibration,0.685,26.998685498633222,NaN
+3,5,lines,Full calibration,0.69,26.844905548431502,NaN
+3,5,lines,Full calibration,0.695,26.691394224911775,NaN
+3,5,lines,Full calibration,0.7,26.538112146317815,NaN
+3,5,lines,Full calibration,0.705,26.385039995992482,NaN
+3,5,lines,Full calibration,0.71,26.23218080569925,NaN
+3,5,lines,Full calibration,0.715,26.07955569375512,NaN
+3,5,lines,Full calibration,0.72,25.92719476598169,NaN
+3,5,lines,Full calibration,0.725,25.775126095730954,NaN
+3,5,lines,Full calibration,0.73,25.623365977820356,NaN
+3,5,lines,Full calibration,0.735,25.471913027573734,NaN
+3,5,lines,Full calibration,0.74,25.320747438695896,NaN
+3,5,lines,Full calibration,0.745,25.169835227872774,NaN
+3,5,lines,Full calibration,0.75,25.019135996664193,NaN
+3,5,lines,Full calibration,0.755,24.868611949893204,NaN
+3,5,lines,Full calibration,0.76,24.71823577325699,NaN
+3,5,lines,Full calibration,0.765,24.567995455941414,NaN
+3,5,lines,Full calibration,0.77,24.417895060269213,NaN
+3,5,lines,Full calibration,0.775,24.267951518486473,NaN
+3,5,lines,Full calibration,0.78,24.118188497514375,NaN
+3,5,lines,Full calibration,0.785,23.968628996925695,NaN
+3,5,lines,Full calibration,0.79,23.819288519156594,NaN
+3,5,lines,Full calibration,0.795,23.670170378145848,NaN
+3,5,lines,Full calibration,0.8,23.521264100425213,NaN
+3,5,lines,Full calibration,0.805,23.372547094569207,NaN
+3,5,lines,Full calibration,0.81,23.2239890131059,NaN
+3,5,lines,Full calibration,0.815,23.075557671123605,NaN
+3,5,lines,Full calibration,0.82,22.92722512326926,NaN
+3,5,lines,Full calibration,0.825,22.778972564744052,NaN
+3,5,lines,Full calibration,0.83,22.630793067911544,NaN
+3,5,lines,Full calibration,0.835,22.48269169449739,NaN
+3,5,lines,Full calibration,0.84,22.33468310641591,NaN
+3,5,lines,Full calibration,0.845,22.18678731006398,NaN
+3,5,lines,Full calibration,0.85,22.039024510884385,NaN
+3,5,lines,Full calibration,0.855,21.891410172702738,NaN
+3,5,lines,Full calibration,0.86,21.743951265666208,NaN
+3,5,lines,Full calibration,0.865,21.596644389064572,NaN
+3,5,lines,Full calibration,0.87,21.449476045062593,NaN
+3,5,lines,Full calibration,0.875,21.30242490538358,NaN
+3,5,lines,Full calibration,0.88,21.155465540348814,NaN
+3,5,lines,Full calibration,0.885,21.008572833904505,NaN
+3,5,lines,Full calibration,0.89,20.86172622498048,NaN
+3,5,lines,Full calibration,0.895,20.714912997058693,NaN
+3,5,lines,Full calibration,0.9,20.568130056181484,NaN
+3,5,lines,Full calibration,0.905,20.421383942673085,NaN
+3,5,lines,Full calibration,0.91,20.274689152472494,NaN
+3,5,lines,Full calibration,0.915,20.128065139915083,NaN
+3,5,lines,Full calibration,0.92,19.98153258602934,NaN
+3,5,lines,Full calibration,0.925,19.835109614476455,NaN
+3,5,lines,Full calibration,0.93,19.688808612688884,NaN
+3,5,lines,Full calibration,0.935,19.542634181451334,NaN
+3,5,lines,Full calibration,0.94,19.39658252225773,NaN
+3,5,lines,Full calibration,0.945,19.25064231908783,NaN
+3,5,lines,Full calibration,0.95,19.104796923686663,NaN
+3,5,lines,Full calibration,0.955,18.9590274506007,NaN
+3,5,lines,Full calibration,0.96,18.81331625953166,NaN
+3,5,lines,Full calibration,0.965,18.667650263492227,NaN
+3,5,lines,Full calibration,0.97,18.52202355217013,NaN
+3,5,lines,Full calibration,0.975,18.376438947372975,NaN
+3,5,lines,Full calibration,0.98,18.230908287346857,NaN
+3,5,lines,Full calibration,0.985,18.08545143892849,NaN
+3,5,lines,Full calibration,0.99,17.940094229507615,NaN
+3,5,lines,Full calibration,0.995,17.79486564677936,NaN
+3,5,lines,Full calibration,1.0,17.64979475261328,NaN
+3,5,lines,Full calibration,1.005,17.504907787058634,NaN
+3,5,lines,Full calibration,1.01,17.360225898986197,NaN
+3,5,lines,Full calibration,1.015,17.21576384029163,NaN
+3,5,lines,Full calibration,1.02,17.07152981784556,NaN
+3,5,lines,Full calibration,1.025,16.92752653321092,NaN
+3,5,lines,Full calibration,1.03,16.783753277890774,NaN
+3,5,lines,Full calibration,1.035,16.640208813194477,NaN
+3,5,lines,Full calibration,1.04,16.496894666084486,NaN
+3,5,lines,Full calibration,1.045,16.35381842665357,NaN
+3,5,lines,Full calibration,1.05,16.210996643029514,NaN
+3,5,lines,Full calibration,1.055,16.06845697208684,NaN
+3,5,lines,Full calibration,1.06,15.926239349632334,NaN
+3,5,lines,Full calibration,1.065,15.784396077198345,NaN
+3,5,lines,Full calibration,1.07,15.642990867033015,NaN
+3,5,lines,Full calibration,1.075,15.502097024553679,NaN
+3,5,lines,Full calibration,1.08,15.36179506232267,NaN
+3,5,lines,Full calibration,1.085,15.22217011866138,NaN
+3,5,lines,Full calibration,1.09,15.083309589122281,NaN
+3,5,lines,Full calibration,1.095,14.94530136713806,NaN
+3,5,lines,Full calibration,1.1,14.808233033411582,NaN
+3,5,lines,Full calibration,1.105,14.672192238820289,NaN
+3,5,lines,Full calibration,1.11,14.537268403198844,NaN
+3,5,lines,Full calibration,1.115,14.40355571511353,NaN
+3,5,lines,Full calibration,1.12,14.27115727932663,NaN
+3,5,lines,Full calibration,1.125,14.14019013220301,NaN
+3,5,lines,Full calibration,1.13,14.010790742245813,NaN
+3,5,lines,Full calibration,1.135,13.88312054185658,NaN
+3,5,lines,Full calibration,1.14,13.757371002537926,NaN
+3,5,lines,Full calibration,1.145,13.633767770605937,NaN
+3,5,lines,Full calibration,1.15,13.51257342206984,NaN
+3,5,lines,Full calibration,1.155,13.394088468609752,NaN
+3,5,lines,Full calibration,1.16,13.278650344282347,NaN
+3,5,lines,Full calibration,1.165,13.166630216200529,NaN
+3,5,lines,Full calibration,1.17,13.058427583318617,NaN
+3,5,lines,Full calibration,1.175,12.95446274782405,NaN
+3,5,lines,Full calibration,1.18,12.855167357235045,NaN
+3,5,lines,Full calibration,1.185,12.760973317922545,NaN
+3,5,lines,Full calibration,1.19,12.672300470105691,NaN
+3,5,lines,Full calibration,1.195,12.589543489532337,NaN
+3,5,lines,Full calibration,1.2,12.513058541831478,NaN
+3,5,lines,Full calibration,1.205,12.443150261202254,NaN
+3,5,lines,Full calibration,1.21,12.380059653672419,NaN
+3,5,lines,Full calibration,1.215,12.323953532661337,NaN
+3,5,lines,Full calibration,1.22,12.274916075228177,NaN
+3,5,lines,Full calibration,1.225,12.232943034540138,NaN
+3,5,lines,Full calibration,1.23,12.197939051865427,NaN
+3,5,lines,Full calibration,1.235,12.169718376961516,NaN
+3,5,lines,Full calibration,1.24,12.14800913137758,NaN
+3,5,lines,Full calibration,1.245,12.132461043782182,NaN
+3,5,lines,Full calibration,1.25,12.1226563654872,NaN
+3,5,lines,Full calibration,1.255,12.118123458515432,NaN
+3,5,lines,Full calibration,1.26,12.118352360629752,NaN
+3,5,lines,Full calibration,1.265,12.122811492867513,NaN
+3,5,lines,Full calibration,1.27,12.130964601038144,NaN
+3,5,lines,Full calibration,1.275,12.142287021071017,NaN
+3,5,lines,Full calibration,1.28,12.156280427680494,NaN
+3,5,lines,Full calibration,1.285,12.1724853568218,NaN
+3,5,lines,Full calibration,1.29,12.190490969028788,NaN
+3,5,lines,Full calibration,1.295,12.209941723925805,NaN
+3,5,lines,Full calibration,1.3,12.230540846772396,NaN
+3,5,lines,Full calibration,1.305,12.252050668797876,NaN
+3,5,lines,Full calibration,1.31,12.27429010096471,NaN
+3,5,lines,Full calibration,1.315,12.297129646515186,NaN
+3,5,lines,Full calibration,1.32,12.320484465980044,NaN
+3,5,lines,Full calibration,1.325,12.344306077358366,NaN
+3,5,lines,Full calibration,1.33,12.368573304351385,NaN
+3,5,lines,Full calibration,1.335,12.39328307889409,NaN
+3,5,lines,Full calibration,1.34,12.418441664061772,NaN
+3,5,lines,Full calibration,1.345,12.444056793700994,NaN
+3,5,lines,Full calibration,1.35,12.470131130917622,NaN
+3,5,lines,Full calibration,1.355,12.49665733467691,NaN
+3,5,lines,Full calibration,1.36,12.523614899293328,NaN
+3,5,lines,Full calibration,1.365,12.550968803190479,NaN
+3,5,lines,Full calibration,1.37,12.578669879452251,NaN
+3,5,lines,Full calibration,1.375,12.606656709450062,NaN
+3,5,lines,Full calibration,1.38,12.634858749554054,NaN
+3,5,lines,Full calibration,1.385,12.66320033529318,NaN
+3,5,lines,Full calibration,1.39,12.69160517071764,NaN
+3,5,lines,Full calibration,1.395,12.720000904077185,NaN
+3,5,lines,Full calibration,1.4,12.74832341268048,NaN
+3,5,lines,Full calibration,1.405,12.776520466234494,NaN
+3,5,lines,Full calibration,1.41,12.804554503839071,NaN
+3,5,lines,Full calibration,1.415,12.832404339096351,NaN
+3,5,lines,Full calibration,1.42,12.860065694124282,NaN
+3,5,lines,Full calibration,1.425,12.887550550665994,NaN
+3,5,lines,Full calibration,1.43,12.91488538968342,NaN
+3,5,lines,Full calibration,1.435,12.94210846514902,NaN
+3,5,lines,Full calibration,1.44,12.96926631963395,NaN
+3,5,lines,Full calibration,1.445,12.996409795725079,NaN
+3,5,lines,Full calibration,1.45,13.02358982625201,NaN
+3,5,lines,Full calibration,1.455,13.050853296321655,NaN
+3,5,lines,Full calibration,1.46,13.078239260904237,NaN
+3,5,lines,Full calibration,1.465,13.105775773690398,NaN
+3,5,lines,Full calibration,1.47,13.133477537857027,NaN
+3,5,lines,Full calibration,1.475,13.161344530291908,NaN
+3,5,lines,Full calibration,1.48,13.189361681687545,NaN
+3,5,lines,Full calibration,1.485,13.217499620977971,NaN
+3,5,lines,Full calibration,1.49,13.245716419138567,NaN
+3,5,lines,Full calibration,1.495,13.27396020010414,NaN
+3,5,lines,Full calibration,1.5,13.302172430353258,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.65,25.639400000000002,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.7,25.097,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.75,24.5859,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.8,24.102,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.85,23.6423,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.9,23.2038,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.905,23.1611,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.91,23.1185,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.915,23.0761,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.92,23.0339,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.925,22.9919,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.93,22.9501,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.935,22.9084,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.94,22.8669,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.945,22.8256,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.95,22.7845,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.955,22.7435,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.96,22.7027,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.965,22.6621,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.97,22.6216,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.975,22.5813,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.98,22.5411,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.985,22.5012,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.99,22.4613,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",0.995,22.4217,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.0,22.3822,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.005,22.3428,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.01,22.3036,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.015,22.2646,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.02,22.2257,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.025,22.1869,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.03,22.1483,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.035,22.1098,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.04,22.0715,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.045,22.0333,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.05,21.9953,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.055,21.9574,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.06,21.9197,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.065,21.882,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.07,21.8446,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.075,21.8072,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.08,21.77,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.085,21.7329,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.09,21.696,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.095,21.6591,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.1,21.6224,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.15,21.2623,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.2,20.9138,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.25,20.576,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.3,20.2479,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.35,19.9289,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.4,19.6183,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.45,19.3153,NaN
+4,1,lines,"Market, Δ ∈ [10%, 90%]",1.5,19.0195,NaN
+4,2,scatter,Market,0.5,27.510100000000005,NaN
+4,2,scatter,Market,0.55,26.8389,NaN
+4,2,scatter,Market,0.6,26.218000000000004,NaN
+4,3,lines,Reduced calibration on full range,0.5,26.87048062720815,NaN
+4,3,lines,Reduced calibration on full range,0.505,26.807775392622403,NaN
+4,3,lines,Reduced calibration on full range,0.51,26.745565802027254,NaN
+4,3,lines,Reduced calibration on full range,0.515,26.683842508657346,NaN
+4,3,lines,Reduced calibration on full range,0.52,26.62259644345128,NaN
+4,3,lines,Reduced calibration on full range,0.525,26.56181880353768,NaN
+4,3,lines,Reduced calibration on full range,0.53,26.501501040254528,NaN
+4,3,lines,Reduced calibration on full range,0.535,26.44163484699585,NaN
+4,3,lines,Reduced calibration on full range,0.54,26.382212147198565,NaN
+4,3,lines,Reduced calibration on full range,0.545,26.323225082767777,NaN
+4,3,lines,Reduced calibration on full range,0.55,26.26466600319759,NaN
+4,3,lines,Reduced calibration on full range,0.555,26.206527455586027,NaN
+4,3,lines,Reduced calibration on full range,0.56,26.1488021756761,NaN
+4,3,lines,Reduced calibration on full range,0.565,26.09148307997962,NaN
+4,3,lines,Reduced calibration on full range,0.57,26.03456325897417,NaN
+4,3,lines,Reduced calibration on full range,0.575,25.978035971302816,NaN
+4,3,lines,Reduced calibration on full range,0.58,25.92189463885734,NaN
+4,3,lines,Reduced calibration on full range,0.585,25.866132842592844,NaN
+4,3,lines,Reduced calibration on full range,0.59,25.810744318900397,NaN
+4,3,lines,Reduced calibration on full range,0.595,25.75572295636146,NaN
+4,3,lines,Reduced calibration on full range,0.6,25.701062792713213,NaN
+4,3,lines,Reduced calibration on full range,0.605,25.6467580118737,NaN
+4,3,lines,Reduced calibration on full range,0.61,25.592802940900327,NaN
+4,3,lines,Reduced calibration on full range,0.615,25.53919204678593,NaN
+4,3,lines,Reduced calibration on full range,0.62,25.4859199330294,NaN
+4,3,lines,Reduced calibration on full range,0.625,25.43298133595285,NaN
+4,3,lines,Reduced calibration on full range,0.63,25.380371120762963,NaN
+4,3,lines,Reduced calibration on full range,0.635,25.328084277384548,NaN
+4,3,lines,Reduced calibration on full range,0.64,25.276115916114477,NaN
+4,3,lines,Reduced calibration on full range,0.645,25.224461263156854,NaN
+4,3,lines,Reduced calibration on full range,0.65,25.173115656114053,NaN
+4,3,lines,Reduced calibration on full range,0.655,25.12207453950708,NaN
+4,3,lines,Reduced calibration on full range,0.66,25.0713334604007,NaN
+4,3,lines,Reduced calibration on full range,0.665,25.020888064199703,NaN
+4,3,lines,Reduced calibration on full range,0.67,24.970734090675332,NaN
+4,3,lines,Reduced calibration on full range,0.675,24.920867370265686,NaN
+4,3,lines,Reduced calibration on full range,0.68,24.871283820683736,NaN
+4,3,lines,Reduced calibration on full range,0.685,24.82197944384822,NaN
+4,3,lines,Reduced calibration on full range,0.69,24.772950323141956,NaN
+4,3,lines,Reduced calibration on full range,0.695,24.724192620987736,NaN
+4,3,lines,Reduced calibration on full range,0.7,24.67570257672035,NaN
+4,3,lines,Reduced calibration on full range,0.705,24.627476504724942,NaN
+4,3,lines,Reduced calibration on full range,0.71,24.579510792804633,NaN
+4,3,lines,Reduced calibration on full range,0.715,24.531801900736212,NaN
+4,3,lines,Reduced calibration on full range,0.72,24.48434635896964,NaN
+4,3,lines,Reduced calibration on full range,0.725,24.43714076742853,NaN
+4,3,lines,Reduced calibration on full range,0.73,24.390181794370275,NaN
+4,3,lines,Reduced calibration on full range,0.735,24.343466175267608,NaN
+4,3,lines,Reduced calibration on full range,0.74,24.296990711680085,NaN
+4,3,lines,Reduced calibration on full range,0.745,24.250752270087933,NaN
+4,3,lines,Reduced calibration on full range,0.75,24.20474778066873,NaN
+4,3,lines,Reduced calibration on full range,0.755,24.158974236003743,NaN
+4,3,lines,Reduced calibration on full range,0.76,24.11342868970651,NaN
+4,3,lines,Reduced calibration on full range,0.765,24.068108254973648,NaN
+4,3,lines,Reduced calibration on full range,0.77,24.02301010306249,NaN
+4,3,lines,Reduced calibration on full range,0.775,23.978131461705033,NaN
+4,3,lines,Reduced calibration on full range,0.78,23.933469613472216,NaN
+4,3,lines,Reduced calibration on full range,0.785,23.889021894103664,NaN
+4,3,lines,Reduced calibration on full range,0.79,23.844785690822505,NaN
+4,3,lines,Reduced calibration on full range,0.795,23.800758440652174,NaN
+4,3,lines,Reduced calibration on full range,0.8,23.756937628756226,NaN
+4,3,lines,Reduced calibration on full range,0.805,23.713320786817143,NaN
+4,3,lines,Reduced calibration on full range,0.81,23.669905491472107,NaN
+4,3,lines,Reduced calibration on full range,0.815,23.626689362819008,NaN
+4,3,lines,Reduced calibration on full range,0.82,23.583670063005176,NaN
+4,3,lines,Reduced calibration on full range,0.825,23.540845294907648,NaN
+4,3,lines,Reduced calibration on full range,0.83,23.49821280091084,NaN
+4,3,lines,Reduced calibration on full range,0.835,23.455770361785167,NaN
+4,3,lines,Reduced calibration on full range,0.84,23.41351579566668,NaN
+4,3,lines,Reduced calibration on full range,0.845,23.371446957135163,NaN
+4,3,lines,Reduced calibration on full range,0.85,23.32956173638632,NaN
+4,3,lines,Reduced calibration on full range,0.855,23.28785805849105,NaN
+4,3,lines,Reduced calibration on full range,0.86,23.24633388273348,NaN
+4,3,lines,Reduced calibration on full range,0.865,23.20498720201707,NaN
+4,3,lines,Reduced calibration on full range,0.87,23.163816042330332,NaN
+4,3,lines,Reduced calibration on full range,0.875,23.122818462258145,NaN
+4,3,lines,Reduced calibration on full range,0.88,23.081992552530092,NaN
+4,3,lines,Reduced calibration on full range,0.885,23.041336435593873,NaN
+4,3,lines,Reduced calibration on full range,0.89,23.000848265202666,NaN
+4,3,lines,Reduced calibration on full range,0.895,22.960526226008696,NaN
+4,3,lines,Reduced calibration on full range,0.9,22.92036853315312,NaN
+4,3,lines,Reduced calibration on full range,0.905,22.880373431846355,NaN
+4,3,lines,Reduced calibration on full range,0.91,22.840539196931307,NaN
+4,3,lines,Reduced calibration on full range,0.915,22.800864132426906,NaN
+4,3,lines,Reduced calibration on full range,0.92,22.76134657104778,NaN
+4,3,lines,Reduced calibration on full range,0.925,22.721984873698727,NaN
+4,3,lines,Reduced calibration on full range,0.93,22.682777428943286,NaN
+4,3,lines,Reduced calibration on full range,0.935,22.64372265244837,NaN
+4,3,lines,Reduced calibration on full range,0.94,22.604818986405125,NaN
+4,3,lines,Reduced calibration on full range,0.945,22.566064898930623,NaN
+4,3,lines,Reduced calibration on full range,0.95,22.52745888345298,NaN
+4,3,lines,Reduced calibration on full range,0.955,22.488999458084162,NaN
+4,3,lines,Reduced calibration on full range,0.96,22.45068516498575,NaN
+4,3,lines,Reduced calibration on full range,0.965,22.41251456973216,NaN
+4,3,lines,Reduced calibration on full range,0.97,22.374486260675734,NaN
+4,3,lines,Reduced calibration on full range,0.975,22.336598848320133,NaN
+4,3,lines,Reduced calibration on full range,0.98,22.29885096470528,NaN
+4,3,lines,Reduced calibration on full range,0.985,22.261241262808895,NaN
+4,3,lines,Reduced calibration on full range,0.99,22.22376841596889,NaN
+4,3,lines,Reduced calibration on full range,0.995,22.18643111732956,NaN
+4,3,lines,Reduced calibration on full range,1.0,22.14922807931499,NaN
+4,3,lines,Reduced calibration on full range,1.005,22.112158033131664,NaN
+4,3,lines,Reduced calibration on full range,1.01,22.075219728301924,NaN
+4,3,lines,Reduced calibration on full range,1.015,22.038411932230144,NaN
+4,3,lines,Reduced calibration on full range,1.02,22.001733429800442,NaN
+4,3,lines,Reduced calibration on full range,1.025,21.96518302300788,NaN
+4,3,lines,Reduced calibration on full range,1.03,21.928759530619963,NaN
+4,3,lines,Reduced calibration on full range,1.035,21.892461787869706,NaN
+4,3,lines,Reduced calibration on full range,1.04,21.856288646176548,NaN
+4,3,lines,Reduced calibration on full range,1.045,21.820238972893875,NaN
+4,3,lines,Reduced calibration on full range,1.05,21.784311651080994,NaN
+4,3,lines,Reduced calibration on full range,1.055,21.748505579296236,NaN
+4,3,lines,Reduced calibration on full range,1.06,21.712819671408496,NaN
+4,3,lines,Reduced calibration on full range,1.065,21.677252856424868,NaN
+4,3,lines,Reduced calibration on full range,1.07,21.641804078330182,NaN
+4,3,lines,Reduced calibration on full range,1.075,21.60647229593697,NaN
+4,3,lines,Reduced calibration on full range,1.08,21.571256482741244,NaN
+4,3,lines,Reduced calibration on full range,1.085,21.536155626783206,NaN
+4,3,lines,Reduced calibration on full range,1.09,21.501168730508564,NaN
+4,3,lines,Reduced calibration on full range,1.095,21.466294810629638,NaN
+4,3,lines,Reduced calibration on full range,1.1,21.431532897982763,NaN
+4,3,lines,Reduced calibration on full range,1.105,21.396882037381765,NaN
+4,3,lines,Reduced calibration on full range,1.11,21.362341287464233,NaN
+4,3,lines,Reduced calibration on full range,1.115,21.327909720531117,NaN
+4,3,lines,Reduced calibration on full range,1.12,21.293586422377743,NaN
+4,3,lines,Reduced calibration on full range,1.125,21.259370492115604,NaN
+4,3,lines,Reduced calibration on full range,1.13,21.225261041985796,NaN
+4,3,lines,Reduced calibration on full range,1.135,21.191257197162248,NaN
+4,3,lines,Reduced calibration on full range,1.14,21.157358095547423,NaN
+4,3,lines,Reduced calibration on full range,1.145,21.123562887558638,NaN
+4,3,lines,Reduced calibration on full range,1.15,21.08987073590722,NaN
+4,3,lines,Reduced calibration on full range,1.155,21.056280815371252,NaN
+4,3,lines,Reduced calibration on full range,1.16,21.022792312562547,NaN
+4,3,lines,Reduced calibration on full range,1.165,20.989404425689347,NaN
+4,3,lines,Reduced calibration on full range,1.17,20.956116364316205,NaN
+4,3,lines,Reduced calibration on full range,1.175,20.922927349121775,NaN
+4,3,lines,Reduced calibration on full range,1.18,20.889836611657103,NaN
+4,3,lines,Reduced calibration on full range,1.185,20.856843394104207,NaN
+4,3,lines,Reduced calibration on full range,1.19,20.823946949038245,NaN
+4,3,lines,Reduced calibration on full range,1.195,20.791146539192674,NaN
+4,3,lines,Reduced calibration on full range,1.2,20.75844143722998,NaN
+4,3,lines,Reduced calibration on full range,1.205,20.72583092551901,NaN
+4,3,lines,Reduced calibration on full range,1.21,20.69331429591923,NaN
+4,3,lines,Reduced calibration on full range,1.215,20.660890849573825,NaN
+4,3,lines,Reduced calibration on full range,1.22,20.628559896711188,NaN
+4,3,lines,Reduced calibration on full range,1.225,20.59632075645767,NaN
+4,3,lines,Reduced calibration on full range,1.23,20.564172756659246,NaN
+4,3,lines,Reduced calibration on full range,1.235,20.53211523371492,NaN
+4,3,lines,Reduced calibration on full range,1.24,20.500147532420314,NaN
+4,3,lines,Reduced calibration on full range,1.245,20.468269005823984,NaN
+4,3,lines,Reduced calibration on full range,1.25,20.43647901509249,NaN
+4,3,lines,Reduced calibration on full range,1.255,20.40477692938838,NaN
+4,3,lines,Reduced calibration on full range,1.26,20.373162125757656,NaN
+4,3,lines,Reduced calibration on full range,1.265,20.34163398902775,NaN
+4,3,lines,Reduced calibration on full range,1.27,20.31019191171504,NaN
+4,3,lines,Reduced calibration on full range,1.275,20.278835293941757,NaN
+4,3,lines,Reduced calibration on full range,1.28,20.247563543360823,NaN
+4,3,lines,Reduced calibration on full range,1.285,20.216376075088146,NaN
+4,3,lines,Reduced calibration on full range,1.29,20.185272311642915,NaN
+4,3,lines,Reduced calibration on full range,1.295,20.154251682891985,NaN
+4,3,lines,Reduced calibration on full range,1.3,20.12331362600132,NaN
+4,3,lines,Reduced calibration on full range,1.305,20.09245758538995,NaN
+4,3,lines,Reduced calibration on full range,1.31,20.061683012689063,NaN
+4,3,lines,Reduced calibration on full range,1.315,20.03098936670203,NaN
+4,3,lines,Reduced calibration on full range,1.32,20.000376113366972,NaN
+4,3,lines,Reduced calibration on full range,1.325,19.969842725720714,NaN
+4,3,lines,Reduced calibration on full range,1.33,19.93938868386171,NaN
+4,3,lines,Reduced calibration on full range,1.335,19.909013474913557,NaN
+4,3,lines,Reduced calibration on full range,1.34,19.878716592986898,NaN
+4,3,lines,Reduced calibration on full range,1.345,19.848497539139405,NaN
+4,3,lines,Reduced calibration on full range,1.35,19.81835582133458,NaN
+4,3,lines,Reduced calibration on full range,1.355,19.788290954396487,NaN
+4,3,lines,Reduced calibration on full range,1.36,19.758302459962653,NaN
+4,3,lines,Reduced calibration on full range,1.365,19.72838986643361,NaN
+4,3,lines,Reduced calibration on full range,1.37,19.698552708917987,NaN
+4,3,lines,Reduced calibration on full range,1.375,19.66879052917556,NaN
+4,3,lines,Reduced calibration on full range,1.38,19.63910287555539,NaN
+4,3,lines,Reduced calibration on full range,1.385,19.609489302931575,NaN
+4,3,lines,Reduced calibration on full range,1.39,19.57994937263345,NaN
+4,3,lines,Reduced calibration on full range,1.395,19.550482652375205,NaN
+4,3,lines,Reduced calibration on full range,1.4,19.52108871617989,NaN
+4,3,lines,Reduced calibration on full range,1.405,19.49176714430161,NaN
+4,3,lines,Reduced calibration on full range,1.41,19.46251752314495,NaN
+4,3,lines,Reduced calibration on full range,1.415,19.433339445182003,NaN
+4,3,lines,Reduced calibration on full range,1.42,19.404232508867185,NaN
+4,3,lines,Reduced calibration on full range,1.425,19.375196318551012,NaN
+4,3,lines,Reduced calibration on full range,1.43,19.346230484392546,NaN
+4,3,lines,Reduced calibration on full range,1.435,19.317334622270323,NaN
+4,3,lines,Reduced calibration on full range,1.44,19.28850835369485,NaN
+4,3,lines,Reduced calibration on full range,1.445,19.25975130571907,NaN
+4,3,lines,Reduced calibration on full range,1.45,19.231063110851107,NaN
+4,3,lines,Reduced calibration on full range,1.455,19.202443406967294,NaN
+4,3,lines,Reduced calibration on full range,1.46,19.173891837226854,NaN
+4,3,lines,Reduced calibration on full range,1.465,19.14540804998816,NaN
+4,3,lines,Reduced calibration on full range,1.47,19.11699169872781,NaN
+4,3,lines,Reduced calibration on full range,1.475,19.0886424419617,NaN
+4,3,lines,Reduced calibration on full range,1.48,19.06035994316918,NaN
+4,3,lines,Reduced calibration on full range,1.485,19.032143870720994,NaN
+4,3,lines,Reduced calibration on full range,1.49,19.003993897809856,NaN
+4,3,lines,Reduced calibration on full range,1.495,18.97590970238487,NaN
+4,3,lines,Reduced calibration on full range,1.5,18.947890967091,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.5,27.050631718319647,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.505,26.988773665683162,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.51,26.92738598882205,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.515,26.8664599289216,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.52,26.805986972734146,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.525,26.745958844383722,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.53,26.68636749740273,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.535,26.62720510692141,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.54,26.568464061962594,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.545,26.510136957827275,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.55,26.45221658857817,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.555,26.39469593965022,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.56,26.337568180632626,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.565,26.280826658267507,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.57,26.224464889715055,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.575,26.168476556128738,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.58,26.11285549657188,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.585,26.057595702298713,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.59,26.00269131140673,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.595,25.948136603855843,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.6,25.89392599683673,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.605,25.84005404046119,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.61,25.786515413739906,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.615,25.733304920808074,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.62,25.68041748735796,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.625,25.62784815723728,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.63,25.575592089177345,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.635,25.52364455361606,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.64,25.472000929591733,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.645,25.42065670168604,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.65,25.369607457003625,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.655,25.318848882182905,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.66,25.26837676043636,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.665,25.21818696862565,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.67,25.168275474380536,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.675,25.11863833327209,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.68,25.069271686053156,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.685,25.020171755978932,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.69,24.971334846219857,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.695,24.92275733737773,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.7,24.87443568511234,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.705,24.82636641788584,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.71,24.778546134826172,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.715,24.73097150371017,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.72,24.68363925906356,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.725,24.636546200371562,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.73,24.589689190393425,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.735,24.543065153571256,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.74,24.496671074522997,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.745,24.450503996608635,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.75,24.40456102055833,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.755,24.358839303152116,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.76,24.313336055941136,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.765,24.268048544001356,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.77,24.222974084711776,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.775,24.17811004655207,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.78,24.133453847913604,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.785,24.08900295592161,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.79,24.044754885266943,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.795,24.00070719704601,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.8,23.956857497611335,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.805,23.913203437433445,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.81,23.86974270997685,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.815,23.826473050593812,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.82,23.783392235438992,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.825,23.740498080408685,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.83,23.69778844010757,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.835,23.655261206847346,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.84,23.61291430967911,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.845,23.57074571346154,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.85,23.528753417968005,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.855,23.48693545703138,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.86,23.44528989772946,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.865,23.403814839608252,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.87,23.362508413944035,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.875,23.32136878304175,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.88,23.280394139567907,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.885,23.239582705915872,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.89,23.19893273360078,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.895,23.158442502680465,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.9,23.11811032120087,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.905,23.077934524661103,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.91,23.03791347549678,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.915,22.998045562577463,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.92,22.958329200716456,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.925,22.918762830190218,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.93,22.879344916265225,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.935,22.840073948730744,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.94,22.800948441436034,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.945,22.761966931830802,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.95,22.72312798050845,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.955,22.684430170751543,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.96,22.645872108079722,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.965,22.607452419799714,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.97,22.56916975455885,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.975,22.53102278190164,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.98,22.493010191831264,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.985,22.455130694376056,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.99,22.417383019162948,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",0.995,22.379765914997705,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.0,22.342278149454348,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.005,22.30491850847318,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.01,22.267685795970284,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.015,22.230578833457546,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.02,22.19359645967452,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.025,22.156737530233247,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.03,22.120000917275597,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.035,22.083385509143667,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.04,22.046890210063516,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.045,22.010513939842316,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.05,21.974255633577535,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.055,21.93811424137941,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.06,21.90208872810521,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.065,21.866178073104884,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.07,21.8303812699778,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.075,21.794697326338575,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.08,21.759125263593333,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.085,21.723664116722933,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.09,21.68831293407479,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.095,21.65307077716055,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.1,21.617936720459223,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.105,21.582909851226294,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.11,21.54798926930518,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.115,21.513174086943604,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.12,21.47846342861164,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.125,21.44385643082237,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.13,21.40935224195365,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.135,21.374950022071747,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.14,21.340648942754413,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.145,21.306448186916644,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.15,21.272346948634674,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.155,21.238344432971644,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.16,21.204439855803468,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.165,21.17063244364407,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.17,21.136921433472907,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.175,21.10330607256115,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.18,21.069785618300603,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.185,21.036359338032568,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.19,21.003026508878577,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.195,20.969786417573502,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.2,20.93663836029952,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.205,20.903581642523797,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.21,20.870615578838496,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.215,20.837739492803326,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.22,20.804952716792442,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.225,20.772254591844725,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.23,20.73964446751708,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.235,20.707121701743525,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.24,20.674685660696987,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.245,20.642335718656728,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.25,20.61007125787968,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.255,20.57789166847616,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.26,20.545796348291375,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.265,20.51378470278985,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.27,20.481856144946086,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.275,20.450010095138264,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.28,20.41824598104722,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.285,20.386563237558924,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.29,20.35496130667164,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.295,20.32343963740567,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.3,20.291997685718115,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.305,20.26063491441967,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.31,20.229350793095236,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.315,20.198144798026394,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.32,20.16701641211735,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.325,20.135965124822718,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.33,20.104990432076754,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.335,20.07409183622481,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.34,20.043268845956113,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.345,20.012520976237578,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.35,19.98184774824893,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.355,19.951248689317772,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.36,19.92072333285646,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.365,19.890271218298192,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.37,19.859891891033925,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.375,19.829584902349627,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.38,19.799349809362994,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.385,19.76918617496092,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.39,19.73909356773575,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.395,19.709071561922542,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.4,19.679119737335625,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.405,19.649237679305077,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.41,19.61942497861336,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.415,19.589681231431204,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.42,19.56000603925469,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.425,19.53039900884153,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.43,19.500859752147175,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.435,19.471387886262658,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.44,19.441983033351345,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.445,19.41264482058676,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.45,19.383372880091024,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.455,19.354166848874268,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.46,19.325026368773973,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.465,19.295951086396457,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.47,19.266940653058477,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.475,19.23799472473044,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.48,19.209112961980747,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.485,19.180295029921776,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.49,19.151540598156704,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.495,19.122849340728745,NaN
+4,4,lines,"Reduced calibration Δ ∈ [10%, 90%]",1.5,19.09422093607124,NaN
+4,5,lines,Full calibration,0.5,27.26741429046883,NaN
+4,5,lines,Full calibration,0.505,27.203316314060434,NaN
+4,5,lines,Full calibration,0.51,27.139706942473964,NaN
+4,5,lines,Full calibration,0.515,27.076577162575965,NaN
+4,5,lines,Full calibration,0.52,27.013918215103867,NaN
+4,5,lines,Full calibration,0.525,26.951721584534845,NaN
+4,5,lines,Full calibration,0.53,26.889978989447783,NaN
+4,5,lines,Full calibration,0.535,26.828682373406075,NaN
+4,5,lines,Full calibration,0.54,26.767823896372366,NaN
+4,5,lines,Full calibration,0.545,26.707395926655042,NaN
+4,5,lines,Full calibration,0.55,26.64739103336762,NaN
+4,5,lines,Full calibration,0.555,26.587801979371907,NaN
+4,5,lines,Full calibration,0.56,26.528621714665775,NaN
+4,5,lines,Full calibration,0.565,26.46984337016679,NaN
+4,5,lines,Full calibration,0.57,26.411460251842616,NaN
+4,5,lines,Full calibration,0.575,26.353465835137087,NaN
+4,5,lines,Full calibration,0.58,26.295853759644043,NaN
+4,5,lines,Full calibration,0.585,26.238617823985948,NaN
+4,5,lines,Full calibration,0.59,26.18175198086079,NaN
+4,5,lines,Full calibration,0.595,26.125250332229932,NaN
+4,5,lines,Full calibration,0.6,26.06910712462507,NaN
+4,5,lines,Full calibration,0.605,26.013316744562992,NaN
+4,5,lines,Full calibration,0.61,25.957873714062462,NaN
+4,5,lines,Full calibration,0.615,25.902772686263294,NaN
+4,5,lines,Full calibration,0.62,25.848008441153603,NaN
+4,5,lines,Full calibration,0.625,25.79357588141327,NaN
+4,5,lines,Full calibration,0.63,25.739470028383927,NaN
+4,5,lines,Full calibration,0.635,25.68568601817578,NaN
+4,5,lines,Full calibration,0.64,25.632219097922032,NaN
+4,5,lines,Full calibration,0.645,25.57906462218807,NaN
+4,5,lines,Full calibration,0.65,25.526218049541686,NaN
+4,5,lines,Full calibration,0.655,25.47367493928729,NaN
+4,5,lines,Full calibration,0.66,25.421430948364105,NaN
+4,5,lines,Full calibration,0.665,25.369481828403927,NaN
+4,5,lines,Full calibration,0.67,25.31782342294519,NaN
+4,5,lines,Full calibration,0.675,25.266451664791983,NaN
+4,5,lines,Full calibration,0.68,25.21536257350938,NaN
+4,5,lines,Full calibration,0.685,25.164552253043748,NaN
+4,5,lines,Full calibration,0.69,25.114016889453865,NaN
+4,5,lines,Full calibration,0.695,25.06375274874195,NaN
+4,5,lines,Full calibration,0.7,25.01375617477021,NaN
+4,5,lines,Full calibration,0.705,24.9640235872532,NaN
+4,5,lines,Full calibration,0.71,24.914551479813014,NaN
+4,5,lines,Full calibration,0.715,24.865336418089903,NaN
+4,5,lines,Full calibration,0.72,24.816375037899352,NaN
+4,5,lines,Full calibration,0.725,24.767664043429548,NaN
+4,5,lines,Full calibration,0.73,24.719200205475545,NaN
+4,5,lines,Full calibration,0.735,24.670980359705887,NaN
+4,5,lines,Full calibration,0.74,24.623001404961943,NaN
+4,5,lines,Full calibration,0.745,24.575260301587733,NaN
+4,5,lines,Full calibration,0.75,24.527754069793193,NaN
+4,5,lines,Full calibration,0.755,24.480479788051216,NaN
+4,5,lines,Full calibration,0.76,24.43343459153074,NaN
+4,5,lines,Full calibration,0.765,24.386615670569746,NaN
+4,5,lines,Full calibration,0.77,24.34002026918941,NaN
+4,5,lines,Full calibration,0.775,24.29364568365258,NaN
+4,5,lines,Full calibration,0.78,24.24748926106948,NaN
+4,5,lines,Full calibration,0.785,24.20154839805148,NaN
+4,5,lines,Full calibration,0.79,24.155820539415405,NaN
+4,5,lines,Full calibration,0.795,24.110303176937936,NaN
+4,5,lines,Full calibration,0.8,24.064993848161826,NaN
+4,5,lines,Full calibration,0.805,24.01989013525204,NaN
+4,5,lines,Full calibration,0.81,23.974989663901248,NaN
+4,5,lines,Full calibration,0.815,23.930290102283276,NaN
+4,5,lines,Full calibration,0.82,23.88578916005215,NaN
+4,5,lines,Full calibration,0.825,23.84148458738413,NaN
+4,5,lines,Full calibration,0.83,23.79737417405897,NaN
+4,5,lines,Full calibration,0.835,23.753455748580066,NaN
+4,5,lines,Full calibration,0.84,23.70972717732612,NaN
+4,5,lines,Full calibration,0.845,23.66618636373489,NaN
+4,5,lines,Full calibration,0.85,23.622831247513055,NaN
+4,5,lines,Full calibration,0.855,23.579659803871024,NaN
+4,5,lines,Full calibration,0.86,23.53667004277836,NaN
+4,5,lines,Full calibration,0.865,23.493860008238148,NaN
+4,5,lines,Full calibration,0.87,23.451227777577465,NaN
+4,5,lines,Full calibration,0.875,23.408771460752213,NaN
+4,5,lines,Full calibration,0.88,23.366489199664457,NaN
+4,5,lines,Full calibration,0.885,23.32437916749147,NaN
+4,5,lines,Full calibration,0.89,23.282439568024866,NaN
+4,5,lines,Full calibration,0.895,23.240668635019418,NaN
+4,5,lines,Full calibration,0.9,23.199064631552062,NaN
+4,5,lines,Full calibration,0.905,23.157625849389287,NaN
+4,5,lines,Full calibration,0.91,23.11635060836541,NaN
+4,5,lines,Full calibration,0.915,23.07523725576991,NaN
+4,5,lines,Full calibration,0.92,23.03428416574591,NaN
+4,5,lines,Full calibration,0.925,22.993489738699708,NaN
+4,5,lines,Full calibration,0.93,22.95285240072225,NaN
+4,5,lines,Full calibration,0.935,22.912370603023586,NaN
+4,5,lines,Full calibration,0.94,22.872042821380344,NaN
+4,5,lines,Full calibration,0.945,22.831867555597643,NaN
+4,5,lines,Full calibration,0.95,22.79184332898561,NaN
+4,5,lines,Full calibration,0.955,22.751968687851026,NaN
+4,5,lines,Full calibration,0.96,22.712242201005015,NaN
+4,5,lines,Full calibration,0.965,22.67266245928595,NaN
+4,5,lines,Full calibration,0.97,22.633228075099364,NaN
+4,5,lines,Full calibration,0.975,22.593937681972832,NaN
+4,5,lines,Full calibration,0.98,22.55478993412742,NaN
+4,5,lines,Full calibration,0.985,22.515783506064828,NaN
+4,5,lines,Full calibration,0.99,22.476917092168875,NaN
+4,5,lines,Full calibration,0.995,22.438189406322866,NaN
+4,5,lines,Full calibration,1.0,22.399599181540225,NaN
+4,5,lines,Full calibration,1.005,22.36114516960818,NaN
+4,5,lines,Full calibration,1.01,22.32282614074535,NaN
+4,5,lines,Full calibration,1.015,22.28464088326921,NaN
+4,5,lines,Full calibration,1.02,22.246588203276296,NaN
+4,5,lines,Full calibration,1.025,22.208666924331208,NaN
+4,5,lines,Full calibration,1.03,22.170875887164815,NaN
+4,5,lines,Full calibration,1.035,22.13321394938187,NaN
+4,5,lines,Full calibration,1.04,22.09567998517436,NaN
+4,5,lines,Full calibration,1.045,22.058272885043063,NaN
+4,5,lines,Full calibration,1.05,22.020991555524102,NaN
+4,5,lines,Full calibration,1.055,21.983834918921453,NaN
+4,5,lines,Full calibration,1.06,21.946801913043483,NaN
+4,5,lines,Full calibration,1.065,21.909891490944407,NaN
+4,5,lines,Full calibration,1.07,21.87310262066889,NaN
+4,5,lines,Full calibration,1.075,21.836434285000305,NaN
+4,5,lines,Full calibration,1.08,21.79988548121176,NaN
+4,5,lines,Full calibration,1.085,21.763455220820916,NaN
+4,5,lines,Full calibration,1.09,21.72714252934637,NaN
+4,5,lines,Full calibration,1.095,21.690946446067503,NaN
+4,5,lines,Full calibration,1.1,21.65486602378695,NaN
+4,5,lines,Full calibration,1.105,21.618900328595252,NaN
+4,5,lines,Full calibration,1.11,21.58304843963929,NaN
+4,5,lines,Full calibration,1.115,21.54730944889253,NaN
+4,5,lines,Full calibration,1.12,21.51168246092962,NaN
+4,5,lines,Full calibration,1.125,21.476166592703308,NaN
+4,5,lines,Full calibration,1.13,21.44076097332564,NaN
+4,5,lines,Full calibration,1.135,21.405464743852185,NaN
+4,5,lines,Full calibration,1.14,21.370277057071217,NaN
+4,5,lines,Full calibration,1.145,21.3351970772961,NaN
+4,5,lines,Full calibration,1.15,21.300223980162812,NaN
+4,5,lines,Full calibration,1.155,21.265356952431816,NaN
+4,5,lines,Full calibration,1.16,21.23059519179456,NaN
+4,5,lines,Full calibration,1.165,21.195937906685003,NaN
+4,5,lines,Full calibration,1.17,21.16138431609649,NaN
+4,5,lines,Full calibration,1.175,21.12693364940311,NaN
+4,5,lines,Full calibration,1.18,21.0925851461868,NaN
+4,5,lines,Full calibration,1.185,21.05833805606934,NaN
+4,5,lines,Full calibration,1.19,21.024191638549475,NaN
+4,5,lines,Full calibration,1.195,20.990145162845515,NaN
+4,5,lines,Full calibration,1.2,20.95619790774258,NaN
+4,5,lines,Full calibration,1.205,20.922349161444938,NaN
+4,5,lines,Full calibration,1.21,20.888598221433615,NaN
+4,5,lines,Full calibration,1.215,20.85494439432768,NaN
+4,5,lines,Full calibration,1.22,20.821386995751016,NaN
+4,5,lines,Full calibration,1.225,20.787925350202755,NaN
+4,5,lines,Full calibration,1.23,20.754558790931966,NaN
+4,5,lines,Full calibration,1.235,20.721286659816236,NaN
+4,5,lines,Full calibration,1.24,20.68810830724376,NaN
+4,5,lines,Full calibration,1.245,20.655023091998796,NaN
+4,5,lines,Full calibration,1.25,20.622030381150466,NaN
+4,5,lines,Full calibration,1.255,20.589129549943724,NaN
+4,5,lines,Full calibration,1.26,20.556319981694053,NaN
+4,5,lines,Full calibration,1.265,20.523601067683288,NaN
+4,5,lines,Full calibration,1.27,20.490972207058856,NaN
+4,5,lines,Full calibration,1.275,20.458432806734024,NaN
+4,5,lines,Full calibration,1.28,20.425982281290263,NaN
+4,5,lines,Full calibration,1.285,20.39362005288107,NaN
+4,5,lines,Full calibration,1.29,20.361345551137525,NaN
+4,5,lines,Full calibration,1.295,20.329158213074496,NaN
+4,5,lines,Full calibration,1.3,20.29705748299853,NaN
+4,5,lines,Full calibration,1.305,20.265042812416294,NaN
+4,5,lines,Full calibration,1.31,20.233113659944188,NaN
+4,5,lines,Full calibration,1.315,20.20126949121878,NaN
+4,5,lines,Full calibration,1.32,20.169509778807353,NaN
+4,5,lines,Full calibration,1.325,20.137834002120503,NaN
+4,5,lines,Full calibration,1.33,20.106241647324154,NaN
+4,5,lines,Full calibration,1.335,20.074732207252886,NaN
+4,5,lines,Full calibration,1.34,20.04330518132337,NaN
+4,5,lines,Full calibration,1.345,20.011960075449775,NaN
+4,5,lines,Full calibration,1.35,19.980696401958355,NaN
+4,5,lines,Full calibration,1.355,19.94951367950368,NaN
+4,5,lines,Full calibration,1.36,19.918411432985963,NaN
+4,5,lines,Full calibration,1.365,19.88738919346858,NaN
+4,5,lines,Full calibration,1.37,19.856446498096563,NaN
+4,5,lines,Full calibration,1.375,19.82558289001707,NaN
+4,5,lines,Full calibration,1.38,19.79479791829977,NaN
+4,5,lines,Full calibration,1.385,19.764091137859293,NaN
+4,5,lines,Full calibration,1.39,19.733462109378426,NaN
+4,5,lines,Full calibration,1.395,19.702910399232916,NaN
+4,5,lines,Full calibration,1.4,19.67243557941739,NaN
+4,5,lines,Full calibration,1.405,19.64203722747305,NaN
+4,5,lines,Full calibration,1.41,19.61171492641681,NaN
+4,5,lines,Full calibration,1.415,19.581468264671866,NaN
+4,5,lines,Full calibration,1.42,19.551296836000088,NaN
+4,5,lines,Full calibration,1.425,19.521200239436084,NaN
+4,5,lines,Full calibration,1.43,19.491178079222777,NaN
+4,5,lines,Full calibration,1.435,19.46122996474892,NaN
+4,5,lines,Full calibration,1.44,19.431355510488668,NaN
+4,5,lines,Full calibration,1.445,19.40155433594196,NaN
+4,5,lines,Full calibration,1.45,19.371826065577785,NaN
+4,5,lines,Full calibration,1.455,19.342170328778767,NaN
+4,5,lines,Full calibration,1.46,19.312586759787223,NaN
+4,5,lines,Full calibration,1.465,19.283074997653543,NaN
+4,5,lines,Full calibration,1.47,19.253634686185578,NaN
+4,5,lines,Full calibration,1.475,19.22426547390072,NaN
+4,5,lines,Full calibration,1.48,19.1949670139783,NaN
+4,5,lines,Full calibration,1.485,19.165738964214533,NaN
+4,5,lines,Full calibration,1.49,19.13658098697911,NaN
+4,5,lines,Full calibration,1.495,19.10749274917187,NaN
+4,5,lines,Full calibration,1.5,19.078473922183043,NaN

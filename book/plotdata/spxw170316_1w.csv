@@ -1,0 +1,515 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,Market,1800.0,58.069,NaN
+1,1,lines,Market,1850.0,52.7667,NaN
+1,1,lines,Market,1875.0,50.159299999999995,NaN
+1,1,lines,Market,1880.0,54.31589999999999,NaN
+1,1,lines,Market,1890.0,53.19819999999999,NaN
+1,1,lines,Market,1900.0,52.085,NaN
+1,1,lines,Market,1910.0,49.2206,NaN
+1,1,lines,Market,1980.0,43.329699999999995,NaN
+1,1,lines,Market,1990.0,43.4007,NaN
+1,1,lines,Market,2000.0,42.3024,NaN
+1,1,lines,Market,2010.0,41.2075,NaN
+1,1,lines,Market,2030.0,39.027699999999996,NaN
+1,1,lines,Market,2035.0,38.4848,NaN
+1,1,lines,Market,2050.0,38.396,NaN
+1,1,lines,Market,2055.0,37.837199999999996,NaN
+1,1,lines,Market,2085.0,35.5896,NaN
+1,1,lines,Market,2090.0,35.0208,NaN
+1,1,lines,Market,2100.0,33.8849,NaN
+1,1,lines,Market,2105.0,33.3177,NaN
+1,1,lines,Market,2120.0,32.4437,NaN
+1,1,lines,Market,2125.0,31.8663,NaN
+1,1,lines,Market,2130.0,31.289299999999997,NaN
+1,1,lines,Market,2135.0,30.712699999999998,NaN
+1,1,lines,Market,2140.0,30.8097,NaN
+1,1,lines,Market,2150.0,29.3213,NaN
+1,1,lines,Market,2155.0,29.051199999999998,NaN
+1,1,lines,Market,2160.0,29.0278,NaN
+1,1,lines,Market,2165.0,28.4329,NaN
+1,1,lines,Market,2175.0,27.4912,NaN
+1,1,lines,Market,2180.0,27.1249,NaN
+1,1,lines,Market,2185.0,26.5217,NaN
+1,1,lines,Market,2190.0,26.340700000000002,NaN
+1,1,lines,Market,2195.0,25.729499999999998,NaN
+1,1,lines,Market,2200.0,25.118000000000002,NaN
+1,1,lines,Market,2205.0,24.877,NaN
+1,1,lines,Market,2210.0,24.2577,NaN
+1,1,lines,Market,2215.0,23.8074,NaN
+1,1,lines,Market,2220.0,23.3447,NaN
+1,1,lines,Market,2225.0,22.870099999999997,NaN
+1,1,lines,Market,2230.0,22.3842,NaN
+1,1,lines,Market,2235.0,21.8875,NaN
+1,1,lines,Market,2240.0,21.3802,NaN
+1,1,lines,Market,2245.0,20.9863,NaN
+1,1,lines,Market,2250.0,20.3355,NaN
+1,1,lines,Market,2255.0,19.9113,NaN
+1,1,lines,Market,2260.0,19.3598,NaN
+1,1,lines,Market,2265.0,18.9002,NaN
+1,1,lines,Market,2270.0,18.326,NaN
+1,1,lines,Market,2275.0,17.8338,NaN
+1,1,lines,Market,2280.0,17.3233,NaN
+1,1,lines,Market,2285.0,16.875,NaN
+1,1,lines,Market,2290.0,16.3256,NaN
+1,1,lines,Market,2295.0,15.8994,NaN
+1,1,lines,Market,2300.0,15.3748,NaN
+1,1,lines,Market,2305.0,14.947099999999999,NaN
+1,1,lines,Market,2310.0,14.480100000000002,NaN
+1,1,lines,Market,2315.0,13.976700000000001,NaN
+1,1,lines,Market,2320.0,13.5791,NaN
+1,1,lines,Market,2325.0,13.1265,NaN
+1,1,lines,Market,2330.0,12.701299999999998,NaN
+1,1,lines,Market,2335.0,12.286800000000001,NaN
+1,1,lines,Market,2340.0,11.9332,NaN
+1,1,lines,Market,2345.0,11.5233,NaN
+1,1,lines,Market,2350.0,11.056000000000001,NaN
+1,1,lines,Market,2355.0,10.751,NaN
+1,1,lines,Market,2360.0,10.4154,NaN
+1,1,lines,Market,2365.0,10.0775,NaN
+1,1,lines,Market,2370.0,9.7155,NaN
+1,1,lines,Market,2375.0,9.495800000000001,NaN
+1,1,lines,Market,2380.0,9.1975,NaN
+1,1,lines,Market,2385.0,8.9464,NaN
+1,1,lines,Market,2390.0,8.756400000000001,NaN
+1,1,lines,Market,2395.0,8.6186,NaN
+1,1,lines,Market,2400.0,8.5388,NaN
+1,1,lines,Market,2405.0,8.453800000000001,NaN
+1,1,lines,Market,2410.0,8.3833,NaN
+1,1,lines,Market,2415.0,8.3969,NaN
+1,1,lines,Market,2420.0,8.4161,NaN
+1,1,lines,Market,2425.0,8.5007,NaN
+1,1,lines,Market,2430.0,8.6049,NaN
+1,1,lines,Market,2435.0,8.8046,NaN
+1,1,lines,Market,2440.0,8.9957,NaN
+1,1,lines,Market,2445.0,9.2181,NaN
+1,1,lines,Market,2450.0,9.424399999999999,NaN
+1,1,lines,Market,2455.0,9.772699999999999,NaN
+1,1,lines,Market,2460.0,9.9094,NaN
+1,1,lines,Market,2465.0,10.287,NaN
+1,1,lines,Market,2470.0,10.4131,NaN
+1,1,lines,Market,2475.0,10.9328,NaN
+1,1,lines,Market,2495.0,12.3512,NaN
+1,1,lines,Market,2550.0,15.2831,NaN
+1,2,lines,Least-squares Spline,1800.0,54.962,NaN
+1,2,lines,Least-squares Spline,1812.335252,54.5222,NaN
+1,2,lines,Least-squares Spline,1824.755036,54.0305,NaN
+1,2,lines,Least-squares Spline,1837.259931,53.4883,NaN
+1,2,lines,Least-squares Spline,1849.850522,52.897000000000006,NaN
+1,2,lines,Least-squares Spline,1850.0,52.8898,NaN
+1,2,lines,Least-squares Spline,1862.527395,52.2581,NaN
+1,2,lines,Least-squares Spline,1875.0,51.588699999999996,NaN
+1,2,lines,Least-squares Spline,1875.291142,51.5726,NaN
+1,2,lines,Least-squares Spline,1880.0,51.309400000000004,NaN
+1,2,lines,Least-squares Spline,1888.142357,50.841800000000006,NaN
+1,2,lines,Least-squares Spline,1890.0,50.7329,NaN
+1,2,lines,Least-squares Spline,1900.0,50.1331,NaN
+1,2,lines,Least-squares Spline,1901.081641,50.0668,NaN
+1,2,lines,Least-squares Spline,1910.0,49.510799999999996,NaN
+1,2,lines,Least-squares Spline,1914.109597,49.248799999999996,NaN
+1,2,lines,Least-squares Spline,1927.226832,48.3886,NaN
+1,2,lines,Least-squares Spline,1940.433959,47.4874,NaN
+1,2,lines,Least-squares Spline,1953.731593,46.5461,NaN
+1,2,lines,Least-squares Spline,1967.120354,45.5657,NaN
+1,2,lines,Least-squares Spline,1980.0,44.592999999999996,NaN
+1,2,lines,Least-squares Spline,1980.600868,44.5469,NaN
+1,2,lines,Least-squares Spline,1990.0,43.8187,NaN
+1,2,lines,Least-squares Spline,1994.173762,43.4908,NaN
+1,2,lines,Least-squares Spline,2000.0,43.028499999999994,NaN
+1,2,lines,Least-squares Spline,2007.839671,42.3982,NaN
+1,2,lines,Least-squares Spline,2010.0,42.2229,NaN
+1,2,lines,Least-squares Spline,2021.59923,41.2701,NaN
+1,2,lines,Least-squares Spline,2030.0,40.568,NaN
+1,2,lines,Least-squares Spline,2035.0,40.145599999999995,NaN
+1,2,lines,Least-squares Spline,2035.453083,40.1072,NaN
+1,2,lines,Least-squares Spline,2049.401875,38.9104,NaN
+1,2,lines,Least-squares Spline,2050.0,38.858599999999996,NaN
+1,2,lines,Least-squares Spline,2055.0,38.4232,NaN
+1,2,lines,Least-squares Spline,2063.446257,37.6808,NaN
+1,2,lines,Least-squares Spline,2077.586884,36.419200000000004,NaN
+1,2,lines,Least-squares Spline,2085.0,35.7489,NaN
+1,2,lines,Least-squares Spline,2090.0,35.293400000000005,NaN
+1,2,lines,Least-squares Spline,2091.824416,35.1266,NaN
+1,2,lines,Least-squares Spline,2100.0,34.3748,NaN
+1,2,lines,Least-squares Spline,2105.0,33.9118,NaN
+1,2,lines,Least-squares Spline,2106.159516,33.8041,NaN
+1,2,lines,Least-squares Spline,2120.0,32.508700000000005,NaN
+1,2,lines,Least-squares Spline,2120.592854,32.452799999999996,NaN
+1,2,lines,Least-squares Spline,2125.0,32.0366,NaN
+1,2,lines,Least-squares Spline,2130.0,31.5623,NaN
+1,2,lines,Least-squares Spline,2135.0,31.086000000000002,NaN
+1,2,lines,Least-squares Spline,2135.125102,31.074099999999998,NaN
+1,2,lines,Least-squares Spline,2140.0,30.607699999999998,NaN
+1,2,lines,Least-squares Spline,2149.756938,29.6692,NaN
+1,2,lines,Least-squares Spline,2150.0,29.6457,NaN
+1,2,lines,Least-squares Spline,2155.0,29.162100000000002,NaN
+1,2,lines,Least-squares Spline,2160.0,28.676800000000004,NaN
+1,2,lines,Least-squares Spline,2164.489045,28.2398,NaN
+1,2,lines,Least-squares Spline,2165.0,28.189999999999998,NaN
+1,2,lines,Least-squares Spline,2175.0,27.212199999999996,NaN
+1,2,lines,Least-squares Spline,2179.32211,26.787899999999997,NaN
+1,2,lines,Least-squares Spline,2180.0,26.7213,NaN
+1,2,lines,Least-squares Spline,2185.0,26.2293,NaN
+1,2,lines,Least-squares Spline,2190.0,25.736199999999997,NaN
+1,2,lines,Least-squares Spline,2194.256824,25.315700000000003,NaN
+1,2,lines,Least-squares Spline,2195.0,25.242199999999997,NaN
+1,2,lines,Least-squares Spline,2200.0,24.7474,NaN
+1,2,lines,Least-squares Spline,2205.0,24.251900000000003,NaN
+1,2,lines,Least-squares Spline,2209.293885,23.826,NaN
+1,2,lines,Least-squares Spline,2210.0,23.7559,NaN
+1,2,lines,Least-squares Spline,2215.0,23.2595,NaN
+1,2,lines,Least-squares Spline,2220.0,22.7628,NaN
+1,2,lines,Least-squares Spline,2224.433994,22.3222,NaN
+1,2,lines,Least-squares Spline,2225.0,22.266,NaN
+1,2,lines,Least-squares Spline,2230.0,21.7693,NaN
+1,2,lines,Least-squares Spline,2235.0,21.2729,NaN
+1,2,lines,Least-squares Spline,2239.677857,20.8089,NaN
+1,2,lines,Least-squares Spline,2240.0,20.7769,NaN
+1,2,lines,Least-squares Spline,2245.0,20.2817,NaN
+1,2,lines,Least-squares Spline,2250.0,19.787399999999998,NaN
+1,2,lines,Least-squares Spline,2255.0,19.2943,NaN
+1,2,lines,Least-squares Spline,2255.026185,19.291800000000002,NaN
+1,2,lines,Least-squares Spline,2260.0,18.8027,NaN
+1,2,lines,Least-squares Spline,2265.0,18.313,NaN
+1,2,lines,Least-squares Spline,2270.0,17.8253,NaN
+1,2,lines,Least-squares Spline,2270.479693,17.7787,NaN
+1,2,lines,Least-squares Spline,2275.0,17.3402,NaN
+1,2,lines,Least-squares Spline,2280.0,16.8581,NaN
+1,2,lines,Least-squares Spline,2285.0,16.3793,NaN
+1,2,lines,Least-squares Spline,2286.039103,16.2803,NaN
+1,2,lines,Least-squares Spline,2290.0,15.904499999999999,NaN
+1,2,lines,Least-squares Spline,2295.0,15.4342,NaN
+1,2,lines,Least-squares Spline,2300.0,14.969,NaN
+1,2,lines,Least-squares Spline,2301.705141,14.8117,NaN
+1,2,lines,Least-squares Spline,2305.0,14.5097,NaN
+1,2,lines,Least-squares Spline,2310.0,14.057,NaN
+1,2,lines,Least-squares Spline,2315.0,13.611899999999999,NaN
+1,2,lines,Least-squares Spline,2317.478536,13.394300000000001,NaN
+1,2,lines,Least-squares Spline,2320.0,13.1752,NaN
+1,2,lines,Least-squares Spline,2325.0,12.7481,NaN
+1,2,lines,Least-squares Spline,2330.0,12.3319,NaN
+1,2,lines,Least-squares Spline,2333.360026,12.059000000000001,NaN
+1,2,lines,Least-squares Spline,2335.0,11.9279,NaN
+1,2,lines,Least-squares Spline,2340.0,11.5377,NaN
+1,2,lines,Least-squares Spline,2345.0,11.1629,NaN
+1,2,lines,Least-squares Spline,2349.350349,10.8507,NaN
+1,2,lines,Least-squares Spline,2350.0,10.805299999999999,NaN
+1,2,lines,Least-squares Spline,2355.0,10.4671,NaN
+1,2,lines,Least-squares Spline,2360.0,10.1503,NaN
+1,2,lines,Least-squares Spline,2365.0,9.8574,NaN
+1,2,lines,Least-squares Spline,2365.450254,9.8323,NaN
+1,2,lines,Least-squares Spline,2370.0,9.5907,NaN
+1,2,lines,Least-squares Spline,2375.0,9.3529,NaN
+1,2,lines,Least-squares Spline,2380.0,9.1463,NaN
+1,2,lines,Least-squares Spline,2381.660489,9.085,NaN
+1,2,lines,Least-squares Spline,2385.0,8.9734,NaN
+1,2,lines,Least-squares Spline,2390.0,8.8363,NaN
+1,2,lines,Least-squares Spline,2395.0,8.7354,NaN
+1,2,lines,Least-squares Spline,2397.981812,8.6925,NaN
+1,2,lines,Least-squares Spline,2400.0,8.6707,NaN
+1,2,lines,Least-squares Spline,2405.0,8.6415,NaN
+1,2,lines,Least-squares Spline,2410.0,8.6469,NaN
+1,2,lines,Least-squares Spline,2414.414984,8.6792,NaN
+1,2,lines,Least-squares Spline,2415.0,8.6854,NaN
+1,2,lines,Least-squares Spline,2420.0,8.7553,NaN
+1,2,lines,Least-squares Spline,2425.0,8.8545,NaN
+1,2,lines,Least-squares Spline,2430.0,8.9808,NaN
+1,2,lines,Least-squares Spline,2430.96077,9.008,NaN
+1,2,lines,Least-squares Spline,2435.0,9.1318,NaN
+1,2,lines,Least-squares Spline,2440.0,9.3052,NaN
+1,2,lines,Least-squares Spline,2445.0,9.4986,NaN
+1,2,lines,Least-squares Spline,2447.619944,9.6071,NaN
+1,2,lines,Least-squares Spline,2450.0,9.7097,NaN
+1,2,lines,Least-squares Spline,2455.0,9.936200000000001,NaN
+1,2,lines,Least-squares Spline,2460.0,10.1761,NaN
+1,2,lines,Least-squares Spline,2464.393282,10.3964,NaN
+1,2,lines,Least-squares Spline,2465.0,10.4274,NaN
+1,2,lines,Least-squares Spline,2470.0,10.6885,NaN
+1,2,lines,Least-squares Spline,2475.0,10.957600000000001,NaN
+1,2,lines,Least-squares Spline,2481.281566,11.3049,NaN
+1,2,lines,Least-squares Spline,2495.0,12.087299999999999,NaN
+1,2,lines,Least-squares Spline,2498.285584,12.2777,NaN
+1,2,lines,Least-squares Spline,2515.406129,13.274,NaN
+1,2,lines,Least-squares Spline,2532.644,14.264299999999999,NaN
+1,2,lines,Least-squares Spline,2550.0,15.226500000000001,NaN
+1,3,lines,SABR,1800.0,57.3302,NaN
+1,3,lines,SABR,1812.335252,56.324799999999996,NaN
+1,3,lines,SABR,1824.755036,55.315000000000005,NaN
+1,3,lines,SABR,1837.259931,54.3005,NaN
+1,3,lines,SABR,1849.850522,53.2812,NaN
+1,3,lines,SABR,1850.0,53.269200000000005,NaN
+1,3,lines,SABR,1862.527395,52.257,NaN
+1,3,lines,SABR,1875.0,51.2512,NaN
+1,3,lines,SABR,1875.291142,51.2277,NaN
+1,3,lines,SABR,1880.0,50.848400000000005,NaN
+1,3,lines,SABR,1888.142357,50.1931,NaN
+1,3,lines,SABR,1890.0,50.0437,NaN
+1,3,lines,SABR,1900.0,49.2399,NaN
+1,3,lines,SABR,1901.081641,49.153000000000006,NaN
+1,3,lines,SABR,1910.0,48.4369,NaN
+1,3,lines,SABR,1914.109597,48.1072,NaN
+1,3,lines,SABR,1927.226832,47.0554,NaN
+1,3,lines,SABR,1940.433959,45.9975,NaN
+1,3,lines,SABR,1953.731593,44.933099999999996,NaN
+1,3,lines,SABR,1967.120354,43.8621,NaN
+1,3,lines,SABR,1980.0,42.832100000000004,NaN
+1,3,lines,SABR,1980.600868,42.7841,NaN
+1,3,lines,SABR,1990.0,42.0325,NaN
+1,3,lines,SABR,1994.173762,41.6987,NaN
+1,3,lines,SABR,2000.0,41.2328,NaN
+1,3,lines,SABR,2007.839671,40.6057,NaN
+1,3,lines,SABR,2010.0,40.4329,NaN
+1,3,lines,SABR,2021.59923,39.5046,NaN
+1,3,lines,SABR,2030.0,38.832,NaN
+1,3,lines,SABR,2035.0,38.4314,NaN
+1,3,lines,SABR,2035.453083,38.3951,NaN
+1,3,lines,SABR,2049.401875,37.2767,NaN
+1,3,lines,SABR,2050.0,37.228699999999996,NaN
+1,3,lines,SABR,2055.0,36.8274,NaN
+1,3,lines,SABR,2063.446257,36.1489,NaN
+1,3,lines,SABR,2077.586884,35.011199999999995,NaN
+1,3,lines,SABR,2085.0,34.413700000000006,NaN
+1,3,lines,SABR,2090.0,34.0103,NaN
+1,3,lines,SABR,2091.824416,33.8629,NaN
+1,3,lines,SABR,2100.0,33.2022,NaN
+1,3,lines,SABR,2105.0,32.7975,NaN
+1,3,lines,SABR,2106.159516,32.703500000000005,NaN
+1,3,lines,SABR,2120.0,31.580399999999997,NaN
+1,3,lines,SABR,2120.592854,31.5322,NaN
+1,3,lines,SABR,2125.0,31.1737,NaN
+1,3,lines,SABR,2130.0,30.7663,NaN
+1,3,lines,SABR,2135.0,30.358400000000003,NaN
+1,3,lines,SABR,2135.125102,30.3482,NaN
+1,3,lines,SABR,2140.0,29.9498,NaN
+1,3,lines,SABR,2149.756938,29.1505,NaN
+1,3,lines,SABR,2150.0,29.130499999999998,NaN
+1,3,lines,SABR,2155.0,28.7198,NaN
+1,3,lines,SABR,2160.0,28.308299999999996,NaN
+1,3,lines,SABR,2164.489045,27.9381,NaN
+1,3,lines,SABR,2165.0,27.8959,NaN
+1,3,lines,SABR,2175.0,27.068599999999996,NaN
+1,3,lines,SABR,2179.32211,26.709899999999998,NaN
+1,3,lines,SABR,2180.0,26.6536,NaN
+1,3,lines,SABR,2185.0,26.2376,NaN
+1,3,lines,SABR,2190.0,25.820500000000003,NaN
+1,3,lines,SABR,2194.256824,25.464599999999997,NaN
+1,3,lines,SABR,2195.0,25.4023,NaN
+1,3,lines,SABR,2200.0,24.983,NaN
+1,3,lines,SABR,2205.0,24.5626,NaN
+1,3,lines,SABR,2209.293885,24.200499999999998,NaN
+1,3,lines,SABR,2210.0,24.140900000000002,NaN
+1,3,lines,SABR,2215.0,23.7179,NaN
+1,3,lines,SABR,2220.0,23.2935,NaN
+1,3,lines,SABR,2224.433994,22.916,NaN
+1,3,lines,SABR,2225.0,22.8677,NaN
+1,3,lines,SABR,2230.0,22.4405,NaN
+1,3,lines,SABR,2235.0,22.0117,NaN
+1,3,lines,SABR,2239.677857,21.6091,NaN
+1,3,lines,SABR,2240.0,21.5813,NaN
+1,3,lines,SABR,2245.0,21.1492,NaN
+1,3,lines,SABR,2250.0,20.7153,NaN
+1,3,lines,SABR,2255.0,20.279600000000002,NaN
+1,3,lines,SABR,2255.026185,20.2774,NaN
+1,3,lines,SABR,2260.0,19.842000000000002,NaN
+1,3,lines,SABR,2265.0,19.4024,NaN
+1,3,lines,SABR,2270.0,18.9607,NaN
+1,3,lines,SABR,2270.479693,18.9182,NaN
+1,3,lines,SABR,2275.0,18.5168,NaN
+1,3,lines,SABR,2280.0,18.070700000000002,NaN
+1,3,lines,SABR,2285.0,17.6222,NaN
+1,3,lines,SABR,2286.039103,17.5287,NaN
+1,3,lines,SABR,2290.0,17.171300000000002,NaN
+1,3,lines,SABR,2295.0,16.7179,NaN
+1,3,lines,SABR,2300.0,16.2619,NaN
+1,3,lines,SABR,2301.705141,16.105800000000002,NaN
+1,3,lines,SABR,2305.0,15.8032,NaN
+1,3,lines,SABR,2310.0,15.3419,NaN
+1,3,lines,SABR,2315.0,14.877799999999999,NaN
+1,3,lines,SABR,2317.478536,14.646700000000001,NaN
+1,3,lines,SABR,2320.0,14.411,NaN
+1,3,lines,SABR,2325.0,13.941600000000001,NaN
+1,3,lines,SABR,2330.0,13.469700000000001,NaN
+1,3,lines,SABR,2333.360026,13.151299999999999,NaN
+1,3,lines,SABR,2335.0,12.9956,NaN
+1,3,lines,SABR,2340.0,12.5197,NaN
+1,3,lines,SABR,2345.0,12.0428,NaN
+1,3,lines,SABR,2349.350349,11.6277,NaN
+1,3,lines,SABR,2350.0,11.5658,NaN
+1,3,lines,SABR,2355.0,11.090300000000001,NaN
+1,3,lines,SABR,2360.0,10.6188,NaN
+1,3,lines,SABR,2365.0,10.1547,NaN
+1,3,lines,SABR,2365.450254,10.1134,NaN
+1,3,lines,SABR,2370.0,9.703299999999999,NaN
+1,3,lines,SABR,2375.0,9.2724,NaN
+1,3,lines,SABR,2380.0,8.8729,NaN
+1,3,lines,SABR,2381.660489,8.749600000000001,NaN
+1,3,lines,SABR,2385.0,8.5197,NaN
+1,3,lines,SABR,2390.0,8.2308,NaN
+1,3,lines,SABR,2395.0,8.024199999999999,NaN
+1,3,lines,SABR,2397.981812,7.9457,NaN
+1,3,lines,SABR,2400.0,7.9124,NaN
+1,3,lines,SABR,2405.0,7.8973,NaN
+1,3,lines,SABR,2410.0,7.9698,NaN
+1,3,lines,SABR,2414.414984,8.0942,NaN
+1,3,lines,SABR,2415.0,8.1143,NaN
+1,3,lines,SABR,2420.0,8.3137,NaN
+1,3,lines,SABR,2425.0,8.5535,NaN
+1,3,lines,SABR,2430.0,8.822199999999999,NaN
+1,3,lines,SABR,2430.96077,8.8764,NaN
+1,3,lines,SABR,2435.0,9.1112,NaN
+1,3,lines,SABR,2440.0,9.4144,NaN
+1,3,lines,SABR,2445.0,9.7275,NaN
+1,3,lines,SABR,2447.619944,9.894300000000001,NaN
+1,3,lines,SABR,2450.0,10.0472,NaN
+1,3,lines,SABR,2455.0,10.3713,NaN
+1,3,lines,SABR,2460.0,10.6982,NaN
+1,3,lines,SABR,2464.393282,10.986799999999999,NaN
+1,3,lines,SABR,2465.0,11.0267,NaN
+1,3,lines,SABR,2470.0,11.3558,NaN
+1,3,lines,SABR,2475.0,11.684899999999999,NaN
+1,3,lines,SABR,2481.281566,12.0977,NaN
+1,3,lines,SABR,2495.0,12.993599999999999,NaN
+1,3,lines,SABR,2498.285584,13.206599999999998,NaN
+1,3,lines,SABR,2515.406129,14.305599999999998,NaN
+1,3,lines,SABR,2532.644,15.3918,NaN
+1,3,lines,SABR,2550.0,16.4643,NaN
+1,4,lines,SVI,1800.0,56.3971,NaN
+1,4,lines,SVI,1812.335252,55.598499999999994,NaN
+1,4,lines,SVI,1824.755036,54.7885,NaN
+1,4,lines,SVI,1837.259931,53.9666,NaN
+1,4,lines,SVI,1849.850522,53.1323,NaN
+1,4,lines,SVI,1850.0,53.1223,NaN
+1,4,lines,SVI,1862.527395,52.285000000000004,NaN
+1,4,lines,SVI,1875.0,51.4439,NaN
+1,4,lines,SVI,1875.291142,51.4242,NaN
+1,4,lines,SVI,1880.0,51.1046,NaN
+1,4,lines,SVI,1888.142357,50.549200000000006,NaN
+1,4,lines,SVI,1890.0,50.422,NaN
+1,4,lines,SVI,1900.0,49.7339,NaN
+1,4,lines,SVI,1901.081641,49.6592,NaN
+1,4,lines,SVI,1910.0,49.040299999999995,NaN
+1,4,lines,SVI,1914.109597,48.7535,NaN
+1,4,lines,SVI,1927.226832,47.8314,NaN
+1,4,lines,SVI,1940.433959,46.8918,NaN
+1,4,lines,SVI,1953.731593,45.933800000000005,NaN
+1,4,lines,SVI,1967.120354,44.9564,NaN
+1,4,lines,SVI,1980.0,44.0031,NaN
+1,4,lines,SVI,1980.600868,43.9583,NaN
+1,4,lines,SVI,1990.0,43.2537,NaN
+1,4,lines,SVI,1994.173762,42.9384,NaN
+1,4,lines,SVI,2000.0,42.4957,NaN
+1,4,lines,SVI,2007.839671,41.8952,NaN
+1,4,lines,SVI,2010.0,41.7287,NaN
+1,4,lines,SVI,2021.59923,40.827000000000005,NaN
+1,4,lines,SVI,2030.0,40.1657,NaN
+1,4,lines,SVI,2035.0,39.7685,NaN
+1,4,lines,SVI,2035.453083,39.7324,NaN
+1,4,lines,SVI,2049.401875,38.609300000000005,NaN
+1,4,lines,SVI,2050.0,38.5606,NaN
+1,4,lines,SVI,2055.0,38.1523,NaN
+1,4,lines,SVI,2063.446257,37.4557,NaN
+1,4,lines,SVI,2077.586884,36.2693,NaN
+1,4,lines,SVI,2085.0,35.6367,NaN
+1,4,lines,SVI,2090.0,35.2057,NaN
+1,4,lines,SVI,2091.824416,35.0475,NaN
+1,4,lines,SVI,2100.0,34.3328,NaN
+1,4,lines,SVI,2105.0,33.8908,NaN
+1,4,lines,SVI,2106.159516,33.7877,NaN
+1,4,lines,SVI,2120.0,32.5409,NaN
+1,4,lines,SVI,2120.592854,32.4868,NaN
+1,4,lines,SVI,2125.0,32.082699999999996,NaN
+1,4,lines,SVI,2130.0,31.620199999999997,NaN
+1,4,lines,SVI,2135.0,31.1533,NaN
+1,4,lines,SVI,2135.125102,31.141600000000004,NaN
+1,4,lines,SVI,2140.0,30.682,NaN
+1,4,lines,SVI,2149.756938,29.7489,NaN
+1,4,lines,SVI,2150.0,29.7254,NaN
+1,4,lines,SVI,2155.0,29.24,NaN
+1,4,lines,SVI,2160.0,28.749799999999997,NaN
+1,4,lines,SVI,2164.489045,28.3055,NaN
+1,4,lines,SVI,2165.0,28.2547,NaN
+1,4,lines,SVI,2175.0,27.249499999999998,NaN
+1,4,lines,SVI,2179.32211,26.8089,NaN
+1,4,lines,SVI,2180.0,26.739400000000003,NaN
+1,4,lines,SVI,2185.0,26.2243,NaN
+1,4,lines,SVI,2190.0,25.704300000000003,NaN
+1,4,lines,SVI,2194.256824,25.257800000000003,NaN
+1,4,lines,SVI,2195.0,25.179499999999997,NaN
+1,4,lines,SVI,2200.0,24.6499,NaN
+1,4,lines,SVI,2205.0,24.1158,NaN
+1,4,lines,SVI,2209.293885,23.6538,NaN
+1,4,lines,SVI,2210.0,23.5775,NaN
+1,4,lines,SVI,2215.0,23.0354,NaN
+1,4,lines,SVI,2220.0,22.4898,NaN
+1,4,lines,SVI,2224.433994,22.003600000000002,NaN
+1,4,lines,SVI,2225.0,21.9414,NaN
+1,4,lines,SVI,2230.0,21.3909,NaN
+1,4,lines,SVI,2235.0,20.8391,NaN
+1,4,lines,SVI,2239.677857,20.322699999999998,NaN
+1,4,lines,SVI,2240.0,20.2872,NaN
+1,4,lines,SVI,2245.0,19.7362,NaN
+1,4,lines,SVI,2250.0,19.1876,NaN
+1,4,lines,SVI,2255.0,18.6429,NaN
+1,4,lines,SVI,2255.026185,18.6401,NaN
+1,4,lines,SVI,2260.0,18.104,NaN
+1,4,lines,SVI,2265.0,17.5727,NaN
+1,4,lines,SVI,2270.0,17.051,NaN
+1,4,lines,SVI,2270.479693,17.0015,NaN
+1,4,lines,SVI,2275.0,16.5409,NaN
+1,4,lines,SVI,2280.0,16.0446,NaN
+1,4,lines,SVI,2285.0,15.564,NaN
+1,4,lines,SVI,2286.039103,15.4663,NaN
+1,4,lines,SVI,2290.0,15.100900000000001,NaN
+1,4,lines,SVI,2295.0,14.6569,NaN
+1,4,lines,SVI,2300.0,14.233199999999998,NaN
+1,4,lines,SVI,2301.705141,14.0935,NaN
+1,4,lines,SVI,2305.0,13.830799999999998,NaN
+1,4,lines,SVI,2310.0,13.4503,NaN
+1,4,lines,SVI,2315.0,13.092,NaN
+1,4,lines,SVI,2317.478536,12.922600000000001,NaN
+1,4,lines,SVI,2320.0,12.7558,NaN
+1,4,lines,SVI,2325.0,12.4414,NaN
+1,4,lines,SVI,2330.0,12.148299999999999,NaN
+1,4,lines,SVI,2333.360026,11.963,NaN
+1,4,lines,SVI,2335.0,11.8758,NaN
+1,4,lines,SVI,2340.0,11.6229,NaN
+1,4,lines,SVI,2345.0,11.3887,NaN
+1,4,lines,SVI,2349.350349,11.199399999999999,NaN
+1,4,lines,SVI,2350.0,11.1723,NaN
+1,4,lines,SVI,2355.0,10.9725,NaN
+1,4,lines,SVI,2360.0,10.7884,NaN
+1,4,lines,SVI,2365.0,10.6189,NaN
+1,4,lines,SVI,2365.450254,10.6043,NaN
+1,4,lines,SVI,2370.0,10.4631,NaN
+1,4,lines,SVI,2375.0,10.32,NaN
+1,4,lines,SVI,2380.0,10.1888,NaN
+1,4,lines,SVI,2381.660489,10.1477,NaN
+1,4,lines,SVI,2385.0,10.0686,NaN
+1,4,lines,SVI,2390.0,9.958599999999999,NaN
+1,4,lines,SVI,2395.0,9.8581,NaN
+1,4,lines,SVI,2397.981812,9.8025,NaN
+1,4,lines,SVI,2400.0,9.7665,NaN
+1,4,lines,SVI,2405.0,9.6832,NaN
+1,4,lines,SVI,2410.0,9.6074,NaN
+1,4,lines,SVI,2414.414984,9.546399999999998,NaN
+1,4,lines,SVI,2415.0,9.5387,NaN
+1,4,lines,SVI,2420.0,9.4766,NaN
+1,4,lines,SVI,2425.0,9.4207,NaN
+1,4,lines,SVI,2430.0,9.3704,NaN
+1,4,lines,SVI,2430.96077,9.3614,NaN
+1,4,lines,SVI,2435.0,9.3255,NaN
+1,4,lines,SVI,2440.0,9.285499999999999,NaN
+1,4,lines,SVI,2445.0,9.2501,NaN
+1,4,lines,SVI,2447.619944,9.2332,NaN
+1,4,lines,SVI,2450.0,9.219,NaN
+1,4,lines,SVI,2455.0,9.1918,NaN
+1,4,lines,SVI,2460.0,9.1685,NaN
+1,4,lines,SVI,2464.393282,9.1508,NaN
+1,4,lines,SVI,2465.0,9.1486,NaN
+1,4,lines,SVI,2470.0,9.1319,NaN
+1,4,lines,SVI,2475.0,9.1183,NaN
+1,4,lines,SVI,2481.281566,9.1053,NaN
+1,4,lines,SVI,2495.0,9.0906,NaN
+1,4,lines,SVI,2498.285584,9.0897,NaN
+1,4,lines,SVI,2515.406129,9.0984,NaN
+1,4,lines,SVI,2532.644,9.1271,NaN
+1,4,lines,SVI,2550.0,9.1722,NaN

@@ -6,7 +6,6 @@ import Polynomials: coeffs
 using AQFED.Math
 using AQFED.PDDE
 using PPInterpolation
-#using Plots
 
 
 @testset "FilterConvex" begin
@@ -471,25 +470,10 @@ end
     rmseSVI0 = StatsBase.rmsd(vols, ivkSVI) 
     ivkFineSVI0 = sqrt.(AQFED.TermStructure.varianceByLogmoneyness.(svi0,log.(kFine./forward)))
 #TODO cubic spline in delta? meaning we first sample and then compute eqv k,
-#=    plot(k, vols.*100, seriestype= :scatter, label="Reference"); xlabel!("Forward log-moneyness"); ylabel!("Volatility in %")
-plot!(kFine, ivkFine3 .*100 ,label="Cubic collocation")
-plot!(kFine, ivkFine5 .*100 ,label="Quintic collocation")
-plot!(kFine, ivkFineexp.*100,label="Exp. B-spline collocation")
-plot!(kFine, ivkFineLVG .*100 ,label="LVG")
-plot!(kFine, ivkFineSVI .* 100, label="SVI")
-=#
 
 #pdf(z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(log(y/forward))*tte,1.0,1.0),x),z)
 # pdf(pp,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, pp(y)^2*tte,1.0,1.0),x),z)
 # pdfsvi(svi,z) = ForwardDiff.derivative(x -> ForwardDiff.derivative(y -> AQFED.Black.blackScholesFormula(true, y, forward, AQFED.TermStructure.varianceByLogmoneyness(svi,log(y/forward))*tte,1.0,1.0),x),z)
-#=
-plot(log.(kFine./forward), pdf.(ppDeltaStrike,kFine),label="Cubic spline on Δ")
-plot!(log.(kFine./forward),Collocation.density.(sol,kFine),label="Quintic collocation")
-plot!(log.(kFine./forward),(AQFED.PDDE.derivativePrice.(lvg,true,kFine.+0.0001) .- AQFED.PDDE.derivativePrice.(lvg,true,kFine)).*10000, label="LVG")
-plot!(log.(kFine./forward),(AQFED.PDDE.derivativePrice.(lvg,true,kFine.+0.0001) .- AQFED.PDDE.derivativePrice.(lvg,true,kFine)).*10000, label="LVG")
-plot!(log.(kFine./forward),AQFED.VolatilityModels.evaluateSecondDerivative.(fengler,kFine),label="Fengler")
-
-=#
 
 end
 @testset "jaeckel1" begin
@@ -711,5 +695,3 @@ function gatheralDenomFinite(w, y)
     d2wdy2 = FiniteDifferences.central_fdm(3,2)(w, y)
     return 1-y/w(y)*dwdy+(dwdy)^2 * (-1/4 - 1/w(y) + y^2/w(y)^2) / 4 + d2wdy2 / 2
 end
-#plot(y,@.(gatheralDenomFinite(x->AQFED.TermStructure.varianceByLogmoneyness(slice,x)*tte,y)))
-#plot(y,@.(gatheralDenomFinite(x->AQFED.TermStructure.varianceByLogmoneyness(slice,x)*tte,y)/sqrt(2*π*AQFED.TermStructure.varianceByLogmoneyness(slice,y)*tte)*exp(-0.5*(y/sqrt(AQFED.TermStructure.varianceByLogmoneyness(slice,y)*tte)+sqrt(AQFED.TermStructure.varianceByLogmoneyness(slice,y)*tte)/2)^2)  )  )

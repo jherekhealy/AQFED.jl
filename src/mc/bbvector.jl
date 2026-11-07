@@ -9,16 +9,38 @@ mutable struct Entry{K,V}
     next::Union{Nothing,Entry{K,V}}
 end
 
-#LRU cache implementation (not threadsafe)
+#LRU cache implementation (not threadsafe). The evicted values are kept for reuse (see recycle!), as the Brownian bridge
+#would otherwise allocate a new array per dimension.
 mutable struct BBCache{K,V} <: AbstractDict{K,V}
     map::Dict{K,Entry{K,V}}
     head::Union{Nothing,Entry{K,V}}
     tail::Union{Nothing,Entry{K,V}}
     maxsize::Int
+    evicted::Vector{V} #may still be referenced by the caller of the current transformation
+    spare::Vector{V} #free for reuse
     function BBCache{K,V}(size::Int) where {K,V}
-        new{K,V}(Dict{K,Entry{K,V}}(), nothing, nothing, size)
+        new{K,V}(Dict{K,Entry{K,V}}(), nothing, nothing, size, V[], V[])
     end
 end
+
+#an array of size osize, reusing an evicted value when possible
+function takeArray(cache::BBCache{K,V}, osize::Tuple) where {K,V}
+    while !isempty(cache.spare)
+        a = pop!(cache.spare)
+        size(a) == osize && return a
+    end
+    return V(undef, osize)
+end
+takeArray(cache::AbstractDict, osize::Tuple) = Array{Float64}(undef, osize)
+takeArray(cache::AbstractDict, osize::Int) = takeArray(cache, (osize,))
+
+#the values evicted during the last transformation are no longer referenced: they become reusable.
+function recycle!(cache::BBCache)
+    append!(cache.spare, cache.evicted)
+    empty!(cache.evicted)
+    return nothing
+end
+recycle!(cache::AbstractDict) = nothing
 
 Base.haskey(cache::BBCache{K,V}, key::K) where {K,V} = haskey(cache.map, key)
 
@@ -46,6 +68,7 @@ function Base.setindex!(cache::BBCache{K,V}, value::V, key::K) where {K,V}
     else
         newEntry = Entry(key, value, nothing, nothing)
         if length(cache.map) > cache.maxsize
+            push!(cache.evicted, cache.tail.value)
             delete!(cache, cache.tail)
             addFirst(cache, newEntry)
         else
@@ -95,6 +118,8 @@ end
 
 function Base.empty!(cache::BBCache)
     empty!(cache.map)
+    cache.head = nothing
+    cache.tail = nothing
     return cache
 end
 
@@ -123,7 +148,7 @@ function transformRecursive(
     if ent != nothing
         return ent
     end #else...
-    outputl = Vector{Float64}(undef,    lengthSeq)
+    outputl = takeArray(cache, lengthSeq)
     if dimIndex == Base.length(bb.stdDev)
         skipTo!(qrng, 1, start, lengthSeq)
         nextn!(qrng, 1, outputl)
@@ -171,10 +196,12 @@ function transformByDim!(
     outputDim = transformRecursive(bb, qrng, start, length(output), dimIndex, cache)
     if dimIndex == 1
         output .= outputDim
-        return
+    else
+        outputm = transformRecursive(bb, qrng, start, length(output), dimIndex - 1, cache)
+        @. output = outputDim - outputm
     end
-    outputm = transformRecursive(bb, qrng, start, length(output), dimIndex - 1, cache)
-    @. output = outputDim - outputm
+    recycle!(cache)
+    return
 end
 
 
@@ -191,10 +218,12 @@ function transformByDim!(
     outputDim = transformRecursive(bb, qrng, start, size(output), dimIndex, cache)
     if dimIndex == 1
         output .= outputDim
-        return
+    else
+        outputm = transformRecursive(bb, qrng, start, size(output), dimIndex - 1, cache)
+        @. output = outputDim - outputm
     end
-    outputm = transformRecursive(bb, qrng, start, size(output), dimIndex - 1, cache)
-    @. output = outputDim - outputm
+    recycle!(cache)
+    return
 end
 
 
@@ -210,7 +239,7 @@ function transformRecursive(
     if ent != nothing
         return ent
     end #else...
-    outputl = Array{Float64}(undef, osize)  #size (n,d) retrieve column(di) = out[:,di] (column major order)
+    outputl = takeArray(cache, osize)  #size (n,d) retrieve column(di) = out[:,di] (column major order)
     d = osize[2]
     if dimIndex == Base.length(bb.stdDev)
         @inbounds for di = 1:d

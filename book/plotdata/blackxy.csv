@@ -1,0 +1,123 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,,-5.0,40.0,NaN
+1,1,lines,,-2.4148848648897596,40.0,NaN
+1,2,lines,,-2.4148848648897596,0.0,NaN
+1,2,lines,,-2.4148848648897596,40.0,NaN
+1,3,lines,,-5.0,70.0,NaN
+1,3,lines,,-0.8320523908570008,70.0,NaN
+1,4,lines,,-0.8320523908570008,0.0,NaN
+1,4,lines,,-0.8320523908570008,70.0,NaN
+1,5,lines,,-5.0,120.0,NaN
+1,5,lines,,0.6924599319586111,120.0,NaN
+1,6,lines,,0.6924599319586111,0.0,NaN
+1,6,lines,,0.6924599319586111,120.0,NaN
+1,7,lines,,-5.0,215.0,NaN
+1,7,lines,,2.3418467031251344,215.0,NaN
+1,8,lines,,2.3418467031251344,0.0,NaN
+1,8,lines,,2.3418467031251344,215.0,NaN
+1,9,scatter,,-2.4148848648897596,40.0,NaN
+1,9,scatter,,-0.8320523908570008,70.0,NaN
+1,9,scatter,,0.6924599319586111,120.0,NaN
+1,9,scatter,,2.3418467031251344,215.0,NaN
+1,10,lines,Black-Scholes,-5.0,16.037075061232194,NaN
+1,10,lines,Black-Scholes,-4.8,17.212122139652948,NaN
+1,10,lines,Black-Scholes,-4.6,18.47326569323671,NaN
+1,10,lines,Black-Scholes,-4.4,19.826814067645802,NaN
+1,10,lines,Black-Scholes,-4.2,21.279537825192893,NaN
+1,10,lines,Black-Scholes,-4.0,22.838703611602213,NaN
+1,10,lines,Black-Scholes,-3.8,24.51211050464684,NaN
+1,10,lines,Black-Scholes,-3.6,26.308129025618342,NaN
+1,10,lines,Black-Scholes,-3.4,28.235743009457625,NaN
+1,10,lines,Black-Scholes,-3.2,30.304594542612534,NaN
+1,10,lines,Black-Scholes,-3.0,32.525032193576344,NaN
+1,10,lines,Black-Scholes,-2.8,34.90816277728622,NaN
+1,10,lines,Black-Scholes,-2.6,37.46590691234356,NaN
+1,10,lines,Black-Scholes,-2.4,40.21105864894542,NaN
+1,10,lines,Black-Scholes,-2.2,43.157349465794354,NaN
+1,10,lines,Black-Scholes,-2.0,46.31951695610346,NaN
+1,10,lines,Black-Scholes,-1.7999999999999998,49.71337854627137,NaN
+1,10,lines,Black-Scholes,-1.6,53.3559106159724,NaN
+1,10,lines,Black-Scholes,-1.4,57.26533341542842,NaN
+1,10,lines,Black-Scholes,-1.2000000000000002,61.4612022046251,NaN
+1,10,lines,Black-Scholes,-1.0,65.96450507035878,NaN
+1,10,lines,Black-Scholes,-0.7999999999999998,70.79776791040287,NaN
+1,10,lines,Black-Scholes,-0.5999999999999996,75.98516710993353,NaN
+1,10,lines,Black-Scholes,-0.40000000000000036,81.5526504738314,NaN
+1,10,lines,Black-Scholes,-0.20000000000000018,87.52806701977305,NaN
+1,10,lines,Black-Scholes,0.0,93.94130628134758,NaN
+1,10,lines,Black-Scholes,0.20000000000000018,100.82444781800501,NaN
+1,10,lines,Black-Scholes,0.40000000000000036,108.21192167969707,NaN
+1,10,lines,Black-Scholes,0.5999999999999996,116.140680628868,NaN
+1,10,lines,Black-Scholes,0.7999999999999998,124.65038498126484,NaN
+1,10,lines,Black-Scholes,1.0,133.7836009901553,NaN
+1,10,lines,Black-Scholes,1.2000000000000002,143.58601376628872,NaN
+1,10,lines,Black-Scholes,1.4000000000000004,154.10665579864298,NaN
+1,10,lines,Black-Scholes,1.5999999999999996,165.3981522190373,NaN
+1,10,lines,Black-Scholes,1.7999999999999998,177.51698403744575,NaN
+1,10,lines,Black-Scholes,2.0,190.52377066473483,NaN
+1,10,lines,Black-Scholes,2.2,204.48357313602978,NaN
+1,10,lines,Black-Scholes,2.4000000000000004,219.46621955145656,NaN
+1,10,lines,Black-Scholes,2.5999999999999996,235.5466543621416,NaN
+1,10,lines,Black-Scholes,2.8,252.8053132486284,NaN
+1,10,lines,Black-Scholes,3.0,271.3285254668817,NaN
+1,10,lines,Black-Scholes,3.1999999999999993,291.20894567445026,NaN
+1,10,lines,Black-Scholes,3.4000000000000004,312.5460173968181,NaN
+1,10,lines,Black-Scholes,3.5999999999999996,335.4464704522388,NaN
+1,10,lines,Black-Scholes,3.8000000000000007,360.0248548232192,NaN
+1,10,lines,Black-Scholes,4.0,386.40411364511607,NaN
+1,10,lines,Black-Scholes,4.199999999999999,414.7161981779887,NaN
+1,10,lines,Black-Scholes,4.4,445.10272783784245,NaN
+1,10,lines,Black-Scholes,4.6,477.71569858879826,NaN
+1,10,lines,Black-Scholes,4.800000000000001,512.7182432396256,NaN
+1,10,lines,Black-Scholes,5.0,550.2854474477003,NaN
+1,11,lines,Cubic polynomial collocation,-5.0,-0.7398015160871267,NaN
+1,11,lines,Cubic polynomial collocation,-4.8,3.438665090654453,NaN
+1,11,lines,Cubic polynomial collocation,-4.6,7.329410974262387,NaN
+1,11,lines,Cubic polynomial collocation,-4.4,10.965586466400865,NaN
+1,11,lines,Cubic polynomial collocation,-4.2,14.380341898734045,NaN
+1,11,lines,Cubic polynomial collocation,-4.0,17.60682760292606,NaN
+1,11,lines,Cubic polynomial collocation,-3.8,20.678193910641085,NaN
+1,11,lines,Cubic polynomial collocation,-3.6,23.62759115354325,NaN
+1,11,lines,Cubic polynomial collocation,-3.4,26.48816966329673,NaN
+1,11,lines,Cubic polynomial collocation,-3.2,29.293079771565672,NaN
+1,11,lines,Cubic polynomial collocation,-3.0,32.075471810014264,NaN
+1,11,lines,Cubic polynomial collocation,-2.8,34.868496110306616,NaN
+1,11,lines,Cubic polynomial collocation,-2.6,37.7053030041069,NaN
+1,11,lines,Cubic polynomial collocation,-2.4,40.619042823079276,NaN
+1,11,lines,Cubic polynomial collocation,-2.2,43.64286589888791,NaN
+1,11,lines,Cubic polynomial collocation,-2.0,46.809922563196935,NaN
+1,11,lines,Cubic polynomial collocation,-1.7999999999999998,50.15336314767052,NaN
+1,11,lines,Cubic polynomial collocation,-1.6,53.706337983972816,NaN
+1,11,lines,Cubic polynomial collocation,-1.4,57.50199740376799,NaN
+1,11,lines,Cubic polynomial collocation,-1.2000000000000002,61.57349173872017,NaN
+1,11,lines,Cubic polynomial collocation,-1.0,65.95397132049355,NaN
+1,11,lines,Cubic polynomial collocation,-0.7999999999999998,70.67658648075226,NaN
+1,11,lines,Cubic polynomial collocation,-0.5999999999999996,75.77448755116046,NaN
+1,11,lines,Cubic polynomial collocation,-0.40000000000000036,81.28082486338229,NaN
+1,11,lines,Cubic polynomial collocation,-0.20000000000000018,87.22874874908194,NaN
+1,11,lines,Cubic polynomial collocation,0.0,93.65140953992356,NaN
+1,11,lines,Cubic polynomial collocation,0.20000000000000018,100.5819575675713,NaN
+1,11,lines,Cubic polynomial collocation,0.40000000000000036,108.0535431636893,NaN
+1,11,lines,Cubic polynomial collocation,0.5999999999999996,116.09931665994169,NaN
+1,11,lines,Cubic polynomial collocation,0.7999999999999998,124.7524283879927,NaN
+1,11,lines,Cubic polynomial collocation,1.0,134.04602867950643,NaN
+1,11,lines,Cubic polynomial collocation,1.2000000000000002,144.0132678661471,NaN
+1,11,lines,Cubic polynomial collocation,1.4000000000000004,154.6872962795788,NaN
+1,11,lines,Cubic polynomial collocation,1.5999999999999996,166.10126425146564,NaN
+1,11,lines,Cubic polynomial collocation,1.7999999999999998,178.2883221134719,NaN
+1,11,lines,Cubic polynomial collocation,2.0,191.28162019726165,NaN
+1,11,lines,Cubic polynomial collocation,2.2,205.11430883449913,NaN
+1,11,lines,Cubic polynomial collocation,2.4000000000000004,219.8195383568484,NaN
+1,11,lines,Cubic polynomial collocation,2.5999999999999996,235.43045909597356,NaN
+1,11,lines,Cubic polynomial collocation,2.8,251.98022138353895,NaN
+1,11,lines,Cubic polynomial collocation,3.0,269.50197555120866,NaN
+1,11,lines,Cubic polynomial collocation,3.1999999999999993,288.02887193064674,NaN
+1,11,lines,Cubic polynomial collocation,3.4000000000000004,307.5940608535176,NaN
+1,11,lines,Cubic polynomial collocation,3.5999999999999996,328.230692651485,NaN
+1,11,lines,Cubic polynomial collocation,3.8000000000000007,349.9719176562136,NaN
+1,11,lines,Cubic polynomial collocation,4.0,372.8508861993669,NaN
+1,11,lines,Cubic polynomial collocation,4.199999999999999,396.90074861260956,NaN
+1,11,lines,Cubic polynomial collocation,4.4,422.1546552276058,NaN
+1,11,lines,Cubic polynomial collocation,4.6,448.6457563760194,NaN
+1,11,lines,Cubic polynomial collocation,4.800000000000001,476.40720238951485,NaN
+1,11,lines,Cubic polynomial collocation,5.0,505.4721435997559,NaN

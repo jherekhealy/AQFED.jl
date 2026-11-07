@@ -1,0 +1,2049 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,Likelihood ratio,1023.0,-1280.444815,NaN
+1,1,lines,Likelihood ratio,2047.0,-1087.257684,NaN
+1,1,lines,Likelihood ratio,3071.0,-937.903187,NaN
+1,1,lines,Likelihood ratio,4095.0,-837.643378,NaN
+1,1,lines,Likelihood ratio,5119.0,-851.239131,NaN
+1,1,lines,Likelihood ratio,6143.0,-1014.222275,NaN
+1,1,lines,Likelihood ratio,7167.0,-1010.340566,NaN
+1,1,lines,Likelihood ratio,8191.0,-912.252974,NaN
+1,1,lines,Likelihood ratio,9215.0,-944.281746,NaN
+1,1,lines,Likelihood ratio,10239.0,-833.451698,NaN
+1,1,lines,Likelihood ratio,11263.0,-832.930914,NaN
+1,1,lines,Likelihood ratio,12287.0,-830.853784,NaN
+1,1,lines,Likelihood ratio,13311.0,-856.054208,NaN
+1,1,lines,Likelihood ratio,14335.0,-836.024087,NaN
+1,1,lines,Likelihood ratio,15359.0,-846.168218,NaN
+1,1,lines,Likelihood ratio,16383.0,-816.790414,NaN
+1,1,lines,Likelihood ratio,17407.0,-849.497032,NaN
+1,1,lines,Likelihood ratio,18431.0,-834.071001,NaN
+1,1,lines,Likelihood ratio,19455.0,-801.171541,NaN
+1,1,lines,Likelihood ratio,20479.0,-778.662723,NaN
+1,1,lines,Likelihood ratio,21503.0,-796.3282,NaN
+1,1,lines,Likelihood ratio,22527.0,-800.522472,NaN
+1,1,lines,Likelihood ratio,23551.0,-839.881073,NaN
+1,1,lines,Likelihood ratio,24575.0,-862.306928,NaN
+1,1,lines,Likelihood ratio,25599.0,-842.050559,NaN
+1,1,lines,Likelihood ratio,26623.0,-802.01308,NaN
+1,1,lines,Likelihood ratio,27647.0,-810.47062,NaN
+1,1,lines,Likelihood ratio,28671.0,-801.771157,NaN
+1,1,lines,Likelihood ratio,29695.0,-780.441996,NaN
+1,1,lines,Likelihood ratio,30719.0,-772.985613,NaN
+1,1,lines,Likelihood ratio,31743.0,-775.622711,NaN
+1,1,lines,Likelihood ratio,32767.0,-781.604633,NaN
+1,1,lines,Likelihood ratio,33791.0,-764.494988,NaN
+1,1,lines,Likelihood ratio,34815.0,-738.678212,NaN
+1,1,lines,Likelihood ratio,35839.0,-733.28493,NaN
+1,1,lines,Likelihood ratio,36863.0,-736.970141,NaN
+1,1,lines,Likelihood ratio,37887.0,-749.605433,NaN
+1,1,lines,Likelihood ratio,38911.0,-753.156917,NaN
+1,1,lines,Likelihood ratio,39935.0,-756.250325,NaN
+1,1,lines,Likelihood ratio,40959.0,-748.484027,NaN
+1,1,lines,Likelihood ratio,41983.0,-733.213626,NaN
+1,1,lines,Likelihood ratio,43007.0,-726.890479,NaN
+1,1,lines,Likelihood ratio,44031.0,-727.105635,NaN
+1,1,lines,Likelihood ratio,45055.0,-722.882641,NaN
+1,1,lines,Likelihood ratio,46079.0,-717.830281,NaN
+1,1,lines,Likelihood ratio,47103.0,-706.802426,NaN
+1,1,lines,Likelihood ratio,48127.0,-685.651234,NaN
+1,1,lines,Likelihood ratio,49151.0,-701.526091,NaN
+1,1,lines,Likelihood ratio,50175.0,-696.590475,NaN
+1,1,lines,Likelihood ratio,51199.0,-708.32398,NaN
+1,1,lines,Likelihood ratio,52223.0,-703.038845,NaN
+1,1,lines,Likelihood ratio,53247.0,-698.588471,NaN
+1,1,lines,Likelihood ratio,54271.0,-708.904987,NaN
+1,1,lines,Likelihood ratio,55295.0,-693.000333,NaN
+1,1,lines,Likelihood ratio,56319.0,-694.688004,NaN
+1,1,lines,Likelihood ratio,57343.0,-689.41632,NaN
+1,1,lines,Likelihood ratio,58367.0,-681.977745,NaN
+1,1,lines,Likelihood ratio,59391.0,-679.538559,NaN
+1,1,lines,Likelihood ratio,60415.0,-674.774798,NaN
+1,1,lines,Likelihood ratio,61439.0,-665.74487,NaN
+1,1,lines,Likelihood ratio,62463.0,-678.924562,NaN
+1,1,lines,Likelihood ratio,63487.0,-674.361219,NaN
+1,1,lines,Likelihood ratio,64511.0,-664.030795,NaN
+1,1,lines,Likelihood ratio,65535.0,-661.745557,NaN
+1,1,lines,Likelihood ratio,66559.0,-635.061679,NaN
+1,1,lines,Likelihood ratio,67583.0,-647.091888,NaN
+1,1,lines,Likelihood ratio,68607.0,-646.587903,NaN
+1,1,lines,Likelihood ratio,69631.0,-652.020944,NaN
+1,1,lines,Likelihood ratio,70655.0,-641.094949,NaN
+1,1,lines,Likelihood ratio,71679.0,-640.818796,NaN
+1,1,lines,Likelihood ratio,72703.0,-635.13814,NaN
+1,1,lines,Likelihood ratio,73727.0,-629.540345,NaN
+1,1,lines,Likelihood ratio,74751.0,-635.223943,NaN
+1,1,lines,Likelihood ratio,75775.0,-622.339339,NaN
+1,1,lines,Likelihood ratio,76799.0,-629.250163,NaN
+1,1,lines,Likelihood ratio,77823.0,-637.156708,NaN
+1,1,lines,Likelihood ratio,78847.0,-641.679013,NaN
+1,1,lines,Likelihood ratio,79871.0,-625.502456,NaN
+1,1,lines,Likelihood ratio,80895.0,-617.397802,NaN
+1,1,lines,Likelihood ratio,81919.0,-620.547121,NaN
+1,1,lines,Likelihood ratio,82943.0,-624.980867,NaN
+1,1,lines,Likelihood ratio,83967.0,-627.165197,NaN
+1,1,lines,Likelihood ratio,84991.0,-625.308156,NaN
+1,1,lines,Likelihood ratio,86015.0,-615.948386,NaN
+1,1,lines,Likelihood ratio,87039.0,-613.114103,NaN
+1,1,lines,Likelihood ratio,88063.0,-626.65242,NaN
+1,1,lines,Likelihood ratio,89087.0,-627.297847,NaN
+1,1,lines,Likelihood ratio,90111.0,-622.564806,NaN
+1,1,lines,Likelihood ratio,91135.0,-620.907687,NaN
+1,1,lines,Likelihood ratio,92159.0,-632.978723,NaN
+1,1,lines,Likelihood ratio,93183.0,-633.808577,NaN
+1,1,lines,Likelihood ratio,94207.0,-633.774967,NaN
+1,1,lines,Likelihood ratio,95231.0,-638.989674,NaN
+1,1,lines,Likelihood ratio,96255.0,-648.940904,NaN
+1,1,lines,Likelihood ratio,97279.0,-642.53674,NaN
+1,1,lines,Likelihood ratio,98303.0,-639.567642,NaN
+1,1,lines,Likelihood ratio,99327.0,-631.237287,NaN
+1,1,lines,Likelihood ratio,100351.0,-633.278461,NaN
+1,1,lines,Likelihood ratio,101375.0,-624.531198,NaN
+1,1,lines,Likelihood ratio,102399.0,-624.101556,NaN
+1,1,lines,Likelihood ratio,103423.0,-624.407778,NaN
+1,1,lines,Likelihood ratio,104447.0,-623.748952,NaN
+1,1,lines,Likelihood ratio,105471.0,-622.070447,NaN
+1,1,lines,Likelihood ratio,106495.0,-629.603525,NaN
+1,1,lines,Likelihood ratio,107519.0,-624.431049,NaN
+1,1,lines,Likelihood ratio,108543.0,-623.032896,NaN
+1,1,lines,Likelihood ratio,109567.0,-618.742462,NaN
+1,1,lines,Likelihood ratio,110591.0,-617.514029,NaN
+1,1,lines,Likelihood ratio,111615.0,-628.650136,NaN
+1,1,lines,Likelihood ratio,112639.0,-634.114657,NaN
+1,1,lines,Likelihood ratio,113663.0,-632.323441,NaN
+1,1,lines,Likelihood ratio,114687.0,-631.473722,NaN
+1,1,lines,Likelihood ratio,115711.0,-636.718256,NaN
+1,1,lines,Likelihood ratio,116735.0,-629.602306,NaN
+1,1,lines,Likelihood ratio,117759.0,-625.925077,NaN
+1,1,lines,Likelihood ratio,118783.0,-628.881934,NaN
+1,1,lines,Likelihood ratio,119807.0,-631.15807,NaN
+1,1,lines,Likelihood ratio,120831.0,-628.468679,NaN
+1,1,lines,Likelihood ratio,121855.0,-622.533617,NaN
+1,1,lines,Likelihood ratio,122879.0,-620.903273,NaN
+1,1,lines,Likelihood ratio,123903.0,-610.768629,NaN
+1,1,lines,Likelihood ratio,124927.0,-605.555826,NaN
+1,1,lines,Likelihood ratio,125951.0,-598.521214,NaN
+1,1,lines,Likelihood ratio,126975.0,-592.899478,NaN
+1,1,lines,Likelihood ratio,127999.0,-596.801736,NaN
+1,1,lines,Likelihood ratio,129023.0,-588.670571,NaN
+1,1,lines,Likelihood ratio,130047.0,-590.820377,NaN
+1,1,lines,Likelihood ratio,131071.0,-587.256697,NaN
+1,1,lines,Likelihood ratio,132095.0,-592.297912,NaN
+1,1,lines,Likelihood ratio,133119.0,-596.128736,NaN
+1,1,lines,Likelihood ratio,134143.0,-594.465493,NaN
+1,1,lines,Likelihood ratio,135167.0,-598.531509,NaN
+1,1,lines,Likelihood ratio,136191.0,-601.235585,NaN
+1,1,lines,Likelihood ratio,137215.0,-596.745484,NaN
+1,1,lines,Likelihood ratio,138239.0,-595.995546,NaN
+1,1,lines,Likelihood ratio,139263.0,-594.539634,NaN
+1,1,lines,Likelihood ratio,140287.0,-587.439594,NaN
+1,1,lines,Likelihood ratio,141311.0,-583.556138,NaN
+1,1,lines,Likelihood ratio,142335.0,-583.365626,NaN
+1,1,lines,Likelihood ratio,143359.0,-583.028278,NaN
+1,1,lines,Likelihood ratio,144383.0,-580.692377,NaN
+1,1,lines,Likelihood ratio,145407.0,-582.563415,NaN
+1,1,lines,Likelihood ratio,146431.0,-577.350276,NaN
+1,1,lines,Likelihood ratio,147455.0,-578.096591,NaN
+1,1,lines,Likelihood ratio,148479.0,-581.022167,NaN
+1,1,lines,Likelihood ratio,149503.0,-578.575495,NaN
+1,1,lines,Likelihood ratio,150527.0,-574.988644,NaN
+1,1,lines,Likelihood ratio,151551.0,-574.08685,NaN
+1,1,lines,Likelihood ratio,152575.0,-572.806266,NaN
+1,1,lines,Likelihood ratio,153599.0,-576.660653,NaN
+1,1,lines,Likelihood ratio,154623.0,-574.069362,NaN
+1,1,lines,Likelihood ratio,155647.0,-572.107715,NaN
+1,1,lines,Likelihood ratio,156671.0,-569.933944,NaN
+1,1,lines,Likelihood ratio,157695.0,-566.063453,NaN
+1,1,lines,Likelihood ratio,158719.0,-563.317651,NaN
+1,1,lines,Likelihood ratio,159743.0,-565.419554,NaN
+1,1,lines,Likelihood ratio,160767.0,-558.791487,NaN
+1,1,lines,Likelihood ratio,161791.0,-558.07518,NaN
+1,1,lines,Likelihood ratio,162815.0,-561.512733,NaN
+1,1,lines,Likelihood ratio,163839.0,-563.789185,NaN
+1,1,lines,Likelihood ratio,164863.0,-566.21673,NaN
+1,1,lines,Likelihood ratio,165887.0,-569.526765,NaN
+1,1,lines,Likelihood ratio,166911.0,-571.365123,NaN
+1,1,lines,Likelihood ratio,167935.0,-573.217572,NaN
+1,1,lines,Likelihood ratio,168959.0,-575.026472,NaN
+1,1,lines,Likelihood ratio,169983.0,-577.771456,NaN
+1,1,lines,Likelihood ratio,171007.0,-575.276787,NaN
+1,1,lines,Likelihood ratio,172031.0,-572.949104,NaN
+1,1,lines,Likelihood ratio,173055.0,-574.580607,NaN
+1,1,lines,Likelihood ratio,174079.0,-575.877649,NaN
+1,1,lines,Likelihood ratio,175103.0,-574.163178,NaN
+1,1,lines,Likelihood ratio,176127.0,-580.798191,NaN
+1,1,lines,Likelihood ratio,177151.0,-578.970645,NaN
+1,1,lines,Likelihood ratio,178175.0,-582.393599,NaN
+1,1,lines,Likelihood ratio,179199.0,-584.222675,NaN
+1,1,lines,Likelihood ratio,180223.0,-589.181733,NaN
+1,1,lines,Likelihood ratio,181247.0,-588.90508,NaN
+1,1,lines,Likelihood ratio,182271.0,-588.000507,NaN
+1,1,lines,Likelihood ratio,183295.0,-592.973737,NaN
+1,1,lines,Likelihood ratio,184319.0,-593.922537,NaN
+1,1,lines,Likelihood ratio,185343.0,-596.184756,NaN
+1,1,lines,Likelihood ratio,186367.0,-587.77161,NaN
+1,1,lines,Likelihood ratio,187391.0,-589.181889,NaN
+1,1,lines,Likelihood ratio,188415.0,-590.346945,NaN
+1,1,lines,Likelihood ratio,189439.0,-589.449058,NaN
+1,1,lines,Likelihood ratio,190463.0,-590.18165,NaN
+1,1,lines,Likelihood ratio,191487.0,-592.956352,NaN
+1,1,lines,Likelihood ratio,192511.0,-593.107637,NaN
+1,1,lines,Likelihood ratio,193535.0,-591.906373,NaN
+1,1,lines,Likelihood ratio,194559.0,-586.969129,NaN
+1,1,lines,Likelihood ratio,195583.0,-590.103979,NaN
+1,1,lines,Likelihood ratio,196607.0,-588.933377,NaN
+1,1,lines,Likelihood ratio,197631.0,-589.108288,NaN
+1,1,lines,Likelihood ratio,198655.0,-587.029971,NaN
+1,1,lines,Likelihood ratio,199679.0,-589.600445,NaN
+1,1,lines,Likelihood ratio,200703.0,-587.632746,NaN
+1,1,lines,Likelihood ratio,201727.0,-589.104867,NaN
+1,1,lines,Likelihood ratio,202751.0,-585.79478,NaN
+1,1,lines,Likelihood ratio,203775.0,-583.957986,NaN
+1,1,lines,Likelihood ratio,204799.0,-581.604307,NaN
+1,1,lines,Likelihood ratio,205823.0,-582.421486,NaN
+1,1,lines,Likelihood ratio,206847.0,-586.689934,NaN
+1,1,lines,Likelihood ratio,207871.0,-591.000169,NaN
+1,1,lines,Likelihood ratio,208895.0,-588.024271,NaN
+1,1,lines,Likelihood ratio,209919.0,-587.605474,NaN
+1,1,lines,Likelihood ratio,210943.0,-590.118559,NaN
+1,1,lines,Likelihood ratio,211967.0,-595.902589,NaN
+1,1,lines,Likelihood ratio,212991.0,-596.427598,NaN
+1,1,lines,Likelihood ratio,214015.0,-592.436669,NaN
+1,1,lines,Likelihood ratio,215039.0,-591.247467,NaN
+1,1,lines,Likelihood ratio,216063.0,-590.338548,NaN
+1,1,lines,Likelihood ratio,217087.0,-591.100205,NaN
+1,1,lines,Likelihood ratio,218111.0,-592.560873,NaN
+1,1,lines,Likelihood ratio,219135.0,-593.482769,NaN
+1,1,lines,Likelihood ratio,220159.0,-592.593744,NaN
+1,1,lines,Likelihood ratio,221183.0,-590.722708,NaN
+1,1,lines,Likelihood ratio,222207.0,-588.296519,NaN
+1,1,lines,Likelihood ratio,223231.0,-589.208744,NaN
+1,1,lines,Likelihood ratio,224255.0,-590.796384,NaN
+1,1,lines,Likelihood ratio,225279.0,-597.037251,NaN
+1,1,lines,Likelihood ratio,226303.0,-600.104953,NaN
+1,1,lines,Likelihood ratio,227327.0,-601.291688,NaN
+1,1,lines,Likelihood ratio,228351.0,-600.737123,NaN
+1,1,lines,Likelihood ratio,229375.0,-595.639956,NaN
+1,1,lines,Likelihood ratio,230399.0,-597.113226,NaN
+1,1,lines,Likelihood ratio,231423.0,-597.377019,NaN
+1,1,lines,Likelihood ratio,232447.0,-594.304267,NaN
+1,1,lines,Likelihood ratio,233471.0,-593.141912,NaN
+1,1,lines,Likelihood ratio,234495.0,-594.052399,NaN
+1,1,lines,Likelihood ratio,235519.0,-598.10396,NaN
+1,1,lines,Likelihood ratio,236543.0,-596.359096,NaN
+1,1,lines,Likelihood ratio,237567.0,-600.469713,NaN
+1,1,lines,Likelihood ratio,238591.0,-597.702923,NaN
+1,1,lines,Likelihood ratio,239615.0,-599.459435,NaN
+1,1,lines,Likelihood ratio,240639.0,-599.715561,NaN
+1,1,lines,Likelihood ratio,241663.0,-598.229548,NaN
+1,1,lines,Likelihood ratio,242687.0,-596.562646,NaN
+1,1,lines,Likelihood ratio,243711.0,-598.479849,NaN
+1,1,lines,Likelihood ratio,244735.0,-597.647782,NaN
+1,1,lines,Likelihood ratio,245759.0,-593.252242,NaN
+1,1,lines,Likelihood ratio,246783.0,-592.623995,NaN
+1,1,lines,Likelihood ratio,247807.0,-595.120468,NaN
+1,1,lines,Likelihood ratio,248831.0,-594.934195,NaN
+1,1,lines,Likelihood ratio,249855.0,-595.438564,NaN
+1,1,lines,Likelihood ratio,250879.0,-592.864828,NaN
+1,1,lines,Likelihood ratio,251903.0,-589.90132,NaN
+1,1,lines,Likelihood ratio,252927.0,-590.317698,NaN
+1,1,lines,Likelihood ratio,253951.0,-590.850098,NaN
+1,1,lines,Likelihood ratio,254975.0,-587.852873,NaN
+1,1,lines,Likelihood ratio,255999.0,-588.835626,NaN
+1,1,lines,Likelihood ratio,257023.0,-586.51725,NaN
+1,1,lines,Likelihood ratio,258047.0,-586.288897,NaN
+1,1,lines,Likelihood ratio,259071.0,-586.287102,NaN
+1,1,lines,Likelihood ratio,260095.0,-586.391162,NaN
+1,1,lines,Likelihood ratio,261119.0,-587.548247,NaN
+1,1,lines,Likelihood ratio,262143.0,-586.735727,NaN
+1,1,lines,Likelihood ratio,263167.0,-583.322417,NaN
+1,1,lines,Likelihood ratio,264191.0,-582.436245,NaN
+1,1,lines,Likelihood ratio,265215.0,-584.706249,NaN
+1,1,lines,Likelihood ratio,266239.0,-589.587682,NaN
+1,1,lines,Likelihood ratio,267263.0,-588.787855,NaN
+1,1,lines,Likelihood ratio,268287.0,-589.040074,NaN
+1,1,lines,Likelihood ratio,269311.0,-589.73401,NaN
+1,1,lines,Likelihood ratio,270335.0,-590.682226,NaN
+1,1,lines,Likelihood ratio,271359.0,-586.493893,NaN
+1,1,lines,Likelihood ratio,272383.0,-587.507665,NaN
+1,1,lines,Likelihood ratio,273407.0,-590.383037,NaN
+1,1,lines,Likelihood ratio,274431.0,-592.518183,NaN
+1,1,lines,Likelihood ratio,275455.0,-590.931987,NaN
+1,1,lines,Likelihood ratio,276479.0,-589.999331,NaN
+1,1,lines,Likelihood ratio,277503.0,-590.286022,NaN
+1,1,lines,Likelihood ratio,278527.0,-588.258192,NaN
+1,1,lines,Likelihood ratio,279551.0,-588.792153,NaN
+1,1,lines,Likelihood ratio,280575.0,-586.838293,NaN
+1,1,lines,Likelihood ratio,281599.0,-585.914481,NaN
+1,1,lines,Likelihood ratio,282623.0,-586.476998,NaN
+1,1,lines,Likelihood ratio,283647.0,-586.320277,NaN
+1,1,lines,Likelihood ratio,284671.0,-586.966531,NaN
+1,1,lines,Likelihood ratio,285695.0,-585.60509,NaN
+1,1,lines,Likelihood ratio,286719.0,-586.398168,NaN
+1,1,lines,Likelihood ratio,287743.0,-585.899682,NaN
+1,1,lines,Likelihood ratio,288767.0,-585.951862,NaN
+1,1,lines,Likelihood ratio,289791.0,-586.797821,NaN
+1,1,lines,Likelihood ratio,290815.0,-587.290261,NaN
+1,1,lines,Likelihood ratio,291839.0,-588.935925,NaN
+1,1,lines,Likelihood ratio,292863.0,-587.614338,NaN
+1,1,lines,Likelihood ratio,293887.0,-585.207658,NaN
+1,1,lines,Likelihood ratio,294911.0,-584.521299,NaN
+1,1,lines,Likelihood ratio,295935.0,-583.86963,NaN
+1,1,lines,Likelihood ratio,296959.0,-583.847088,NaN
+1,1,lines,Likelihood ratio,297983.0,-583.876938,NaN
+1,1,lines,Likelihood ratio,299007.0,-581.742463,NaN
+1,1,lines,Likelihood ratio,300031.0,-580.713573,NaN
+1,1,lines,Likelihood ratio,301055.0,-579.89242,NaN
+1,1,lines,Likelihood ratio,302079.0,-580.93799,NaN
+1,1,lines,Likelihood ratio,303103.0,-583.348836,NaN
+1,1,lines,Likelihood ratio,304127.0,-581.51296,NaN
+1,1,lines,Likelihood ratio,305151.0,-580.205263,NaN
+1,1,lines,Likelihood ratio,306175.0,-582.461552,NaN
+1,1,lines,Likelihood ratio,307199.0,-582.752535,NaN
+1,1,lines,Likelihood ratio,308223.0,-582.113931,NaN
+1,1,lines,Likelihood ratio,309247.0,-583.922101,NaN
+1,1,lines,Likelihood ratio,310271.0,-581.960356,NaN
+1,1,lines,Likelihood ratio,311295.0,-584.865627,NaN
+1,1,lines,Likelihood ratio,312319.0,-583.795163,NaN
+1,1,lines,Likelihood ratio,313343.0,-582.784883,NaN
+1,1,lines,Likelihood ratio,314367.0,-582.529028,NaN
+1,1,lines,Likelihood ratio,315391.0,-581.245566,NaN
+1,1,lines,Likelihood ratio,316415.0,-582.547587,NaN
+1,1,lines,Likelihood ratio,317439.0,-581.743336,NaN
+1,1,lines,Likelihood ratio,318463.0,-584.587032,NaN
+1,1,lines,Likelihood ratio,319487.0,-583.620236,NaN
+1,1,lines,Likelihood ratio,320511.0,-580.87514,NaN
+1,1,lines,Likelihood ratio,321535.0,-581.340007,NaN
+1,1,lines,Likelihood ratio,322559.0,-582.049316,NaN
+1,1,lines,Likelihood ratio,323583.0,-581.630566,NaN
+1,1,lines,Likelihood ratio,324607.0,-582.912083,NaN
+1,1,lines,Likelihood ratio,325631.0,-582.017496,NaN
+1,1,lines,Likelihood ratio,326655.0,-582.991552,NaN
+1,1,lines,Likelihood ratio,327679.0,-584.171036,NaN
+1,1,lines,Likelihood ratio,328703.0,-586.623201,NaN
+1,1,lines,Likelihood ratio,329727.0,-584.535357,NaN
+1,1,lines,Likelihood ratio,330751.0,-585.156908,NaN
+1,1,lines,Likelihood ratio,331775.0,-584.461425,NaN
+1,1,lines,Likelihood ratio,332799.0,-583.852588,NaN
+1,1,lines,Likelihood ratio,333823.0,-583.887514,NaN
+1,1,lines,Likelihood ratio,334847.0,-582.348679,NaN
+1,1,lines,Likelihood ratio,335871.0,-580.011671,NaN
+1,1,lines,Likelihood ratio,336895.0,-582.132821,NaN
+1,1,lines,Likelihood ratio,337919.0,-583.934454,NaN
+1,1,lines,Likelihood ratio,338943.0,-583.873008,NaN
+1,1,lines,Likelihood ratio,339967.0,-583.487886,NaN
+1,1,lines,Likelihood ratio,340991.0,-586.5376,NaN
+1,1,lines,Likelihood ratio,342015.0,-585.435917,NaN
+1,1,lines,Likelihood ratio,343039.0,-584.736442,NaN
+1,1,lines,Likelihood ratio,344063.0,-584.034422,NaN
+1,1,lines,Likelihood ratio,345087.0,-583.350386,NaN
+1,1,lines,Likelihood ratio,346111.0,-583.167928,NaN
+1,1,lines,Likelihood ratio,347135.0,-584.060141,NaN
+1,1,lines,Likelihood ratio,348159.0,-584.509647,NaN
+1,1,lines,Likelihood ratio,349183.0,-585.081971,NaN
+1,1,lines,Likelihood ratio,350207.0,-583.509137,NaN
+1,1,lines,Likelihood ratio,351231.0,-583.500463,NaN
+1,1,lines,Likelihood ratio,352255.0,-584.086221,NaN
+1,1,lines,Likelihood ratio,353279.0,-584.496012,NaN
+1,1,lines,Likelihood ratio,354303.0,-583.828987,NaN
+1,1,lines,Likelihood ratio,355327.0,-584.019988,NaN
+1,1,lines,Likelihood ratio,356351.0,-583.829955,NaN
+1,1,lines,Likelihood ratio,357375.0,-583.283868,NaN
+1,1,lines,Likelihood ratio,358399.0,-581.368929,NaN
+1,1,lines,Likelihood ratio,359423.0,-581.66545,NaN
+1,1,lines,Likelihood ratio,360447.0,-582.52686,NaN
+1,1,lines,Likelihood ratio,361471.0,-583.976683,NaN
+1,1,lines,Likelihood ratio,362495.0,-582.765765,NaN
+1,1,lines,Likelihood ratio,363519.0,-584.335356,NaN
+1,1,lines,Likelihood ratio,364543.0,-580.940501,NaN
+1,1,lines,Likelihood ratio,365567.0,-582.935812,NaN
+1,1,lines,Likelihood ratio,366591.0,-582.849615,NaN
+1,1,lines,Likelihood ratio,367615.0,-582.490821,NaN
+1,1,lines,Likelihood ratio,368639.0,-581.88519,NaN
+1,1,lines,Likelihood ratio,369663.0,-582.817284,NaN
+1,1,lines,Likelihood ratio,370687.0,-580.312274,NaN
+1,1,lines,Likelihood ratio,371711.0,-580.232853,NaN
+1,1,lines,Likelihood ratio,372735.0,-580.419464,NaN
+1,1,lines,Likelihood ratio,373759.0,-581.700794,NaN
+1,1,lines,Likelihood ratio,374783.0,-580.778145,NaN
+1,1,lines,Likelihood ratio,375807.0,-580.955387,NaN
+1,1,lines,Likelihood ratio,376831.0,-581.48441,NaN
+1,1,lines,Likelihood ratio,377855.0,-580.643108,NaN
+1,1,lines,Likelihood ratio,378879.0,-581.514334,NaN
+1,1,lines,Likelihood ratio,379903.0,-581.566453,NaN
+1,1,lines,Likelihood ratio,380927.0,-580.762525,NaN
+1,1,lines,Likelihood ratio,381951.0,-582.920424,NaN
+1,1,lines,Likelihood ratio,382975.0,-583.897599,NaN
+1,1,lines,Likelihood ratio,383999.0,-583.063284,NaN
+1,1,lines,Likelihood ratio,385023.0,-580.777241,NaN
+1,1,lines,Likelihood ratio,386047.0,-579.550611,NaN
+1,1,lines,Likelihood ratio,387071.0,-578.813556,NaN
+1,1,lines,Likelihood ratio,388095.0,-579.014656,NaN
+1,1,lines,Likelihood ratio,389119.0,-580.886897,NaN
+1,1,lines,Likelihood ratio,390143.0,-580.781065,NaN
+1,1,lines,Likelihood ratio,391167.0,-581.215997,NaN
+1,1,lines,Likelihood ratio,392191.0,-580.340586,NaN
+1,1,lines,Likelihood ratio,393215.0,-580.204839,NaN
+1,1,lines,Likelihood ratio,394239.0,-579.78569,NaN
+1,1,lines,Likelihood ratio,395263.0,-578.794976,NaN
+1,1,lines,Likelihood ratio,396287.0,-578.671894,NaN
+1,1,lines,Likelihood ratio,397311.0,-579.079315,NaN
+1,1,lines,Likelihood ratio,398335.0,-579.495789,NaN
+1,1,lines,Likelihood ratio,399359.0,-580.121265,NaN
+1,1,lines,Likelihood ratio,400383.0,-578.927006,NaN
+1,1,lines,Likelihood ratio,401407.0,-580.378374,NaN
+1,1,lines,Likelihood ratio,402431.0,-581.056544,NaN
+1,1,lines,Likelihood ratio,403455.0,-581.436375,NaN
+1,1,lines,Likelihood ratio,404479.0,-582.08873,NaN
+1,1,lines,Likelihood ratio,405503.0,-579.789385,NaN
+1,1,lines,Likelihood ratio,406527.0,-580.500749,NaN
+1,1,lines,Likelihood ratio,407551.0,-580.185251,NaN
+1,1,lines,Likelihood ratio,408575.0,-579.146594,NaN
+1,1,lines,Likelihood ratio,409599.0,-579.126635,NaN
+1,1,lines,Likelihood ratio,410623.0,-579.832144,NaN
+1,1,lines,Likelihood ratio,411647.0,-578.347652,NaN
+1,1,lines,Likelihood ratio,412671.0,-580.149089,NaN
+1,1,lines,Likelihood ratio,413695.0,-579.162466,NaN
+1,1,lines,Likelihood ratio,414719.0,-579.043783,NaN
+1,1,lines,Likelihood ratio,415743.0,-578.603008,NaN
+1,1,lines,Likelihood ratio,416767.0,-577.828,NaN
+1,1,lines,Likelihood ratio,417791.0,-577.296138,NaN
+1,1,lines,Likelihood ratio,418815.0,-576.846933,NaN
+1,1,lines,Likelihood ratio,419839.0,-577.035016,NaN
+1,1,lines,Likelihood ratio,420863.0,-575.470968,NaN
+1,1,lines,Likelihood ratio,421887.0,-573.653967,NaN
+1,1,lines,Likelihood ratio,422911.0,-574.153458,NaN
+1,1,lines,Likelihood ratio,423935.0,-577.068993,NaN
+1,1,lines,Likelihood ratio,424959.0,-576.643435,NaN
+1,1,lines,Likelihood ratio,425983.0,-574.806509,NaN
+1,1,lines,Likelihood ratio,427007.0,-575.81505,NaN
+1,1,lines,Likelihood ratio,428031.0,-577.355047,NaN
+1,1,lines,Likelihood ratio,429055.0,-575.356072,NaN
+1,1,lines,Likelihood ratio,430079.0,-573.63535,NaN
+1,1,lines,Likelihood ratio,431103.0,-572.759788,NaN
+1,1,lines,Likelihood ratio,432127.0,-569.806537,NaN
+1,1,lines,Likelihood ratio,433151.0,-568.614376,NaN
+1,1,lines,Likelihood ratio,434175.0,-567.716126,NaN
+1,1,lines,Likelihood ratio,435199.0,-565.237845,NaN
+1,1,lines,Likelihood ratio,436223.0,-565.25529,NaN
+1,1,lines,Likelihood ratio,437247.0,-565.765862,NaN
+1,1,lines,Likelihood ratio,438271.0,-566.466361,NaN
+1,1,lines,Likelihood ratio,439295.0,-565.95415,NaN
+1,1,lines,Likelihood ratio,440319.0,-565.388781,NaN
+1,1,lines,Likelihood ratio,441343.0,-563.951781,NaN
+1,1,lines,Likelihood ratio,442367.0,-563.574195,NaN
+1,1,lines,Likelihood ratio,443391.0,-565.93801,NaN
+1,1,lines,Likelihood ratio,444415.0,-564.698182,NaN
+1,1,lines,Likelihood ratio,445439.0,-563.315214,NaN
+1,1,lines,Likelihood ratio,446463.0,-562.427314,NaN
+1,1,lines,Likelihood ratio,447487.0,-564.084895,NaN
+1,1,lines,Likelihood ratio,448511.0,-562.701868,NaN
+1,1,lines,Likelihood ratio,449535.0,-563.586295,NaN
+1,1,lines,Likelihood ratio,450559.0,-562.372955,NaN
+1,1,lines,Likelihood ratio,451583.0,-563.185426,NaN
+1,1,lines,Likelihood ratio,452607.0,-563.33221,NaN
+1,1,lines,Likelihood ratio,453631.0,-563.765094,NaN
+1,1,lines,Likelihood ratio,454655.0,-562.261406,NaN
+1,1,lines,Likelihood ratio,455679.0,-561.423147,NaN
+1,1,lines,Likelihood ratio,456703.0,-559.741258,NaN
+1,1,lines,Likelihood ratio,457727.0,-560.585198,NaN
+1,1,lines,Likelihood ratio,458751.0,-561.878227,NaN
+1,1,lines,Likelihood ratio,459775.0,-562.013353,NaN
+1,1,lines,Likelihood ratio,460799.0,-561.773827,NaN
+1,1,lines,Likelihood ratio,461823.0,-561.775641,NaN
+1,1,lines,Likelihood ratio,462847.0,-561.844601,NaN
+1,1,lines,Likelihood ratio,463871.0,-562.472102,NaN
+1,1,lines,Likelihood ratio,464895.0,-561.460779,NaN
+1,1,lines,Likelihood ratio,465919.0,-562.200839,NaN
+1,1,lines,Likelihood ratio,466943.0,-562.558741,NaN
+1,1,lines,Likelihood ratio,467967.0,-563.041094,NaN
+1,1,lines,Likelihood ratio,468991.0,-562.775059,NaN
+1,1,lines,Likelihood ratio,470015.0,-561.982832,NaN
+1,1,lines,Likelihood ratio,471039.0,-563.091911,NaN
+1,1,lines,Likelihood ratio,472063.0,-561.435218,NaN
+1,1,lines,Likelihood ratio,473087.0,-561.995824,NaN
+1,1,lines,Likelihood ratio,474111.0,-561.800203,NaN
+1,1,lines,Likelihood ratio,475135.0,-562.123465,NaN
+1,1,lines,Likelihood ratio,476159.0,-561.27459,NaN
+1,1,lines,Likelihood ratio,477183.0,-561.419276,NaN
+1,1,lines,Likelihood ratio,478207.0,-561.466731,NaN
+1,1,lines,Likelihood ratio,479231.0,-561.375554,NaN
+1,1,lines,Likelihood ratio,480255.0,-559.025752,NaN
+1,1,lines,Likelihood ratio,481279.0,-557.536371,NaN
+1,1,lines,Likelihood ratio,482303.0,-556.591803,NaN
+1,1,lines,Likelihood ratio,483327.0,-557.239886,NaN
+1,1,lines,Likelihood ratio,484351.0,-555.162184,NaN
+1,1,lines,Likelihood ratio,485375.0,-554.949513,NaN
+1,1,lines,Likelihood ratio,486399.0,-556.283075,NaN
+1,1,lines,Likelihood ratio,487423.0,-555.945198,NaN
+1,1,lines,Likelihood ratio,488447.0,-554.849302,NaN
+1,1,lines,Likelihood ratio,489471.0,-554.735604,NaN
+1,1,lines,Likelihood ratio,490495.0,-554.425508,NaN
+1,1,lines,Likelihood ratio,491519.0,-554.039209,NaN
+1,1,lines,Likelihood ratio,492543.0,-555.302863,NaN
+1,1,lines,Likelihood ratio,493567.0,-556.455864,NaN
+1,1,lines,Likelihood ratio,494591.0,-555.07202,NaN
+1,1,lines,Likelihood ratio,495615.0,-556.444452,NaN
+1,1,lines,Likelihood ratio,496639.0,-559.166575,NaN
+1,1,lines,Likelihood ratio,497663.0,-558.188887,NaN
+1,1,lines,Likelihood ratio,498687.0,-555.129464,NaN
+1,1,lines,Likelihood ratio,499711.0,-555.769004,NaN
+1,1,lines,Likelihood ratio,500735.0,-555.651318,NaN
+1,1,lines,Likelihood ratio,501759.0,-554.788095,NaN
+1,1,lines,Likelihood ratio,502783.0,-554.300753,NaN
+1,1,lines,Likelihood ratio,503807.0,-553.949235,NaN
+1,1,lines,Likelihood ratio,504831.0,-552.973907,NaN
+1,1,lines,Likelihood ratio,505855.0,-554.791961,NaN
+1,1,lines,Likelihood ratio,506879.0,-554.908219,NaN
+1,1,lines,Likelihood ratio,507903.0,-554.662775,NaN
+1,1,lines,Likelihood ratio,508927.0,-556.214361,NaN
+1,1,lines,Likelihood ratio,509951.0,-555.662796,NaN
+1,1,lines,Likelihood ratio,510975.0,-554.537063,NaN
+1,1,lines,Likelihood ratio,511999.0,-554.653745,NaN
+1,1,lines,Likelihood ratio,513023.0,-554.304404,NaN
+1,1,lines,Likelihood ratio,514047.0,-555.446703,NaN
+1,1,lines,Likelihood ratio,515071.0,-555.320858,NaN
+1,1,lines,Likelihood ratio,516095.0,-554.90264,NaN
+1,1,lines,Likelihood ratio,517119.0,-555.378025,NaN
+1,1,lines,Likelihood ratio,518143.0,-555.565446,NaN
+1,1,lines,Likelihood ratio,519167.0,-555.790793,NaN
+1,1,lines,Likelihood ratio,520191.0,-555.738604,NaN
+1,1,lines,Likelihood ratio,521215.0,-554.640349,NaN
+1,1,lines,Likelihood ratio,522239.0,-554.993699,NaN
+1,1,lines,Likelihood ratio,523263.0,-556.430896,NaN
+1,1,lines,Likelihood ratio,524287.0,-557.002945,NaN
+1,1,lines,Likelihood ratio,525311.0,-556.692052,NaN
+1,1,lines,Likelihood ratio,526335.0,-556.627926,NaN
+1,1,lines,Likelihood ratio,527359.0,-559.218188,NaN
+1,1,lines,Likelihood ratio,528383.0,-559.369914,NaN
+1,1,lines,Likelihood ratio,529407.0,-559.977179,NaN
+1,1,lines,Likelihood ratio,530431.0,-559.383574,NaN
+1,1,lines,Likelihood ratio,531455.0,-560.538019,NaN
+1,1,lines,Likelihood ratio,532479.0,-560.618404,NaN
+1,1,lines,Likelihood ratio,533503.0,-560.070972,NaN
+1,1,lines,Likelihood ratio,534527.0,-559.522044,NaN
+1,1,lines,Likelihood ratio,535551.0,-559.984472,NaN
+1,1,lines,Likelihood ratio,536575.0,-559.211113,NaN
+1,1,lines,Likelihood ratio,537599.0,-558.783787,NaN
+1,1,lines,Likelihood ratio,538623.0,-558.918736,NaN
+1,1,lines,Likelihood ratio,539647.0,-556.769593,NaN
+1,1,lines,Likelihood ratio,540671.0,-556.347452,NaN
+1,1,lines,Likelihood ratio,541695.0,-556.856131,NaN
+1,1,lines,Likelihood ratio,542719.0,-556.989523,NaN
+1,1,lines,Likelihood ratio,543743.0,-557.535224,NaN
+1,1,lines,Likelihood ratio,544767.0,-557.155077,NaN
+1,1,lines,Likelihood ratio,545791.0,-558.427674,NaN
+1,1,lines,Likelihood ratio,546815.0,-558.209867,NaN
+1,1,lines,Likelihood ratio,547839.0,-558.685186,NaN
+1,1,lines,Likelihood ratio,548863.0,-560.305852,NaN
+1,1,lines,Likelihood ratio,549887.0,-558.884728,NaN
+1,1,lines,Likelihood ratio,550911.0,-560.137459,NaN
+1,1,lines,Likelihood ratio,551935.0,-560.148409,NaN
+1,1,lines,Likelihood ratio,552959.0,-560.816169,NaN
+1,1,lines,Likelihood ratio,553983.0,-561.289565,NaN
+1,1,lines,Likelihood ratio,555007.0,-560.113054,NaN
+1,1,lines,Likelihood ratio,556031.0,-560.332581,NaN
+1,1,lines,Likelihood ratio,557055.0,-559.414418,NaN
+1,1,lines,Likelihood ratio,558079.0,-559.303062,NaN
+1,1,lines,Likelihood ratio,559103.0,-558.967698,NaN
+1,1,lines,Likelihood ratio,560127.0,-558.333468,NaN
+1,1,lines,Likelihood ratio,561151.0,-557.948313,NaN
+1,1,lines,Likelihood ratio,562175.0,-556.234987,NaN
+1,1,lines,Likelihood ratio,563199.0,-554.600181,NaN
+1,1,lines,Likelihood ratio,564223.0,-553.362774,NaN
+1,1,lines,Likelihood ratio,565247.0,-554.895075,NaN
+1,1,lines,Likelihood ratio,566271.0,-554.179567,NaN
+1,1,lines,Likelihood ratio,567295.0,-553.609121,NaN
+1,1,lines,Likelihood ratio,568319.0,-554.019324,NaN
+1,1,lines,Likelihood ratio,569343.0,-553.349463,NaN
+1,1,lines,Likelihood ratio,570367.0,-554.38966,NaN
+1,1,lines,Likelihood ratio,571391.0,-552.213446,NaN
+1,1,lines,Likelihood ratio,572415.0,-551.341395,NaN
+1,1,lines,Likelihood ratio,573439.0,-551.225955,NaN
+1,1,lines,Likelihood ratio,574463.0,-551.479507,NaN
+1,1,lines,Likelihood ratio,575487.0,-551.070381,NaN
+1,1,lines,Likelihood ratio,576511.0,-551.011412,NaN
+1,1,lines,Likelihood ratio,577535.0,-549.637393,NaN
+1,1,lines,Likelihood ratio,578559.0,-548.168657,NaN
+1,1,lines,Likelihood ratio,579583.0,-547.408464,NaN
+1,1,lines,Likelihood ratio,580607.0,-548.573757,NaN
+1,1,lines,Likelihood ratio,581631.0,-547.418153,NaN
+1,1,lines,Likelihood ratio,582655.0,-547.580869,NaN
+1,1,lines,Likelihood ratio,583679.0,-546.447722,NaN
+1,1,lines,Likelihood ratio,584703.0,-547.926615,NaN
+1,1,lines,Likelihood ratio,585727.0,-547.445069,NaN
+1,1,lines,Likelihood ratio,586751.0,-548.53158,NaN
+1,1,lines,Likelihood ratio,587775.0,-549.303262,NaN
+1,1,lines,Likelihood ratio,588799.0,-547.073014,NaN
+1,1,lines,Likelihood ratio,589823.0,-547.362924,NaN
+1,1,lines,Likelihood ratio,590847.0,-547.503295,NaN
+1,1,lines,Likelihood ratio,591871.0,-548.308384,NaN
+1,1,lines,Likelihood ratio,592895.0,-548.209923,NaN
+1,1,lines,Likelihood ratio,593919.0,-547.105508,NaN
+1,1,lines,Likelihood ratio,594943.0,-547.590364,NaN
+1,1,lines,Likelihood ratio,595967.0,-547.851256,NaN
+1,1,lines,Likelihood ratio,596991.0,-547.366299,NaN
+1,1,lines,Likelihood ratio,598015.0,-545.934756,NaN
+1,1,lines,Likelihood ratio,599039.0,-546.425758,NaN
+1,1,lines,Likelihood ratio,600063.0,-546.716408,NaN
+1,1,lines,Likelihood ratio,601087.0,-545.367717,NaN
+1,1,lines,Likelihood ratio,602111.0,-546.94035,NaN
+1,1,lines,Likelihood ratio,603135.0,-546.751662,NaN
+1,1,lines,Likelihood ratio,604159.0,-546.010617,NaN
+1,1,lines,Likelihood ratio,605183.0,-544.593752,NaN
+1,1,lines,Likelihood ratio,606207.0,-545.43104,NaN
+1,1,lines,Likelihood ratio,607231.0,-546.199074,NaN
+1,1,lines,Likelihood ratio,608255.0,-546.346749,NaN
+1,1,lines,Likelihood ratio,609279.0,-546.784698,NaN
+1,1,lines,Likelihood ratio,610303.0,-547.594546,NaN
+1,1,lines,Likelihood ratio,611327.0,-547.081875,NaN
+1,1,lines,Likelihood ratio,612351.0,-546.012273,NaN
+1,1,lines,Likelihood ratio,613375.0,-545.618924,NaN
+1,1,lines,Likelihood ratio,614399.0,-546.834303,NaN
+1,1,lines,Likelihood ratio,615423.0,-547.390641,NaN
+1,1,lines,Likelihood ratio,616447.0,-548.185686,NaN
+1,1,lines,Likelihood ratio,617471.0,-548.120491,NaN
+1,1,lines,Likelihood ratio,618495.0,-548.531687,NaN
+1,1,lines,Likelihood ratio,619519.0,-547.432672,NaN
+1,1,lines,Likelihood ratio,620543.0,-546.828975,NaN
+1,1,lines,Likelihood ratio,621567.0,-549.194262,NaN
+1,1,lines,Likelihood ratio,622591.0,-548.69663,NaN
+1,1,lines,Likelihood ratio,623615.0,-548.538061,NaN
+1,1,lines,Likelihood ratio,624639.0,-548.74131,NaN
+1,1,lines,Likelihood ratio,625663.0,-548.451859,NaN
+1,1,lines,Likelihood ratio,626687.0,-548.219568,NaN
+1,1,lines,Likelihood ratio,627711.0,-548.988756,NaN
+1,1,lines,Likelihood ratio,628735.0,-548.294337,NaN
+1,1,lines,Likelihood ratio,629759.0,-548.117335,NaN
+1,1,lines,Likelihood ratio,630783.0,-549.663386,NaN
+1,1,lines,Likelihood ratio,631807.0,-548.743096,NaN
+1,1,lines,Likelihood ratio,632831.0,-548.942183,NaN
+1,1,lines,Likelihood ratio,633855.0,-548.834522,NaN
+1,1,lines,Likelihood ratio,634879.0,-549.036925,NaN
+1,1,lines,Likelihood ratio,635903.0,-550.184867,NaN
+1,1,lines,Likelihood ratio,636927.0,-550.610301,NaN
+1,1,lines,Likelihood ratio,637951.0,-550.937586,NaN
+1,1,lines,Likelihood ratio,638975.0,-551.487601,NaN
+1,1,lines,Likelihood ratio,639999.0,-551.955936,NaN
+1,1,lines,Likelihood ratio,641023.0,-550.86561,NaN
+1,1,lines,Likelihood ratio,642047.0,-551.500956,NaN
+1,1,lines,Likelihood ratio,643071.0,-550.827642,NaN
+1,1,lines,Likelihood ratio,644095.0,-551.799043,NaN
+1,1,lines,Likelihood ratio,645119.0,-551.604319,NaN
+1,1,lines,Likelihood ratio,646143.0,-550.479847,NaN
+1,1,lines,Likelihood ratio,647167.0,-550.413588,NaN
+1,1,lines,Likelihood ratio,648191.0,-549.999343,NaN
+1,1,lines,Likelihood ratio,649215.0,-550.541486,NaN
+1,1,lines,Likelihood ratio,650239.0,-549.369035,NaN
+1,1,lines,Likelihood ratio,651263.0,-549.530564,NaN
+1,1,lines,Likelihood ratio,652287.0,-549.06761,NaN
+1,1,lines,Likelihood ratio,653311.0,-549.691136,NaN
+1,1,lines,Likelihood ratio,654335.0,-550.487806,NaN
+1,1,lines,Likelihood ratio,655359.0,-550.331794,NaN
+1,1,lines,Likelihood ratio,656383.0,-549.028213,NaN
+1,1,lines,Likelihood ratio,657407.0,-548.721356,NaN
+1,1,lines,Likelihood ratio,658431.0,-550.128814,NaN
+1,1,lines,Likelihood ratio,659455.0,-549.928816,NaN
+1,1,lines,Likelihood ratio,660479.0,-550.116102,NaN
+1,1,lines,Likelihood ratio,661503.0,-549.694444,NaN
+1,1,lines,Likelihood ratio,662527.0,-550.528163,NaN
+1,1,lines,Likelihood ratio,663551.0,-551.752486,NaN
+1,1,lines,Likelihood ratio,664575.0,-551.487656,NaN
+1,1,lines,Likelihood ratio,665599.0,-551.730456,NaN
+1,1,lines,Likelihood ratio,666623.0,-551.878684,NaN
+1,1,lines,Likelihood ratio,667647.0,-551.496182,NaN
+1,1,lines,Likelihood ratio,668671.0,-551.445498,NaN
+1,1,lines,Likelihood ratio,669695.0,-552.23129,NaN
+1,1,lines,Likelihood ratio,670719.0,-552.207368,NaN
+1,1,lines,Likelihood ratio,671743.0,-552.738261,NaN
+1,1,lines,Likelihood ratio,672767.0,-553.231098,NaN
+1,1,lines,Likelihood ratio,673791.0,-553.185844,NaN
+1,1,lines,Likelihood ratio,674815.0,-552.962279,NaN
+1,1,lines,Likelihood ratio,675839.0,-553.125374,NaN
+1,1,lines,Likelihood ratio,676863.0,-552.516855,NaN
+1,1,lines,Likelihood ratio,677887.0,-552.924189,NaN
+1,1,lines,Likelihood ratio,678911.0,-552.815253,NaN
+1,1,lines,Likelihood ratio,679935.0,-552.916827,NaN
+1,1,lines,Likelihood ratio,680959.0,-554.486021,NaN
+1,1,lines,Likelihood ratio,681983.0,-553.664141,NaN
+1,1,lines,Likelihood ratio,683007.0,-554.809865,NaN
+1,1,lines,Likelihood ratio,684031.0,-554.373341,NaN
+1,1,lines,Likelihood ratio,685055.0,-554.723301,NaN
+1,1,lines,Likelihood ratio,686079.0,-553.944493,NaN
+1,1,lines,Likelihood ratio,687103.0,-554.371791,NaN
+1,1,lines,Likelihood ratio,688127.0,-552.60935,NaN
+1,1,lines,Likelihood ratio,689151.0,-552.93512,NaN
+1,1,lines,Likelihood ratio,690175.0,-552.405738,NaN
+1,1,lines,Likelihood ratio,691199.0,-552.444771,NaN
+1,1,lines,Likelihood ratio,692223.0,-552.44847,NaN
+1,1,lines,Likelihood ratio,693247.0,-553.157236,NaN
+1,1,lines,Likelihood ratio,694271.0,-552.080321,NaN
+1,1,lines,Likelihood ratio,695295.0,-552.326324,NaN
+1,1,lines,Likelihood ratio,696319.0,-553.471839,NaN
+1,1,lines,Likelihood ratio,697343.0,-552.793282,NaN
+1,1,lines,Likelihood ratio,698367.0,-553.02523,NaN
+1,1,lines,Likelihood ratio,699391.0,-553.095237,NaN
+1,1,lines,Likelihood ratio,700415.0,-554.110484,NaN
+1,1,lines,Likelihood ratio,701439.0,-554.572751,NaN
+1,1,lines,Likelihood ratio,702463.0,-554.408221,NaN
+1,1,lines,Likelihood ratio,703487.0,-554.261614,NaN
+1,1,lines,Likelihood ratio,704511.0,-554.754517,NaN
+1,1,lines,Likelihood ratio,705535.0,-554.207063,NaN
+1,1,lines,Likelihood ratio,706559.0,-553.856481,NaN
+1,1,lines,Likelihood ratio,707583.0,-554.085862,NaN
+1,1,lines,Likelihood ratio,708607.0,-554.174811,NaN
+1,1,lines,Likelihood ratio,709631.0,-553.497166,NaN
+1,1,lines,Likelihood ratio,710655.0,-554.742646,NaN
+1,1,lines,Likelihood ratio,711679.0,-555.762244,NaN
+1,1,lines,Likelihood ratio,712703.0,-555.644539,NaN
+1,1,lines,Likelihood ratio,713727.0,-554.736154,NaN
+1,1,lines,Likelihood ratio,714751.0,-554.775612,NaN
+1,1,lines,Likelihood ratio,715775.0,-555.335134,NaN
+1,1,lines,Likelihood ratio,716799.0,-555.249442,NaN
+1,1,lines,Likelihood ratio,717823.0,-555.986752,NaN
+1,1,lines,Likelihood ratio,718847.0,-556.437054,NaN
+1,1,lines,Likelihood ratio,719871.0,-556.992605,NaN
+1,1,lines,Likelihood ratio,720895.0,-557.427512,NaN
+1,1,lines,Likelihood ratio,721919.0,-558.240525,NaN
+1,1,lines,Likelihood ratio,722943.0,-558.469221,NaN
+1,1,lines,Likelihood ratio,723967.0,-558.226716,NaN
+1,1,lines,Likelihood ratio,724991.0,-557.545815,NaN
+1,1,lines,Likelihood ratio,726015.0,-556.993734,NaN
+1,1,lines,Likelihood ratio,727039.0,-557.565598,NaN
+1,1,lines,Likelihood ratio,728063.0,-558.064521,NaN
+1,1,lines,Likelihood ratio,729087.0,-556.523832,NaN
+1,1,lines,Likelihood ratio,730111.0,-555.844901,NaN
+1,1,lines,Likelihood ratio,731135.0,-556.695643,NaN
+1,1,lines,Likelihood ratio,732159.0,-557.183227,NaN
+1,1,lines,Likelihood ratio,733183.0,-557.643531,NaN
+1,1,lines,Likelihood ratio,734207.0,-557.230187,NaN
+1,1,lines,Likelihood ratio,735231.0,-556.631755,NaN
+1,1,lines,Likelihood ratio,736255.0,-556.660508,NaN
+1,1,lines,Likelihood ratio,737279.0,-557.857654,NaN
+1,1,lines,Likelihood ratio,738303.0,-556.833945,NaN
+1,1,lines,Likelihood ratio,739327.0,-556.906062,NaN
+1,1,lines,Likelihood ratio,740351.0,-556.983803,NaN
+1,1,lines,Likelihood ratio,741375.0,-556.741392,NaN
+1,1,lines,Likelihood ratio,742399.0,-556.753763,NaN
+1,1,lines,Likelihood ratio,743423.0,-556.103892,NaN
+1,1,lines,Likelihood ratio,744447.0,-556.470612,NaN
+1,1,lines,Likelihood ratio,745471.0,-556.271718,NaN
+1,1,lines,Likelihood ratio,746495.0,-555.120197,NaN
+1,1,lines,Likelihood ratio,747519.0,-554.525504,NaN
+1,1,lines,Likelihood ratio,748543.0,-555.018455,NaN
+1,1,lines,Likelihood ratio,749567.0,-555.05991,NaN
+1,1,lines,Likelihood ratio,750591.0,-556.04466,NaN
+1,1,lines,Likelihood ratio,751615.0,-556.637927,NaN
+1,1,lines,Likelihood ratio,752639.0,-556.875671,NaN
+1,1,lines,Likelihood ratio,753663.0,-556.630333,NaN
+1,1,lines,Likelihood ratio,754687.0,-556.143496,NaN
+1,1,lines,Likelihood ratio,755711.0,-556.612018,NaN
+1,1,lines,Likelihood ratio,756735.0,-556.111998,NaN
+1,1,lines,Likelihood ratio,757759.0,-556.324558,NaN
+1,1,lines,Likelihood ratio,758783.0,-556.274896,NaN
+1,1,lines,Likelihood ratio,759807.0,-556.171484,NaN
+1,1,lines,Likelihood ratio,760831.0,-556.253525,NaN
+1,1,lines,Likelihood ratio,761855.0,-558.120202,NaN
+1,1,lines,Likelihood ratio,762879.0,-558.04332,NaN
+1,1,lines,Likelihood ratio,763903.0,-557.619143,NaN
+1,1,lines,Likelihood ratio,764927.0,-556.882257,NaN
+1,1,lines,Likelihood ratio,765951.0,-556.255989,NaN
+1,1,lines,Likelihood ratio,766975.0,-555.912929,NaN
+1,1,lines,Likelihood ratio,767999.0,-556.511171,NaN
+1,1,lines,Likelihood ratio,769023.0,-556.241713,NaN
+1,1,lines,Likelihood ratio,770047.0,-556.127714,NaN
+1,1,lines,Likelihood ratio,771071.0,-556.899564,NaN
+1,1,lines,Likelihood ratio,772095.0,-556.936747,NaN
+1,1,lines,Likelihood ratio,773119.0,-555.96139,NaN
+1,1,lines,Likelihood ratio,774143.0,-555.619395,NaN
+1,1,lines,Likelihood ratio,775167.0,-555.556157,NaN
+1,1,lines,Likelihood ratio,776191.0,-555.477396,NaN
+1,1,lines,Likelihood ratio,777215.0,-555.61408,NaN
+1,1,lines,Likelihood ratio,778239.0,-555.846851,NaN
+1,1,lines,Likelihood ratio,779263.0,-556.800376,NaN
+1,1,lines,Likelihood ratio,780287.0,-557.04858,NaN
+1,1,lines,Likelihood ratio,781311.0,-557.681277,NaN
+1,1,lines,Likelihood ratio,782335.0,-557.866797,NaN
+1,1,lines,Likelihood ratio,783359.0,-558.94017,NaN
+1,1,lines,Likelihood ratio,784383.0,-558.873243,NaN
+1,1,lines,Likelihood ratio,785407.0,-557.909901,NaN
+1,1,lines,Likelihood ratio,786431.0,-558.468747,NaN
+1,1,lines,Likelihood ratio,787455.0,-557.886838,NaN
+1,1,lines,Likelihood ratio,788479.0,-557.399552,NaN
+1,1,lines,Likelihood ratio,789503.0,-557.356011,NaN
+1,1,lines,Likelihood ratio,790527.0,-556.96502,NaN
+1,1,lines,Likelihood ratio,791551.0,-558.019516,NaN
+1,1,lines,Likelihood ratio,792575.0,-557.931035,NaN
+1,1,lines,Likelihood ratio,793599.0,-558.619833,NaN
+1,1,lines,Likelihood ratio,794623.0,-558.900032,NaN
+1,1,lines,Likelihood ratio,795647.0,-559.015784,NaN
+1,1,lines,Likelihood ratio,796671.0,-559.548505,NaN
+1,1,lines,Likelihood ratio,797695.0,-559.086367,NaN
+1,1,lines,Likelihood ratio,798719.0,-559.7599,NaN
+1,1,lines,Likelihood ratio,799743.0,-560.006259,NaN
+1,1,lines,Likelihood ratio,800767.0,-558.886173,NaN
+1,1,lines,Likelihood ratio,801791.0,-559.17902,NaN
+1,1,lines,Likelihood ratio,802815.0,-559.504639,NaN
+1,1,lines,Likelihood ratio,803839.0,-559.836673,NaN
+1,1,lines,Likelihood ratio,804863.0,-560.13585,NaN
+1,1,lines,Likelihood ratio,805887.0,-560.971122,NaN
+1,1,lines,Likelihood ratio,806911.0,-562.449955,NaN
+1,1,lines,Likelihood ratio,807935.0,-561.738586,NaN
+1,1,lines,Likelihood ratio,808959.0,-561.183674,NaN
+1,1,lines,Likelihood ratio,809983.0,-561.885356,NaN
+1,1,lines,Likelihood ratio,811007.0,-561.873543,NaN
+1,1,lines,Likelihood ratio,812031.0,-560.71602,NaN
+1,1,lines,Likelihood ratio,813055.0,-560.496308,NaN
+1,1,lines,Likelihood ratio,814079.0,-561.283929,NaN
+1,1,lines,Likelihood ratio,815103.0,-561.428663,NaN
+1,1,lines,Likelihood ratio,816127.0,-561.802938,NaN
+1,1,lines,Likelihood ratio,817151.0,-560.89084,NaN
+1,1,lines,Likelihood ratio,818175.0,-562.298942,NaN
+1,1,lines,Likelihood ratio,819199.0,-562.775268,NaN
+1,1,lines,Likelihood ratio,820223.0,-561.79397,NaN
+1,1,lines,Likelihood ratio,821247.0,-560.520122,NaN
+1,1,lines,Likelihood ratio,822271.0,-560.58156,NaN
+1,1,lines,Likelihood ratio,823295.0,-560.576204,NaN
+1,1,lines,Likelihood ratio,824319.0,-559.77817,NaN
+1,1,lines,Likelihood ratio,825343.0,-560.31072,NaN
+1,1,lines,Likelihood ratio,826367.0,-560.350609,NaN
+1,1,lines,Likelihood ratio,827391.0,-560.33254,NaN
+1,1,lines,Likelihood ratio,828415.0,-560.21053,NaN
+1,1,lines,Likelihood ratio,829439.0,-561.082087,NaN
+1,1,lines,Likelihood ratio,830463.0,-561.686657,NaN
+1,1,lines,Likelihood ratio,831487.0,-561.893989,NaN
+1,1,lines,Likelihood ratio,832511.0,-562.413235,NaN
+1,1,lines,Likelihood ratio,833535.0,-563.062418,NaN
+1,1,lines,Likelihood ratio,834559.0,-562.910601,NaN
+1,1,lines,Likelihood ratio,835583.0,-562.654873,NaN
+1,1,lines,Likelihood ratio,836607.0,-561.949129,NaN
+1,1,lines,Likelihood ratio,837631.0,-561.406829,NaN
+1,1,lines,Likelihood ratio,838655.0,-561.020654,NaN
+1,1,lines,Likelihood ratio,839679.0,-560.88101,NaN
+1,1,lines,Likelihood ratio,840703.0,-559.806626,NaN
+1,1,lines,Likelihood ratio,841727.0,-559.242748,NaN
+1,1,lines,Likelihood ratio,842751.0,-558.317556,NaN
+1,1,lines,Likelihood ratio,843775.0,-558.864937,NaN
+1,1,lines,Likelihood ratio,844799.0,-559.840054,NaN
+1,1,lines,Likelihood ratio,845823.0,-560.380953,NaN
+1,1,lines,Likelihood ratio,846847.0,-560.558964,NaN
+1,1,lines,Likelihood ratio,847871.0,-561.558739,NaN
+1,1,lines,Likelihood ratio,848895.0,-562.605716,NaN
+1,1,lines,Likelihood ratio,849919.0,-561.993215,NaN
+1,1,lines,Likelihood ratio,850943.0,-561.672429,NaN
+1,1,lines,Likelihood ratio,851967.0,-562.052001,NaN
+1,1,lines,Likelihood ratio,852991.0,-562.115797,NaN
+1,1,lines,Likelihood ratio,854015.0,-561.996439,NaN
+1,1,lines,Likelihood ratio,855039.0,-562.847303,NaN
+1,1,lines,Likelihood ratio,856063.0,-562.955286,NaN
+1,1,lines,Likelihood ratio,857087.0,-562.76577,NaN
+1,1,lines,Likelihood ratio,858111.0,-562.897224,NaN
+1,1,lines,Likelihood ratio,859135.0,-562.827313,NaN
+1,1,lines,Likelihood ratio,860159.0,-561.785818,NaN
+1,1,lines,Likelihood ratio,861183.0,-562.228278,NaN
+1,1,lines,Likelihood ratio,862207.0,-561.224424,NaN
+1,1,lines,Likelihood ratio,863231.0,-561.635713,NaN
+1,1,lines,Likelihood ratio,864255.0,-561.757259,NaN
+1,1,lines,Likelihood ratio,865279.0,-561.693063,NaN
+1,1,lines,Likelihood ratio,866303.0,-562.013293,NaN
+1,1,lines,Likelihood ratio,867327.0,-562.1875,NaN
+1,1,lines,Likelihood ratio,868351.0,-561.867806,NaN
+1,1,lines,Likelihood ratio,869375.0,-561.433661,NaN
+1,1,lines,Likelihood ratio,870399.0,-562.018046,NaN
+1,1,lines,Likelihood ratio,871423.0,-562.166061,NaN
+1,1,lines,Likelihood ratio,872447.0,-562.132813,NaN
+1,1,lines,Likelihood ratio,873471.0,-562.272104,NaN
+1,1,lines,Likelihood ratio,874495.0,-562.360163,NaN
+1,1,lines,Likelihood ratio,875519.0,-562.831766,NaN
+1,1,lines,Likelihood ratio,876543.0,-563.255237,NaN
+1,1,lines,Likelihood ratio,877567.0,-564.543918,NaN
+1,1,lines,Likelihood ratio,878591.0,-564.964116,NaN
+1,1,lines,Likelihood ratio,879615.0,-564.889613,NaN
+1,1,lines,Likelihood ratio,880639.0,-566.219323,NaN
+1,1,lines,Likelihood ratio,881663.0,-566.212508,NaN
+1,1,lines,Likelihood ratio,882687.0,-565.89402,NaN
+1,1,lines,Likelihood ratio,883711.0,-565.879614,NaN
+1,1,lines,Likelihood ratio,884735.0,-564.940386,NaN
+1,1,lines,Likelihood ratio,885759.0,-564.594052,NaN
+1,1,lines,Likelihood ratio,886783.0,-563.128024,NaN
+1,1,lines,Likelihood ratio,887807.0,-563.132248,NaN
+1,1,lines,Likelihood ratio,888831.0,-563.570996,NaN
+1,1,lines,Likelihood ratio,889855.0,-562.921926,NaN
+1,1,lines,Likelihood ratio,890879.0,-564.367549,NaN
+1,1,lines,Likelihood ratio,891903.0,-563.082773,NaN
+1,1,lines,Likelihood ratio,892927.0,-563.013462,NaN
+1,1,lines,Likelihood ratio,893951.0,-563.400022,NaN
+1,1,lines,Likelihood ratio,894975.0,-563.166505,NaN
+1,1,lines,Likelihood ratio,895999.0,-563.269077,NaN
+1,1,lines,Likelihood ratio,897023.0,-562.464237,NaN
+1,1,lines,Likelihood ratio,898047.0,-561.807609,NaN
+1,1,lines,Likelihood ratio,899071.0,-562.803849,NaN
+1,1,lines,Likelihood ratio,900095.0,-562.037486,NaN
+1,1,lines,Likelihood ratio,901119.0,-562.044974,NaN
+1,1,lines,Likelihood ratio,902143.0,-561.91404,NaN
+1,1,lines,Likelihood ratio,903167.0,-561.884406,NaN
+1,1,lines,Likelihood ratio,904191.0,-561.508418,NaN
+1,1,lines,Likelihood ratio,905215.0,-561.501077,NaN
+1,1,lines,Likelihood ratio,906239.0,-561.926322,NaN
+1,1,lines,Likelihood ratio,907263.0,-561.482349,NaN
+1,1,lines,Likelihood ratio,908287.0,-560.850659,NaN
+1,1,lines,Likelihood ratio,909311.0,-560.953954,NaN
+1,1,lines,Likelihood ratio,910335.0,-561.066122,NaN
+1,1,lines,Likelihood ratio,911359.0,-561.325995,NaN
+1,1,lines,Likelihood ratio,912383.0,-561.052845,NaN
+1,1,lines,Likelihood ratio,913407.0,-560.605385,NaN
+1,1,lines,Likelihood ratio,914431.0,-560.743795,NaN
+1,1,lines,Likelihood ratio,915455.0,-561.557851,NaN
+1,1,lines,Likelihood ratio,916479.0,-561.878516,NaN
+1,1,lines,Likelihood ratio,917503.0,-561.060818,NaN
+1,1,lines,Likelihood ratio,918527.0,-561.182687,NaN
+1,1,lines,Likelihood ratio,919551.0,-561.299501,NaN
+1,1,lines,Likelihood ratio,920575.0,-561.706787,NaN
+1,1,lines,Likelihood ratio,921599.0,-561.468332,NaN
+1,1,lines,Likelihood ratio,922623.0,-561.59181,NaN
+1,1,lines,Likelihood ratio,923647.0,-562.930542,NaN
+1,1,lines,Likelihood ratio,924671.0,-562.148299,NaN
+1,1,lines,Likelihood ratio,925695.0,-561.472747,NaN
+1,1,lines,Likelihood ratio,926719.0,-561.532801,NaN
+1,1,lines,Likelihood ratio,927743.0,-561.21952,NaN
+1,1,lines,Likelihood ratio,928767.0,-562.729291,NaN
+1,1,lines,Likelihood ratio,929791.0,-563.242662,NaN
+1,1,lines,Likelihood ratio,930815.0,-562.58886,NaN
+1,1,lines,Likelihood ratio,931839.0,-562.778774,NaN
+1,1,lines,Likelihood ratio,932863.0,-563.545916,NaN
+1,1,lines,Likelihood ratio,933887.0,-564.083249,NaN
+1,1,lines,Likelihood ratio,934911.0,-565.324212,NaN
+1,1,lines,Likelihood ratio,935935.0,-565.629462,NaN
+1,1,lines,Likelihood ratio,936959.0,-565.209874,NaN
+1,1,lines,Likelihood ratio,937983.0,-564.887375,NaN
+1,1,lines,Likelihood ratio,939007.0,-564.641405,NaN
+1,1,lines,Likelihood ratio,940031.0,-564.776462,NaN
+1,1,lines,Likelihood ratio,941055.0,-564.000428,NaN
+1,1,lines,Likelihood ratio,942079.0,-563.668623,NaN
+1,1,lines,Likelihood ratio,943103.0,-563.299766,NaN
+1,1,lines,Likelihood ratio,944127.0,-562.823087,NaN
+1,1,lines,Likelihood ratio,945151.0,-561.817074,NaN
+1,1,lines,Likelihood ratio,946175.0,-561.287247,NaN
+1,1,lines,Likelihood ratio,947199.0,-562.011386,NaN
+1,1,lines,Likelihood ratio,948223.0,-561.828004,NaN
+1,1,lines,Likelihood ratio,949247.0,-561.346807,NaN
+1,1,lines,Likelihood ratio,950271.0,-560.259014,NaN
+1,1,lines,Likelihood ratio,951295.0,-559.875933,NaN
+1,1,lines,Likelihood ratio,952319.0,-560.874399,NaN
+1,1,lines,Likelihood ratio,953343.0,-561.693061,NaN
+1,1,lines,Likelihood ratio,954367.0,-560.86516,NaN
+1,1,lines,Likelihood ratio,955391.0,-561.393768,NaN
+1,1,lines,Likelihood ratio,956415.0,-560.723391,NaN
+1,1,lines,Likelihood ratio,957439.0,-560.065174,NaN
+1,1,lines,Likelihood ratio,958463.0,-559.952939,NaN
+1,1,lines,Likelihood ratio,959487.0,-560.117441,NaN
+1,1,lines,Likelihood ratio,960511.0,-560.022819,NaN
+1,1,lines,Likelihood ratio,961535.0,-559.935949,NaN
+1,1,lines,Likelihood ratio,962559.0,-560.398542,NaN
+1,1,lines,Likelihood ratio,963583.0,-559.823883,NaN
+1,1,lines,Likelihood ratio,964607.0,-560.616197,NaN
+1,1,lines,Likelihood ratio,965631.0,-560.536391,NaN
+1,1,lines,Likelihood ratio,966655.0,-560.343281,NaN
+1,1,lines,Likelihood ratio,967679.0,-560.554773,NaN
+1,1,lines,Likelihood ratio,968703.0,-560.732031,NaN
+1,1,lines,Likelihood ratio,969727.0,-560.400064,NaN
+1,1,lines,Likelihood ratio,970751.0,-561.381073,NaN
+1,1,lines,Likelihood ratio,971775.0,-560.921706,NaN
+1,1,lines,Likelihood ratio,972799.0,-560.737378,NaN
+1,1,lines,Likelihood ratio,973823.0,-560.331788,NaN
+1,1,lines,Likelihood ratio,974847.0,-560.581598,NaN
+1,1,lines,Likelihood ratio,975871.0,-559.743168,NaN
+1,1,lines,Likelihood ratio,976895.0,-559.902492,NaN
+1,1,lines,Likelihood ratio,977919.0,-560.088021,NaN
+1,1,lines,Likelihood ratio,978943.0,-560.177861,NaN
+1,1,lines,Likelihood ratio,979967.0,-560.374807,NaN
+1,1,lines,Likelihood ratio,980991.0,-561.043521,NaN
+1,1,lines,Likelihood ratio,982015.0,-561.07269,NaN
+1,1,lines,Likelihood ratio,983039.0,-560.415082,NaN
+1,1,lines,Likelihood ratio,984063.0,-560.128641,NaN
+1,1,lines,Likelihood ratio,985087.0,-560.043221,NaN
+1,1,lines,Likelihood ratio,986111.0,-560.202201,NaN
+1,1,lines,Likelihood ratio,987135.0,-561.283067,NaN
+1,1,lines,Likelihood ratio,988159.0,-562.295521,NaN
+1,1,lines,Likelihood ratio,989183.0,-562.06373,NaN
+1,1,lines,Likelihood ratio,990207.0,-561.366963,NaN
+1,1,lines,Likelihood ratio,991231.0,-561.372754,NaN
+1,1,lines,Likelihood ratio,992255.0,-561.417878,NaN
+1,1,lines,Likelihood ratio,993279.0,-560.357348,NaN
+1,1,lines,Likelihood ratio,994303.0,-560.999589,NaN
+1,1,lines,Likelihood ratio,995327.0,-560.154404,NaN
+1,1,lines,Likelihood ratio,996351.0,-560.566497,NaN
+1,1,lines,Likelihood ratio,997375.0,-560.391437,NaN
+1,1,lines,Likelihood ratio,998399.0,-559.581224,NaN
+1,1,lines,Likelihood ratio,999423.0,-559.30509,NaN
+1,1,lines,Likelihood ratio,1.000447e6,-559.171778,NaN
+1,1,lines,Likelihood ratio,1.001471e6,-559.013731,NaN
+1,1,lines,Likelihood ratio,1.002495e6,-558.773825,NaN
+1,1,lines,Likelihood ratio,1.003519e6,-559.249664,NaN
+1,1,lines,Likelihood ratio,1.004543e6,-560.253207,NaN
+1,1,lines,Likelihood ratio,1.005567e6,-559.955421,NaN
+1,1,lines,Likelihood ratio,1.006591e6,-560.689363,NaN
+1,1,lines,Likelihood ratio,1.007615e6,-560.986616,NaN
+1,1,lines,Likelihood ratio,1.008639e6,-561.839753,NaN
+1,1,lines,Likelihood ratio,1.009663e6,-562.57168,NaN
+1,1,lines,Likelihood ratio,1.010687e6,-561.89678,NaN
+1,1,lines,Likelihood ratio,1.011711e6,-560.710915,NaN
+1,1,lines,Likelihood ratio,1.012735e6,-561.087783,NaN
+1,1,lines,Likelihood ratio,1.013759e6,-562.076435,NaN
+1,1,lines,Likelihood ratio,1.014783e6,-561.899226,NaN
+1,1,lines,Likelihood ratio,1.015807e6,-562.201299,NaN
+1,1,lines,Likelihood ratio,1.016831e6,-562.386623,NaN
+1,1,lines,Likelihood ratio,1.017855e6,-561.930152,NaN
+1,1,lines,Likelihood ratio,1.018879e6,-561.712268,NaN
+1,1,lines,Likelihood ratio,1.019903e6,-561.097511,NaN
+1,1,lines,Likelihood ratio,1.020927e6,-560.889427,NaN
+1,1,lines,Likelihood ratio,1.021951e6,-561.104239,NaN
+1,1,lines,Likelihood ratio,1.022975e6,-560.760089,NaN
+1,1,lines,Likelihood ratio,1.023999e6,-560.340127,NaN
+1,1,lines,Likelihood ratio,1.025023e6,-559.324643,NaN
+1,1,lines,Likelihood ratio,1.026047e6,-559.435394,NaN
+1,1,lines,Likelihood ratio,1.027071e6,-559.037044,NaN
+1,1,lines,Likelihood ratio,1.028095e6,-559.426542,NaN
+1,1,lines,Likelihood ratio,1.029119e6,-559.255483,NaN
+1,1,lines,Likelihood ratio,1.030143e6,-558.916936,NaN
+1,1,lines,Likelihood ratio,1.031167e6,-558.820218,NaN
+1,1,lines,Likelihood ratio,1.032191e6,-559.130859,NaN
+1,1,lines,Likelihood ratio,1.033215e6,-559.690044,NaN
+1,1,lines,Likelihood ratio,1.034239e6,-559.921247,NaN
+1,1,lines,Likelihood ratio,1.035263e6,-559.529271,NaN
+1,1,lines,Likelihood ratio,1.036287e6,-559.428477,NaN
+1,1,lines,Likelihood ratio,1.037311e6,-559.227427,NaN
+1,1,lines,Likelihood ratio,1.038335e6,-558.958652,NaN
+1,1,lines,Likelihood ratio,1.039359e6,-558.727778,NaN
+1,1,lines,Likelihood ratio,1.040383e6,-559.093631,NaN
+1,1,lines,Likelihood ratio,1.041407e6,-560.229282,NaN
+1,1,lines,Likelihood ratio,1.042431e6,-559.456773,NaN
+1,1,lines,Likelihood ratio,1.043455e6,-558.883613,NaN
+1,1,lines,Likelihood ratio,1.044479e6,-558.945421,NaN
+1,1,lines,Likelihood ratio,1.045503e6,-559.129825,NaN
+1,1,lines,Likelihood ratio,1.046527e6,-559.735135,NaN
+1,1,lines,Likelihood ratio,1.047551e6,-559.125463,NaN
+1,1,lines,Likelihood ratio,1.048575e6,-559.485374,NaN
+1,2,lines,Naive,1023.0,1955.034213,NaN
+1,2,lines,Naive,2047.0,8304.836346,NaN
+1,2,lines,Naive,3071.0,10745.685444,NaN
+1,2,lines,Naive,4095.0,10500.610501,NaN
+1,2,lines,Naive,5119.0,10548.935339,NaN
+1,2,lines,Naive,6143.0,11883.444571,NaN
+1,2,lines,Naive,7167.0,11162.271522,NaN
+1,2,lines,Naive,8191.0,6104.260774,NaN
+1,2,lines,Naive,9215.0,5751.492132,NaN
+1,2,lines,Naive,10239.0,2148.647329,NaN
+1,2,lines,Naive,11263.0,1686.939537,NaN
+1,2,lines,Naive,12287.0,1139.415643,NaN
+1,2,lines,Naive,13311.0,1202.013372,NaN
+1,2,lines,Naive,14335.0,2371.817231,NaN
+1,2,lines,Naive,15359.0,4427.371574,NaN
+1,2,lines,Naive,16383.0,4455.838369,NaN
+1,2,lines,Naive,17407.0,5457.574539,NaN
+1,2,lines,Naive,18431.0,4014.974771,NaN
+1,2,lines,Naive,19455.0,4574.659471,NaN
+1,2,lines,Naive,20479.0,4101.762781,NaN
+1,2,lines,Naive,21503.0,3069.339162,NaN
+1,2,lines,Naive,22527.0,3373.729303,NaN
+1,2,lines,Naive,23551.0,3821.493779,NaN
+1,2,lines,Naive,24575.0,4476.093591,NaN
+1,2,lines,Naive,25599.0,4648.619087,NaN
+1,2,lines,Naive,26623.0,4582.50385,NaN
+1,2,lines,Naive,27647.0,3653.199262,NaN
+1,2,lines,Naive,28671.0,3418.087963,NaN
+1,2,lines,Naive,29695.0,2559.353427,NaN
+1,2,lines,Naive,30719.0,2181.060581,NaN
+1,2,lines,Naive,31743.0,2394.228649,NaN
+1,2,lines,Naive,32767.0,2105.777154,NaN
+1,2,lines,Naive,33791.0,1361.309224,NaN
+1,2,lines,Naive,34815.0,689.358035,NaN
+1,2,lines,Naive,35839.0,558.051285,NaN
+1,2,lines,Naive,36863.0,895.206576,NaN
+1,2,lines,Naive,37887.0,1082.165387,NaN
+1,2,lines,Naive,38911.0,1182.184986,NaN
+1,2,lines,Naive,39935.0,1377.238012,NaN
+1,2,lines,Naive,40959.0,1196.318269,NaN
+1,2,lines,Naive,41983.0,976.585761,NaN
+1,2,lines,Naive,43007.0,767.316948,NaN
+1,2,lines,Naive,44031.0,-227.112716,NaN
+1,2,lines,Naive,45055.0,-510.487182,NaN
+1,2,lines,Naive,46079.0,-716.161375,NaN
+1,2,lines,Naive,47103.0,-233.530773,NaN
+1,2,lines,Naive,48127.0,-602.572361,NaN
+1,2,lines,Naive,49151.0,-325.527456,NaN
+1,2,lines,Naive,50175.0,-159.441953,NaN
+1,2,lines,Naive,51199.0,312.506104,NaN
+1,2,lines,Naive,52223.0,248.932463,NaN
+1,2,lines,Naive,53247.0,281.706012,NaN
+1,2,lines,Naive,54271.0,-73.704188,NaN
+1,2,lines,Naive,55295.0,325.52672,NaN
+1,2,lines,Naive,56319.0,159.803974,NaN
+1,2,lines,Naive,57343.0,610.362206,NaN
+1,2,lines,Naive,58367.0,513.989069,NaN
+1,2,lines,Naive,59391.0,336.75136,NaN
+1,2,lines,Naive,60415.0,960.026483,NaN
+1,2,lines,Naive,61439.0,748.710103,NaN
+1,2,lines,Naive,62463.0,880.521269,NaN
+1,2,lines,Naive,63487.0,504.040197,NaN
+1,2,lines,Naive,64511.0,170.513556,NaN
+1,2,lines,Naive,65535.0,122.072175,NaN
+1,2,lines,Naive,66559.0,-240.388227,NaN
+1,2,lines,Naive,67583.0,325.52565,NaN
+1,2,lines,Naive,68607.0,335.242759,NaN
+1,2,lines,Naive,69631.0,172.337034,NaN
+1,2,lines,Naive,70655.0,254.75904,NaN
+1,2,lines,Naive,71679.0,209.266312,NaN
+1,2,lines,Naive,72703.0,453.90149,NaN
+1,2,lines,Naive,73727.0,13.563552,NaN
+1,2,lines,Naive,74751.0,93.644232,NaN
+1,2,lines,Naive,75775.0,263.939294,NaN
+1,2,lines,Naive,76799.0,338.546075,NaN
+1,2,lines,Naive,77823.0,385.490151,NaN
+1,2,lines,Naive,78847.0,228.290233,NaN
+1,2,lines,Naive,79871.0,225.363398,NaN
+1,2,lines,Naive,80895.0,296.680883,NaN
+1,2,lines,Naive,81919.0,402.836949,NaN
+1,2,lines,Naive,82943.0,361.694176,NaN
+1,2,lines,Naive,83967.0,416.830421,NaN
+1,2,lines,Naive,84991.0,682.425198,NaN
+1,2,lines,Naive,86015.0,418.531651,NaN
+1,2,lines,Naive,87039.0,482.542309,NaN
+1,2,lines,Naive,88063.0,715.396932,NaN
+1,2,lines,Naive,89087.0,516.349187,NaN
+1,2,lines,Naive,90111.0,499.384093,NaN
+1,2,lines,Naive,91135.0,482.800241,NaN
+1,2,lines,Naive,92159.0,434.032487,NaN
+1,2,lines,Naive,93183.0,622.43113,NaN
+1,2,lines,Naive,94207.0,445.826743,NaN
+1,2,lines,Naive,95231.0,388.528945,NaN
+1,2,lines,Naive,96255.0,623.344242,NaN
+1,2,lines,Naive,97279.0,431.747859,NaN
+1,2,lines,Naive,98303.0,590.012512,NaN
+1,2,lines,Naive,99327.0,543.658824,NaN
+1,2,lines,Naive,100351.0,388.635888,NaN
+1,2,lines,Naive,101375.0,601.726264,NaN
+1,2,lines,Naive,102399.0,654.303265,NaN
+1,2,lines,Naive,103423.0,328.746991,NaN
+1,2,lines,Naive,104447.0,268.078547,NaN
+1,2,lines,Naive,105471.0,246.51326,NaN
+1,2,lines,Naive,106495.0,554.01662,NaN
+1,2,lines,Naive,107519.0,734.753857,NaN
+1,2,lines,Naive,108543.0,912.080926,NaN
+1,2,lines,Naive,109567.0,757.527358,NaN
+1,2,lines,Naive,110591.0,931.359695,NaN
+1,2,lines,Naive,111615.0,895.936926,NaN
+1,2,lines,Naive,112639.0,710.233578,NaN
+1,2,lines,Naive,113663.0,519.078328,NaN
+1,2,lines,Naive,114687.0,627.795653,NaN
+1,2,lines,Naive,115711.0,406.184373,NaN
+1,2,lines,Naive,116735.0,239.859511,NaN
+1,2,lines,Naive,117759.0,467.055597,NaN
+1,2,lines,Naive,118783.0,319.911098,NaN
+1,2,lines,Naive,119807.0,258.749489,NaN
+1,2,lines,Naive,120831.0,289.660766,NaN
+1,2,lines,Naive,121855.0,73.858274,NaN
+1,2,lines,Naive,122879.0,-97.657045,NaN
+1,2,lines,Naive,123903.0,-24.212489,NaN
+1,2,lines,Naive,124927.0,56.032723,NaN
+1,2,lines,Naive,125951.0,-103.214742,NaN
+1,2,lines,Naive,126975.0,-110.257925,NaN
+1,2,lines,Naive,127999.0,-62.500488,NaN
+1,2,lines,Naive,129023.0,-85.256117,NaN
+1,2,lines,Naive,130047.0,199.927718,NaN
+1,2,lines,Naive,131071.0,-144.959602,NaN
+1,2,lines,Naive,132095.0,-166.546803,NaN
+1,2,lines,Naive,133119.0,-413.164161,NaN
+1,2,lines,Naive,134143.0,-596.378492,NaN
+1,2,lines,Naive,135167.0,-665.842994,NaN
+1,2,lines,Naive,136191.0,-616.780845,NaN
+1,2,lines,Naive,137215.0,-655.904967,NaN
+1,2,lines,Naive,138239.0,-528.07095,NaN
+1,2,lines,Naive,139263.0,-739.607792,NaN
+1,2,lines,Naive,140287.0,-641.541982,NaN
+1,2,lines,Naive,141311.0,-686.429223,NaN
+1,2,lines,Naive,142335.0,-793.901711,NaN
+1,2,lines,Naive,143359.0,-802.181935,NaN
+1,2,lines,Naive,144383.0,-1018.125403,NaN
+1,2,lines,Naive,145407.0,-907.796736,NaN
+1,2,lines,Naive,146431.0,-976.569169,NaN
+1,2,lines,Naive,147455.0,-983.350853,NaN
+1,2,lines,Naive,148479.0,-909.219486,NaN
+1,2,lines,Naive,149503.0,-528.41749,NaN
+1,2,lines,Naive,150527.0,-770.625868,NaN
+1,2,lines,Naive,151551.0,-626.851687,NaN
+1,2,lines,Naive,152575.0,-694.740292,NaN
+1,2,lines,Naive,153599.0,-729.171414,NaN
+1,2,lines,Naive,154623.0,-808.417894,NaN
+1,2,lines,Naive,155647.0,-957.294391,NaN
+1,2,lines,Naive,156671.0,-1085.07637,NaN
+1,2,lines,Naive,157695.0,-894.131076,NaN
+1,2,lines,Naive,158719.0,-913.564224,NaN
+1,2,lines,Naive,159743.0,-1108.029773,NaN
+1,2,lines,Naive,160767.0,-964.12821,NaN
+1,2,lines,Naive,161791.0,-1032.195858,NaN
+1,2,lines,Naive,162815.0,-982.710438,NaN
+1,2,lines,Naive,163839.0,-885.015167,NaN
+1,2,lines,Naive,164863.0,-1012.962278,NaN
+1,2,lines,Naive,165887.0,-952.455587,NaN
+1,2,lines,Naive,166911.0,-1114.366339,NaN
+1,2,lines,Naive,167935.0,-1012.296424,NaN
+1,2,lines,Naive,168959.0,-864.114963,NaN
+1,2,lines,Naive,169983.0,-770.665302,NaN
+1,2,lines,Naive,171007.0,-643.248522,NaN
+1,2,lines,Naive,172031.0,-697.548698,NaN
+1,2,lines,Naive,173055.0,-722.313715,NaN
+1,2,lines,Naive,174079.0,-631.897012,NaN
+1,2,lines,Naive,175103.0,-725.287402,NaN
+1,2,lines,Naive,176127.0,-715.39287,NaN
+1,2,lines,Naive,177151.0,-609.649395,NaN
+1,2,lines,Naive,178175.0,-460.221692,NaN
+1,2,lines,Naive,179199.0,-613.842711,NaN
+1,2,lines,Naive,180223.0,-610.354949,NaN
+1,2,lines,Naive,181247.0,-474.490612,NaN
+1,2,lines,Naive,182271.0,-307.234832,NaN
+1,2,lines,Naive,183295.0,-611.036853,NaN
+1,2,lines,Naive,184319.0,-569.664549,NaN
+1,2,lines,Naive,185343.0,-722.983873,NaN
+1,2,lines,Naive,186367.0,-740.47444,NaN
+1,2,lines,Naive,187391.0,-688.40019,NaN
+1,2,lines,Naive,188415.0,-488.283842,NaN
+1,2,lines,Naive,189439.0,-644.006778,NaN
+1,2,lines,Naive,190463.0,-703.548721,NaN
+1,2,lines,Naive,191487.0,-720.675555,NaN
+1,2,lines,Naive,192511.0,-857.09388,NaN
+1,2,lines,Naive,193535.0,-671.713127,NaN
+1,2,lines,Naive,194559.0,-678.457435,NaN
+1,2,lines,Naive,195583.0,-674.905283,NaN
+1,2,lines,Naive,196607.0,-630.699822,NaN
+1,2,lines,Naive,197631.0,-612.252126,NaN
+1,2,lines,Naive,198655.0,-634.265435,NaN
+1,2,lines,Naive,199679.0,-535.860055,NaN
+1,2,lines,Naive,200703.0,-503.231143,NaN
+1,2,lines,Naive,201727.0,-579.991771,NaN
+1,2,lines,Naive,202751.0,-458.690709,NaN
+1,2,lines,Naive,203775.0,-647.773279,NaN
+1,2,lines,Naive,204799.0,-615.237379,NaN
+1,2,lines,Naive,205823.0,-660.761917,NaN
+1,2,lines,Naive,206847.0,-696.166732,NaN
+1,2,lines,Naive,207871.0,-668.683943,NaN
+1,2,lines,Naive,208895.0,-741.999569,NaN
+1,2,lines,Naive,209919.0,-766.962495,NaN
+1,2,lines,Naive,210943.0,-786.942444,NaN
+1,2,lines,Naive,211967.0,-820.882496,NaN
+1,2,lines,Naive,212991.0,-784.070688,NaN
+1,2,lines,Naive,214015.0,-850.407682,NaN
+1,2,lines,Naive,215039.0,-944.014807,NaN
+1,2,lines,Naive,216063.0,-925.655943,NaN
+1,2,lines,Naive,217087.0,-884.438036,NaN
+1,2,lines,Naive,218111.0,-848.191976,NaN
+1,2,lines,Naive,219135.0,-930.932987,NaN
+1,2,lines,Naive,220159.0,-958.398249,NaN
+1,2,lines,Naive,221183.0,-813.805763,NaN
+1,2,lines,Naive,222207.0,-814.555797,NaN
+1,2,lines,Naive,223231.0,-783.941298,NaN
+1,2,lines,Naive,224255.0,-918.597133,NaN
+1,2,lines,Naive,225279.0,-909.982733,NaN
+1,2,lines,Naive,226303.0,-923.540563,NaN
+1,2,lines,Naive,227327.0,-805.007764,NaN
+1,2,lines,Naive,228351.0,-932.774544,NaN
+1,2,lines,Naive,229375.0,-932.970027,NaN
+1,2,lines,Naive,230399.0,-911.462289,NaN
+1,2,lines,Naive,231423.0,-816.686328,NaN
+1,2,lines,Naive,232447.0,-886.223526,NaN
+1,2,lines,Naive,233471.0,-681.026766,NaN
+1,2,lines,Naive,234495.0,-818.780784,NaN
+1,2,lines,Naive,235519.0,-721.81013,NaN
+1,2,lines,Naive,236543.0,-862.422477,NaN
+1,2,lines,Naive,237567.0,-1031.288016,NaN
+1,2,lines,Naive,238591.0,-1031.053141,NaN
+1,2,lines,Naive,239615.0,-1005.780106,NaN
+1,2,lines,Naive,240639.0,-1051.367401,NaN
+1,2,lines,Naive,241663.0,-1013.808485,NaN
+1,2,lines,Naive,242687.0,-1079.57987,NaN
+1,2,lines,Naive,243711.0,-1075.043802,NaN
+1,2,lines,Naive,244735.0,-1209.471469,NaN
+1,2,lines,Naive,245759.0,-1057.947013,NaN
+1,2,lines,Naive,246783.0,-1134.600033,NaN
+1,2,lines,Naive,247807.0,-1238.867344,NaN
+1,2,lines,Naive,248831.0,-1205.637561,NaN
+1,2,lines,Naive,249855.0,-1172.680154,NaN
+1,2,lines,Naive,250879.0,-1255.585362,NaN
+1,2,lines,Naive,251903.0,-1155.206568,NaN
+1,2,lines,Naive,252927.0,-1194.020409,NaN
+1,2,lines,Naive,253951.0,-1370.343098,NaN
+1,2,lines,Naive,254975.0,-1172.663987,NaN
+1,2,lines,Naive,255999.0,-1160.160782,NaN
+1,2,lines,Naive,257023.0,-1147.757205,NaN
+1,2,lines,Naive,258047.0,-1077.323123,NaN
+1,2,lines,Naive,259071.0,-1034.465455,NaN
+1,2,lines,Naive,260095.0,-1095.753475,NaN
+1,2,lines,Naive,261119.0,-1083.797043,NaN
+1,2,lines,Naive,262143.0,-1018.528055,NaN
+1,2,lines,Naive,263167.0,-1155.160031,NaN
+1,2,lines,Naive,264191.0,-1162.038071,NaN
+1,2,lines,Naive,265215.0,-1078.370379,NaN
+1,2,lines,Naive,266239.0,-1134.319164,NaN
+1,2,lines,Naive,267263.0,-1088.815137,NaN
+1,2,lines,Naive,268287.0,-1230.026054,NaN
+1,2,lines,Naive,269311.0,-1210.496415,NaN
+1,2,lines,Naive,270335.0,-1202.21207,NaN
+1,2,lines,Naive,271359.0,-1308.230057,NaN
+1,2,lines,Naive,272383.0,-1182.158945,NaN
+1,2,lines,Naive,273407.0,-1316.718299,NaN
+1,2,lines,Naive,274431.0,-1319.09296,NaN
+1,2,lines,Naive,275455.0,-1357.753535,NaN
+1,2,lines,Naive,276479.0,-1334.640244,NaN
+1,2,lines,Naive,277503.0,-1286.472579,NaN
+1,2,lines,Naive,278527.0,-1213.526875,NaN
+1,2,lines,Naive,279551.0,-1337.859639,NaN
+1,2,lines,Naive,280575.0,-1447.028424,NaN
+1,2,lines,Naive,281599.0,-1285.515929,NaN
+1,2,lines,Naive,282623.0,-1195.939467,NaN
+1,2,lines,Naive,283647.0,-1212.775034,NaN
+1,2,lines,Naive,284671.0,-1169.77142,NaN
+1,2,lines,Naive,285695.0,-1260.085056,NaN
+1,2,lines,Naive,286719.0,-1238.146059,NaN
+1,2,lines,Naive,287743.0,-1209.412566,NaN
+1,2,lines,Naive,288767.0,-1284.772845,NaN
+1,2,lines,Naive,289791.0,-1356.149777,NaN
+1,2,lines,Naive,290815.0,-1320.427076,NaN
+1,2,lines,Naive,291839.0,-1302.087795,NaN
+1,2,lines,Naive,292863.0,-1335.095249,NaN
+1,2,lines,Naive,293887.0,-1374.678023,NaN
+1,2,lines,Naive,294911.0,-1403.813354,NaN
+1,2,lines,Naive,295935.0,-1307.719601,NaN
+1,2,lines,Naive,296959.0,-1323.415017,NaN
+1,2,lines,Naive,297983.0,-1302.087703,NaN
+1,2,lines,Naive,299007.0,-1247.462434,NaN
+1,2,lines,Naive,300031.0,-1296.532692,NaN
+1,2,lines,Naive,301055.0,-1232.332962,NaN
+1,2,lines,Naive,302079.0,-1317.536141,NaN
+1,2,lines,Naive,303103.0,-1342.777868,NaN
+1,2,lines,Naive,304127.0,-1325.104315,NaN
+1,2,lines,Naive,305151.0,-1392.753096,NaN
+1,2,lines,Naive,306175.0,-1522.005389,NaN
+1,2,lines,Naive,307199.0,-1526.697678,NaN
+1,2,lines,Naive,308223.0,-1609.22449,NaN
+1,2,lines,Naive,309247.0,-1626.531543,NaN
+1,2,lines,Naive,310271.0,-1566.372623,NaN
+1,2,lines,Naive,311295.0,-1686.503156,NaN
+1,2,lines,Naive,312319.0,-1620.138384,NaN
+1,2,lines,Naive,313343.0,-1653.140488,NaN
+1,2,lines,Naive,314367.0,-1673.203612,NaN
+1,2,lines,Naive,315391.0,-1601.187098,NaN
+1,2,lines,Naive,316415.0,-1573.882401,NaN
+1,2,lines,Naive,317439.0,-1612.908307,NaN
+1,2,lines,Naive,318463.0,-1623.422501,NaN
+1,2,lines,Naive,319487.0,-1630.739279,NaN
+1,2,lines,Naive,320511.0,-1569.368914,NaN
+1,2,lines,Naive,321535.0,-1583.031396,NaN
+1,2,lines,Naive,322559.0,-1475.699019,NaN
+1,2,lines,Naive,323583.0,-1526.656221,NaN
+1,2,lines,Naive,324607.0,-1543.404794,NaN
+1,2,lines,Naive,325631.0,-1470.99017,NaN
+1,2,lines,Naive,326655.0,-1463.317567,NaN
+1,2,lines,Naive,327679.0,-1446.537618,NaN
+1,2,lines,Naive,328703.0,-1442.031256,NaN
+1,2,lines,Naive,329727.0,-1364.765397,NaN
+1,2,lines,Naive,330751.0,-1454.2662,NaN
+1,2,lines,Naive,331775.0,-1338.256348,NaN
+1,2,lines,Naive,332799.0,-1298.080824,NaN
+1,2,lines,Naive,333823.0,-1234.186979,NaN
+1,2,lines,Naive,334847.0,-1122.900907,NaN
+1,2,lines,Naive,335871.0,-1184.978757,NaN
+1,2,lines,Naive,336895.0,-1261.520652,NaN
+1,2,lines,Naive,337919.0,-1322.80221,NaN
+1,2,lines,Naive,338943.0,-1321.756165,NaN
+1,2,lines,Naive,339967.0,-1329.540808,NaN
+1,2,lines,Naive,340991.0,-1272.760865,NaN
+1,2,lines,Naive,342015.0,-1222.168618,NaN
+1,2,lines,Naive,343039.0,-1201.029621,NaN
+1,2,lines,Naive,344063.0,-1252.677562,NaN
+1,2,lines,Naive,345087.0,-1246.062587,NaN
+1,2,lines,Naive,346111.0,-1184.59107,NaN
+1,2,lines,Naive,347135.0,-1149.408731,NaN
+1,2,lines,Naive,348159.0,-1220.706631,NaN
+1,2,lines,Naive,349183.0,-1254.356598,NaN
+1,2,lines,Naive,350207.0,-1130.759808,NaN
+1,2,lines,Naive,351231.0,-1255.583932,NaN
+1,2,lines,Naive,352255.0,-1283.161346,NaN
+1,2,lines,Naive,353279.0,-1177.539565,NaN
+1,2,lines,Naive,354303.0,-1123.332289,NaN
+1,2,lines,Naive,355327.0,-1212.96721,NaN
+1,2,lines,Naive,356351.0,-1130.907448,NaN
+1,2,lines,Naive,357375.0,-1105.281567,NaN
+1,2,lines,Naive,358399.0,-1118.864729,NaN
+1,2,lines,Naive,359423.0,-1165.757339,NaN
+1,2,lines,Naive,360447.0,-1095.861527,NaN
+1,2,lines,Naive,361471.0,-1139.787148,NaN
+1,2,lines,Naive,362495.0,-1120.015448,NaN
+1,2,lines,Naive,363519.0,-1111.358691,NaN
+1,2,lines,Naive,364543.0,-1176.815904,NaN
+1,2,lines,Naive,365567.0,-1255.583792,NaN
+1,2,lines,Naive,366591.0,-1282.082757,NaN
+1,2,lines,Naive,367615.0,-1273.071012,NaN
+1,2,lines,Naive,368639.0,-1171.878179,NaN
+1,2,lines,Naive,369663.0,-1266.017968,NaN
+1,2,lines,Naive,370687.0,-1278.706834,NaN
+1,2,lines,Naive,371711.0,-1226.759499,NaN
+1,2,lines,Naive,372735.0,-1226.072142,NaN
+1,2,lines,Naive,373759.0,-1238.766157,NaN
+1,2,lines,Naive,374783.0,-1224.708698,NaN
+1,2,lines,Naive,375807.0,-1224.032549,NaN
+1,2,lines,Naive,376831.0,-1226.013783,NaN
+1,2,lines,Naive,377855.0,-1214.75169,NaN
+1,2,lines,Naive,378879.0,-1169.238728,NaN
+1,2,lines,Naive,379903.0,-1187.14514,NaN
+1,2,lines,Naive,380927.0,-1149.826607,NaN
+1,2,lines,Naive,381951.0,-1165.070912,NaN
+1,2,lines,Naive,382975.0,-1180.233697,NaN
+1,2,lines,Naive,383999.0,-1197.919786,NaN
+1,2,lines,Naive,385023.0,-1228.498038,NaN
+1,2,lines,Naive,386047.0,-1253.733354,NaN
+1,2,lines,Naive,387071.0,-1250.41659,NaN
+1,2,lines,Naive,388095.0,-1234.233886,NaN
+1,2,lines,Naive,389119.0,-1223.27617,NaN
+1,2,lines,Naive,390143.0,-1294.397183,NaN
+1,2,lines,Naive,391167.0,-1331.911946,NaN
+1,2,lines,Naive,392191.0,-1371.780586,NaN
+1,2,lines,Naive,393215.0,-1307.172921,NaN
+1,2,lines,Naive,394239.0,-1230.218218,NaN
+1,2,lines,Naive,395263.0,-1194.141622,NaN
+1,2,lines,Naive,396287.0,-1173.392011,NaN
+1,2,lines,Naive,397311.0,-1215.672357,NaN
+1,2,lines,Naive,398335.0,-1287.86072,NaN
+1,2,lines,Naive,399359.0,-1292.070543,NaN
+1,2,lines,Naive,400383.0,-1208.842533,NaN
+1,2,lines,Naive,401407.0,-1300.425752,NaN
+1,2,lines,Naive,402431.0,-1237.47922,NaN
+1,2,lines,Naive,403455.0,-1110.408844,NaN
+1,2,lines,Naive,404479.0,-1147.154735,NaN
+1,2,lines,Naive,405503.0,-1154.122164,NaN
+1,2,lines,Naive,406527.0,-1131.536159,NaN
+1,2,lines,Naive,407551.0,-1126.239415,NaN
+1,2,lines,Naive,408575.0,-1138.10194,NaN
+1,2,lines,Naive,409599.0,-1125.491029,NaN
+1,2,lines,Naive,410623.0,-1052.059919,NaN
+1,2,lines,Naive,411647.0,-1049.442848,NaN
+1,2,lines,Naive,412671.0,-1097.726761,NaN
+1,2,lines,Naive,413695.0,-1133.685445,NaN
+1,2,lines,Naive,414719.0,-1142.942571,NaN
+1,2,lines,Naive,415743.0,-1219.503395,NaN
+1,2,lines,Naive,416767.0,-1250.098976,NaN
+1,2,lines,Naive,417791.0,-1237.460836,NaN
+1,2,lines,Naive,418815.0,-1265.47521,NaN
+1,2,lines,Naive,419839.0,-1221.896965,NaN
+1,2,lines,Naive,420863.0,-1245.060744,NaN
+1,2,lines,Naive,421887.0,-1313.147833,NaN
+1,2,lines,Naive,422911.0,-1227.208562,NaN
+1,2,lines,Naive,423935.0,-1214.808874,NaN
+1,2,lines,Naive,424959.0,-1275.417158,NaN
+1,2,lines,Naive,425983.0,-1246.528617,NaN
+1,2,lines,Naive,427007.0,-1250.564979,NaN
+1,2,lines,Naive,428031.0,-1186.829926,NaN
+1,2,lines,Naive,429055.0,-1237.603571,NaN
+1,2,lines,Naive,430079.0,-1225.356272,NaN
+1,2,lines,Naive,431103.0,-1122.701535,NaN
+1,2,lines,Naive,432127.0,-1108.470427,NaN
+1,2,lines,Naive,433151.0,-1172.801171,NaN
+1,2,lines,Naive,434175.0,-1183.854437,NaN
+1,2,lines,Naive,435199.0,-1183.36669,NaN
+1,2,lines,Naive,436223.0,-1221.852126,NaN
+1,2,lines,Naive,437247.0,-1145.80546,NaN
+1,2,lines,Naive,438271.0,-1131.719872,NaN
+1,2,lines,Naive,439295.0,-1094.936205,NaN
+1,2,lines,Naive,440319.0,-1110.558481,NaN
+1,2,lines,Naive,441343.0,-1164.627059,NaN
+1,2,lines,Naive,442367.0,-1148.367758,NaN
+1,2,lines,Naive,443391.0,-1089.331989,NaN
+1,2,lines,Naive,444415.0,-1136.325282,NaN
+1,2,lines,Naive,445439.0,-1257.18673,NaN
+1,2,lines,Naive,446463.0,-1256.543095,NaN
+1,2,lines,Naive,447487.0,-1217.912476,NaN
+1,2,lines,Naive,448511.0,-1188.376651,NaN
+1,2,lines,Naive,449535.0,-1263.527868,NaN
+1,2,lines,Naive,450559.0,-1262.875672,NaN
+1,2,lines,Naive,451583.0,-1202.436761,NaN
+1,2,lines,Naive,452607.0,-1206.344577,NaN
+1,2,lines,Naive,453631.0,-1150.715008,NaN
+1,2,lines,Naive,454655.0,-1229.50369,NaN
+1,2,lines,Naive,455679.0,-1206.990008,NaN
+1,2,lines,Naive,456703.0,-1186.766892,NaN
+1,2,lines,Naive,457727.0,-1236.544927,NaN
+1,2,lines,Naive,458751.0,-1231.604945,NaN
+1,2,lines,Naive,459775.0,-1252.786689,NaN
+1,2,lines,Naive,460799.0,-1304.256303,NaN
+1,2,lines,Naive,461823.0,-1258.057741,NaN
+1,2,lines,Naive,462847.0,-1158.050068,NaN
+1,2,lines,Naive,463871.0,-1146.870574,NaN
+1,2,lines,Naive,464895.0,-1195.968982,NaN
+1,2,lines,Naive,465919.0,-1236.26639,NaN
+1,2,lines,Naive,466943.0,-1263.53752,NaN
+1,2,lines,Naive,467967.0,-1301.373815,NaN
+1,2,lines,Naive,468991.0,-1311.325804,NaN
+1,2,lines,Naive,470015.0,-1340.382754,NaN
+1,2,lines,Naive,471039.0,-1449.986095,NaN
+1,2,lines,Naive,472063.0,-1366.343052,NaN
+1,2,lines,Naive,473087.0,-1329.565175,NaN
+1,2,lines,Naive,474111.0,-1356.222488,NaN
+1,2,lines,Naive,475135.0,-1311.206289,NaN
+1,2,lines,Naive,476159.0,-1310.486623,NaN
+1,2,lines,Naive,477183.0,-1223.849131,NaN
+1,2,lines,Naive,478207.0,-1369.699733,NaN
+1,2,lines,Naive,479231.0,-1418.939927,NaN
+1,2,lines,Naive,480255.0,-1324.296468,NaN
+1,2,lines,Naive,481279.0,-1323.556606,NaN
+1,2,lines,Naive,482303.0,-1302.086033,NaN
+1,2,lines,Naive,483327.0,-1346.914201,NaN
+1,2,lines,Naive,484351.0,-1323.420412,NaN
+1,2,lines,Naive,485375.0,-1328.869431,NaN
+1,2,lines,Naive,486399.0,-1338.407357,NaN
+1,2,lines,Naive,487423.0,-1341.750389,NaN
+1,2,lines,Naive,488447.0,-1371.69437,NaN
+1,2,lines,Naive,489471.0,-1325.92125,NaN
+1,2,lines,Naive,490495.0,-1280.339249,NaN
+1,2,lines,Naive,491519.0,-1324.465585,NaN
+1,2,lines,Naive,492543.0,-1297.348658,NaN
+1,2,lines,Naive,493567.0,-1290.604923,NaN
+1,2,lines,Naive,494591.0,-1320.28282,NaN
+1,2,lines,Naive,495615.0,-1289.307224,NaN
+1,2,lines,Naive,496639.0,-1298.730063,NaN
+1,2,lines,Naive,497663.0,-1340.264396,NaN
+1,2,lines,Naive,498687.0,-1321.470181,NaN
+1,2,lines,Naive,499711.0,-1334.771498,NaN
+1,2,lines,Naive,500735.0,-1306.080062,NaN
+1,2,lines,Naive,501759.0,-1317.365508,NaN
+1,2,lines,Naive,502783.0,-1336.560703,NaN
+1,2,lines,Naive,503807.0,-1351.708095,NaN
+1,2,lines,Naive,504831.0,-1283.597877,NaN
+1,2,lines,Naive,505855.0,-1294.837453,NaN
+1,2,lines,Naive,506879.0,-1304.05876,NaN
+1,2,lines,Naive,507903.0,-1327.025042,NaN
+1,2,lines,Naive,508927.0,-1328.284803,NaN
+1,2,lines,Naive,509951.0,-1268.74935,NaN
+1,2,lines,Naive,510975.0,-1240.765204,NaN
+1,2,lines,Naive,511999.0,-1281.252502,NaN
+1,2,lines,Naive,513023.0,-1307.933562,NaN
+1,2,lines,Naive,514047.0,-1289.765333,NaN
+1,2,lines,Naive,515071.0,-1279.435262,NaN
+1,2,lines,Naive,516095.0,-1307.89874,NaN
+1,2,lines,Naive,517119.0,-1303.375045,NaN
+1,2,lines,Naive,518143.0,-1250.620003,NaN
+1,2,lines,Naive,519167.0,-1234.670154,NaN
+1,2,lines,Naive,520191.0,-1257.230517,NaN
+1,2,lines,Naive,521215.0,-1237.493165,NaN
+1,2,lines,Naive,522239.0,-1221.662878,NaN
+1,2,lines,Naive,523263.0,-1280.42686,NaN
+1,2,lines,Naive,524287.0,-1289.370135,NaN
+1,2,lines,Naive,525311.0,-1281.145836,NaN
+1,2,lines,Naive,526335.0,-1242.554647,NaN
+1,2,lines,Naive,527359.0,-1238.245673,NaN
+1,2,lines,Naive,528383.0,-1275.589866,NaN
+1,2,lines,Naive,529407.0,-1231.56664,NaN
+1,2,lines,Naive,530431.0,-1270.664799,NaN
+1,2,lines,Naive,531455.0,-1300.204157,NaN
+1,2,lines,Naive,532479.0,-1252.631559,NaN
+1,2,lines,Naive,533503.0,-1263.348097,NaN
+1,2,lines,Naive,534527.0,-1180.482932,NaN
+1,2,lines,Naive,535551.0,-1133.412131,NaN
+1,2,lines,Naive,536575.0,-1127.521782,NaN
+1,2,lines,Naive,537599.0,-1171.87718,NaN
+1,2,lines,Naive,538623.0,-1177.075617,NaN
+1,2,lines,Naive,539647.0,-1245.258475,NaN
+1,2,lines,Naive,540671.0,-1309.483956,NaN
+1,2,lines,Naive,541695.0,-1329.161244,NaN
+1,2,lines,Naive,542719.0,-1335.866259,NaN
+1,2,lines,Naive,543743.0,-1287.372895,NaN
+1,2,lines,Naive,544767.0,-1206.020188,NaN
+1,2,lines,Naive,545791.0,-1192.764263,NaN
+1,2,lines,Naive,546815.0,-1179.557986,NaN
+1,2,lines,Naive,547839.0,-1221.161692,NaN
+1,2,lines,Naive,548863.0,-1300.871073,NaN
+1,2,lines,Naive,549887.0,-1292.992924,NaN
+1,2,lines,Naive,550911.0,-1339.599318,NaN
+1,2,lines,Naive,551935.0,-1282.759745,NaN
+1,2,lines,Naive,552959.0,-1238.789856,NaN
+1,2,lines,Naive,553983.0,-1263.57668,NaN
+1,2,lines,Naive,555007.0,-1264.848912,NaN
+1,2,lines,Naive,556031.0,-1185.185718,NaN
+1,2,lines,Naive,557055.0,-1190.187683,NaN
+1,2,lines,Naive,558079.0,-1186.211988,NaN
+1,2,lines,Naive,559103.0,-1191.193751,NaN
+1,2,lines,Naive,560127.0,-1201.513228,NaN
+1,2,lines,Naive,561151.0,-1170.807857,NaN
+1,2,lines,Naive,562175.0,-1177.569262,NaN
+1,2,lines,Naive,563199.0,-1157.67251,NaN
+1,2,lines,Naive,564223.0,-1130.758583,NaN
+1,2,lines,Naive,565247.0,-1125.171828,NaN
+1,2,lines,Naive,566271.0,-1161.987811,NaN
+1,2,lines,Naive,567295.0,-1135.211839,NaN
+1,2,lines,Naive,568319.0,-1157.800461,NaN
+1,2,lines,Naive,569343.0,-1168.012955,NaN
+1,2,lines,Naive,570367.0,-1169.422495,NaN
+1,2,lines,Naive,571391.0,-1188.328133,NaN
+1,2,lines,Naive,572415.0,-1191.443271,NaN
+1,2,lines,Naive,573439.0,-1161.413856,NaN
+1,2,lines,Naive,574463.0,-1119.306204,NaN
+1,2,lines,Naive,575487.0,-1119.052211,NaN
+1,2,lines,Naive,576511.0,-1080.638531,NaN
+1,2,lines,Naive,577535.0,-1118.546928,NaN
+1,2,lines,Naive,578559.0,-1097.554441,NaN
+1,2,lines,Naive,579583.0,-1085.263025,NaN
+1,2,lines,Naive,580607.0,-1085.071313,NaN
+1,2,lines,Naive,581631.0,-1088.318883,NaN
+1,2,lines,Naive,582655.0,-1107.00157,NaN
+1,2,lines,Naive,583679.0,-1053.661345,NaN
+1,2,lines,Naive,584703.0,-1019.32092,NaN
+1,2,lines,Naive,585727.0,-1014.124328,NaN
+1,2,lines,Naive,586751.0,-1063.483488,NaN
+1,2,lines,Naive,587775.0,-1024.201438,NaN
+1,2,lines,Naive,588799.0,-1034.308822,NaN
+1,2,lines,Naive,589823.0,-1049.467383,NaN
+1,2,lines,Naive,590847.0,-1013.798835,NaN
+1,2,lines,Naive,591871.0,-1027.250871,NaN
+1,2,lines,Naive,592895.0,-1060.896111,NaN
+1,2,lines,Naive,593919.0,-1069.169365,NaN
+1,2,lines,Naive,594943.0,-1040.435806,NaN
+1,2,lines,Naive,595967.0,-1028.580442,NaN
+1,2,lines,Naive,596991.0,-1043.566821,NaN
+1,2,lines,Naive,598015.0,-1101.979047,NaN
+1,2,lines,Naive,599039.0,-1085.071256,NaN
+1,2,lines,Naive,600063.0,-1069.887662,NaN
+1,2,lines,Naive,601087.0,-1036.455621,NaN
+1,2,lines,Naive,602111.0,-999.815649,NaN
+1,2,lines,Naive,603135.0,-1009.724191,NaN
+1,2,lines,Naive,604159.0,-1031.185499,NaN
+1,2,lines,Naive,605183.0,-1034.39786,NaN
+1,2,lines,Naive,606207.0,-1067.292196,NaN
+1,2,lines,Naive,607231.0,-1062.198735,NaN
+1,2,lines,Naive,608255.0,-1040.681951,NaN
+1,2,lines,Naive,609279.0,-1045.498039,NaN
+1,2,lines,Naive,610303.0,-1109.28506,NaN
+1,2,lines,Naive,611327.0,-1053.446028,NaN
+1,2,lines,Naive,612351.0,-1010.858152,NaN
+1,2,lines,Naive,613375.0,-992.867332,NaN
+1,2,lines,Naive,614399.0,-1051.434003,NaN
+1,2,lines,Naive,615423.0,-1022.061249,NaN
+1,2,lines,Naive,616447.0,-970.075286,NaN
+1,2,lines,Naive,617471.0,-1017.051813,NaN
+1,2,lines,Naive,618495.0,-1023.452089,NaN
+1,2,lines,Naive,619519.0,-1075.027562,NaN
+1,2,lines,Naive,620543.0,-1066.807618,NaN
+1,2,lines,Naive,621567.0,-1042.526389,NaN
+1,2,lines,Naive,622591.0,-1031.174559,NaN
+1,2,lines,Naive,623615.0,-1029.481331,NaN
+1,2,lines,Naive,624639.0,-1043.802901,NaN
+1,2,lines,Naive,625663.0,-1048.487764,NaN
+1,2,lines,Naive,626687.0,-1093.04964,NaN
+1,2,lines,Naive,627711.0,-1067.370175,NaN
+1,2,lines,Naive,628735.0,-1086.308222,NaN
+1,2,lines,Naive,629759.0,-1102.008864,NaN
+1,2,lines,Naive,630783.0,-1106.56121,NaN
+1,2,lines,Naive,631807.0,-1142.754037,NaN
+1,2,lines,Naive,632831.0,-1136.164316,NaN
+1,2,lines,Naive,633855.0,-1169.037083,NaN
+1,2,lines,Naive,634879.0,-1171.876846,NaN
+1,2,lines,Naive,635903.0,-1152.691527,NaN
+1,2,lines,Naive,636927.0,-1122.577627,NaN
+1,2,lines,Naive,637951.0,-1181.908955,NaN
+1,2,lines,Naive,638975.0,-1173.754842,NaN
+1,2,lines,Naive,639999.0,-1148.439294,NaN
+1,2,lines,Naive,641023.0,-1148.16473,NaN
+1,2,lines,Naive,642047.0,-1152.563597,NaN
+1,2,lines,Naive,643071.0,-1118.072499,NaN
+1,2,lines,Naive,644095.0,-1111.637258,NaN
+1,2,lines,Naive,645119.0,-1091.271533,NaN
+1,2,lines,Naive,646143.0,-1118.947354,NaN
+1,2,lines,Naive,647167.0,-1206.798245,NaN
+1,2,lines,Naive,648191.0,-1251.174422,NaN
+1,2,lines,Naive,649215.0,-1227.636453,NaN
+1,2,lines,Naive,650239.0,-1133.429401,NaN
+1,2,lines,Naive,651263.0,-1150.073012,NaN
+1,2,lines,Naive,652287.0,-1142.135287,NaN
+1,2,lines,Naive,653311.0,-1166.366401,NaN
+1,2,lines,Naive,654335.0,-1181.35206,NaN
+1,2,lines,Naive,655359.0,-1235.9638,NaN
+1,2,lines,Naive,656383.0,-1301.06965,NaN
+1,2,lines,Naive,657407.0,-1305.127569,NaN
+1,2,lines,Naive,658431.0,-1316.766677,NaN
+1,2,lines,Naive,659455.0,-1329.886042,NaN
+1,2,lines,Naive,660479.0,-1277.860462,NaN
+1,2,lines,Naive,661503.0,-1284.9526,NaN
+1,2,lines,Naive,662527.0,-1249.760387,NaN
+1,2,lines,Naive,663551.0,-1318.66277,NaN
+1,2,lines,Naive,664575.0,-1360.26784,NaN
+1,2,lines,Naive,665599.0,-1361.17993,NaN
+1,2,lines,Naive,666623.0,-1335.087448,NaN
+1,2,lines,Naive,667647.0,-1330.04417,NaN
+1,2,lines,Naive,668671.0,-1286.13324,NaN
+1,2,lines,Naive,669695.0,-1300.592061,NaN
+1,2,lines,Naive,670719.0,-1277.733298,NaN
+1,2,lines,Naive,671743.0,-1241.546246,NaN
+1,2,lines,Naive,672767.0,-1218.846941,NaN
+1,2,lines,Naive,673791.0,-1228.867705,NaN
+1,2,lines,Naive,674815.0,-1225.521069,NaN
+1,2,lines,Naive,675839.0,-1239.940282,NaN
+1,2,lines,Naive,676863.0,-1243.974039,NaN
+1,2,lines,Naive,677887.0,-1200.790102,NaN
+1,2,lines,Naive,678911.0,-1224.019054,NaN
+1,2,lines,Naive,679935.0,-1178.053785,NaN
+1,2,lines,Naive,680959.0,-1218.869271,NaN
+1,2,lines,Naive,681983.0,-1241.966442,NaN
+1,2,lines,Naive,683007.0,-1273.779039,NaN
+1,2,lines,Naive,684031.0,-1271.872181,NaN
+1,2,lines,Naive,685055.0,-1287.487866,NaN
+1,2,lines,Naive,686079.0,-1303.056937,NaN
+1,2,lines,Naive,687103.0,-1229.801063,NaN
+1,2,lines,Naive,688127.0,-1255.582182,NaN
+1,2,lines,Naive,689151.0,-1269.678198,NaN
+1,2,lines,Naive,690175.0,-1246.060782,NaN
+1,2,lines,Naive,691199.0,-1200.811922,NaN
+1,2,lines,Naive,692223.0,-1193.257086,NaN
+1,2,lines,Naive,693247.0,-1175.627157,NaN
+1,2,lines,Naive,694271.0,-1120.599881,NaN
+1,2,lines,Naive,695295.0,-1133.331895,NaN
+1,2,lines,Naive,696319.0,-1111.559501,NaN
+1,2,lines,Naive,697343.0,-1114.229296,NaN
+1,2,lines,Naive,698367.0,-1081.093465,NaN
+1,2,lines,Naive,699391.0,-1078.080787,NaN
+1,2,lines,Naive,700415.0,-1077.932369,NaN
+1,2,lines,Naive,701439.0,-1096.317713,NaN
+1,2,lines,Naive,702463.0,-1059.130516,NaN
+1,2,lines,Naive,703487.0,-1014.944128,NaN
+1,2,lines,Naive,704511.0,-1061.729341,NaN
+1,2,lines,Naive,705535.0,-1074.362009,NaN
+1,2,lines,Naive,706559.0,-1060.067171,NaN
+1,2,lines,Naive,707583.0,-1057.119801,NaN
+1,2,lines,Naive,708607.0,-1030.190218,NaN
+1,2,lines,Naive,709631.0,-1044.204664,NaN
+1,2,lines,Naive,710655.0,-1039.885739,NaN
+1,2,lines,Naive,711679.0,-1003.261302,NaN
+1,2,lines,Naive,712703.0,-1017.254031,NaN
+1,2,lines,Naive,713727.0,-1050.821953,NaN
+1,2,lines,Naive,714751.0,-1073.100982,NaN
+1,2,lines,Naive,715775.0,-1081.345395,NaN
+1,2,lines,Naive,716799.0,-1085.380978,NaN
+1,2,lines,Naive,717823.0,-1054.577521,NaN
+1,2,lines,Naive,718847.0,-1036.381873,NaN
+1,2,lines,Naive,719871.0,-1004.346612,NaN
+1,2,lines,Naive,720895.0,-977.951019,NaN
+1,2,lines,Naive,721919.0,-1001.497398,NaN
+1,2,lines,Naive,722943.0,-971.030911,NaN
+1,2,lines,Naive,723967.0,-961.369786,NaN
+1,2,lines,Naive,724991.0,-964.1499,NaN
+1,2,lines,Naive,726015.0,-986.205519,NaN
+1,2,lines,Naive,727039.0,-957.307655,NaN
+1,2,lines,Naive,728063.0,-879.044808,NaN
+1,2,lines,Naive,729087.0,-886.039663,NaN
+1,2,lines,Naive,730111.0,-931.365231,NaN
+1,2,lines,Naive,731135.0,-924.58985,NaN
+1,2,lines,Naive,732159.0,-891.882774,NaN
+1,2,lines,Naive,733183.0,-908.368034,NaN
+1,2,lines,Naive,734207.0,-888.032939,NaN
+1,2,lines,Naive,735231.0,-939.840676,NaN
+1,2,lines,Naive,736255.0,-939.891749,NaN
+1,2,lines,Naive,737279.0,-958.931422,NaN
+1,2,lines,Naive,738303.0,-961.664791,NaN
+1,2,lines,Naive,739327.0,-958.980262,NaN
+1,2,lines,Naive,740351.0,-971.160976,NaN
+1,2,lines,Naive,741375.0,-976.563817,NaN
+1,2,lines,Naive,742399.0,-961.746985,NaN
+1,2,lines,Naive,743423.0,-968.493038,NaN
+1,2,lines,Naive,744447.0,-965.81758,NaN
+1,2,lines,Naive,745471.0,-957.783737,NaN
+1,2,lines,Naive,746495.0,-929.678029,NaN
+1,2,lines,Naive,747519.0,-924.391219,NaN
+1,2,lines,Naive,748543.0,-941.829661,NaN
+1,2,lines,Naive,749567.0,-907.190418,NaN
+1,2,lines,Naive,750591.0,-885.968523,NaN
+1,2,lines,Naive,751615.0,-858.152112,NaN
+1,2,lines,Naive,752639.0,-801.180911,NaN
+1,2,lines,Naive,753663.0,-804.072908,NaN
+1,2,lines,Naive,754687.0,-833.458109,NaN
+1,2,lines,Naive,755711.0,-887.905562,NaN
+1,2,lines,Naive,756735.0,-851.024467,NaN
+1,2,lines,Naive,757759.0,-816.882412,NaN
+1,2,lines,Naive,758783.0,-794.693608,NaN
+1,2,lines,Naive,759807.0,-848.899786,NaN
+1,2,lines,Naive,760831.0,-853.014664,NaN
+1,2,lines,Naive,761855.0,-837.429695,NaN
+1,2,lines,Naive,762879.0,-838.927274,NaN
+1,2,lines,Naive,763903.0,-807.694171,NaN
+1,2,lines,Naive,764927.0,-841.910405,NaN
+1,2,lines,Naive,765951.0,-819.89579,NaN
+1,2,lines,Naive,766975.0,-829.231722,NaN
+1,2,lines,Naive,767999.0,-838.542759,NaN
+1,2,lines,Naive,769023.0,-906.344804,NaN
+1,2,lines,Naive,770047.0,-877.868494,NaN
+1,2,lines,Naive,771071.0,-861.139895,NaN
+1,2,lines,Naive,772095.0,-845.750847,NaN
+1,2,lines,Naive,773119.0,-892.488737,NaN
+1,2,lines,Naive,774143.0,-890.016444,NaN
+1,2,lines,Naive,775167.0,-884.970593,NaN
+1,2,lines,Naive,776191.0,-877.361371,NaN
+1,2,lines,Naive,777215.0,-868.485554,NaN
+1,2,lines,Naive,778239.0,-867.342809,NaN
+1,2,lines,Naive,779263.0,-898.284661,NaN
+1,2,lines,Naive,780287.0,-879.163692,NaN
+1,2,lines,Naive,781311.0,-863.932544,NaN
+1,2,lines,Naive,782335.0,-888.366237,NaN
+1,2,lines,Naive,783359.0,-876.992541,NaN
+1,2,lines,Naive,784383.0,-866.923429,NaN
+1,2,lines,Naive,785407.0,-832.689294,NaN
+1,2,lines,Naive,786431.0,-815.074686,NaN
+1,2,lines,Naive,787455.0,-814.014769,NaN
+1,2,lines,Naive,788479.0,-786.324049,NaN
+1,2,lines,Naive,789503.0,-832.169099,NaN
+1,2,lines,Naive,790527.0,-855.125758,NaN
+1,2,lines,Naive,791551.0,-866.652938,NaN
+1,2,lines,Naive,792575.0,-855.439548,NaN
+1,2,lines,Naive,793599.0,-808.972794,NaN
+1,2,lines,Naive,794623.0,-851.976346,NaN
+1,2,lines,Naive,795647.0,-809.40417,NaN
+1,2,lines,Naive,796671.0,-808.363804,NaN
+1,2,lines,Naive,797695.0,-768.464137,NaN
+1,2,lines,Naive,798719.0,-749.950859,NaN
+1,2,lines,Naive,799743.0,-722.732178,NaN
+1,2,lines,Naive,800767.0,-710.568742,NaN
+1,2,lines,Naive,801791.0,-755.807935,NaN
+1,2,lines,Naive,802815.0,-737.405255,NaN
+1,2,lines,Naive,803839.0,-716.561401,NaN
+1,2,lines,Naive,804863.0,-714.407297,NaN
+1,2,lines,Naive,805887.0,-717.222142,NaN
+1,2,lines,Naive,806911.0,-769.601604,NaN
+1,2,lines,Naive,807935.0,-758.724402,NaN
+1,2,lines,Naive,808959.0,-756.527834,NaN
+1,2,lines,Naive,809983.0,-743.225475,NaN
+1,2,lines,Naive,811007.0,-739.820988,NaN
+1,2,lines,Naive,812031.0,-752.434328,NaN
+1,2,lines,Naive,813055.0,-761.32611,NaN
+1,2,lines,Naive,814079.0,-757.911701,NaN
+1,2,lines,Naive,815103.0,-753.279033,NaN
+1,2,lines,Naive,816127.0,-699.646011,NaN
+1,2,lines,Naive,817151.0,-676.741508,NaN
+1,2,lines,Naive,818175.0,-668.561127,NaN
+1,2,lines,Naive,819199.0,-678.711766,NaN
+1,2,lines,Naive,820223.0,-705.905589,NaN
+1,2,lines,Naive,821247.0,-717.202011,NaN
+1,2,lines,Naive,822271.0,-693.202119,NaN
+1,2,lines,Naive,823295.0,-689.910664,NaN
+1,2,lines,Naive,824319.0,-724.234186,NaN
+1,2,lines,Naive,825343.0,-758.472538,NaN
+1,2,lines,Naive,826367.0,-746.641625,NaN
+1,2,lines,Naive,827391.0,-732.42276,NaN
+1,2,lines,Naive,828415.0,-764.109776,NaN
+1,2,lines,Naive,829439.0,-745.081917,NaN
+1,2,lines,Naive,830463.0,-755.000524,NaN
+1,2,lines,Naive,831487.0,-738.436079,NaN
+1,2,lines,Naive,832511.0,-745.93609,NaN
+1,2,lines,Naive,833535.0,-763.01535,NaN
+1,2,lines,Naive,834559.0,-735.717906,NaN
+1,2,lines,Naive,835583.0,-747.980751,NaN
+1,2,lines,Naive,836607.0,-732.721577,NaN
+1,2,lines,Naive,837631.0,-759.284219,NaN
+1,2,lines,Naive,838655.0,-800.090621,NaN
+1,2,lines,Naive,839679.0,-782.441862,NaN
+1,2,lines,Naive,840703.0,-763.646615,NaN
+1,2,lines,Naive,841727.0,-702.127887,NaN
+1,2,lines,Naive,842751.0,-683.475902,NaN
+1,2,lines,Naive,843775.0,-650.647388,NaN
+1,2,lines,Naive,844799.0,-683.002702,NaN
+1,2,lines,Naive,845823.0,-659.712493,NaN
+1,2,lines,Naive,846847.0,-650.648818,NaN
+1,2,lines,Naive,847871.0,-642.786462,NaN
+1,2,lines,Naive,848895.0,-662.037119,NaN
+1,2,lines,Naive,849919.0,-693.007216,NaN
+1,2,lines,Naive,850943.0,-680.421603,NaN
+1,2,lines,Naive,851967.0,-666.692489,NaN
+1,2,lines,Naive,852991.0,-675.2709,NaN
+1,2,lines,Naive,854015.0,-725.982565,NaN
+1,2,lines,Naive,855039.0,-757.860168,NaN
+1,2,lines,Naive,856063.0,-726.582039,NaN
+1,2,lines,Naive,857087.0,-709.379561,NaN
+1,2,lines,Naive,858111.0,-712.029096,NaN
+1,2,lines,Naive,859135.0,-675.097627,NaN
+1,2,lines,Naive,860159.0,-671.968787,NaN
+1,2,lines,Naive,861183.0,-690.910062,NaN
+1,2,lines,Naive,862207.0,-699.368017,NaN
+1,2,lines,Naive,863231.0,-732.133114,NaN
+1,2,lines,Naive,864255.0,-745.150447,NaN
+1,2,lines,Naive,865279.0,-704.974927,NaN
+1,2,lines,Naive,866303.0,-737.617208,NaN
+1,2,lines,Naive,867327.0,-764.417573,NaN
+1,2,lines,Naive,868351.0,-773.880608,NaN
+1,2,lines,Naive,869375.0,-770.668584,NaN
+1,2,lines,Naive,870399.0,-755.975133,NaN
+1,2,lines,Naive,871423.0,-772.30002,NaN
+1,2,lines,Naive,872447.0,-750.761937,NaN
+1,2,lines,Naive,873471.0,-763.620086,NaN
+1,2,lines,Naive,874495.0,-763.869433,NaN
+1,2,lines,Naive,875519.0,-791.530509,NaN
+1,2,lines,Naive,876543.0,-810.000194,NaN
+1,2,lines,Naive,877567.0,-827.287261,NaN
+1,2,lines,Naive,878591.0,-827.461242,NaN
+1,2,lines,Naive,879615.0,-849.235177,NaN
+1,2,lines,Naive,880639.0,-817.588138,NaN
+1,2,lines,Naive,881663.0,-833.65186,NaN
+1,2,lines,Naive,882687.0,-790.767282,NaN
+1,2,lines,Naive,883711.0,-814.745997,NaN
+1,2,lines,Naive,884735.0,-812.672721,NaN
+1,2,lines,Naive,885759.0,-824.151942,NaN
+1,2,lines,Naive,886783.0,-843.498353,NaN
+1,2,lines,Naive,887807.0,-852.662797,NaN
+1,2,lines,Naive,888831.0,-840.429733,NaN
+1,2,lines,Naive,889855.0,-830.47238,NaN
+1,2,lines,Naive,890879.0,-814.925484,NaN
+1,2,lines,Naive,891903.0,-813.989862,NaN
+1,2,lines,Naive,892927.0,-832.094897,NaN
+1,2,lines,Naive,893951.0,-802.057383,NaN
+1,2,lines,Naive,894975.0,-781.027403,NaN
+1,2,lines,Naive,895999.0,-775.670509,NaN
+1,2,lines,Naive,897023.0,-765.86665,NaN
+1,2,lines,Naive,898047.0,-796.172138,NaN
+1,2,lines,Naive,899071.0,-831.969889,NaN
+1,2,lines,Naive,900095.0,-827.69041,NaN
+1,2,lines,Naive,901119.0,-865.590449,NaN
+1,2,lines,Naive,902143.0,-833.570731,NaN
+1,2,lines,Naive,903167.0,-832.625638,NaN
+1,2,lines,Naive,904191.0,-827.258842,NaN
+1,2,lines,Naive,905215.0,-817.485349,NaN
+1,2,lines,Naive,906239.0,-803.320095,NaN
+1,2,lines,Naive,907263.0,-829.968818,NaN
+1,2,lines,Naive,908287.0,-808.114616,NaN
+1,2,lines,Naive,909311.0,-794.007771,NaN
+1,2,lines,Naive,910335.0,-770.046192,NaN
+1,2,lines,Naive,911359.0,-746.138459,NaN
+1,2,lines,Naive,912383.0,-734.340732,NaN
+1,2,lines,Naive,913407.0,-713.811039,NaN
+1,2,lines,Naive,914431.0,-726.134613,NaN
+1,2,lines,Naive,915455.0,-727.507087,NaN
+1,2,lines,Naive,916479.0,-734.332156,NaN
+1,2,lines,Naive,917503.0,-743.32182,NaN
+1,2,lines,Naive,918527.0,-766.444536,NaN
+1,2,lines,Naive,919551.0,-752.541186,NaN
+1,2,lines,Naive,920575.0,-756.049208,NaN
+1,2,lines,Naive,921599.0,-750.86887,NaN
+1,2,lines,Naive,922623.0,-777.132155,NaN
+1,2,lines,Naive,923647.0,-837.982476,NaN
+1,2,lines,Naive,924671.0,-832.728614,NaN
+1,2,lines,Naive,925695.0,-831.807453,NaN
+1,2,lines,Naive,926719.0,-829.809252,NaN
+1,2,lines,Naive,927743.0,-798.712574,NaN
+1,2,lines,Naive,928767.0,-787.065001,NaN
+1,2,lines,Naive,929791.0,-759.310426,NaN
+1,2,lines,Naive,930815.0,-764.921064,NaN
+1,2,lines,Naive,931839.0,-795.201746,NaN
+1,2,lines,Naive,932863.0,-760.025856,NaN
+1,2,lines,Naive,933887.0,-770.97122,NaN
+1,2,lines,Naive,934911.0,-788.310331,NaN
+1,2,lines,Naive,935935.0,-761.80504,NaN
+1,2,lines,Naive,936959.0,-786.587247,NaN
+1,2,lines,Naive,937983.0,-774.001235,NaN
+1,2,lines,Naive,939007.0,-772.092221,NaN
+1,2,lines,Naive,940031.0,-759.549419,NaN
+1,2,lines,Naive,941055.0,-755.535011,NaN
+1,2,lines,Naive,942079.0,-799.296025,NaN
+1,2,lines,Naive,943103.0,-771.919928,NaN
+1,2,lines,Naive,944127.0,-789.088756,NaN
+1,2,lines,Naive,945151.0,-807.278414,NaN
+1,2,lines,Naive,946175.0,-821.201152,NaN
+1,2,lines,Naive,947199.0,-849.874208,NaN
+1,2,lines,Naive,948223.0,-848.956416,NaN
+1,2,lines,Naive,949247.0,-832.238606,NaN
+1,2,lines,Naive,950271.0,-826.080139,NaN
+1,2,lines,Naive,951295.0,-824.139725,NaN
+1,2,lines,Naive,952319.0,-802.252187,NaN
+1,2,lines,Naive,953343.0,-788.80319,NaN
+1,2,lines,Naive,954367.0,-775.383055,NaN
+1,2,lines,Naive,955391.0,-793.392444,NaN
+1,2,lines,Naive,956415.0,-795.6797,NaN
+1,2,lines,Naive,957439.0,-825.11784,NaN
+1,2,lines,Naive,958463.0,-832.583,NaN
+1,2,lines,Naive,959487.0,-844.20112,NaN
+1,2,lines,Naive,960511.0,-856.83558,NaN
+1,2,lines,Naive,961535.0,-841.363029,NaN
+1,2,lines,Naive,962559.0,-833.195679,NaN
+1,2,lines,Naive,963583.0,-838.537002,NaN
+1,2,lines,Naive,964607.0,-843.866984,NaN
+1,2,lines,Naive,965631.0,-833.651778,NaN
+1,2,lines,Naive,966655.0,-796.561338,NaN
+1,2,lines,Naive,967679.0,-768.850001,NaN
+1,2,lines,Naive,968703.0,-769.06957,NaN
+1,2,lines,Naive,969727.0,-781.663293,NaN
+1,2,lines,Naive,970751.0,-807.62214,NaN
+1,2,lines,Naive,971775.0,-806.771115,NaN
+1,2,lines,Naive,972799.0,-813.117612,NaN
+1,2,lines,Naive,973823.0,-828.692689,NaN
+1,2,lines,Naive,974847.0,-818.589994,NaN
+1,2,lines,Naive,975871.0,-781.865636,NaN
+1,2,lines,Naive,976895.0,-776.951464,NaN
+1,2,lines,Naive,977919.0,-793.521754,NaN
+1,2,lines,Naive,978943.0,-799.842279,NaN
+1,2,lines,Naive,979967.0,-824.51756,NaN
+1,2,lines,Naive,980991.0,-828.753781,NaN
+1,2,lines,Naive,982015.0,-819.743079,NaN
+1,2,lines,Naive,983039.0,-799.56136,NaN
+1,2,lines,Naive,984063.0,-738.773839,NaN
+1,2,lines,Naive,985087.0,-740.036159,NaN
+1,2,lines,Naive,986111.0,-726.084589,NaN
+1,2,lines,Naive,987135.0,-756.735401,NaN
+1,2,lines,Naive,988159.0,-783.274756,NaN
+1,2,lines,Naive,989183.0,-772.354559,NaN
+1,2,lines,Naive,990207.0,-778.625075,NaN
+1,2,lines,Naive,991231.0,-752.599545,NaN
+1,2,lines,Naive,992255.0,-791.127281,NaN
+1,2,lines,Naive,993279.0,-748.027493,NaN
+1,2,lines,Naive,994303.0,-755.302961,NaN
+1,2,lines,Naive,995327.0,-753.521205,NaN
+1,2,lines,Naive,996351.0,-753.750435,NaN
+1,2,lines,Naive,997375.0,-753.979195,NaN
+1,2,lines,Naive,998399.0,-770.233143,NaN
+1,2,lines,Naive,999423.0,-752.434155,NaN
+1,2,lines,Naive,1.000447e6,-732.672495,NaN
+1,2,lines,Naive,1.001471e6,-749.896902,NaN
+1,2,lines,Naive,1.002495e6,-754.118474,NaN
+1,2,lines,Naive,1.003519e6,-789.222725,NaN
+1,2,lines,Naive,1.004543e6,-769.504143,NaN
+1,2,lines,Naive,1.005567e6,-783.63749,NaN
+1,2,lines,Naive,1.006591e6,-773.89923,NaN
+1,2,lines,Naive,1.007615e6,-788.991827,NaN
+1,2,lines,Naive,1.008639e6,-806.036649,NaN
+1,2,lines,Naive,1.009663e6,-834.932052,NaN
+1,2,lines,Naive,1.010687e6,-858.821772,NaN
+1,2,lines,Naive,1.011711e6,-840.160876,NaN
+1,2,lines,Naive,1.012735e6,-816.600591,NaN
+1,2,lines,Naive,1.013759e6,-812.816458,NaN
+1,2,lines,Naive,1.014783e6,-811.996259,NaN
+1,2,lines,Naive,1.015807e6,-819.053226,NaN
+1,2,lines,Naive,1.016831e6,-789.708418,NaN
+1,2,lines,Naive,1.017855e6,-785.966567,NaN
+1,2,lines,Naive,1.018879e6,-794.009887,NaN
+1,2,lines,Naive,1.019903e6,-802.037056,NaN
+1,2,lines,Naive,1.020927e6,-807.109617,NaN
+1,2,lines,Naive,1.021951e6,-833.699463,NaN
+1,2,lines,Naive,1.022975e6,-837.752633,NaN
+1,2,lines,Naive,1.023999e6,-845.703951,NaN
+1,2,lines,Naive,1.025023e6,-835.103212,NaN
+1,2,lines,Naive,1.026047e6,-810.879034,NaN
+1,2,lines,Naive,1.027071e6,-809.096937,NaN
+1,2,lines,Naive,1.028095e6,-805.373044,NaN
+1,2,lines,Naive,1.029119e6,-807.486792,NaN
+1,2,lines,Naive,1.030143e6,-810.567077,NaN
+1,2,lines,Naive,1.031167e6,-797.155068,NaN
+1,2,lines,Naive,1.032191e6,-807.989994,NaN
+1,2,lines,Naive,1.033215e6,-792.671419,NaN
+1,2,lines,Naive,1.034239e6,-806.390012,NaN
+1,2,lines,Naive,1.035263e6,-769.852685,NaN
+1,2,lines,Naive,1.036287e6,-772.951895,NaN
+1,2,lines,Naive,1.037311e6,-794.361575,NaN
+1,2,lines,Naive,1.038335e6,-777.205815,NaN
+1,2,lines,Naive,1.039359e6,-805.304038,NaN
+1,2,lines,Naive,1.040383e6,-784.326541,NaN
+1,2,lines,Naive,1.041407e6,-770.111974,NaN
+1,2,lines,Naive,1.042431e6,-740.576595,NaN
+1,2,lines,Naive,1.043455e6,-739.849826,NaN
+1,2,lines,Naive,1.044479e6,-700.827877,NaN
+1,2,lines,Naive,1.045503e6,-697.272031,NaN
+1,2,lines,Naive,1.046527e6,-736.722512,NaN
+1,2,lines,Naive,1.047551e6,-725.50167,NaN
+1,2,lines,Naive,1.048575e6,-806.809241,NaN

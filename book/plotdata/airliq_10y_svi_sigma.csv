@@ -1,0 +1,925 @@
+panel,plot,kind,label,x,y,z
+1,1,scatter,Reference,-0.6931471805599453,27.808,NaN
+1,1,scatter,Reference,-0.5978370007556204,27.244,NaN
+1,1,scatter,Reference,-0.5108256237659907,26.691,NaN
+1,1,scatter,Reference,-0.4307829160924542,26.148,NaN
+1,1,scatter,Reference,-0.35667494393873245,25.604,NaN
+1,1,scatter,Reference,-0.2876820724517809,25.040000000000003,NaN
+1,1,scatter,Reference,-0.2231435513142097,24.454,NaN
+1,1,scatter,Reference,-0.1625189294977748,23.896,NaN
+1,1,scatter,Reference,-0.10536051565782628,23.345,NaN
+1,1,scatter,Reference,-0.05129329438755046,22.803,NaN
+1,1,scatter,Reference,0.0,22.269,NaN
+1,1,scatter,Reference,0.04879016416943205,21.742,NaN
+1,1,scatter,Reference,0.09531017980432493,21.223,NaN
+1,1,scatter,Reference,0.13976194237515882,20.701,NaN
+1,1,scatter,Reference,0.1823215567939546,20.217,NaN
+1,1,scatter,Reference,0.22314355131420976,19.8,NaN
+1,1,scatter,Reference,0.26236426446749106,19.398,NaN
+1,1,scatter,Reference,0.30010459245033816,19.023,NaN
+1,1,scatter,Reference,0.3364722366212129,18.669,NaN
+1,1,scatter,Reference,0.371563556432483,18.351,NaN
+1,1,scatter,Reference,0.4054651081081644,18.067,NaN
+1,2,lines,Parabolic-LM,-1.5,34.21008415035893,NaN
+1,2,lines,Parabolic-LM,-1.49,34.14417730768784,NaN
+1,2,lines,Parabolic-LM,-1.48,34.078143021159256,NaN
+1,2,lines,Parabolic-LM,-1.47,34.01198054878967,NaN
+1,2,lines,Parabolic-LM,-1.46,33.945689141371176,NaN
+1,2,lines,Parabolic-LM,-1.45,33.87926804237263,NaN
+1,2,lines,Parabolic-LM,-1.44,33.812716487839175,NaN
+1,2,lines,Parabolic-LM,-1.43,33.74603370628994,NaN
+1,2,lines,Parabolic-LM,-1.42,33.67921891861388,NaN
+1,2,lines,Parabolic-LM,-1.41,33.61227133796382,NaN
+1,2,lines,Parabolic-LM,-1.4,33.5451901696486,NaN
+1,2,lines,Parabolic-LM,-1.39,33.477974611023214,NaN
+1,2,lines,Parabolic-LM,-1.38,33.41062385137706,NaN
+1,2,lines,Parabolic-LM,-1.37,33.34313707182011,NaN
+1,2,lines,Parabolic-LM,-1.36,33.27551344516697,NaN
+1,2,lines,Parabolic-LM,-1.35,33.20775213581895,NaN
+1,2,lines,Parabolic-LM,-1.34,33.13985229964384,NaN
+1,2,lines,Parabolic-LM,-1.33,33.07181308385353,NaN
+1,2,lines,Parabolic-LM,-1.32,33.0036336268794,NaN
+1,2,lines,Parabolic-LM,-1.31,32.935313058245306,NaN
+1,2,lines,Parabolic-LM,-1.3,32.86685049843832,NaN
+1,2,lines,Parabolic-LM,-1.29,32.79824505877693,NaN
+1,2,lines,Parabolic-LM,-1.28,32.72949584127686,NaN
+1,2,lines,Parabolic-LM,-1.27,32.66060193851429,NaN
+1,2,lines,Parabolic-LM,-1.26,32.591562433486544,NaN
+1,2,lines,Parabolic-LM,-1.25,32.52237639947008,NaN
+1,2,lines,Parabolic-LM,-1.24,32.4530428998758,NaN
+1,2,lines,Parabolic-LM,-1.23,32.38356098810154,NaN
+1,2,lines,Parabolic-LM,-1.22,32.313929707381796,NaN
+1,2,lines,Parabolic-LM,-1.21,32.244148090634475,NaN
+1,2,lines,Parabolic-LM,-1.2,32.17421516030468,NaN
+1,2,lines,Parabolic-LM,-1.19,32.1041299282055,NaN
+1,2,lines,Parabolic-LM,-1.18,32.03389139535561,NaN
+1,2,lines,Parabolic-LM,-1.17,31.963498551813707,NaN
+1,2,lines,Parabolic-LM,-1.16,31.89295037650969,NaN
+1,2,lines,Parabolic-LM,-1.15,31.822245837072483,NaN
+1,2,lines,Parabolic-LM,-1.14,31.75138388965441,NaN
+1,2,lines,Parabolic-LM,-1.13,31.68036347875207,NaN
+1,2,lines,Parabolic-LM,-1.12,31.60918353702361,NaN
+1,2,lines,Parabolic-LM,-1.11,31.537842985102298,NaN
+1,2,lines,Parabolic-LM,-1.1,31.466340731406344,NaN
+1,2,lines,Parabolic-LM,-1.09,31.39467567194482,NaN
+1,2,lines,Parabolic-LM,-1.08,31.32284669011961,NaN
+1,2,lines,Parabolic-LM,-1.07,31.250852656523314,NaN
+1,2,lines,Parabolic-LM,-1.06,31.178692428732962,NaN
+1,2,lines,Parabolic-LM,-1.05,31.10636485109947,NaN
+1,2,lines,Parabolic-LM,-1.04,31.033868754532683,NaN
+1,2,lines,Parabolic-LM,-1.03,30.96120295628194,NaN
+1,2,lines,Parabolic-LM,-1.02,30.88836625971205,NaN
+1,2,lines,Parabolic-LM,-1.01,30.815357454074505,NaN
+1,2,lines,Parabolic-LM,-1.0,30.74217531427384,NaN
+1,2,lines,Parabolic-LM,-0.99,30.668818600629074,NaN
+1,2,lines,Parabolic-LM,-0.98,30.595286058629966,NaN
+1,2,lines,Parabolic-LM,-0.97,30.521576418688117,NaN
+1,2,lines,Parabolic-LM,-0.96,30.44768839588261,NaN
+1,2,lines,Parabolic-LM,-0.95,30.37362068970022,NaN
+1,2,lines,Parabolic-LM,-0.94,30.29937198376992,NaN
+1,2,lines,Parabolic-LM,-0.93,30.224940945591534,NaN
+1,2,lines,Parabolic-LM,-0.92,30.150326226258535,NaN
+1,2,lines,Parabolic-LM,-0.91,30.0755264601746,NaN
+1,2,lines,Parabolic-LM,-0.9,30.000540264763963,NaN
+1,2,lines,Parabolic-LM,-0.89,29.925366240175254,NaN
+1,2,lines,Parabolic-LM,-0.88,29.8500029689787,NaN
+1,2,lines,Parabolic-LM,-0.87,29.774449015856586,NaN
+1,2,lines,Parabolic-LM,-0.86,29.698702927286604,NaN
+1,2,lines,Parabolic-LM,-0.85,29.6227632312181,NaN
+1,2,lines,Parabolic-LM,-0.84,29.54662843674089,NaN
+1,2,lines,Parabolic-LM,-0.83,29.47029703374648,NaN
+1,2,lines,Parabolic-LM,-0.82,29.393767492581464,NaN
+1,2,lines,Parabolic-LM,-0.81,29.31703826369295,NaN
+1,2,lines,Parabolic-LM,-0.8,29.240107777265678,NaN
+1,2,lines,Parabolic-LM,-0.79,29.162974442850686,NaN
+1,2,lines,Parabolic-LM,-0.78,29.085636648985254,NaN
+1,2,lines,Parabolic-LM,-0.77,29.008092762803848,NaN
+1,2,lines,Parabolic-LM,-0.76,28.930341129639903,NaN
+1,2,lines,Parabolic-LM,-0.75,28.85238007261805,NaN
+1,2,lines,Parabolic-LM,-0.74,28.774207892236625,NaN
+1,2,lines,Parabolic-LM,-0.73,28.6958228659401,NaN
+1,2,lines,Parabolic-LM,-0.72,28.61722324768124,NaN
+1,2,lines,Parabolic-LM,-0.71,28.53840726747256,NaN
+1,2,lines,Parabolic-LM,-0.7,28.459373130926895,NaN
+1,2,lines,Parabolic-LM,-0.69,28.380119018786665,NaN
+1,2,lines,Parabolic-LM,-0.68,28.30064308644158,NaN
+1,2,lines,Parabolic-LM,-0.67,28.220943463434377,NaN
+1,2,lines,Parabolic-LM,-0.66,28.141018252954332,NaN
+1,2,lines,Parabolic-LM,-0.65,28.060865531318036,NaN
+1,2,lines,Parabolic-LM,-0.64,27.980483347437218,NaN
+1,2,lines,Parabolic-LM,-0.63,27.899869722273092,NaN
+1,2,lines,Parabolic-LM,-0.62,27.81902264827695,NaN
+1,2,lines,Parabolic-LM,-0.61,27.737940088816472,NaN
+1,2,lines,Parabolic-LM,-0.6,27.656619977587393,NaN
+1,2,lines,Parabolic-LM,-0.59,27.57506021801009,NaN
+1,2,lines,Parabolic-LM,-0.58,27.493258682610566,NaN
+1,2,lines,Parabolic-LM,-0.57,27.411213212385473,NaN
+1,2,lines,Parabolic-LM,-0.56,27.328921616150538,NaN
+1,2,lines,Parabolic-LM,-0.55,27.24638166987206,NaN
+1,2,lines,Parabolic-LM,-0.54,27.16359111598084,NaN
+1,2,lines,Parabolic-LM,-0.53,27.080547662668003,NaN
+1,2,lines,Parabolic-LM,-0.52,26.997248983162304,NaN
+1,2,lines,Parabolic-LM,-0.51,26.91369271498818,NaN
+1,2,lines,Parabolic-LM,-0.5,26.829876459204083,NaN
+1,2,lines,Parabolic-LM,-0.49,26.745797779620407,NaN
+1,2,lines,Parabolic-LM,-0.48,26.661454201996538,NaN
+1,2,lines,Parabolic-LM,-0.47,26.57684321321618,NaN
+1,2,lines,Parabolic-LM,-0.46,26.491962260440495,NaN
+1,2,lines,Parabolic-LM,-0.45,26.40680875023833,NaN
+1,2,lines,Parabolic-LM,-0.44,26.321380047692784,NaN
+1,2,lines,Parabolic-LM,-0.43,26.235673475483512,NaN
+1,2,lines,Parabolic-LM,-0.42,26.149686312944002,NaN
+1,2,lines,Parabolic-LM,-0.41,26.06341579509311,NaN
+1,2,lines,Parabolic-LM,-0.4,25.976859111640078,NaN
+1,2,lines,Parabolic-LM,-0.39,25.89001340596236,NaN
+1,2,lines,Parabolic-LM,-0.38,25.802875774055405,NaN
+1,2,lines,Parabolic-LM,-0.37,25.715443263453686,NaN
+1,2,lines,Parabolic-LM,-0.36,25.62771287212218,NaN
+1,2,lines,Parabolic-LM,-0.35,25.539681547317528,NaN
+1,2,lines,Parabolic-LM,-0.34,25.451346184418057,NaN
+1,2,lines,Parabolic-LM,-0.33,25.362703625722027,NaN
+1,2,lines,Parabolic-LM,-0.32,25.27375065921319,NaN
+1,2,lines,Parabolic-LM,-0.31,25.184484017293002,NaN
+1,2,lines,Parabolic-LM,-0.3,25.094900375478847,NaN
+1,2,lines,Parabolic-LM,-0.29,25.004996351067515,NaN
+1,2,lines,Parabolic-LM,-0.28,24.91476850176336,NaN
+1,2,lines,Parabolic-LM,-0.27,24.824213324270573,NaN
+1,2,lines,Parabolic-LM,-0.26,24.7333272528492,NaN
+1,2,lines,Parabolic-LM,-0.25,24.642106657834393,NaN
+1,2,lines,Parabolic-LM,-0.24,24.550547844118757,NaN
+1,2,lines,Parabolic-LM,-0.23,24.45864704959774,NaN
+1,2,lines,Parabolic-LM,-0.22,24.366400443578083,NaN
+1,2,lines,Parabolic-LM,-0.21,24.27380412514972,NaN
+1,2,lines,Parabolic-LM,-0.2,24.18085412152178,NaN
+1,2,lines,Parabolic-LM,-0.19,24.08754638632357,NaN
+1,2,lines,Parabolic-LM,-0.18,23.993876797871934,NaN
+1,2,lines,Parabolic-LM,-0.17,23.899841157406858,NaN
+1,2,lines,Parabolic-LM,-0.16,23.805435187297654,NaN
+1,2,lines,Parabolic-LM,-0.15,23.71065452922298,NaN
+1,2,lines,Parabolic-LM,-0.14,23.61549474232859,NaN
+1,2,lines,Parabolic-LM,-0.13,23.519951301367794,NaN
+1,2,lines,Parabolic-LM,-0.12,23.424019594830998,NaN
+1,2,lines,Parabolic-LM,-0.11,23.327694923071853,NaN
+1,2,lines,Parabolic-LM,-0.1,23.230972496439705,NaN
+1,2,lines,Parabolic-LM,-0.09,23.133847433429953,NaN
+1,2,lines,Parabolic-LM,-0.08,23.036314758866695,NaN
+1,2,lines,Parabolic-LM,-0.07,22.93836940213526,NaN
+1,2,lines,Parabolic-LM,-0.06,22.840006195486122,NaN
+1,2,lines,Parabolic-LM,-0.05,22.741219872436524,NaN
+1,2,lines,Parabolic-LM,-0.04,22.642005066302172,NaN
+1,2,lines,Parabolic-LM,-0.03,22.542356308898476,NaN
+1,2,lines,Parabolic-LM,-0.02,22.442268029460024,NaN
+1,2,lines,Parabolic-LM,-0.01,22.341734553838204,NaN
+1,2,lines,Parabolic-LM,0.0,22.24075010405084,NaN
+1,2,lines,Parabolic-LM,0.01,22.139308798275454,NaN
+1,2,lines,Parabolic-LM,0.02,22.037404651399893,NaN
+1,2,lines,Parabolic-LM,0.03,21.93503157627221,NaN
+1,2,lines,Parabolic-LM,0.04,21.832183385827832,NaN
+1,2,lines,Parabolic-LM,0.05,21.728853796317697,NaN
+1,2,lines,Parabolic-LM,0.06,21.625036431921064,NaN
+1,2,lines,Parabolic-LM,0.07,21.520724831103717,NaN
+1,2,lines,Parabolic-LM,0.08,21.415912455183978,NaN
+1,2,lines,Parabolic-LM,0.09,21.31059269970278,NaN
+1,2,lines,Parabolic-LM,0.1,21.20475890937271,NaN
+1,2,lines,Parabolic-LM,0.11,21.098404397620932,NaN
+1,2,lines,Parabolic-LM,0.12,20.99152247206674,NaN
+1,2,lines,Parabolic-LM,0.13,20.884106467721928,NaN
+1,2,lines,Parabolic-LM,0.14,20.776149790322545,NaN
+1,2,lines,Parabolic-LM,0.15,20.667645973072705,NaN
+1,2,lines,Parabolic-LM,0.16,20.55858875132183,NaN
+1,2,lines,Parabolic-LM,0.17,20.448972161488566,NaN
+1,2,lines,Parabolic-LM,0.18,20.33879067317116,NaN
+1,2,lines,Parabolic-LM,0.19,20.228039367301122,NaN
+1,2,lines,Parabolic-LM,0.2,20.116714179144708,NaN
+1,2,lines,Parabolic-LM,0.21,20.0048122341732,NaN
+1,2,lines,Parabolic-LM,0.22,19.892332319422334,NaN
+1,2,lines,Parabolic-LM,0.23,19.779275556659893,NaN
+1,2,lines,Parabolic-LM,0.24,19.665646383207246,NaN
+1,2,lines,Parabolic-LM,0.25,19.551454014209988,NaN
+1,2,lines,Parabolic-LM,0.26,19.43671468099141,NaN
+1,2,lines,Parabolic-LM,0.27,19.321455163387753,NaN
+1,2,lines,Parabolic-LM,0.28,19.205718564730997,NaN
+1,2,lines,Parabolic-LM,0.29,19.089574151250027,NaN
+1,2,lines,Parabolic-LM,0.3,18.973134949657556,NaN
+1,2,lines,Parabolic-LM,0.31,18.85659107524359,NaN
+1,2,lines,Parabolic-LM,0.32,18.740277264699763,NaN
+1,2,lines,Parabolic-LM,0.33,18.62482086639933,NaN
+1,2,lines,Parabolic-LM,0.34,18.511494603674006,NaN
+1,2,lines,Parabolic-LM,0.35,18.403111290288805,NaN
+1,2,lines,Parabolic-LM,0.36,18.30609784355449,NaN
+1,2,lines,Parabolic-LM,0.37,18.23205327421043,NaN
+1,2,lines,Parabolic-LM,0.38,18.187813182789235,NaN
+1,2,lines,Parabolic-LM,0.39,18.164779839716104,NaN
+1,2,lines,Parabolic-LM,0.4,18.152270069785764,NaN
+1,2,lines,Parabolic-LM,0.41,18.144773905166918,NaN
+1,2,lines,Parabolic-LM,0.42,18.1398733242687,NaN
+1,2,lines,Parabolic-LM,0.43,18.136448188260665,NaN
+1,2,lines,Parabolic-LM,0.44,18.133930082808877,NaN
+1,2,lines,Parabolic-LM,0.45,18.13200538248537,NaN
+1,2,lines,Parabolic-LM,0.46,18.13048857665649,NaN
+1,2,lines,Parabolic-LM,0.47,18.12926352082976,NaN
+1,2,lines,Parabolic-LM,0.48,18.128254030486605,NaN
+1,2,lines,Parabolic-LM,0.49,18.127408164115216,NaN
+1,2,lines,Parabolic-LM,0.5,18.126689341764028,NaN
+1,2,lines,Parabolic-LM,0.51,18.126071082919466,NaN
+1,2,lines,Parabolic-LM,0.52,18.125533759867942,NaN
+1,2,lines,Parabolic-LM,0.53,18.125062523335853,NaN
+1,2,lines,Parabolic-LM,0.54,18.124645936232632,NaN
+1,2,lines,Parabolic-LM,0.55,18.124275049490667,NaN
+1,2,lines,Parabolic-LM,0.56,18.123942762076467,NaN
+1,2,lines,Parabolic-LM,0.57,18.123643368435832,NaN
+1,2,lines,Parabolic-LM,0.58,18.123372232444925,NaN
+1,2,lines,Parabolic-LM,0.59,18.123125548525447,NaN
+1,2,lines,Parabolic-LM,0.6,18.12290016394518,NaN
+1,2,lines,Parabolic-LM,0.61,18.12269344479832,NaN
+1,2,lines,Parabolic-LM,0.62,18.12250317365064,NaN
+1,2,lines,Parabolic-LM,0.63,18.122327470463706,NaN
+1,2,lines,Parabolic-LM,0.64,18.122164730854553,NaN
+1,2,lines,Parabolic-LM,0.65,18.12201357741854,NaN
+1,2,lines,Parabolic-LM,0.66,18.121872821004086,NaN
+1,2,lines,Parabolic-LM,0.67,18.12174142964626,NaN
+1,2,lines,Parabolic-LM,0.68,18.121618503450033,NaN
+1,2,lines,Parabolic-LM,0.69,18.121503254136208,NaN
+1,2,lines,Parabolic-LM,0.7,18.121394988271273,NaN
+1,2,lines,Parabolic-LM,0.71,18.12129309343037,NaN
+1,2,lines,Parabolic-LM,0.72,18.12119702671216,NaN
+1,2,lines,Parabolic-LM,0.73,18.12110630515243,NaN
+1,2,lines,Parabolic-LM,0.74,18.121020497680306,NaN
+1,2,lines,Parabolic-LM,0.75,18.120939218335188,NaN
+1,2,lines,Parabolic-LM,0.76,18.120862120519885,NaN
+1,2,lines,Parabolic-LM,0.77,18.120788892109974,NaN
+1,2,lines,Parabolic-LM,0.78,18.12071925127426,NaN
+1,2,lines,Parabolic-LM,0.79,18.120652942888587,NaN
+1,2,lines,Parabolic-LM,0.8,18.120589735447066,NaN
+1,2,lines,Parabolic-LM,0.81,18.120529418392103,NaN
+1,2,lines,Parabolic-LM,0.82,18.12047179979843,NaN
+1,2,lines,Parabolic-LM,0.83,18.120416704357627,NaN
+1,2,lines,Parabolic-LM,0.84,18.120363971618612,NaN
+1,2,lines,Parabolic-LM,0.85,18.12031345444697,NaN
+1,2,lines,Parabolic-LM,0.86,18.12026501767203,NaN
+1,2,lines,Parabolic-LM,0.87,18.120218536895575,NaN
+1,2,lines,Parabolic-LM,0.88,18.120173897439997,NaN
+1,2,lines,Parabolic-LM,0.89,18.120130993417376,NaN
+1,2,lines,Parabolic-LM,0.9,18.120089726903437,NaN
+1,2,lines,Parabolic-LM,0.91,18.12005000720294,NaN
+1,2,lines,Parabolic-LM,0.92,18.12001175019489,NaN
+1,2,lines,Parabolic-LM,0.93,18.119974877747623,NaN
+1,2,lines,Parabolic-LM,0.94,18.119939317195243,NaN
+1,2,lines,Parabolic-LM,0.95,18.119905000868005,NaN
+1,2,lines,Parabolic-LM,0.96,18.119871865670298,NaN
+1,2,lines,Parabolic-LM,0.97,18.119839852700686,NaN
+1,2,lines,Parabolic-LM,0.98,18.11980890690918,NaN
+1,2,lines,Parabolic-LM,0.99,18.119778976787593,NaN
+1,2,lines,Parabolic-LM,1.0,18.11975001408925,NaN
+1,2,lines,Parabolic-LM,1.01,18.119721973574944,NaN
+1,2,lines,Parabolic-LM,1.02,18.11969481278223,NaN
+1,2,lines,Parabolic-LM,1.03,18.119668491815652,NaN
+1,2,lines,Parabolic-LM,1.04,18.11964297315568,NaN
+1,2,lines,Parabolic-LM,1.05,18.119618221484483,NaN
+1,2,lines,Parabolic-LM,1.06,18.119594203526795,NaN
+1,2,lines,Parabolic-LM,1.07,18.11957088790438,NaN
+1,2,lines,Parabolic-LM,1.08,18.11954824500276,NaN
+1,2,lines,Parabolic-LM,1.09,18.119526246849063,NaN
+1,2,lines,Parabolic-LM,1.1,18.119504866999804,NaN
+1,2,lines,Parabolic-LM,1.11,18.119484080437832,NaN
+1,2,lines,Parabolic-LM,1.12,18.119463863477417,NaN
+1,2,lines,Parabolic-LM,1.13,18.11944419367689,NaN
+1,2,lines,Parabolic-LM,1.14,18.119425049758018,NaN
+1,2,lines,Parabolic-LM,1.15,18.11940641153158,NaN
+1,2,lines,Parabolic-LM,1.16,18.119388259828597,NaN
+1,2,lines,Parabolic-LM,1.17,18.1193705764367,NaN
+1,2,lines,Parabolic-LM,1.18,18.11935334404121,NaN
+1,2,lines,Parabolic-LM,1.19,18.119336546170473,NaN
+1,2,lines,Parabolic-LM,1.2,18.119320167145222,NaN
+1,2,lines,Parabolic-LM,1.21,18.11930419203147,NaN
+1,2,lines,Parabolic-LM,1.22,18.11928860659678,NaN
+1,2,lines,Parabolic-LM,1.23,18.119273397269513,NaN
+1,2,lines,Parabolic-LM,1.24,18.119258551100966,NaN
+1,2,lines,Parabolic-LM,1.25,18.119244055730025,NaN
+1,2,lines,Parabolic-LM,1.26,18.119229899350188,NaN
+1,2,lines,Parabolic-LM,1.27,18.11921607067886,NaN
+1,2,lines,Parabolic-LM,1.28,18.119202558928556,NaN
+1,2,lines,Parabolic-LM,1.29,18.119189353780094,NaN
+1,2,lines,Parabolic-LM,1.3,18.11917644535742,NaN
+1,2,lines,Parabolic-LM,1.31,18.119163824204097,NaN
+1,2,lines,Parabolic-LM,1.32,18.11915148126125,NaN
+1,2,lines,Parabolic-LM,1.33,18.119139407846887,NaN
+1,2,lines,Parabolic-LM,1.34,18.119127595636513,NaN
+1,2,lines,Parabolic-LM,1.35,18.11911603664491,NaN
+1,2,lines,Parabolic-LM,1.36,18.11910472320904,NaN
+1,2,lines,Parabolic-LM,1.37,18.119093647971944,NaN
+1,2,lines,Parabolic-LM,1.38,18.119082803867627,NaN
+1,2,lines,Parabolic-LM,1.39,18.1190721841068,NaN
+1,2,lines,Parabolic-LM,1.4,18.11906178216349,NaN
+1,2,lines,Parabolic-LM,1.41,18.119051591762382,NaN
+1,2,lines,Parabolic-LM,1.42,18.119041606866887,NaN
+1,2,lines,Parabolic-LM,1.43,18.119031821667946,NaN
+1,2,lines,Parabolic-LM,1.44,18.119022230573343,NaN
+1,2,lines,Parabolic-LM,1.45,18.119012828197747,NaN
+1,2,lines,Parabolic-LM,1.46,18.119003609353186,NaN
+1,2,lines,Parabolic-LM,1.47,18.118994569040115,NaN
+1,2,lines,Parabolic-LM,1.48,18.118985702438927,NaN
+1,2,lines,Parabolic-LM,1.49,18.118977004901936,NaN
+1,2,lines,Parabolic-LM,1.5,18.118968471945777,NaN
+1,3,lines,Quasi-Explicit,-1.5,34.16242999151667,NaN
+1,3,lines,Quasi-Explicit,-1.49,34.09677609970112,NaN
+1,3,lines,Quasi-Explicit,-1.48,34.030995546139145,NaN
+1,3,lines,Quasi-Explicit,-1.47,33.96508759490927,NaN
+1,3,lines,Quasi-Explicit,-1.46,33.89905150293597,NaN
+1,3,lines,Quasi-Explicit,-1.45,33.83288651989191,NaN
+1,3,lines,Quasi-Explicit,-1.44,33.76659188809848,NaN
+1,3,lines,Quasi-Explicit,-1.43,33.700166842424565,NaN
+1,3,lines,Quasi-Explicit,-1.42,33.63361061018354,NaN
+1,3,lines,Quasi-Explicit,-1.41,33.56692241102836,NaN
+1,3,lines,Quasi-Explicit,-1.4,33.50010145684483,NaN
+1,3,lines,Quasi-Explicit,-1.39,33.43314695164297,NaN
+1,3,lines,Quasi-Explicit,-1.38,33.36605809144631,NaN
+1,3,lines,Quasi-Explicit,-1.37,33.29883406417938,NaN
+1,3,lines,Quasi-Explicit,-1.36,33.231474049552865,NaN
+1,3,lines,Quasi-Explicit,-1.35,33.16397721894695,NaN
+1,3,lines,Quasi-Explicit,-1.34,33.09634273529234,NaN
+1,3,lines,Quasi-Explicit,-1.33,33.028569752949146,NaN
+1,3,lines,Quasi-Explicit,-1.32,32.96065741758355,NaN
+1,3,lines,Quasi-Explicit,-1.31,32.8926048660421,NaN
+1,3,lines,Quasi-Explicit,-1.3,32.824411226223766,NaN
+1,3,lines,Quasi-Explicit,-1.29,32.75607561694955,NaN
+1,3,lines,Quasi-Explicit,-1.28,32.6875971478296,NaN
+1,3,lines,Quasi-Explicit,-1.27,32.618974919127844,NaN
+1,3,lines,Quasi-Explicit,-1.26,32.55020802162413,NaN
+1,3,lines,Quasi-Explicit,-1.25,32.481295536473596,NaN
+1,3,lines,Quasi-Explicit,-1.24,32.412236535063506,NaN
+1,3,lines,Quasi-Explicit,-1.23,32.34303007886716,NaN
+1,3,lines,Quasi-Explicit,-1.22,32.273675219295164,NaN
+1,3,lines,Quasi-Explicit,-1.21,32.20417099754368,NaN
+1,3,lines,Quasi-Explicit,-1.2,32.13451644443982,NaN
+1,3,lines,Quasi-Explicit,-1.19,32.064710580283894,NaN
+1,3,lines,Quasi-Explicit,-1.18,31.994752414688737,NaN
+1,3,lines,Quasi-Explicit,-1.17,31.924640946415693,NaN
+1,3,lines,Quasi-Explicit,-1.16,31.854375163207465,NaN
+1,3,lines,Quasi-Explicit,-1.15,31.783954041617584,NaN
+1,3,lines,Quasi-Explicit,-1.14,31.713376546836468,NaN
+1,3,lines,Quasi-Explicit,-1.13,31.642641632514056,NaN
+1,3,lines,Quasi-Explicit,-1.12,31.571748240578767,NaN
+1,3,lines,Quasi-Explicit,-1.11,31.50069530105288,NaN
+1,3,lines,Quasi-Explicit,-1.1,31.429481731864062,NaN
+1,3,lines,Quasi-Explicit,-1.09,31.358106438653177,NaN
+1,3,lines,Quasi-Explicit,-1.08,31.286568314578012,NaN
+1,3,lines,Quasi-Explicit,-1.07,31.21486624011306,NaN
+1,3,lines,Quasi-Explicit,-1.06,31.14299908284506,NaN
+1,3,lines,Quasi-Explicit,-1.05,31.07096569726436,NaN
+1,3,lines,Quasi-Explicit,-1.04,30.998764924551907,NaN
+1,3,lines,Quasi-Explicit,-1.03,30.926395592361693,NaN
+1,3,lines,Quasi-Explicit,-1.02,30.853856514598693,NaN
+1,3,lines,Quasi-Explicit,-1.01,30.781146491192047,NaN
+1,3,lines,Quasi-Explicit,-1.0,30.7082643078634,NaN
+1,3,lines,Quasi-Explicit,-0.99,30.63520873589033,NaN
+1,3,lines,Quasi-Explicit,-0.98,30.561978531864643,NaN
+1,3,lines,Quasi-Explicit,-0.97,30.488572437445438,NaN
+1,3,lines,Quasi-Explicit,-0.96,30.414989179106872,NaN
+1,3,lines,Quasi-Explicit,-0.95,30.341227467880326,NaN
+1,3,lines,Quasi-Explicit,-0.94,30.267285999090987,NaN
+1,3,lines,Quasi-Explicit,-0.93,30.1931634520886,NaN
+1,3,lines,Quasi-Explicit,-0.92,30.118858489972254,NaN
+1,3,lines,Quasi-Explicit,-0.91,30.04436975930905,NaN
+1,3,lines,Quasi-Explicit,-0.9,29.969695889846466,NaN
+1,3,lines,Quasi-Explicit,-0.89,29.894835494218253,NaN
+1,3,lines,Quasi-Explicit,-0.88,29.819787167643735,NaN
+1,3,lines,Quasi-Explicit,-0.87,29.744549487620166,NaN
+1,3,lines,Quasi-Explicit,-0.86,29.669121013608212,NaN
+1,3,lines,Quasi-Explicit,-0.85,29.5935002867101,NaN
+1,3,lines,Quasi-Explicit,-0.84,29.51768582934042,NaN
+1,3,lines,Quasi-Explicit,-0.83,29.44167614488922,NaN
+1,3,lines,Quasi-Explicit,-0.82,29.3654697173774,NaN
+1,3,lines,Quasi-Explicit,-0.81,29.289065011103798,NaN
+1,3,lines,Quasi-Explicit,-0.8,29.212460470284242,NaN
+1,3,lines,Quasi-Explicit,-0.79,29.135654518681836,NaN
+1,3,lines,Quasi-Explicit,-0.78,29.05864555922859,NaN
+1,3,lines,Quasi-Explicit,-0.77,28.98143197363793,NaN
+1,3,lines,Quasi-Explicit,-0.76,28.904012122007934,NaN
+1,3,lines,Quasi-Explicit,-0.75,28.826384342414933,NaN
+1,3,lines,Quasi-Explicit,-0.74,28.748546950497282,NaN
+1,3,lines,Quasi-Explicit,-0.73,28.670498239028948,NaN
+1,3,lines,Quasi-Explicit,-0.72,28.59223647748257,NaN
+1,3,lines,Quasi-Explicit,-0.71,28.513759911581822,NaN
+1,3,lines,Quasi-Explicit,-0.7,28.435066762842574,NaN
+1,3,lines,Quasi-Explicit,-0.69,28.35615522810263,NaN
+1,3,lines,Quasi-Explicit,-0.68,28.277023479039652,NaN
+1,3,lines,Quasi-Explicit,-0.67,28.1976696616769,NaN
+1,3,lines,Quasi-Explicit,-0.66,28.11809189587641,NaN
+1,3,lines,Quasi-Explicit,-0.65,28.03828827481928,NaN
+1,3,lines,Quasi-Explicit,-0.64,27.958256864472492,NaN
+1,3,lines,Quasi-Explicit,-0.63,27.877995703042107,NaN
+1,3,lines,Quasi-Explicit,-0.62,27.797502800412104,NaN
+1,3,lines,Quasi-Explicit,-0.61,27.716776137568683,NaN
+1,3,lines,Quasi-Explicit,-0.6,27.6358136660093,NaN
+1,3,lines,Quasi-Explicit,-0.59,27.554613307136215,NaN
+1,3,lines,Quasi-Explicit,-0.58,27.473172951633778,NaN
+1,3,lines,Quasi-Explicit,-0.57,27.39149045882915,NaN
+1,3,lines,Quasi-Explicit,-0.56,27.309563656035746,NaN
+1,3,lines,Quasi-Explicit,-0.55,27.227390337878948,NaN
+1,3,lines,Quasi-Explicit,-0.54,27.144968265603424,NaN
+1,3,lines,Quasi-Explicit,-0.53,27.06229516636145,NaN
+1,3,lines,Quasi-Explicit,-0.52,26.97936873248163,NaN
+1,3,lines,Quasi-Explicit,-0.51,26.896186620717287,NaN
+1,3,lines,Quasi-Explicit,-0.5,26.812746451473934,NaN
+1,3,lines,Quasi-Explicit,-0.49,26.729045808014945,NaN
+1,3,lines,Quasi-Explicit,-0.48,26.645082235644857,NaN
+1,3,lines,Quasi-Explicit,-0.47,26.560853240869392,NaN
+1,3,lines,Quasi-Explicit,-0.46,26.476356290531427,NaN
+1,3,lines,Quasi-Explicit,-0.45,26.391588810922084,NaN
+1,3,lines,Quasi-Explicit,-0.44,26.306548186866035,NaN
+1,3,lines,Quasi-Explicit,-0.43,26.221231760780096,NaN
+1,3,lines,Quasi-Explicit,-0.42,26.135636831704183,NaN
+1,3,lines,Quasi-Explicit,-0.41,26.049760654303604,NaN
+1,3,lines,Quasi-Explicit,-0.4,25.963600437841617,NaN
+1,3,lines,Quasi-Explicit,-0.39,25.877153345121258,NaN
+1,3,lines,Quasi-Explicit,-0.38,25.790416491395224,NaN
+1,3,lines,Quasi-Explicit,-0.37,25.703386943242606,NaN
+1,3,lines,Quasi-Explicit,-0.36,25.61606171741134,NaN
+1,3,lines,Quasi-Explicit,-0.35,25.52843777962498,NaN
+1,3,lines,Quasi-Explicit,-0.34,25.44051204335248,NaN
+1,3,lines,Quasi-Explicit,-0.33,25.35228136853962,NaN
+1,3,lines,Quasi-Explicit,-0.32,25.26374256030049,NaN
+1,3,lines,Quasi-Explicit,-0.31,25.174892367567637,NaN
+1,3,lines,Quasi-Explicit,-0.3,25.08572748169908,NaN
+1,3,lines,Quasi-Explicit,-0.29,24.996244535040717,NaN
+1,3,lines,Quasi-Explicit,-0.28,24.906440099442168,NaN
+1,3,lines,Quasi-Explicit,-0.27,24.816310684724286,NaN
+1,3,lines,Quasi-Explicit,-0.26,24.725852737096442,NaN
+1,3,lines,Quasi-Explicit,-0.25,24.63506263752144,NaN
+1,3,lines,Quasi-Explicit,-0.24,24.543936700026055,NaN
+1,3,lines,Quasi-Explicit,-0.23,24.452471169954855,NaN
+1,3,lines,Quasi-Explicit,-0.22,24.360662222165057,NaN
+1,3,lines,Quasi-Explicit,-0.21,24.268505959159885,NaN
+1,3,lines,Quasi-Explicit,-0.2,24.175998409157913,NaN
+1,3,lines,Quasi-Explicit,-0.19,24.08313552409566,NaN
+1,3,lines,Quasi-Explicit,-0.18,23.989913177560588,NaN
+1,3,lines,Quasi-Explicit,-0.17,23.89632716265152,NaN
+1,3,lines,Quasi-Explicit,-0.16,23.802373189763383,NaN
+1,3,lines,Quasi-Explicit,-0.15,23.708046884292873,NaN
+1,3,lines,Quasi-Explicit,-0.14,23.613343784261712,NaN
+1,3,lines,Quasi-Explicit,-0.13,23.51825933785368,NaN
+1,3,lines,Quasi-Explicit,-0.12,23.422788900861747,NaN
+1,3,lines,Quasi-Explicit,-0.11,23.32692773404111,NaN
+1,3,lines,Quasi-Explicit,-0.1,23.230671000363927,NaN
+1,3,lines,Quasi-Explicit,-0.09,23.134013762171303,NaN
+1,3,lines,Quasi-Explicit,-0.08,23.036950978217632,NaN
+1,3,lines,Quasi-Explicit,-0.07,22.939477500602468,NaN
+1,3,lines,Quasi-Explicit,-0.06,22.84158807158451,NaN
+1,3,lines,Quasi-Explicit,-0.05,22.74327732027219,NaN
+1,3,lines,Quasi-Explicit,-0.04,22.644539759184905,NaN
+1,3,lines,Quasi-Explicit,-0.03,22.545369780678794,NaN
+1,3,lines,Quasi-Explicit,-0.02,22.445761653230274,NaN
+1,3,lines,Quasi-Explicit,-0.01,22.345709517570565,NaN
+1,3,lines,Quasi-Explicit,0.0,22.245207382663686,NaN
+1,3,lines,Quasi-Explicit,0.01,22.144249121520183,NaN
+1,3,lines,Quasi-Explicit,0.02,22.04282846683828,NaN
+1,3,lines,Quasi-Explicit,0.03,21.940939006463704,NaN
+1,3,lines,Quasi-Explicit,0.04,21.83857417865884,NaN
+1,3,lines,Quasi-Explicit,0.05,21.735727267171363,NaN
+1,3,lines,Quasi-Explicit,0.06,21.6323913960919,NaN
+1,3,lines,Quasi-Explicit,0.07,21.528559524489452,NaN
+1,3,lines,Quasi-Explicit,0.08,21.424224440812896,NaN
+1,3,lines,Quasi-Explicit,0.09,21.31937875704586,NaN
+1,3,lines,Quasi-Explicit,0.1,21.214014902601587,NaN
+1,3,lines,Quasi-Explicit,0.11,21.108125117943523,NaN
+1,3,lines,Quasi-Explicit,0.12,21.00170144791644,NaN
+1,3,lines,Quasi-Explicit,0.13,20.89473573477178,NaN
+1,3,lines,Quasi-Explicit,0.14,20.787219610870075,NaN
+1,3,lines,Quasi-Explicit,0.15,20.679144491041793,NaN
+1,3,lines,Quasi-Explicit,0.16,20.57050156458697,NaN
+1,3,lines,Quasi-Explicit,0.17,20.46128178689256,NaN
+1,3,lines,Quasi-Explicit,0.18,20.35147587064484,NaN
+1,3,lines,Quasi-Explicit,0.19,20.241074276612736,NaN
+1,3,lines,Quasi-Explicit,0.2,20.13006720397627,NaN
+1,3,lines,Quasi-Explicit,0.21,20.018444580172222,NaN
+1,3,lines,Quasi-Explicit,0.22,19.906196050227372,NaN
+1,3,lines,Quasi-Explicit,0.23,19.79331096554726,NaN
+1,3,lines,Quasi-Explicit,0.24,19.67977837212616,NaN
+1,3,lines,Quasi-Explicit,0.25,19.565586998141306,NaN
+1,3,lines,Quasi-Explicit,0.26,19.450725240891575,NaN
+1,3,lines,Quasi-Explicit,0.27,19.33518115303782,NaN
+1,3,lines,Quasi-Explicit,0.28,19.218942428098696,NaN
+1,3,lines,Quasi-Explicit,0.29,19.101996385152052,NaN
+1,3,lines,Quasi-Explicit,0.3,18.98432995268813,NaN
+1,3,lines,Quasi-Explicit,0.31,18.865929651556353,NaN
+1,3,lines,Quasi-Explicit,0.32,18.746781576942713,NaN
+1,3,lines,Quasi-Explicit,0.33,18.626871379309563,NaN
+1,3,lines,Quasi-Explicit,0.34,18.506184244223817,NaN
+1,3,lines,Quasi-Explicit,0.35,18.384704870993385,NaN
+1,3,lines,Quasi-Explicit,0.36,18.262417450024447,NaN
+1,3,lines,Quasi-Explicit,0.37,18.13930563880493,NaN
+1,3,lines,Quasi-Explicit,0.38,18.01535253641071,NaN
+1,3,lines,Quasi-Explicit,0.39,17.890540656422047,NaN
+1,3,lines,Quasi-Explicit,0.4,17.764851898127382,NaN
+1,3,lines,Quasi-Explicit,0.41,17.638267515880184,NaN
+1,3,lines,Quasi-Explicit,0.42,17.51076808646199,NaN
+1,3,lines,Quasi-Explicit,0.43,17.382333474290782,NaN
+1,3,lines,Quasi-Explicit,0.44,17.252942794298225,NaN
+1,3,lines,Quasi-Explicit,0.45,17.122574372281914,NaN
+1,3,lines,Quasi-Explicit,0.46,16.991205702519625,NaN
+1,3,lines,Quasi-Explicit,0.47,16.85881340241073,NaN
+1,3,lines,Quasi-Explicit,0.48,16.725373163885987,NaN
+1,3,lines,Quasi-Explicit,0.49,16.59085970129969,NaN
+1,3,lines,Quasi-Explicit,0.5,16.455246695487876,NaN
+1,3,lines,Quasi-Explicit,0.51,16.318506733642103,NaN
+1,3,lines,Quasi-Explicit,0.52,16.18061124460965,NaN
+1,3,lines,Quasi-Explicit,0.53,16.04153042918777,NaN
+1,3,lines,Quasi-Explicit,0.54,15.901233184930136,NaN
+1,3,lines,Quasi-Explicit,0.55,15.759687024928162,NaN
+1,3,lines,Quasi-Explicit,0.56,15.6168579899663,NaN
+1,3,lines,Quasi-Explicit,0.57,15.472710553378413,NaN
+1,3,lines,Quasi-Explicit,0.58,15.327207517850045,NaN
+1,3,lines,Quasi-Explicit,0.59,15.180309903317275,NaN
+1,3,lines,Quasi-Explicit,0.6,15.03197682500486,NaN
+1,3,lines,Quasi-Explicit,0.61,14.882165360522404,NaN
+1,3,lines,Quasi-Explicit,0.62,14.73083040479424,NaN
+1,3,lines,Quasi-Explicit,0.63,14.577924511433471,NaN
+1,3,lines,Quasi-Explicit,0.64,14.42339771897906,NaN
+1,3,lines,Quasi-Explicit,0.65,14.267197360192169,NaN
+1,3,lines,Quasi-Explicit,0.66,14.109267852348276,NaN
+1,3,lines,Quasi-Explicit,0.67,13.949550466157866,NaN
+1,3,lines,Quasi-Explicit,0.68,13.787983070591808,NaN
+1,3,lines,Quasi-Explicit,0.69,13.62449985046757,NaN
+1,3,lines,Quasi-Explicit,0.7,13.459030993155777,NaN
+1,3,lines,Quasi-Explicit,0.71,13.291502340177344,NaN
+1,3,lines,Quasi-Explicit,0.72,13.121834998758896,NaN
+1,3,lines,Quasi-Explicit,0.73,12.949944907574157,NaN
+1,3,lines,Quasi-Explicit,0.74,12.775742349888597,NaN
+1,3,lines,Quasi-Explicit,0.75,12.59913140610526,NaN
+1,3,lines,Quasi-Explicit,0.76,12.420009336229668,NaN
+1,3,lines,Quasi-Explicit,0.77,12.238265880966708,NaN
+1,3,lines,Quasi-Explicit,0.78,12.053782467948977,NaN
+1,3,lines,Quasi-Explicit,0.79,11.866431306866172,NaN
+1,3,lines,Quasi-Explicit,0.8,11.676074353877615,NaN
+1,3,lines,Quasi-Explicit,0.81,11.482562121459704,NaN
+1,3,lines,Quasi-Explicit,0.82,11.285732304520971,NaN
+1,3,lines,Quasi-Explicit,0.83,11.085408186880317,NaN
+1,3,lines,Quasi-Explicit,0.84,10.881396783605377,NaN
+1,3,lines,Quasi-Explicit,0.85,10.673486663641246,NaN
+1,3,lines,Quasi-Explicit,0.86,10.461445382791462,NaN
+1,3,lines,Quasi-Explicit,0.87,10.245016438279055,NaN
+1,3,lines,Quasi-Explicit,0.88,10.023915631175113,NaN
+1,3,lines,Quasi-Explicit,0.89,9.79782668958952,NaN
+1,3,lines,Quasi-Explicit,0.9,9.566395960272448,NaN
+1,3,lines,Quasi-Explicit,0.91,9.329225914168822,NaN
+1,3,lines,Quasi-Explicit,0.92,9.085867125006123,NaN
+1,3,lines,Quasi-Explicit,0.93,8.835808257752413,NaN
+1,3,lines,Quasi-Explicit,0.94,8.578463427986692,NaN
+1,3,lines,Quasi-Explicit,0.95,8.313156035627433,NaN
+1,3,lines,Quasi-Explicit,0.96,8.039097791051041,NaN
+1,3,lines,Quasi-Explicit,0.97,7.755361061380726,NaN
+1,3,lines,Quasi-Explicit,0.98,7.4608417367549835,NaN
+1,3,lines,Quasi-Explicit,0.99,7.154208313415404,NaN
+1,3,lines,Quasi-Explicit,1.0,6.833830371901096,NaN
+1,3,lines,Quasi-Explicit,1.01,6.497675238736289,NaN
+1,3,lines,Quasi-Explicit,1.02,6.143153607069809,NaN
+1,3,lines,Quasi-Explicit,1.03,5.766879440991971,NaN
+1,3,lines,Quasi-Explicit,1.04,5.364277648865925,NaN
+1,3,lines,Quasi-Explicit,1.05,4.928901762760776,NaN
+1,3,lines,Quasi-Explicit,1.06,4.451146692684504,NaN
+1,3,lines,Quasi-Explicit,1.07,3.9155343810714713,NaN
+1,3,lines,Quasi-Explicit,1.08,3.293974051321577,NaN
+1,3,lines,Quasi-Explicit,1.09,2.523805909910661,NaN
+1,3,lines,Quasi-Explicit,1.1,1.3757815019686546,NaN
+1,3,lines,Quasi-Explicit,1.11,0.06949936083894723,NaN
+1,3,lines,Quasi-Explicit,1.12,0.04214193188232949,NaN
+1,3,lines,Quasi-Explicit,1.13,0.032993384673993424,NaN
+1,3,lines,Quasi-Explicit,1.14,0.0280214498895945,NaN
+1,3,lines,Quasi-Explicit,1.15,0.024785510822699596,NaN
+1,3,lines,Quasi-Explicit,1.16,0.022465389852779714,NaN
+1,3,lines,Quasi-Explicit,1.17,0.02069758789865079,NaN
+1,3,lines,Quasi-Explicit,1.18,0.019293029222998328,NaN
+1,3,lines,Quasi-Explicit,1.19,0.018142375993618117,NaN
+1,3,lines,Quasi-Explicit,1.2,0.017177426436435366,NaN
+1,3,lines,Quasi-Explicit,1.21,0.016353141995116564,NaN
+1,3,lines,Quasi-Explicit,1.22,0.01563842517357337,NaN
+1,3,lines,Quasi-Explicit,1.23,0.015011021195168638,NaN
+1,3,lines,Quasi-Explicit,1.24,0.014454527618809526,NaN
+1,3,lines,Quasi-Explicit,1.25,0.01395655374362267,NaN
+1,3,lines,Quasi-Explicit,1.26,0.013507541394272828,NaN
+1,3,lines,Quasi-Explicit,1.27,0.013099983420112286,NaN
+1,3,lines,Quasi-Explicit,1.28,0.012727890520848838,NaN
+1,3,lines,Quasi-Explicit,1.29,0.012386418232868558,NaN
+1,3,lines,Quasi-Explicit,1.3,0.012071600158223204,NaN
+1,3,lines,Quasi-Explicit,1.31,0.011780153430687211,NaN
+1,3,lines,Quasi-Explicit,1.32,0.011509334388959715,NaN
+1,3,lines,Quasi-Explicit,1.33,0.011256829825136266,NaN
+1,3,lines,Quasi-Explicit,1.34,0.011020673892361716,NaN
+1,3,lines,Quasi-Explicit,1.35,0.010799183808892242,NaN
+1,3,lines,Quasi-Explicit,1.36,0.010590909532795753,NaN
+1,3,lines,Quasi-Explicit,1.37,0.010394593957972827,NaN
+1,3,lines,Quasi-Explicit,1.38,0.010209141120927977,NaN
+1,3,lines,Quasi-Explicit,1.39,0.010033590589060686,NaN
+1,3,lines,Quasi-Explicit,1.4,0.009867096650156924,NaN
+1,3,lines,Quasi-Explicit,1.41,0.009708911283438839,NaN
+1,3,lines,Quasi-Explicit,1.42,0.009558370114220505,NaN
+1,3,lines,Quasi-Explicit,1.43,0.009414880764492206,NaN
+1,3,lines,Quasi-Explicit,1.44,0.009277913126839267,NaN
+1,3,lines,Quasi-Explicit,1.45,0.00914699119625376,NaN
+1,3,lines,Quasi-Explicit,1.46,0.009021686173323565,NaN
+1,3,lines,Quasi-Explicit,1.47,0.008901610613103664,NaN
+1,3,lines,Quasi-Explicit,1.48,0.008786413437283853,NaN
+1,3,lines,Quasi-Explicit,1.49,0.00867577566230447,NaN
+1,3,lines,Quasi-Explicit,1.5,0.008569406721868488,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.5,34.22619717637149,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.49,34.16001601994763,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.48,34.09370760891597,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.47,34.02727121352342,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.46,33.9607060970865,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.45,33.89401151589988,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.44,33.82718671914326,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.43,33.76023094878687,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.42,33.69314343949518,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.41,33.625923418529105,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.4,33.55857010564647,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.39,33.49108271300079,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.38,33.42346044503833,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.37,33.355702498393356,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.36,33.287808061781575,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.35,33.21977631589174,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.34,33.151606433275376,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.33,33.083297578234536,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.32,33.014848906707634,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.31,32.946259566153195,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.3,32.87752869543164,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.29,32.80865542468493,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.28,32.73963887521398,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.27,32.67047815935407,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.26,32.60117238034783,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.25,32.531720632216064,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.24,32.462121999626184,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.23,32.39237555775823,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.22,32.32248037216854,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.21,32.25243549865082,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.2,32.18223998309475,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.19,32.111892861341964,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.18,32.0413931590393,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.17,31.97073989148944,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.16,31.8999320634987,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.15,31.828968669221968,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.14,31.757848692004753,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.13,31.686571104222296,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.12,31.61513486711555,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.11,31.543538930624116,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.1,31.471782233216,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.09,31.39986370171406,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.08,31.327782251119192,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.07,31.25553678443003,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.06,31.183126192459248,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.05,31.1105493536462,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.04,31.037805133866,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.03,30.964892386234826,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.02,30.891809950911327,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.01,30.81855665489429,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-1.0,30.74513131181612,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.99,30.67153272173234,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.98,30.597759670906825,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.97,30.523810931592756,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.96,30.44968526180919,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.95,30.375381405113096,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.94,30.300898090366786,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.93,30.226234031500574,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.92,30.151387927270694,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.91,30.07635846101213,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.9,30.001144300386436,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.89,29.925744097124312,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.88,29.850156486762895,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.87,29.774380088377477,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.86,29.69841350430774,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.85,29.622255319878114,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.84,29.54590410311237,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.83,29.469358404442065,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.82,29.392616756408863,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.81,29.31567767336049,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.8,29.238539651140165,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.79,29.161201166769363,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.78,29.083660678123735,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.77,29.005916623602022,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.76,28.92796742178773,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.75,28.849811471103415,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.74,28.771447149457458,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.73,28.692872813882953,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.72,28.61408680016872,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.71,28.535087422482047,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.7,28.455872972983066,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.69,28.376441721430503,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.68,28.296791914778545,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.67,28.216921776764686,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.66,28.136829507488116,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.65,28.056513282978685,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.64,27.975971254755887,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.63,27.895201549377862,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.62,27.81420226797991,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.61,27.732971485802448,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.6,27.65150725170797,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.59,27.569807587686775,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.58,27.48787048835114,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.57,27.40569392041768,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.56,27.32327582217743,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.55,27.240614102953487,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.54,27.157706642545715,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.53,27.074551290662285,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.52,26.991145866337575,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.51,26.907488157336097,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.5,26.823575919542137,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.49,26.73940687633452,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.48,26.654978717946303,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.47,26.570289100808804,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.46,26.48533564687962,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.45,26.40011594295415,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.44,26.314627539960146,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.43,26.228867952234857,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.42,26.142834656784235,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.41,26.056525092523675,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.4,25.96993665949982,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.39,25.883066718092852,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.38,25.795912588198778,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.37,25.708471548390964,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.36,25.6207408350606,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.35,25.532717641535235,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.34,25.444399117174914,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.33,25.35578236644521,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.32,25.26686444796654,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.31,25.177642373539,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.3,25.088113107142142,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.29,24.998273563908878,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.28,24.908120609072807,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.27,24.81765105688823,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.26,24.726861669522076,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.25,24.635749155916873,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.24,24.54431017062405,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.23,24.452541312606684,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.22,24.360439124010806,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.21,24.268000088904458,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.2,24.175220631983514,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.19,24.082097117243453,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.18,23.988625846616042,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.17,23.894803058570055,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.16,23.80062492667498,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.15,23.706087558126804,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.14,23.61118699223476,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.13,23.515919198868115,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.12,23.420280076861896,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.11,23.324265452380498,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.1,23.22787107723813,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.09,23.131092627175054,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.08,23.033925700088428,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.07,22.93636581421682,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.06,22.838408406277193,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.05,22.74004882955331,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.04,22.64128235193454,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.03,22.54210415390392,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.02,22.442509326474536,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,-0.01,22.3424928690731,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.0,22.242049687369864,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.01,22.141174591053808,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.02,22.039862291552375,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.03,21.93810739969477,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.04,21.835904423318187,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.05,21.733247764816294,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.06,21.630131718629364,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.07,21.52655046867573,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.08,21.422498085724158,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.09,21.31796852470713,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.1,21.21295562197502,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.11,21.10745309249153,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.12,21.001454526970818,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.13,20.89495338895728,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.14,20.787943011848974,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.15,20.680416595866394,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.16,20.5723672049683,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.17,20.463787763717264,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.18,20.354671054097665,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.19,20.245009712289853,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.2,20.134796225404678,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.21,20.02402292818336,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.22,19.912681999668717,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.23,19.80076545985455,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.24,19.68826516632128,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.25,19.575172810867034,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.26,19.461479916144896,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.27,19.347177832318646,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.28,19.232257733750973,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.29,19.116710615740278,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.3,19.000527291324445,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.31,18.88369838817243,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.32,18.766214345587432,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.33,18.64806541164866,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.34,18.529241640522244,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.35,18.409732889975945,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.36,18.289528819136954,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.37,18.168618886537075,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.38,18.04699234849545,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.39,17.924638257895463,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.4,17.80154546341973,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.41,17.677702609315233,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.42,17.553098135769957,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.43,17.427720279992716,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.44,17.30155707809929,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.45,17.174596367921435,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.46,17.046825792869594,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.47,16.918232806996922,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.48,16.788804681430577,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.49,16.658528512357158,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.5,16.52739123077234,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.51,16.395379614231096,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.52,16.262480300864134,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.53,16.128679805959205,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.54,15.993964541442635,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.55,15.858320838637768,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.56,15.721734974723143,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.57,15.584193203364435,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.58,15.445681790051882,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.59,15.306187052738315,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.6,15.165695408444108,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.61,15.024193426573444,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.62,14.881667889773203,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.63,14.738105863260783,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.64,14.593494773651653,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.65,14.44782249843117,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.66,14.301077467338269,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.67,14.153248777061139,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.68,14.004326320785879,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.69,13.854300934287474,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.7,13.703164560406227,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.71,13.550910433908795,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.72,13.397533288887475,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.73,13.24302959099793,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.74,13.087397796966416,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.75,12.930638643902356,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.76,12.772755471016584,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.77,12.613754576352507,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.78,12.45364561106453,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.79,12.292442013597585,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.8,12.130161485800064,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.81,11.966826512499741,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.82,11.802464925340841,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.83,11.637110510666817,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.84,11.470803659877788,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.85,11.303592058930786,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.86,11.13553141142201,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.87,10.966686186936249,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.88,10.797130383027124,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.89,10.626948285286964,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.9,10.456235205503047,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.91,10.28509817296348,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.92,10.113656548738538,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.93,9.942042527492061,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.94,9.770401486462948,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.95,9.598892137221497,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.96,9.427686433297543,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.97,9.256969186545165,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.98,9.086937347941992,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,0.99,8.917798915159008,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.0,8.749771440241878,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.01,8.583080126351556,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.02,8.417955522471813,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.03,8.254630848447627,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.04,8.093339008147357,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.05,7.934309373803332,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.06,7.777764447104609,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.07,7.623916519693778,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.08,7.472964464941878,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.09,7.32509079253634,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.1,7.180459086876664,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.11,7.039211930149271,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.12,6.90146938309313,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.13,6.767328063686697,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.14,6.636860829631157,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.15,6.510117037933296,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.16,6.387123326983598,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.17,6.26788484532331,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.18,6.15238683782472,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.19,6.040596494300663,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.2,5.932464966813487,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.21,5.827929468809092,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.22,5.726915380022106,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.23,5.629338294231805,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.24,5.535105960920213,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.25,5.444120085512016,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.26,5.35627796531663,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.27,5.2714739490289615,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.28,5.189600716440256,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.29,5.11055038184451,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.3,5.034215429629752,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.31,4.960489493939059,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.32,4.889267996337534,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.33,4.8204486564002895,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.34,4.7539318902977845,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.35,4.689621112023762,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.36,4.627422951076988,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.37,4.567247399322998,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.38,4.509007898544446,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.39,4.452621378925864,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.4,4.398008257473347,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.41,4.345092404183647,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.42,4.293801082676938,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.43,4.244064871006863,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.44,4.19581756746649,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.45,4.148996085418531,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.46,4.103540340488569,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.47,4.059393132863767,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.48,4.0165000269285756,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.49,3.974809230034354,NaN
+1,4,lines,Quasi-Explicit σ ≥ 0.25,1.5,3.934271471832756,NaN

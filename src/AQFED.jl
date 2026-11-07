@@ -49,10 +49,12 @@ include("black/iv_solver_householder.jl")
 include("black/iv_solver_lisor.jl")
 include("black/iv_solver_jaeckel.jl")
 include("black/iv_solver_inversegaussian.jl")
+include("black/iv_solver_thiophene.jl")
 impliedVolatility(isCall::Bool, price::T, f::T, strike::T, tte::T,  df::T)  where {T} =  impliedVolatilitySRHalley(isCall, price,f,strike,tte, df, T(0.0), 64, Householder())
 export impliedVolatility
 
 include("black/barrier.jl")
+include("black/double_barrier.jl")
 end
 
 module Bachelier
@@ -67,6 +69,7 @@ include("ts/svi.jl")
 include("ts/curve.jl")
 include("ts/lv.jl")
 include("ts/heston.jl")
+include("ts/schobelzhu.jl")
 include("ts/dividend.jl")
 include("ts/fukasawa_interp.jl")
 include("ts/sabr.jl")
@@ -87,10 +90,12 @@ end
 
 module FDM
 include("fdm/payoff.jl")
+include("fdm/script.jl")
 include("fdm/solver.jl")
 include("fdm/peclet.jl")
 include("fdm/grid.jl")
 include("fdm/trbdf2.jl")
+include("fdm/american_dividends.jl")
 include("fdm/log_trbdf2.jl")
 include("fdm/rkl.jl")
 include("fdm/heston.jl")
@@ -102,12 +107,14 @@ module MonteCarlo
 include("mc/bb.jl")
 include("mc/bbvector.jl")
 include("mc/payoffs.jl")
+include("mc/barrier_payoffs.jl")
 include("mc/regression.jl")
 include("mc/black.jl")
 include("mc/heston.jl")
 include("mc/longstaff_schwartz.jl")
 include("mc/lv.jl")
 include("mc/hestonlv.jl")
+include("mc/schobelzhu.jl")
 include("mc/cgmy.jl")
 end
 
@@ -131,6 +138,7 @@ include("basket/mmc.jl")
 include("basket/vorstexpansion.jl")
 include("basket/spreadexpansion.jl")
 include("basket/mc.jl")
+include("basket/conditional.jl")
 end
 
 
@@ -139,6 +147,7 @@ include("pln/etore_gobet.jl")
 include("pln/gs.jl")
 include("pln/basket_bridge.jl")
 include("pln/hhl.jl")
+include("pln/zhang.jl")
 end
 module Asian
 include("asian/basketbridge.jl")
@@ -156,6 +165,8 @@ include("pdde/lvg_black.jl")
 include("pdde/lvg_quadratic.jl")
 include("pdde/lvg_quadratic_cmplx.jl")
 include("pdde/ah.jl")
+include("pdde/ah_bspline.jl")
+include("pdde/green.jl")
 end
 
 module VolatilityModels
@@ -166,8 +177,13 @@ include("vol/ssvi_calibration.jl")
 include("vol/svi_calibration.jl")
 include("vol/fengler.jl")
 include("vol/rbf.jl")
+include("vol/cvi.jl")
+include("vol/cvi2d.jl")
+include("vol/rbf2d.jl")
 include("vol/lnmixture.jl")
 include("vol/varswap.jl")
+include("vol/quadratic_lv.jl")
+include("vol/quadratic_lv_pde.jl")
 include("vol/sabr_calibration.jl")
 include("vol/heston_bgm.jl")
 include("vol/heston_hagan.jl")
@@ -177,6 +193,7 @@ include("vol/hestonts_calibration.jl")
 include("vol/sz_calibration.jl")
 include("vol/fx_calibration.jl")
 include("vol/heston_cliquet_calibration.jl")
+include("vol/american_calibration.jl")
 end
 
 

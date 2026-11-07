@@ -58,7 +58,7 @@ function makeFractal(w::Int, h::Int, xMin, xMax, yMin, yMax; maxIter=32, f=bache
         @inbounds @simd for j = eachindex(y)
             idx = xy[i, j]
             rgb = complexHeatMap(coloring, idx, minIdx, maxIdx)
-            img[w-j+1, i] = rgb
+            img[h-j+1, i] = rgb
         end
     end
     return img

@@ -38,11 +38,6 @@ using DataFrames
     #error vs spot
     spots = range(0.5*spot,stop=1.2*spot,length=101)
     anPriceA = @. AQFED.Black.calculate(AQFED.Black.AnalyticBarrierEngine(spots, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte)),AQFED.Black.BarrierPayoff(isCall,strike,barrierLevel,0.0,AQFED.Black.UpOut))
-    #=
-    plot(spots./strike, abs.(refPrice.(spots) .- anPriceA), xlab="Spot/Strike", ylab="Absolute error in price", label="Ghost");    plot!(spots./strike, abs.(refPriceK.(spots) .- anPriceA), label="Ghost Kreiss");    plot!(spots./strike, abs.(refPriceS.(spots) .- anPriceA), label="Deformed")
-    plot!(size=(400,300),margins=1Plots.mm)
-    savefig("~//mypapers/eqd_book/barrier_ko_spot_401.pdf")
-    =#
     spot= strike
     barrierEngine = AQFED.Black.AnalyticBarrierEngine(spot, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte))
     anPrice = AQFED.Black.calculate(barrierEngine, AQFED.Black.BarrierPayoff(isCall,strike,barrierLevel,0.0,AQFED.Black.UpOut))
@@ -61,11 +56,6 @@ using DataFrames
           refPriceS = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(refGrid))
           errS[i] = refPriceS(spot)-anPrice
           end
-	#=
-    plot(xStepsA,abs.(err),label="Ghost");plot!(xStepsA, abs.(errK),xlab="Number of space steps", ylab="Absolute error in price",label="Ghost Kreiss");plot!(xStepsA,abs.(errS),label="Deformed")
-  plot!(size=(400,300),margins=1Plots.mm)
- savefig("~//mypapers/eqd_book/barrier_ko_steps_100.pdf")  
- =#
 end
 @testset "Peclet" begin
     spot = 100.0
@@ -91,17 +81,6 @@ end
     refPrice = AQFED.FDM.priceRKL2(payoffK, spot, model, dividends, M=401, N=21, Smin=0.0, Smax=150.0, grid=CubicGrid(0.01),varianceConditioner=AQFED.FDM.PartialExponentialFittingConditioner())
 
     refPrice = AQFED.FDM.priceRKL2(payoffK, spot, model, dividends, M=101, N=101, Smin=0.0, Smax=150.0, grid=UniformGrid(false))
-    #=
-    etraceE = AQFED.FDM.ExtendedTrace()
-    etrace = AQFED.FDM.ExtendedTrace()
-    refPrice = AQFED.FDM.priceRKG2(payoffK, spot, model, dividends, M=101, N=101, Smin=0.0, Smax=150.0, grid=UniformGrid(false),eTrace=etraceE,varianceConditioner=PartialExponentialFittingConditioner())
-    refPrice = AQFED.FDM.priceRKG2(payoffK, spot, model, dividends, M=101, N=101, Smin=0.0, Smax=150.0, grid=UniformGrid(false),eTrace=etrace)
-    plot(refPrice.x,PPInterpolation.evaluateDerivative.(refPrice,refPrice.x),xlab="Underlying spot price", ylab="Option Δ",label="RKL",size=(400,300))
-     plot(etrace.eigenvalues, seriestype=:scatter,label="Partial Exponential Fitting",size=(400,300),ms=3,markerstrokewidth=0,markeralpha=0.5)
-plot(refPrice.x[2:end-1],etrace.peclets[2:end-1],xlab="Underlying asset price", ylab="Peclet ratio",yscale=:log10,ylims=(0.5,250),yticks=([1,10,100],[1,10,100]),label="No upwinding")
- plot!(refPrice.x[2:end-1],etraceE.peclets[2:end-1],label="Partial exponential fitting")
-
-     =#
 end
 
 @testset "BlackOneTouch" begin
@@ -152,53 +131,6 @@ tte = 1.0
 #worse for Smax=13784.105478964535, dtThreashold seems to be *2 of what it should be.
 refPriceR = AQFED.FDM.priceRKG2(payoff, spot, model, dividends, M=101, N=101, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(UniformGrid(false)))
 
-   #= 
-   is = collect(n-50:n); prices = zeros(length(is))
-   for (i,ni)=enumerate(is)
-   refPriceR = AQFED.FDM.priceExplicitEuler(payoff, spot, model, dividends, M=101, N=ni, Smin=Smin, Smax=Smax, grid=(UniformGrid(false)))
-   prices[i] = refPriceR(spot)
-   end
-    plot(is,abs.(prices.-anPrice),yscale=:log10,xlab="Number of time-steps",ylab="Absolute error in price",legend=:none)
-    #plot(is[50:end],abs.(prices[50:end].-anPrice),yscale=:log10,xlab="Number of time-steps",ylab="Absolute error in price",legend=:none)
-Srange = 13590.0:1.0:13990.0
-nA = zeros(length(Srange));
-neffA = zeros(length(Srange));
-nETruncA = zeros(length(Srange));
-    for (i,Smax)=enumerate(Srange)
-    refPrice = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=(UniformGrid(false)))
-      dS = refPrice.x[2]-refPrice.x[1]
-    ius = searchsorted(refPrice.x,barrierLevel)
-    ium = ius.stop; iu=ius.start
-   
-     dtThresholdETrunc = dS^2/(σ^2*barrierLevel^2)
-    nETrunc = ceil(Int,tte/dtThresholdETrunc)
- dtThresholdEFull = dS^2/(σ^2*refPrice.x[end]^2)
-    nEFull = ceil(Int,tte/dtThresholdE)
-    nETruncA[i] = nETrunc
-    dtThreshold = 4*dS^2/(σ^2*refPrice.x[ium]^2*(3+(refPrice.x[iu]-barrierLevel)/(barrierLevel-refPrice.x[ium])))
-    n = ceil(Int,tte/dtThreshold)
-    errorR = 1.0
-    ni = n
-    while errorR > 1e-3 && ni < 30000
-        ni+=1
-        refPriceRBad = AQFED.FDM.priceExplicitEuler(payoff, spot, model, dividends, M=101, N=ni, Smin=Smin, Smax=Smax, grid=UniformGrid(false))
-        errorR = abs(refPriceRBad(spot)-anPrice)
-    end
-  while errorR < 1e-3 && ni > 1
-        refPriceRBad = AQFED.FDM.priceExplicitEuler(payoff, spot, model, dividends, M=101, N=ni, Smin=Smin, Smax=Smax, grid=UniformGrid(false))
-        errorR = abs(refPriceRBad(spot)-anPrice)
-        ni-=1
-    end
-    nA[i] = n
-    neffA[i] = ni
-    println(Smax," ",barrierLevel-refPrice.x[ium], " ",(barrierLevel-refPrice.x[ium])/dS," ",n, " ",ni," ",errorR)
-end
-nA2 = max.(nA, nETruncA)
-plot(Srange, nA2, label="Theoretical",xlab="Grid upper boundary Sₘₐₓ",ylab="Number of time-steps for stability")
-plot!(Srange,neffA,label="Actual",legendtitle="Threshold")
-plot!(yscale=:log10)
-plot!(size)
-   =#
 end
 
 @testset "BlackUpAndIn" begin
@@ -239,11 +171,6 @@ end
     #error vs spot
     spots = range(0.5*spot,stop=1.2*spot,length=101)
     anPriceA = @. AQFED.Black.calculate(AQFED.Black.AnalyticBarrierEngine(spots, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte)),AQFED.Black.BarrierPayoff(isCall,strike,barrierLevel,0.0,AQFED.Black.UpIn))
-    #=
-    plot(spots./strike, abs.(refPrice.(spots) .- anPriceA), xlab="Spot/Strike", ylab="Absolute error in price", label="Ghost");    plot!(spots./strike, abs.(refPriceK.(spots) .- anPriceA), label="Ghost Kreiss");    plot!(spots./strike, abs.(refPriceS.(spots) .- anPriceA), label="Deformed")
-    plot!(size=(400,300),margins=1Plots.mm)
-    savefig("~//mypapers/eqd_book/barrier_ki_spot_401.pdf")
-    =#
     spot= strike
     barrierEngine = AQFED.Black.AnalyticBarrierEngine(spot, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte))
     anPrice = AQFED.Black.calculate(barrierEngine, AQFED.Black.BarrierPayoff(isCall,strike,barrierLevel,0.0,AQFED.Black.UpIn))
@@ -262,11 +189,6 @@ end
           refPriceS = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(refGrid))
           errS[i] = refPriceS(spot)-anPrice
           end
-	#=
-    plot(xStepsA,abs.(err),label="Ghost");plot!(xStepsA, abs.(errK),xlab="Number of space steps", ylab="Absolute error in price",label="Ghost Kreiss");plot!(xStepsA,abs.(errS),label="Deformed")
-  plot!(size=(400,300),margins=1Plots.mm)
- savefig("~//mypapers/eqd_book/barrier_ko_steps_100.pdf")  
- =#
 end
 
 
@@ -312,11 +234,6 @@ end
     #error vs spot
     spots = range(0.5*spot,stop=1.19*spot,length=101)
     anPriceA = @. AQFED.Black.calculateUpInDownOutEnd(AQFED.Black.AnalyticBarrierEngine(spots, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte)),isCall, strike, barrierLevelDown, barrierLevelUp)
-    #=
-    plot(spots./strike, abs.(refPrice.(spots) .- anPriceA), xlab="Spot/Strike", ylab="Absolute error in price", label="Ghost");    plot!(spots./strike, abs.(refPriceK.(spots) .- anPriceA), label="Ghost Kreiss");    plot!(spots./strike, abs.(refPriceS.(spots) .- anPriceA), label="Deformed")
-    plot!(size=(400,300),margins=1Plots.mm)
-    savefig("~//mypapers/eqd_book/barrier_kiko_spot_401_cubic01.pdf")
-    =#
     spot= strike
     barrierEngine = AQFED.Black.AnalyticBarrierEngine(spot, σ^2 *tte,  exp(-(r-q)*tte), exp(-r*tte),exp(-r*tte))
     anPrice = AQFED.Black.calculateUpInDownOutEnd(barrierEngine, isCall, strike, barrierLevelDown, barrierLevelUp)
@@ -335,11 +252,6 @@ end
           refPriceS = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(refGrid))
           errS[i] = refPriceS(spot)-anPrice
           end
-	#=
-    plot(xStepsA,abs.(err),label="Ghost");plot!(xStepsA, abs.(errK),xlab="Number of space steps", ylab="Absolute error in price",label="Ghost Kreiss");plot!(xStepsA,abs.(errS),label="Deformed")
-  plot!(size=(400,300),margins=1Plots.mm)
- savefig("~//mypapers/eqd_book/barrier_ko_steps_100.pdf")  
- =#
 end
 
 @testset "BlackDKO" begin
@@ -378,22 +290,6 @@ end
     priceRAN = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(CubicGrid(α)),timeSteppingName="Rannacher")
     priceRAN4 = AQFED.FDM.priceTRBDF2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(CubicGrid(α)),timeSteppingName="Rannacher4")
     priceRKG = AQFED.FDM.priceRKG2(payoff, spot, model, dividends, M=xSteps, N=tSteps, Smin=Smin, Smax=Smax, grid=SmoothlyDeformedGrid(CubicGrid(α)))
-#= 
-   plot(refPriceS.x,PPInterpolation.evaluateDerivative.(refPriceS,refPriceS.x),xlab="Underlying spot price", ylab="Option Δ",label="TR-BDF2")
-   plot!(priceRKG.x,PPInterpolation.evaluateDerivative.(priceRKG,priceRKG.x),xlab="Underlying spot price", ylab="Option Δ",label="RKG")
-   plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("~//mypapers/eqd_book/doubleonetouch_delta_trbdf2.pdf")
-  plot(priceCN.x,PPInterpolation.evaluateDerivative.(priceCN,priceCN.x),xlab="Underlying spot price", ylab="Option Δ",label="")
-   plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("~//mypapers/eqd_book/doubleonetouch_delta_cn.pdf")
-  plot(priceRAN.x,PPInterpolation.evaluateDerivative.(priceRAN,priceRAN.x),xlab="Underlying spot price", ylab="Option Δ",label="")
-   plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("~//mypapers/eqd_book/doubleonetouch_delta_ran.pdf")
-plot(priceRAN4.x,PPInterpolation.evaluateDerivative.(priceRAN4,priceRAN4.x),xlab="Underlying spot price", ylab="Option Δ",label="")
-   plot!(xlim=(barrierLevelDown,barrierLevelUp),size=(400,200),margin=3Plots.mm)
- savefig("~//mypapers/eqd_book/doubleonetouch_delta_ran4.pdf")
-
-   =#
 end
 @testset "ContinousKO" begin
     #paper is reproduced
@@ -479,11 +375,64 @@ end
             end
         end
     end
-    # udata = data[startswith.(data.grid,"Uniform"),:]
-    # plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-    # savefig("~//mypapers/eqd_book/uniform_kreiss_time_vanilla.pdf")
-    # udata = data[startswith.(data.grid,"Cubic"),:]
-    # plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:log10,ylabel="Absolute error in price", xlabel="number of space-steps",size=(400,300))
-    # savefig("~//mypapers/eqd_book/cubic_kreiss_time_vanilla.pdf")
-    #plot(udata.m,abs.(udata.error), group=udata.grid,yscale=:ln,yticks=([0.0001,0.0002,0.0004],[0.0001,0.0002,0.0004]),ylabel="Absolute error in price", xlabel="number of time-steps",mode="markers")
+end
+
+#ghost point against grid deformation with the barrier off the grid (Smax at 4 deviations): with a consistent quadratic
+#ghost point on both sides of the time step, both are equally accurate; a linear ghost point on the explicit side made the
+#up barrier errors 3 to 5 times larger.
+@testset "GhostPointOffGrid" begin
+    spot, tte, σ = 6317.80, 1.0, 0.2
+    strike, up, down = 0.8spot, 1.2spot, 0.9spot
+    model = TSBlackModel(FlatSurface(σ), ConstantRateCurve(0.0), ConstantRateCurve(0.0))
+    engine(s) = AQFED.Black.AnalyticBarrierEngine(s, σ^2 * tte, 1.0, 1.0, 1.0)
+    call, put = AQFED.FDM.VanillaEuropean(true, strike, tte), AQFED.FDM.VanillaEuropean(false, 1.2spot, tte)
+    #name, payoff, analytic price, spot range (1% away from the barriers, where the interpolated price has a kink), max error uniform, cubic
+    cases = [
+        ("UpOut", AQFED.FDM.ContinuousKO(call, up, false, 0.0, 0.0, tte), s -> AQFED.Black.calculate(engine(s), AQFED.Black.BarrierPayoff(true, strike, up, 0.0, AQFED.Black.UpOut)), (0.5spot, 0.99up), (0.048, 0.035)),
+        ("UpIn", AQFED.FDM.ContinuousKI(call, up, false, 0.0, 0.0, tte), s -> AQFED.Black.calculate(engine(s), AQFED.Black.BarrierPayoff(true, strike, up, 0.0, AQFED.Black.UpIn)), (0.5spot, 0.99up), (0.036, 0.018)),
+        ("KIKO", AQFED.FDM.ContinuousKI(AQFED.FDM.ContinuousKO(call, down, true, 0.0, 0.0, tte), up, false, 0.0, 0.0, tte), s -> AQFED.Black.calculateUpInDownOutEnd(engine(s), true, strike, down, up), (1.01down, 0.99up), (0.049, 0.015)),
+        ("DownIn", AQFED.FDM.ContinuousKI(put, 0.8spot, true, 0.0, 0.0, tte), s -> AQFED.Black.calculate(engine(s), AQFED.Black.BarrierPayoff(false, 1.2spot, 0.8spot, 0.0, AQFED.Black.DownIn)), (1.01 * 0.8spot, 1.5spot), (0.12, 0.053))]
+    for (name, payoff, analytic, (lo, hi), maxErrors) in cases, (grid, maxError) in zip((UniformGrid(false), CubicGrid(0.1)), maxErrors)
+        spots = collect(range(lo, hi, length=101))
+        price(g) = AQFED.FDM.priceTRBDF2(payoff, spot, model, CapitalizedDividend{Float64}[], M=401, N=1001, Smin=0.0, Smax=0.0, grid=g)
+        maxErr(p) = maximum(abs.(p.(spots) .- analytic.(spots)))
+        errGhost, errDeformed = maxErr(price(grid)), maxErr(price(SmoothlyDeformedGrid(grid)))
+        println(name, " ", typeof(grid), " ghost ", errGhost, " deformed ", errDeformed)
+        @test errGhost < maxError
+        @test errDeformed < maxError
+        @test errGhost < 1.6 * errDeformed
+    end
+end
+
+#explicit schemes place a continuous barrier on the grid: a ghost point modifies the barrier row, and on a grid stretched at
+#the barrier, the number of stages estimated from the interior operator was too small (NaN for this cubic grid with M=201)
+@testset "ExplicitBarrierOnGrid" begin
+    spot, tte, σ = 6317.80, 1.0, 0.2
+    strike, up, down = 0.8spot, 1.2spot, 0.9spot
+    model = TSBlackModel(FlatSurface(σ), ConstantRateCurve(0.0), ConstantRateCurve(0.0))
+    engine(s) = AQFED.Black.AnalyticBarrierEngine(s, σ^2 * tte, 1.0, 1.0, 1.0)
+    call = AQFED.FDM.VanillaEuropean(true, strike, tte)
+    cases = [
+        ("UpOut", AQFED.FDM.ContinuousKO(call, up, false, 0.0, 0.0, tte), s -> AQFED.Black.calculate(engine(s), AQFED.Black.BarrierPayoff(true, strike, up, 0.0, AQFED.Black.UpOut)), (0.5spot, 0.99up), 0.19),
+        ("UpIn", AQFED.FDM.ContinuousKI(call, up, false, 0.0, 0.0, tte), s -> AQFED.Black.calculate(engine(s), AQFED.Black.BarrierPayoff(true, strike, up, 0.0, AQFED.Black.UpIn)), (0.5spot, 0.99up), 0.07),
+        ("KIKO", AQFED.FDM.ContinuousKI(AQFED.FDM.ContinuousKO(call, down, true, 0.0, 0.0, tte), up, false, 0.0, 0.0, tte), s -> AQFED.Black.calculateUpInDownOutEnd(engine(s), true, strike, down, up), (1.01down, 0.99up), 0.065)]
+    for (name, payoff, analytic, (lo, hi), maxError) in cases, pricer in (AQFED.FDM.priceRKL2, AQFED.FDM.priceRKG2)
+        spots = collect(range(lo, hi, length=101))
+        p = pricer(payoff, spot, model, CapitalizedDividend{Float64}[], M=201, N=101, Smin=0.0, Smax=0.0, grid=CubicGrid(0.1))
+        err = maximum(abs.(p.(spots) .- analytic.(spots)))
+        println(name, " ", pricer, " ", err)
+        @test err < maxError
+    end
+end
+
+#a barrier level just above a grid point (rounding) is on the grid, the price is continuous in the level
+@testset "BarrierJustAboveNode" begin
+    spot, tte, σ = 6317.80, 1.0, 0.2
+    strike, up = 0.8spot, 1.2spot
+    model = TSBlackModel(FlatSurface(σ), ConstantRateCurve(0.0), ConstantRateCurve(0.0))
+    call = AQFED.FDM.VanillaEuropean(true, strike, tte)
+    for makePayoff in (b -> AQFED.FDM.ContinuousKO(call, b, false, 0.0, 0.0, tte), b -> AQFED.FDM.ContinuousKI(call, b, false, 0.0, 0.0, tte))
+        price(b) = priceTRBDF2(makePayoff(b), spot, model, CapitalizedDividend{Float64}[], M=201, N=201, Smin=0.0, Smax=2up, grid=UniformGrid(false))(spot)
+        @test isapprox(price(up + 1e-9), price(up), atol=1e-8) #up is on the uniform grid
+    end
 end

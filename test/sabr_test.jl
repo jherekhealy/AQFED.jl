@@ -1,4 +1,4 @@
-using AQFED, Test, StatsBase
+using AQFED, Test, StatsBase, Printf
 using AQFED.Collocation, PPInterpolation, AQFED.Bachelier,AQFED.Basket
 using LinearAlgebra
 
@@ -23,18 +23,6 @@ fitBvols = sqrt.(AQFED.TermStructure.normalVarianceByMoneyness.(section, strikes
 fitPrices = [Bachelier.bachelierFormula(true,strikei,f,fitBvols[i],tte,discountFactor) for (i,strikei)=enumerate(strikes)]
 fitPrices-prices
 #fit is amazingly good. SABR normal fits nearly exactly to Black.
-#=
-x=range(0.5,stop=2.0,length=201)
- isoc,m = Collocation.makeIsotonicCollocation(strikes,prices,weights,tte,f,discountFactor,deg=3,degGuess=1)
- sol = Collocation.Polynomial(isoc)
- cpricesx = Collocation.priceEuropean.(sol, true, x, f, discountFactor)
-plot(x, @.(AQFED.Black.impliedVolatility(true,Bachelier.bachelierFormula(true, x, f, sqrt(AQFED.TermStructure.normalVarianceByMoneyness(section,x-f)),tte,discountFactor),f,x,tte,discountFactor)).*100 .- 20,label="Normal SABR")
-plot!(xlab="Strike",ylab="Error in Black volatility %")
-plot!(x,AQFED.Black.impliedVolatility.(true,cpricesx,f,x,tte,discountFactor).*100 .-20,label="Cubic collocation")
- plot!(ylims=(-0.02,0.04))
-  plot!(size=(400,300))
-#savefig("black_normal_sabr_collo.pdf")
-=#
 #Hagspihl kind of correlation test
 nWeights=2
 w = zeros(Float64, nWeights)
@@ -73,10 +61,6 @@ push!(refPrices,refPrice)
 push!(sabrPrices,price)
 push!(sabrIPrices, priceI)
 end
-
-#=
-plot(rhos, abs.(sabrPrices./refPrices.-1), yscale=:log10, xlab="Correlation", ylab="Relative error")
-=#
 
 weight = [0.25, 0.25, 0.25, 0.25]
 spot = [1.0, 1.0, 1.0, 1.0]
@@ -194,10 +178,10 @@ bstrikes = range(0.75,stop=1.25,length=51)
 for strike = bstrikes
     isCall = strike > 1.0
 refPrice = Basket.priceEuropean(Basket.QuadBasketPricer(AQFED.Math.GaussLegendre(64*2)), isCall, strike, discountFactor, spot, forward, tvarATM, weights, correlation,isSplit=true)
-refPriceB = Basket.priceEuropean(Basket.QuadBasketPricer(AQFED.Math.GaussLegendre(64*2)), isCall, strike, discountFactor, spot, forward, tvar, weights, correlation,isSplit=true)
 vol1 = AQFED.Black.impliedVolatility(true,Bachelier.bachelierFormula(true, f*strike, f, sqrt(AQFED.TermStructure.normalVarianceByMoneyness(sectionSPX,f-f*strike)),tte,discountFactor),f,f*strike,tte,discountFactor)
 vol2 = AQFED.Black.impliedVolatility(true,Bachelier.bachelierFormula(true, f2*strike, f2, sqrt(AQFED.TermStructure.normalVarianceByMoneyness(sectionTSLA,f2-f2*strike)),tte,discountFactor),f2,f2*strike,tte,discountFactor)
 tvar = [vol1^2 * tte, vol2^2 * tte]
+refPriceB = Basket.priceEuropean(Basket.QuadBasketPricer(AQFED.Math.GaussLegendre(64*2)), isCall, strike, discountFactor, spot, forward, tvar, weights, correlation,isSplit=true)
 price = Basket.priceEuropean(Basket.SABRBasketPricer{Basket.SingleStochasticVol}(),isCall,strike,discountFactor,spot,forward,[sectionSPX,sectionTSLA],weights,correlation)
 
 
@@ -211,26 +195,4 @@ push!(priceSABR,price)
 push!(priceSABRBlack,priceS)
 end
 
-    #=
-    ## fit of sabr
-    x = range(strikes[1],stop=strikes[end],length=201)
-     fitPricesx = [Bachelier.bachelierFormula(true,strikei,f,sqrt(AQFED.TermStructure.normalVarianceByMoneyness(sectionSPX, strikei .- f)),tte,1.0) for (i,strikei)=enumerate(x)]
- plot(strikes./f,vols.*100,seriestype=:scatter,xlab="Strike", ylab="Volatility in %",ms=4,markerstrokewidth=0,markeralpha=0.7,label="Market")
- plot!(x./f,abs.(AQFED.Black.impliedVolatility.(true, fitPricesx, f, x, tte, 1.0)).*100,xlab="Strike/Forward",label="Normal SABR")
- plot!(size=(400,300),margins=1Plots.mm)
-    x = range(strikes2[1],stop=strikes2[end],length=201)
-     fitPricesx = [Bachelier.bachelierFormula(true,strikei,f2,sqrt(AQFED.TermStructure.normalVarianceByMoneyness(sectionTSLA, strikei .- f2)),tte,1.0) for (i,strikei)=enumerate(x)]
- plot(strikes2./f2,vols2.*100,seriestype=:scatter,xlab="Strike", ylab="Volatility in %",ms=4,markerstrokewidth=0,markeralpha=0.7,label="Market")
- plot!(x./f2,abs.(AQFED.Black.impliedVolatility.(true, fitPricesx, f2, x, tte, 1.0)).*100,xlab="Strike/Forward",label="Normal SABR")
- plot!(size=(400,300),margins=1Plots.mm)
- savefig("normal_sabr_tsla_1m.pdf")
-
-## relative error in OTM prices
-plot(bstrikes,abs.(priceSABR./priceBlack .- 1).*100,yscale=:log10,yticks=([0.1,1,10,100],["0.1%","1%","10%","100%"]),label="SABR / Black")
-plot!(bstrikes,abs.(priceSABR./priceBlackATM .- 1).*100,label="SABR / Black ATM",xlab="Basket strike", ylab="Relative difference")
-plot!(bstrikes,abs.(priceSABRBlack./priceBlackATM .- 1).*100,label="SABR Flat ATM / Black ATM")
- plot!(size=(800,300),margins=3Plots.mm)
-savefig("normal_sabr_basket_1m.pdf")
-
-=#
 end

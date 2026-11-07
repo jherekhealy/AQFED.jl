@@ -1,27 +1,6 @@
 using AQFED, Test, StatsBase
 using AQFED.PDDE, AQFED.Black, AQFED.Collocation
-
-@testset "ah-flatblack-c3" begin
-	strikes = [0.85, 0.90, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4]
-	vols = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
-	sigmas = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
-	l = 0.25
-	u = 4.0
-	tte = 0.25
-	forward = 1.025
-	#weights = ones(length(vols))
-	prices, weights = Collocation.weightedPrices(true, strikes, vols, ones(length(vols)), forward, 1.0, tte, vegaFloor = 1e-7)
-	#use linear interp (uncomment line)
-	lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, ones(length(prices)), useVol = true, model = PDDE.LinearBlack(), location = "Strikes", size = 0, L = l, U = u, optimizer = "LM-ALG", isC3 = false, nRefine = 0)
-	ah1 = PDDE.DiscreteLVG(lvgq, 101)
-	ah4 = PDDE.DiscreteLVG(lvgq, 401)
-	#=
-	kFine = exp.(range(log(strikes[1]), stop=log(strikes[end]), length=301))
-	plot(log.(kFine./forward),(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label="LVG LinearBlack", xlab="Forward log-moneyness",ylab="Probability density",linestyle=:dot)
-	plot!(log.(kFine./forward),PPInterpolation.evaluateSecondDerivative.(ah1.pp,kFine),label="AH l=101")
-	plot!(log.(kFine./forward),PPInterpolation.evaluateSecondDerivative.(ah4.pp,kFine),label="AH l=401")
-	=#
-end
+#the studies and the plots formerly in this file are in book/legacy/lvg_study.jl
 
 @testset "lvg-flatblack-c3" begin
 	strikes = [0.85, 0.90, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4]
@@ -49,18 +28,6 @@ end
 	ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgqnotc3, true, strikes), forward, strikes, tte, 1.0)
 	rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
 	@test isapprox(0.0, rmseLVGq, atol = 1e-8)
-	#=
-	kFine = range(0.8,stop=strikes[end],length=401)
-	plot(kFine, @.(AQFED.Math.normpdf((log(forward/kFine)-0.5*vols[1]^2*tte)/(vols[1]*sqrt(tte)) )/(kFine*vols[1]*sqrt(tte)) ),xlab="Strike",ylab="Probabiliy density",label="Lognormal",xticks=(vcat(kFine[1]:0.1:kFine[end], forward),vcat(string.(kFine[1]:0.1:kFine[end]),"F")),linestyle=:dot)
-	 plot!(kFine,(PDDE.derivativePrice.(lvgqnotc3,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqnotc3,true,kFine)).*10000, label="C1 quadratic B-spline")
-	  plot!(kFine,(PDDE.derivativePrice.(lvgqc3,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqc3,true,kFine)).*10000, label="Quadratic B-Spline with C3 condition")
-
-	  plot(kFine, @.(normpdf((log(forward/kFine)-0.5*vols[1]^2*tte)/(vols[1]*sqrt(tte)) )/(kFine*vols[1]*sqrt(tte)) ),xlab="Strike",ylab="Probabiliy density",label="Lognormal",xticks=(vcat(kFine[1]:0.1:kFine[end], forward),vcat(string.(kFine[1]:0.1:kFine[end]),"F")))
-	 plot!(kFine,(PDDE.derivativePrice.(lvgqnotc3,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqnotc3,true,kFine)).*10000, label="C1 quadratic B-spline")
-	  plot!(kFine,(PDDE.derivativePrice.(lvgqc3,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgqc3,true,kFine)).*10000, label="Quadratic B-Spline with C3 condition")
-
-
-	=#
 
 	strikes = round.([95.25466637597646,
 			99.74155408701951,
@@ -75,66 +42,43 @@ end
 	forward = 101.0
 	#weights = ones(length(vols))
 	prices, weights = Collocation.weightedPrices(true, strikes, vols, ones(length(vols)), forward, 1.0, tte, vegaFloor = 1e-7)
-	locations = ["Strikes", "Mid-X", "Mid-XX", "Mid-Strikes", "Uniform"]
 	lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol = false, L = forward / 3, U = forward * 3, model = PDDE.Quadratic(), location = "Strikes")
 	ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
 	rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
 	@test isapprox(0.0, rmseLVGq, atol = 1e-8)
-	#= kFine = range(strikes[1]/1.25,stop=strikes[end]*1.25,length=401)
-	 p1=plot(kFine, @.(AQFED.Math.normpdf((log(forward/kFine)-0.5*vols[1]^2*tte)/(vols[1]*sqrt(tte)) )/(kFine*vols[1]*sqrt(tte)) ),xlab="Strike",ylab="Probabiliy density",label="Lognormal",linestyle=:dot)
-	for location in locations
-	 lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol=true, L=forward/3, U=forward*3,model=PDDE.Quadratic(),location=location)
-	 ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
-	 rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
-	 println(location," ",rmseLVGq)
-	 plot!(p1, kFine,(PDDE.derivativePrice.(lvgq,true,kFine.+0.0001) .- PDDE.derivativePrice.(lvgq,true,kFine)).*10000, label=location)
+end
+
+@testset "lvg-quadratic-robustness" begin
+	using BSplines, LinearAlgebra
+	#quadratic LVG of given B-spline coefficients λ on the knots x, forward 1
+	function makeLVG(x, λ)
+		m = length(x) - 1
+		α, β, γ = zeros(m), zeros(m), zeros(m)
+		PDDE.toQuadForm!(PDDE.Quadratic(), m, length(λ), 0, x, α, β, γ, λ, basis = BSplineBasis(3, x))
+		θ = zeros(2m)
+		PDDE.computeCoeffsQuadratic(searchsortedfirst(x, 1.0) - 1, 1.0, x, α, β, γ, θ)
+		PDDE.QuadraticLVG(x, α, β, γ, θ, λ, 1.0, 1.0)
 	end
-	plot(p1)
-	 plot!(p1,size=(480,320))
-	savefig("~//mypapers/eqd_book/lvgq_lognormal_density_set_D.pdf")
-
-
-	 =#
-	#some very close by
-	strikes = sort(rand(length(vols))) * (140 - 85) .+ 85
-	strikes = round.([87.0653770852329, 92.55057909409112, 92.55584927988729, 93.10805223968916, 98.65030015379912, 104.5260453270286, 113.7778097399039, 124.52668961177353, 124.90596814653736, 128.21267359110428], digits = 2)
-	#similar to first - best is midXX. mid should be excluded too much noise - set A
-	strikesA = round.([88.765135169592, 92.85494511181187, 93.38043933991867, 99.36630953103418, 107.9930908363475, 120.28927001531655, 122.03374332554367, 123.89923835687514, 134.7053265024023, 135.43198727132489], digits = 2)
-	#right wing info only
-	strikesB = round.([85.02320730206546, 101.92119620448395, 103.54923033678908, 114.44768735553629, 121.8544889307987, 123.69290176127272, 125.07479849838776, 125.57703562269575, 131.63046140652378, 133.85728148034934], digits = 2)
-	#forward close to strike === use "Strikes" is bad. As we remove the closest two points, not an issue for "MidX" and "MidXX".
-	strikesC = round.([98.06881859879773, 100.92597117414611, 101.05812725277457, 106.87903884044188, 109.1197408201026, 110.92917871923213, 119.7631067321654, 119.82704376084504, 132.1932799832046, 138.26522048510896], digits = 2)
-
-	strikes = round.([89.41370489828515,
-			90.99359147310548,
-			95.34096598232097,
-			98.4081807678219,
-			114.78124668457718,
-			115.83300408171641,
-			124.09477093886409,
-			135.8728166397164,
-			137.82553133115383,
-			139.10235889326142], digits = 2)
-	#strikes and midxx lead to perfect calib if forward not in strikes
-	#now add forward and check again
-	strikes = sort(vcat(forward, strikes[1:end-1]))
-
-	strikesD = [0.85, 0.90, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.3, 1.4] .* 100
-	strikesD = sort(vcat(forward, strikesD[1:end-1]))
-
-	for (name, strikes) in zip(["A", "B", "C", "D"], [strikesA, strikesB, strikesC, strikesD])
-		prices, weights = Collocation.weightedPrices(true, strikes, vols, ones(length(vols)), forward, 1.0, tte, vegaFloor = 1e-7)
-		#p1 = plot(kFine, @.(AQFED.Math.normpdf((log(forward / kFine) - 0.5 * vols[1]^2 * tte) / (vols[1] * sqrt(tte))) / (kFine * vols[1] * sqrt(tte))), xlab = "Strike", ylab = "Probabiliy density", label = "Lognormal", linestyle = :dot)
-		for location in locations
-			lvgq = PDDE.calibrateQuadraticLVG(tte, forward, strikes, prices, weights, useVol = false, L = forward / 3, U = forward * 3, model = PDDE.Quadratic(), location = location)
-			ivkLVGq = @. Black.impliedVolatility(true, PDDE.priceEuropean(lvgq, true, strikes), forward, strikes, tte, 1.0)
-			rmseLVGq = StatsBase.rmsd(vols, ivkLVGq)
-			println(name, " ", location, " ", rmseLVGq)
-		#	plot!(p1, kFine, (PDDE.derivativePrice.(lvgq, true, kFine .+ 0.0001) .- PDDE.derivativePrice.(lvgq, true, kFine)) .* 10000, label = location)
-		end
-		#plot!(p1, xlims = (80, 140), ylims = (0.0, 0.06))
-		#plot!(p1, size = (480, 320))
-		# savefig(p1,string("~//mypapers/eqd_book/lvgq_lognormal_density_set_",name,".pdf"))
-		#best fit is MidXX
+	#reference: finite differences on c - a(x)^2 c'' = (1-x)^+, c(L) = 1-L, c(U) = 0
+	function referencePrices(lvg; n = 100_001)
+		xs = range(lvg.x[1], lvg.x[end], length = n)
+		h = step(xs)
+		a2 = [(i = min(searchsortedlast(lvg.x, x), length(lvg.a)); (lvg.a[i] * x^2 + lvg.b[i] * x + lvg.c[i])^2) for x in xs]
+		d, dl, du = 1 .+ 2a2 ./ h^2, -a2[2:end] ./ h^2, -a2[1:end-1] ./ h^2
+		d[1] = d[end] = 1; du[1] = dl[end] = 0
+		rhs = max.(1 .- xs, 0.0); rhs[1] = 1 - xs[1]; rhs[end] = 0
+		xs, Tridiagonal(dl, d, du) \ rhs
 	end
+	x = [0.5, 0.7, 0.85, 1.0, 1.15, 1.3, 1.6, 2.0]
+	#a small or negative coefficient (as may be set by the C3 condition) with a positive local variance: complex roots and
+	#an angle beyond π on the interval, where the principal log of the ratio was wrong
+	for λmid in (0.02, -0.02, -0.05)
+		lvg = makeLVG(x, [0.2, 0.2, 0.2, 0.2, λmid, 0.2, 0.2, 0.2, 0.2])
+		xs, c = referencePrices(lvg)
+		@test maximum(abs(PDDE.priceEuropean(lvg, true, xs[j]) - c[j]) for j = 1:100:length(xs)) < 1e-8
+	end
+	#very small local variance on a wide first interval: cosh overflows in the tridiagonal system
+	lvg = makeLVG([1 / 6, 0.9, 0.95, 1.0, 1.05, 1.1, 6.0], fill(0.001, 8))
+	@test all(isfinite, lvg.θ)
+	@test isapprox(PDDE.priceEuropean(lvg, true, 1.0), 0.0005, atol = 1e-12)
 end

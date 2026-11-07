@@ -1,0 +1,3 @@
+Method,RMSE
+"Penalty λ=1e-9, all quotes as knots",10.377859240405995
+"Penalty λ=1e-6, all quotes as knots",315.71380951716685

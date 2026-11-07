@@ -1,4 +1,4 @@
-using Test, AQFED, AQFED.VolatilityModels, LinearAlgebra, StatsBase
+using Test, AQFED, AQFED.VolatilityModels, AQFED.Black, LinearAlgebra, StatsBase
 using CharFuncPricing
 
 @testset "HestonTS-SPX500-Oct2010" begin
@@ -46,11 +46,11 @@ using CharFuncPricing
     hagParams, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPricesParam(ttes, forwards, strikes, prices, isCall, weights, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], numberOfKnots=[length(ttes),3,3], κ= 4.0, minimizer="DE", method="Cos")
 
 #we are interested in plotting vol error, increase vegaFloor.
-     prices, isCall, weightsM = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ttes, forwards, strikes, vols, vegaFloor=1e-3,truncationDev=0.675)
-     prices, isCall, weightsM = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ttes, forwards, strikes, vols, vegaFloor=1e-2,truncationDev=2.0)
+     prices, isCall, weightsM = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ttes, forwards, strikes, vols, vegaFloor=1e-4,truncationDev=0.675)
      prices, isCall, weightsM = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ttes, forwards, strikes, vols, vegaFloor=1e-2,truncationDev=4.0)
+     prices, isCall, weightsM = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ttes, forwards, strikes, vols, vegaFloor=1e-4,truncationDev=4.0)
      
-     κ = 5.0; minimizerBootstrap = "BFGS";
+     κ = 0.5; minimizerBootstrap = "BFGS";
      @time hagParamsBootstrap, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPrices(ttes, forwards, strikes, prices, isCall, weightsM, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], κ= κ, minimizer=minimizerBootstrap, method="Cos",isGlobal=false,swapCurve=AQFED.VolatilityModels.makeSwapCurveReplication(ttes, forwards, strikes, vols))
     volErrorBootstrap, rmseVolB = AQFED.VolatilityModels.estimateVolError(hagParamsBootstrap, ttes, forwards, 
     strikes, vols)
@@ -61,7 +61,7 @@ volError, rmseVol = AQFED.VolatilityModels.estimateVolError(hagParamsGlobal, tte
            norm((weightsM .> 0) .* volError) / norm(weightsM .> 0)
 
            #filtered moneyness
-    volsF, strikesF = AQFED.VolatilityModels.filterVolsBySimpleDelta(ttes, forwards, strikes, vols, deltas = [0.25,0.5,0.75])
+    volsF, strikesF = AQFED.VolatilityModels.filterVolsBySimpleDelta(ttes, forwards, strikes, vols, deltas = [0.10,0.25,0.5,0.75,0.90])
     pricesF, isCallF, weightsMF = AQFED.VolatilityModels.convertVolsToPricesOTMWeights(ttes, forwards, strikesF, volsF, vegaFloor=1e-4,truncationDev=10.0)
 
     @time hagParamsBootstrapF, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPrices(ttes, forwards, strikesF, pricesF, isCallF, weightsMF, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], κ= κ, minimizer=minimizerBootstrap, method="Cos",isGlobal=false, swapCurve=AQFED.VolatilityModels.makeSwapCurveReplication(ttes, forwards, strikesF, volsF))
@@ -73,7 +73,7 @@ volError, rmseVol = AQFED.VolatilityModels.estimateVolError(hagParamsGlobal, tte
 volErrorF, rmseVol = AQFED.VolatilityModels.estimateVolError(hagParamsGlobalF, ttes, forwards,  strikesF, volsF)
            norm((weightsMF .> 0) .* volErrorF) / norm(weightsMF .> 0)
 
-           @time hagParamsBootstrapFP, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPrices(ttes, forwards, strikesF, pricesF, isCallF, weightsMF, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], κ= κ, minimizer=minimizerBootstrap, method="Cos",isGlobal=false,penalty=1.5e-3,isPenaltyGradient=false, swapCurve=AQFED.VolatilityModels.makeSwapCurveReplication(ttes, forwards, strikesF, volsF))
+           @time hagParamsBootstrapFP, rmse = AQFED.VolatilityModels.calibrateHestonHaganFromPrices(ttes, forwards, strikesF, pricesF, isCallF, weightsMF, lower=[1e-2,-0.99,0.05],upper=[2.0,0.5,20.0], κ= κ, minimizer=minimizerBootstrap, method="Cos",isGlobal=false,penalty=1.5e-3, swapCurve=AQFED.VolatilityModels.makeSwapCurveReplication(ttes, forwards, strikesF, volsF))
            volErrorBootstrapFP, rmseVolB = AQFED.VolatilityModels.estimateVolError(hagParamsBootstrapFP, ttes, forwards, 
            strikesF, volsF)
            norm((weightsMF .> 0) .* volErrorBootstrapFP) / norm(weightsMF .> 0)
@@ -84,40 +84,6 @@ volErrorF, rmseVol = AQFED.VolatilityModels.estimateVolError(hagParamsGlobalF, t
                      
                       
            
-  #=
-  set_theme!(theme_light())
-  f = Figure(size=(800, 300))
-  ax = Axis(f[1,3], xlabel="Maturity", ylabel="ρ")
-  l1 =lines!(ax, ttes, hagParamsBootstrap.ρ)
-  l2=lines!(ax, ttes, hagParamsGlobal.ρ)
-  l3=lines!(ax, ttes, hagParamsBootstrapF.ρ)
-  l4=lines!(ax, ttes, hagParamsGlobalF.ρ)
-ax = Axis(f[1,2], xlabel="Maturity", ylabel="α")
-  lines!(ax, ttes, hagParamsBootstrap.σ)
-  lines!(ax, ttes, hagParamsGlobal.σ)
-  lines!(ax, ttes, hagParamsBootstrapF.σ)
-  lines!(ax, ttes, hagParamsGlobalF.σ)
-ax = Axis(f[1,1], xlabel="Maturity", ylabel="σ")
-  lines!(ax, ttes, hagParamsBootstrap.leverage)
-  lines!(ax, ttes, hagParamsGlobal.leverage)
-  lines!(ax, ttes, hagParamsBootstrapF.leverage)
-  lines!(ax, ttes, hagParamsGlobalF.leverage)
-leg = Legend(f[1, 4], [l1, l2, l3, l4], ["Bootstrap", "Global", "Bootstrap Exact", "Global Exact"], position = :left)
-
- f = Figure(size=(800, 300))
-  ax = Axis(f[1,3], xlabel="Maturity", ylabel="ρ")
-  l2=lines!(ax, ttes, hagParamsGlobalF.ρ)
-  l4=lines!(ax, ttes, hagParamsGlobalFS.ρ)
-ax = Axis(f[1,2], xlabel="Maturity", ylabel="α")
-  lines!(ax, ttes, hagParamsGlobalF.σ)
-  lines!(ax, ttes, hagParamsGlobalFS.σ)
-ax = Axis(f[1,1], xlabel="Maturity", ylabel="σ")
-  lines!(ax, ttes, hagParamsGlobalF.leverage)
-  lines!(ax, ttes, hagParamsGlobalFS.leverage)
-leg = Legend(f[1, 4], [l2, l4], ["Global Exact","Global Spline"], position = :left)
-   GLMakie.surface(strikeA, ttes, abs.(volErrorB'),axis=(type=Axis3,xlabel="Strike",ylabel="Expiry",zlabel="Error",yreversed=true),colorscale=sqrt,colormap=:inferno)
-   GLMakie.surface(strikeA, ttes, abs.((volErrorB .* (weights .> 0))'),axis=(type=Axis3,xlabel="Strike",ylabel="Expiry",zlabel="Error",yreversed=true),colorscale=sqrt,colormap=:inferno)
-=#
 tIndex = 3; tte=ttes[tIndex]; forward = forwards[tIndex];
 #forward = exp((r-q)*tte)
  tsparams,ttets = makeHestonTSParams(hagParamsGlobal, tte=tte)
@@ -131,30 +97,3 @@ tIndex = 3; tte=ttes[tIndex]; forward = forwards[tIndex];
     volH = map((strike, price) -> impliedVolatility(true, price, forward, strike, tte, 1.0), strikeA, hPrices)
 
 end
-
-#=
-strikeA = strikes;forwards = uForwards;ttes = ts; strikes = strikesM;
-strikeA = K; ttes = ts
-
-  f = Figure(size=(800, 400))
-  ax = Axis(f[1,1], xlabel="Strike", ylabel="Implied volatility in %",title="DJIA - maturity 135 days")
-  l1 =lines!(ax, strikeA1, volJ1 .*100)
-  l2=lines!(ax, strikeA1, volB1 .*100)
-  l3=lines!(ax, strikeA1, volH1 .*100)
- ax = Axis(f[1,2], xlabel="Strike", ylabel="Implied volatility in %", title="SPX500 in 2010 - maturity 175 days")
-  l1 =lines!(ax, strikeA2, volJ2 .*100)
-  l2=lines!(ax, strikeA2, volB2 .*100)
-  l3=lines!(ax, strikeA2, volH2 .*100)
-leg = Legend(f[2, 1:2], [l1, l2,l3], ["Fourier", "Benhamou, Gobet, Miri", "Hagan"], position = :center, orientation = :horizontal)
-
-strikeA1 = strikeA; ttes1 = ttes; forwards1 = forwards; hagParamsGlobal1 = hagParamsGlobal; volJ1 = volJ; volB1 = volB; volH1 = volH;
-  strikeA2 = strikeA; ttes2 = ttes; forwards2 = forwards; hagParamsGlobal2 = hagParamsGlobal; volJ2 = volJ; volB2 = volB; volH2 = volH;
-
-  strikeA = strikeA1; ttes = ttes1; forwards = forwards1; hagParamsGlobal = hagParamsGlobal1; volJ = volJ1; volB = volB1; volH = volH1;
-
-for i=1:length(ttes)
-             @printf("%d & %.2f & %.2f & %.2f & %.2e & %.2f & %.2f &%.2f & %.2e \\\\\n", ttes[i]*365, hagParamsBootstrapF.leverage[i] , hagParamsBootstrapF.ρ[i], hagParamsBootstrapF.σ[i], 100*norm(volErrorBootstrapF[i,:])/sqrt(length(volErrorBootstrapF[i,:])), hagParamsGlobalF.leverage[i], hagParamsGlobalF.ρ[i], hagParamsGlobalF.σ[i], 100*norm(volErrorF[i,:])/sqrt(length(volErrorF[i,:])) )
-             end
-
-
-=#

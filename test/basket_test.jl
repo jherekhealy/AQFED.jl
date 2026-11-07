@@ -365,29 +365,6 @@ end
             ), strikes)
         priceMap[pricerName] = prices
     end
-    #= 
-    refPrices= AQFED.Asian.priceAsianBasketFixedStrike(
-        AQFED.Basket.MonteCarloEngine(true,1024*1024*16),
-        true,
-        strikes,
-        discountFactor,
-        spot,
-        forward, #forward for each asset F_i to each Asian observation t_j
-        variance, #vol^2 * t_i
-        weight,
-        correlation,t #S_k S_j
-    )
-
-    basketSpot = weight[:,1]' * spot*5
-    50.498000000000005
-    p = plot(xlab="Forward moneyness", ylab="Price error in b.p.")
-
-     for pricerName = ["VL3","VG3","VG2","Deelstra","Ju","VL2"]
-          plot!(p,strikes./atmStrike .- 1.0, (priceMap[pricerName] - refPrices)/basketSpot .* 10000, label=pricerName,linestyle=:auto)
-           end
-
-     plot(p)
-    =#
 end
 
 @testset "Hagspihl" begin
@@ -509,24 +486,68 @@ end
         push!(data, [rho, strike, delta1, delta2, delta * ws[1], delta * ws[2], deltaCashBasket / deltaCashBasketI - 1])
     end
     #Delta
-    #= plot(data.Rho, data.Delta1, label="Δ1",xlab="Correlation",ylab="Δ value",legend=:outerright)
-       plot!(data.Rho, data.ScaledDelta1, label="qΔA")
-       plot!(data.Rho, data.Delta2, label="Δ2")
-    plot!(size=(400,300),margins=3Plots.mm)
-
-
-        plot(data.Strike, data.Delta1, label="Basket Delta1",xlab="Basket strike",ylab="Delta value",legend=:outerright)
-       plot!(data.Strike, data.ScaledDelta1, label="Index Delta1")
-       plot!(data.Strike, data.Delta2, label="Basket Delta2")
-       plot!(data.Strike, data.ScaledDelta2, label="Index Delta2")
-
-    =#
     #Vega
 
     #basket "vol"? best way to to imply vol using BS based on price and basket forward. Show that it is far off the simple wieghted sum. is it Gentle approx?
     #the basket delta cash = single shift delta cash. If 1 moves up and 2 moves down, single shift hedging will work, but not basket hedging.
-    #move1=0.02;move2=-0.02;  plot(data.Rho, data.Delta1*move1 + data.Delta2*move2,xlab="Correlation",ylab="Δ hedge value",label="")
-    #, label="Independent hedge")  # while basket hedge===0
     #basket hedge ok if correlation = 1, meaning move1 = move2.
 
+end
+@testset "NegativeCorrelation" begin
+    #two assets σ = 20%, S = 1, r = 5%, T = 1, w = 0.5 (Hagspihl): the conditional distribution of the basket is far from
+    #lognormal for strongly negative correlations, reference by two-dimensional quadrature
+    tte, r = 1.0, 0.05
+    spots, w, tvar = ones(2), [0.5, 0.5], fill(0.04 * tte, 2)
+    forwards = spots .* exp(r * tte)
+    df = exp(-r * tte)
+    for (ρ, strike) in ((0.5, 1.3), (-0.5, 1.3), (-0.9, 1.05), (-0.9, 1.2), (-0.9, 1.3))
+        corr = [1.0 ρ; ρ 1.0]
+        ref = AQFED.Basket.priceEuropean(AQFED.Basket.QuadBasketPricer(AQFED.Math.GaussLegendre(128)), true, strike, df, spots, forwards, tvar, w, corr, isSplit=true)
+        for pricer in (ConditionalBasketPricer(AQFED.Basket.VorstLevyExpansion(3)), ConditionalBasketPricer(JuBasketPricer()), ConditionalBasketPricer(DeelstraBasketPricer(2, 3, q=AQFED.Math.GaussLegendre(128)))) #λ over [-8σ, dΓ]: 64 points are not enough far out of the money
+            price = AQFED.Basket.priceEuropean(pricer, true, strike, df, spots, forwards, tvar, w, corr)
+            @test isapprox(price, ref, rtol=1e-3)
+        end
+        price3 = AQFED.Basket.priceEuropean(DeelstraBasketPricer(2, 3, q=AQFED.Math.GaussLegendre(64), nMoments=3), true, strike, df, spots, forwards, tvar, w, corr)
+        if strike < 1.25 || ρ > -0.9 #three moments are not enough far out of the money for ρ = -0.9
+            @test isapprox(price3, ref, rtol=3e-2)
+        end
+        #with the residual factor integrated out, the basket given Λ and the residual factor is deterministic for two assets
+        for nMoments in (2, 3)
+            priceC = AQFED.Basket.priceEuropean(DeelstraBasketPricer(2, 3, nMoments=nMoments, nDirections=1), true, strike, df, spots, forwards, tvar, w, corr)
+            @test isapprox(priceC, ref, rtol=1e-3)
+        end
+        #put-call parity
+        call = AQFED.Basket.priceEuropean(ConditionalBasketPricer(AQFED.Basket.VorstLevyExpansion(3)), true, strike, df, spots, forwards, tvar, w, corr)
+        put = AQFED.Basket.priceEuropean(ConditionalBasketPricer(AQFED.Basket.VorstLevyExpansion(3)), false, strike, df, spots, forwards, tvar, w, corr)
+        @test isapprox(call - put, df * (sum(w .* forwards) - strike), atol=1e-8)
+    end
+    #a zero variance asset with the three moments Deelstra and the shifted geometric expansion with the strike below the shift
+    corr = [1.0 0.5 0.5; 0.5 1.0 0.5; 0.5 0.5 1.0]
+    @test isfinite(AQFED.Basket.priceEuropean(DeelstraBasketPricer(2, 3, nMoments=3), true, 100.0, 1.0, fill(100.0, 3), fill(100.0, 3), [1.0, 0.0, 0.0], fill(1 / 3, 3), corr))
+    @test isfinite(AQFED.Basket.priceEuropean(DeelstraBasketPricer(2, 3, nMoments=3, nDirections=1), true, 100.0, 1.0, fill(100.0, 3), fill(100.0, 3), [1.0, 0.0, 0.0], fill(1 / 3, 3), corr))
+    #a basket of five assets with a strong negative correlation and a low strike: the put is entirely due to the residual factor
+    #left given Λ (the conditional mean stays above the strike), poorly captured by the shifted lognormal alone
+    #(basket 45 of the random baskets of five assets of the conditional basket paper, rounded): the Deelstra put is 0.042
+    #with two moments, 0.070 with three, for a reference of 0.0315
+    σ5 = [0.5929, 0.4868, 0.1533, 0.2387, 0.476]
+    corr5 = [1.0 -0.8931 -0.2956 0.5305 -0.0644; -0.8931 1.0 0.4162 -0.844 -0.1312; -0.2956 0.4162 1.0 -0.4348 0.3495; 0.5305 -0.844 -0.4348 1.0 0.342; -0.0644 -0.1312 0.3495 0.342 1.0]
+    tvar5, forwards5, w5 = σ5 .^ 2 .* 1.869, fill(105.0, 5), [0.0854, 0.309, 0.1378, 0.3449, 0.1229]
+    ref5 = AQFED.Basket.priceEuropean(AQFED.Basket.MonteCarloEngine(true, 2^20), false, 80.0, 1.0, forwards5, forwards5, tvar5, w5, corr5)
+    for nMoments in (2, 3)
+        price5 = AQFED.Basket.priceEuropean(DeelstraBasketPricer(2, 3, nMoments=nMoments, nDirections=1), false, 80.0, 1.0, forwards5, forwards5, tvar5, w5, corr5)
+        @test isapprox(price5, ref5, rtol=3e-2) #C-Deelstra (2M) is 2% above the reference with a converged quadrature
+    end
+    @test isfinite(AQFED.Basket.priceEuropean(ShiftedGeometricExpansion(3, 3), true, 0.9, 1.0, ones(2), fill(1.05, 2), fill(0.04, 2), w, [1.0 0.5; 0.5 1.0]))
+end
+
+@testset "NegativeCorrelationPairs" begin
+    #two long-short pairs: two directions along which the basket behaves like a hyperbolic cosine
+    ρ = -0.95
+    corr = [1.0 ρ 0.3 -0.3; ρ 1.0 -0.3 0.3; 0.3 -0.3 1.0 ρ; -0.3 0.3 ρ 1.0]
+    forwards, tvar, w = fill(100.0, 4), fill(0.16, 4), fill(0.25, 4)
+    ref = AQFED.Basket.priceEuropean(AQFED.Basket.MonteCarloEngine(true, 2^20), true, 110.0, 1.0, forwards, forwards, tvar, w, corr)
+    one = AQFED.Basket.priceEuropean(ConditionalBasketPricer(AQFED.Basket.VorstLevyExpansion(3)), true, 110.0, 1.0, forwards, forwards, tvar, w, corr)
+    two = AQFED.Basket.priceEuropean(ConditionalBasketPricer(AQFED.Basket.VorstLevyExpansion(3), nDirections=2), true, 110.0, 1.0, forwards, forwards, tvar, w, corr)
+    @test isapprox(two, ref, rtol=1e-3)
+    @test abs(two - ref) < abs(one - ref)
 end

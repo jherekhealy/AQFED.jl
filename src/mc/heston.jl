@@ -1,10 +1,12 @@
 import AQFED.Math: norminv
 
-import AQFED.TermStructure: HestonModel, DoubleHestonModel, discountFactor, forward, PiecewiseConstantFunction, HaganHestonPiecewiseParams, Curve
+import AQFED.TermStructure: HestonModel, DoubleHestonModel, SchobelZhuModel, discountFactor, forward, PiecewiseConstantFunction, HaganHestonPiecewiseParams, Curve
 import AQFED.Random: next!, nextn!, skipTo!
 import CharFuncPricing: HestonTSParams
 export last_stat, QE, FullTruncation, DVSS2X, GridConfig, simulateIter, simulateScheme, MCConvergenceResult
 import DataStructures: SortedSet
+#one-factor stochastic volatility models simulated by the vectorized engine (simulateScheme)
+const StochasticVolatilityModel{T} = Union{HestonModel{T},SchobelZhuModel{T}}
 
 struct HestonPathGeneratorParameters{T}
     model::HestonModel{T}
@@ -1782,6 +1784,11 @@ function simulateIter(
         logpathValue = lnf[1]
         v = model.v0
         nextObs = 1
+        #observation at the start of the path
+        if nextObs <= length(obsIdx) && obsIdx[nextObs] == 0
+            obsPath[nextObs] = exp(logpathValue)
+            nextObs += 1
+        end
 
         @inbounds for i in 1:nSteps
             hi = h[i]
@@ -1875,7 +1882,7 @@ end
     for pow in min_pow:max_pow
         n_samples = 2^pow
         if n_samples <= n
-            subset = @view payoffValues[1:n_samples]
+            subset = @view payoffValues[strike_idx, 1:n_samples]
             m = mean(subset)
             s = stdm(subset, m) / sqrt(n_samples)
             push!(means, m)
@@ -1921,7 +1928,7 @@ end
         end
         if n_samp < n_samples
             n_samp = n_samples
-            subset = @view payoffValues[1:n_samples]
+            subset = @view payoffValues[strike_idx, 1:n_samples]
             m = mean(subset)
             s = stdm(subset, m) / sqrt(n_samples)
             push!(means, m)
@@ -2017,9 +2024,9 @@ struct CommonSimData{T}
 end
 
 function _common_sim_data(
-    model::HestonModel{T},
+    model::StochasticVolatilityModel{T},
     spot::Float64,
-    payoff::MCPayoff,
+    payoff, #unused, the observation times are those of the config
     config::GridConfig,
 ) where {T}
     specTimes = config.specTimes
@@ -2511,7 +2518,7 @@ end
 
 function simulateScheme(
     rng,
-    model::HestonModel{T},
+    model::StochasticVolatilityModel{T},
     spot::Float64,
     payoff::MCPayoff,
     start::Int,
@@ -2525,28 +2532,30 @@ function simulateScheme(
     precalc = precompute_scheme(method, model, common)
     st = init_scheme_state(method, T, payoff, nSim, common.nObs)
     reset_state!(st, model, common.lnf[1])
+    _evolve_scheme!(st, rng, start, method, model, common, precalc, withBB, cacheSize)
+    _finalize_payoffs!(st.payoffValues, payoff, st.obsPath, common.df, nSim)
+    return mc_convergence_detailed(st.payoffValues)
+end
 
-    local bb, cache
-    if withBB
-        bb = BrownianBridgeConstruction(common.genTimes[2:end])
-        if cacheSize == 0
-            cacheSize = ceil(Int, log2(common.nSteps)) * 4
-        end
-        cache = _make_bbcache(method, cacheSize)
-    else
-        bb = nothing
-        cache = nothing
+#Brownian bridge on the simulation grid and its cache, or nothing.
+function _make_bb(method::PathGenerator, common::CommonSimData, withBB::Bool, cacheSize::Int)
+    withBB || return nothing, nothing
+    if cacheSize == 0
+        cacheSize = ceil(Int, log2(common.nSteps)) * 4
     end
+    return BrownianBridgeConstruction(common.genTimes[2:end]), _make_bbcache(method, cacheSize)
+end
 
+#evolves all the paths of the state over the whole grid, recording the observations.
+function _evolve_scheme!(st, rng, start::Int, method::PathGenerator, model, common::CommonSimData, precalc, withBB::Bool, cacheSize::Int)
+    bb, cache = _make_bb(method, common, withBB, cacheSize)
     nextObs = 1
     for dim in 1:common.nSteps
         load_step_variates!(st, method, rng, start, dim, common, withBB, bb, cache)
         step!(st, method, model, common, precalc, dim)
         nextObs = _record_observation_vectorized!(st.obsPath, nextObs, common.obsIdx, dim, st.logpathValues)
     end
-
-    _finalize_payoffs!(st.payoffValues, payoff, st.obsPath, common.df, nSim)
-    return mc_convergence_detailed(st.payoffValues)
+    return nothing
 end
 
 # ============================================================
@@ -2694,7 +2703,7 @@ end
 end
 
 @inline function _clone_rng(rng)
-    return copy(rng)
+    return deepcopy(rng) #copy may share the scrambling generator between threads
 end
 
 @inline function _reduce_block_results(sum1::AbstractVector, sum2::AbstractVector, nTotal::Int)
@@ -2740,16 +2749,18 @@ function simulateParallelReuse(
         startLocal = start + lo - 1
         rngLocal = _clone_rng(rng)
 
-        vals, errs = simfun(
+        result = simfun(
             rngLocal,
             model,
             spot,
-            payoff,
+            deepcopy(payoff), #payoffs keep observation buffers: one copy per thread
             startLocal,
             nLocal,
             config;
             kwargs...
         )
+        #simulate*Iter return MCConvergenceResult (one per payoff): keep the estimate on all the paths
+        vals, errs = result isa Tuple ? result : last_stat(result)
 
         v, e = _as_vectors(vals, errs)
 
@@ -2794,7 +2805,7 @@ end
 
 function simulateSchemeParallel(
     rng,
-    model::HestonModel{T},
+    model::StochasticVolatilityModel{T},
     spot::Float64,
     payoff::MCPayoff,
     start::Int,

@@ -1,0 +1,205 @@
+panel,plot,kind,label,x,y,z
+1,1,lines,Local vol,101.0,0.004735,NaN
+1,1,lines,Local vol,106.98,0.073005,NaN
+1,1,lines,Local vol,112.96,0.248498,NaN
+1,1,lines,Local vol,118.94,0.59769,NaN
+1,1,lines,Local vol,124.92,1.195708,NaN
+1,1,lines,Local vol,130.9,2.136354,NaN
+1,1,lines,Local vol,136.88,3.540399,NaN
+1,1,lines,Local vol,142.86,5.454754,NaN
+1,1,lines,Local vol,148.84,7.683214,NaN
+1,1,lines,Local vol,154.82,9.999483,NaN
+1,1,lines,Local vol,160.8,12.276723,NaN
+1,1,lines,Local vol,166.78,14.457113,NaN
+1,1,lines,Local vol,172.76,16.518383,NaN
+1,1,lines,Local vol,178.74,18.454122,NaN
+1,1,lines,Local vol,184.72,20.266197,NaN
+1,1,lines,Local vol,190.7,21.958446,NaN
+1,1,lines,Local vol,196.68,23.534966,NaN
+1,1,lines,Local vol,202.66,25.000151,NaN
+1,1,lines,Local vol,208.64,26.360143,NaN
+1,1,lines,Local vol,214.62,27.617639,NaN
+1,1,lines,Local vol,220.6,28.779503,NaN
+1,1,lines,Local vol,226.58,29.849259,NaN
+1,1,lines,Local vol,232.56,30.832152,NaN
+1,1,lines,Local vol,238.54,31.734393,NaN
+1,1,lines,Local vol,244.52,32.56047,NaN
+1,1,lines,Local vol,250.5,33.31546,NaN
+1,1,lines,Local vol,256.48,34.004482,NaN
+1,1,lines,Local vol,262.46,34.632467,NaN
+1,1,lines,Local vol,268.44,35.204121,NaN
+1,1,lines,Local vol,274.42,35.723907,NaN
+1,1,lines,Local vol,280.4,36.196021,NaN
+1,1,lines,Local vol,286.38,36.624393,NaN
+1,1,lines,Local vol,292.36,37.013169,NaN
+1,1,lines,Local vol,298.34,37.365854,NaN
+1,1,lines,Local vol,304.32,37.685106,NaN
+1,1,lines,Local vol,310.3,37.973784,NaN
+1,1,lines,Local vol,316.28,38.235694,NaN
+1,1,lines,Local vol,322.26,38.472548,NaN
+1,1,lines,Local vol,328.24,38.686215,NaN
+1,1,lines,Local vol,334.22,38.880451,NaN
+1,1,lines,Local vol,340.2,39.055243,NaN
+1,1,lines,Local vol,346.18,39.213989,NaN
+1,1,lines,Local vol,352.16,39.356868,NaN
+1,1,lines,Local vol,358.14,39.48671,NaN
+1,1,lines,Local vol,364.12,39.603249,NaN
+1,1,lines,Local vol,370.1,39.709657,NaN
+1,1,lines,Local vol,376.08,39.805143,NaN
+1,1,lines,Local vol,382.06,39.891776,NaN
+1,1,lines,Local vol,388.04,39.970286,NaN
+1,1,lines,Local vol,394.02,40.04078,NaN
+1,1,lines,Local vol,400.0,40.105032,NaN
+1,2,lines,Black,101.0,0.008461,NaN
+1,2,lines,Black,106.98,0.110225,NaN
+1,2,lines,Black,112.96,0.326254,NaN
+1,2,lines,Black,118.94,0.684247,NaN
+1,2,lines,Black,124.92,1.198919,NaN
+1,2,lines,Black,130.9,1.872676,NaN
+1,2,lines,Black,136.88,2.697911,NaN
+1,2,lines,Black,142.86,3.659834,NaN
+1,2,lines,Black,148.84,4.73921,NaN
+1,2,lines,Black,154.82,5.914656,NaN
+1,2,lines,Black,160.8,7.164409,NaN
+1,2,lines,Black,166.78,8.46756,NaN
+1,2,lines,Black,172.76,9.804849,NaN
+1,2,lines,Black,178.74,11.159105,NaN
+1,2,lines,Black,184.72,12.515437,NaN
+1,2,lines,Black,190.7,13.861236,NaN
+1,2,lines,Black,196.68,15.186074,NaN
+1,2,lines,Black,202.66,16.481527,NaN
+1,2,lines,Black,208.64,17.740963,NaN
+1,2,lines,Black,214.62,18.959331,NaN
+1,2,lines,Black,220.6,20.132935,NaN
+1,2,lines,Black,226.58,21.259235,NaN
+1,2,lines,Black,232.56,22.33666,NaN
+1,2,lines,Black,238.54,23.36444,NaN
+1,2,lines,Black,244.52,24.342463,NaN
+1,2,lines,Black,250.5,25.271143,NaN
+1,2,lines,Black,256.48,26.151314,NaN
+1,2,lines,Black,262.46,26.984135,NaN
+1,2,lines,Black,268.44,27.771014,NaN
+1,2,lines,Black,274.42,28.513543,NaN
+1,2,lines,Black,280.4,29.21344,NaN
+1,2,lines,Black,286.38,29.87251,NaN
+1,2,lines,Black,292.36,30.492602,NaN
+1,2,lines,Black,298.34,31.075585,NaN
+1,2,lines,Black,304.32,31.623324,NaN
+1,2,lines,Black,310.3,32.137657,NaN
+1,2,lines,Black,316.28,32.620385,NaN
+1,2,lines,Black,322.26,33.073259,NaN
+1,2,lines,Black,328.24,33.497972,NaN
+1,2,lines,Black,334.22,33.896154,NaN
+1,2,lines,Black,340.2,34.269367,NaN
+1,2,lines,Black,346.18,34.619103,NaN
+1,2,lines,Black,352.16,34.946784,NaN
+1,2,lines,Black,358.14,35.25376,NaN
+1,2,lines,Black,364.12,35.54131,NaN
+1,2,lines,Black,370.1,35.810646,NaN
+1,2,lines,Black,376.08,36.06291,NaN
+1,2,lines,Black,382.06,36.299181,NaN
+1,2,lines,Black,388.04,36.520473,NaN
+1,2,lines,Black,394.02,36.727743,NaN
+1,2,lines,Black,400.0,36.921887,NaN
+1,3,lines,Black-B,101.0,0.011435,NaN
+1,3,lines,Black-B,106.98,0.1612,NaN
+1,3,lines,Black-B,112.96,0.511001,NaN
+1,3,lines,Black-B,118.94,1.125632,NaN
+1,3,lines,Black-B,124.92,2.008599,NaN
+1,3,lines,Black-B,130.9,3.123154,NaN
+1,3,lines,Black-B,136.88,4.43763,NaN
+1,3,lines,Black-B,142.86,5.91486,NaN
+1,3,lines,Black-B,148.84,7.512905,NaN
+1,3,lines,Black-B,154.82,9.190077,NaN
+1,3,lines,Black-B,160.8,10.908122,NaN
+1,3,lines,Black-B,166.78,12.633829,NaN
+1,3,lines,Black-B,172.76,14.339636,NaN
+1,3,lines,Black-B,178.74,16.003572,NaN
+1,3,lines,Black-B,184.72,17.608845,NaN
+1,3,lines,Black-B,190.7,19.143233,NaN
+1,3,lines,Black-B,196.68,20.598415,NaN
+1,3,lines,Black-B,202.66,21.969306,NaN
+1,3,lines,Black-B,208.64,23.253437,NaN
+1,3,lines,Black-B,214.62,24.450415,NaN
+1,3,lines,Black-B,220.6,25.561439,NaN
+1,3,lines,Black-B,226.58,26.588907,NaN
+1,3,lines,Black-B,232.56,27.536081,NaN
+1,3,lines,Black-B,238.54,28.406819,NaN
+1,3,lines,Black-B,244.52,29.205355,NaN
+1,3,lines,Black-B,250.5,29.936136,NaN
+1,3,lines,Black-B,256.48,30.60368,NaN
+1,3,lines,Black-B,262.46,31.212479,NaN
+1,3,lines,Black-B,268.44,31.766926,NaN
+1,3,lines,Black-B,274.42,32.271259,NaN
+1,3,lines,Black-B,280.4,32.72952,NaN
+1,3,lines,Black-B,286.38,33.145537,NaN
+1,3,lines,Black-B,292.36,33.522905,NaN
+1,3,lines,Black-B,298.34,33.864982,NaN
+1,3,lines,Black-B,304.32,34.17489,NaN
+1,3,lines,Black-B,310.3,34.455518,NaN
+1,3,lines,Black-B,316.28,34.709528,NaN
+1,3,lines,Black-B,322.26,34.939369,NaN
+1,3,lines,Black-B,328.24,35.147284,NaN
+1,3,lines,Black-B,334.22,35.335326,NaN
+1,3,lines,Black-B,340.2,35.505369,NaN
+1,3,lines,Black-B,346.18,35.659118,NaN
+1,3,lines,Black-B,352.16,35.798126,NaN
+1,3,lines,Black-B,358.14,35.923804,NaN
+1,3,lines,Black-B,364.12,36.037431,NaN
+1,3,lines,Black-B,370.1,36.140168,NaN
+1,3,lines,Black-B,376.08,36.233065,NaN
+1,3,lines,Black-B,382.06,36.317073,NaN
+1,3,lines,Black-B,388.04,36.393052,NaN
+1,3,lines,Black-B,394.02,36.46178,NaN
+1,3,lines,Black-B,400.0,36.523959,NaN
+1,4,lines,Rainbow,101.0,0.006325,NaN
+1,4,lines,Rainbow,106.98,0.09266,NaN
+1,4,lines,Rainbow,112.96,0.307075,NaN
+1,4,lines,Rainbow,118.94,0.714203,NaN
+1,4,lines,Rainbow,124.92,1.360622,NaN
+1,4,lines,Rainbow,130.9,2.255549,NaN
+1,4,lines,Rainbow,136.88,3.384713,NaN
+1,4,lines,Rainbow,142.86,4.719867,NaN
+1,4,lines,Rainbow,148.84,6.223732,NaN
+1,4,lines,Rainbow,154.82,7.855224,NaN
+1,4,lines,Rainbow,160.8,9.573546,NaN
+1,4,lines,Rainbow,166.78,11.340905,NaN
+1,4,lines,Rainbow,172.76,13.124044,NaN
+1,4,lines,Rainbow,178.74,14.89491,NaN
+1,4,lines,Rainbow,184.72,16.630716,NaN
+1,4,lines,Rainbow,190.7,18.313643,NaN
+1,4,lines,Rainbow,196.68,19.930335,NaN
+1,4,lines,Rainbow,202.66,21.471312,NaN
+1,4,lines,Rainbow,208.64,22.930358,NaN
+1,4,lines,Rainbow,214.62,24.303953,NaN
+1,4,lines,Rainbow,220.6,25.590742,NaN
+1,4,lines,Rainbow,226.58,26.791082,NaN
+1,4,lines,Rainbow,232.56,27.90664,NaN
+1,4,lines,Rainbow,238.54,28.940066,NaN
+1,4,lines,Rainbow,244.52,29.894714,NaN
+1,4,lines,Rainbow,250.5,30.77442,NaN
+1,4,lines,Rainbow,256.48,31.583322,NaN
+1,4,lines,Rainbow,262.46,32.325713,NaN
+1,4,lines,Rainbow,268.44,33.005935,NaN
+1,4,lines,Rainbow,274.42,33.628289,NaN
+1,4,lines,Rainbow,280.4,34.196975,NaN
+1,4,lines,Rainbow,286.38,34.716045,NaN
+1,4,lines,Rainbow,292.36,35.189369,NaN
+1,4,lines,Rainbow,298.34,35.620615,NaN
+1,4,lines,Rainbow,304.32,36.013237,NaN
+1,4,lines,Rainbow,310.3,36.370472,NaN
+1,4,lines,Rainbow,316.28,36.695333,NaN
+1,4,lines,Rainbow,322.26,36.99062,NaN
+1,4,lines,Rainbow,328.24,37.258923,NaN
+1,4,lines,Rainbow,334.22,37.502632,NaN
+1,4,lines,Rainbow,340.2,37.723943,NaN
+1,4,lines,Rainbow,346.18,37.924876,NaN
+1,4,lines,Rainbow,352.16,38.107279,NaN
+1,4,lines,Rainbow,358.14,38.272843,NaN
+1,4,lines,Rainbow,364.12,38.423113,NaN
+1,4,lines,Rainbow,370.1,38.559497,NaN
+1,4,lines,Rainbow,376.08,38.68328,NaN
+1,4,lines,Rainbow,382.06,38.795628,NaN
+1,4,lines,Rainbow,388.04,38.897606,NaN
+1,4,lines,Rainbow,394.02,38.990178,NaN
+1,4,lines,Rainbow,400.0,39.074221,NaN

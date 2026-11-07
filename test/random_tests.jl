@@ -2,6 +2,7 @@ import AQFED.Random
 import AQFED
 import Random123
 import Random: MersenneTwister
+import AQFED.Random: Chacha8SIMD, skipTo!, skip!
 
 function simulation(r, n)
     spot = 1.0
@@ -11,8 +12,8 @@ function simulation(r, n)
     sqrttte = 1.0
     @simd for i = 1:n
         #z = randn(r, Float64)
-        u = rand(r,Float64)
-    z = AQFED.Math.norminv(u) #faster than with AS241, esp when combined with exp call.
+        u = rand(r, Float64)
+        z = AQFED.Math.norminv(u) #faster than with AS241, esp when combined with exp call.
         sum += max(spot * exp(vol * z * sqrttte - 0.5 * (vol * sqrttte)^2) - strike, 0)
     end
     return sum / n
@@ -40,7 +41,7 @@ end
     for gen in gens
         value = simulation(gen, 64 * 1024)
         println(typeof(gen), " ", value, " ", refValue, " ", value - refValue)
-        @test isapprox(refValue, value, atol = 1e-2)
+        @test isapprox(refValue, value, atol=1e-2)
     end
 end
 
@@ -1065,6 +1066,113 @@ end
         # if (i % 5 == 4)
         #     println()
         # end
-        @test isapprox(referenceNumbers[i], z; atol = 1e-7)
+        @test isapprox(referenceNumbers[i], z; atol=1e-7)
     end
+end
+
+
+@testset "chacha1" begin
+    rng = Chacha8SIMD(UInt64)
+
+    x = [rand(rng, UInt64) for _ in 1:100]
+
+    # Absolute positioning
+    for i in 0:99
+        skipTo!(rng, i)
+        @test rand(rng, UInt64) == x[i+1]
+    end
+end
+
+@testset "chacha2" begin
+    rng = Chacha8SIMD(UInt64)
+
+    x0 = rand(rng, UInt64)
+
+    skipTo!(rng, 0)
+
+    @test rand(rng, UInt64) == x0
+
+end
+
+@testset "chacha3" begin
+    rng = Chacha8SIMD(UInt64)
+
+    x = [rand(rng, UInt64) for _ in 1:100]
+
+    rng = Chacha8SIMD(UInt64)
+
+    skip!(rng, UInt64(42))
+
+    @test rand(rng, UInt64) == x[43]
+end
+@testset "chacha4" begin
+    rng = Chacha8SIMD(UInt64)
+
+    x = [rand(rng, UInt64) for _ in 1:20]
+
+    skipTo!(rng, 8)
+
+    @test rand(rng, UInt64) == x[9]
+
+    skipTo!(rng, 7)
+
+    @test rand(rng, UInt64) == x[8]
+end
+
+@testset "chacha32" begin
+    # ============================================================================
+# UInt32 tests
+# ============================================================================
+
+rng = Chacha8SIMD(UInt32)
+
+x = [rand(rng, UInt32) for _ in 1:100]
+
+# skipTo!(0) must reproduce the first value
+skipTo!(rng, 0)
+@test rand(rng, UInt32) == x[1]
+
+# Check every position
+for i in 0:99
+    skipTo!(rng, i)
+    @test rand(rng, UInt32) == x[i + 1]
+end
+
+# Relative skip
+rng = Chacha8SIMD(UInt32)
+
+skip!(rng, 42)
+@test rand(rng, UInt32) == x[43]
+
+# Block boundaries: 16 UInt32 per ChaCha block
+skipTo!(rng, 15)
+@test rand(rng, UInt32) == x[16]
+
+skipTo!(rng, 16)
+@test rand(rng, UInt32) == x[17]
+end
+@testset "ModuloSobolGurrieriCollisions" begin
+    #Gurrieri (2011) shifts coordinate k by (k-1)/d: (Q + u) mod 1 = 0 when Q = (d-k+1)/d. Table of the zero collisions of chapter 6 of the
+    #book. ModuloSobolSeq adds half of 2^-32 to its points, which keeps the exact zeros away from the inverse normal cumulative distribution.
+    function zeroCollisions(d, nDraws)
+        seq = AQFED.Random.ModuloSobolSeq(d, 2^14 - 1, AQFED.Random.Chacha8SIMD(UInt32, 20100921))
+        seq.upoint = collect(0:(d-1)) ./ d
+        points = Vector{Float64}(undef, d)
+        firstDraw = Dict{Int,Int}()
+        for j in 1:nDraws
+            AQFED.Random.next!(seq, points)
+            @test minimum(points) > 0
+            for k in findall(<(2.0^-30), points)
+                get!(firstDraw, k, j)
+            end
+        end
+        return firstDraw
+    end
+    firstDraw = zeroCollisions(1000, 7)
+    @test firstDraw[501] == 1
+    @test all(firstDraw[k] in 2:3 for k in (251, 751))
+    @test all(firstDraw[k] in 4:7 for k in (126, 376, 626, 876))
+    @test sort(collect(keys(firstDraw))) == [126, 251, 376, 501, 626, 751, 876]
+    #d a power of two: every coordinate falls on zero but the first, which has no shift and starts after the origin
+    @test sort(collect(keys(zeroCollisions(16, 15)))) == collect(2:16)
 end

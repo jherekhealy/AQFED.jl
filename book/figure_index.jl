@@ -4,7 +4,8 @@
 # Usage: julia book/figure_index.jl [path/to/eqd_book]
 
 const BOOK_DIR = length(ARGS) >= 1 ? ARGS[1] : expanduser("~/mypapers/eqd_book")
-const CODE_DIRS = [joinpath(@__DIR__, "..", "test"), @__DIR__]
+const CODE_DIRS = [@__DIR__, joinpath(@__DIR__, "..", "test")] #book/legacy (former notebooks) is not scanned, except:
+const LEGACY_SCANNED = ["test_plots.jl", "mc_study.jl", "lvg_study.jl"] #the plots and studies moved out of test/
 
 struct BookFigure
     pdf::String
@@ -60,14 +61,19 @@ function codeRefs(dirs)
     refs = Dict{String,Vector{CodeRef}}()
     for dir in dirs, (root, _, files) in walkdir(dir), f in files
         endswith(f, ".jl") || continue
+        occursin("legacy", root) && !(f in LEGACY_SCANNED) && continue
         path = joinpath(root, f)
         depth = 0 #block comment nesting
         for (i, l) in enumerate(readlines(path))
             depthBefore = depth
-            for m in eachmatch(r"#=|=#", l)
+            #ignore "#=" or "=#" inside string literals
+            for m in eachmatch(r"#=|=#", replace(l, r"\"(?:[^\"\\]|\\.)*\"" => "\"\""))
                 depth += m.match == "#=" ? 1 : -1
             end
-            for m in eachmatch(r"[\w\-./{},~]+\.pdf", l), pdf in expandBraces(m.match)
+            #registered figures (@figure "name") and explicit PDF names
+            names = vcat([m.captures[1] * ".pdf" for m in eachmatch(r"@figure\s+\$?\(?\"([^\"$]+)\"", l)],
+                [pdf for m in eachmatch(r"[\w\-./{},~]+\.pdf", l) for pdf in expandBraces(m.match)])
+            for pdf in names
                 isComment = depthBefore > 0 || depth > 0 || occursin(r"^\s*#", l)
                 push!(get!(refs, basename(pdf), CodeRef[]), CodeRef(relpath(path, joinpath(@__DIR__, "..")), i, isComment))
             end

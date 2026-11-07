@@ -419,6 +419,10 @@ function priceEuropean(
     vtilde2 = gvtilde2 * afactor^2
     vtilde = sqrt(vtilde2)
     mtilde = -vtilde2 / 2
+    if strikeScaled <= c2
+        #the shifted lognormal proxy is always above the strike: the payoff is linear, the expansion terms vanish
+        return discountFactor * max(signc * (A - strike), zero(T))
+    end
     logStrikeScaled = log((strikeScaled - c2) / (1 - c1))
     #strikeAdjustment = 0.0; mtilde = - vtilde2/2 #lognormal with geom vol
     d1 = (mtilde - logStrikeScaled + vtilde2) / vtilde

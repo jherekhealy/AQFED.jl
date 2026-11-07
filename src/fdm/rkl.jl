@@ -10,6 +10,11 @@ mutable struct ExtendedTrace
 	ExtendedTrace() = new(nothing, nothing)
 end
 
+#a continuous barrier must be on the grid for an explicit scheme: a ghost point modifies the barrier row and the number of
+#stages, estimated from the interior operator, may then be too small for stability
+explicitGrid(definition::StructureDefinition, grid::Grid) = hasContinuousBarrier(definition) ? SmoothlyDeformedGrid(grid) : grid
+explicitGrid(definition::StructureDefinition, grid::SmoothlyDeformedGrid) = grid
+
 function explicitStep(a, rhs::Tridiagonal, F::AbstractArray{T}, Y0::AbstractArray{T}, Y1::AbstractArray{T}) where {T}
 	mul!(Y1, rhs, F)
 	@. Y1 = Y0 - a * Y1
@@ -17,9 +22,18 @@ end
 
 
 
+#explicit Euler stability limit 2/λmax, with λmax bounded by the maximum absolute row sum (Gershgorin)
+function explicitStepSize(rhs::Tridiagonal)
+	n = length(rhs.d)
+	maxnorm = max(abs(rhs.d[1]) + abs(rhs.du[1]), abs(rhs.d[n]) + abs(rhs.dl[n-1]))
+	@inbounds for i ∈ 2:n-1
+		maxnorm = max(maxnorm, abs(rhs.d[i]) + abs(rhs.dl[i-1]) + abs(rhs.du[i]))
+	end
+	return 2 / maxnorm
+end
+
 function initRKLCoeffs(dt, rhs; epsilonRKL = 0.0, rklStages = 0)
-	maxnorm = maximum(abs.(rhs.d[2:end-1]) + abs.(rhs.dl[1:end-1] + abs.(rhs.du[2:end])))
-	dtexplicit = 1.0 / maxnorm
+	dtexplicit = explicitStepSize(rhs)
 	# dtexplicit = 2.442287776486202e-5 
 	#  dtexplicit /= 1.1 #lambdaS        
 	s = 0.0
@@ -114,10 +128,7 @@ function initRKGCoeffsFromExplicitStepSize(dtexplicit, dt; stages = 0)
 end
 
 function initRKGCoeffs(dt, rhs; stages = 0)
-	maxnorm = maximum(abs.(rhs.d[2:end-1]) + abs.(rhs.dl[1:end-1] + abs.(rhs.du[2:end])))
-	maxnorm = maximum((maxnorm, abs(rhs.d[1]) + abs(rhs.du[1]), abs(rhs.d[end]) + abs(rhs.dl[end-1])))
-	# maxnorm =  61865/2
-	dtexplicit = 1.0 / maxnorm
+	dtexplicit = explicitStepSize(rhs)
 	# dtexplicit = 2.442287776486202e-5 
 	# dtexplicit /= 1.1 #lambdaS      
 	return initRKGCoeffsFromExplicitStepSize(dtexplicit, dt, stages = stages)
@@ -144,10 +155,7 @@ function chebPoly(s::Int, w0::Real)
 end
 
 function initRKCCoeffs(dt, rhs; ep = 0.0, stages = 0)
-	maxnorm = maximum(abs.(rhs.d[2:end-1]) + abs.(rhs.dl[1:end-1] + abs.(rhs.du[2:end])))
-	maxnorm = maximum((maxnorm, abs(rhs.d[1]) + abs(rhs.du[1]), abs(rhs.d[end]) + abs(rhs.dl[end-1])))
-	# maxnorm =  61865/2
-	dtexplicit = 1.0 / maxnorm
+	dtexplicit = explicitStepSize(rhs)
 	s = 1
 	betaFunc = function (s::Int)
 		w0 = 1 + ep / s^2
@@ -228,7 +236,7 @@ function priceRKG2(definition::StructureDefinition,
 		Li = min(Li, minimum(specialPoints))
 	end
 	isMiddle = zeros(Bool, length(specialPoints))
-	Si = makeArray(grid, xi, Li, Ui, specialPoints, isMiddle)
+	Si = makeArray(explicitGrid(definition, grid), xi, Li, Ui, specialPoints, isMiddle)
 	# println("S ", Si)
 	#     println("t ",t)
 	tip = t[1]
@@ -472,7 +480,7 @@ function priceRKC2(definition::StructureDefinition,
 		Li = min(Li, minimum(specialPoints))
 	end
 	isMiddle = zeros(Bool, length(specialPoints))
-	Si = makeArray(grid, xi, Li, Ui, specialPoints, isMiddle)
+	Si = makeArray(explicitGrid(definition, grid), xi, Li, Ui, specialPoints, isMiddle)
 	# println("S ", Si)
 	#     println("t ",t)
 	tip = t[1]
@@ -715,7 +723,7 @@ function priceRKL2(definition::StructureDefinition,
 		Li = min(Li, minimum(specialPoints) * 0.99)
 	end
 	isMiddle = zeros(Bool, length(specialPoints))
-	Si = makeArray(grid, xi, Li, Ui, specialPoints, isMiddle)
+	Si = makeArray(explicitGrid(definition, grid), xi, Li, Ui, specialPoints, isMiddle)
 	#  println("S ",Si)   
 	#     println("t ",t)
 	tip = t[1]
@@ -975,7 +983,7 @@ function priceExplicitEuler(definition::StructureDefinition,
 		Li = min(Li, minimum(specialPoints) * 0.99)
 	end
 	isMiddle = zeros(Bool, length(specialPoints))
-	Si = makeArray(grid, xi, Li, Ui, specialPoints, isMiddle)
+	Si = makeArray(explicitGrid(definition, grid), xi, Li, Ui, specialPoints, isMiddle)
 	# println("S ", Si)
 	#     println("t ",t)
 	tip = t[1]

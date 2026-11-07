@@ -270,6 +270,8 @@ function makeKnots(tte::T, forward::T, strikes::AbstractVector{T}, size::Int; L=
     size = min(size, length(strikes))
     if size <= 0 || size == length(strikes)
         s = searchsortedfirst(strikes, forward) #index of forward
+        # all the strikes are selected: equidistributed knots are the Mid-XX knots
+        location == "Equidistributed" && (location = "Mid-XX")
 
         return if location == "Strikes"
             vcat(L, strikes, U) #almost ok, small osclla
@@ -303,6 +305,10 @@ function makeKnots(tte::T, forward::T, strikes::AbstractVector{T}, size::Int; L=
 
         uStrikes = if location == "Uniform"
             range(start=strikes[1], stop=strikes[end], length=size)
+        elseif location == "Uniform-C"
+            #uniform points centered on the forward, on [F-h, F+h] with h = max(F-K_1, K_n-F)
+            h = max(forward - strikes[1], strikes[end] - forward)
+            range(start=forward - h, stop=forward + h, length=size)
         elseif location == "Log-Uniform"
             exp.(range(log(strikes[1]), stop=log(strikes[end]), length=size))
             #TODO uniform centered on forward,  or max.

@@ -77,7 +77,7 @@ end
     cf = DefaultCharFunc(hParams)
     pricer = CharFuncPricing.JoshiYangCharFuncPricer(cf, tte, n=512)
     pricer = makeCosCharFuncPricer(cf, tte, 2048, 16)
-    logmoneynessA = range(-2 * sqrt(tte), 2 * sqrt(tte), length=101)
+    logmoneynessA = range(-4 * sqrt(tte), 4 * sqrt(tte), length=101) #±2√T truncation is 0.2% too low
     vPrices = map(k -> CharFuncPricing.priceEuropean(pricer, k >= 0, exp(k), 1.0, tte, 1.0), logmoneynessA)
     volA = map((k, price) -> impliedVolatility(k >= 0, price, 1.0, exp(k), tte, 1.0), logmoneynessA, vPrices)
     priceFuka = AQFED.VolatilityModels.priceVarianceSwap(AQFED.VolatilityModels.FukasawaVarianceSwapReplication(true), tte, logmoneynessA, volA .^ 2, 1.0)

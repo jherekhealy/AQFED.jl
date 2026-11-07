@@ -1,5 +1,6 @@
 using Random
 import RandomNumbers: AbstractRNG
+import ..Random: ScrambledSobolSeq, NoScrambling, next!
 
 #metric instead of terminationcriteria.
 #DEStrategy instead of Strategy? if same package for multiple optim, otherwise 
@@ -129,7 +130,7 @@ mutable struct TerminationStatistics{T}
 	StagnationCount::Int
 	IsStagnating::Bool
 	IsUnderTolerance::Bool
-	MinCostPreviousGeneration::T
+	MinCostAtLastImprovement::T
 end
 
 function recordGeneration!(t::TerminationStatistics{T}, c::TerminationCriteria{T}, mincost::T) where {T <: Number}
@@ -140,15 +141,16 @@ function recordGeneration!(t::TerminationStatistics{T}, c::TerminationCriteria{T
 		end
 	end
 	if !t.IsUnderTolerance && c.StagnationTolerance > 0
-		if abs(t.MinCostPreviousGeneration - mincost) < c.StagnationTolerance
+		#stagnating when the cost has not improved by a relative StagnationTolerance over StagnationMax generations
+		if abs(t.MinCostAtLastImprovement - mincost) <= c.StagnationTolerance * abs(mincost)
 			t.StagnationCount += 1
 			if t.StagnationCount > c.StagnationMax
 				t.IsStagnating = true
 			end
 		else
 			t.StagnationCount = 0
+			t.MinCostAtLastImprovement = mincost
 		end
-		t.MinCostPreviousGeneration = mincost
 	end
 end
 
@@ -161,7 +163,7 @@ function reset!(t::TerminationStatistics{T}) where {T <: Number}
 	t.StagnationCount = 0
 	t.IsStagnating = false
 	t.IsUnderTolerance = false
-	t.MinCostPreviousGeneration = floatmax(T)
+	t.MinCostAtLastImprovement = floatmax(T)
 end
 
 struct Problem{T}
@@ -225,7 +227,7 @@ function makeDifferentialEvolutionOptimizer(params::OptimizerParams, problem::Pr
 			evaluation += 1
 	end
 	if useQuasiInit
-		qrng = ScramblingSobol(params.dim, params.N, NoScrambling)
+		qrng = ScrambledSobolSeq(dim, params.NP, NoScrambling())
 		for i ∈ iStart:params.NP
 			next!(qrng, r)
 			@. p1[i, :] = problem.LowerBound + (problem.UpperBound - problem.LowerBound) * r
@@ -241,15 +243,9 @@ function makeDifferentialEvolutionOptimizer(params::OptimizerParams, problem::Pr
 		end
 	end
 	
-	mincost = cost[1]
-	minIndex = 1
-	for j ∈ 1:params.NP
-		x = cost[j]
-		if x < mincost
-			mincost = x
-			minIndex = j
-		end
-	end
+	replace!(cost, T(NaN) => T(Inf)) #a NaN would never be replaced by the selection
+	minIndex = argmin(cost)
+	mincost = cost[minIndex]
 
 	best .= p1[minIndex, :]
 	genbest .= best
@@ -309,6 +305,7 @@ function makeDifferentialEvolutionOptimizerWithElite(
     end
 
     # Recompute best
+    replace!(o.cost, T(NaN) => T(Inf))
     min_idx = argmin(o.cost[1:params.NP])
     o.mincost = o.cost[min_idx]
     o.best .= o.g0[min_idx, :]
@@ -326,7 +323,8 @@ function optimize(o::Optimizer{T}, termination::TerminationCriteria{T}; MAX_SAME
 			o.trial .= o.g0[i, :] # trial vector
 			for j ∈ eachindex(o.rnd)
 				sameCount = 0
-				for o.rnd[j] ∈ rand(o.rng, 1:o.params.NP)
+				while true
+					o.rnd[j] = rand(o.rng, 1:o.params.NP)
 					isSame = isSameAsPrevious(o.rnd, j)
 					sameCount += 1
 					if sameCount == MAX_SAME
@@ -350,7 +348,7 @@ function optimize(o::Optimizer{T}, termination::TerminationCriteria{T}; MAX_SAME
 			testcost = o.problem.ObjectiveFunction(o.trial)
 			o.evaluation += 1
 
-			if !isnan(testcost) && testcost < o.cost[i] # Better solution than target vectors cost
+			if !isnan(testcost) && testcost <= o.cost[i] # Not worse than the target vector: allows to drift on flat regions
 				o.g1[i, :] .= o.trial                            # if yes put trial vector in new population
 				o.cost[i] = testcost                               # and save the new cost value
 				if !isnan(testcost) && testcost < o.mincost  # if testcost is best ever
@@ -391,20 +389,12 @@ function numberOfEvaluations(o::Optimizer)
 end
 
 function isSameAsPrevious(rnd::AbstractArray{Int}, j::Int)
-	if j == 1
-		return false
-	elseif j == 2
-		return rnd[1] == rnd[2]
-	elseif j == 3
-		return (rnd[3] == rnd[1]) || (rnd[3] == rnd[1])
-	else
-		for k ∈ 1:j-1
-			if rnd[j] == rnd[k]
-				return true
-			end
+	for k ∈ 1:j-1
+		if rnd[j] == rnd[k]
+			return true
 		end
-		return false
 	end
+	return false
 end
 
 function bounceBack(base::AbstractArray{T}, x::AbstractArray{T}, l::AbstractArray{T}, u::AbstractArray{T}, rng) where {T}

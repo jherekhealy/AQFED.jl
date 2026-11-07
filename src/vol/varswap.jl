@@ -1,5 +1,7 @@
 using AQFED.Math
 using PPInterpolation
+import SpecialFunctions: besselix
+import AQFED.Black: blackScholesFormula
 import AQFED.TermStructure: VarianceSection, varianceByLogmoneyness
 
 
@@ -27,6 +29,40 @@ function priceVarianceSwap(self::ContinuousVarianceSwapReplication, spot::Number
     kmin = -ndev * atmSqrtv
     kmax = ndev * atmSqrtv
     2 * u^2 * discountDf * (integrate(self.q, integrand1, kmin, zero(spot)) + integrate(self.q, integrand2, zero(spot), kmax))
+end
+
+"""
+    CarrLeeVolatilitySwapReplication(q::Quadrature)
+
+Volatility swap by the replication of Carr and Lee (2008), "Robust replication of volatility derivatives", exact when the
+volatility is independent of the asset Brownian motion: E[√⟨ln S⟩_T] = E[h(S_T)] with the payoff
+h(S) = √(π/2)/F |S-F| + ∫ h''(K) (S-K)⁺ or (K-S)⁺ dK and h''(K) = η √(π/(8K³F)) (I₁(k) - I₀(k)), k = ln(K/F)/2.
+"""
+struct CarrLeeVolatilitySwapReplication
+    q::Quadrature
+end
+CarrLeeVolatilitySwapReplication() = CarrLeeVolatilitySwapReplication(GaussKronrod(1e-10))
+
+"""
+    priceVolatilitySwap(self::CarrLeeVolatilitySwapReplication, forward, tte, varianceSection, discountDf; ndev=8, u=100/√tte)
+
+Discounted fair volatility `u` E[√⟨ln S⟩_T], by default the annualized volatility in percent.
+"""
+function priceVolatilitySwap(self::CarrLeeVolatilitySwapReplication, forward::Number, tte::Number, varianceSection::VarianceSection, discountDf::Number; ndev=8, u=100 / sqrt(tte))
+    function payoffSecond(strike)
+        k = log(strike / forward) / 2
+        η = strike < forward ? -1 : 1
+        #scaled Bessel functions: I(k)e^{-|k|}, avoids the overflow for far strikes
+        return η * sqrt(π / (8 * strike^3 * forward)) * (besselix(1, k) - besselix(0, k)) * exp(abs(k))
+    end
+    optionPrice(isCall, strike) = blackScholesFormula(isCall, strike, forward, varianceByLogmoneyness(varianceSection, log(strike / forward)) * tte, 1.0, 1.0)
+    atmVariance = varianceByLogmoneyness(varianceSection, zero(forward)) * tte
+    kMin = forward * exp(-ndev * sqrt(atmVariance))
+    kMax = forward * exp(ndev * sqrt(atmVariance))
+    putPart = integrate(self.q, strike -> optionPrice(false, strike) * payoffSecond(strike), kMin, forward)
+    callPart = integrate(self.q, strike -> optionPrice(true, strike) * payoffSecond(strike), forward, kMax)
+    straddle = optionPrice(true, forward) + optionPrice(false, forward)
+    return u * discountDf * (sqrt(π / 2) / forward * straddle + putPart + callPart)
 end
 
 struct FukasawaVarianceSwapReplication
@@ -62,6 +98,7 @@ function priceVarianceSwap(self::FukasawaVarianceSwapReplication,
 	variance::AbstractArray{T},
     discountDf::Number;u=100) where {T}
     bracket = searchsorted(logmoneyness,zero(T))
+    #println("logm ",logmoneyness, " ", bracket)
     fIndex = if abs(logmoneyness[bracket.start]) < abs(logmoneyness[bracket.stop])
         bracket.start
     else

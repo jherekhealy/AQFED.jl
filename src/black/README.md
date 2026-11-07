@@ -40,6 +40,17 @@ julia> Black.impliedVolatility(true, price, f, strike, T, dfPayment)
 0.03999999999999892
 ```
 
+### ThiopheneIV
+ThiopheneIV is a non-iterative solver with a fixed cost. It takes the Choi-Huh-Su L3 seed and applies three cubic steps: Euler-Chebyshev on log(c) for c ≤ 0.5, and Halley on log(1-c) above.
+ThiopheneIV+ adds one Newton polish in sqrt-forward space for c ≤ 0.5, which brings it to Jäckel's accuracy near the money.
+```julia
+julia> Black.impliedVolatilityThiophene(true, price, f, strike, T, dfPayment)
+0.03999999999999893
+
+julia> Black.impliedVolatilityThiophene(true, price, f, strike, T, dfPayment, plus=true)
+0.03999999999999892
+```
+
 ### Multiple precision
 ```julia
 import AQFED.Black
